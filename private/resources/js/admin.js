@@ -2,6 +2,7 @@ import 'bootstrap'
 import '../css/admin.css'
 import { ApiClient } from './api.js'
 import { initAdminCipherCategoryEdit } from './pages/admin-cipher-category-edit.js'
+import { initAdminCipherEdit } from './pages/admin-cipher-edit.js'
 
 window.api = new ApiClient()
 
@@ -22,3 +23,4 @@ if (sidebar && toggle) {
 }
 
 initAdminCipherCategoryEdit()
+initAdminCipherEdit()

@@ -53,7 +53,6 @@ class ImportCiphersTablesFromDump extends Migration
             $table->string('alias', 100);
             $table->unsignedInteger('sort_order')->default(0);
             $table->unsignedTinyInteger('published')->default(1);
-            $table->unsignedTinyInteger('allow_fallback')->default(1);
             $table->datetime('created_at')->default(Schema::raw('CURRENT_TIMESTAMP'));
             $table->datetime('updated_at')->default(Schema::raw('CURRENT_TIMESTAMP'));
 

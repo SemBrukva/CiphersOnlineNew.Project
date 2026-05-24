@@ -886,7 +886,6 @@ CREATE TABLE `ciphers` (
   `alias` varchar(100) NOT NULL,
   `sort_order` int(10) unsigned NOT NULL DEFAULT 0,
   `published` tinyint(1) unsigned NOT NULL DEFAULT 1,
-  `allow_fallback` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
@@ -899,14 +898,14 @@ CREATE TABLE `ciphers` (
 -- Records of apps
 -- ----------------------------
 BEGIN;
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (1, 1, 'base64', 10, 1, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (2, 1, 'hex', 20, 1, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (3, 1, 'url-encode', 30, 1, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (4, 1, 'jwt-decoder', 40, 1, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (8, 1, 'binary-converter', 30, 1, 1, '2026-05-17 18:04:27', '2026-05-17 18:04:27');
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (9, 1, 'ascii-converter', 35, 1, 1, '2026-05-19 10:31:22', '2026-05-19 10:31:22');
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (10, 1, 'unicode-converter', 40, 1, 1, '2026-05-19 11:04:28', '2026-05-19 11:04:28');
-INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `allow_fallback`, `created_at`, `updated_at`) VALUES (11, 2, 'caesar', 10, 1, 1, '2026-05-20 16:57:42', '2026-05-20 16:57:42');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (1, 1, 'base64', 10, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (2, 1, 'hex', 20, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (3, 1, 'url-encode', 30, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (4, 1, 'jwt-decoder', 40, 1, '2026-05-17 08:36:02', '2026-05-17 08:36:02');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (8, 1, 'binary-converter', 30, 1, '2026-05-17 18:04:27', '2026-05-17 18:04:27');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (9, 1, 'ascii-converter', 35, 1, '2026-05-19 10:31:22', '2026-05-19 10:31:22');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (10, 1, 'unicode-converter', 40, 1, '2026-05-19 11:04:28', '2026-05-19 11:04:28');
+INSERT INTO `ciphers` (`id`, `category_id`, `alias`, `sort_order`, `published`, `created_at`, `updated_at`) VALUES (11, 2, 'caesar', 10, 1, '2026-05-20 16:57:42', '2026-05-20 16:57:42');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

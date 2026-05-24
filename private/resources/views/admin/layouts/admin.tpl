@@ -32,6 +32,12 @@
                 <i class="bi bi-diagram-3 me-2"></i>Категории шифров
             </a>
         </li>
+        <li class="nav-item">
+            {assign var="ciphers_prefix" value=$admin_path|cat:'/ciphers'}
+            <a href="{$admin_path}/ciphers" class="nav-link text-white{if $current_path|starts_with:$ciphers_prefix} active{/if}">
+                <i class="bi bi-shield-lock me-2"></i>Шифры
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">

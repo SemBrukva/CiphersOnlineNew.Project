@@ -94,5 +94,12 @@ export class ApiClient {
             data,
             { 'X-CSRF-Token': csrfToken }
         ),
+        /** POST /api/admin/ciphers/{id} */
+        saveCipher: (id, data, csrfToken) => this.#request(
+            'POST',
+            `/admin/ciphers/${id}`,
+            data,
+            { 'X-CSRF-Token': csrfToken }
+        ),
     }
 }
