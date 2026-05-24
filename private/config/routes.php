@@ -8,6 +8,7 @@ use App\Controller\AuthController;
 use App\Controller\CabinetController;
 use App\Controller\ContactsController;
 use App\Controller\CipherCategoryController;
+use App\Controller\CipherController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
 use App\Controller\PageController;
@@ -75,6 +76,12 @@ return [
         'controller' => SitemapController::class,
         'method'     => 'xml',
         'name'       => 'sitemap.xml',
+    ],
+
+    'GET /{category:[a-z0-9-]+}/{cipher:[a-z0-9-]+}' => [
+        'controller' => CipherController::class,
+        'method'     => 'show',
+        'name'       => 'ciphers.show',
     ],
 
     'GET /{alias:[a-z0-9-]+}' => [

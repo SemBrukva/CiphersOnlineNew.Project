@@ -1,0 +1,148 @@
+<section class="ciphers-page"
+         data-page="cipher-tool"
+         data-cipher-tool="{$tool_slug}"
+         data-cipher-ui="{$tool_ui_json|escape:'html'}">
+    <div class="ciphers-unified" id="ciphers-tool-shell">
+        <div class="ciphers-unified__header">
+            <h1 class="ciphers-unified__title">{$cipher.name}</h1>
+            <p class="ciphers-unified__desc">{$cipher.description}</p>
+
+            <div class="ciphers-tabs" role="tablist">
+                <button class="ciphers-tab ciphers-tab--active" type="button" id="tab-encode" role="tab" aria-selected="true">{$tool_ui.tabEncode}</button>
+                <button class="ciphers-tab" type="button" id="tab-decode" role="tab" aria-selected="false">{$tool_ui.tabDecode}</button>
+            </div>
+        </div>
+
+        <div class="ciphers-unified__body">
+            <div class="ciphers-unified__input-wrap">
+                <div class="ciphers-unified__field-header">
+                    <span class="ciphers-unified__field-label" id="ciphers-input-label">{$tool_ui.inputLabelEncode}</span>
+                    <span class="ciphers-unified__counter" id="ciphers-counter">0 {$tool_ui.charsLabel} · 0 {$tool_ui.bytesLabel}</span>
+                </div>
+                <textarea class="form-control ciphers-textarea ciphers-unified__textarea"
+                          id="ciphers-input"
+                          rows="7"
+                          placeholder="{$tool_ui.placeholderEncode}"></textarea>
+            </div>
+
+            <div class="ciphers-unified__examples-row">
+                <span class="ciphers-unified__examples-label">{$tool_ui.tryLabel}</span>
+                <div class="ciphers-example-chips">
+                    {foreach $tool_ui.exampleChips as $chip}
+                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}">{$chip.label}</button>
+                    {/foreach}
+                </div>
+            </div>
+
+            <div class="ciphers-unified__output-wrap">
+                <div class="ciphers-unified__field-header">
+                    <span class="ciphers-unified__field-label ciphers-unified__field-label--result">{$tool_ui.resultLabel}</span>
+                    <div class="ciphers-unified__output-actions">
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy">{$tool_ui.copyLabel}</button>
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-share">{$tool_ui.shareLabel}</button>
+                    </div>
+                </div>
+
+                <div class="ciphers-result-card" id="ciphers-result-card">
+                    <textarea class="form-control ciphers-textarea ciphers-unified__textarea ciphers-unified__output"
+                              id="ciphers-output"
+                              rows="6"
+                              readonly
+                              placeholder="{$tool_ui.placeholderOutput}"></textarea>
+                    <div class="ciphers-visual-output" id="ciphers-visual-output"></div>
+                    <div class="ciphers-feedback" id="ciphers-feedback" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ciphers-trust">
+            {foreach $tool_ui.trustItems as $item}
+            <span class="ciphers-trust__item">✓ {$item}</span>
+            {/foreach}
+        </div>
+    </div>
+</section>
+
+{if $examples}
+<section class="panel">
+    <div class="panel-heading">
+        <div class="panel-title">{$tool_ui.examplesTitle}</div>
+    </div>
+    <div class="panel-content">
+        <div class="b64-examples-grid">
+            {foreach $examples as $example}
+                <article class="b64-example-card">
+                    {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
+                    <div class="b64-example-card__row">
+                        <div class="b64-example-card__slot">
+                            <span class="b64-example-card__slot-tag">{$tool_ui.inputTag}</span>
+                            <code class="b64-example-card__code">{$example.input|escape}</code>
+                        </div>
+                        {if $example.output}
+                            <div class="b64-example-card__slot b64-example-card__slot--output">
+                                <span class="b64-example-card__slot-tag">{$tool_ui.outputTag}</span>
+                                <code class="b64-example-card__code b64-example-card__code--output">{$example.output|escape}</code>
+                            </div>
+                        {/if}
+                    </div>
+                    {if $example.desc}<p class="b64-example-card__desc">{$example.desc|escape}</p>{/if}
+                    <button class="b64-example-card__use ciphers-example-use" type="button" data-example-text="{$example.input|escape:'html'}">{$tool_ui.useExampleLabel}</button>
+                </article>
+            {/foreach}
+        </div>
+    </div>
+</section>
+{/if}
+
+{if $blocks}
+    {foreach $blocks as $block}
+    <section class="panel">
+        <div class="panel-heading">
+            <div class="panel-title">{$block.title|default:$tool_ui.infoTitle}</div>
+        </div>
+        <div class="panel-content">
+            {$block.text nofilter}
+        </div>
+    </section>
+    {/foreach}
+{/if}
+
+{if $faq}
+<section class="panel">
+    <div class="panel-heading">
+        <div class="panel-title">{$tool_ui.faqTitle}</div>
+    </div>
+    <div class="panel-content">
+        <div class="accordion" id="cipher-faq">
+            {foreach $faq as $item}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{$item.id}">
+                        {$item.question}
+                    </button>
+                </h2>
+                <div id="faq-{$item.id}" class="accordion-collapse collapse" data-bs-parent="#cipher-faq">
+                    <div class="accordion-body">{$item.answer}</div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</section>
+{/if}
+
+{if $related}
+<section class="panel">
+    <div class="panel-heading">
+        <div class="panel-title">{$tool_ui.relatedTitle}</div>
+    </div>
+    <div class="panel-content">
+        <div class="ciphers-category-hub-hero__chips">
+            {foreach $related as $tool}
+            <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}/{$tool.alias}">{$tool.name_short}</a>
+            {/foreach}
+            <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}">{$all_in_category_label}</a>
+        </div>
+    </div>
+</section>
+{/if}

@@ -235,6 +235,110 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает опубликованный инструмент по alias категории и alias инструмента с переводом.
+     *
+     * @return array<string, mixed>|null
+     */
+    public function findPublishedCipherPageByAliases(
+        string $categoryAlias,
+        string $cipherAlias,
+        string $language,
+        string $defaultLanguage
+    ): ?array {
+        $row = $this->db->fetch(
+            'SELECT c.id, c.alias, c.category_id, c.sort_order, '
+            . 'cat.alias AS category_alias, '
+            . 'COALESCE(t_cur.language, t_def.language, ?) AS language, '
+            . 'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
+            . 'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name_short, '
+            . 'COALESCE(t_cur.description, t_def.description, \'\') AS description, '
+            . 'COALESCE(t_cur.meta_title, t_def.meta_title, \'\') AS meta_title, '
+            . 'COALESCE(t_cur.meta_description, t_def.meta_description, \'\') AS meta_description '
+            . 'FROM ' . Tables::CIPHERS . ' c '
+            . 'INNER JOIN ' . Tables::CIPHER_CATEGORIES . ' cat ON cat.id = c.category_id '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_def ON t_def.app_id = c.id AND t_def.language = ? '
+            . 'WHERE c.alias = ? AND c.published = 1 '
+            . 'AND cat.alias = ? AND cat.published = 1 '
+            . 'LIMIT 1',
+            [$defaultLanguage, $language, $defaultLanguage, $cipherAlias, $categoryAlias]
+        );
+
+        return $row === false ? null : $row;
+    }
+
+    /**
+     * Возвращает переведённые блоки контента инструмента.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findBlocksByCipherIdWithTranslation(int $cipherId, string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT b.id, b.app_id, b.sort_order, b.published, '
+            . 'COALESCE(bt_cur.language, bt_def.language, ?) AS language, '
+            . 'COALESCE(bt_cur.title, bt_def.title, \'\') AS title, '
+            . 'COALESCE(bt_cur.text, bt_def.text, \'\') AS text '
+            . 'FROM ' . Tables::CIPHERS_BLOCKS . ' b '
+            . 'LEFT JOIN ' . Tables::CIPHERS_BLOCKS_TRANSLATIONS . ' bt_cur '
+            . 'ON bt_cur.block_id = b.id AND bt_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_BLOCKS_TRANSLATIONS . ' bt_def '
+            . 'ON bt_def.block_id = b.id AND bt_def.language = ? '
+            . 'WHERE b.app_id = ? AND b.published = 1 '
+            . 'ORDER BY b.sort_order ASC, b.id ASC',
+            [$defaultLanguage, $language, $defaultLanguage, $cipherId]
+        );
+    }
+
+    /**
+     * Возвращает переведённые FAQ инструмента.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findFaqByCipherIdWithTranslation(int $cipherId, string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT f.id, f.app_id, f.sort_order, f.published, '
+            . 'COALESCE(ft_cur.language, ft_def.language, ?) AS language, '
+            . 'COALESCE(ft_cur.question, ft_def.question, \'\') AS question, '
+            . 'COALESCE(ft_cur.answer, ft_def.answer, \'\') AS answer '
+            . 'FROM ' . Tables::CIPHERS_FAQ . ' f '
+            . 'LEFT JOIN ' . Tables::CIPHERS_FAQ_TRANSLATIONS . ' ft_cur '
+            . 'ON ft_cur.faq_id = f.id AND ft_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_FAQ_TRANSLATIONS . ' ft_def '
+            . 'ON ft_def.faq_id = f.id AND ft_def.language = ? '
+            . 'WHERE f.app_id = ? AND f.published = 1 '
+            . 'ORDER BY f.sort_order ASC, f.id ASC',
+            [$defaultLanguage, $language, $defaultLanguage, $cipherId]
+        );
+    }
+
+    /**
+     * Возвращает переведённые примеры инструмента.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findExamplesByCipherIdWithTranslation(int $cipherId, string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT e.id, e.app_id, e.sort_order, e.published, '
+            . 'COALESCE(et_cur.language, et_def.language, ?) AS language, '
+            . 'COALESCE(et_cur.title, et_def.title, \'\') AS label, '
+            . 'COALESCE(et_cur.input, et_def.input, \'\') AS input, '
+            . 'COALESCE(et_cur.output, et_def.output, \'\') AS output, '
+            . 'COALESCE(et_cur.description, et_def.description, \'\') AS `desc` '
+            . 'FROM ' . Tables::CIPHERS_EXAMPLES . ' e '
+            . 'LEFT JOIN ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' et_cur '
+            . 'ON et_cur.example_id = e.id AND et_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' et_def '
+            . 'ON et_def.example_id = e.id AND et_def.language = ? '
+            . 'WHERE e.app_id = ? AND e.published = 1 '
+            . 'ORDER BY e.sort_order ASC, e.id ASC',
+            [$defaultLanguage, $language, $defaultLanguage, $cipherId]
+        );
+    }
+
+    /**
      * Возвращает теги с переводами для списка шифров, сгруппированные по cipher_id.
      *
      * @param  int[]  $cipherIds      Список ID шифров.
