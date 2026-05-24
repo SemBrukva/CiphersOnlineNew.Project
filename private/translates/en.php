@@ -1,0 +1,117 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    // Навигация
+    'MENU_HOME'             => 'Home',
+    'MENU_CONTACTS'         => 'Contacts',
+    'MENU_SITEMAP'          => 'Sitemap',
+    'MENU_CABINET'          => 'My Account',
+    'MENU_ADMIN'            => 'Admin',
+
+    // Авторизация
+    'AUTH_SIGN_IN'          => 'Sign In',
+    'AUTH_SIGN_OUT'         => 'Sign Out',
+    'AUTH_CABINET'          => 'My Account',
+    'AUTH_EMAIL'            => 'Email',
+    'AUTH_NAME'             => 'Name',
+    'AUTH_PASSWORD'         => 'Password',
+    'AUTH_PASSWORD_CONFIRMATION' => 'Confirm password',
+    'AUTH_SIGN_IN_TITLE'    => 'Sign In',
+    'AUTH_SIGN_UP'          => 'Sign Up',
+    'AUTH_SIGN_UP_TITLE'    => 'Registration',
+    'AUTH_ALREADY_HAVE_ACCOUNT' => 'Already have an account? Sign in',
+    'AUTH_REGISTERING'      => 'Creating your account...',
+    'AUTH_REGISTRATION_SUCCESS' => 'Registration completed successfully.',
+    'AUTH_REGISTRATION_FAILED' => 'Failed to create account. Please try again.',
+    'AUTH_POLICY_AGREEMENT_TEXT' => 'I agree to the',
+    'AUTH_POLICY_AGREEMENT_LINK' => 'privacy policy',
+    'AUTH_ERROR_NAME_REQUIRED' => 'Name is required.',
+    'AUTH_ERROR_NAME_LENGTH' => 'Name must be between 2 and 100 characters.',
+    'AUTH_ERROR_EMAIL_REQUIRED' => 'Email is required.',
+    'AUTH_ERROR_EMAIL_INVALID' => 'Please enter a valid email.',
+    'AUTH_ERROR_PASSWORD_REQUIRED' => 'Password is required.',
+    'AUTH_ERROR_PASSWORD_LENGTH' => 'Password must be at least 8 characters.',
+    'AUTH_ERROR_CONFIRMATION_REQUIRED' => 'Password confirmation is required.',
+    'AUTH_ERROR_CONFIRMATION_MISMATCH' => 'Passwords do not match.',
+    'AUTH_ERROR_POLICY_REQUIRED' => 'You must agree to the privacy policy.',
+    'AUTH_INVALID'          => 'Invalid email or password.',
+
+    // Главная
+    'HOME_HEADING'          => 'Project Skeleton',
+    'HOME_WELCOME_TITLE'    => 'Welcome',
+    'HOME_WELCOME_TEXT'     => 'A PHP application skeleton with routing, templating, authorization and database support.',
+    'HOME_GO_LOGIN'         => 'Sign in to account',
+    'HOME_GO_CABINET'       => 'Go to account',
+
+    // Возможности
+    'FEAT_AUTH'             => 'Authorization',
+    'FEAT_AUTH_DESC'        => 'Sessions, flash messages, session fixation protection.',
+    'FEAT_DB'               => 'Database',
+    'FEAT_DB_DESC'          => 'SQLite locally, MySQL in production — one switch.',
+    'FEAT_ROUTER'           => 'Routing',
+    'FEAT_ROUTER_DESC'      => 'Named parameters, middleware chains via Pipeline.',
+    'FEAT_TEMPLATES'        => 'Templates',
+    'FEAT_TEMPLATES_DESC'   => 'Smarty 5 with layout inheritance and auto-escaping.',
+
+    // Контакты
+    'CONTACTS_TITLE'        => 'Contacts',
+    'CONTACTS_EMAIL'        => 'Email',
+    'CONTACTS_PHONE'        => 'Phone',
+    'CONTACTS_ADDRESS'      => 'Address',
+    'CONTACT_DESCRIPTION'   => 'Leave a message and we will get back to you shortly.',
+    'CONTACT_FEATURE_FAST'  => 'Fast response',
+    'CONTACT_FEATURE_SECURE' => 'Secure processing',
+    'CONTACT_FEATURE_FRIENDLY' => 'Friendly support',
+    'CONTACT_YOUR_NAME'     => 'Your name',
+    'CONTACT_YOUR_EMAIL'    => 'Your email',
+    'CONTACT_MESSAGE'       => 'Message',
+    'CONTACT_SEND'          => 'Send',
+    'CONTACT_SENDING'       => 'Sending...',
+    'CONTACT_SUCCESS'       => 'Message sent. Thank you!',
+    'CONTACT_FAILED'        => 'Failed to send message. Please try again.',
+    'CONTACT_ERROR_NAME'    => 'Enter your name (up to 100 characters).',
+    'CONTACT_ERROR_EMAIL'   => 'Enter a valid email (up to 100 characters).',
+    'CONTACT_ERROR_MESSAGE' => 'Enter your message.',
+    'CONTACT_ERROR_MESSAGE_MAX' => 'Message is too long (maximum 10000 characters).',
+
+    // Кабинет
+    'CABINET_TITLE'         => 'My Account',
+    'CABINET_STATUS'        => 'Active',
+    'CABINET_ROLE'          => 'User',
+    'CABINET_ID'            => 'ID',
+    'CABINET_STATUS_LBL'    => 'Status',
+    'CABINET_ACTIVITY'      => 'Activity',
+    'CABINET_ACTIVITY_TXT'  => 'User activity history will be shown here.',
+    'CABINET_SIGN_OUT'      => 'Sign out of account',
+
+    // Карта сайта
+    'SITEMAP_TITLE'         => 'Sitemap',
+    'SITEMAP_MAIN_PAGES'    => 'Main pages',
+    'SITEMAP_PAGES'         => 'Pages',
+
+    // Множественное число — pipe-разделённые формы (one|other)
+    'ITEMS_COUNT'   => ':count item|:count items',
+    'USERS_ONLINE'  => ':count user online|:count users online',
+    'DAYS_AGO'      => ':count day ago|:count days ago',
+    // ICU plural
+    'MESSAGES_ICU'  => 'You have {count, plural, =0 {no messages} one {# message} other {# messages}}.',
+    'WELCOME_ICU'   => 'Hello, {name}! You have {count, plural, one {# new item} other {# new items}}.',
+
+    // 404
+    'ERROR_404_TITLE'               => '404 - Page Not Found',
+    'ERROR_404_HEADING'             => 'Page Not Found',
+    'ERROR_404_TEXT'                => 'The link may be outdated or the page has been moved. Try searching the site or use one of the popular sections below.',
+    'ERROR_404_SEARCH_LABEL'        => 'Search the site',
+    'ERROR_404_SEARCH_PLACEHOLDER'  => 'For example: contacts, account, privacy policy',
+    'ERROR_404_SEARCH_BUTTON'       => 'Search',
+    'ERROR_404_HOME_TITLE'          => 'Home',
+    'ERROR_404_HOME_TEXT'           => 'Return to the homepage.',
+    'ERROR_404_CONTACTS_TITLE'      => 'Contacts',
+    'ERROR_404_CONTACTS_TEXT'       => 'How to reach us.',
+    'ERROR_404_LOGIN_TITLE'         => 'Sign In',
+    'ERROR_404_LOGIN_TEXT'          => 'Authorize in your account.',
+    'ERROR_404_CABINET_TITLE'       => 'My Account',
+    'ERROR_404_CABINET_TEXT'        => 'Go to the user section.',
+];

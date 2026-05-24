@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+define('BASE_PATH', dirname(__DIR__));
+define('PRIVATE_PATH', BASE_PATH . '/private');
+define('PUBLIC_PATH', BASE_PATH . '/public');
+define('STORAGE_PATH', PRIVATE_PATH . '/storage');
+define('CONFIG_PATH', PRIVATE_PATH . '/config');
+define('RESOURCE_PATH', PRIVATE_PATH . '/resources');
+define('APP_PATH', PRIVATE_PATH . '/app');
+define('DATABASE_PATH', PRIVATE_PATH . '/database');
+
+require_once BASE_PATH . '/vendor/autoload.php';
+require_once PRIVATE_PATH . '/bootstrap.php';
+
+$commandName = $argv[1] ?? null;
+$commands    = config('commands', []);
+
+if ($commandName === null || !isset($commands[$commandName])) {
+    if ($commandName !== null) {
+        echo "Неизвестная команда: {$commandName}" . PHP_EOL;
+    }
+
+    echo PHP_EOL . 'Доступные команды:' . PHP_EOL;
+
+    foreach (array_keys($commands) as $name) {
+        echo "  php bin/console {$name}" . PHP_EOL;
+    }
+
+    echo PHP_EOL;
+
+    exit($commandName === null ? 0 : 1);
+}
+
+/** @var App\Console\CommandInterface $command */
+$command = app($commands[$commandName]);
+
+exit($command->handle(array_slice($argv, 2)));

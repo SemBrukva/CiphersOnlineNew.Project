@@ -1,0 +1,33 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Database\Migration;
+use App\Database\Schema\Blueprint;
+use App\Database\Schema\Schema;
+
+/**
+ * {{Description}}.
+ */
+class {{Class}} extends Migration
+{
+    /**
+     * Применяет миграцию.
+     */
+    public function up(): void
+    {
+        Schema::table('{{table}}', function (Blueprint $table) {
+            //
+        });
+    }
+
+    /**
+     * Откатывает миграцию.
+     */
+    public function down(): void
+    {
+        Schema::table('{{table}}', function (Blueprint $table) {
+            //
+        });
+    }
+}

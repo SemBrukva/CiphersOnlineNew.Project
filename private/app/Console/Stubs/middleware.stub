@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{Namespace}};
+
+use App\Http\MiddlewareInterface;
+use App\Http\Request;
+use App\Http\Response;
+
+/**
+ * {{Class}}.
+ */
+final readonly class {{Class}} implements MiddlewareInterface
+{
+    /**
+     * Обрабатывает входящий запрос.
+     */
+    public function process(Request $request, callable $next): Response
+    {
+        return $next($request);
+    }
+}

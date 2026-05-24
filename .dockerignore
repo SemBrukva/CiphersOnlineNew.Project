@@ -1,0 +1,33 @@
+# VCS
+.git
+.gitignore
+
+# Зависимости (ставятся внутри образа)
+/vendor/
+/node_modules/
+
+# Переменные окружения
+private/.env
+private/.env.local
+private/.env.*.local
+
+# Скомпилированный фронтенд
+/public/build/
+
+# Хранилище (монтируется как volume)
+private/storage/cache/*
+private/storage/database/*
+private/storage/logs/*
+private/storage/sessions/*
+private/storage/tmp/*
+
+# Инструменты разработки
+.idea/
+.phpunit.result.cache
+phpstan.neon
+pint.json
+docs/
+
+# Docker-файлы (не нужны внутри образа)
+docker-compose*.yml
+Dockerfile

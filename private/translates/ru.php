@@ -1,0 +1,117 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    // Навигация
+    'MENU_HOME'             => 'Главная',
+    'MENU_CONTACTS'         => 'Контакты',
+    'MENU_SITEMAP'          => 'Карта сайта',
+    'MENU_CABINET'          => 'Кабинет',
+    'MENU_ADMIN'            => 'Админ',
+
+    // Авторизация
+    'AUTH_SIGN_IN'          => 'Войти',
+    'AUTH_SIGN_OUT'         => 'Выйти',
+    'AUTH_CABINET'          => 'Кабинет',
+    'AUTH_EMAIL'            => 'Email',
+    'AUTH_NAME'             => 'Имя',
+    'AUTH_PASSWORD'         => 'Пароль',
+    'AUTH_PASSWORD_CONFIRMATION' => 'Подтверждение пароля',
+    'AUTH_SIGN_IN_TITLE'    => 'Вход в систему',
+    'AUTH_SIGN_UP'          => 'Регистрация',
+    'AUTH_SIGN_UP_TITLE'    => 'Регистрация',
+    'AUTH_ALREADY_HAVE_ACCOUNT' => 'Уже есть аккаунт? Войти',
+    'AUTH_REGISTERING'      => 'Создаём аккаунт...',
+    'AUTH_REGISTRATION_SUCCESS' => 'Регистрация успешно завершена.',
+    'AUTH_REGISTRATION_FAILED' => 'Не удалось создать аккаунт. Попробуйте ещё раз.',
+    'AUTH_POLICY_AGREEMENT_TEXT' => 'Я согласен с',
+    'AUTH_POLICY_AGREEMENT_LINK' => 'политикой конфиденциальности',
+    'AUTH_ERROR_NAME_REQUIRED' => 'Введите имя.',
+    'AUTH_ERROR_NAME_LENGTH' => 'Имя должно быть от 2 до 100 символов.',
+    'AUTH_ERROR_EMAIL_REQUIRED' => 'Введите email.',
+    'AUTH_ERROR_EMAIL_INVALID' => 'Введите корректный email.',
+    'AUTH_ERROR_PASSWORD_REQUIRED' => 'Введите пароль.',
+    'AUTH_ERROR_PASSWORD_LENGTH' => 'Пароль должен быть не короче 8 символов.',
+    'AUTH_ERROR_CONFIRMATION_REQUIRED' => 'Подтвердите пароль.',
+    'AUTH_ERROR_CONFIRMATION_MISMATCH' => 'Пароли не совпадают.',
+    'AUTH_ERROR_POLICY_REQUIRED' => 'Нужно согласиться с политикой конфиденциальности.',
+    'AUTH_INVALID'          => 'Неверный email или пароль.',
+
+    // Главная
+    'HOME_HEADING'          => 'Project Skeleton',
+    'HOME_WELCOME_TITLE'    => 'Добро пожаловать',
+    'HOME_WELCOME_TEXT'     => 'Скелетон PHP-приложения с поддержкой маршрутизации, шаблонизации, авторизации и работы с базой данных.',
+    'HOME_GO_LOGIN'         => 'Войти в аккаунт',
+    'HOME_GO_CABINET'       => 'Перейти в кабинет',
+
+    // Возможности
+    'FEAT_AUTH'             => 'Авторизация',
+    'FEAT_AUTH_DESC'        => 'Сессии, flash-сообщения, защита от фиксации сессии.',
+    'FEAT_DB'               => 'База данных',
+    'FEAT_DB_DESC'          => 'SQLite локально, MySQL в продакшне — одним переключением.',
+    'FEAT_ROUTER'           => 'Маршрутизация',
+    'FEAT_ROUTER_DESC'      => 'Именованные параметры, middleware-цепочки через Pipeline.',
+    'FEAT_TEMPLATES'        => 'Шаблоны',
+    'FEAT_TEMPLATES_DESC'   => 'Smarty 5 с наследованием макетов и авто-экранированием.',
+
+    // Контакты
+    'CONTACTS_TITLE'        => 'Контакты',
+    'CONTACTS_EMAIL'        => 'Email',
+    'CONTACTS_PHONE'        => 'Телефон',
+    'CONTACTS_ADDRESS'      => 'Адрес',
+    'CONTACT_DESCRIPTION'   => 'Оставьте сообщение, и мы свяжемся с вами в ближайшее время.',
+    'CONTACT_FEATURE_FAST'  => 'Быстрый ответ',
+    'CONTACT_FEATURE_SECURE' => 'Безопасная обработка',
+    'CONTACT_FEATURE_FRIENDLY' => 'Дружелюбная поддержка',
+    'CONTACT_YOUR_NAME'     => 'Ваше имя',
+    'CONTACT_YOUR_EMAIL'    => 'Ваш email',
+    'CONTACT_MESSAGE'       => 'Сообщение',
+    'CONTACT_SEND'          => 'Отправить',
+    'CONTACT_SENDING'       => 'Отправляем...',
+    'CONTACT_SUCCESS'       => 'Сообщение отправлено. Спасибо!',
+    'CONTACT_FAILED'        => 'Не удалось отправить сообщение. Попробуйте ещё раз.',
+    'CONTACT_ERROR_NAME'    => 'Введите имя (до 100 символов).',
+    'CONTACT_ERROR_EMAIL'   => 'Введите корректный email (до 100 символов).',
+    'CONTACT_ERROR_MESSAGE' => 'Введите текст сообщения.',
+    'CONTACT_ERROR_MESSAGE_MAX' => 'Сообщение слишком длинное (максимум 10000 символов).',
+
+    // Кабинет
+    'CABINET_TITLE'         => 'Личный кабинет',
+    'CABINET_STATUS'        => 'Активен',
+    'CABINET_ROLE'          => 'Пользователь',
+    'CABINET_ID'            => 'ID',
+    'CABINET_STATUS_LBL'    => 'Статус',
+    'CABINET_ACTIVITY'      => 'Активность',
+    'CABINET_ACTIVITY_TXT'  => 'Здесь будет история активности пользователя.',
+    'CABINET_SIGN_OUT'      => 'Выйти из аккаунта',
+
+    // Карта сайта
+    'SITEMAP_TITLE'         => 'Карта сайта',
+    'SITEMAP_MAIN_PAGES'    => 'Основные страницы',
+    'SITEMAP_PAGES'         => 'Страницы',
+
+    // Множественное число — pipe-разделённые формы (one|few|many)
+    'ITEMS_COUNT'   => ':count элемент|:count элемента|:count элементов',
+    'USERS_ONLINE'  => ':count пользователь онлайн|:count пользователя онлайн|:count пользователей онлайн',
+    'DAYS_AGO'      => ':count день назад|:count дня назад|:count дней назад',
+    // ICU plural
+    'MESSAGES_ICU'  => 'У вас {count, plural, =0 {нет сообщений} one {# сообщение} few {# сообщения} many {# сообщений} other {# сообщения}}.',
+    'WELCOME_ICU'   => 'Привет, {name}! У вас {count, plural, one {# новый элемент} few {# новых элемента} many {# новых элементов} other {# новых элемента}}.',
+
+    // 404
+    'ERROR_404_TITLE'               => '404 - Страница не найдена',
+    'ERROR_404_HEADING'             => 'Страница не найдена',
+    'ERROR_404_TEXT'                => 'Возможно, ссылка устарела или страница была перемещена. Попробуйте поиск или перейдите в популярные разделы ниже.',
+    'ERROR_404_SEARCH_LABEL'        => 'Поиск по сайту',
+    'ERROR_404_SEARCH_PLACEHOLDER'  => 'Например: контакты, кабинет, политика конфиденциальности',
+    'ERROR_404_SEARCH_BUTTON'       => 'Найти',
+    'ERROR_404_HOME_TITLE'          => 'Главная',
+    'ERROR_404_HOME_TEXT'           => 'Вернуться на стартовую страницу.',
+    'ERROR_404_CONTACTS_TITLE'      => 'Контакты',
+    'ERROR_404_CONTACTS_TEXT'       => 'Как с нами связаться.',
+    'ERROR_404_LOGIN_TITLE'         => 'Вход',
+    'ERROR_404_LOGIN_TEXT'          => 'Авторизация в личный кабинет.',
+    'ERROR_404_CABINET_TITLE'       => 'Кабинет',
+    'ERROR_404_CABINET_TEXT'        => 'Перейти в пользовательский раздел.',
+];

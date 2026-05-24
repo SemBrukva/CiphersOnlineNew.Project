@@ -1,0 +1,49 @@
+@import './app.css';
+
+#admin-sidebar {
+    width: 260px;
+    min-height: 100vh;
+    transition: width 0.25s ease;
+    overflow: hidden;
+}
+
+#admin-sidebar.collapsed {
+    width: 64px;
+}
+
+#admin-sidebar.collapsed .fs-5,
+#admin-sidebar.collapsed .nav-link span,
+#admin-sidebar.collapsed .dropdown span {
+    display: none;
+}
+
+#admin-sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#admin-sidebar.collapsed .dropdown-toggle::after {
+    display: none;
+}
+
+.admin-topbar {
+    height: 56px;
+}
+
+.admin-stat-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-pills .nav-link {
+    border-radius: 6px;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

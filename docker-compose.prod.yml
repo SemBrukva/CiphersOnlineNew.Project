@@ -1,0 +1,20 @@
+# Продакшн-оверрайд: собирает production-образ без bind-монтирования исходников.
+# Использование: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+services:
+
+  app:
+    build:
+      target: production
+    volumes: []          # bind-mount исходников отключён; файлы скопированы в образ
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+
+  nginx:
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      # Статику берём из образа app через named volume.
+      - public_files:/var/www/public:ro
+
+volumes:
+  public_files:

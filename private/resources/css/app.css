@@ -1,0 +1,146 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import './debug.css';
+
+.contact-page {
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid #e9ecf1;
+    background: #ffffff;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.contact-layout {
+    min-height: 540px;
+}
+
+.contact-info-panel {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(160deg, var(--bs-primary) 0%, var(--bs-dark) 100%);
+    color: rgba(255, 255, 255, 0.92);
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.contact-info-panel__orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(2px);
+    opacity: 0.18;
+}
+
+.contact-info-panel__orb--1 {
+    width: 180px;
+    height: 180px;
+    top: -40px;
+    right: -30px;
+    background: #fff;
+}
+
+.contact-info-panel__orb--2 {
+    width: 120px;
+    height: 120px;
+    bottom: 16%;
+    left: -40px;
+    background: #fff;
+}
+
+.contact-info-panel__orb--3 {
+    width: 88px;
+    height: 88px;
+    bottom: 10px;
+    right: 18%;
+    background: #fff;
+}
+
+.contact-info-panel__content {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info-panel__brand {
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 1rem;
+}
+
+.contact-info-panel__desc {
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info-panel__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+    margin-bottom: 1.25rem;
+}
+
+.contact-info-panel__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.contact-info-panel__features li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.contact-info-panel__feature-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.contact-form-panel {
+    height: 100%;
+    padding: 2rem;
+    background: linear-gradient(160deg, #ffffff 0%, #f7f9ff 100%);
+}
+
+.contact-form-panel__title {
+    margin-bottom: 1.2rem;
+    font-size: 1.9rem;
+}
+
+.contact-field__label {
+    font-weight: 600;
+    margin-bottom: 0.45rem;
+}
+
+.contact-field__input {
+    border: 1px solid #d7ddea;
+    border-radius: 0.75rem;
+    padding: 0.68rem 0.82rem;
+}
+
+.contact-field__error {
+    display: block;
+    margin-top: 0.35rem;
+    color: #cf2f2f;
+    font-size: 0.86rem;
+}
+
+.contact-submit-btn {
+    border-radius: 0.75rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+}
+
+.contact-send-icon {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 991.98px) {
+    .contact-layout {
+        min-height: 0;
+    }
+}

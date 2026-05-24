@@ -1,0 +1,30 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{Namespace}};
+
+use App\Http\Request;
+use App\Http\Response;
+use App\View\View;
+
+/**
+ * {{Class}}.
+ */
+final readonly class {{Class}}
+{
+    /**
+     * Создаёт экземпляр контроллера.
+     */
+    public function __construct(private View $view)
+    {
+    }
+
+    /**
+     * Обрабатывает запрос.
+     */
+    public function index(Request $request): Response
+    {
+        return new Response('');
+    }
+}

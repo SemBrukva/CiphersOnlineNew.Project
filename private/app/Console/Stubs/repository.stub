@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{Namespace}};
+
+use App\Database\Database;
+use App\Repository\AbstractRepository;
+
+/**
+ * {{Class}}.
+ */
+final class {{Class}} extends AbstractRepository
+{
+    /**
+     * Создаёт экземпляр репозитория.
+     */
+    public function __construct(Database $db)
+    {
+        parent::__construct($db, '{{table}}');
+    }
+}
