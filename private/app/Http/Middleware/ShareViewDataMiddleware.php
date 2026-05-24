@@ -72,6 +72,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
 
         $this->view->share('csp_nonce', $this->cspNonce->get());
         $this->view->share('app_name', config('app.name', 'Application'));
+        $this->view->share('app_url', rtrim((string) config('app.url', ''), '/'));
         $this->view->share('csrf_token', $this->session->csrfToken());
         $this->view->share('auth_user', $authUser);
         $this->view->share('nav_main', $this->navigationBuilder->build($request->path(), $prefix));
@@ -81,6 +82,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         $this->view->share('t', $this->translationTracker);
         $this->view->share('multilang', $multilang);
         $this->view->share('current_locale', $locale);
+        $this->view->share('default_locale', $defaultLocale);
         $this->view->share('locale_prefix', $prefix);
         $this->view->share('registration_enabled', (bool) config('app.user_registration', false));
         $this->view->share('is_admin', $isAdmin);

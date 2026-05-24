@@ -7,6 +7,7 @@ declare(strict_types=1);
 use App\Controller\AuthController;
 use App\Controller\CabinetController;
 use App\Controller\ContactsController;
+use App\Controller\CipherCategoryController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
 use App\Controller\PageController;
@@ -74,6 +75,12 @@ return [
         'controller' => SitemapController::class,
         'method'     => 'xml',
         'name'       => 'sitemap.xml',
+    ],
+
+    'GET /{alias:[a-z0-9-]+}' => [
+        'controller' => CipherCategoryController::class,
+        'method'     => 'show',
+        'name'       => 'cipher_categories.show',
     ],
 
 ];

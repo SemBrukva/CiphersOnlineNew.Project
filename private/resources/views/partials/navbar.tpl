@@ -11,12 +11,30 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {foreach $nav_main as $item}
-                    <li class="nav-item">
-                        <a class="nav-link{if $item.active} active{/if}" href="{$item.url}">
-                            {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
-                            {$item.label}
-                        </a>
-                    </li>
+                    {if isset($item.children) && $item.children}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle{if $item.active} active{/if}" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                {$item.label}
+                            </a>
+                            <ul class="dropdown-menu">
+                                {foreach $item.children as $child}
+                                    <li>
+                                        <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
+                                            {$child.label}
+                                        </a>
+                                    </li>
+                                {/foreach}
+                            </ul>
+                        </li>
+                    {else}
+                        <li class="nav-item">
+                            <a class="nav-link{if $item.active} active{/if}" href="{$item.url}">
+                                {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
+                                {$item.label}
+                            </a>
+                        </li>
+                    {/if}
                 {/foreach}
             </ul>
             <div class="d-flex align-items-center gap-2">

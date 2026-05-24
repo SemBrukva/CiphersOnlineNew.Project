@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Api;
 
+use App\Cache\CacheInterface;
 use App\Database\Database;
 use App\Http\Attribute\ApiOperation;
 use App\Http\Attribute\ApiResponse;
@@ -29,7 +30,8 @@ final class AdminController
         private readonly UserRepository $users,
         private readonly CipherCategoryRepository $categories,
         private readonly CipherCategoryTranslationRepository $translations,
-        private readonly Database $db
+        private readonly Database $db,
+        private readonly CacheInterface $cache
     ) {
     }
 
@@ -182,6 +184,7 @@ final class AdminController
                 }
             }
         });
+        $this->cache->tag('cipher_categories')->flush();
 
         return Response::json([
             'ok' => true,

@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$title|default:'Application'}</title>
     {if $meta_description}<meta name="description" content="{$meta_description}">{/if}
+    {assign var="canonical_path" value=$locale_urls[$current_locale]|default:($locale_prefix|cat:$current_path)}
+    {assign var="canonical_url" value=$app_url|cat:$canonical_path}
+    <link rel="canonical" href="{$canonical_url}">
+    {if $multilang && $locale_urls}
+        {foreach $locale_urls as $lang => $url}
+            <link rel="alternate" hreflang="{$lang}" href="{$app_url}{$url}">
+        {/foreach}
+        {assign var="x_default_url" value=$locale_urls[$default_locale]|default:$canonical_path}
+        <link rel="alternate" hreflang="x-default" href="{$app_url}{$x_default_url}">
+    {/if}
     {vite entry="private/resources/js/app.js" type="css"}
 </head>
 <body class="d-flex flex-column min-vh-100">

@@ -9,6 +9,7 @@ return [
     'MENU_SITEMAP'          => 'Sitemap',
     'MENU_CABINET'          => 'My Account',
     'MENU_ADMIN'            => 'Admin',
+    'MENU_TOOLS'            => 'Tools',
 
     // Авторизация
     'AUTH_SIGN_IN'          => 'Sign In',

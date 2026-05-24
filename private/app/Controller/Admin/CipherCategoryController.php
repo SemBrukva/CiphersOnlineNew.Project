@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
+use App\Cache\CacheInterface;
 use App\Controller\Admin\Request\CipherCategoryRequest;
 use App\Http\Request;
 use App\Http\Response;
@@ -25,7 +26,8 @@ final class CipherCategoryController
         private readonly View $view,
         private readonly CipherCategoryRepository $categories,
         private readonly CipherCategoryTranslationRepository $translations,
-        private readonly Session $session
+        private readonly Session $session,
+        private readonly CacheInterface $cache
     ) {
     }
 
@@ -115,6 +117,7 @@ final class CipherCategoryController
             'created_at' => $now,
             'updated_at' => $now,
         ]);
+        $this->cache->tag('cipher_categories')->flush();
 
         $this->session->flash('success', 'Категория добавлена.');
 
@@ -209,6 +212,7 @@ final class CipherCategoryController
             'published' => $dto->published(),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        $this->cache->tag('cipher_categories')->flush();
 
         $this->session->flash('success', 'Категория обновлена.');
 
@@ -224,6 +228,7 @@ final class CipherCategoryController
         $id = (int) $request->route('id');
 
         $this->categories->delete($id);
+        $this->cache->tag('cipher_categories')->flush();
 
         $this->session->flash('success', 'Категория удалена.');
 

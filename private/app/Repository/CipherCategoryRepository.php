@@ -90,4 +90,65 @@ final class CipherCategoryRepository extends AbstractRepository
             'SELECT id, alias FROM ' . $this->table . ' ORDER BY alias ASC, id ASC'
         );
     }
+
+    /**
+     * Возвращает опубликованную категорию с переводом для указанного языка.
+     *
+     * @return array<string, mixed>|null
+     */
+    public function findPublishedCategoryPageByAliasAndLanguage(string $alias, string $language): ?array
+    {
+        $row = $this->db->fetch(
+            'SELECT c.id, c.alias, c.sort_order, c.published, c.created_at, c.updated_at, '
+            . 't.language, t.name, t.description, t.meta_title, t.meta_description '
+            . 'FROM ' . $this->table . ' c '
+            . 'INNER JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t ON t.category_id = c.id '
+            . 'WHERE c.alias = ? AND c.published = 1 AND t.language = ? '
+            . 'LIMIT 1',
+            [$alias, $language]
+        );
+
+        return $row === false ? null : $row;
+    }
+
+    /**
+     * Возвращает опубликованную категорию с переводом без жёсткой привязки к языку.
+     *
+     * @return array<string, mixed>|null
+     */
+    public function findPublishedCategoryPageByAlias(string $alias): ?array
+    {
+        $row = $this->db->fetch(
+            'SELECT c.id, c.alias, c.sort_order, c.published, c.created_at, c.updated_at, '
+            . 't.language, t.name, t.description, t.meta_title, t.meta_description '
+            . 'FROM ' . $this->table . ' c '
+            . 'INNER JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t ON t.category_id = c.id '
+            . 'WHERE c.alias = ? AND c.published = 1 '
+            . 'ORDER BY CASE WHEN t.language = ? THEN 0 ELSE 1 END, t.id ASC '
+            . 'LIMIT 1',
+            [$alias, (string) config('locale.locale', 'en')]
+        );
+
+        return $row === false ? null : $row;
+    }
+
+    /**
+     * Возвращает опубликованные категории для выпадающего меню в навигации.
+     *
+     * @return array<int, array{alias:string, name:string}>
+     */
+    public function listPublishedForNavigation(string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT c.alias, COALESCE(t_current.name, t_default.name, c.alias) AS name '
+            . 'FROM ' . $this->table . ' c '
+            . 'LEFT JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t_current '
+            . 'ON t_current.category_id = c.id AND t_current.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t_default '
+            . 'ON t_default.category_id = c.id AND t_default.language = ? '
+            . 'WHERE c.published = 1 '
+            . 'ORDER BY c.sort_order ASC, c.id ASC',
+            [$language, $defaultLanguage]
+        );
+    }
 }

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Navigation;
 
 use App\Auth\Auth;
+use App\Cache\CacheInterface;
 use App\I18n\Translator;
+use App\Repository\CipherCategoryRepository;
 
 /**
  * Сборщик пунктов главного навигационного меню.
@@ -19,6 +21,8 @@ final class NavigationBuilder
     public function __construct(
         private readonly Auth       $auth,
         private readonly Translator $translator,
+        private readonly CipherCategoryRepository $categories,
+        private readonly CacheInterface $cache,
     ) {
     }
 
@@ -27,7 +31,7 @@ final class NavigationBuilder
      *
      * @param  string $currentPath  Путь запроса (для подсветки активного пункта).
      * @param  string $localePrefix Префикс локали, например '/ru' или ''.
-     * @return list<array{label: string, url: string, active: bool, icon: string|null}>
+     * @return list<array{label: string, url: string, active: bool, icon: string|null, children?: array<int, array{label: string, url: string, active: bool}>}>
      */
     public function build(string $currentPath, string $localePrefix): array
     {
@@ -46,6 +50,18 @@ final class NavigationBuilder
         if ($this->auth->check()) {
             // Приватный маршрут — языковой префикс не используется
             $items[] = $this->makeItem('MENU_CABINET', '/cabinet', null, $currentPath, '');
+        }
+
+        $toolsChildren = $this->buildToolsChildren($currentPath, $localePrefix);
+
+        if ($toolsChildren !== []) {
+            $items[] = [
+                'label' => $this->translator->get('MENU_TOOLS'),
+                'url' => '#',
+                'active' => (bool) array_filter($toolsChildren, static fn (array $child): bool => $child['active']),
+                'icon' => null,
+                'children' => $toolsChildren,
+            ];
         }
 
         return $items;
@@ -76,5 +92,45 @@ final class NavigationBuilder
             'active' => $currentPath === $path || $currentPath === $url,
             'icon'   => $icon,
         ];
+    }
+
+    /**
+     * Собирает дочерние пункты меню «Инструменты».
+     *
+     * @return array<int, array{label: string, url: string, active: bool}>
+     */
+    private function buildToolsChildren(string $currentPath, string $localePrefix): array
+    {
+        $language = $this->translator->getLocale();
+        $defaultLanguage = $this->translator->getDefaultLocale();
+        $cacheTtl = (int) config('cache.ttl', 3600);
+
+        $categories = $this->cache->tag('cipher_categories')->remember(
+            'nav.tools.categories.' . $language . '.' . $defaultLanguage,
+            $cacheTtl,
+            fn (): array => $this->categories->listPublishedForNavigation($language, $defaultLanguage)
+        );
+
+        $items = [];
+
+        foreach ($categories as $category) {
+            $alias = (string) ($category['alias'] ?? '');
+            $name = trim((string) ($category['name'] ?? ''));
+
+            if ($alias === '') {
+                continue;
+            }
+
+            $path = '/' . $alias;
+            $url = $localePrefix !== '' ? $localePrefix . $path : $path;
+
+            $items[] = [
+                'label' => $name !== '' ? $name : $alias,
+                'url' => $url,
+                'active' => $currentPath === $path,
+            ];
+        }
+
+        return $items;
     }
 }
