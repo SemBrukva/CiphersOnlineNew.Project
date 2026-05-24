@@ -51,4 +51,11 @@ return [
         'name'       => 'api.admin.stats',
     ],
 
+    'POST /admin/cipher-categories/{id:\\d+}' => [
+        'controller' => AdminController::class,
+        'method'     => 'updateCipherCategory',
+        'middleware' => [RateLimitMiddleware::class, ApiAdminMiddleware::class],
+        'name'       => 'api.admin.cipher_categories.update',
+    ],
+
 ];

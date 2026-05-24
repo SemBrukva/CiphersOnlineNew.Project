@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Controller\Admin\DashboardController;
+use App\Controller\Admin\CipherCategoryController;
 use App\Controller\Admin\RedirectController;
 
 /**
@@ -53,6 +54,42 @@ return [
         'controller' => RedirectController::class,
         'method'     => 'destroy',
         'name'       => 'admin.redirects.destroy',
+    ],
+
+    'GET /cipher-categories' => [
+        'controller' => CipherCategoryController::class,
+        'method'     => 'index',
+        'name'       => 'admin.cipher_categories.index',
+    ],
+
+    'GET /cipher-categories/create' => [
+        'controller' => CipherCategoryController::class,
+        'method'     => 'create',
+        'name'       => 'admin.cipher_categories.create',
+    ],
+
+    'POST /cipher-categories' => [
+        'controller' => CipherCategoryController::class,
+        'method'     => 'store',
+        'name'       => 'admin.cipher_categories.store',
+    ],
+
+    'GET /cipher-categories/{id:\\d+}/edit' => [
+        'controller' => CipherCategoryController::class,
+        'method'     => 'edit',
+        'name'       => 'admin.cipher_categories.edit',
+    ],
+
+    'POST /cipher-categories/{id:\\d+}' => [
+        'controller' => CipherCategoryController::class,
+        'method'     => 'update',
+        'name'       => 'admin.cipher_categories.update',
+    ],
+
+    'POST /cipher-categories/{id:\\d+}/delete' => [
+        'controller' => CipherCategoryController::class,
+        'method'     => 'destroy',
+        'name'       => 'admin.cipher_categories.destroy',
     ],
 
 ];

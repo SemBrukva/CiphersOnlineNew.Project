@@ -1,6 +1,7 @@
 import 'bootstrap'
 import '../css/admin.css'
 import { ApiClient } from './api.js'
+import { initAdminCipherCategoryEdit } from './pages/admin-cipher-category-edit.js'
 
 window.api = new ApiClient()
 
@@ -19,3 +20,5 @@ if (sidebar && toggle) {
         localStorage.setItem(SIDEBAR_KEY, sidebar.classList.contains('collapsed') ? '1' : '0')
     })
 }
+
+initAdminCipherCategoryEdit()

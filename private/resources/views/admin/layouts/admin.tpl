@@ -26,6 +26,12 @@
                 <i class="bi bi-signpost-split me-2"></i>Редиректы
             </a>
         </li>
+        <li class="nav-item">
+            {assign var="cipher_categories_prefix" value=$admin_path|cat:'/cipher-categories'}
+            <a href="{$admin_path}/cipher-categories" class="nav-link text-white{if $current_path|starts_with:$cipher_categories_prefix} active{/if}">
+                <i class="bi bi-diagram-3 me-2"></i>Категории шифров
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">

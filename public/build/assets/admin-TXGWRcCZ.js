@@ -1,1 +1,0 @@
-import{A as a}from"./api-1OhUCsWC.js";window.api=new a;const t="admin_sidebar_collapsed",e=document.getElementById("admin-sidebar"),s=document.getElementById("sidebar-toggle");e&&s&&(localStorage.getItem(t)==="1"&&e.classList.add("collapsed"),s.addEventListener("click",()=>{e.classList.toggle("collapsed"),localStorage.setItem(t,e.classList.contains("collapsed")?"1":"0")}));

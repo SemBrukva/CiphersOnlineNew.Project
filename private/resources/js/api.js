@@ -87,5 +87,12 @@ export class ApiClient {
     admin = {
         /** GET /api/admin/stats */
         stats: () => this.#request('GET', '/admin/stats'),
+        /** POST /api/admin/cipher-categories/{id} */
+        saveCipherCategory: (id, data, csrfToken) => this.#request(
+            'POST',
+            `/admin/cipher-categories/${id}`,
+            data,
+            { 'X-CSRF-Token': csrfToken }
+        ),
     }
 }
