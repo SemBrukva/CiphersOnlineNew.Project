@@ -262,8 +262,14 @@ final class AdminController
             $name = trim((string) ($row['name'] ?? ''));
             $metaTitle = trim((string) ($row['meta_title'] ?? ''));
 
+            $nameShort = trim((string) ($row['name_short'] ?? ''));
+
             if (mb_strlen($name) > 255) {
                 $errors["translations.{$language}.name"][] = 'Название не должно превышать 255 символов.';
+            }
+
+            if (mb_strlen($nameShort) > 100) {
+                $errors["translations.{$language}.name_short"][] = 'Короткое название не должно превышать 100 символов.';
             }
 
             if (mb_strlen($metaTitle) > 255) {
@@ -275,7 +281,7 @@ final class AdminController
             throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
         }
 
-        $this->db->transaction(function () use ($cipherId, $alias, $sortOrder, $categoryId, $published, $allowFallback, $translations, $blocks, $faq, $examples, $availableLanguages): void {
+        $this->db->transaction(function () use ($cipherId, $alias, $sortOrder, $categoryId, $published, $translations, $blocks, $faq, $examples, $availableLanguages): void {
             $now = date('Y-m-d H:i:s');
 
             $this->ciphers->update($cipherId, [
@@ -380,6 +386,7 @@ final class AdminController
     private function upsertCipherTranslation(int $cipherId, string $language, array $row, string $now): void
     {
         $name = trim((string) ($row['name'] ?? ''));
+        $nameShort = trim((string) ($row['name_short'] ?? ''));
         $description = trim((string) ($row['description'] ?? ''));
         $metaTitle = trim((string) ($row['meta_title'] ?? ''));
         $metaDescription = trim((string) ($row['meta_description'] ?? ''));
@@ -389,7 +396,7 @@ final class AdminController
             [$cipherId, $language]
         );
 
-        $hasAnyValue = $name !== '' || $description !== '' || $metaTitle !== '' || $metaDescription !== '';
+        $hasAnyValue = $name !== '' || $nameShort !== '' || $description !== '' || $metaTitle !== '' || $metaDescription !== '';
 
         if (!$hasAnyValue) {
             if ($existing !== false) {
@@ -404,16 +411,16 @@ final class AdminController
 
         if ($existing === false) {
             $this->db->insert(
-                'INSERT INTO ' . Tables::CIPHERS_TRANSLATIONS . ' (app_id, language, name, description, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                [$cipherId, $language, $name, $description !== '' ? $description : null, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, $now]
+                'INSERT INTO ' . Tables::CIPHERS_TRANSLATIONS . ' (app_id, language, name, name_short, description, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [$cipherId, $language, $name, $nameShort, $description !== '' ? $description : null, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, $now]
             );
 
             return;
         }
 
         $this->db->execute(
-            'UPDATE ' . Tables::CIPHERS_TRANSLATIONS . ' SET name = ?, description = ?, meta_title = ?, meta_description = ?, updated_at = ? WHERE id = ?',
-            [$name, $description !== '' ? $description : null, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, (int) $existing['id']]
+            'UPDATE ' . Tables::CIPHERS_TRANSLATIONS . ' SET name = ?, name_short = ?, description = ?, meta_title = ?, meta_description = ?, updated_at = ? WHERE id = ?',
+            [$name, $nameShort, $description !== '' ? $description : null, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, (int) $existing['id']]
         );
     }
 

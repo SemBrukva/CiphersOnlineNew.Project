@@ -5,7 +5,7 @@
         {if $tools}
         <div class="ciphers-category-hub-hero__chips">
             {foreach $tools as $tool}
-                <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}/{$tool.alias}">{$tool.name}</a>
+                <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}/{$tool.alias}">{$tool.name_short}</a>
             {/foreach}
         </div>
         {/if}

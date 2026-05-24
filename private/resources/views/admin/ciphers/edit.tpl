@@ -87,6 +87,11 @@
                                    value="{$translation.name|default:''}">
                         </div>
                         <div class="mb-3">
+                            <label class="form-label fw-medium" for="cipher-name-short-{$language}">Короткое название</label>
+                            <input type="text" class="form-control" id="cipher-name-short-{$language}" data-cipher-field="name_short"
+                                   value="{$translation.name_short|default:''}" maxlength="100">
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label fw-medium" for="cipher-description-{$language}">Описание</label>
                             <textarea class="form-control" id="cipher-description-{$language}" rows="3" data-cipher-field="description">{$translation.description|default:''}</textarea>
                         </div>

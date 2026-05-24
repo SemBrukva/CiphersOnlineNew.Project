@@ -188,6 +188,7 @@ final class CipherRepository extends AbstractRepository
         return $this->db->fetchAll(
             'SELECT c.id, c.alias, c.category_id, c.sort_order, '
             . 'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
+            . 'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name_short, '
             . 'COALESCE(t_cur.description, t_def.description, \'\') AS description '
             . 'FROM ' . $this->table . ' c '
             . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
