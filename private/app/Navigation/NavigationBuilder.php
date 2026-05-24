@@ -59,7 +59,7 @@ final class NavigationBuilder
                 'label' => $this->translator->get('MENU_TOOLS'),
                 'url' => '#',
                 'active' => (bool) array_filter($toolsChildren, static fn (array $child): bool => $child['active']),
-                'icon' => null,
+                'icon' => 'bi-tools',
                 'children' => $toolsChildren,
             ];
         }

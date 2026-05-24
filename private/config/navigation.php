@@ -8,7 +8,6 @@ return [
 
     'main' => [
         ['title_key' => 'MENU_HOME',     'url' => '/'],
-        ['title_key' => 'MENU_CONTACTS', 'url' => '/contacts'],
     ],
 
 ];

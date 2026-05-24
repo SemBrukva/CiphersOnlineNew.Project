@@ -2,6 +2,380 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import './debug.css';
 
+/* === CiphersOnline Design Tokens === */
+:root {
+  --co-primary: #002340;
+  --co-primary-hover: #013d6b;
+  --co-accent: #c1ff00;
+  --co-accent-dim: #a8e000;
+  --co-bg: #f1f5f9;
+  --co-border: #e2e8f0;
+  --co-text-secondary: #475569;
+  --co-text-muted: #94a3b8;
+  --co-transition: 0.2s ease;
+}
+
+/* === Site Header === */
+.site-header {
+  background-color: var(--co-primary);
+  border-bottom: 3px solid var(--co-accent);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.site-header > .container {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.site-brand {
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.site-brand:hover {
+  color: var(--co-accent);
+  text-decoration: none;
+}
+
+.site-brand__icon {
+  font-size: 26px;
+  color: var(--co-accent);
+  flex-shrink: 0;
+}
+
+.site-header__btn {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  transition: background var(--co-transition), border-color var(--co-transition);
+}
+
+.site-header__btn:hover,
+.site-header__btn:focus {
+  background: rgba(255, 255, 255, 0.20);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.40);
+}
+
+.site-header__btn-admin {
+  background: rgba(193, 255, 0, 0.12);
+  border: 1.5px solid rgba(193, 255, 0, 0.35);
+  color: var(--co-accent);
+  border-radius: 8px;
+  font-size: 13px;
+  transition: background var(--co-transition);
+}
+
+.site-header__btn-admin:hover,
+.site-header__btn-admin:focus {
+  background: rgba(193, 255, 0, 0.22);
+  color: var(--co-accent);
+  border-color: rgba(193, 255, 0, 0.55);
+}
+
+/* Hamburger button */
+.site-hamburger {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.20);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  transition: background var(--co-transition);
+  flex-shrink: 0;
+}
+
+.site-hamburger:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.site-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* === Desktop nav links === */
+.site-header-link {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 11px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--co-transition), color var(--co-transition);
+  line-height: 1.4;
+}
+
+.site-header-link:hover,
+.site-header-link:focus {
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
+  outline: none;
+}
+
+.site-header-link.active {
+  color: var(--co-accent);
+}
+
+.site-header-link.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-header-link.dropdown-toggle::after {
+  border-top-color: rgba(255, 255, 255, 0.55);
+  transition: transform var(--co-transition);
+}
+
+.site-header .dropdown:hover > .site-header-link.dropdown-toggle::after,
+.site-header .dropdown:focus-within > .site-header-link.dropdown-toggle::after,
+.site-header .dropdown.show > .site-header-link.dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+/* === Header dropdown menu — hover + styled === */
+
+/* Всегда отрисован, скрыт через opacity/visibility (не display:none) */
+.site-header .dropdown-menu {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+
+  /* Dark navy styling */
+  background-color: #012b4e;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 2px solid var(--co-accent);
+  border-radius: 0 0 10px 10px;
+  padding: 6px 0;
+  min-width: 210px;
+  box-shadow: 0 20px 50px rgba(0, 10, 30, 0.55), 0 4px 14px rgba(0, 10, 30, 0.30);
+  margin-top: 2px;
+}
+
+/* Невидимый мост над меню — перекрывает зазор между триггером и меню */
+.site-header .dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+/* Показ: hover мышью, фокус клавиатурой, или Bootstrap JS (.show) */
+.site-header .dropdown:hover > .dropdown-menu,
+.site-header .dropdown:focus-within > .dropdown-menu,
+.site-header .dropdown.show > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
+}
+
+.site-header .dropdown-item {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 9px 18px;
+  border-radius: 0;
+  transition: background var(--co-transition), color var(--co-transition);
+}
+
+.site-header .dropdown-item + .site-header .dropdown-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-header .dropdown-item:hover,
+.site-header .dropdown-item:focus {
+  background: rgba(193, 255, 0, 0.08);
+  color: var(--co-accent);
+}
+
+.site-header .dropdown-item.active,
+.site-header .dropdown-item:active {
+  background: rgba(193, 255, 0, 0.14);
+  color: var(--co-accent);
+  font-weight: 500;
+}
+
+/* Разделитель между пунктами */
+.site-header .dropdown-menu li + li > .dropdown-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === Offcanvas Nav Drawer === */
+.site-nav {
+  background-color: var(--co-primary);
+  border-left: 3px solid var(--co-accent) !important;
+}
+
+.site-nav__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 16px 20px;
+}
+
+.site-nav__title {
+  color: var(--co-accent);
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-nav__body {
+  padding: 8px 0 20px;
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__item {
+  font-size: 15px;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 9px 20px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition: background var(--co-transition), color var(--co-transition);
+}
+
+.site-nav__link:hover,
+.site-nav__link.active {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--co-accent);
+}
+
+.site-nav__group-label {
+  display: block;
+  padding: 9px 20px 3px;
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-nav__sub {
+  list-style: none;
+  padding: 0 0 4px 28px;
+  margin: 0;
+}
+
+.site-nav__sublink {
+  display: block;
+  padding: 6px 20px;
+  color: rgba(255, 255, 255, 0.60);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color var(--co-transition);
+}
+
+.site-nav__sublink:hover,
+.site-nav__sublink.active {
+  color: var(--co-accent);
+}
+
+.site-nav__locales {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  margin-top: 12px;
+}
+
+.site-nav__locale {
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.70);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--co-transition), color var(--co-transition);
+}
+
+.site-nav__locale:hover,
+.site-nav__locale.active {
+  background: rgba(193, 255, 0, 0.18);
+  color: var(--co-accent);
+}
+
+/* === Site Footer === */
+.site-footer {
+  background-color: var(--co-primary);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 36px 0;
+  font-size: 14px;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color var(--co-transition);
+}
+
+.site-footer a:hover {
+  color: var(--co-accent);
+  text-decoration: none;
+}
+
+.site-footer p {
+  margin-bottom: 12px;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+@media (max-width: 500px) {
+  .site-footer {
+    padding: 24px 0;
+  }
+
+  .footer-nav {
+    gap: 6px 12px;
+    font-size: 13px;
+  }
+}
+
 .contact-page {
     border-radius: 1rem;
     overflow: hidden;
@@ -146,40 +520,82 @@
 }
 
 .ciphers-category-hub-hero {
-  padding: 1.5rem 0 0.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #001a30 0%, var(--co-primary) 52%, #013d6b 100%);
+  box-shadow: 0 6px 32px rgba(0, 35, 64, 0.28), 0 2px 8px rgba(0, 35, 64, 0.16);
+  margin-bottom: 20px;
+}
+
+/* Акцентное свечение — правый верхний угол */
+.ciphers-category-hub-hero::before {
+  content: '';
+  position: absolute;
+  top: -35%;
+  right: -8%;
+  width: 52%;
+  height: 180%;
+  background: radial-gradient(ellipse at center, rgba(193, 255, 0, 0.09) 0%, transparent 62%);
+  pointer-events: none;
 }
 
 .ciphers-category-hub-hero__inner {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 1rem;
-  padding: 2rem;
-  color: #e2e8f0;
-  box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.12);
+  position: relative;
+  z-index: 1;
+  padding: 30px 34px 34px;
 }
 
 .ciphers-category-hub-hero__title {
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+  margin: 0 0 10px;
+  font-size: 32px;
   line-height: 1.2;
-  color: #f8fafc;
+  letter-spacing: -0.6px;
+  color: #fff;
 }
 
 .ciphers-category-hub-hero__desc {
   margin: 0;
-  max-width: 60ch;
-  line-height: 1.55;
-  color: #cbd5e1;
+  max-width: 760px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .ciphers-category-hub-hero__chips {
-  margin-top: 1.25rem;
+  margin-top: 22px;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 8px;
+}
+
+.ciphers-category-hub-hero__chips a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(193, 255, 0, 0.42);
+  background: rgba(193, 255, 0, 0.12);
+  color: var(--co-accent);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--co-transition), border-color var(--co-transition);
+}
+
+.ciphers-category-hub-hero__chips a:hover {
+  background: rgba(193, 255, 0, 0.22);
+  border-color: rgba(193, 255, 0, 0.62);
+  color: var(--co-accent);
 }
 
 @media (max-width: 768px) {
   .ciphers-category-hub-hero__inner {
-    padding: 1.25rem;
+    padding: 22px 20px 24px;
+  }
+
+  .ciphers-category-hub-hero__title {
+    font-size: 24px;
+    letter-spacing: -0.3px;
   }
 }

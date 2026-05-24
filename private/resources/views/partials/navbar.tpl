@@ -1,22 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header class="site-header">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{$locale_prefix|default:'/'}">
-            <i class="bi bi-layers me-1"></i> Skeleton
-        </a>
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#mainNav"
-                aria-controls="mainNav" aria-expanded="false" aria-label="Menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="d-flex align-items-center gap-3">
+
+            {* Логотип — всегда виден *}
+            <a class="site-brand flex-shrink-0" href="{$locale_prefix|default:'/'}">
+                <i class="bi bi-shield-lock-fill site-brand__icon"></i>
+                CiphersOnline
+            </a>
+
+            {* Десктопная навигация (≥lg) *}
+            <nav class="d-none d-lg-flex align-items-center gap-1 flex-grow-1">
                 {foreach $nav_main as $item}
                     {if isset($item.children) && $item.children}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle{if $item.active} active{/if}" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="dropdown">
+                            <button class="site-header-link dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
                                 {$item.label}
-                            </a>
+                            </button>
                             <ul class="dropdown-menu">
                                 {foreach $item.children as $child}
                                     <li>
@@ -26,21 +27,21 @@
                                     </li>
                                 {/foreach}
                             </ul>
-                        </li>
+                        </div>
                     {else}
-                        <li class="nav-item">
-                            <a class="nav-link{if $item.active} active{/if}" href="{$item.url}">
-                                {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
-                                {$item.label}
-                            </a>
-                        </li>
+                        <a class="site-header-link{if $item.active} active{/if}" href="{$item.url}">
+                            {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
+                            {$item.label}
+                        </a>
                     {/if}
                 {/foreach}
-            </ul>
-            <div class="d-flex align-items-center gap-2">
+            </nav>
+
+            {* Десктопная правая панель: языки + авторизация (≥lg) *}
+            <div class="d-none d-lg-flex align-items-center gap-2 ms-auto">
                 {if $multilang && $auth_user === null && $available_locales|@count > 1}
                     <div class="dropdown">
-                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button"
+                        <button class="site-header-link dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             {$current_locale|upper}
                         </button>
@@ -59,23 +60,104 @@
 
                 {if $auth_user !== null}
                     {if $is_admin}
-                        <a href="{$admin_path}" class="btn btn-outline-warning btn-sm">
+                        <a href="{$admin_path}" class="btn btn-sm site-header__btn-admin d-inline-flex align-items-center">
                             <i class="bi bi-shield-lock me-1"></i>{$t.MENU_ADMIN}
                         </a>
                     {/if}
                     <form method="POST" action="{$locale_prefix}/logout" class="m-0">
                         <input type="hidden" name="_csrf_token" value="{$csrf_token}">
-                        <button type="submit" class="btn btn-outline-light btn-sm">
+                        <button type="submit" class="btn btn-sm site-header__btn d-inline-flex align-items-center">
                             <i class="bi bi-box-arrow-right me-1"></i>{$t.AUTH_SIGN_OUT}
                         </button>
                     </form>
                 {else}
-                    <button type="button" class="btn btn-outline-light btn-sm"
+                    <button type="button" class="btn btn-sm site-header__btn d-inline-flex align-items-center"
                             data-bs-toggle="modal" data-bs-target="#loginModal">
                         <i class="bi bi-box-arrow-in-right me-1"></i>{$t.AUTH_SIGN_IN}
                     </button>
                 {/if}
             </div>
+
+            {* Мобильный бургер (<lg) *}
+            <button class="site-hamburger d-flex d-lg-none ms-auto" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#siteNav"
+                    aria-controls="siteNav" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
         </div>
     </div>
-</nav>
+</header>
+
+{* Offcanvas drawer — только для мобильного *}
+<div class="offcanvas offcanvas-end site-nav" id="siteNav" tabindex="-1"
+     aria-labelledby="siteNavLabel">
+    <div class="offcanvas-header site-nav__header">
+        <div class="site-nav__title" id="siteNavLabel">Navigation</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body site-nav__body">
+        {if $nav_main}
+            <ul class="site-nav__list">
+                {foreach $nav_main as $item}
+                    {if isset($item.children) && $item.children}
+                        <li class="site-nav__item">
+                            <span class="site-nav__group-label">{$item.label}</span>
+                            <ul class="site-nav__sub">
+                                {foreach $item.children as $child}
+                                    <li>
+                                        <a class="site-nav__sublink{if $child.active} active{/if}" href="{$child.url}">
+                                            {$child.label}
+                                        </a>
+                                    </li>
+                                {/foreach}
+                            </ul>
+                        </li>
+                    {else}
+                        <li class="site-nav__item">
+                            <a class="site-nav__link{if $item.active} active{/if}" href="{$item.url}">
+                                {if $item.icon}<i class="bi {$item.icon} me-2"></i>{/if}
+                                {$item.label}
+                            </a>
+                        </li>
+                    {/if}
+                {/foreach}
+            </ul>
+        {/if}
+
+        <div class="px-3 mt-3 d-flex flex-column gap-2">
+            {if $auth_user !== null}
+                {if $is_admin}
+                    <a href="{$admin_path}" class="btn btn-sm site-header__btn-admin d-flex align-items-center justify-content-center">
+                        <i class="bi bi-shield-lock me-1"></i>{$t.MENU_ADMIN}
+                    </a>
+                {/if}
+                <form method="POST" action="{$locale_prefix}/logout" class="m-0">
+                    <input type="hidden" name="_csrf_token" value="{$csrf_token}">
+                    <button type="submit" class="btn btn-sm site-header__btn w-100 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-box-arrow-right me-1"></i>{$t.AUTH_SIGN_OUT}
+                    </button>
+                </form>
+            {else}
+                <button type="button" class="btn btn-sm site-header__btn w-100 d-flex align-items-center justify-content-center"
+                        data-bs-toggle="modal" data-bs-target="#loginModal"
+                        data-bs-dismiss="offcanvas">
+                    <i class="bi bi-box-arrow-in-right me-1"></i>{$t.AUTH_SIGN_IN}
+                </button>
+            {/if}
+        </div>
+
+        {if $multilang && $auth_user === null && $available_locales|@count > 1}
+            <div class="site-nav__locales">
+                {foreach $available_locales as $lang}
+                    <a class="site-nav__locale{if $lang === $current_locale} active{/if}"
+                       href="{$locale_urls[$lang]}">
+                        {$lang|upper}
+                    </a>
+                {/foreach}
+            </div>
+        {/if}
+    </div>
+</div>

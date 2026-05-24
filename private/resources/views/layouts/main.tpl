@@ -15,9 +15,12 @@
         {assign var="x_default_url" value=$locale_urls[$default_locale]|default:$canonical_path}
         <link rel="alternate" hreflang="x-default" href="{$app_url}{$x_default_url}">
     {/if}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     {vite entry="private/resources/js/app.js" type="css"}
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" style="font-family:'Inter',system-ui,sans-serif;">
 
 {include file="partials/navbar.tpl"}
 
@@ -51,25 +54,16 @@
     </div>
 </main>
 
-<footer class="bg-dark text-light py-3 mt-auto">
+<footer class="site-footer mt-auto">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-start small">
-                &copy; {$current_year} Skeleton
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <nav class="d-inline-flex flex-wrap gap-3">
-                    {foreach $nav_pages as $pg}
-                        <a href="{$locale_prefix}/page/{$pg.alias}" class="text-light text-decoration-none small">
-                            {$pg.name}
-                        </a>
-                    {/foreach}
-                    <a href="{$locale_prefix}/sitemap" class="text-light text-decoration-none small">
-                        {$t.MENU_SITEMAP}
-                    </a>
-                </nav>
-            </div>
-        </div>
+        <p>&copy; {$current_year} CiphersOnline &mdash; catalog of popular encryption systems with the ability to encrypt and decrypt text online.</p>
+        <ul class="footer-nav">
+            {foreach $nav_pages as $pg}
+                <li><a href="{$locale_prefix}/page/{$pg.alias}">{$pg.name}</a></li>
+            {/foreach}
+            <li><a href="{$locale_prefix}/contacts">{$t.MENU_CONTACTS|default:'Contacts'}</a></li>
+            <li><a href="{$locale_prefix}/sitemap">{$t.MENU_SITEMAP}</a></li>
+        </ul>
     </div>
 </footer>
 
