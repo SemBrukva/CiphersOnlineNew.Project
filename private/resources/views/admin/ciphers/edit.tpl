@@ -116,6 +116,12 @@
                                         <textarea class="form-control" id="cipher-description-{$language}" rows="3"
                                                   data-cipher-field="description">{$translation.description|default:''}</textarea>
                                     </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-medium" for="cipher-description-stort-{$language}">Короткое описание</label>
+                                        <input type="text" class="form-control" id="cipher-description-stort-{$language}"
+                                               data-cipher-field="description_stort"
+                                               value="{$translation.description_stort|default:''}" maxlength="255">
+                                    </div>
                                     <div class="col-md-6">
                                         <label class="form-label fw-medium" for="cipher-meta-title-{$language}">Meta title</label>
                                         <input type="text" class="form-control" id="cipher-meta-title-{$language}"

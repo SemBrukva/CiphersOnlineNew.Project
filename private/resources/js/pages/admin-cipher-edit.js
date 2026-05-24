@@ -243,6 +243,7 @@ export function initAdminCipherEdit() {
                 name:             String(section.querySelector('[data-cipher-field="name"]')?.value ?? '').trim(),
                 name_short:       String(section.querySelector('[data-cipher-field="name_short"]')?.value ?? '').trim(),
                 description:      String(section.querySelector('[data-cipher-field="description"]')?.value ?? '').trim(),
+                description_stort: String(section.querySelector('[data-cipher-field="description_stort"]')?.value ?? '').trim(),
                 meta_title:       String(section.querySelector('[data-cipher-field="meta_title"]')?.value ?? '').trim(),
                 meta_description: String(section.querySelector('[data-cipher-field="meta_description"]')?.value ?? '').trim(),
             }

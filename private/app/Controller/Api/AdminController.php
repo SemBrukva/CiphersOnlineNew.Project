@@ -272,6 +272,7 @@ final class AdminController
             $metaTitle = trim((string) ($row['meta_title'] ?? ''));
 
             $nameShort = trim((string) ($row['name_short'] ?? ''));
+            $descriptionStort = trim((string) ($row['description_stort'] ?? ''));
 
             if (mb_strlen($name) > 255) {
                 $errors["translations.{$language}.name"][] = 'Название не должно превышать 255 символов.';
@@ -279,6 +280,10 @@ final class AdminController
 
             if (mb_strlen($nameShort) > 100) {
                 $errors["translations.{$language}.name_short"][] = 'Короткое название не должно превышать 100 символов.';
+            }
+
+            if (mb_strlen($descriptionStort) > 255) {
+                $errors["translations.{$language}.description_stort"][] = 'Короткое описание не должно превышать 255 символов.';
             }
 
             if (mb_strlen($metaTitle) > 255) {
@@ -590,6 +595,7 @@ final class AdminController
         $name = trim((string) ($row['name'] ?? ''));
         $nameShort = trim((string) ($row['name_short'] ?? ''));
         $description = trim((string) ($row['description'] ?? ''));
+        $descriptionStort = trim((string) ($row['description_stort'] ?? ''));
         $metaTitle = trim((string) ($row['meta_title'] ?? ''));
         $metaDescription = trim((string) ($row['meta_description'] ?? ''));
 
@@ -598,7 +604,7 @@ final class AdminController
             [$cipherId, $language]
         );
 
-        $hasAnyValue = $name !== '' || $nameShort !== '' || $description !== '' || $metaTitle !== '' || $metaDescription !== '';
+        $hasAnyValue = $name !== '' || $nameShort !== '' || $description !== '' || $descriptionStort !== '' || $metaTitle !== '' || $metaDescription !== '';
 
         if (!$hasAnyValue) {
             if ($existing !== false) {
@@ -613,16 +619,16 @@ final class AdminController
 
         if ($existing === false) {
             $this->db->insert(
-                'INSERT INTO ' . Tables::CIPHERS_TRANSLATIONS . ' (app_id, language, name, name_short, description, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                [$cipherId, $language, $name, $nameShort, $description !== '' ? $description : null, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, $now]
+                'INSERT INTO ' . Tables::CIPHERS_TRANSLATIONS . ' (app_id, language, name, name_short, description, description_stort, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [$cipherId, $language, $name, $nameShort, $description !== '' ? $description : null, $descriptionStort, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, $now]
             );
 
             return;
         }
 
         $this->db->execute(
-            'UPDATE ' . Tables::CIPHERS_TRANSLATIONS . ' SET name = ?, name_short = ?, description = ?, meta_title = ?, meta_description = ?, updated_at = ? WHERE id = ?',
-            [$name, $nameShort, $description !== '' ? $description : null, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, (int) $existing['id']]
+            'UPDATE ' . Tables::CIPHERS_TRANSLATIONS . ' SET name = ?, name_short = ?, description = ?, description_stort = ?, meta_title = ?, meta_description = ?, updated_at = ? WHERE id = ?',
+            [$name, $nameShort, $description !== '' ? $description : null, $descriptionStort, $metaTitle, $metaDescription !== '' ? $metaDescription : null, $now, (int) $existing['id']]
         );
     }
 

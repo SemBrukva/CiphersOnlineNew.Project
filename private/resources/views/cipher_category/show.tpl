@@ -27,7 +27,7 @@
                     <a href="/{$category.alias}/{$tool.alias}">{$tool.name}</a>
                 </h2>
                 {if $tool.description}
-                <p class="ciphers-category-hub-card__desc">{$tool.description}</p>
+                <p class="ciphers-category-hub-card__desc">{$tool.description_short}</p>
                 {/if}
                 <span class="ciphers-category-hub-card__arrow" aria-hidden="true">→</span>
             </article>
