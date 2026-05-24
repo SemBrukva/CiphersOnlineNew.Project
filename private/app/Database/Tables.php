@@ -35,4 +35,28 @@ final class Tables
 
     /** @var string Таблица переводов категорий шифров. */
     public const string CIPHER_CATEGORY_TRANSLATIONS = 'cipher_category_translations';
+
+    /** @var string Таблица приложений-шифров. */
+    public const string CIPHERS = 'ciphers';
+
+    /** @var string Таблица переводов приложений-шифров. */
+    public const string CIPHERS_TRANSLATIONS = 'ciphers_translations';
+
+    /** @var string Таблица блоков контента приложений-шифров. */
+    public const string CIPHERS_BLOCKS = 'ciphers_blocks';
+
+    /** @var string Таблица переводов блоков контента приложений-шифров. */
+    public const string CIPHERS_BLOCKS_TRANSLATIONS = 'ciphers_blocks_translations';
+
+    /** @var string Таблица примеров приложений-шифров. */
+    public const string CIPHERS_EXAMPLES = 'ciphers_examples';
+
+    /** @var string Таблица переводов примеров приложений-шифров. */
+    public const string CIPHERS_EXAMPLES_TRANSLATIONS = 'ciphers_examples_translations';
+
+    /** @var string Таблица FAQ приложений-шифров. */
+    public const string CIPHERS_FAQ = 'ciphers_faq';
+
+    /** @var string Таблица переводов FAQ приложений-шифров. */
+    public const string CIPHERS_FAQ_TRANSLATIONS = 'ciphers_faq_translations';
 }
