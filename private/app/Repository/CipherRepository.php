@@ -179,6 +179,26 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает опубликованные шифры категории с переводами для указанного языка (с fallback на defaultLanguage).
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findPublishedByCategoryWithTranslation(int $categoryId, string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT c.id, c.alias, c.category_id, c.sort_order, '
+            . 'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
+            . 'COALESCE(t_cur.description, t_def.description, \'\') AS description '
+            . 'FROM ' . $this->table . ' c '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_def ON t_def.app_id = c.id AND t_def.language = ? '
+            . 'WHERE c.category_id = ? AND c.published = 1 '
+            . 'ORDER BY c.sort_order ASC, c.id ASC',
+            [$language, $defaultLanguage, $categoryId]
+        );
+    }
+
+    /**
      * Проверяет уникальность alias среди шифров.
      */
     public function existsByAlias(string $alias, ?int $exceptId = null): bool

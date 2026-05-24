@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
+use App\Repository\CipherRepository;
 use App\View\View;
 
 /**
@@ -19,7 +20,8 @@ final readonly class CipherCategoryController
      */
     public function __construct(
         private View $view,
-        private CipherCategoryRepository $categories
+        private CipherCategoryRepository $categories,
+        private CipherRepository $ciphers
     ) {
     }
 
@@ -48,11 +50,19 @@ final readonly class CipherCategoryController
         $title = (string) ($category['name'] ?? $category['alias']);
         $metaDescription = (string) ($category['meta_description'] ?? '');
 
+        $defaultLanguage = (string) config('locale.locale', 'en');
+        $tools = $this->ciphers->findPublishedByCategoryWithTranslation(
+            (int) $category['id'],
+            $language,
+            $defaultLanguage
+        );
+
         $this->view
             ->setTitle($title)
             ->setMeta($metaDescription)
             ->setContent($this->view->fetch('cipher_category/show.tpl', [
                 'category' => $category,
+                'tools'    => $tools,
             ]));
 
         return new Response($this->view->render());

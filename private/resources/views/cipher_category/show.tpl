@@ -2,6 +2,37 @@
     <div class="ciphers-category-hub-hero__inner">
         <h1 class="ciphers-category-hub-hero__title">{$category.name}</h1>
         <p class="ciphers-category-hub-hero__desc">{$category.description|default:''}</p>
-        <div class="ciphers-category-hub-hero__chips"></div>
+        {if $tools}
+        <div class="ciphers-category-hub-hero__chips">
+            {foreach $tools as $tool}
+                <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}/{$tool.alias}">{$tool.name}</a>
+            {/foreach}
+        </div>
+        {/if}
     </div>
 </section>
+
+{if $tools}
+<section class="panel ciphers-category-hub-panel" id="category-tools">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="bi bi-tools"></i> {$category.name}
+        </div>
+    </div>
+    <div class="panel-content">
+        <div class="ciphers-category-hub-grid">
+            {foreach $tools as $tool}
+            <article class="ciphers-category-hub-card">
+                <h2 class="ciphers-category-hub-card__title">
+                    <a href="/{$category.alias}/{$tool.alias}">{$tool.name}</a>
+                </h2>
+                {if $tool.description}
+                <p class="ciphers-category-hub-card__desc">{$tool.description}</p>
+                {/if}
+                <span class="ciphers-category-hub-card__arrow" aria-hidden="true">→</span>
+            </article>
+            {/foreach}
+        </div>
+    </div>
+</section>
+{/if}
