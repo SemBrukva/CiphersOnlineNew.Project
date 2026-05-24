@@ -59,4 +59,10 @@ final class Tables
 
     /** @var string Таблица переводов FAQ приложений-шифров. */
     public const string CIPHERS_FAQ_TRANSLATIONS = 'ciphers_faq_translations';
+
+    /** @var string Таблица тегов приложений-шифров. */
+    public const string CIPHERS_TAGS = 'ciphers_tags';
+
+    /** @var string Таблица переводов тегов приложений-шифров. */
+    public const string CIPHERS_TAGS_TRANSLATIONS = 'ciphers_tags_translations';
 }

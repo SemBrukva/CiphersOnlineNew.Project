@@ -103,6 +103,19 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает список тегов шифра.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function listTagsByCipherId(int $cipherId): array
+    {
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_TAGS . ' WHERE app_id = ? ORDER BY sort_order ASC, id ASC',
+            [$cipherId]
+        );
+    }
+
+    /**
      * Возвращает переводы шифра.
      *
      * @return array<int, array<string, mixed>>
@@ -175,6 +188,27 @@ final class CipherRepository extends AbstractRepository
             'SELECT * FROM ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS
             . ' WHERE example_id IN (' . $placeholders . ') ORDER BY example_id ASC, language ASC, id ASC',
             $exampleIds
+        );
+    }
+
+    /**
+     * Возвращает переводы тегов для списка id тегов.
+     *
+     * @param  int[] $tagIds Список ID тегов.
+     * @return array<int, array<string, mixed>>
+     */
+    public function listTagTranslationsByTagIds(array $tagIds): array
+    {
+        if ($tagIds === []) {
+            return [];
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($tagIds), '?'));
+
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_TAGS_TRANSLATIONS
+            . ' WHERE tag_id IN (' . $placeholders . ') ORDER BY tag_id ASC, language ASC, id ASC',
+            $tagIds
         );
     }
 

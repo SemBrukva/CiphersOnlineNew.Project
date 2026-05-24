@@ -50,7 +50,7 @@
             <li><a class="dropdown-item" href="/cabinet"><i class="bi bi-person me-1"></i>Кабинет</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
-                <form method="POST" action="/logout" class="m-0">
+                <form method="POST" action="{$locale_prefix}/logout" class="m-0">
                     <input type="hidden" name="_csrf_token" value="{$csrf_token}">
                     <button type="submit" class="dropdown-item text-danger">
                         <i class="bi bi-box-arrow-right me-1"></i>Выйти

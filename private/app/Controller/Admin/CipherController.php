@@ -265,12 +265,21 @@ final class CipherController
             'language'
         );
 
+        $tags = $this->ciphers->listTagsByCipherId($cipherId);
+        $tagIds = array_map(static fn (array $row): int => (int) ($row['id'] ?? 0), $tags);
+        $tagTranslations = $this->groupByEntityAndLanguage(
+            $this->ciphers->listTagTranslationsByTagIds($tagIds),
+            'tag_id',
+            'language'
+        );
+
         return [
             'cipher' => $cipher,
             'translations_by_language' => $cipherTranslations,
             'blocks' => $this->attachTranslations($blocks, $blockTranslations),
             'faq' => $this->attachTranslations($faqItems, $faqTranslations),
             'examples' => $this->attachTranslations($examples, $exampleTranslations),
+            'tags' => $this->attachTranslations($tags, $tagTranslations),
             'available_languages' => $availableLanguages,
         ];
     }

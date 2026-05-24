@@ -225,6 +225,15 @@ final class AdminController
         $blocks = is_array($payload['blocks'] ?? null) ? $payload['blocks'] : [];
         $faq = is_array($payload['faq'] ?? null) ? $payload['faq'] : [];
         $examples = is_array($payload['examples'] ?? null) ? $payload['examples'] : [];
+        $tags = is_array($payload['tags'] ?? null) ? $payload['tags'] : [];
+        $newBlocks = is_array($payload['new_blocks'] ?? null) ? $payload['new_blocks'] : [];
+        $newFaq = is_array($payload['new_faq'] ?? null) ? $payload['new_faq'] : [];
+        $newExamples = is_array($payload['new_examples'] ?? null) ? $payload['new_examples'] : [];
+        $newTags = is_array($payload['new_tags'] ?? null) ? $payload['new_tags'] : [];
+        $deleteBlocks = array_map('intval', is_array($payload['delete_blocks'] ?? null) ? $payload['delete_blocks'] : []);
+        $deleteFaq = array_map('intval', is_array($payload['delete_faq'] ?? null) ? $payload['delete_faq'] : []);
+        $deleteExamples = array_map('intval', is_array($payload['delete_examples'] ?? null) ? $payload['delete_examples'] : []);
+        $deleteTags = array_map('intval', is_array($payload['delete_tags'] ?? null) ? $payload['delete_tags'] : []);
 
         $availableLanguages = array_values(array_filter(array_map(
             static fn (mixed $language): string => mb_strtolower(trim((string) $language)),
@@ -277,11 +286,43 @@ final class AdminController
             }
         }
 
+        foreach ($tags as $index => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+            foreach ($itemTranslations as $language => $translation) {
+                if (!in_array((string) $language, $availableLanguages, true) || !is_array($translation)) {
+                    continue;
+                }
+
+                $tagValue = trim((string) ($translation['tag'] ?? ''));
+
+                if (mb_strlen($tagValue) > 100) {
+                    $errors["tags.{$index}.translations.{$language}.tag"][] = 'Tag не должен превышать 100 символов.';
+                }
+            }
+        }
+
         if ($errors !== []) {
             throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
         }
 
-        $this->db->transaction(function () use ($cipherId, $alias, $sortOrder, $categoryId, $published, $translations, $blocks, $faq, $examples, $availableLanguages): void {
+        $createdBlocks = [];
+        $createdFaq = [];
+        $createdExamples = [];
+        $createdTags = [];
+
+        $this->db->transaction(function () use (
+            $cipherId, $alias, $sortOrder, $categoryId, $published,
+            $translations, $blocks, $faq, $examples, $tags,
+            $newBlocks, $newFaq, $newExamples, $newTags,
+            $deleteBlocks, $deleteFaq, $deleteExamples, $deleteTags,
+            $availableLanguages,
+            &$createdBlocks, &$createdFaq, &$createdExamples, &$createdTags
+        ): void {
             $now = date('Y-m-d H:i:s');
 
             $this->ciphers->update($cipherId, [
@@ -297,6 +338,30 @@ final class AdminController
                 $this->upsertCipherTranslation($cipherId, $language, $row, $now);
             }
 
+            foreach ($deleteBlocks as $blockId) {
+                if ($this->isOwnedEntity(Tables::CIPHERS_BLOCKS, 'app_id', $cipherId, $blockId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_BLOCKS . ' WHERE id = ?', [$blockId]);
+                }
+            }
+
+            foreach ($deleteFaq as $faqId) {
+                if ($this->isOwnedEntity(Tables::CIPHERS_FAQ, 'app_id', $cipherId, $faqId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_FAQ . ' WHERE id = ?', [$faqId]);
+                }
+            }
+
+            foreach ($deleteExamples as $exampleId) {
+                if ($this->isOwnedEntity(Tables::CIPHERS_EXAMPLES, 'app_id', $cipherId, $exampleId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_EXAMPLES . ' WHERE id = ?', [$exampleId]);
+                }
+            }
+
+            foreach ($deleteTags as $tagId) {
+                if ($this->isOwnedEntity(Tables::CIPHERS_TAGS, 'app_id', $cipherId, $tagId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_TAGS . ' WHERE id = ?', [$tagId]);
+                }
+            }
+
             foreach ($blocks as $row) {
                 if (!is_array($row)) {
                     continue;
@@ -307,6 +372,11 @@ final class AdminController
                 if (!$this->isOwnedEntity(Tables::CIPHERS_BLOCKS, 'app_id', $cipherId, $blockId)) {
                     continue;
                 }
+
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_BLOCKS . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $blockId]
+                );
 
                 $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
 
@@ -327,6 +397,11 @@ final class AdminController
                     continue;
                 }
 
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_FAQ . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $faqId]
+                );
+
                 $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
 
                 foreach ($availableLanguages as $language) {
@@ -346,6 +421,11 @@ final class AdminController
                     continue;
                 }
 
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $exampleId]
+                );
+
                 $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
 
                 foreach ($availableLanguages as $language) {
@@ -353,11 +433,133 @@ final class AdminController
                     $this->upsertExampleTranslation($exampleId, $language, $translation, $now);
                 }
             }
+
+            foreach ($tags as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tagId = (int) ($row['id'] ?? 0);
+
+                if (!$this->isOwnedEntity(Tables::CIPHERS_TAGS, 'app_id', $cipherId, $tagId)) {
+                    continue;
+                }
+
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_TAGS . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $tagId]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertTagTranslation($tagId, $language, $translation, $now);
+                }
+            }
+
+            foreach ($newBlocks as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_BLOCKS . ' (app_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                    [$cipherId, max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $now]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertBlockTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdBlocks[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
+
+            foreach ($newFaq as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_FAQ . ' (app_id, sort_order, published, show_in_category, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                    [$cipherId, max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, 0, $now, $now]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertFaqTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdFaq[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
+
+            foreach ($newExamples as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                    [$cipherId, max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $now]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertExampleTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdExamples[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
+
+            foreach ($newTags as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_TAGS . ' (app_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                    [$cipherId, max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $now]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertTagTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdTags[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
         });
 
         return Response::json([
             'ok' => true,
             'message' => 'Шифр и контент сохранены.',
+            'created' => [
+                'blocks'   => $createdBlocks,
+                'faq'      => $createdFaq,
+                'examples' => $createdExamples,
+                'tags'     => $createdTags,
+            ],
         ]);
     }
 
@@ -543,6 +745,45 @@ final class AdminController
         $this->db->execute(
             'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, input = ?, output = ?, description = ?, updated_at = ? WHERE id = ?',
             [$title, $input, $output, $description, $now, (int) $existing['id']]
+        );
+    }
+
+    /**
+     * Создаёт или обновляет перевод тега.
+     *
+     * @param array<string, mixed> $row Данные перевода.
+     */
+    private function upsertTagTranslation(int $tagId, string $language, array $row, string $now): void
+    {
+        $tagValue = trim((string) ($row['tag'] ?? ''));
+        $existing = $this->db->fetch(
+            'SELECT id FROM ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' WHERE tag_id = ? AND language = ? LIMIT 1',
+            [$tagId, $language]
+        );
+
+        if ($tagValue === '') {
+            if ($existing !== false) {
+                $this->db->execute(
+                    'DELETE FROM ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' WHERE tag_id = ? AND language = ?',
+                    [$tagId, $language]
+                );
+            }
+
+            return;
+        }
+
+        if ($existing === false) {
+            $this->db->insert(
+                'INSERT INTO ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' (tag_id, language, tag, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                [$tagId, $language, $tagValue, $now, $now]
+            );
+
+            return;
+        }
+
+        $this->db->execute(
+            'UPDATE ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' SET tag = ?, updated_at = ? WHERE id = ?',
+            [$tagValue, $now, (int) $existing['id']]
         );
     }
 }

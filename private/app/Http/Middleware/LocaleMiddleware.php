@@ -74,7 +74,7 @@ final readonly class LocaleMiddleware implements MiddlewareInterface
 
         $route = $this->routeMatcher->match($request->getMethod(), $strippedPath);
 
-        if ($route === null || $this->isPrivateRoute($route)) {
+        if ($route === null || $this->isAdminPath($strippedPath) || $this->isPrivateRoute($route)) {
             // Приватные и неизвестные маршруты (в т.ч. /admin) — языковой префикс недопустим
             if ($hasPrefix) {
                 return new Response('', 404);
@@ -140,6 +140,18 @@ final readonly class LocaleMiddleware implements MiddlewareInterface
         $prefix = '/' . $locale;
 
         return $strippedPath === '/' ? $prefix : $prefix . $strippedPath;
+    }
+
+    /**
+     * Возвращает true, если путь относится к панели администратора.
+     *
+     * Admin-маршруты обрабатываются отдельным роутером и не должны получать языковой префикс.
+     */
+    private function isAdminPath(string $path): bool
+    {
+        $adminPath = config('admin.path', '/admin');
+
+        return $path === $adminPath || str_starts_with($path, $adminPath . '/');
     }
 
     /**
