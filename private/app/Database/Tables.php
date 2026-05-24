@@ -29,4 +29,10 @@ final class Tables
 
     /** @var string Таблица задач очереди, исчерпавших попытки выполнения. */
     public const string FAILED_JOBS = 'failed_jobs';
+
+    /** @var string Таблица категорий шифров. */
+    public const string CIPHER_CATEGORIES = 'cipher_categories';
+
+    /** @var string Таблица переводов категорий шифров. */
+    public const string CIPHER_CATEGORY_TRANSLATIONS = 'cipher_category_translations';
 }
