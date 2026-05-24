@@ -29,6 +29,13 @@
                 {if $tool.description}
                 <p class="ciphers-category-hub-card__desc">{$tool.description_short}</p>
                 {/if}
+                {if $tool.tags}
+                <div class="ciphers-category-hub-card__badges">
+                    {foreach $tool.tags as $tag}
+                    <span class="ciphers-category-hub-badge">{$tag}</span>
+                    {/foreach}
+                </div>
+                {/if}
                 <span class="ciphers-category-hub-card__arrow" aria-hidden="true">→</span>
             </article>
             {/foreach}

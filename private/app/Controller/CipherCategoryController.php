@@ -57,6 +57,14 @@ final readonly class CipherCategoryController
             $defaultLanguage
         );
 
+        $cipherIds = array_map(static fn(array $t) => (int) $t['id'], $tools);
+        $tagsByCipher = $this->ciphers->findTagsGroupedByCipherIds($cipherIds, $language, $defaultLanguage);
+
+        foreach ($tools as &$tool) {
+            $tool['tags'] = $tagsByCipher[(int) $tool['id']] ?? [];
+        }
+        unset($tool);
+
         $this->view
             ->setTitle($title)
             ->setMeta($metaDescription)

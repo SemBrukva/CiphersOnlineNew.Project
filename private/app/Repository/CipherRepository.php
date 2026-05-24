@@ -235,6 +235,49 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает теги с переводами для списка шифров, сгруппированные по cipher_id.
+     *
+     * @param  int[]  $cipherIds      Список ID шифров.
+     * @param  string $language       Целевой язык.
+     * @param  string $defaultLanguage Язык по умолчанию для fallback.
+     * @return array<int, string[]>   Карта cipher_id → массив строк-тегов.
+     */
+    public function findTagsGroupedByCipherIds(array $cipherIds, string $language, string $defaultLanguage): array
+    {
+        if ($cipherIds === []) {
+            return [];
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($cipherIds), '?'));
+
+        $rows = $this->db->fetchAll(
+            'SELECT ct.app_id AS cipher_id, '
+            . 'COALESCE(ctt_cur.tag, ctt_def.tag) AS tag '
+            . 'FROM ' . Tables::CIPHERS_TAGS . ' ct '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' ctt_cur '
+            . '    ON ctt_cur.tag_id = ct.id AND ctt_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' ctt_def '
+            . '    ON ctt_def.tag_id = ct.id AND ctt_def.language = ? '
+            . 'WHERE ct.app_id IN (' . $placeholders . ') AND ct.published = 1 '
+            . 'ORDER BY ct.app_id ASC, ct.sort_order ASC, ct.id ASC',
+            array_merge([$language, $defaultLanguage], $cipherIds)
+        );
+
+        $result = [];
+
+        foreach ($rows as $row) {
+            $cipherId = (int) ($row['cipher_id'] ?? 0);
+            $tag      = (string) ($row['tag'] ?? '');
+
+            if ($cipherId > 0 && $tag !== '') {
+                $result[$cipherId][] = $tag;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Проверяет уникальность alias среди шифров.
      */
     public function existsByAlias(string $alias, ?int $exceptId = null): bool
