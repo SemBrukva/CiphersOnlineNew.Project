@@ -43,3 +43,16 @@
     </div>
 </section>
 {/if}
+
+{if $blocks}
+    {foreach $blocks as $block}
+    <section class="panel">
+        <div class="panel-heading">
+            <div class="panel-title">{$block.title|default:$category.name}</div>
+        </div>
+        <div class="panel-content">
+            {$block.text nofilter}
+        </div>
+    </section>
+    {/foreach}
+{/if}

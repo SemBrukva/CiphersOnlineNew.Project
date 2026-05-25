@@ -151,4 +151,61 @@ final class CipherCategoryRepository extends AbstractRepository
             [$language, $defaultLanguage]
         );
     }
+
+    /**
+     * Возвращает список блоков категории для админки.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function listBlocksByCategoryId(int $categoryId): array
+    {
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_CATEGORIES_BLOCKS . ' WHERE category_id = ? ORDER BY sort_order ASC, id ASC',
+            [$categoryId]
+        );
+    }
+
+    /**
+     * Возвращает переводы блоков категорий для списка id блоков.
+     *
+     * @param  int[] $blockIds Список ID блоков.
+     * @return array<int, array<string, mixed>>
+     */
+    public function listBlockTranslationsByBlockIds(array $blockIds): array
+    {
+        if ($blockIds === []) {
+            return [];
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($blockIds), '?'));
+
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS
+            . ' WHERE block_id IN (' . $placeholders . ') ORDER BY block_id ASC, language ASC, id ASC',
+            $blockIds
+        );
+    }
+
+    /**
+     * Возвращает переведённые блоки контента категории.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findBlocksByCategoryIdWithTranslation(int $categoryId, string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT b.id, b.category_id, b.sort_order, b.published, '
+            . 'COALESCE(bt_cur.language, bt_def.language, ?) AS language, '
+            . 'COALESCE(bt_cur.title, bt_def.title, \'\') AS title, '
+            . 'COALESCE(bt_cur.text, bt_def.text, \'\') AS text '
+            . 'FROM ' . Tables::CIPHERS_CATEGORIES_BLOCKS . ' b '
+            . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS . ' bt_cur '
+            . 'ON bt_cur.block_id = b.id AND bt_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS . ' bt_def '
+            . 'ON bt_def.block_id = b.id AND bt_def.language = ? '
+            . 'WHERE b.category_id = ? AND b.published = 1 '
+            . 'ORDER BY b.sort_order ASC, b.id ASC',
+            [$defaultLanguage, $language, $defaultLanguage, $categoryId]
+        );
+    }
 }

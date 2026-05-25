@@ -56,6 +56,11 @@ final readonly class CipherCategoryController
             $language,
             $defaultLanguage
         );
+        $blocks = $this->categories->findBlocksByCategoryIdWithTranslation(
+            (int) $category['id'],
+            $language,
+            $defaultLanguage
+        );
 
         $cipherIds = array_map(static fn(array $t) => (int) $t['id'], $tools);
         $tagsByCipher = $this->ciphers->findTagsGroupedByCipherIds($cipherIds, $language, $defaultLanguage);
@@ -71,6 +76,7 @@ final readonly class CipherCategoryController
             ->setContent($this->view->fetch('cipher_category/show.tpl', [
                 'category' => $category,
                 'tools'    => $tools,
+                'blocks'   => $blocks,
             ]));
 
         return new Response($this->view->render());

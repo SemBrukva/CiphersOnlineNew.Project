@@ -83,6 +83,9 @@ final class AdminController
 
         $settings = is_array($payload['settings'] ?? null) ? $payload['settings'] : [];
         $translations = is_array($payload['translations'] ?? null) ? $payload['translations'] : [];
+        $blocks = is_array($payload['blocks'] ?? null) ? $payload['blocks'] : [];
+        $newBlocks = is_array($payload['new_blocks'] ?? null) ? $payload['new_blocks'] : [];
+        $deleteBlocks = array_map('intval', is_array($payload['delete_blocks'] ?? null) ? $payload['delete_blocks'] : []);
         $availableLanguages = array_values(array_filter(array_map(
             static fn (mixed $language): string => mb_strtolower(trim((string) $language)),
             (array) config('locale.locales', [])
@@ -142,7 +145,20 @@ final class AdminController
             throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
         }
 
-        $this->db->transaction(function () use ($categoryId, $alias, $sortOrder, $published, $normalizedTranslations): void {
+        $createdBlocks = [];
+
+        $this->db->transaction(function () use (
+            $categoryId,
+            $alias,
+            $sortOrder,
+            $published,
+            $normalizedTranslations,
+            $blocks,
+            $newBlocks,
+            $deleteBlocks,
+            $availableLanguages,
+            &$createdBlocks
+        ): void {
             $now = date('Y-m-d H:i:s');
 
             $this->categories->update($categoryId, [
@@ -186,12 +202,68 @@ final class AdminController
                     $this->translations->update((int) $existing['id'], $payload);
                 }
             }
+
+            foreach ($deleteBlocks as $blockId) {
+                if ($this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_BLOCKS, 'category_id', $categoryId, $blockId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_CATEGORIES_BLOCKS . ' WHERE id = ?', [$blockId]);
+                }
+            }
+
+            foreach ($blocks as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $blockId = (int) ($row['id'] ?? 0);
+
+                if (!$this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_BLOCKS, 'category_id', $categoryId, $blockId)) {
+                    continue;
+                }
+
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_CATEGORIES_BLOCKS . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $blockId]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryBlockTranslation($blockId, $language, $translation, $now);
+                }
+            }
+
+            foreach ($newBlocks as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_BLOCKS . ' (category_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                    [$categoryId, max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $now]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryBlockTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdBlocks[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
         });
         $this->cache->tag('cipher_categories')->flush();
 
         return Response::json([
             'ok' => true,
             'message' => 'Категория и переводы сохранены.',
+            'created' => [
+                'blocks' => $createdBlocks,
+            ],
         ]);
     }
 
@@ -586,6 +658,23 @@ final class AdminController
     }
 
     /**
+     * Проверяет принадлежность сущности конкретной категории.
+     */
+    private function isOwnedCategoryEntity(string $table, string $foreignKey, int $categoryId, int $entityId): bool
+    {
+        if ($entityId < 1) {
+            return false;
+        }
+
+        $row = $this->db->fetch(
+            'SELECT id FROM ' . $table . ' WHERE id = ? AND ' . $foreignKey . ' = ? LIMIT 1',
+            [$entityId, $categoryId]
+        );
+
+        return $row !== false;
+    }
+
+    /**
      * Создаёт или обновляет перевод шифра для языка.
      *
      * @param array<string, mixed> $row Данные перевода.
@@ -668,6 +757,46 @@ final class AdminController
 
         $this->db->execute(
             'UPDATE ' . Tables::CIPHERS_BLOCKS_TRANSLATIONS . ' SET title = ?, text = ?, updated_at = ? WHERE id = ?',
+            [$title, $text, $now, (int) $existing['id']]
+        );
+    }
+
+    /**
+     * Создаёт или обновляет перевод info-блока категории.
+     *
+     * @param array<string, mixed> $row Данные перевода.
+     */
+    private function upsertCategoryBlockTranslation(int $blockId, string $language, array $row, string $now): void
+    {
+        $title = trim((string) ($row['title'] ?? ''));
+        $text = trim((string) ($row['text'] ?? ''));
+        $existing = $this->db->fetch(
+            'SELECT id FROM ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS . ' WHERE block_id = ? AND language = ? LIMIT 1',
+            [$blockId, $language]
+        );
+
+        if ($title === '' && $text === '') {
+            if ($existing !== false) {
+                $this->db->execute(
+                    'DELETE FROM ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS . ' WHERE block_id = ? AND language = ?',
+                    [$blockId, $language]
+                );
+            }
+
+            return;
+        }
+
+        if ($existing === false) {
+            $this->db->insert(
+                'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS . ' (block_id, language, title, text, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                [$blockId, $language, $title, $text, $now, $now]
+            );
+
+            return;
+        }
+
+        $this->db->execute(
+            'UPDATE ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS . ' SET title = ?, text = ?, updated_at = ? WHERE id = ?',
             [$title, $text, $now, (int) $existing['id']]
         );
     }

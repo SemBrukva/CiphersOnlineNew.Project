@@ -32,6 +32,40 @@
   --radius-lg: 14px;
 }
 
+/* === Breadcrumbs (в хедере) === */
+.site-header__breadcrumbs {
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 6px 0;
+}
+
+.breadcrumbs {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.breadcrumbs > div {
+  display: inline;
+}
+
+.breadcrumbs a.pathway {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color var(--co-transition);
+}
+
+.breadcrumbs a.pathway:hover {
+  color: var(--co-accent);
+  text-decoration: none;
+}
+
+.breadcrumbs span[itemprop="name"] {
+  color: rgba(255, 255, 255, 0.40);
+}
+
+.breadcrumbs a.pathway span[itemprop="name"] {
+  color: inherit;
+}
+
 /* === Site Header === */
 .site-header {
   background-color: var(--co-primary);
@@ -674,7 +708,6 @@
 
 /* === Ciphers Category Hub Panel === */
 .ciphers-category-hub-panel {
-  margin-bottom: 0;
   border: 1px solid #dbe6f2;
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02), 0 4px 14px rgba(15, 23, 42, 0.04);
 }
@@ -1440,4 +1473,37 @@ details[open] > .faq-question::after {
     text-overflow: clip;
     overflow: hidden;
   }
+}
+
+.block-notice {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    border: 1px solid #fed7aa;
+    border-left: 3px solid #f97316;
+    background: #fff8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.block-notice_header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #9a3412;
+}
+
+.block-notice_header i {
+    font-size: 13px;
+    color: #f97316;
+}
+
+.block-notice p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #7c2d12;
 }

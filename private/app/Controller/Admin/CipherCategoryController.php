@@ -131,25 +131,16 @@ final class CipherCategoryController
     {
         $adminPath = config('admin.path', '/admin');
         $id = (int) $request->route('id');
-        $category = $this->categories->find($id);
         $availableLanguages = array_values(array_filter(array_map(
             static fn (mixed $language): string => mb_strtolower(trim((string) $language)),
             (array) config('locale.locales', [])
         ), static fn (string $language): bool => $language !== ''));
+        $activeCategory = $this->buildCategoryPayload($id);
 
-        if ($category === null) {
+        if ($activeCategory === null) {
             $this->session->flash('error', 'Категория не найдена.');
 
             return new Response('', 302, ['Location' => $adminPath . '/cipher-categories']);
-        }
-
-        $translationsByLanguage = [];
-        foreach ($this->translations->listByCategoryId($id) as $translation) {
-            $language = mb_strtolower((string) ($translation['language'] ?? ''));
-
-            if ($language !== '') {
-                $translationsByLanguage[$language] = $translation;
-            }
         }
 
         $this->view
@@ -159,8 +150,7 @@ final class CipherCategoryController
                 ['label' => 'Редактировать категорию'],
             ])
             ->setContent($this->view->fetch('admin/cipher_categories/edit.tpl', [
-                'category' => $category,
-                'translations_by_language' => $translationsByLanguage,
+                'active_category' => $activeCategory,
                 'available_languages' => $availableLanguages,
                 'active_language' => mb_strtolower((string) $request->query('language', '')),
                 'admin_path' => $adminPath,
@@ -247,5 +237,84 @@ final class CipherCategoryController
         }
 
         return 'Некорректные входные данные.';
+    }
+
+    /**
+     * Собирает полный payload категории для шаблона редактирования.
+     *
+     * @return array<string, mixed>|null
+     */
+    private function buildCategoryPayload(int $categoryId): ?array
+    {
+        $category = $this->categories->find($categoryId);
+
+        if ($category === null) {
+            return null;
+        }
+
+        $translationsByLanguage = [];
+        foreach ($this->translations->listByCategoryId($categoryId) as $translation) {
+            $language = mb_strtolower((string) ($translation['language'] ?? ''));
+
+            if ($language !== '') {
+                $translationsByLanguage[$language] = $translation;
+            }
+        }
+
+        $blocks = $this->categories->listBlocksByCategoryId($categoryId);
+        $blockIds = array_map(static fn (array $row): int => (int) ($row['id'] ?? 0), $blocks);
+        $blockTranslations = $this->groupByEntityAndLanguage(
+            $this->categories->listBlockTranslationsByBlockIds($blockIds),
+            'block_id',
+            'language'
+        );
+
+        return [
+            'category' => $category,
+            'translations_by_language' => $translationsByLanguage,
+            'blocks' => $this->attachTranslations($blocks, $blockTranslations),
+        ];
+    }
+
+    /**
+     * Группирует строки переводов по сущности и языку.
+     *
+     * @param  array<int, array<string, mixed>> $rows
+     * @return array<int, array<string, array<string, mixed>>>
+     */
+    private function groupByEntityAndLanguage(array $rows, string $idKey, string $languageKey): array
+    {
+        $result = [];
+
+        foreach ($rows as $row) {
+            $entityId = (int) ($row[$idKey] ?? 0);
+            $language = mb_strtolower((string) ($row[$languageKey] ?? ''));
+
+            if ($entityId > 0 && $language !== '') {
+                $result[$entityId][$language] = $row;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Добавляет к строкам сущностей карту переводов.
+     *
+     * @param  array<int, array<string, mixed>>                $rows
+     * @param  array<int, array<string, array<string, mixed>>> $translationsMap
+     * @return array<int, array<string, mixed>>
+     */
+    private function attachTranslations(array $rows, array $translationsMap): array
+    {
+        $result = [];
+
+        foreach ($rows as $row) {
+            $id = (int) ($row['id'] ?? 0);
+            $row['translations_by_language'] = $translationsMap[$id] ?? [];
+            $result[] = $row;
+        }
+
+        return $result;
     }
 }

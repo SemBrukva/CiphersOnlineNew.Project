@@ -13,7 +13,7 @@
 
 <div class="card border-0 shadow-sm"
      data-page="admin-cipher-category-edit"
-     data-category-id="{$category.id}"
+     data-category-id="{$active_category.category.id}"
      data-csrf-token="{$csrf_token}">
     <div class="card-body p-4">
         <form>
@@ -22,7 +22,7 @@
             <div class="mb-3">
                 <label for="alias" class="form-label fw-medium">Alias <span class="text-danger">*</span></label>
                 <input type="text" class="form-control font-monospace" id="alias" name="alias"
-                       value="{$category.alias|default:''}"
+                       value="{$active_category.category.alias|default:''}"
                        placeholder="classical-ciphers" required>
                 <div class="form-text">Латиница в нижнем регистре, цифры и дефис.</div>
             </div>
@@ -30,14 +30,14 @@
             <div class="mb-3">
                 <label for="sort_order" class="form-label fw-medium">Порядок сортировки</label>
                 <input type="number" class="form-control" id="sort_order" name="sort_order"
-                       value="{$category.sort_order|default:0}" min="0" max="999999" required>
+                       value="{$active_category.category.sort_order|default:0}" min="0" max="999999" required>
             </div>
 
             <div class="mb-4">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch"
                            id="published" name="published" value="1"
-                           {if $category.published}checked{/if}>
+                           {if $active_category.category.published}checked{/if}>
                     <label class="form-check-label" for="published">Опубликована</label>
                 </div>
             </div>
@@ -48,7 +48,7 @@
 
             <ul class="nav nav-tabs" role="tablist">
                 {foreach $available_languages as $language}
-                    {assign var="translation" value=$translations_by_language[$language]|default:null}
+                    {assign var="translation" value=$active_category.translations_by_language[$language]|default:null}
                     {assign var="tab_is_active" value=($active_language && $active_language == $language) || (!$active_language && $language@first)}
                     <li class="nav-item" role="presentation">
                         <button class="nav-link {if $tab_is_active}active{/if}" id="lang-tab-{$language}" data-bs-toggle="tab"
@@ -67,7 +67,7 @@
 
             <div class="tab-content border border-top-0 rounded-bottom p-3 mb-4">
                 {foreach $available_languages as $language}
-                    {assign var="translation" value=$translations_by_language[$language]|default:null}
+                    {assign var="translation" value=$active_category.translations_by_language[$language]|default:null}
                     {assign var="tab_is_active" value=($active_language && $active_language == $language) || (!$active_language && $language@first)}
                     <div class="tab-pane fade {if $tab_is_active}show active{/if}"
                          id="lang-pane-{$language}" role="tabpanel" aria-labelledby="lang-tab-{$language}"
@@ -92,6 +92,63 @@
                         <div class="mb-0">
                             <label class="form-label fw-medium" for="meta-description-{$language}">Meta description</label>
                             <textarea class="form-control" id="meta-description-{$language}" rows="3" data-field="meta_description">{$translation.meta_description|default:''}</textarea>
+                        </div>
+
+                        <div class="mt-4 mb-1">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom entity-section-toggle"
+                                 role="button"
+                                 data-bs-toggle="collapse"
+                                 data-bs-target="#collapse-blocks-{$language}"
+                                 aria-expanded="false">
+                                <h3 class="h6 fw-semibold text-uppercase text-secondary mb-0 flex-grow-1">Info Blocks</h3>
+                                <i class="bi bi-chevron-down text-secondary collapse-chevron"></i>
+                            </div>
+                            <div class="collapse" id="collapse-blocks-{$language}">
+                                <div class="vstack gap-2 pt-3 pb-1" data-entity-list="blocks">
+                                    {foreach $active_category.blocks as $block}
+                                        {assign var="block_translation" value=$block.translations_by_language[$language]|default:null}
+                                        <div class="cipher-entity border rounded" data-entity="block" data-id="{$block.id}">
+                                            <div class="cipher-entity-head d-flex align-items-center gap-3 px-3 py-2 bg-light rounded-top border-bottom">
+                                                <span class="badge bg-secondary-subtle text-secondary font-monospace">#<span data-role="entity-id">{$block.id}</span></span>
+                                                <div class="d-flex align-items-center gap-1 ms-auto">
+                                                    <span class="text-muted small me-1">Сорт.</span>
+                                                    <input type="number" class="form-control form-control-sm entity-sort-input"
+                                                           min="0" max="999999" data-meta-field="sort_order"
+                                                           value="{$block.sort_order|default:0}">
+                                                </div>
+                                                <div class="form-check form-switch mb-0">
+                                                    <input class="form-check-input" type="checkbox" role="switch"
+                                                           data-meta-field="published"
+                                                           {if $block.published}checked{/if}>
+                                                    <label class="form-check-label small text-muted">Вкл.</label>
+                                                </div>
+                                                <button type="button" class="btn btn-sm btn-link text-danger p-0 ms-1"
+                                                        data-action="delete-item" title="Удалить">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </div>
+                                            <div class="p-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-medium">Заголовок</label>
+                                                    <input type="text" class="form-control"
+                                                           data-translation-field="title"
+                                                           value="{$block_translation.title|default:''}">
+                                                </div>
+                                                <div class="mb-0">
+                                                    <label class="form-label fw-medium">Текст</label>
+                                                    <textarea class="form-control" rows="4"
+                                                              data-translation-field="text">{$block_translation.text|default:''}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-action="add-block">
+                                    <i class="bi bi-plus-circle me-1"></i>Добавить блок
+                                </button>
+                            </div>
                         </div>
                     </div>
                 {/foreach}
