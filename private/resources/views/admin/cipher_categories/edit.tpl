@@ -16,6 +16,13 @@
      data-category-id="{$active_category.category.id}"
      data-csrf-token="{$csrf_token}">
     <div class="card-body p-4">
+        <div class="d-none">
+            {foreach $active_category.category_ciphers as $cipher}
+                <span data-role="task-cipher-option"
+                      data-id="{$cipher.id}"
+                      data-label="#{$cipher.id} · {$cipher.alias|escape}"></span>
+            {/foreach}
+        </div>
         <form>
             <h2 class="h5 mb-3">ОСНОВНЫЕ НАСТРОЙКИ</h2>
 
@@ -147,6 +154,149 @@
                             <div class="mt-2">
                                 <button type="button" class="btn btn-sm btn-outline-primary" data-action="add-block">
                                     <i class="bi bi-plus-circle me-1"></i>Добавить блок
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 mb-1">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom entity-section-toggle"
+                                 role="button"
+                                 data-bs-toggle="collapse"
+                                 data-bs-target="#collapse-tasks-{$language}"
+                                 aria-expanded="false">
+                                <h3 class="h6 fw-semibold text-uppercase text-secondary mb-0 flex-grow-1">Popular Tasks</h3>
+                                <i class="bi bi-chevron-down text-secondary collapse-chevron"></i>
+                            </div>
+                            <div class="collapse" id="collapse-tasks-{$language}">
+                                <div class="vstack gap-2 pt-3 pb-1" data-entity-list="tasks">
+                                    {foreach $active_category.tasks as $task}
+                                        {assign var="task_translation" value=$task.translations_by_language[$language]|default:null}
+                                        <div class="cipher-entity border rounded" data-entity="task" data-id="{$task.id}">
+                                            <div class="cipher-entity-head d-flex align-items-center gap-3 px-3 py-2 bg-light rounded-top border-bottom">
+                                                <span class="badge bg-secondary-subtle text-secondary font-monospace">#<span data-role="entity-id">{$task.id}</span></span>
+                                                <div class="d-flex align-items-center gap-1 ms-auto">
+                                                    <span class="text-muted small me-1">Сорт.</span>
+                                                    <input type="number" class="form-control form-control-sm entity-sort-input"
+                                                           min="0" max="999999" data-meta-field="sort_order"
+                                                           value="{$task.sort_order|default:0}">
+                                                </div>
+                                                <div class="form-check form-switch mb-0">
+                                                    <input class="form-check-input" type="checkbox" role="switch"
+                                                           data-meta-field="published"
+                                                           {if $task.published}checked{/if}>
+                                                    <label class="form-check-label small text-muted">Вкл.</label>
+                                                </div>
+                                                <button type="button" class="btn btn-sm btn-link text-danger p-0 ms-1"
+                                                        data-action="delete-item" title="Удалить">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </div>
+                                            <div class="p-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-medium">Связанный шифр</label>
+                                                    <select class="form-select" data-meta-field="relation_cipher_id">
+                                                        <option value="0">Не выбран</option>
+                                                        {foreach $active_category.category_ciphers as $cipher}
+                                                            <option value="{$cipher.id}" {if $task.relation_cipher_id == $cipher.id}selected{/if}>
+                                                                #{$cipher.id} · {$cipher.alias}
+                                                            </option>
+                                                        {/foreach}
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-medium">Title</label>
+                                                    <input type="text" class="form-control"
+                                                           data-translation-field="title"
+                                                           value="{$task_translation.title|default:''}">
+                                                </div>
+                                                <div class="mb-0">
+                                                    <label class="form-label fw-medium">Description</label>
+                                                    <textarea class="form-control" rows="3"
+                                                              data-translation-field="description">{$task_translation.description|default:''}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-action="add-task">
+                                    <i class="bi bi-plus-circle me-1"></i>Добавить задачу
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 mb-1">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom entity-section-toggle"
+                                 role="button"
+                                 data-bs-toggle="collapse"
+                                 data-bs-target="#collapse-used-together-{$language}"
+                                 aria-expanded="false">
+                                <h3 class="h6 fw-semibold text-uppercase text-secondary mb-0 flex-grow-1">Often Used Together</h3>
+                                <i class="bi bi-chevron-down text-secondary collapse-chevron"></i>
+                            </div>
+                            <div class="collapse" id="collapse-used-together-{$language}">
+                                <div class="vstack gap-2 pt-3 pb-1" data-entity-list="used_together">
+                                    {foreach $active_category.used_together as $used_together_item}
+                                        {assign var="used_together_translation" value=$used_together_item.translations_by_language[$language]|default:null}
+                                        <div class="cipher-entity border rounded" data-entity="used_together" data-id="{$used_together_item.id}">
+                                            <div class="cipher-entity-head d-flex align-items-center gap-3 px-3 py-2 bg-light rounded-top border-bottom">
+                                                <span class="badge bg-secondary-subtle text-secondary font-monospace">#<span data-role="entity-id">{$used_together_item.id}</span></span>
+                                                <div class="d-flex align-items-center gap-1 ms-auto">
+                                                    <span class="text-muted small me-1">Сорт.</span>
+                                                    <input type="number" class="form-control form-control-sm entity-sort-input"
+                                                           min="0" max="999999" data-meta-field="sort_order"
+                                                           value="{$used_together_item.sort_order|default:0}">
+                                                </div>
+                                                <div class="form-check form-switch mb-0">
+                                                    <input class="form-check-input" type="checkbox" role="switch"
+                                                           data-meta-field="published"
+                                                           {if $used_together_item.published}checked{/if}>
+                                                    <label class="form-check-label small text-muted">Вкл.</label>
+                                                </div>
+                                                <button type="button" class="btn btn-sm btn-link text-danger p-0 ms-1"
+                                                        data-action="delete-item" title="Удалить">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </div>
+                                            <div class="p-3">
+                                                <div class="row g-3 mb-3">
+                                                    <div class="col-md-6">
+                                                        <label class="form-label fw-medium">Первый шифр</label>
+                                                        <select class="form-select" data-meta-field="relation_cipher_first_id">
+                                                            <option value="0">Не выбран</option>
+                                                            {foreach $active_category.category_ciphers as $cipher}
+                                                                <option value="{$cipher.id}" {if $used_together_item.relation_cipher_first_id == $cipher.id}selected{/if}>
+                                                                    #{$cipher.id} · {$cipher.alias}
+                                                                </option>
+                                                            {/foreach}
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="form-label fw-medium">Второй шифр</label>
+                                                        <select class="form-select" data-meta-field="relation_cipher_second_id">
+                                                            <option value="0">Не выбран</option>
+                                                            {foreach $active_category.category_ciphers as $cipher}
+                                                                <option value="{$cipher.id}" {if $used_together_item.relation_cipher_second_id == $cipher.id}selected{/if}>
+                                                                    #{$cipher.id} · {$cipher.alias}
+                                                                </option>
+                                                            {/foreach}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-0">
+                                                    <label class="form-label fw-medium">Title</label>
+                                                    <textarea class="form-control" rows="3"
+                                                              data-translation-field="title">{$used_together_translation.title|default:''}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-action="add-used-together">
+                                    <i class="bi bi-plus-circle me-1"></i>Добавить связку
                                 </button>
                             </div>
                         </div>

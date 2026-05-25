@@ -37,6 +37,20 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает шифры категории для select-списков в админке.
+     *
+     * @return array<int, array{id:int, alias:string}>
+     */
+    public function listForSelectByCategoryId(int $categoryId): array
+    {
+        return $this->db->fetchAll(
+            'SELECT id, alias FROM ' . Tables::CIPHERS
+            . ' WHERE category_id = ? ORDER BY sort_order ASC, id ASC',
+            [$categoryId]
+        );
+    }
+
+    /**
      * Возвращает карту наличия переводов по шифрам и языкам.
      *
      * @return array<int, array<string, int>>

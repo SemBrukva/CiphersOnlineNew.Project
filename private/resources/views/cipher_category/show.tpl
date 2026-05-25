@@ -44,9 +44,32 @@
 </section>
 {/if}
 
+{if $tasks}
+<section class="panel ciphers-category-hub-panel">
+    <div class="panel-heading"><div class="panel-title"><i class="fa-solid fa-fire"></i> {trans key='CIPHER_CATEGORY_POPULAR_TASKS_TITLE'}</div></div>
+        <div class="panel-content">
+            <div class="ciphers-category-hub-popular-grid">
+                {foreach $tasks as $task}
+                    <a class="ciphers-category-hub-popular-item" href="/{$category.alias}/{$task.cipher_alias}">
+                    <span class="ciphers-category-hub-popular-item__icon">
+                        <i class="bi bi-list-task"></i>
+                    </span>
+                        <div class="ciphers-category-hub-popular-item__body">
+                            <strong class="ciphers-category-hub-popular-item__title">{$task.title} → {$task.cipher_name_short}</strong>
+                            <span class="ciphers-category-hub-popular-item__desc">{$task.description}</span>
+                            <span class="ciphers-category-hub-popular-item__tool">{$task.cipher_name_short}</span>
+                        </div>
+                        <span class="ciphers-category-hub-popular-item__arrow"><i class="bi bi-arrow-right-short"></i></span>
+                    </a>
+                {/foreach}
+            </div>
+        </div>
+</section>
+{/if}
+
 {if $blocks}
     {foreach $blocks as $block}
-    <section class="panel">
+    <section class="panel ciphers-category-hub-panel">
         <div class="panel-heading">
             <div class="panel-title">{$block.title|default:$category.name}</div>
         </div>
@@ -55,4 +78,24 @@
         </div>
     </section>
     {/foreach}
+{/if}
+
+{if $used_together}
+    <section class="panel ciphers-category-hub-panel">
+        <div class="panel-heading"><div class="panel-title"><i class="fa-solid fa-shuffle"></i> {trans key='CIPHER_CATEGORY_USED_TOGETHER_TITLE'}</div></div>
+        <div class="panel-content">
+            <div class="ciphers-category-hub-combo-grid">
+                {foreach $used_together as $item}
+                    <div class="ciphers-category-hub-combo-card">
+                        <div class="ciphers-category-hub-combo-card__tools">
+                            <a class="ciphers-category-hub-combo-tag" href="/{$category.alias}/{$item.first_cipher_alias}">{$item.first_cipher_name_short}</a>
+                            <span class="ciphers-category-hub-combo-card__connector"><i class="bi bi-arrow-left-right"></i></span>
+                            <a class="ciphers-category-hub-combo-tag" href="/{$category.alias}/{$item.second_cipher_alias}">{$item.second_cipher_name_short}</a>
+                        </div>
+                        <p class="ciphers-category-hub-combo-card__desc">{$item.title}</p>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </section>
 {/if}

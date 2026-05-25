@@ -114,6 +114,8 @@ return [
     'CIPHER_TOOL_FAQ_TITLE' => 'FAQ',
     'CIPHER_TOOL_RELATED_TITLE' => 'Strumenti correlati',
     'CIPHER_TOOL_INFO_TITLE' => 'Informazioni',
+    'CIPHER_CATEGORY_POPULAR_TASKS_TITLE' => 'Attività popolari',
+    'CIPHER_CATEGORY_USED_TOGETHER_TITLE' => 'Spesso usati insieme',
     'CIPHER_TOOL_INPUT_TAG' => 'Input',
     'CIPHER_TOOL_OUTPUT_TAG' => 'Output',
     'CIPHER_TOOL_USE_EXAMPLE' => 'Usa esempio',

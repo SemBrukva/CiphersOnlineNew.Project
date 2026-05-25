@@ -84,8 +84,14 @@ final class AdminController
         $settings = is_array($payload['settings'] ?? null) ? $payload['settings'] : [];
         $translations = is_array($payload['translations'] ?? null) ? $payload['translations'] : [];
         $blocks = is_array($payload['blocks'] ?? null) ? $payload['blocks'] : [];
+        $tasks = is_array($payload['tasks'] ?? null) ? $payload['tasks'] : [];
+        $usedTogether = is_array($payload['used_together'] ?? null) ? $payload['used_together'] : [];
         $newBlocks = is_array($payload['new_blocks'] ?? null) ? $payload['new_blocks'] : [];
+        $newTasks = is_array($payload['new_tasks'] ?? null) ? $payload['new_tasks'] : [];
+        $newUsedTogether = is_array($payload['new_used_together'] ?? null) ? $payload['new_used_together'] : [];
         $deleteBlocks = array_map('intval', is_array($payload['delete_blocks'] ?? null) ? $payload['delete_blocks'] : []);
+        $deleteTasks = array_map('intval', is_array($payload['delete_tasks'] ?? null) ? $payload['delete_tasks'] : []);
+        $deleteUsedTogether = array_map('intval', is_array($payload['delete_used_together'] ?? null) ? $payload['delete_used_together'] : []);
         $availableLanguages = array_values(array_filter(array_map(
             static fn (mixed $language): string => mb_strtolower(trim((string) $language)),
             (array) config('locale.locales', [])
@@ -141,11 +147,113 @@ final class AdminController
             ];
         }
 
+        foreach ($tasks as $index => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $relationCipherId = (int) ($row['relation_cipher_id'] ?? 0);
+            if ($relationCipherId < 1 || $this->ciphers->find($relationCipherId) === null) {
+                $errors["tasks.{$index}.relation_cipher_id"][] = 'Неверный relation_cipher_id.';
+            }
+
+            $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+            foreach ($availableLanguages as $language) {
+                $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                $title = trim((string) ($translation['title'] ?? ''));
+
+                if (mb_strlen($title) > 255) {
+                    $errors["tasks.{$index}.translations.{$language}.title"][] = 'Title не должен превышать 255 символов.';
+                }
+            }
+        }
+
+        foreach ($newTasks as $index => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $relationCipherId = (int) ($row['relation_cipher_id'] ?? 0);
+            if ($relationCipherId < 1 || $this->ciphers->find($relationCipherId) === null) {
+                $errors["new_tasks.{$index}.relation_cipher_id"][] = 'Неверный relation_cipher_id.';
+            }
+
+            $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+            foreach ($availableLanguages as $language) {
+                $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                $title = trim((string) ($translation['title'] ?? ''));
+
+                if (mb_strlen($title) > 255) {
+                    $errors["new_tasks.{$index}.translations.{$language}.title"][] = 'Title не должен превышать 255 символов.';
+                }
+            }
+        }
+
+        foreach ($usedTogether as $index => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $firstCipherId = (int) ($row['relation_cipher_first_id'] ?? 0);
+            $secondCipherId = (int) ($row['relation_cipher_second_id'] ?? 0);
+
+            if ($firstCipherId < 1 || $this->ciphers->find($firstCipherId) === null) {
+                $errors["used_together.{$index}.relation_cipher_first_id"][] = 'Неверный relation_cipher_first_id.';
+            }
+
+            if ($secondCipherId < 1 || $this->ciphers->find($secondCipherId) === null) {
+                $errors["used_together.{$index}.relation_cipher_second_id"][] = 'Неверный relation_cipher_second_id.';
+            }
+
+            $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+            foreach ($availableLanguages as $language) {
+                $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                $title = trim((string) ($translation['title'] ?? ''));
+
+                if (mb_strlen($title) > 500) {
+                    $errors["used_together.{$index}.translations.{$language}.title"][] = 'Title не должен превышать 500 символов.';
+                }
+            }
+        }
+
+        foreach ($newUsedTogether as $index => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $firstCipherId = (int) ($row['relation_cipher_first_id'] ?? 0);
+            $secondCipherId = (int) ($row['relation_cipher_second_id'] ?? 0);
+
+            if ($firstCipherId < 1 || $this->ciphers->find($firstCipherId) === null) {
+                $errors["new_used_together.{$index}.relation_cipher_first_id"][] = 'Неверный relation_cipher_first_id.';
+            }
+
+            if ($secondCipherId < 1 || $this->ciphers->find($secondCipherId) === null) {
+                $errors["new_used_together.{$index}.relation_cipher_second_id"][] = 'Неверный relation_cipher_second_id.';
+            }
+
+            $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+            foreach ($availableLanguages as $language) {
+                $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                $title = trim((string) ($translation['title'] ?? ''));
+
+                if (mb_strlen($title) > 500) {
+                    $errors["new_used_together.{$index}.translations.{$language}.title"][] = 'Title не должен превышать 500 символов.';
+                }
+            }
+        }
+
         if ($errors !== []) {
             throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
         }
 
         $createdBlocks = [];
+        $createdTasks = [];
+        $createdUsedTogether = [];
 
         $this->db->transaction(function () use (
             $categoryId,
@@ -154,10 +262,18 @@ final class AdminController
             $published,
             $normalizedTranslations,
             $blocks,
+            $tasks,
+            $usedTogether,
             $newBlocks,
+            $newTasks,
+            $newUsedTogether,
             $deleteBlocks,
+            $deleteTasks,
+            $deleteUsedTogether,
             $availableLanguages,
-            &$createdBlocks
+            &$createdBlocks,
+            &$createdTasks,
+            &$createdUsedTogether
         ): void {
             $now = date('Y-m-d H:i:s');
 
@@ -255,6 +371,134 @@ final class AdminController
                     $createdBlocks[] = ['temp_id' => $tempId, 'id' => $newId];
                 }
             }
+
+            foreach ($deleteTasks as $taskId) {
+                if ($this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_TASKS, 'category_id', $categoryId, $taskId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_CATEGORIES_TASKS . ' WHERE id = ?', [$taskId]);
+                }
+            }
+
+            foreach ($tasks as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $taskId = (int) ($row['id'] ?? 0);
+                if (!$this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_TASKS, 'category_id', $categoryId, $taskId)) {
+                    continue;
+                }
+
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_CATEGORIES_TASKS . ' SET relation_cipher_id = ?, sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [
+                        (int) ($row['relation_cipher_id'] ?? 0),
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $taskId,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryTaskTranslation($taskId, $language, $translation, $now);
+                }
+            }
+
+            foreach ($newTasks as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_TASKS . ' (category_id, relation_cipher_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                    [
+                        $categoryId,
+                        (int) ($row['relation_cipher_id'] ?? 0),
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $now,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryTaskTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdTasks[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
+
+            foreach ($deleteUsedTogether as $usedTogetherId) {
+                if ($this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_USED_TOGETHER, 'category_id', $categoryId, $usedTogetherId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER . ' WHERE id = ?', [$usedTogetherId]);
+                }
+            }
+
+            foreach ($usedTogether as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $usedTogetherId = (int) ($row['id'] ?? 0);
+                if (!$this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_USED_TOGETHER, 'category_id', $categoryId, $usedTogetherId)) {
+                    continue;
+                }
+
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER . ' SET relation_cipher_first_id = ?, relation_cipher_second_id = ?, sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [
+                        (int) ($row['relation_cipher_first_id'] ?? 0),
+                        (int) ($row['relation_cipher_second_id'] ?? 0),
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $usedTogetherId,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryUsedTogetherTranslation($usedTogetherId, $language, $translation, $now);
+                }
+            }
+
+            foreach ($newUsedTogether as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER . ' (category_id, relation_cipher_first_id, relation_cipher_second_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                    [
+                        $categoryId,
+                        (int) ($row['relation_cipher_first_id'] ?? 0),
+                        (int) ($row['relation_cipher_second_id'] ?? 0),
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $now,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryUsedTogetherTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdUsedTogether[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
         });
         $this->cache->tag('cipher_categories')->flush();
 
@@ -263,6 +507,8 @@ final class AdminController
             'message' => 'Категория и переводы сохранены.',
             'created' => [
                 'blocks' => $createdBlocks,
+                'tasks' => $createdTasks,
+                'used_together' => $createdUsedTogether,
             ],
         ]);
     }
@@ -798,6 +1044,85 @@ final class AdminController
         $this->db->execute(
             'UPDATE ' . Tables::CIPHERS_CATEGORIES_BLOCKS_TRANSLATIONS . ' SET title = ?, text = ?, updated_at = ? WHERE id = ?',
             [$title, $text, $now, (int) $existing['id']]
+        );
+    }
+
+    /**
+     * Создаёт или обновляет перевод задачи категории.
+     *
+     * @param array<string, mixed> $row Данные перевода.
+     */
+    private function upsertCategoryTaskTranslation(int $taskId, string $language, array $row, string $now): void
+    {
+        $title = trim((string) ($row['title'] ?? ''));
+        $description = trim((string) ($row['description'] ?? ''));
+        $existing = $this->db->fetch(
+            'SELECT id FROM ' . Tables::CIPHERS_CATEGORIES_TASKS_TRANSLATIONS . ' WHERE task_id = ? AND language = ? LIMIT 1',
+            [$taskId, $language]
+        );
+
+        if ($title === '' && $description === '') {
+            if ($existing !== false) {
+                $this->db->execute(
+                    'DELETE FROM ' . Tables::CIPHERS_CATEGORIES_TASKS_TRANSLATIONS . ' WHERE task_id = ? AND language = ?',
+                    [$taskId, $language]
+                );
+            }
+
+            return;
+        }
+
+        if ($existing === false) {
+            $this->db->insert(
+                'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_TASKS_TRANSLATIONS . ' (task_id, language, title, description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                [$taskId, $language, $title, $description, $now, $now]
+            );
+
+            return;
+        }
+
+        $this->db->execute(
+            'UPDATE ' . Tables::CIPHERS_CATEGORIES_TASKS_TRANSLATIONS . ' SET title = ?, description = ?, updated_at = ? WHERE id = ?',
+            [$title, $description, $now, (int) $existing['id']]
+        );
+    }
+
+    /**
+     * Создаёт или обновляет перевод связки used together для категории.
+     *
+     * @param array<string, mixed> $row Данные перевода.
+     */
+    private function upsertCategoryUsedTogetherTranslation(int $usedTogetherId, string $language, array $row, string $now): void
+    {
+        $title = trim((string) ($row['title'] ?? ''));
+        $existing = $this->db->fetch(
+            'SELECT id FROM ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS . ' WHERE used_together_id = ? AND language = ? LIMIT 1',
+            [$usedTogetherId, $language]
+        );
+
+        if ($title === '') {
+            if ($existing !== false) {
+                $this->db->execute(
+                    'DELETE FROM ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS . ' WHERE used_together_id = ? AND language = ?',
+                    [$usedTogetherId, $language]
+                );
+            }
+
+            return;
+        }
+
+        if ($existing === false) {
+            $this->db->insert(
+                'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS . ' (used_together_id, language, title, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                [$usedTogetherId, $language, $title, $now, $now]
+            );
+
+            return;
+        }
+
+        $this->db->execute(
+            'UPDATE ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS . ' SET title = ?, updated_at = ? WHERE id = ?',
+            [$title, $now, (int) $existing['id']]
         );
     }
 

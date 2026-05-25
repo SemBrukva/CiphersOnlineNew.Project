@@ -134,6 +134,8 @@ return [
     'CIPHER_TOOL_FAQ_TITLE' => 'FAQ',
     'CIPHER_TOOL_RELATED_TITLE' => 'Связанные инструменты',
     'CIPHER_TOOL_INFO_TITLE' => 'Информация',
+    'CIPHER_CATEGORY_POPULAR_TASKS_TITLE' => 'Популярные задачи',
+    'CIPHER_CATEGORY_USED_TOGETHER_TITLE' => 'Часто используют вместе',
     'CIPHER_TOOL_INPUT_TAG' => 'Вход',
     'CIPHER_TOOL_OUTPUT_TAG' => 'Выход',
     'CIPHER_TOOL_USE_EXAMPLE' => 'Использовать пример',

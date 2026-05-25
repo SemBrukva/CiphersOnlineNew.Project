@@ -22,8 +22,7 @@ final readonly class CipherCategoryController
         private View $view,
         private CipherCategoryRepository $categories,
         private CipherRepository $ciphers
-    ) {
-    }
+    ) {}
 
     /**
      * Отображает страницу категории по alias и текущей локали.
@@ -61,8 +60,18 @@ final readonly class CipherCategoryController
             $language,
             $defaultLanguage
         );
+        $tasks = $this->categories->findTasksByCategoryIdWithTranslationAndCipher(
+            (int) $category['id'],
+            $language,
+            $defaultLanguage
+        );
+        $usedTogether = $this->categories->findUsedTogetherByCategoryIdWithTranslationAndCiphers(
+            (int) $category['id'],
+            $language,
+            $defaultLanguage
+        );
 
-        $cipherIds = array_map(static fn(array $t) => (int) $t['id'], $tools);
+        $cipherIds = array_map(static fn (array $t) => (int) $t['id'], $tools);
         $tagsByCipher = $this->ciphers->findTagsGroupedByCipherIds($cipherIds, $language, $defaultLanguage);
 
         foreach ($tools as &$tool) {
@@ -70,15 +79,36 @@ final readonly class CipherCategoryController
         }
         unset($tool);
 
+        foreach ($tasks as &$task) {
+            $task['icon'] = $this->iconForCipherAlias((string) ($task['cipher_alias'] ?? ''));
+        }
+        unset($task);
+
         $this->view
             ->setTitle($title)
             ->setMeta($metaDescription)
             ->setContent($this->view->fetch('cipher_category/show.tpl', [
                 'category' => $category,
-                'tools'    => $tools,
-                'blocks'   => $blocks,
+                'tools' => $tools,
+                'blocks' => $blocks,
+                'tasks' => $tasks,
+                'used_together' => $usedTogether,
             ]));
 
         return new Response($this->view->render());
+    }
+
+    /**
+     * Возвращает CSS-класс иконки по alias шифра.
+     */
+    private function iconForCipherAlias(string $alias): string
+    {
+        return match ($alias) {
+            'base64' => 'fa-solid fa-code',
+            'url-encode' => 'fa-solid fa-percent',
+            'jwt-decoder' => 'fa-solid fa-key',
+            'hex' => 'fa-solid fa-magnifying-glass',
+            default => 'fa-solid fa-bolt',
+        };
     }
 }

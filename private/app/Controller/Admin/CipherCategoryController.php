@@ -10,6 +10,7 @@ use App\Http\Request;
 use App\Http\Response;
 use App\Http\Session;
 use App\Repository\CipherCategoryRepository;
+use App\Repository\CipherRepository;
 use App\Repository\CipherCategoryTranslationRepository;
 use App\Validation\ValidationException;
 use App\View\View;
@@ -25,6 +26,7 @@ final class CipherCategoryController
     public function __construct(
         private readonly View $view,
         private readonly CipherCategoryRepository $categories,
+        private readonly CipherRepository $ciphers,
         private readonly CipherCategoryTranslationRepository $translations,
         private readonly Session $session,
         private readonly CacheInterface $cache
@@ -269,10 +271,29 @@ final class CipherCategoryController
             'language'
         );
 
+        $tasks = $this->categories->listTasksByCategoryId($categoryId);
+        $taskIds = array_map(static fn (array $row): int => (int) ($row['id'] ?? 0), $tasks);
+        $taskTranslations = $this->groupByEntityAndLanguage(
+            $this->categories->listTaskTranslationsByTaskIds($taskIds),
+            'task_id',
+            'language'
+        );
+
+        $usedTogether = $this->categories->listUsedTogetherByCategoryId($categoryId);
+        $usedTogetherIds = array_map(static fn (array $row): int => (int) ($row['id'] ?? 0), $usedTogether);
+        $usedTogetherTranslations = $this->groupByEntityAndLanguage(
+            $this->categories->listUsedTogetherTranslationsByIds($usedTogetherIds),
+            'used_together_id',
+            'language'
+        );
+
         return [
             'category' => $category,
             'translations_by_language' => $translationsByLanguage,
             'blocks' => $this->attachTranslations($blocks, $blockTranslations),
+            'tasks' => $this->attachTranslations($tasks, $taskTranslations),
+            'used_together' => $this->attachTranslations($usedTogether, $usedTogetherTranslations),
+            'category_ciphers' => $this->ciphers->listForSelectByCategoryId($categoryId),
         ];
     }
 

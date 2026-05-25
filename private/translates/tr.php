@@ -114,6 +114,8 @@ return [
     'CIPHER_TOOL_FAQ_TITLE' => 'SSS',
     'CIPHER_TOOL_RELATED_TITLE' => 'İlgili araçlar',
     'CIPHER_TOOL_INFO_TITLE' => 'Bilgi',
+    'CIPHER_CATEGORY_POPULAR_TASKS_TITLE' => 'Popüler görevler',
+    'CIPHER_CATEGORY_USED_TOGETHER_TITLE' => 'Sık birlikte kullanılır',
     'CIPHER_TOOL_INPUT_TAG' => 'Girdi',
     'CIPHER_TOOL_OUTPUT_TAG' => 'Çıktı',
     'CIPHER_TOOL_USE_EXAMPLE' => 'Örneği kullan',
