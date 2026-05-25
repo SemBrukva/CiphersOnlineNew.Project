@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 return [
     'MENU_HOME' => 'Início',
+    'BREADCRUMB_HOME' => 'Criptografia Online',
+    'BREADCRUMB_HOME_FULL' => 'Sistemas de criptografia e codificação online',
     'MENU_CONTACTS' => 'Contatos',
     'MENU_SITEMAP' => 'Mapa do site',
     'MENU_CABINET' => 'Minha conta',

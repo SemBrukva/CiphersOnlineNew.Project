@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 return [
     'MENU_HOME' => 'Startseite',
+    'BREADCRUMB_HOME' => 'Verschlüsselung Online',
+    'BREADCRUMB_HOME_FULL' => 'Online-Verschlüsselungs- und Kodiersysteme',
     'MENU_CONTACTS' => 'Kontakt',
     'MENU_SITEMAP' => 'Sitemap',
     'MENU_CABINET' => 'Konto',

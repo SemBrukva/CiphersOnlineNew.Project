@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 return [
     'MENU_HOME' => 'Ana Sayfa',
+    'BREADCRUMB_HOME' => 'Şifreleme Çevrimiçi',
+    'BREADCRUMB_HOME_FULL' => 'Çevrimiçi Şifreleme ve Kodlama Sistemleri',
     'MENU_CONTACTS' => 'İletişim',
     'MENU_SITEMAP' => 'Site Haritası',
     'MENU_CABINET' => 'Hesabım',

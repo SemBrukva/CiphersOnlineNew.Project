@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 return [
     'MENU_HOME' => 'Inicio',
+    'BREADCRUMB_HOME' => 'Cifrado en línea',
+    'BREADCRUMB_HOME_FULL' => 'Sistemas de cifrado y codificación en línea',
     'MENU_CONTACTS' => 'Contactos',
     'MENU_SITEMAP' => 'Mapa del sitio',
     'MENU_CABINET' => 'Mi cuenta',

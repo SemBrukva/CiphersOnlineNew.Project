@@ -5,6 +5,8 @@ declare(strict_types=1);
 return [
     // Навигация
     'MENU_HOME'             => 'Главная',
+    'BREADCRUMB_HOME'       => 'Шифрование онлайн',
+    'BREADCRUMB_HOME_FULL'  => 'Системы шифрования и кодирования онлайн',
     'MENU_CONTACTS'         => 'Контакты',
     'MENU_SITEMAP'          => 'Карта сайта',
     'MENU_CABINET'          => 'Кабинет',

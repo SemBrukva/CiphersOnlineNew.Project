@@ -89,35 +89,7 @@
 
         </div>
     </div>
-    {if $breadcrumbs}
-        <div class="site-header__breadcrumbs">
-            <div class="container">
-                <div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="{$locale_prefix|default:'/'}" class="pathway" itemprop="item">
-                            <span itemprop="name">Системы шифрования и кодирования онлайн</span>
-                        </a>
-                        <meta itemprop="position" content="1" />
-                        <span>&nbsp;-&nbsp;</span>
-                    </div>
-                    {foreach $breadcrumbs as $crumb}
-                        <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            {if $crumb@last}
-                                <span itemprop="name">{$crumb.label}</span>
-                                <meta itemprop="position" content="{$crumb@iteration+1}" />
-                            {else}
-                                <a href="{$crumb.url}" class="pathway" itemprop="item">
-                                    <span itemprop="name">{$crumb.label}</span>
-                                </a>
-                                <meta itemprop="position" content="{$crumb@iteration+1}" />
-                                <span>&nbsp;-&nbsp;</span>
-                            {/if}
-                        </div>
-                    {/foreach}
-                </div>
-            </div>
-        </div>
-    {/if}
+    {include file="partials/breadcrumbs.tpl"}
 </header>
 
 {* Offcanvas drawer — только для мобильного *}
