@@ -70,6 +70,11 @@ final readonly class CipherCategoryController
             $language,
             $defaultLanguage
         );
+        $faq = $this->categories->findFaqByCategoryIdWithTranslation(
+            (int) $category['id'],
+            $language,
+            $defaultLanguage
+        );
 
         $cipherIds = array_map(static fn (array $t) => (int) $t['id'], $tools);
         $tagsByCipher = $this->ciphers->findTagsGroupedByCipherIds($cipherIds, $language, $defaultLanguage);
@@ -93,6 +98,7 @@ final readonly class CipherCategoryController
                 'blocks' => $blocks,
                 'tasks' => $tasks,
                 'used_together' => $usedTogether,
+                'faq' => $faq,
             ]));
 
         return new Response($this->view->render());

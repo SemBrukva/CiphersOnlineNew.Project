@@ -300,6 +300,63 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="mt-4 mb-1">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom entity-section-toggle"
+                                 role="button"
+                                 data-bs-toggle="collapse"
+                                 data-bs-target="#collapse-faq-{$language}"
+                                 aria-expanded="false">
+                                <h3 class="h6 fw-semibold text-uppercase text-secondary mb-0 flex-grow-1">FAQ</h3>
+                                <i class="bi bi-chevron-down text-secondary collapse-chevron"></i>
+                            </div>
+                            <div class="collapse" id="collapse-faq-{$language}">
+                                <div class="vstack gap-2 pt-3 pb-1" data-entity-list="faq">
+                                    {foreach $active_category.faq as $faq_item}
+                                        {assign var="faq_translation" value=$faq_item.translations_by_language[$language]|default:null}
+                                        <div class="cipher-entity border rounded" data-entity="faq" data-id="{$faq_item.id}">
+                                            <div class="cipher-entity-head d-flex align-items-center gap-3 px-3 py-2 bg-light rounded-top border-bottom">
+                                                <span class="badge bg-secondary-subtle text-secondary font-monospace">#<span data-role="entity-id">{$faq_item.id}</span></span>
+                                                <div class="d-flex align-items-center gap-1 ms-auto">
+                                                    <span class="text-muted small me-1">Сорт.</span>
+                                                    <input type="number" class="form-control form-control-sm entity-sort-input"
+                                                           min="0" max="999999" data-meta-field="sort_order"
+                                                           value="{$faq_item.sort_order|default:0}">
+                                                </div>
+                                                <div class="form-check form-switch mb-0">
+                                                    <input class="form-check-input" type="checkbox" role="switch"
+                                                           data-meta-field="published"
+                                                           {if $faq_item.published}checked{/if}>
+                                                    <label class="form-check-label small text-muted">Вкл.</label>
+                                                </div>
+                                                <button type="button" class="btn btn-sm btn-link text-danger p-0 ms-1"
+                                                        data-action="delete-item" title="Удалить">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </div>
+                                            <div class="p-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-medium">Вопрос</label>
+                                                    <input type="text" class="form-control"
+                                                           data-translation-field="question"
+                                                           value="{$faq_translation.question|default:''}">
+                                                </div>
+                                                <div class="mb-0">
+                                                    <label class="form-label fw-medium">Ответ</label>
+                                                    <textarea class="form-control" rows="4"
+                                                              data-translation-field="answer">{$faq_translation.answer|default:''}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-action="add-faq">
+                                    <i class="bi bi-plus-circle me-1"></i>Добавить FAQ
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 {/foreach}
             </div>

@@ -9,8 +9,8 @@ export function initAdminCipherCategoryEdit() {
     }
 
     let newItemCounter = 0
-    /** @type {{block:Set<number>, task:Set<number>, used_together:Set<number>}} */
-    const deletedIds = { block: new Set(), task: new Set(), used_together: new Set() }
+    /** @type {{block:Set<number>, task:Set<number>, used_together:Set<number>, faq:Set<number>}} */
+    const deletedIds = { block: new Set(), task: new Set(), used_together: new Set(), faq: new Set() }
 
     const saveButton = root.querySelector('[data-role="save-category"]')
     const alertBox = root.querySelector('[data-role="save-alert"]')
@@ -126,6 +126,21 @@ export function initAdminCipherCategoryEdit() {
             </div>
         </div>`
 
+    const newFaqHtml = (tempId) => `
+        <div class="cipher-entity border rounded" data-entity="faq" data-new-id="${tempId}">
+            ${entityHeadHtml()}
+            <div class="p-3">
+                <div class="mb-3">
+                    <label class="form-label fw-medium">Вопрос</label>
+                    <input type="text" class="form-control" data-translation-field="question" value="">
+                </div>
+                <div class="mb-0">
+                    <label class="form-label fw-medium">Ответ</label>
+                    <textarea class="form-control" rows="4" data-translation-field="answer"></textarea>
+                </div>
+            </div>
+        </div>`
+
     const addNewBlock = () => {
         newItemCounter++
         const tempId = `new-${newItemCounter}`
@@ -168,6 +183,20 @@ export function initAdminCipherCategoryEdit() {
         })
     }
 
+    const addNewFaq = () => {
+        newItemCounter++
+        const tempId = `new-${newItemCounter}`
+
+        root.querySelectorAll('[data-language]').forEach((section) => {
+            const list = section.querySelector('[data-entity-list="faq"]')
+            if (!list) {
+                return
+            }
+
+            list.insertAdjacentHTML('beforeend', newFaqHtml(tempId))
+        })
+    }
+
     const deleteItem = (button) => {
         const item = button.closest('[data-entity]')
         if (!item) {
@@ -183,7 +212,7 @@ export function initAdminCipherCategoryEdit() {
             return
         }
 
-        if (id > 0 && (entity === 'block' || entity === 'task' || entity === 'used_together')) {
+        if (id > 0 && (entity === 'block' || entity === 'task' || entity === 'used_together' || entity === 'faq')) {
             deletedIds[entity].add(id)
             root.querySelectorAll(`[data-entity="${entity}"][data-id="${id}"]`).forEach((el) => {
                 el.style.opacity = '0.35'
@@ -212,6 +241,10 @@ export function initAdminCipherCategoryEdit() {
 
         if (action === 'add-used-together') {
             addNewUsedTogether()
+        }
+
+        if (action === 'add-faq') {
+            addNewFaq()
         }
 
         if (action === 'delete-item') {
@@ -244,6 +277,9 @@ export function initAdminCipherCategoryEdit() {
             used_together: [],
             new_used_together: [],
             delete_used_together: [...deletedIds.used_together],
+            faq: [],
+            new_faq: [],
+            delete_faq: [...deletedIds.faq],
         }
 
         root.querySelectorAll('[data-language]').forEach((section) => {
@@ -380,6 +416,45 @@ export function initAdminCipherCategoryEdit() {
                     }
                 }
             })
+
+            section.querySelectorAll('[data-entity="faq"]:not([data-deleted])').forEach((item) => {
+                const id = Number(item.getAttribute('data-id') || '0')
+                const newId = item.getAttribute('data-new-id')
+
+                if (newId) {
+                    let row = payload.new_faq.find((r) => r.temp_id === newId)
+                    if (!row) {
+                        row = {
+                            temp_id: newId,
+                            sort_order: Number(item.querySelector('[data-meta-field="sort_order"]')?.value ?? 0),
+                            published: item.querySelector('[data-meta-field="published"]')?.checked ? 1 : 0,
+                            translations: {},
+                        }
+                        payload.new_faq.push(row)
+                    }
+
+                    row.translations[language] = {
+                        question: String(item.querySelector('[data-translation-field="question"]')?.value ?? '').trim(),
+                        answer: String(item.querySelector('[data-translation-field="answer"]')?.value ?? '').trim(),
+                    }
+                } else if (id > 0) {
+                    let row = payload.faq.find((r) => r.id === id)
+                    if (!row) {
+                        row = {
+                            id,
+                            sort_order: Number(item.querySelector('[data-meta-field="sort_order"]')?.value ?? 0),
+                            published: item.querySelector('[data-meta-field="published"]')?.checked ? 1 : 0,
+                            translations: {},
+                        }
+                        payload.faq.push(row)
+                    }
+
+                    row.translations[language] = {
+                        question: String(item.querySelector('[data-translation-field="question"]')?.value ?? '').trim(),
+                        answer: String(item.querySelector('[data-translation-field="answer"]')?.value ?? '').trim(),
+                    }
+                }
+            })
         })
 
         saveButton.disabled = true
@@ -391,6 +466,7 @@ export function initAdminCipherCategoryEdit() {
             const createdBlocks = response?.created?.blocks ?? []
             const createdTasks = response?.created?.tasks ?? []
             const createdUsedTogether = response?.created?.used_together ?? []
+            const createdFaq = response?.created?.faq ?? []
 
             createdBlocks.forEach(({ temp_id, id }) => {
                 root.querySelectorAll(`[data-entity="block"][data-new-id="${temp_id}"]`).forEach((el) => {
@@ -430,6 +506,24 @@ export function initAdminCipherCategoryEdit() {
 
             createdUsedTogether.forEach(({ temp_id, id }) => {
                 root.querySelectorAll(`[data-entity="used_together"][data-new-id="${temp_id}"]`).forEach((el) => {
+                    el.setAttribute('data-id', String(id))
+                    el.removeAttribute('data-new-id')
+                    const badge = el.querySelector('.badge')
+                    if (badge) {
+                        badge.className = 'badge bg-secondary-subtle text-secondary font-monospace'
+                        badge.textContent = `#${id}`
+                    }
+                    const head = el.querySelector('.cipher-entity-head')
+                    if (head) {
+                        head.classList.remove('bg-warning-subtle')
+                        head.classList.add('bg-light')
+                        head.style.borderRadius = ''
+                    }
+                })
+            })
+
+            createdFaq.forEach(({ temp_id, id }) => {
+                root.querySelectorAll(`[data-entity="faq"][data-new-id="${temp_id}"]`).forEach((el) => {
                     el.setAttribute('data-id', String(id))
                     el.removeAttribute('data-new-id')
                     const badge = el.querySelector('.badge')

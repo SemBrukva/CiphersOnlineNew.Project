@@ -86,12 +86,15 @@ final class AdminController
         $blocks = is_array($payload['blocks'] ?? null) ? $payload['blocks'] : [];
         $tasks = is_array($payload['tasks'] ?? null) ? $payload['tasks'] : [];
         $usedTogether = is_array($payload['used_together'] ?? null) ? $payload['used_together'] : [];
+        $faq = is_array($payload['faq'] ?? null) ? $payload['faq'] : [];
         $newBlocks = is_array($payload['new_blocks'] ?? null) ? $payload['new_blocks'] : [];
         $newTasks = is_array($payload['new_tasks'] ?? null) ? $payload['new_tasks'] : [];
         $newUsedTogether = is_array($payload['new_used_together'] ?? null) ? $payload['new_used_together'] : [];
+        $newFaq = is_array($payload['new_faq'] ?? null) ? $payload['new_faq'] : [];
         $deleteBlocks = array_map('intval', is_array($payload['delete_blocks'] ?? null) ? $payload['delete_blocks'] : []);
         $deleteTasks = array_map('intval', is_array($payload['delete_tasks'] ?? null) ? $payload['delete_tasks'] : []);
         $deleteUsedTogether = array_map('intval', is_array($payload['delete_used_together'] ?? null) ? $payload['delete_used_together'] : []);
+        $deleteFaq = array_map('intval', is_array($payload['delete_faq'] ?? null) ? $payload['delete_faq'] : []);
         $availableLanguages = array_values(array_filter(array_map(
             static fn (mixed $language): string => mb_strtolower(trim((string) $language)),
             (array) config('locale.locales', [])
@@ -247,6 +250,40 @@ final class AdminController
             }
         }
 
+        foreach ($faq as $index => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+            foreach ($availableLanguages as $language) {
+                $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                $question = trim((string) ($translation['question'] ?? ''));
+
+                if (mb_strlen($question) > 500) {
+                    $errors["faq.{$index}.translations.{$language}.question"][] = 'Question не должен превышать 500 символов.';
+                }
+            }
+        }
+
+        foreach ($newFaq as $index => $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+            foreach ($availableLanguages as $language) {
+                $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                $question = trim((string) ($translation['question'] ?? ''));
+
+                if (mb_strlen($question) > 500) {
+                    $errors["new_faq.{$index}.translations.{$language}.question"][] = 'Question не должен превышать 500 символов.';
+                }
+            }
+        }
+
         if ($errors !== []) {
             throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
         }
@@ -254,6 +291,7 @@ final class AdminController
         $createdBlocks = [];
         $createdTasks = [];
         $createdUsedTogether = [];
+        $createdFaq = [];
 
         $this->db->transaction(function () use (
             $categoryId,
@@ -264,16 +302,20 @@ final class AdminController
             $blocks,
             $tasks,
             $usedTogether,
+            $faq,
             $newBlocks,
             $newTasks,
             $newUsedTogether,
+            $newFaq,
             $deleteBlocks,
             $deleteTasks,
             $deleteUsedTogether,
+            $deleteFaq,
             $availableLanguages,
             &$createdBlocks,
             &$createdTasks,
-            &$createdUsedTogether
+            &$createdUsedTogether,
+            &$createdFaq
         ): void {
             $now = date('Y-m-d H:i:s');
 
@@ -499,6 +541,67 @@ final class AdminController
                     $createdUsedTogether[] = ['temp_id' => $tempId, 'id' => $newId];
                 }
             }
+
+            foreach ($deleteFaq as $faqId) {
+                if ($this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_FAQ, 'category_id', $categoryId, $faqId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_CATEGORIES_FAQ . ' WHERE id = ?', [$faqId]);
+                }
+            }
+
+            foreach ($faq as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $faqId = (int) ($row['id'] ?? 0);
+                if (!$this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_FAQ, 'category_id', $categoryId, $faqId)) {
+                    continue;
+                }
+
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_CATEGORIES_FAQ . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $faqId,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryFaqTranslation($faqId, $language, $translation, $now);
+                }
+            }
+
+            foreach ($newFaq as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_FAQ . ' (category_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                    [
+                        $categoryId,
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $now,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryFaqTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdFaq[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
         });
         $this->cache->tag('cipher_categories')->flush();
 
@@ -509,6 +612,7 @@ final class AdminController
                 'blocks' => $createdBlocks,
                 'tasks' => $createdTasks,
                 'used_together' => $createdUsedTogether,
+                'faq' => $createdFaq,
             ],
         ]);
     }
@@ -1123,6 +1227,46 @@ final class AdminController
         $this->db->execute(
             'UPDATE ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS . ' SET title = ?, updated_at = ? WHERE id = ?',
             [$title, $now, (int) $existing['id']]
+        );
+    }
+
+    /**
+     * Создаёт или обновляет перевод FAQ для категории.
+     *
+     * @param array<string, mixed> $row Данные перевода.
+     */
+    private function upsertCategoryFaqTranslation(int $faqId, string $language, array $row, string $now): void
+    {
+        $question = trim((string) ($row['question'] ?? ''));
+        $answer = trim((string) ($row['answer'] ?? ''));
+        $existing = $this->db->fetch(
+            'SELECT id FROM ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS . ' WHERE faq_id = ? AND language = ? LIMIT 1',
+            [$faqId, $language]
+        );
+
+        if ($question === '' && $answer === '') {
+            if ($existing !== false) {
+                $this->db->execute(
+                    'DELETE FROM ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS . ' WHERE faq_id = ? AND language = ?',
+                    [$faqId, $language]
+                );
+            }
+
+            return;
+        }
+
+        if ($existing === false) {
+            $this->db->insert(
+                'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS . ' (faq_id, language, question, answer, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                [$faqId, $language, $question, $answer, $now, $now]
+            );
+
+            return;
+        }
+
+        $this->db->execute(
+            'UPDATE ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS . ' SET question = ?, answer = ?, updated_at = ? WHERE id = ?',
+            [$question, $answer, $now, (int) $existing['id']]
         );
     }
 

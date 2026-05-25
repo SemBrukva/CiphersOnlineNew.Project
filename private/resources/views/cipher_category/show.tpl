@@ -81,7 +81,7 @@
 {/if}
 
 {if $used_together}
-    <section class="panel ciphers-category-hub-panel">
+<section class="panel ciphers-category-hub-panel">
         <div class="panel-heading"><div class="panel-title"><i class="fa-solid fa-shuffle"></i> {trans key='CIPHER_CATEGORY_USED_TOGETHER_TITLE'}</div></div>
         <div class="panel-content">
             <div class="ciphers-category-hub-combo-grid">
@@ -97,5 +97,29 @@
                 {/foreach}
             </div>
         </div>
-    </section>
+</section>
+{/if}
+
+{if $faq}
+<section class="panel ciphers-category-hub-panel">
+    <div class="panel-heading">
+        <div class="panel-title">{trans key='CIPHER_TOOL_FAQ_TITLE'}</div>
+    </div>
+    <div class="panel-content">
+        <div class="accordion" id="category-faq">
+            {foreach $faq as $item}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#category-faq-{$item.id}">
+                        {$item.question}
+                    </button>
+                </h2>
+                <div id="category-faq-{$item.id}" class="accordion-collapse collapse" data-bs-parent="#category-faq">
+                    <div class="accordion-body">{$item.answer}</div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</section>
 {/if}

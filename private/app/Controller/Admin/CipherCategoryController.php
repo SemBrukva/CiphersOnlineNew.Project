@@ -287,12 +287,21 @@ final class CipherCategoryController
             'language'
         );
 
+        $faq = $this->categories->listFaqByCategoryId($categoryId);
+        $faqIds = array_map(static fn (array $row): int => (int) ($row['id'] ?? 0), $faq);
+        $faqTranslations = $this->groupByEntityAndLanguage(
+            $this->categories->listFaqTranslationsByFaqIds($faqIds),
+            'faq_id',
+            'language'
+        );
+
         return [
             'category' => $category,
             'translations_by_language' => $translationsByLanguage,
             'blocks' => $this->attachTranslations($blocks, $blockTranslations),
             'tasks' => $this->attachTranslations($tasks, $taskTranslations),
             'used_together' => $this->attachTranslations($usedTogether, $usedTogetherTranslations),
+            'faq' => $this->attachTranslations($faq, $faqTranslations),
             'category_ciphers' => $this->ciphers->listForSelectByCategoryId($categoryId),
         ];
     }

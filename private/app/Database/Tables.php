@@ -54,6 +54,12 @@ final class Tables
     /** @var string Таблица переводов связок инструментов, используемых вместе. */
     public const string CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS = 'ciphers_categories_used_together_translations';
 
+    /** @var string Таблица FAQ категорий шифров. */
+    public const string CIPHERS_CATEGORIES_FAQ = 'ciphers_categories_faq';
+
+    /** @var string Таблица переводов FAQ категорий шифров. */
+    public const string CIPHERS_CATEGORIES_FAQ_TRANSLATIONS = 'ciphers_categories_faq_translations';
+
     /** @var string Таблица приложений-шифров. */
     public const string CIPHERS = 'ciphers';
 

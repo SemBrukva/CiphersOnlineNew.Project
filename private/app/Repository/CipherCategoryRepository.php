@@ -342,4 +342,61 @@ final class CipherCategoryRepository extends AbstractRepository
             [$defaultLanguage, $language, $defaultLanguage, $language, $defaultLanguage, $language, $defaultLanguage, $categoryId]
         );
     }
+
+    /**
+     * Возвращает список FAQ категории для админки.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function listFaqByCategoryId(int $categoryId): array
+    {
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_CATEGORIES_FAQ . ' WHERE category_id = ? ORDER BY sort_order ASC, id ASC',
+            [$categoryId]
+        );
+    }
+
+    /**
+     * Возвращает переводы FAQ категорий для списка id FAQ.
+     *
+     * @param  int[] $faqIds Список ID FAQ.
+     * @return array<int, array<string, mixed>>
+     */
+    public function listFaqTranslationsByFaqIds(array $faqIds): array
+    {
+        if ($faqIds === []) {
+            return [];
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($faqIds), '?'));
+
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS
+            . ' WHERE faq_id IN (' . $placeholders . ') ORDER BY faq_id ASC, language ASC, id ASC',
+            $faqIds
+        );
+    }
+
+    /**
+     * Возвращает переведённые FAQ категории.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findFaqByCategoryIdWithTranslation(int $categoryId, string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT f.id, f.category_id, f.sort_order, f.published, '
+            . 'COALESCE(ft_cur.language, ft_def.language, ?) AS language, '
+            . 'COALESCE(ft_cur.question, ft_def.question, \'\') AS question, '
+            . 'COALESCE(ft_cur.answer, ft_def.answer, \'\') AS answer '
+            . 'FROM ' . Tables::CIPHERS_CATEGORIES_FAQ . ' f '
+            . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS . ' ft_cur '
+            . 'ON ft_cur.faq_id = f.id AND ft_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS . ' ft_def '
+            . 'ON ft_def.faq_id = f.id AND ft_def.language = ? '
+            . 'WHERE f.category_id = ? AND f.published = 1 '
+            . 'ORDER BY f.sort_order ASC, f.id ASC',
+            [$defaultLanguage, $language, $defaultLanguage, $categoryId]
+        );
+    }
 }
