@@ -82,10 +82,11 @@ final class CipherController
 
         $alias = mb_strtolower(trim((string) $request->input('alias', '')));
         $categoryId = (int) $request->input('category_id', 0);
+        $calculationMode = mb_strtolower(trim((string) $request->input('calculation_mode', 'client')));
         $sortOrder = (int) $request->input('sort_order', 0);
         $published = $request->input('published') !== null ? 1 : 0;
 
-        $error = $this->validateCipherInput($alias, $categoryId, $sortOrder, null);
+        $error = $this->validateCipherInput($alias, $categoryId, $calculationMode, $sortOrder, null);
 
         if ($error !== null) {
             $this->session->flash('error', $error);
@@ -97,6 +98,7 @@ final class CipherController
         $id = $this->ciphers->insert([
             'category_id' => $categoryId,
             'alias' => $alias,
+            'calculation_mode' => $calculationMode,
             'sort_order' => $sortOrder,
             'published' => $published,
             'created_at' => $now,
@@ -159,10 +161,11 @@ final class CipherController
 
         $alias = mb_strtolower(trim((string) $request->input('alias', '')));
         $categoryId = (int) $request->input('category_id', 0);
+        $calculationMode = mb_strtolower(trim((string) $request->input('calculation_mode', 'client')));
         $sortOrder = (int) $request->input('sort_order', 0);
         $published = $request->input('published') !== null ? 1 : 0;
 
-        $error = $this->validateCipherInput($alias, $categoryId, $sortOrder, $id);
+        $error = $this->validateCipherInput($alias, $categoryId, $calculationMode, $sortOrder, $id);
 
         if ($error !== null) {
             $this->session->flash('error', $error);
@@ -173,6 +176,7 @@ final class CipherController
         $this->ciphers->update($id, [
             'category_id' => $categoryId,
             'alias' => $alias,
+            'calculation_mode' => $calculationMode,
             'sort_order' => $sortOrder,
             'published' => $published,
             'updated_at' => date('Y-m-d H:i:s'),
@@ -200,7 +204,13 @@ final class CipherController
     /**
      * Валидирует базовые поля шифра и возвращает текст ошибки при провале.
      */
-    private function validateCipherInput(string $alias, int $categoryId, int $sortOrder, ?int $exceptId): ?string
+    private function validateCipherInput(
+        string $alias,
+        int $categoryId,
+        string $calculationMode,
+        int $sortOrder,
+        ?int $exceptId
+    ): ?string
     {
         if ($alias === '' || !preg_match('/^[a-z0-9-]{2,100}$/', $alias)) {
             return 'Alias должен содержать 2-100 символов: a-z, 0-9 и дефис.';
@@ -208,6 +218,10 @@ final class CipherController
 
         if ($categoryId < 1) {
             return 'Выберите категорию.';
+        }
+
+        if (!in_array($calculationMode, ['api', 'client'], true)) {
+            return 'Режим вычисления должен быть api или client.';
         }
 
         if ($sortOrder < 0 || $sortOrder > 999999) {

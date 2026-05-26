@@ -217,6 +217,7 @@ export function initAdminCipherEdit() {
             settings: {
                 alias:       String(root.querySelector('[name="alias"]')?.value ?? '').trim(),
                 category_id: Number(root.querySelector('[name="category_id"]')?.value ?? 0),
+                calculation_mode: String(root.querySelector('[name="calculation_mode"]')?.value ?? 'client').trim().toLowerCase(),
                 sort_order:  Number(root.querySelector('[name="sort_order"]')?.value ?? 0),
                 published:   Boolean(root.querySelector('[name="published"]')?.checked ?? false),
             },

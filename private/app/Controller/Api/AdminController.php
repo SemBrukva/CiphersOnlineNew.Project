@@ -671,6 +671,7 @@ final class AdminController
         $alias = mb_strtolower(trim((string) ($settings['alias'] ?? '')));
         $sortOrder = (int) ($settings['sort_order'] ?? 0);
         $categoryId = (int) ($settings['category_id'] ?? 0);
+        $calculationMode = mb_strtolower(trim((string) ($settings['calculation_mode'] ?? 'client')));
         $published = (bool) ($settings['published'] ?? false) ? 1 : 0;
 
         $errors = [];
@@ -685,6 +686,10 @@ final class AdminController
 
         if ($categoryId < 1) {
             $errors['settings.category_id'][] = 'Неверный ID категории.';
+        }
+
+        if (!in_array($calculationMode, ['api', 'client'], true)) {
+            $errors['settings.calculation_mode'][] = 'Режим вычисления должен быть api или client.';
         }
 
         if ($this->ciphers->existsByAlias($alias, $cipherId)) {
@@ -749,7 +754,7 @@ final class AdminController
         $createdTags = [];
 
         $this->db->transaction(function () use (
-            $cipherId, $alias, $sortOrder, $categoryId, $published,
+            $cipherId, $alias, $sortOrder, $categoryId, $calculationMode, $published,
             $translations, $blocks, $faq, $examples, $tags,
             $newBlocks, $newFaq, $newExamples, $newTags,
             $deleteBlocks, $deleteFaq, $deleteExamples, $deleteTags,
@@ -761,6 +766,7 @@ final class AdminController
             $this->ciphers->update($cipherId, [
                 'category_id' => $categoryId,
                 'alias' => $alias,
+                'calculation_mode' => $calculationMode,
                 'sort_order' => $sortOrder,
                 'published' => $published,
                 'updated_at' => $now,

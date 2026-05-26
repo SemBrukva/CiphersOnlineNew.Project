@@ -38,6 +38,14 @@
                        value="{$cipher.sort_order|default:0}" min="0" max="999999" required>
             </div>
 
+            <div class="mb-3">
+                <label for="calculation_mode" class="form-label fw-medium">Режим вычисления</label>
+                <select class="form-select" id="calculation_mode" name="calculation_mode" required>
+                    <option value="client" {if !$cipher || ($cipher.calculation_mode|default:'client') == 'client'}selected{/if}>client</option>
+                    <option value="api" {if $cipher && ($cipher.calculation_mode|default:'client') == 'api'}selected{/if}>api</option>
+                </select>
+            </div>
+
             <div class="mb-4">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch"

@@ -26,7 +26,7 @@
             </div>
             <div class="card-body p-4">
                 <div class="row g-3 align-items-end">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="form-label fw-medium" for="alias">Alias</label>
                         <input type="text" class="form-control font-monospace" id="alias" name="alias"
                                value="{$active_cipher.cipher.alias|default:''}" required>
@@ -36,7 +36,7 @@
                         <input type="number" class="form-control" id="sort_order" name="sort_order"
                                value="{$active_cipher.cipher.sort_order|default:0}" min="0" max="999999" required>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="form-label fw-medium" for="category_id">Категория</label>
                         <select class="form-select" id="category_id" name="category_id" required>
                             {foreach $categories as $category}
@@ -44,6 +44,13 @@
                                     #{$category.id} · {$category.alias}
                                 </option>
                             {/foreach}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label fw-medium" for="calculation_mode">Вычисление</label>
+                        <select class="form-select" id="calculation_mode" name="calculation_mode" required>
+                            <option value="client" {if ($active_cipher.cipher.calculation_mode|default:'client') == 'client'}selected{/if}>client</option>
+                            <option value="api" {if ($active_cipher.cipher.calculation_mode|default:'client') == 'api'}selected{/if}>api</option>
                         </select>
                     </div>
                     <div class="col-md-2">
