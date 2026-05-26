@@ -100,7 +100,7 @@ final class CipherCategoryRepository extends AbstractRepository
     {
         $row = $this->db->fetch(
             'SELECT c.id, c.alias, c.category, c.sort_order, c.published, c.created_at, c.updated_at, '
-            . 't.language, t.name, t.description, t.meta_title, t.meta_description '
+            . 't.language, t.name, t.name_short, t.description, t.meta_title, t.meta_description '
             . 'FROM ' . $this->table . ' c '
             . 'INNER JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t ON t.category_id = c.id '
             . 'WHERE c.alias = ? AND c.published = 1 AND t.language = ? '
@@ -120,7 +120,7 @@ final class CipherCategoryRepository extends AbstractRepository
     {
         $row = $this->db->fetch(
             'SELECT c.id, c.alias, c.category, c.sort_order, c.published, c.created_at, c.updated_at, '
-            . 't.language, t.name, t.description, t.meta_title, t.meta_description '
+            . 't.language, t.name, t.name_short, t.description, t.meta_title, t.meta_description '
             . 'FROM ' . $this->table . ' c '
             . 'INNER JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t ON t.category_id = c.id '
             . 'WHERE c.alias = ? AND c.published = 1 '

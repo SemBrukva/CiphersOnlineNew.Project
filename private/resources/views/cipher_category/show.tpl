@@ -47,7 +47,7 @@
 
 {if $tasks}
 <section class="panel ciphers-category-hub-panel">
-    <div class="panel-heading"><div class="panel-title"><i class="fa-solid fa-fire"></i> {trans key='CIPHER_CATEGORY_POPULAR_TASKS_TITLE'}</div></div>
+    <div class="panel-heading"><div class="panel-title"><i class="bi bi-fire"></i> {trans key='CIPHER_CATEGORY_POPULAR_TASKS_TITLE'}</div></div>
         <div class="panel-content">
             <div class="ciphers-category-hub-popular-grid">
                 {foreach $tasks as $task}
@@ -72,7 +72,7 @@
     {foreach $blocks as $block}
     <section class="panel ciphers-category-hub-panel">
         <div class="panel-heading">
-            <div class="panel-title">{$block.title|default:$category.name}</div>
+            <div class="panel-title"><i class="bi bi-info-circle-fill"></i> {$block.title|default:$category.name}</div>
         </div>
         <div class="panel-content">
             {$block.text nofilter}
@@ -83,7 +83,7 @@
 
 {if $used_together}
 <section class="panel ciphers-category-hub-panel">
-        <div class="panel-heading"><div class="panel-title"><i class="fa-solid fa-shuffle"></i> {trans key='CIPHER_CATEGORY_USED_TOGETHER_TITLE'}</div></div>
+        <div class="panel-heading"><div class="panel-title"><i class="bi bi-shuffle"></i> {trans key='CIPHER_CATEGORY_USED_TOGETHER_TITLE'}</div></div>
         <div class="panel-content">
             <div class="ciphers-category-hub-combo-grid">
                 {foreach $used_together as $item}
@@ -104,7 +104,7 @@
 {if $faq}
 <section class="panel ciphers-category-hub-panel">
     <div class="panel-heading">
-        <div class="panel-title">{trans key='CIPHER_TOOL_FAQ_TITLE'}</div>
+        <div class="panel-title"><i class="bi bi-question-circle-fill"></i> {trans key='CIPHER_TOOL_FAQ_TITLE'}</div>
     </div>
     <div class="panel-content">
         <div class="accordion" id="category-faq">

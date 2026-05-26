@@ -92,6 +92,9 @@ final readonly class CipherCategoryController
         $this->view
             ->setTitle($title)
             ->setMeta($metaDescription)
+            ->setBreadcrumbs([
+                ['label' => (string) (($category['name_short'] ?? '') !== '' ? $category['name_short'] : ($category['name'] ?? $category['alias']))],
+            ])
             ->setContent($this->view->fetch('cipher_category/show.tpl', [
                 'category' => $category,
                 'tools' => $tools,
