@@ -114,6 +114,7 @@ final class CipherCategoryController
 
         $this->categories->insert([
             'alias' => $dto->alias(),
+            'category' => $dto->category(),
             'sort_order' => $dto->sortOrder(),
             'published' => $dto->published(),
             'created_at' => $now,
@@ -200,6 +201,7 @@ final class CipherCategoryController
 
         $this->categories->update($id, [
             'alias' => $dto->alias(),
+            'category' => $dto->category(),
             'sort_order' => $dto->sortOrder(),
             'published' => $dto->published(),
             'updated_at' => date('Y-m-d H:i:s'),

@@ -19,6 +19,7 @@ final class CipherCategoryRequest extends FormRequest
     {
         return [
             'alias' => 'required|string|min:2|max:100',
+            'category' => 'required|string|in:cipher,encoding',
             'sort_order' => 'required|integer|min:0|max:999999',
             'published' => 'boolean',
         ];
@@ -32,6 +33,7 @@ final class CipherCategoryRequest extends FormRequest
         $data = $request->allInput();
 
         $data['alias'] = trim((string) ($data['alias'] ?? ''));
+        $data['category'] = mb_strtolower(trim((string) ($data['category'] ?? 'cipher')));
         $data['sort_order'] = (int) ($data['sort_order'] ?? 0);
         $data['published'] = $request->input('published') !== null;
 
@@ -52,6 +54,14 @@ final class CipherCategoryRequest extends FormRequest
     public function sortOrder(): int
     {
         return (int) $this->value('sort_order', 0);
+    }
+
+    /**
+     * Возвращает тип категории.
+     */
+    public function category(): string
+    {
+        return (string) $this->value('category', 'cipher');
     }
 
     /**

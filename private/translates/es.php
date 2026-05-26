@@ -116,6 +116,8 @@ return [
     'CIPHER_TOOL_FAQ_TITLE' => 'FAQ',
     'CIPHER_TOOL_RELATED_TITLE' => 'Herramientas relacionadas',
     'CIPHER_TOOL_INFO_TITLE' => 'Información',
+    'CIPHER_CATEGORY_TOOLS_TITLE_CIPHER' => 'Herramientas de cifrado',
+    'CIPHER_CATEGORY_TOOLS_TITLE_ENCODING' => 'Herramientas de codificación',
     'CIPHER_CATEGORY_POPULAR_TASKS_TITLE' => 'Tareas populares',
     'CIPHER_CATEGORY_USED_TOGETHER_TITLE' => 'Usados juntos con frecuencia',
     'CIPHER_TOOL_INPUT_TAG' => 'Entrada',

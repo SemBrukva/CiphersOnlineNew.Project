@@ -40,6 +40,14 @@
                        value="{$active_category.category.sort_order|default:0}" min="0" max="999999" required>
             </div>
 
+            <div class="mb-3">
+                <label for="category" class="form-label fw-medium">Тип категории <span class="text-danger">*</span></label>
+                <select class="form-select" id="category" name="category" required>
+                    <option value="cipher" {if ($active_category.category.category|default:'cipher') == 'cipher'}selected{/if}>Cipher</option>
+                    <option value="encoding" {if ($active_category.category.category|default:'cipher') == 'encoding'}selected{/if}>Encoding</option>
+                </select>
+            </div>
+
             <div class="mb-4">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch"

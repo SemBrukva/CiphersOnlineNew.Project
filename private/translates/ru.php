@@ -136,6 +136,8 @@ return [
     'CIPHER_TOOL_FAQ_TITLE' => 'FAQ',
     'CIPHER_TOOL_RELATED_TITLE' => 'Связанные инструменты',
     'CIPHER_TOOL_INFO_TITLE' => 'Информация',
+    'CIPHER_CATEGORY_TOOLS_TITLE_CIPHER' => 'Инструменты шифрования',
+    'CIPHER_CATEGORY_TOOLS_TITLE_ENCODING' => 'Инструменты кодирования',
     'CIPHER_CATEGORY_POPULAR_TASKS_TITLE' => 'Популярные задачи',
     'CIPHER_CATEGORY_USED_TOGETHER_TITLE' => 'Часто используют вместе',
     'CIPHER_TOOL_INPUT_TAG' => 'Вход',

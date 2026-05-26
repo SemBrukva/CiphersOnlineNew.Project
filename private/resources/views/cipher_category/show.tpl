@@ -14,9 +14,10 @@
 
 {if $tools}
 <section class="panel ciphers-category-hub-panel" id="category-tools">
+    {assign var="tools_title_key" value="CIPHER_CATEGORY_TOOLS_TITLE_"|cat:($category.category|default:'cipher'|upper)}
     <div class="panel-heading">
         <div class="panel-title">
-            <i class="bi bi-tools"></i> {$category.name}
+            <i class="bi bi-tools"></i> {trans key=$tools_title_key}
         </div>
     </div>
     <div class="panel-content">

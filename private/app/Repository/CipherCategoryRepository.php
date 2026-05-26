@@ -99,7 +99,7 @@ final class CipherCategoryRepository extends AbstractRepository
     public function findPublishedCategoryPageByAliasAndLanguage(string $alias, string $language): ?array
     {
         $row = $this->db->fetch(
-            'SELECT c.id, c.alias, c.sort_order, c.published, c.created_at, c.updated_at, '
+            'SELECT c.id, c.alias, c.category, c.sort_order, c.published, c.created_at, c.updated_at, '
             . 't.language, t.name, t.description, t.meta_title, t.meta_description '
             . 'FROM ' . $this->table . ' c '
             . 'INNER JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t ON t.category_id = c.id '
@@ -119,7 +119,7 @@ final class CipherCategoryRepository extends AbstractRepository
     public function findPublishedCategoryPageByAlias(string $alias): ?array
     {
         $row = $this->db->fetch(
-            'SELECT c.id, c.alias, c.sort_order, c.published, c.created_at, c.updated_at, '
+            'SELECT c.id, c.alias, c.category, c.sort_order, c.published, c.created_at, c.updated_at, '
             . 't.language, t.name, t.description, t.meta_title, t.meta_description '
             . 'FROM ' . $this->table . ' c '
             . 'INNER JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t ON t.category_id = c.id '

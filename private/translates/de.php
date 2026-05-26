@@ -116,6 +116,8 @@ return [
     'CIPHER_TOOL_FAQ_TITLE' => 'FAQ',
     'CIPHER_TOOL_RELATED_TITLE' => 'Verwandte Tools',
     'CIPHER_TOOL_INFO_TITLE' => 'Info',
+    'CIPHER_CATEGORY_TOOLS_TITLE_CIPHER' => 'Chiffrier-Tools',
+    'CIPHER_CATEGORY_TOOLS_TITLE_ENCODING' => 'Kodierungs-Tools',
     'CIPHER_CATEGORY_POPULAR_TASKS_TITLE' => 'Beliebte Aufgaben',
     'CIPHER_CATEGORY_USED_TOGETHER_TITLE' => 'Oft zusammen genutzt',
     'CIPHER_TOOL_INPUT_TAG' => 'Eingabe',

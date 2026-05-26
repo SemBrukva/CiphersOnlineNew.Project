@@ -101,6 +101,7 @@ final class AdminController
         ), static fn (string $language): bool => $language !== ''));
 
         $alias = mb_strtolower(trim((string) ($settings['alias'] ?? '')));
+        $categoryType = mb_strtolower(trim((string) ($settings['category'] ?? 'cipher')));
         $sortOrder = (int) ($settings['sort_order'] ?? 0);
         $published = (bool) ($settings['published'] ?? false) ? 1 : 0;
 
@@ -116,6 +117,10 @@ final class AdminController
 
         if ($this->categories->existsByAlias($alias, $categoryId)) {
             $errors['settings.alias'][] = 'Категория с таким alias уже существует.';
+        }
+
+        if (!in_array($categoryType, ['cipher', 'encoding'], true)) {
+            $errors['settings.category'][] = 'Тип категории должен быть cipher или encoding.';
         }
 
         $normalizedTranslations = [];
@@ -321,6 +326,7 @@ final class AdminController
 
             $this->categories->update($categoryId, [
                 'alias' => $alias,
+                'category' => $categoryType,
                 'sort_order' => $sortOrder,
                 'published' => $published,
                 'updated_at' => $now,

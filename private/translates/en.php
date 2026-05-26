@@ -136,6 +136,8 @@ return [
     'CIPHER_TOOL_FAQ_TITLE' => 'FAQ',
     'CIPHER_TOOL_RELATED_TITLE' => 'Related tools',
     'CIPHER_TOOL_INFO_TITLE' => 'Info',
+    'CIPHER_CATEGORY_TOOLS_TITLE_CIPHER' => 'Cipher Tools',
+    'CIPHER_CATEGORY_TOOLS_TITLE_ENCODING' => 'Encoding Tools',
     'CIPHER_CATEGORY_POPULAR_TASKS_TITLE' => 'Popular Tasks',
     'CIPHER_CATEGORY_USED_TOGETHER_TITLE' => 'Often Used Together',
     'CIPHER_TOOL_INPUT_TAG' => 'Input',

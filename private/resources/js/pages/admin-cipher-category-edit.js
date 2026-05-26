@@ -264,6 +264,7 @@ export function initAdminCipherCategoryEdit() {
         const payload = {
             settings: {
                 alias: String(root.querySelector('[name="alias"]')?.value ?? '').trim(),
+                category: String(root.querySelector('[name="category"]')?.value ?? 'cipher').trim().toLowerCase(),
                 sort_order: Number(root.querySelector('[name="sort_order"]')?.value ?? 0),
                 published: Boolean(root.querySelector('[name="published"]')?.checked ?? false),
             },
