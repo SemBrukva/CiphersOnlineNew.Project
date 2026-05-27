@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Cipher\BeaufortCipherService;
-use App\Cipher\CaesarCipherService;
-use App\Cipher\GronsfeldCipherService;
-use App\Cipher\PlayfairCipherService;
+use App\Cipher\ToolRegistry;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -26,10 +23,7 @@ final readonly class CipherController
         private View $view,
         private CipherRepository $ciphers,
         private CipherCategoryRepository $categories,
-        private BeaufortCipherService $beaufortCipher,
-        private CaesarCipherService $caesarCipher,
-        private GronsfeldCipherService $gronsfeldCipher,
-        private PlayfairCipherService $playfairCipher
+        private ToolRegistry $toolRegistry
     ) {}
 
     /**
@@ -117,90 +111,6 @@ final readonly class CipherController
      */
     private function buildToolUi(string $toolSlug, string $calculationMode): array
     {
-        $examplesByTool = [
-            'encoding/base64' => [
-                ['label' => 'JSON', 'value' => '{"id":42,"role":"admin","active":true}'],
-                ['label' => 'Unicode', 'value' => 'Привет мир 👋'],
-                ['label' => 'Header', 'value' => 'Authorization: Basic dXNlcjpwYXNzd29yZA=='],
-            ],
-            'encoding/hex' => [
-                ['label' => 'JSON', 'value' => '{"id":42,"role":"admin","active":true}'],
-                ['label' => 'Unicode', 'value' => 'Привет мир 👋'],
-                ['label' => 'Hex', 'value' => '48 65 6c 6c 6f 2c 20 77 6f 72 6c 64 21'],
-            ],
-            'encoding/url-encode' => [
-                ['label' => 'URL', 'value' => 'https://example.com/search?q=smart tools'],
-                ['label' => 'Params', 'value' => 'email=test@example.com&name=John Doe'],
-                ['label' => 'Unicode', 'value' => 'Привет мир'],
-            ],
-            'encoding/binary-converter' => [
-                ['label' => 'Hello', 'value' => 'Hello'],
-                ['label' => 'Binary', 'value' => '01001000 01101001'],
-                ['label' => 'Cool', 'value' => '01000011 01101111 01101111 01101100'],
-            ],
-            'encoding/ascii-converter' => [
-                ['label' => 'ASCII', 'value' => '67 105 112 104 101 114'],
-                ['label' => 'Hello', 'value' => 'Hello'],
-                ['label' => 'Digits', 'value' => '49 50 51 33'],
-            ],
-            'encoding/unicode-converter' => [
-                ['label' => 'Escape', 'value' => '\\u041f\\u0440\\u0438\\u0432\\u0435\\u0442'],
-                ['label' => 'Codepoint', 'value' => 'U+1F600'],
-                ['label' => 'Emoji', 'value' => '😀'],
-            ],
-            'encoding/jwt-decoder' => [
-                ['label' => 'JWT', 'value' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obiIsImFkbWluIjp0cnVlfQ.signature'],
-                ['label' => 'Demo', 'value' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiZWRpdG9yIiwiaWF0IjoxNzAwMDAwMDAwfQ.demo'],
-                ['label' => 'ID', 'value' => 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTIzLCJuYW1lIjoiQWxpY2UifQ.test'],
-            ],
-            'classical-ciphers/playfair' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
-            ],
-            'classical-ciphers/plejfera' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
-            ],
-            'classical-ciphers/shifr-plejfera' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
-            ],
-            'classical-ciphers/beaufort' => [
-                ['label' => 'EN', 'value' => 'DEFEND THE EAST WALL'],
-                ['label' => 'RU', 'value' => 'ЗАЩИЩАЙ ВОСТОЧНУЮ СТЕНУ'],
-                ['label' => 'ES', 'value' => 'DEFIENDE EL MURO ESTE'],
-            ],
-            'classical-ciphers/shifr-bofora' => [
-                ['label' => 'EN', 'value' => 'DEFEND THE EAST WALL'],
-                ['label' => 'RU', 'value' => 'ЗАЩИЩАЙ ВОСТОЧНУЮ СТЕНУ'],
-                ['label' => 'ES', 'value' => 'DEFIENDE EL MURO ESTE'],
-            ],
-            'classical-ciphers/gronsfeld' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
-            ],
-            'classical-ciphers/shifr-gronsfelda' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
-            ],
-        ];
-
-        $apiActionByTool = [
-            'classical-ciphers/caesar' => 'caesar',
-            'classical-ciphers/playfair' => 'playfair',
-            'classical-ciphers/plejfera' => 'playfair',
-            'classical-ciphers/shifr-plejfera' => 'playfair',
-            'classical-ciphers/beaufort' => 'beaufort',
-            'classical-ciphers/shifr-bofora' => 'beaufort',
-            'classical-ciphers/gronsfeld' => 'gronsfeld',
-            'classical-ciphers/shifr-gronsfelda' => 'gronsfeld',
-        ];
-
         return [
             'tabEncode' => trans('CIPHER_TOOL_TAB_ENCODE'),
             'tabDecode' => trans('CIPHER_TOOL_TAB_DECODE'),
@@ -234,10 +144,10 @@ final readonly class CipherController
                 trans('CIPHER_TOOL_TRUST_PRIVATE'),
             ],
             'calculationMode' => in_array($calculationMode, ['api', 'client'], true) ? $calculationMode : 'client',
-            'apiAction' => $apiActionByTool[$toolSlug] ?? null,
+            'apiAction' => $this->toolRegistry->apiAction($toolSlug),
             'runLabel' => locale() === 'ru' ? 'Выполнить' : 'Run',
             'settings' => $this->buildToolSettings($toolSlug),
-            'exampleChips' => $examplesByTool[$toolSlug] ?? [],
+            'exampleChips' => $this->toolRegistry->exampleChips($toolSlug),
         ];
     }
 
@@ -248,16 +158,6 @@ final readonly class CipherController
      */
     private function buildToolSettings(string $toolSlug): array
     {
-        return match ($toolSlug) {
-            'classical-ciphers/caesar' => $this->caesarCipher->getToolSettings(),
-            'classical-ciphers/playfair',
-            'classical-ciphers/plejfera',
-            'classical-ciphers/shifr-plejfera' => $this->playfairCipher->getToolSettings(),
-            'classical-ciphers/beaufort',
-            'classical-ciphers/shifr-bofora' => $this->beaufortCipher->getToolSettings(),
-            'classical-ciphers/gronsfeld',
-            'classical-ciphers/shifr-gronsfelda' => $this->gronsfeldCipher->getToolSettings(),
-            default => [],
-        };
+        return $this->toolRegistry->settings($toolSlug);
     }
 }

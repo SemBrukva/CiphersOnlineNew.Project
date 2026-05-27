@@ -6,6 +6,7 @@
 
 | Приоритет | Файл                                                                | О чём                                                      |
 |-----------|---------------------------------------------------------------------|------------------------------------------------------------|
+| P1        | [priority-1-cipher-tools-scalability.md](priority-1-cipher-tools-scalability.md) | Масштабирование архитектуры cipher/decoder-инструментов     |
 | P1        | [priority-1-foundation.md](priority-1-foundation.md)                | Болевые точки: тесты, статанализ, репозитории, mailer      |
 | P2        | [priority-2-modern-conveniences.md](priority-2-modern-conveniences.md) | DX-улучшения: auto-wiring, именованные маршруты, кеши      |
 | P3        | [priority-3-framework-features.md](priority-3-framework-features.md) | Фичи фреймворка: events, queue, schema builder, OpenAPI    |

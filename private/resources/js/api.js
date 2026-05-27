@@ -7,7 +7,7 @@
  *   const stats   = await api.admin.stats();
  *
  * При ошибке (HTTP 4xx / 5xx) выбрасывается ApiError с полями:
- *   error.message  — текст из JSON-ответа (поле "error")
+ *   error.message  — текст из JSON-ответа (поле "error.message")
  *   error.status   — HTTP-статус код
  *   error.response — полный JSON-ответ
  */
@@ -59,13 +59,31 @@ export class ApiClient {
         }
 
         const response = await fetch(url, { method, headers, body, credentials: 'same-origin' })
-        const json     = await response.json()
+        const json = await response.json()
 
         if (!response.ok) {
-            throw new ApiError(json.error ?? `HTTP ${response.status}`, response.status, json)
+            throw new ApiError(this.#extractErrorMessage(json, response.status), response.status, json)
         }
 
         return json
+    }
+
+    /**
+     * Возвращает унифицированное сообщение об ошибке из JSON API.
+     */
+    #extractErrorMessage(json, status) {
+        if (json && typeof json === 'object') {
+            const error = json.error
+            if (error && typeof error === 'object' && typeof error.message === 'string' && error.message !== '') {
+                return error.message
+            }
+
+            if (typeof error === 'string' && error !== '') {
+                return error
+            }
+        }
+
+        return `HTTP ${status}`
     }
 
     guest = {

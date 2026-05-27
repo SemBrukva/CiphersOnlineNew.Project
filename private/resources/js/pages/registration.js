@@ -183,7 +183,7 @@ export function initRegistrationPage() {
             showAlert(text.success, 'success')
             window.location.href = text.cabinetUrl
         } catch (error) {
-            const message = error?.response?.error ?? 'Internal Server Error'
+            const message = error?.message ?? error?.response?.error?.message ?? 'Internal Server Error'
             showAlert(message, 'danger')
         } finally {
             submitButton.disabled = false

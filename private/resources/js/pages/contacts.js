@@ -119,7 +119,7 @@ export function initContactsPage() {
             showSubmitMessage(text.success, 'success')
             messageNode.value = ''
         } catch (error) {
-            const message = error?.response?.error ?? text.failed
+            const message = error?.message ?? error?.response?.error?.message ?? text.failed
             showSubmitMessage(message, 'danger')
         } finally {
             buttonNode.disabled = false

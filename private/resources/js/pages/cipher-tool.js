@@ -1,3 +1,5 @@
+import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
+
 /**
  * Инициализирует универсальную рабочую область инструмента на странице шифра.
  */
@@ -36,16 +38,7 @@ export function initCipherToolPage() {
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
-
-  const bySlug = {
-    base64: slug === 'encoding/base64',
-    hex: slug === 'encoding/hex',
-    binary: slug === 'encoding/binary-converter',
-    url: slug === 'encoding/url-encode',
-    jwt: slug === 'encoding/jwt-decoder',
-    ascii: slug === 'encoding/ascii-converter',
-    unicode: slug === 'encoding/unicode-converter',
-  }
+  const decoder = getDecoderBySlug(slug)
 
   const labels = {
     chars: ui.charsLabel || 'chars',
@@ -103,7 +96,7 @@ export function initCipherToolPage() {
     const val = input.value || ''
     const chars = val.length
 
-    if (bySlug.jwt) {
+    if (slug === 'encoding/jwt-decoder') {
       const segments = val.trim() ? val.trim().split('.').length : 0
       counter.textContent = segments > 0
         ? `${chars} ${labels.chars} · ${segments} segments`
@@ -222,7 +215,7 @@ export function initCipherToolPage() {
     }
 
     try {
-      output.value = transform(value, mode, bySlug)
+      output.value = transform(value, mode, decoder)
       setOutputState(true)
       setFeedback('')
     } catch {
@@ -277,7 +270,7 @@ export function initCipherToolPage() {
       setOutputState(Boolean(output.value))
       setFeedback('')
     } catch (error) {
-      const message = String(error?.response?.error ?? labels.runFailed)
+      const message = String(error?.message ?? error?.response?.error?.message ?? labels.runFailed)
       output.value = ''
       setOutputState(false)
       setFeedback(message, true)
@@ -337,7 +330,7 @@ export function initCipherToolPage() {
     chip.addEventListener('click', () => {
       const text = chip.getAttribute('data-example') || ''
       input.value = text
-      if (looksLikeEncoded(text, bySlug)) {
+      if (looksLikeEncoded(text, decoder)) {
         setMode('decode')
       } else {
         setMode('encode')
@@ -350,7 +343,7 @@ export function initCipherToolPage() {
     btn.addEventListener('click', () => {
       const text = btn.getAttribute('data-example-text') || ''
       input.value = text
-      if (looksLikeEncoded(text, bySlug)) {
+      if (looksLikeEncoded(text, decoder)) {
         setMode('decode')
       } else {
         setMode('encode')
@@ -421,138 +414,17 @@ function parseJson(raw) {
 /**
  * Выполняет преобразование данных для выбранного инструмента.
  */
-function transform(value, mode, flags) {
-  if (flags.jwt) {
-    if (mode === 'decode') return ''
-    return decodeJwtSummary(value)
-  }
-
-  if (flags.base64) {
-    return mode === 'encode'
-      ? btoa(unescape(encodeURIComponent(value)))
-      : decodeURIComponent(escape(atob(value.replace(/\s+/g, ''))))
-  }
-
-  if (flags.hex) {
-    return mode === 'encode' ? textToHex(value) : hexToText(value)
-  }
-
-  if (flags.binary) {
-    return mode === 'encode' ? textToBinary(value) : binaryToText(value)
-  }
-
-  if (flags.url) {
-    return mode === 'encode' ? encodeURIComponent(value) : decodeURIComponent(value)
-  }
-
-  if (flags.ascii) {
-    return mode === 'encode' ? textToAscii(value) : asciiToText(value)
-  }
-
-  if (flags.unicode) {
-    return mode === 'encode' ? textToUnicodeEscapes(value) : unicodeEscapesToText(value)
-  }
-
-  return ''
+function transform(value, mode, decoder) {
+  if (!decoder) return ''
+  return decoder.transform(value, mode)
 }
 
 /**
  * Эвристика автоопределения направления для примеров.
  */
-function looksLikeEncoded(text, flags) {
+function looksLikeEncoded(text, decoder) {
   const value = (text || '').trim()
   if (!value) return false
-
-  if (flags.base64) return /^[A-Za-z0-9+/]+={0,2}$/.test(value.replace(/\s+/g, ''))
-  if (flags.hex) return /^[0-9a-fA-F\s]+$/.test(value)
-  if (flags.binary) return /^[01\s]+$/.test(value)
-  if (flags.url) return /%[0-9A-Fa-f]{2}/.test(value) || value.includes('+')
-  if (flags.ascii) return /^\d+(?:\s+\d+)*$/.test(value)
-  if (flags.unicode) return /\\u[0-9a-fA-F]{4}|U\+[0-9a-fA-F]{4,6}|&#x?[0-9a-fA-F]+;/.test(value)
-  if (flags.jwt) return value.split('.').length === 3
-  return false
-}
-
-function textToHex(value) {
-  const bytes = new TextEncoder().encode(value)
-  return Array.from(bytes).map((b) => b.toString(16).padStart(2, '0')).join('')
-}
-
-function hexToText(value) {
-  const clean = value.replace(/\s+/g, '').toLowerCase()
-  if (!clean || clean.length % 2 !== 0 || /[^0-9a-f]/.test(clean)) throw new Error('hex')
-  const bytes = new Uint8Array(clean.match(/.{1,2}/g).map((part) => parseInt(part, 16)))
-  return new TextDecoder().decode(bytes)
-}
-
-function textToBinary(value) {
-  const bytes = new TextEncoder().encode(value)
-  return Array.from(bytes).map((b) => b.toString(2).padStart(8, '0')).join(' ')
-}
-
-function binaryToText(value) {
-  const clean = value.replace(/\s+/g, ' ').trim()
-  if (!clean || /[^01\s]/.test(clean)) throw new Error('binary')
-  const bytes = clean.split(' ').map((part) => {
-    if (!part || part.length > 8 || /[^01]/.test(part)) throw new Error('binary')
-    return parseInt(part.padStart(8, '0'), 2)
-  })
-  return new TextDecoder().decode(new Uint8Array(bytes))
-}
-
-function textToAscii(value) {
-  return Array.from(value || '').map((char) => {
-    const code = char.codePointAt(0)
-    if (typeof code !== 'number' || code > 127) throw new Error('ascii')
-    return String(code)
-  }).join(' ')
-}
-
-function asciiToText(value) {
-  const clean = (value || '').trim()
-  if (!clean) throw new Error('ascii')
-  return clean.split(/\s+/).map((part) => {
-    if (!/^\d+$/.test(part)) throw new Error('ascii')
-    const code = Number(part)
-    if (code < 0 || code > 127) throw new Error('ascii')
-    return String.fromCharCode(code)
-  }).join('')
-}
-
-function textToUnicodeEscapes(value) {
-  let result = ''
-  for (let i = 0; i < value.length; i += 1) {
-    result += `\\u${value.charCodeAt(i).toString(16).padStart(4, '0')}`
-  }
-  return result
-}
-
-function unicodeEscapesToText(value) {
-  const inputText = value || ''
-  if (!inputText.trim()) throw new Error('unicode')
-  return inputText
-    .replace(/\\u\{([0-9a-fA-F]{1,6})\}/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
-    .replace(/U\+([0-9a-fA-F]{4,6})/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
-    .replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/&#(x?[0-9a-fA-F]+);/g, (_, code) => {
-      const cp = /^x/i.test(code) ? parseInt(code.slice(1), 16) : parseInt(code, 10)
-      return String.fromCodePoint(cp)
-    })
-}
-
-function decodeJwtSummary(token) {
-  const parts = (token || '').trim().split('.')
-  if (parts.length !== 3) throw new Error('jwt')
-
-  const decodePart = (part) => {
-    const normalized = part.replace(/-/g, '+').replace(/_/g, '/')
-    const padding = '='.repeat((4 - (normalized.length % 4)) % 4)
-    const raw = atob(normalized + padding)
-    const bytes = Uint8Array.from(raw, (char) => char.charCodeAt(0))
-    return new TextDecoder().decode(bytes)
-  }
-
-  const header = JSON.stringify(JSON.parse(decodePart(parts[0])), null, 2)
-  const payload = JSON.stringify(JSON.parse(decodePart(parts[1])), null, 2)
-  return `Header:\n${header}\n\nPayload:\n${payload}`
+  if (!decoder) return false
+  return decoder.looksLikeEncoded(value)
 }

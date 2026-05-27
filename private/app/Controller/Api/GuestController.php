@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Api;
 
 use App\Auth\Auth;
-use App\Cipher\BeaufortCipherService;
-use App\Cipher\CaesarCipherService;
-use App\Cipher\GronsfeldCipherService;
-use App\Cipher\PlayfairCipherService;
+use App\Cipher\ApiCipherToolRegistry;
 use App\Controller\Api\Request\ContactRequest;
 use App\Controller\Api\Request\LoginRequest;
 use App\Controller\Api\Request\RegisterRequest;
@@ -41,10 +38,7 @@ final class GuestController
         private readonly Auth $auth,
         private readonly Translator $translator,
         private readonly EventDispatcherInterface $dispatcher,
-        private readonly BeaufortCipherService $beaufortCipher,
-        private readonly CaesarCipherService $caesarCipher,
-        private readonly GronsfeldCipherService $gronsfeldCipher,
-        private readonly PlayfairCipherService $playfairCipher
+        private readonly ApiCipherToolRegistry $cipherTools
     ) {
     }
 
@@ -206,65 +200,7 @@ final class GuestController
     #[ApiResponse(status: 422, description: 'Ошибки валидации')]
     public function caesar(Request $request): Response
     {
-        $payload = $request->json();
-        if (!is_array($payload)) {
-            $payload = [];
-        }
-
-        $text = (string) ($payload['text'] ?? '');
-        $direction = (string) ($payload['direction'] ?? 'encrypt');
-        $settings = is_array($payload['settings'] ?? null) ? $payload['settings'] : [];
-        $alphabet = mb_strtolower(trim((string) ($settings['alphabet'] ?? 'auto')));
-        $shift = (int) ($settings['shift'] ?? 0);
-
-        $errors = [];
-        if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
-        }
-
-        if ($text === '') {
-            $errors['text'][] = 'Text is required.';
-        }
-
-        if (!in_array($alphabet, array_merge(['auto'], $this->caesarCipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
-        }
-
-        $detectedAlphabet = null;
-        $usedAutoAlphabet = false;
-        if ($alphabet === 'auto') {
-            $detectedAlphabet = $this->caesarCipher->detectAlphabet($text);
-            $alphabet = $detectedAlphabet;
-            $usedAutoAlphabet = true;
-        }
-
-        if (!$this->caesarCipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
-        }
-
-        $maxShift = $this->caesarCipher->maxShiftForAlphabet($alphabet);
-
-        if ($shift < 0 || $shift > $maxShift) {
-            if ($usedAutoAlphabet) {
-                $shift = max(0, min($shift, $maxShift));
-            } else {
-                $errors['settings.shift'][] = 'Shift must be in range 0-' . $maxShift . '.';
-            }
-        }
-
-        if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
-        }
-
-        $result = $this->caesarCipher->process($text, $alphabet, $shift, $direction);
-
-        return Response::json([
-            'ok' => true,
-            'result' => $result,
-            'detected_alphabet' => $detectedAlphabet,
-            'alphabet' => $alphabet,
-            'shift' => $shift,
-        ]);
+        return $this->handleCipherTool($request, 'caesar');
     }
 
     /**
@@ -277,61 +213,7 @@ final class GuestController
     #[ApiResponse(status: 422, description: 'Ошибки валидации')]
     public function playfair(Request $request): Response
     {
-        $payload = $request->json();
-        if (!is_array($payload)) {
-            $payload = [];
-        }
-
-        $text = (string) ($payload['text'] ?? '');
-        $direction = (string) ($payload['direction'] ?? 'encrypt');
-        $settings = is_array($payload['settings'] ?? null) ? $payload['settings'] : [];
-        $alphabet = mb_strtolower(trim((string) ($settings['alphabet'] ?? 'auto')));
-        $key = trim((string) ($settings['key'] ?? ''));
-
-        $errors = [];
-        if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
-        }
-
-        if ($text === '') {
-            $errors['text'][] = 'Text is required.';
-        }
-
-        if ($key === '') {
-            $errors['settings.key'][] = 'Key is required.';
-        }
-
-        if (!in_array($alphabet, array_merge(['auto'], $this->playfairCipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
-        }
-
-        $detectedAlphabet = null;
-        if ($alphabet === 'auto') {
-            $detectedAlphabet = $this->playfairCipher->detectAlphabet($text . ' ' . $key);
-            $alphabet = $detectedAlphabet;
-        }
-
-        if (!$this->playfairCipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
-        }
-
-        if (!$this->playfairCipher->hasAlphabetCharacters($key, $alphabet)) {
-            $errors['settings.key'][] = 'Key does not contain symbols from the selected alphabet.';
-        }
-
-        if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
-        }
-
-        $result = $this->playfairCipher->process($text, $key, $alphabet, $direction);
-
-        return Response::json([
-            'ok' => true,
-            'result' => $result,
-            'detected_alphabet' => $detectedAlphabet,
-            'alphabet' => $alphabet,
-            'key' => $key,
-        ]);
+        return $this->handleCipherTool($request, 'playfair');
     }
 
     /**
@@ -344,61 +226,7 @@ final class GuestController
     #[ApiResponse(status: 422, description: 'Ошибки валидации')]
     public function beaufort(Request $request): Response
     {
-        $payload = $request->json();
-        if (!is_array($payload)) {
-            $payload = [];
-        }
-
-        $text = (string) ($payload['text'] ?? '');
-        $direction = (string) ($payload['direction'] ?? 'encrypt');
-        $settings = is_array($payload['settings'] ?? null) ? $payload['settings'] : [];
-        $alphabet = mb_strtolower(trim((string) ($settings['alphabet'] ?? 'auto')));
-        $key = trim((string) ($settings['key'] ?? ''));
-
-        $errors = [];
-        if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
-        }
-
-        if ($text === '') {
-            $errors['text'][] = 'Text is required.';
-        }
-
-        if ($key === '') {
-            $errors['settings.key'][] = 'Key is required.';
-        }
-
-        if (!in_array($alphabet, array_merge(['auto'], $this->beaufortCipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
-        }
-
-        $detectedAlphabet = null;
-        if ($alphabet === 'auto') {
-            $detectedAlphabet = $this->beaufortCipher->detectAlphabet($text . ' ' . $key);
-            $alphabet = $detectedAlphabet;
-        }
-
-        if (!$this->beaufortCipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
-        }
-
-        if (!$this->beaufortCipher->hasAlphabetCharacters($key, $alphabet)) {
-            $errors['settings.key'][] = 'Key does not contain symbols from the selected alphabet.';
-        }
-
-        if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
-        }
-
-        $result = $this->beaufortCipher->process($text, $key, $alphabet);
-
-        return Response::json([
-            'ok' => true,
-            'result' => $result,
-            'detected_alphabet' => $detectedAlphabet,
-            'alphabet' => $alphabet,
-            'key' => $key,
-        ]);
+        return $this->handleCipherTool($request, 'beaufort');
     }
 
     /**
@@ -411,56 +239,19 @@ final class GuestController
     #[ApiResponse(status: 422, description: 'Ошибки валидации')]
     public function gronsfeld(Request $request): Response
     {
+        return $this->handleCipherTool($request, 'gronsfeld');
+    }
+
+    /**
+     * Выполняет API-инструмент шифрования и формирует JSON-ответ.
+     */
+    private function handleCipherTool(Request $request, string $action): Response
+    {
         $payload = $request->json();
         if (!is_array($payload)) {
             $payload = [];
         }
 
-        $text = (string) ($payload['text'] ?? '');
-        $direction = (string) ($payload['direction'] ?? 'encrypt');
-        $settings = is_array($payload['settings'] ?? null) ? $payload['settings'] : [];
-        $alphabet = mb_strtolower(trim((string) ($settings['alphabet'] ?? 'auto')));
-        $key = trim((string) ($settings['key'] ?? ''));
-
-        $errors = [];
-        if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
-        }
-
-        if ($text === '') {
-            $errors['text'][] = 'Text is required.';
-        }
-
-        if (!$this->gronsfeldCipher->isValidNumericKey($key)) {
-            $errors['settings.key'][] = 'Key must be numeric and 1-32 characters long.';
-        }
-
-        if (!in_array($alphabet, array_merge(['auto'], $this->gronsfeldCipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
-        }
-
-        $detectedAlphabet = null;
-        if ($alphabet === 'auto') {
-            $detectedAlphabet = $this->gronsfeldCipher->detectAlphabet($text);
-            $alphabet = $detectedAlphabet;
-        }
-
-        if (!$this->gronsfeldCipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
-        }
-
-        if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
-        }
-
-        $result = $this->gronsfeldCipher->process($text, $key, $alphabet, $direction);
-
-        return Response::json([
-            'ok' => true,
-            'result' => $result,
-            'detected_alphabet' => $detectedAlphabet,
-            'alphabet' => $alphabet,
-            'key' => $key,
-        ]);
+        return Response::json($this->cipherTools->execute($action, $payload));
     }
 }
