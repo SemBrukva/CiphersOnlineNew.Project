@@ -167,7 +167,10 @@ return [
     },
 
     Router::class => static function (Container $container): Router {
-        $compiledRoutes = RouteCache::load(STORAGE_PATH . '/cache/routes.php');
+        $useRouteCache = (string) config('app.env', 'local') === 'production';
+        $compiledRoutes = $useRouteCache
+            ? RouteCache::load(STORAGE_PATH . '/cache/routes.php')
+            : null;
         if (!is_array($compiledRoutes)) {
             $routeLoader = $container->get(RouteLoader::class);
             $merged = $routeLoader->loadMerged(
@@ -205,7 +208,10 @@ return [
     RouteMatcherInterface::class => static fn (Container $container): RouteMatcherInterface => $container->get(Router::class),
 
     ApiRouter::class => static function (Container $container): ApiRouter {
-        $compiledRoutes = RouteCache::load(STORAGE_PATH . '/cache/routes.php');
+        $useRouteCache = (string) config('app.env', 'local') === 'production';
+        $compiledRoutes = $useRouteCache
+            ? RouteCache::load(STORAGE_PATH . '/cache/routes.php')
+            : null;
         if (!is_array($compiledRoutes)) {
             $routeLoader = $container->get(RouteLoader::class);
             $merged = $routeLoader->loadMerged(
@@ -246,7 +252,10 @@ return [
     },
 
     AdminRouter::class => static function (Container $container): AdminRouter {
-        $compiledRoutes = RouteCache::load(STORAGE_PATH . '/cache/routes.php');
+        $useRouteCache = (string) config('app.env', 'local') === 'production';
+        $compiledRoutes = $useRouteCache
+            ? RouteCache::load(STORAGE_PATH . '/cache/routes.php')
+            : null;
         if (!is_array($compiledRoutes)) {
             $routeLoader = $container->get(RouteLoader::class);
             $merged = $routeLoader->loadMerged(

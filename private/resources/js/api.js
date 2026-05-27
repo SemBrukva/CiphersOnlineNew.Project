@@ -77,6 +77,8 @@ export class ApiClient {
         login: (data) => this.#request('POST', '/auth/login', data),
         /** POST /api/contact */
         contact: (data, csrfToken) => this.#request('POST', '/contact', data, { 'X-CSRF-Token': csrfToken }),
+        /** POST /api/tools/caesar */
+        caesar: (data) => this.#request('POST', '/tools/caesar', data),
     }
 
     user = {

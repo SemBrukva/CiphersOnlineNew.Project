@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Api;
 
 use App\Auth\Auth;
+use App\Cipher\CaesarCipherService;
 use App\Controller\Api\Request\ContactRequest;
 use App\Controller\Api\Request\LoginRequest;
 use App\Controller\Api\Request\RegisterRequest;
@@ -36,7 +37,8 @@ final class GuestController
         private readonly ContactRepository $contacts,
         private readonly Auth $auth,
         private readonly Translator $translator,
-        private readonly EventDispatcherInterface $dispatcher
+        private readonly EventDispatcherInterface $dispatcher,
+        private readonly CaesarCipherService $caesarCipher
     ) {
     }
 
@@ -186,5 +188,76 @@ final class GuestController
         );
 
         return Response::json(['ok' => true], 201);
+    }
+
+    /**
+     * Выполняет шифрование/дешифрование Цезаря через API.
+     *
+     * POST /api/tools/caesar
+     */
+    #[ApiOperation(summary: 'Шифр Цезаря', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function caesar(Request $request): Response
+    {
+        $payload = $request->json();
+        if (!is_array($payload)) {
+            $payload = [];
+        }
+
+        $text = (string) ($payload['text'] ?? '');
+        $direction = (string) ($payload['direction'] ?? 'encrypt');
+        $settings = is_array($payload['settings'] ?? null) ? $payload['settings'] : [];
+        $alphabet = mb_strtolower(trim((string) ($settings['alphabet'] ?? 'auto')));
+        $shift = (int) ($settings['shift'] ?? 0);
+
+        $errors = [];
+        if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
+            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
+        }
+
+        if ($text === '') {
+            $errors['text'][] = 'Text is required.';
+        }
+
+        if (!in_array($alphabet, array_merge(['auto'], $this->caesarCipher->supportedAlphabetCodes()), true)) {
+            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
+        }
+
+        $detectedAlphabet = null;
+        $usedAutoAlphabet = false;
+        if ($alphabet === 'auto') {
+            $detectedAlphabet = $this->caesarCipher->detectAlphabet($text);
+            $alphabet = $detectedAlphabet;
+            $usedAutoAlphabet = true;
+        }
+
+        if (!$this->caesarCipher->hasAlphabetCharacters($text, $alphabet)) {
+            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
+        }
+
+        $maxShift = $this->caesarCipher->maxShiftForAlphabet($alphabet);
+
+        if ($shift < 0 || $shift > $maxShift) {
+            if ($usedAutoAlphabet) {
+                $shift = max(0, min($shift, $maxShift));
+            } else {
+                $errors['settings.shift'][] = 'Shift must be in range 0-' . $maxShift . '.';
+            }
+        }
+
+        if ($errors !== []) {
+            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+        }
+
+        $result = $this->caesarCipher->process($text, $alphabet, $shift, $direction);
+
+        return Response::json([
+            'ok' => true,
+            'result' => $result,
+            'detected_alphabet' => $detectedAlphabet,
+            'alphabet' => $alphabet,
+            'shift' => $shift,
+        ]);
     }
 }

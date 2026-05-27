@@ -18,11 +18,23 @@ export function initCipherToolPage() {
   const copyBtn = document.getElementById('ciphers-copy')
   const shareBtn = document.getElementById('ciphers-share')
   const resultCard = document.getElementById('ciphers-result-card')
+  const resultLabel = document.querySelector('.ciphers-unified__field-label--result')
+  const runBtn = document.getElementById('ciphers-primary')
+  const liveModeInput = document.getElementById('ciphers-live-mode')
+  const shiftInput = document.getElementById('ciphers-shift')
+  const shiftDecBtn = document.getElementById('ciphers-shift-dec')
+  const shiftIncBtn = document.getElementById('ciphers-shift-inc')
+  const alphabetSelect = document.getElementById('ciphers-alphabet')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
   let mode = 'encode'
   const isEncodingTool = slug.startsWith('encoding/')
+  const calculationMode = String(ui.calculationMode || 'client').toLowerCase()
+  const isApiMode = calculationMode === 'api'
+  const apiAction = String(ui.apiAction || '').trim()
+  const stateStorageKey = `cipher-tool:state:${slug}`
+  let liveModeDebounceTimer = null
 
   const bySlug = {
     base64: slug === 'encoding/base64',
@@ -46,12 +58,43 @@ export function initCipherToolPage() {
     copyFailed: ui.feedbackResultCopyFailed || 'Unable to copy result.',
     urlCopied: ui.feedbackUrlCopied || 'Page URL copied.',
     urlCopyFailed: ui.feedbackUrlCopyFailed || 'Unable to copy page URL.',
+    runFailed: ui.feedbackInvalidInput || 'Unable to process request.',
   }
 
   const setFeedback = (message, isError = false) => {
     if (!feedback) return
     feedback.textContent = message
     feedback.classList.toggle('error', isError)
+  }
+
+  const saveState = () => {
+    if (!slug) return
+
+    try {
+      const state = {
+        alphabet: String(alphabetSelect?.value ?? 'auto'),
+        shift: Number(shiftInput?.value ?? 0),
+        liveMode: Boolean(liveModeInput?.checked),
+      }
+      window.localStorage.setItem(stateStorageKey, JSON.stringify(state))
+    } catch {
+      // ignore storage errors
+    }
+  }
+
+  const loadState = () => {
+    if (!slug) return null
+
+    try {
+      const rawState = window.localStorage.getItem(stateStorageKey)
+      if (!rawState) return null
+
+      const parsedState = JSON.parse(rawState)
+      if (!parsedState || typeof parsedState !== 'object') return null
+      return parsedState
+    } catch {
+      return null
+    }
   }
 
   const updateCounter = () => {
@@ -88,8 +131,57 @@ export function initCipherToolPage() {
       void output.offsetWidth
       output.classList.add('ciphers-output--flash')
       resultCard?.classList.add('ciphers-result-card--live')
+      resultLabel?.classList.add('ciphers-unified__field-label--result-live')
     } else {
       resultCard?.classList.remove('ciphers-result-card--live')
+      resultLabel?.classList.remove('ciphers-unified__field-label--result-live')
+    }
+  }
+
+  const getMaxShift = () => {
+    if (!alphabetSelect) return 39
+    const selected = alphabetSelect.options[alphabetSelect.selectedIndex]
+    const rawValue = Number(selected?.dataset?.maxShift ?? 39)
+    return Number.isFinite(rawValue) && rawValue >= 0 ? rawValue : 39
+  }
+
+  const normalizeShiftInput = () => {
+    if (!shiftInput) return 0
+    const numericValue = Number(shiftInput.value)
+    return Number.isFinite(numericValue) ? Math.trunc(numericValue) : 0
+  }
+
+  const setShiftValue = (nextValue) => {
+    if (!shiftInput) return
+    const maxShift = getMaxShift()
+    const clamped = Math.min(Math.max(0, Math.trunc(nextValue)), maxShift)
+    shiftInput.max = String(maxShift)
+    shiftInput.value = String(clamped)
+  }
+
+  const syncShiftWithAlphabet = () => {
+    setShiftValue(normalizeShiftInput())
+  }
+
+  const applySavedState = () => {
+    const savedState = loadState()
+    if (!savedState) return
+
+    if (alphabetSelect && typeof savedState.alphabet === 'string' && savedState.alphabet !== '') {
+      const hasOption = Array.from(alphabetSelect.options).some((option) => option.value === savedState.alphabet)
+      if (hasOption) {
+        alphabetSelect.value = savedState.alphabet
+      }
+    }
+
+    if (shiftInput && Number.isFinite(Number(savedState.shift))) {
+      shiftInput.value = String(Math.trunc(Number(savedState.shift)))
+    }
+
+    syncShiftWithAlphabet()
+
+    if (liveModeInput && typeof savedState.liveMode === 'boolean') {
+      liveModeInput.checked = savedState.liveMode
     }
   }
 
@@ -104,7 +196,19 @@ export function initCipherToolPage() {
       return
     }
 
-    if (!isEncodingTool) {
+    if (!isEncodingTool || isApiMode) {
+      if (isApiMode) {
+        if (!value.trim()) {
+          output.value = ''
+          setOutputState(false)
+          setFeedback('')
+          return
+        }
+
+        scheduleApiRun()
+        return
+      }
+
       output.value = ''
       setOutputState(false)
       setFeedback('')
@@ -122,9 +226,97 @@ export function initCipherToolPage() {
     }
   }
 
+  const runApiRequest = async () => {
+    const text = input.value || ''
+    if (!text.trim()) {
+      output.value = ''
+      setOutputState(false)
+      setFeedback('')
+      return
+    }
+
+    if (!isApiMode || apiAction === '') {
+      setFeedback(labels.runFailed, true)
+      return
+    }
+
+    const shift = Number(shiftInput?.value ?? 3)
+    const alphabet = String(alphabetSelect?.value ?? 'auto')
+    const direction = mode === 'decode' ? 'decrypt' : 'encrypt'
+
+    if (runBtn) {
+      runBtn.disabled = true
+    }
+
+    try {
+      const apiMethod = window.api?.guest?.[apiAction]
+      if (typeof apiMethod !== 'function') {
+        throw new Error(`Unknown API action: ${apiAction}`)
+      }
+
+      const response = await apiMethod({
+        text,
+        direction,
+        settings: {
+          shift,
+          alphabet,
+        },
+      })
+
+      output.value = String(response?.result ?? '')
+      setOutputState(Boolean(output.value))
+      setFeedback('')
+    } catch (error) {
+      const message = String(error?.response?.error ?? labels.runFailed)
+      output.value = ''
+      setOutputState(false)
+      setFeedback(message, true)
+    } finally {
+      if (runBtn) {
+        runBtn.disabled = false
+      }
+    }
+  }
+
+  const isLiveModeEnabled = () => Boolean(liveModeInput?.checked)
+
+  const scheduleApiRun = () => {
+    if (!isApiMode || !isLiveModeEnabled()) return
+    if (liveModeDebounceTimer !== null) {
+      clearTimeout(liveModeDebounceTimer)
+    }
+
+    liveModeDebounceTimer = window.setTimeout(() => {
+      liveModeDebounceTimer = null
+      void runApiRequest()
+    }, 350)
+  }
+
   input.addEventListener('input', process)
-  tabEncode.addEventListener('click', () => setMode('encode'))
-  tabDecode.addEventListener('click', () => setMode('decode'))
+
+  alphabetSelect?.addEventListener('change', () => {
+    syncShiftWithAlphabet()
+    saveState()
+    scheduleApiRun()
+  })
+
+  shiftInput?.addEventListener('input', () => {
+    setShiftValue(normalizeShiftInput())
+    saveState()
+    scheduleApiRun()
+  })
+
+  shiftDecBtn?.addEventListener('click', () => {
+    setShiftValue(normalizeShiftInput() - 1)
+    saveState()
+    scheduleApiRun()
+  })
+
+  shiftIncBtn?.addEventListener('click', () => {
+    setShiftValue(normalizeShiftInput() + 1)
+    saveState()
+    scheduleApiRun()
+  })
 
   document.querySelectorAll('.ciphers-example-chip').forEach((chip) => {
     chip.addEventListener('click', () => {
@@ -174,6 +366,29 @@ export function initCipherToolPage() {
     }
   })
 
+  tabEncode.addEventListener('click', () => {
+    setMode('encode')
+    scheduleApiRun()
+  })
+
+  tabDecode.addEventListener('click', () => {
+    setMode('decode')
+    scheduleApiRun()
+  })
+
+  liveModeInput?.addEventListener('change', () => {
+    saveState()
+    if (isLiveModeEnabled()) {
+      scheduleApiRun()
+    }
+  })
+
+  runBtn?.addEventListener('click', async () => {
+    await runApiRequest()
+  })
+
+  applySavedState()
+  saveState()
   setMode('encode')
 }
 

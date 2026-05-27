@@ -7,13 +7,37 @@
             <h1 class="ciphers-unified__title">{$cipher.name}</h1>
             <p class="ciphers-unified__desc">{$cipher.description}</p>
 
-            <div class="ciphers-tabs" role="tablist">
-                <button class="ciphers-tab ciphers-tab--active" type="button" id="tab-encode" role="tab" aria-selected="true">{$tool_ui.tabEncode}</button>
-                <button class="ciphers-tab" type="button" id="tab-decode" role="tab" aria-selected="false">{$tool_ui.tabDecode}</button>
+            <div class="ciphers-unified__controls-row">
+
+                <div class="ciphers-tabs" role="tablist">
+                    <button class="ciphers-tab ciphers-tab--active" type="button" id="tab-encode" role="tab" aria-selected="true">{$tool_ui.tabEncode}</button>
+                    <button class="ciphers-tab" type="button" id="tab-decode" role="tab" aria-selected="false">{$tool_ui.tabDecode}</button>
+                </div>
+
+                <div class="ciphers-settings">
+                    <div class="ciphers-settings-item">
+                        <label class="ciphers-settings-label" for="ciphers-alphabet">{$tool_ui.alphabetLabel}</label>
+                        <select id="ciphers-alphabet" class="ciphers-settings-select">
+                            {foreach $tool_ui.alphabetOptions as $opt}
+                                <option value="{$opt.value}" data-max-shift="{$opt.maxShift|default:39}" {if $opt.value == 'auto'}selected{/if}>{$opt.label}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                    <div class="ciphers-settings-item">
+                        <label class="ciphers-settings-label" for="ciphers-shift">{$tool_ui.shiftLabel}</label>
+                        <div class="ciphers-settings-shift-group">
+                            <button class="ciphers-settings-shift-btn" id="ciphers-shift-dec" type="button">−</button>
+                            <input id="ciphers-shift" type="number" class="ciphers-settings-shift-input" min="0" step="1" value="3" max="32">
+                            <button class="ciphers-settings-shift-btn" id="ciphers-shift-inc" type="button">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
 
         <div class="ciphers-unified__body">
+            
             <div class="ciphers-unified__input-wrap">
                 <div class="ciphers-unified__field-header">
                     <span class="ciphers-unified__field-label" id="ciphers-input-label">{$tool_ui.inputLabelEncode}</span>
@@ -33,6 +57,19 @@
                     {/foreach}
                 </div>
             </div>
+
+            {if ($tool_ui.calculationMode|default:'client') == 'api'}
+                <div class="ciphers-unified__actions">
+                    <button class="ciphers-unified__run-btn" type="button" id="ciphers-primary">{$tool_ui.runLabel}</button>
+                    <label class="ciphers-unified__toggle-wrap" for="ciphers-live-mode">
+                        <input type="checkbox" id="ciphers-live-mode" class="ciphers-unified__toggle-input">
+                        <span class="ciphers-unified__toggle-track">
+                            <span class="ciphers-unified__toggle-thumb"></span>
+                        </span>
+                        <span class="ciphers-unified__toggle-label">Live Mode</span>
+                    </label>
+                </div>
+            {/if}
 
             <div class="ciphers-unified__output-wrap">
                 <div class="ciphers-unified__field-header">

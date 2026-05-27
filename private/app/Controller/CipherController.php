@@ -69,7 +69,10 @@ final readonly class CipherController
         $title = (string) ($cipher['meta_title'] ?: $cipher['name']);
         $metaDescription = (string) ($cipher['meta_description'] ?: $cipher['description']);
         $toolSlug = $categoryAlias.'/'.$cipherAlias;
-        $toolUi = $this->buildToolUi($toolSlug);
+        $toolUi = $this->buildToolUi(
+            $toolSlug,
+            (string) ($cipher['calculation_mode'] ?? 'client')
+        );
         $allInCategoryLabel = str_replace(
             ':category',
             (string) ($category['name'] ?? $categoryAlias),
@@ -104,7 +107,7 @@ final readonly class CipherController
      *
      * @return array<string, mixed>
      */
-    private function buildToolUi(string $toolSlug): array
+    private function buildToolUi(string $toolSlug, string $calculationMode): array
     {
         $examplesByTool = [
             'encoding/base64' => [
@@ -144,6 +147,10 @@ final readonly class CipherController
             ],
         ];
 
+        $apiActionByTool = [
+            'classical-ciphers/caesar' => 'caesar',
+        ];
+
         return [
             'tabEncode' => trans('CIPHER_TOOL_TAB_ENCODE'),
             'tabDecode' => trans('CIPHER_TOOL_TAB_DECODE'),
@@ -175,6 +182,22 @@ final readonly class CipherController
                 trans('CIPHER_TOOL_TRUST_UTF8'),
                 trans('CIPHER_TOOL_TRUST_API'),
                 trans('CIPHER_TOOL_TRUST_PRIVATE'),
+            ],
+            'calculationMode' => in_array($calculationMode, ['api', 'client'], true) ? $calculationMode : 'client',
+            'apiAction' => $apiActionByTool[$toolSlug] ?? null,
+            'runLabel' => locale() === 'ru' ? 'Выполнить' : 'Run',
+            'shiftLabel' => locale() === 'ru' ? 'Сдвиг' : 'Shift',
+            'alphabetLabel' => locale() === 'ru' ? 'Алфавит' : 'Alphabet',
+            'alphabetOptions' => [
+                ['value' => 'auto', 'label' => locale() === 'ru' ? 'Авто' : 'Auto', 'maxShift' => 39],
+                ['value' => 'en', 'label' => 'English', 'maxShift' => 25],
+                ['value' => 'ru', 'label' => 'Русский', 'maxShift' => 32],
+                ['value' => 'es', 'label' => 'Español', 'maxShift' => 26],
+                ['value' => 'pt', 'label' => 'Português', 'maxShift' => 35],
+                ['value' => 'tr', 'label' => 'Türkçe', 'maxShift' => 28],
+                ['value' => 'fr', 'label' => 'Français', 'maxShift' => 39],
+                ['value' => 'de', 'label' => 'Deutsch', 'maxShift' => 29],
+                ['value' => 'it', 'label' => 'Italiano', 'maxShift' => 25],
             ],
             'exampleChips' => $examplesByTool[$toolSlug] ?? [],
         ];

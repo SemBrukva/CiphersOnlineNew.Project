@@ -35,6 +35,13 @@ return [
         'name'       => 'api.contact',
     ],
 
+    'POST /tools/caesar' => [
+        'controller' => GuestController::class,
+        'method'     => 'caesar',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.caesar',
+    ],
+
     // Маршруты авторизованного пользователя
     'GET /user/profile' => [
         'controller' => UserController::class,

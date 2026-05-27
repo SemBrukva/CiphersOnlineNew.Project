@@ -1202,6 +1202,14 @@ details[open] > .faq-question::after {
   max-width: 560px;
 }
 
+.ciphers-unified__controls-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+}
+
 .ciphers-tabs {
   display: inline-flex;
   gap: 0;
@@ -1236,8 +1244,131 @@ details[open] > .faq-question::after {
 }
 
 .ciphers-tab--active:hover {
-  background: var(--accent-dim);
+  background: var(--co-accent-dim);
   color: var(--primary);
+}
+
+.ciphers-settings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ciphers-settings-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.ciphers-settings-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.38);
+    white-space: nowrap;
+}
+
+.ciphers-settings-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, 0.09);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 11 11'%3E%3Cpath fill='none' stroke='rgba(255%2C255%2C255%2C0.42)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1.5 3.5l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    background-size: 11px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    color: rgba(255, 255, 255, 0.82);
+    padding: 0 30px 0 11px;
+    font-size: 12.5px;
+    font-weight: 500;
+    height: 34px;
+    cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition);
+    outline: none;
+}
+
+.ciphers-settings-select:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.ciphers-settings-select:focus {
+    background-color: rgba(255, 255, 255, 0.13);
+    border-color: rgba(193, 255, 0, 0.45);
+    box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.10);
+}
+
+.ciphers-settings-select option {
+    background: #012a4a;
+    color: #ffffff;
+}
+
+.ciphers-settings-shift-group {
+    display: flex;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    overflow: hidden;
+    height: 34px;
+}
+
+.ciphers-settings-shift-btn {
+    width: 30px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.ciphers-settings-shift-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+.ciphers-settings-shift-btn:active {
+    background: rgba(193, 255, 0, 0.15);
+    color: var(--accent);
+}
+
+.ciphers-settings-shift-input {
+    width: 46px;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.11);
+    border-right: 1px solid rgba(255, 255, 255, 0.11);
+    background: transparent;
+    color: #ffffff;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    padding: 0;
+    height: 100%;
+    outline: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.ciphers-settings-shift-input::-webkit-inner-spin-button,
+.ciphers-settings-shift-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ciphers-settings-shift-input:focus {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .ciphers-unified__body {
@@ -1254,6 +1385,35 @@ details[open] > .faq-question::after {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 7px;
+}
+
+.ciphers-unified__field-label--result::after {
+    content: '●';
+    margin-left: 6px;
+    font-size: 9px;
+    color: rgba(193, 255, 0, 0);
+    transition: color 0.3s ease;
+    vertical-align: middle;
+}
+
+.ciphers-unified__output-wrap:has(.ciphers-result-card--live) .ciphers-unified__field-label--result::after {
+    color: rgba(193, 255, 0, 0.75);
+    animation: ciphers-dot-pulse 2s ease-in-out infinite;
+}
+
+.ciphers-unified__field-label--result.ciphers-unified__field-label--result-live::after {
+    color: rgba(193, 255, 0, 0.75);
+    animation: ciphers-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ciphers-dot-pulse {
+    0%, 100% {
+        opacity: 0.75;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
 }
 
 .ciphers-unified__field-label {
@@ -1310,6 +1470,122 @@ details[open] > .faq-question::after {
   border-top-color: rgba(193, 255, 0, 0.60);
   border-color: rgba(193, 255, 0, 0.15);
   box-shadow: 0 0 28px rgba(193, 255, 0, 0.06), 0 4px 20px rgba(0, 0, 0, 0.28);
+}
+
+.ciphers-unified__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ciphers-unified__run-btn {
+    padding: 9px 26px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background var(--transition), box-shadow var(--transition), transform 0.1s ease, opacity var(--transition);
+    white-space: nowrap;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1;
+}
+
+.ciphers-unified__run-btn:hover {
+    background: var(--co-accent-dim);
+    box-shadow: 0 4px 18px rgba(193, 255, 0, 0.30);
+}
+
+.ciphers-unified__run-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(193, 255, 0, 0.20);
+}
+
+.ciphers-unified__run-btn:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.ciphers-unified__toggle-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ciphers-unified__toggle-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    margin: 0;
+}
+
+.ciphers-unified__toggle-track {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.11);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    flex-shrink: 0;
+}
+
+.ciphers-unified__toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.50);
+    transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.ciphers-unified__toggle-input:checked + .ciphers-unified__toggle-track {
+    background: rgba(193, 255, 0, 0.22);
+    border-color: rgba(193, 255, 0, 0.55);
+    box-shadow: 0 0 10px rgba(193, 255, 0, 0.14);
+}
+
+.ciphers-unified__toggle-input:checked + .ciphers-unified__toggle-track .ciphers-unified__toggle-thumb {
+    transform: translateX(16px);
+    background: var(--accent);
+    box-shadow: 0 0 6px rgba(193, 255, 0, 0.55);
+}
+
+.ciphers-unified__toggle-wrap:hover .ciphers-unified__toggle-track {
+    border-color: rgba(255, 255, 255, 0.30);
+}
+
+.ciphers-unified__toggle-wrap:hover .ciphers-unified__toggle-input:checked + .ciphers-unified__toggle-track {
+    border-color: rgba(193, 255, 0, 0.72);
+}
+
+.ciphers-unified__toggle-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.48);
+    letter-spacing: 0.02em;
+    transition: color var(--transition);
+}
+
+.ciphers-unified__toggle-wrap:hover .ciphers-unified__toggle-label {
+    color: rgba(255, 255, 255, 0.72);
 }
 
 .ciphers-unified__output {
