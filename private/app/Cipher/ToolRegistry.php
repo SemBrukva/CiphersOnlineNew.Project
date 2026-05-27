@@ -15,6 +15,7 @@ final readonly class ToolRegistry
      * Создаёт экземпляр реестра инструментов.
      */
     public function __construct(
+        private AtbashCipherService $atbashCipher,
         private BeaufortCipherService $beaufortCipher,
         private CaesarCipherService $caesarCipher,
         private GronsfeldCipherService $gronsfeldCipher,
@@ -95,6 +96,11 @@ final readonly class ToolRegistry
                 ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
                 ['label' => 'ES', 'value' => 'HOLA MUNDO'],
             ],
+            'classical-ciphers/atbash' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+            ],
             'classical-ciphers/bacon' => [
                 ['label' => 'EN', 'value' => 'HELLO WORLD'],
                 ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
@@ -113,6 +119,7 @@ final readonly class ToolRegistry
 
         return match ($canonicalSlug) {
             'classical-ciphers/caesar' => 'caesar',
+            'classical-ciphers/atbash' => 'atbash',
             'classical-ciphers/playfair' => 'playfair',
             'classical-ciphers/beaufort' => 'beaufort',
             'classical-ciphers/gronsfeld' => 'gronsfeld',
@@ -134,6 +141,7 @@ final readonly class ToolRegistry
 
         return match ($canonicalSlug) {
             'classical-ciphers/caesar' => $this->caesarCipher->getToolSettings(),
+            'classical-ciphers/atbash' => $this->atbashCipher->getToolSettings(),
             'classical-ciphers/playfair' => $this->playfairCipher->getToolSettings(),
             'classical-ciphers/beaufort' => $this->beaufortCipher->getToolSettings(),
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getToolSettings(),
@@ -156,6 +164,7 @@ final readonly class ToolRegistry
             'classical-ciphers/shifr-vizhenera' => 'classical-ciphers/vigenere',
             'classical-ciphers/shifr-vernama' => 'classical-ciphers/vernam',
             'classical-ciphers/shifr-bekona', 'classical-ciphers/shifr-behkona' => 'classical-ciphers/bacon',
+            'classical-ciphers/shifr-atbash' => 'classical-ciphers/atbash',
             default => $toolSlug,
         };
     }

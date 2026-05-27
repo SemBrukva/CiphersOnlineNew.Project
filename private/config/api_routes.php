@@ -42,6 +42,13 @@ return [
         'name'       => 'api.tools.caesar',
     ],
 
+    'POST /tools/atbash' => [
+        'controller' => GuestController::class,
+        'method'     => 'atbash',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.atbash',
+    ],
+
     'POST /tools/playfair' => [
         'controller' => GuestController::class,
         'method'     => 'playfair',

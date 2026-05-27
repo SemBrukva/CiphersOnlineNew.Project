@@ -19,6 +19,7 @@ final class ApiCipherToolRegistry
      */
     public function __construct(
         CaesarApiCipherTool $caesarTool,
+        AtbashApiCipherTool $atbashTool,
         PlayfairApiCipherTool $playfairTool,
         BeaufortApiCipherTool $beaufortTool,
         GronsfeldApiCipherTool $gronsfeldTool,
@@ -26,7 +27,7 @@ final class ApiCipherToolRegistry
         VernamApiCipherTool $vernamTool,
         BaconApiCipherTool $baconTool
     ) {
-        foreach ([$caesarTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool] as $tool) {
+        foreach ([$caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

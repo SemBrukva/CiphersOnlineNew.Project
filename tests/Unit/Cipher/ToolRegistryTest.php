@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher;
 
 use App\Cipher\BeaufortCipherService;
+use App\Cipher\AtbashCipherService;
 use App\Cipher\BaconCipherService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\GronsfeldCipherService;
@@ -29,6 +30,7 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('playfair', $registry->apiAction('classical-ciphers/playfair'));
         self::assertSame('playfair', $registry->apiAction('classical-ciphers/plejfera'));
         self::assertSame('playfair', $registry->apiAction('classical-ciphers/shifr-plejfera'));
+        self::assertSame('atbash', $registry->apiAction('classical-ciphers/shifr-atbash'));
         self::assertSame('beaufort', $registry->apiAction('classical-ciphers/shifr-bofora'));
         self::assertSame('vigenere', $registry->apiAction('classical-ciphers/shifr-vizhenera'));
         self::assertSame('vernam', $registry->apiAction('classical-ciphers/shifr-vernama'));
@@ -65,6 +67,7 @@ final class ToolRegistryTest extends TestCase
     private function makeRegistry(): ToolRegistry
     {
         return new ToolRegistry(
+            new AtbashCipherService(),
             new BeaufortCipherService(),
             new CaesarCipherService(),
             new GronsfeldCipherService(),

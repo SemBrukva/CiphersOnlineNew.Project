@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher;
 
 use App\Cipher\ApiCipherToolRegistry;
+use App\Cipher\AtbashApiCipherTool;
+use App\Cipher\AtbashCipherService;
 use App\Cipher\BaconApiCipherTool;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortApiCipherTool;
@@ -53,6 +55,7 @@ final class ApiCipherToolRegistryTest extends TestCase
     {
         return new ApiCipherToolRegistry(
             new CaesarApiCipherTool(new CaesarCipherService()),
+            new AtbashApiCipherTool(new AtbashCipherService()),
             new PlayfairApiCipherTool(new PlayfairCipherService()),
             new BeaufortApiCipherTool(new BeaufortCipherService()),
             new GronsfeldApiCipherTool(new GronsfeldCipherService()),

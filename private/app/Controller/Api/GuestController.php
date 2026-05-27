@@ -204,6 +204,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Атбаш через API.
+     *
+     * POST /api/tools/atbash
+     */
+    #[ApiOperation(summary: 'Шифр Атбаш', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function atbash(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'atbash');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование Плейфера через API.
      *
      * POST /api/tools/playfair
