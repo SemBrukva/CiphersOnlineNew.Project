@@ -70,6 +70,13 @@ return [
         'name'       => 'api.tools.vigenere',
     ],
 
+    'POST /tools/vernam' => [
+        'controller' => GuestController::class,
+        'method'     => 'vernam',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.vernam',
+    ],
+
     // Маршруты авторизованного пользователя
     'GET /user/profile' => [
         'controller' => UserController::class,

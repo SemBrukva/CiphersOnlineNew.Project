@@ -15,6 +15,8 @@ use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\VigenereApiCipherTool;
 use App\Cipher\VigenereCipherService;
+use App\Cipher\VernamApiCipherTool;
+use App\Cipher\VernamCipherService;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -52,7 +54,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new PlayfairApiCipherTool(new PlayfairCipherService()),
             new BeaufortApiCipherTool(new BeaufortCipherService()),
             new GronsfeldApiCipherTool(new GronsfeldCipherService()),
-            new VigenereApiCipherTool(new VigenereCipherService())
+            new VigenereApiCipherTool(new VigenereCipherService()),
+            new VernamApiCipherTool(new VernamCipherService())
         );
     }
 }

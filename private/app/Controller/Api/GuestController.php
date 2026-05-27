@@ -256,6 +256,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Вернама через API.
+     *
+     * POST /api/tools/vernam
+     */
+    #[ApiOperation(summary: 'Шифр Вернама', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function vernam(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'vernam');
+    }
+
+    /**
      * Выполняет API-инструмент шифрования и формирует JSON-ответ.
      */
     private function handleCipherTool(Request $request, string $action): Response

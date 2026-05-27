@@ -19,7 +19,8 @@ final readonly class ToolRegistry
         private CaesarCipherService $caesarCipher,
         private GronsfeldCipherService $gronsfeldCipher,
         private PlayfairCipherService $playfairCipher,
-        private VigenereCipherService $vigenereCipher
+        private VigenereCipherService $vigenereCipher,
+        private VernamCipherService $vernamCipher
     ) {
     }
 
@@ -88,6 +89,11 @@ final readonly class ToolRegistry
                 ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
                 ['label' => 'ES', 'value' => 'ATAQUE AL AMANECER'],
             ],
+            'classical-ciphers/vernam' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+            ],
             default => [],
         };
     }
@@ -105,6 +111,7 @@ final readonly class ToolRegistry
             'classical-ciphers/beaufort' => 'beaufort',
             'classical-ciphers/gronsfeld' => 'gronsfeld',
             'classical-ciphers/vigenere' => 'vigenere',
+            'classical-ciphers/vernam' => 'vernam',
             default => null,
         };
     }
@@ -124,6 +131,7 @@ final readonly class ToolRegistry
             'classical-ciphers/beaufort' => $this->beaufortCipher->getToolSettings(),
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getToolSettings(),
             'classical-ciphers/vigenere' => $this->vigenereCipher->getToolSettings(),
+            'classical-ciphers/vernam' => $this->vernamCipher->getToolSettings(),
             default => [],
         };
     }
@@ -138,6 +146,7 @@ final readonly class ToolRegistry
             'classical-ciphers/shifr-bofora' => 'classical-ciphers/beaufort',
             'classical-ciphers/shifr-gronsfelda' => 'classical-ciphers/gronsfeld',
             'classical-ciphers/shifr-vizhenera' => 'classical-ciphers/vigenere',
+            'classical-ciphers/shifr-vernama' => 'classical-ciphers/vernam',
             default => $toolSlug,
         };
     }

@@ -105,6 +105,8 @@ export class ApiClient {
         gronsfeld: (data) => this.#request('POST', '/tools/gronsfeld', data),
         /** POST /api/tools/vigenere */
         vigenere: (data) => this.#request('POST', '/tools/vigenere', data),
+        /** POST /api/tools/vernam */
+        vernam: (data) => this.#request('POST', '/tools/vernam', data),
     }
 
     user = {
