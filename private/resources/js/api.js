@@ -103,6 +103,8 @@ export class ApiClient {
         beaufort: (data) => this.#request('POST', '/tools/beaufort', data),
         /** POST /api/tools/gronsfeld */
         gronsfeld: (data) => this.#request('POST', '/tools/gronsfeld', data),
+        /** POST /api/tools/vigenere */
+        vigenere: (data) => this.#request('POST', '/tools/vigenere', data),
     }
 
     user = {

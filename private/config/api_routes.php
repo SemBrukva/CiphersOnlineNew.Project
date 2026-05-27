@@ -63,6 +63,13 @@ return [
         'name'       => 'api.tools.gronsfeld',
     ],
 
+    'POST /tools/vigenere' => [
+        'controller' => GuestController::class,
+        'method'     => 'vigenere',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.vigenere',
+    ],
+
     // Маршруты авторизованного пользователя
     'GET /user/profile' => [
         'controller' => UserController::class,

@@ -21,9 +21,10 @@ final class ApiCipherToolRegistry
         CaesarApiCipherTool $caesarTool,
         PlayfairApiCipherTool $playfairTool,
         BeaufortApiCipherTool $beaufortTool,
-        GronsfeldApiCipherTool $gronsfeldTool
+        GronsfeldApiCipherTool $gronsfeldTool,
+        VigenereApiCipherTool $vigenereTool
     ) {
-        foreach ([$caesarTool, $playfairTool, $beaufortTool, $gronsfeldTool] as $tool) {
+        foreach ([$caesarTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }
@@ -45,4 +46,3 @@ final class ApiCipherToolRegistry
         return $tool->execute($payload);
     }
 }
-

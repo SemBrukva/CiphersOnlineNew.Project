@@ -18,7 +18,8 @@ final readonly class ToolRegistry
         private BeaufortCipherService $beaufortCipher,
         private CaesarCipherService $caesarCipher,
         private GronsfeldCipherService $gronsfeldCipher,
-        private PlayfairCipherService $playfairCipher
+        private PlayfairCipherService $playfairCipher,
+        private VigenereCipherService $vigenereCipher
     ) {
     }
 
@@ -82,6 +83,11 @@ final readonly class ToolRegistry
                 ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
                 ['label' => 'ES', 'value' => 'HOLA MUNDO'],
             ],
+            'classical-ciphers/vigenere' => [
+                ['label' => 'EN', 'value' => 'ATTACK AT DAWN'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'ATAQUE AL AMANECER'],
+            ],
             default => [],
         };
     }
@@ -98,6 +104,7 @@ final readonly class ToolRegistry
             'classical-ciphers/playfair' => 'playfair',
             'classical-ciphers/beaufort' => 'beaufort',
             'classical-ciphers/gronsfeld' => 'gronsfeld',
+            'classical-ciphers/vigenere' => 'vigenere',
             default => null,
         };
     }
@@ -116,6 +123,7 @@ final readonly class ToolRegistry
             'classical-ciphers/playfair' => $this->playfairCipher->getToolSettings(),
             'classical-ciphers/beaufort' => $this->beaufortCipher->getToolSettings(),
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getToolSettings(),
+            'classical-ciphers/vigenere' => $this->vigenereCipher->getToolSettings(),
             default => [],
         };
     }
@@ -129,8 +137,8 @@ final readonly class ToolRegistry
             'classical-ciphers/plejfera', 'classical-ciphers/shifr-plejfera' => 'classical-ciphers/playfair',
             'classical-ciphers/shifr-bofora' => 'classical-ciphers/beaufort',
             'classical-ciphers/shifr-gronsfelda' => 'classical-ciphers/gronsfeld',
+            'classical-ciphers/shifr-vizhenera' => 'classical-ciphers/vigenere',
             default => $toolSlug,
         };
     }
 }
-

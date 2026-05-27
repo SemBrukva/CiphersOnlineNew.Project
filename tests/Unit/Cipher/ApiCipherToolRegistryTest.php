@@ -13,6 +13,8 @@ use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
+use App\Cipher\VigenereApiCipherTool;
+use App\Cipher\VigenereCipherService;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -49,8 +51,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new CaesarApiCipherTool(new CaesarCipherService()),
             new PlayfairApiCipherTool(new PlayfairCipherService()),
             new BeaufortApiCipherTool(new BeaufortCipherService()),
-            new GronsfeldApiCipherTool(new GronsfeldCipherService())
+            new GronsfeldApiCipherTool(new GronsfeldCipherService()),
+            new VigenereApiCipherTool(new VigenereCipherService())
         );
     }
 }
-

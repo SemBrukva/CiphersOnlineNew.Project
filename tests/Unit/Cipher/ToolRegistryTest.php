@@ -9,6 +9,7 @@ use App\Cipher\CaesarCipherService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\ToolRegistry;
+use App\Cipher\VigenereCipherService;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -27,6 +28,7 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('playfair', $registry->apiAction('classical-ciphers/plejfera'));
         self::assertSame('playfair', $registry->apiAction('classical-ciphers/shifr-plejfera'));
         self::assertSame('beaufort', $registry->apiAction('classical-ciphers/shifr-bofora'));
+        self::assertSame('vigenere', $registry->apiAction('classical-ciphers/shifr-vizhenera'));
     }
 
     /**
@@ -62,8 +64,8 @@ final class ToolRegistryTest extends TestCase
             new BeaufortCipherService(),
             new CaesarCipherService(),
             new GronsfeldCipherService(),
-            new PlayfairCipherService()
+            new PlayfairCipherService(),
+            new VigenereCipherService()
         );
     }
 }
-

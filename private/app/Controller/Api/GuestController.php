@@ -243,6 +243,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Виженера через API.
+     *
+     * POST /api/tools/vigenere
+     */
+    #[ApiOperation(summary: 'Шифр Виженера', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function vigenere(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'vigenere');
+    }
+
+    /**
      * Выполняет API-инструмент шифрования и формирует JSON-ответ.
      */
     private function handleCipherTool(Request $request, string $action): Response
