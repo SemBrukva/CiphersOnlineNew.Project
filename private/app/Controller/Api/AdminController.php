@@ -301,6 +301,7 @@ final class AdminController
         $this->db->transaction(function () use (
             $categoryId,
             $alias,
+            $categoryType,
             $sortOrder,
             $published,
             $normalizedTranslations,
@@ -754,12 +755,30 @@ final class AdminController
         $createdTags = [];
 
         $this->db->transaction(function () use (
-            $cipherId, $alias, $sortOrder, $categoryId, $calculationMode, $published,
-            $translations, $blocks, $faq, $examples, $tags,
-            $newBlocks, $newFaq, $newExamples, $newTags,
-            $deleteBlocks, $deleteFaq, $deleteExamples, $deleteTags,
+            $cipherId,
+            $alias,
+            $sortOrder,
+            $categoryId,
+            $calculationMode,
+            $published,
+            $translations,
+            $blocks,
+            $faq,
+            $examples,
+            $tags,
+            $newBlocks,
+            $newFaq,
+            $newExamples,
+            $newTags,
+            $deleteBlocks,
+            $deleteFaq,
+            $deleteExamples,
+            $deleteTags,
             $availableLanguages,
-            &$createdBlocks, &$createdFaq, &$createdExamples, &$createdTags
+            &$createdBlocks,
+            &$createdFaq,
+            &$createdExamples,
+            &$createdTags
         ): void {
             $now = date('Y-m-d H:i:s');
 

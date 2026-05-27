@@ -85,4 +85,3 @@ class AddDescriptionStortToCiphersTranslations extends Migration
         ));
     }
 }
-

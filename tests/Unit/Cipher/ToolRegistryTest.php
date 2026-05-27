@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Cipher;
 
-use App\Cipher\BeaufortCipherService;
-use App\Cipher\AtbashCipherService;
 use App\Cipher\A1z26CipherService;
+use App\Cipher\AtbashCipherService;
 use App\Cipher\BaconCipherService;
+use App\Cipher\BeaufortCipherService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\ToolRegistry;
-use App\Cipher\VigenereCipherService;
 use App\Cipher\VernamCipherService;
+use App\Cipher\VigenereCipherService;
 use PHPUnit\Framework\TestCase;
 
 /**

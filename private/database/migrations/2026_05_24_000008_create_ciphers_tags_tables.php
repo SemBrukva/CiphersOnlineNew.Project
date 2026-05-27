@@ -60,4 +60,3 @@ class CreateCiphersTagsTables extends Migration
         Schema::dropIfExists(Tables::CIPHERS_TAGS);
     }
 }
-

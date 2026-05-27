@@ -71,4 +71,3 @@ final readonly class AlphabetTool
         return (string) array_key_first($scores);
     }
 }
-

@@ -210,8 +210,7 @@ final class CipherController
         string $calculationMode,
         int $sortOrder,
         ?int $exceptId
-    ): ?string
-    {
+    ): ?string {
         if ($alias === '' || !preg_match('/^[a-z0-9-]{2,100}$/', $alias)) {
             return 'Alias должен содержать 2-100 символов: a-z, 0-9 и дефис.';
         }

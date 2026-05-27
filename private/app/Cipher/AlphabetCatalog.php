@@ -53,4 +53,3 @@ final class AlphabetCatalog
         return self::ALPHABETS;
     }
 }
-

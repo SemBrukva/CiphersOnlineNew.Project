@@ -22,7 +22,8 @@ final readonly class CipherCategoryController
         private View $view,
         private CipherCategoryRepository $categories,
         private CipherRepository $ciphers
-    ) {}
+    ) {
+    }
 
     /**
      * Отображает страницу категории по alias и текущей локали.

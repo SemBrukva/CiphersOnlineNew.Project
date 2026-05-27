@@ -22,4 +22,3 @@ interface ApiCipherToolInterface
      */
     public function execute(array $payload): array;
 }
-

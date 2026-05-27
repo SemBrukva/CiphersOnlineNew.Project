@@ -10,8 +10,8 @@ use App\Http\Request;
 use App\Http\Response;
 use App\Http\Session;
 use App\Repository\CipherCategoryRepository;
-use App\Repository\CipherRepository;
 use App\Repository\CipherCategoryTranslationRepository;
+use App\Repository\CipherRepository;
 use App\Validation\ValidationException;
 use App\View\View;
 

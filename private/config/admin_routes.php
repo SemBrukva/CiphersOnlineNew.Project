@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Controller\Admin\DashboardController;
-use App\Controller\Admin\CipherController;
 use App\Controller\Admin\CipherCategoryController;
+use App\Controller\Admin\CipherController;
+use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\RedirectController;
 
 /**

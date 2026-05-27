@@ -78,4 +78,3 @@ final readonly class BeaufortApiCipherTool implements ApiCipherToolInterface
         ];
     }
 }
-

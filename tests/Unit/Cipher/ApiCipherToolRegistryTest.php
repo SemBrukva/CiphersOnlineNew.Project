@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Cipher;
 
-use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
+use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\AtbashApiCipherTool;
 use App\Cipher\AtbashCipherService;
 use App\Cipher\BaconApiCipherTool;
@@ -19,10 +19,10 @@ use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
-use App\Cipher\VigenereApiCipherTool;
-use App\Cipher\VigenereCipherService;
 use App\Cipher\VernamApiCipherTool;
 use App\Cipher\VernamCipherService;
+use App\Cipher\VigenereApiCipherTool;
+use App\Cipher\VigenereCipherService;
 use PHPUnit\Framework\TestCase;
 
 /**

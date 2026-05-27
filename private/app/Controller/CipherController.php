@@ -24,7 +24,8 @@ final readonly class CipherController
         private CipherRepository $ciphers,
         private CipherCategoryRepository $categories,
         private ToolRegistry $toolRegistry
-    ) {}
+    ) {
+    }
 
     /**
      * Отображает страницу инструмента по alias категории и инструмента.
@@ -86,7 +87,7 @@ final readonly class CipherController
             ->setMeta($metaDescription)
             ->setBreadcrumbs([
                 ['label' => (string) (($category['name_short'] ?? '') !== '' ? $category['name_short'] : ($category['name'] ?? $categoryAlias)), 'url' => '/'.$categoryAlias],
-                ['label' => (string) $cipher['name_short'] ?? $cipher['name']],
+                ['label' => (string) ($cipher['name_short'] ?? $cipher['name'])],
             ])
             ->setContent($this->view->fetch('cipher/show.tpl', [
                 'cipher' => $cipher,

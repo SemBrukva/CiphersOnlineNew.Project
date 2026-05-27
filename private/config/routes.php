@@ -6,9 +6,9 @@ declare(strict_types=1);
 
 use App\Controller\AuthController;
 use App\Controller\CabinetController;
-use App\Controller\ContactsController;
 use App\Controller\CipherCategoryController;
 use App\Controller\CipherController;
+use App\Controller\ContactsController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
 use App\Controller\PageController;

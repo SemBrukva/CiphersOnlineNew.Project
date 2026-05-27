@@ -83,4 +83,3 @@ final readonly class CaesarApiCipherTool implements ApiCipherToolInterface
         ];
     }
 }
-
