@@ -25,6 +25,7 @@ export function initCipherToolPage() {
   const shiftDecBtn = document.getElementById('ciphers-shift-dec')
   const shiftIncBtn = document.getElementById('ciphers-shift-inc')
   const alphabetSelect = document.getElementById('ciphers-alphabet')
+  const keyInput = document.getElementById('ciphers-key')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -74,6 +75,7 @@ export function initCipherToolPage() {
       const state = {
         alphabet: String(alphabetSelect?.value ?? 'auto'),
         shift: Number(shiftInput?.value ?? 0),
+        key: String(keyInput?.value ?? ''),
         liveMode: Boolean(liveModeInput?.checked),
       }
       window.localStorage.setItem(stateStorageKey, JSON.stringify(state))
@@ -178,6 +180,10 @@ export function initCipherToolPage() {
       shiftInput.value = String(Math.trunc(Number(savedState.shift)))
     }
 
+    if (keyInput && typeof savedState.key === 'string') {
+      keyInput.value = savedState.key
+    }
+
     syncShiftWithAlphabet()
 
     if (liveModeInput && typeof savedState.liveMode === 'boolean') {
@@ -242,6 +248,7 @@ export function initCipherToolPage() {
 
     const shift = Number(shiftInput?.value ?? 3)
     const alphabet = String(alphabetSelect?.value ?? 'auto')
+    const key = String(keyInput?.value ?? '')
     const direction = mode === 'decode' ? 'decrypt' : 'encrypt'
 
     if (runBtn) {
@@ -257,10 +264,13 @@ export function initCipherToolPage() {
       const response = await apiMethod({
         text,
         direction,
-        settings: {
-          shift,
-          alphabet,
-        },
+        settings: Object.fromEntries(
+          Object.entries({
+            shift,
+            alphabet,
+            key,
+          }).filter(([, value]) => value !== '')
+        ),
       })
 
       output.value = String(response?.result ?? '')
@@ -314,6 +324,11 @@ export function initCipherToolPage() {
 
   shiftIncBtn?.addEventListener('click', () => {
     setShiftValue(normalizeShiftInput() + 1)
+    saveState()
+    scheduleApiRun()
+  })
+
+  keyInput?.addEventListener('input', () => {
     saveState()
     scheduleApiRun()
   })

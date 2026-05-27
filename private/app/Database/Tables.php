@@ -34,7 +34,7 @@ final class Tables
     public const string CIPHER_CATEGORIES = 'ciphers_categories';
 
     /** @var string Таблица переводов категорий шифров. */
-    public const string CIPHER_CATEGORY_TRANSLATIONS = 'ciphers_category_translations';
+    public const string CIPHER_CATEGORY_TRANSLATIONS = 'ciphers_categories_translations';
 
     /** @var string Таблица блоков контента категорий шифров. */
     public const string CIPHERS_CATEGORIES_BLOCKS = 'ciphers_categories_blocks';

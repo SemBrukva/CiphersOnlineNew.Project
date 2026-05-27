@@ -42,6 +42,27 @@ return [
         'name'       => 'api.tools.caesar',
     ],
 
+    'POST /tools/playfair' => [
+        'controller' => GuestController::class,
+        'method'     => 'playfair',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.playfair',
+    ],
+
+    'POST /tools/beaufort' => [
+        'controller' => GuestController::class,
+        'method'     => 'beaufort',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.beaufort',
+    ],
+
+    'POST /tools/gronsfeld' => [
+        'controller' => GuestController::class,
+        'method'     => 'gronsfeld',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.gronsfeld',
+    ],
+
     // Маршруты авторизованного пользователя
     'GET /user/profile' => [
         'controller' => UserController::class,

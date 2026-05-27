@@ -27,7 +27,7 @@ class CreateCipherCategoriesTables extends Migration
             $table->index(['published', 'sort_order'], 'idx_cipher_categories_published_sort');
         });
 
-        Schema::create('ciphers_category_translations', function (Blueprint $table) {
+        Schema::create('ciphers_categories_translations', function (Blueprint $table) {
             $table->bigId();
             $table->unsignedBigInteger('category_id');
             $table->string('language', 8);
@@ -71,7 +71,7 @@ class CreateCipherCategoriesTables extends Migration
 
             foreach ($translations as $translation) {
                 $this->db->execute(
-                    'INSERT INTO ciphers_category_translations (id, category_id, language, name, description, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                    'INSERT INTO ciphers_categories_translations (id, category_id, language, name, description, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
                     $translation
                 );
             }
@@ -83,7 +83,7 @@ class CreateCipherCategoriesTables extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ciphers_category_translations');
+        Schema::dropIfExists('ciphers_categories_translations');
         Schema::dropIfExists('ciphers_categories');
     }
 }

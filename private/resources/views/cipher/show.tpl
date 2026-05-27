@@ -44,6 +44,13 @@
                                            max="{$setting.max|default:39}">
                                     <button class="ciphers-settings-shift-btn" id="{$setting.incrementId|default:''|escape}" type="button">+</button>
                                 </div>
+                            {elseif $setting.type == 'text'}
+                                <label class="ciphers-settings-label" for="{$setting.id|escape}">{$setting.label}</label>
+                                <input id="{$setting.id|escape}"
+                                       type="text"
+                                       class="{$setting.class|default:'ciphers-settings-select'|escape}"
+                                       placeholder="{$setting.placeholder|default:''|escape}"
+                                       value="{$setting.value|default:''|escape}">
                             {/if}
                         </div>
                     {/foreach}

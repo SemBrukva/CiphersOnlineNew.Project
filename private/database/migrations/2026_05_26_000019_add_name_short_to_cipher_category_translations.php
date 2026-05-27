@@ -15,8 +15,8 @@ class AddNameShortToCipherCategoryTranslations extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasColumn('ciphers_category_translations', 'name_short')) {
-            Schema::table('ciphers_category_translations', static function ($table): void {
+        if (!Schema::hasColumn('ciphers_categories_translations', 'name_short')) {
+            Schema::table('ciphers_categories_translations', static function ($table): void {
                 $table->string('name_short', 100)->default('')->after('name');
             });
         }
@@ -34,7 +34,7 @@ class AddNameShortToCipherCategoryTranslations extends Migration
 
         foreach ($shortNames as $language => $nameShort) {
             $this->db->execute(
-                'UPDATE ciphers_category_translations SET name_short = ? WHERE category_id = ? AND language = ?',
+                'UPDATE ciphers_categories_translations SET name_short = ? WHERE category_id = ? AND language = ?',
                 [$nameShort, 1, $language]
             );
         }
@@ -45,11 +45,11 @@ class AddNameShortToCipherCategoryTranslations extends Migration
      */
     public function down(): void
     {
-        if (!Schema::hasColumn('ciphers_category_translations', 'name_short')) {
+        if (!Schema::hasColumn('ciphers_categories_translations', 'name_short')) {
             return;
         }
 
-        Schema::table('ciphers_category_translations', static function ($table): void {
+        Schema::table('ciphers_categories_translations', static function ($table): void {
             $table->dropColumn('name_short');
         });
     }

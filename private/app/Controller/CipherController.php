@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Cipher\BeaufortCipherService;
 use App\Cipher\CaesarCipherService;
+use App\Cipher\GronsfeldCipherService;
+use App\Cipher\PlayfairCipherService;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -23,7 +26,10 @@ final readonly class CipherController
         private View $view,
         private CipherRepository $ciphers,
         private CipherCategoryRepository $categories,
-        private CaesarCipherService $caesarCipher
+        private BeaufortCipherService $beaufortCipher,
+        private CaesarCipherService $caesarCipher,
+        private GronsfeldCipherService $gronsfeldCipher,
+        private PlayfairCipherService $playfairCipher
     ) {}
 
     /**
@@ -147,10 +153,52 @@ final readonly class CipherController
                 ['label' => 'Demo', 'value' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiZWRpdG9yIiwiaWF0IjoxNzAwMDAwMDAwfQ.demo'],
                 ['label' => 'ID', 'value' => 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTIzLCJuYW1lIjoiQWxpY2UifQ.test'],
             ],
+            'classical-ciphers/playfair' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+            ],
+            'classical-ciphers/plejfera' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+            ],
+            'classical-ciphers/shifr-plejfera' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+            ],
+            'classical-ciphers/beaufort' => [
+                ['label' => 'EN', 'value' => 'DEFEND THE EAST WALL'],
+                ['label' => 'RU', 'value' => 'ЗАЩИЩАЙ ВОСТОЧНУЮ СТЕНУ'],
+                ['label' => 'ES', 'value' => 'DEFIENDE EL MURO ESTE'],
+            ],
+            'classical-ciphers/shifr-bofora' => [
+                ['label' => 'EN', 'value' => 'DEFEND THE EAST WALL'],
+                ['label' => 'RU', 'value' => 'ЗАЩИЩАЙ ВОСТОЧНУЮ СТЕНУ'],
+                ['label' => 'ES', 'value' => 'DEFIENDE EL MURO ESTE'],
+            ],
+            'classical-ciphers/gronsfeld' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+            ],
+            'classical-ciphers/shifr-gronsfelda' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+            ],
         ];
 
         $apiActionByTool = [
             'classical-ciphers/caesar' => 'caesar',
+            'classical-ciphers/playfair' => 'playfair',
+            'classical-ciphers/plejfera' => 'playfair',
+            'classical-ciphers/shifr-plejfera' => 'playfair',
+            'classical-ciphers/beaufort' => 'beaufort',
+            'classical-ciphers/shifr-bofora' => 'beaufort',
+            'classical-ciphers/gronsfeld' => 'gronsfeld',
+            'classical-ciphers/shifr-gronsfelda' => 'gronsfeld',
         ];
 
         return [
@@ -202,6 +250,13 @@ final readonly class CipherController
     {
         return match ($toolSlug) {
             'classical-ciphers/caesar' => $this->caesarCipher->getToolSettings(),
+            'classical-ciphers/playfair',
+            'classical-ciphers/plejfera',
+            'classical-ciphers/shifr-plejfera' => $this->playfairCipher->getToolSettings(),
+            'classical-ciphers/beaufort',
+            'classical-ciphers/shifr-bofora' => $this->beaufortCipher->getToolSettings(),
+            'classical-ciphers/gronsfeld',
+            'classical-ciphers/shifr-gronsfelda' => $this->gronsfeldCipher->getToolSettings(),
             default => [],
         };
     }

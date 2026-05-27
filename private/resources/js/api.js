@@ -79,6 +79,12 @@ export class ApiClient {
         contact: (data, csrfToken) => this.#request('POST', '/contact', data, { 'X-CSRF-Token': csrfToken }),
         /** POST /api/tools/caesar */
         caesar: (data) => this.#request('POST', '/tools/caesar', data),
+        /** POST /api/tools/playfair */
+        playfair: (data) => this.#request('POST', '/tools/playfair', data),
+        /** POST /api/tools/beaufort */
+        beaufort: (data) => this.#request('POST', '/tools/beaufort', data),
+        /** POST /api/tools/gronsfeld */
+        gronsfeld: (data) => this.#request('POST', '/tools/gronsfeld', data),
     }
 
     user = {
