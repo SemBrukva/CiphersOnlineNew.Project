@@ -31,10 +31,10 @@ final class Tables
     public const string FAILED_JOBS = 'failed_jobs';
 
     /** @var string Таблица категорий шифров. */
-    public const string CIPHER_CATEGORIES = 'cipher_categories';
+    public const string CIPHER_CATEGORIES = 'ciphers_categories';
 
     /** @var string Таблица переводов категорий шифров. */
-    public const string CIPHER_CATEGORY_TRANSLATIONS = 'cipher_category_translations';
+    public const string CIPHER_CATEGORY_TRANSLATIONS = 'ciphers_category_translations';
 
     /** @var string Таблица блоков контента категорий шифров. */
     public const string CIPHERS_CATEGORIES_BLOCKS = 'ciphers_categories_blocks';

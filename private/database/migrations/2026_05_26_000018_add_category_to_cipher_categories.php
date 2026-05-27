@@ -15,7 +15,7 @@ class AddCategoryToCipherCategories extends Migration
      */
     public function up(): void
     {
-        if (Schema::hasColumn('cipher_categories', 'category')) {
+        if (Schema::hasColumn('ciphers_categories', 'category')) {
             return;
         }
 
@@ -23,20 +23,20 @@ class AddCategoryToCipherCategories extends Migration
 
         if ($driver === 'mysql') {
             $this->db->execute(
-                "ALTER TABLE cipher_categories ADD COLUMN category ENUM('cipher', 'encoding') NOT NULL DEFAULT 'cipher' AFTER alias"
+                "ALTER TABLE ciphers_categories ADD COLUMN category ENUM('cipher', 'encoding') NOT NULL DEFAULT 'cipher' AFTER alias"
             );
         } else {
             $this->db->execute(
-                "ALTER TABLE cipher_categories ADD COLUMN category TEXT NOT NULL DEFAULT 'cipher' CHECK (category IN ('cipher', 'encoding'))"
+                "ALTER TABLE ciphers_categories ADD COLUMN category TEXT NOT NULL DEFAULT 'cipher' CHECK (category IN ('cipher', 'encoding'))"
             );
         }
 
         $this->db->execute(
-            "UPDATE cipher_categories SET category = 'encoding' WHERE alias = ?",
+            "UPDATE ciphers_categories SET category = 'encoding' WHERE alias = ?",
             ['encoding']
         );
         $this->db->execute(
-            "UPDATE cipher_categories SET category = 'cipher' WHERE alias <> ?",
+            "UPDATE ciphers_categories SET category = 'cipher' WHERE alias <> ?",
             ['encoding']
         );
     }
@@ -46,13 +46,12 @@ class AddCategoryToCipherCategories extends Migration
      */
     public function down(): void
     {
-        if (!Schema::hasColumn('cipher_categories', 'category')) {
+        if (!Schema::hasColumn('ciphers_categories', 'category')) {
             return;
         }
 
-        Schema::table('cipher_categories', static function ($table): void {
+        Schema::table('ciphers_categories', static function ($table): void {
             $table->dropColumn('category');
         });
     }
 }
-

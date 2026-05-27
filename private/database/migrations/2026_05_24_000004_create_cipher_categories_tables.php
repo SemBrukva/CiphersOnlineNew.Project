@@ -16,7 +16,7 @@ class CreateCipherCategoriesTables extends Migration
      */
     public function up(): void
     {
-        Schema::create('cipher_categories', function (Blueprint $table) {
+        Schema::create('ciphers_categories', function (Blueprint $table) {
             $table->bigId();
             $table->string('alias', 100);
             $table->unsignedInteger('sort_order')->default(0);
@@ -27,7 +27,7 @@ class CreateCipherCategoriesTables extends Migration
             $table->index(['published', 'sort_order'], 'idx_cipher_categories_published_sort');
         });
 
-        Schema::create('cipher_category_translations', function (Blueprint $table) {
+        Schema::create('ciphers_category_translations', function (Blueprint $table) {
             $table->bigId();
             $table->unsignedBigInteger('category_id');
             $table->string('language', 8);
@@ -41,18 +41,18 @@ class CreateCipherCategoriesTables extends Migration
             $table->index('language', 'idx_cipher_category_translations_language');
             $table->foreign('category_id')
                 ->references('id')
-                ->on('cipher_categories')
+                ->on('ciphers_categories')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
         });
 
         $this->db->transaction(function (): void {
             $this->db->execute(
-                'INSERT INTO cipher_categories (id, alias, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                'INSERT INTO ciphers_categories (id, alias, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
                 [1, 'encoding', 10, 1, '2026-05-17 08:35:59', '2026-05-17 08:35:59']
             );
             $this->db->execute(
-                'INSERT INTO cipher_categories (id, alias, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                'INSERT INTO ciphers_categories (id, alias, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
                 [2, 'classical-ciphers', 0, 1, '2026-05-20 16:57:23', '2026-05-20 16:57:23']
             );
 
@@ -71,7 +71,7 @@ class CreateCipherCategoriesTables extends Migration
 
             foreach ($translations as $translation) {
                 $this->db->execute(
-                    'INSERT INTO cipher_category_translations (id, category_id, language, name, description, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                    'INSERT INTO ciphers_category_translations (id, category_id, language, name, description, meta_title, meta_description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
                     $translation
                 );
             }
@@ -83,7 +83,7 @@ class CreateCipherCategoriesTables extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cipher_category_translations');
-        Schema::dropIfExists('cipher_categories');
+        Schema::dropIfExists('ciphers_category_translations');
+        Schema::dropIfExists('ciphers_categories');
     }
 }
