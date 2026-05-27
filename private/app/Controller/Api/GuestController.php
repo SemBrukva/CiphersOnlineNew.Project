@@ -295,6 +295,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование A1Z26 через API.
+     *
+     * POST /api/tools/a1z26
+     */
+    #[ApiOperation(summary: 'Шифр A1Z26', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function a1z26(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'a1z26');
+    }
+
+    /**
      * Выполняет API-инструмент шифрования и формирует JSON-ответ.
      */
     private function handleCipherTool(Request $request, string $action): Response

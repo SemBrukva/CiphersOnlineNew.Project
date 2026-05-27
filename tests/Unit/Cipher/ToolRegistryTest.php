@@ -6,6 +6,7 @@ namespace Tests\Unit\Cipher;
 
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\AtbashCipherService;
+use App\Cipher\A1z26CipherService;
 use App\Cipher\BaconCipherService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\GronsfeldCipherService;
@@ -35,6 +36,7 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('vigenere', $registry->apiAction('classical-ciphers/shifr-vizhenera'));
         self::assertSame('vernam', $registry->apiAction('classical-ciphers/shifr-vernama'));
         self::assertSame('bacon', $registry->apiAction('classical-ciphers/shifr-behkona'));
+        self::assertSame('a1z26', $registry->apiAction('classical-ciphers/shifr-a1z26'));
     }
 
     /**
@@ -74,7 +76,8 @@ final class ToolRegistryTest extends TestCase
             new PlayfairCipherService(),
             new VigenereCipherService(),
             new VernamCipherService(),
-            new BaconCipherService()
+            new BaconCipherService(),
+            new A1z26CipherService()
         );
     }
 }

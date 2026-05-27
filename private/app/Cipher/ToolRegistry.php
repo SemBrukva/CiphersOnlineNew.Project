@@ -22,7 +22,8 @@ final readonly class ToolRegistry
         private PlayfairCipherService $playfairCipher,
         private VigenereCipherService $vigenereCipher,
         private VernamCipherService $vernamCipher,
-        private BaconCipherService $baconCipher
+        private BaconCipherService $baconCipher,
+        private A1z26CipherService $a1z26Cipher
     ) {
     }
 
@@ -106,6 +107,11 @@ final readonly class ToolRegistry
                 ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
                 ['label' => 'AB', 'value' => 'AABBB AABAA'],
             ],
+            'classical-ciphers/a1z26' => [
+                ['label' => 'EN', 'value' => 'HELLO WORLD'],
+                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
+                ['label' => 'Digits', 'value' => '8-5-12-12-15'],
+            ],
             default => [],
         };
     }
@@ -126,6 +132,7 @@ final readonly class ToolRegistry
             'classical-ciphers/vigenere' => 'vigenere',
             'classical-ciphers/vernam' => 'vernam',
             'classical-ciphers/bacon' => 'bacon',
+            'classical-ciphers/a1z26' => 'a1z26',
             default => null,
         };
     }
@@ -148,6 +155,7 @@ final readonly class ToolRegistry
             'classical-ciphers/vigenere' => $this->vigenereCipher->getToolSettings(),
             'classical-ciphers/vernam' => $this->vernamCipher->getToolSettings(),
             'classical-ciphers/bacon' => $this->baconCipher->getToolSettings(),
+            'classical-ciphers/a1z26' => $this->a1z26Cipher->getToolSettings(),
             default => [],
         };
     }
@@ -165,6 +173,7 @@ final readonly class ToolRegistry
             'classical-ciphers/shifr-vernama' => 'classical-ciphers/vernam',
             'classical-ciphers/shifr-bekona', 'classical-ciphers/shifr-behkona' => 'classical-ciphers/bacon',
             'classical-ciphers/shifr-atbash' => 'classical-ciphers/atbash',
+            'classical-ciphers/shifr-a1z26' => 'classical-ciphers/a1z26',
             default => $toolSlug,
         };
     }

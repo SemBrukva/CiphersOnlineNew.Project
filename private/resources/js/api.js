@@ -111,6 +111,8 @@ export class ApiClient {
         vernam: (data) => this.#request('POST', '/tools/vernam', data),
         /** POST /api/tools/bacon */
         bacon: (data) => this.#request('POST', '/tools/bacon', data),
+        /** POST /api/tools/a1z26 */
+        a1z26: (data) => this.#request('POST', '/tools/a1z26', data),
     }
 
     user = {

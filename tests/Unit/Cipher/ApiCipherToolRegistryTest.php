@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher;
 
 use App\Cipher\ApiCipherToolRegistry;
+use App\Cipher\A1z26ApiCipherTool;
+use App\Cipher\A1z26CipherService;
 use App\Cipher\AtbashApiCipherTool;
 use App\Cipher\AtbashCipherService;
 use App\Cipher\BaconApiCipherTool;
@@ -61,7 +63,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new GronsfeldApiCipherTool(new GronsfeldCipherService()),
             new VigenereApiCipherTool(new VigenereCipherService()),
             new VernamApiCipherTool(new VernamCipherService()),
-            new BaconApiCipherTool(new BaconCipherService())
+            new BaconApiCipherTool(new BaconCipherService()),
+            new A1z26ApiCipherTool(new A1z26CipherService())
         );
     }
 }

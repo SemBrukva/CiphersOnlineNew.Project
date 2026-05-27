@@ -91,6 +91,13 @@ return [
         'name'       => 'api.tools.bacon',
     ],
 
+    'POST /tools/a1z26' => [
+        'controller' => GuestController::class,
+        'method'     => 'a1z26',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.a1z26',
+    ],
+
     // Маршруты авторизованного пользователя
     'GET /user/profile' => [
         'controller' => UserController::class,
