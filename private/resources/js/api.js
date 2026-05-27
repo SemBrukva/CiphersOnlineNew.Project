@@ -107,6 +107,8 @@ export class ApiClient {
         vigenere: (data) => this.#request('POST', '/tools/vigenere', data),
         /** POST /api/tools/vernam */
         vernam: (data) => this.#request('POST', '/tools/vernam', data),
+        /** POST /api/tools/bacon */
+        bacon: (data) => this.#request('POST', '/tools/bacon', data),
     }
 
     user = {

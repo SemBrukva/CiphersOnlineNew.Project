@@ -77,6 +77,13 @@ return [
         'name'       => 'api.tools.vernam',
     ],
 
+    'POST /tools/bacon' => [
+        'controller' => GuestController::class,
+        'method'     => 'bacon',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.bacon',
+    ],
+
     // Маршруты авторизованного пользователя
     'GET /user/profile' => [
         'controller' => UserController::class,

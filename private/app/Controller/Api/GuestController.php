@@ -269,6 +269,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Бэкона через API.
+     *
+     * POST /api/tools/bacon
+     */
+    #[ApiOperation(summary: 'Шифр Бэкона', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function bacon(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'bacon');
+    }
+
+    /**
      * Выполняет API-инструмент шифрования и формирует JSON-ответ.
      */
     private function handleCipherTool(Request $request, string $action): Response

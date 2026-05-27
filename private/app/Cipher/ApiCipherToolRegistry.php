@@ -23,9 +23,10 @@ final class ApiCipherToolRegistry
         BeaufortApiCipherTool $beaufortTool,
         GronsfeldApiCipherTool $gronsfeldTool,
         VigenereApiCipherTool $vigenereTool,
-        VernamApiCipherTool $vernamTool
+        VernamApiCipherTool $vernamTool,
+        BaconApiCipherTool $baconTool
     ) {
-        foreach ([$caesarTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool] as $tool) {
+        foreach ([$caesarTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

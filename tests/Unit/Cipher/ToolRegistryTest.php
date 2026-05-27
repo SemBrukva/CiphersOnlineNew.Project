@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher;
 
 use App\Cipher\BeaufortCipherService;
+use App\Cipher\BaconCipherService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairCipherService;
@@ -31,6 +32,7 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('beaufort', $registry->apiAction('classical-ciphers/shifr-bofora'));
         self::assertSame('vigenere', $registry->apiAction('classical-ciphers/shifr-vizhenera'));
         self::assertSame('vernam', $registry->apiAction('classical-ciphers/shifr-vernama'));
+        self::assertSame('bacon', $registry->apiAction('classical-ciphers/shifr-behkona'));
     }
 
     /**
@@ -68,7 +70,8 @@ final class ToolRegistryTest extends TestCase
             new GronsfeldCipherService(),
             new PlayfairCipherService(),
             new VigenereCipherService(),
-            new VernamCipherService()
+            new VernamCipherService(),
+            new BaconCipherService()
         );
     }
 }
