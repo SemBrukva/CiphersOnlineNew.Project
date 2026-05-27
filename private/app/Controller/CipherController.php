@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Cipher\CaesarCipherService;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -21,7 +22,8 @@ final readonly class CipherController
     public function __construct(
         private View $view,
         private CipherRepository $ciphers,
-        private CipherCategoryRepository $categories
+        private CipherCategoryRepository $categories,
+        private CaesarCipherService $caesarCipher
     ) {}
 
     /**
@@ -186,20 +188,21 @@ final readonly class CipherController
             'calculationMode' => in_array($calculationMode, ['api', 'client'], true) ? $calculationMode : 'client',
             'apiAction' => $apiActionByTool[$toolSlug] ?? null,
             'runLabel' => locale() === 'ru' ? 'Выполнить' : 'Run',
-            'shiftLabel' => locale() === 'ru' ? 'Сдвиг' : 'Shift',
-            'alphabetLabel' => locale() === 'ru' ? 'Алфавит' : 'Alphabet',
-            'alphabetOptions' => [
-                ['value' => 'auto', 'label' => locale() === 'ru' ? 'Авто' : 'Auto', 'maxShift' => 39],
-                ['value' => 'en', 'label' => 'English', 'maxShift' => 25],
-                ['value' => 'ru', 'label' => 'Русский', 'maxShift' => 32],
-                ['value' => 'es', 'label' => 'Español', 'maxShift' => 26],
-                ['value' => 'pt', 'label' => 'Português', 'maxShift' => 35],
-                ['value' => 'tr', 'label' => 'Türkçe', 'maxShift' => 28],
-                ['value' => 'fr', 'label' => 'Français', 'maxShift' => 39],
-                ['value' => 'de', 'label' => 'Deutsch', 'maxShift' => 29],
-                ['value' => 'it', 'label' => 'Italiano', 'maxShift' => 25],
-            ],
+            'settings' => $this->buildToolSettings($toolSlug),
             'exampleChips' => $examplesByTool[$toolSlug] ?? [],
         ];
+    }
+
+    /**
+     * Возвращает схему полей настроек для конкретного инструмента.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    private function buildToolSettings(string $toolSlug): array
+    {
+        return match ($toolSlug) {
+            'classical-ciphers/caesar' => $this->caesarCipher->getToolSettings(),
+            default => [],
+        };
     }
 }

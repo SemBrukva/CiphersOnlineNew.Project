@@ -15,22 +15,38 @@
                 </div>
 
                 <div class="ciphers-settings">
-                    <div class="ciphers-settings-item">
-                        <label class="ciphers-settings-label" for="ciphers-alphabet">{$tool_ui.alphabetLabel}</label>
-                        <select id="ciphers-alphabet" class="ciphers-settings-select">
-                            {foreach $tool_ui.alphabetOptions as $opt}
-                                <option value="{$opt.value}" data-max-shift="{$opt.maxShift|default:39}" {if $opt.value == 'auto'}selected{/if}>{$opt.label}</option>
-                            {/foreach}
-                        </select>
-                    </div>
-                    <div class="ciphers-settings-item">
-                        <label class="ciphers-settings-label" for="ciphers-shift">{$tool_ui.shiftLabel}</label>
-                        <div class="ciphers-settings-shift-group">
-                            <button class="ciphers-settings-shift-btn" id="ciphers-shift-dec" type="button">−</button>
-                            <input id="ciphers-shift" type="number" class="ciphers-settings-shift-input" min="0" step="1" value="3" max="32">
-                            <button class="ciphers-settings-shift-btn" id="ciphers-shift-inc" type="button">+</button>
+                    {foreach $tool_ui.settings|default:[] as $setting}
+                        <div class="ciphers-settings-item">
+                            {if $setting.type == 'select'}
+                                <label class="ciphers-settings-label" for="{$setting.id|escape}">{$setting.label}</label>
+                                <select id="{$setting.id|escape}" class="{$setting.class|default:'ciphers-settings-select'|escape}">
+                                    {foreach $setting.options|default:[] as $opt}
+                                        <option value="{$opt.value|escape}"
+                                            {foreach $opt.attrs|default:[] as $attrName => $attrValue}
+                                                {$attrName|escape}="{$attrValue|escape}"
+                                            {/foreach}
+                                            {if $opt.selected|default:false}selected{/if}
+                                        >
+                                            {$opt.label}
+                                        </option>
+                                    {/foreach}
+                                </select>
+                            {elseif $setting.type == 'number_stepper'}
+                                <label class="ciphers-settings-label" for="{$setting.id|escape}">{$setting.label}</label>
+                                <div class="ciphers-settings-shift-group">
+                                    <button class="ciphers-settings-shift-btn" id="{$setting.decrementId|default:''|escape}" type="button">−</button>
+                                    <input id="{$setting.id|escape}"
+                                           type="number"
+                                           class="{$setting.class|default:'ciphers-settings-shift-input'|escape}"
+                                           min="{$setting.min|default:0}"
+                                           step="{$setting.step|default:1}"
+                                           value="{$setting.value|default:0}"
+                                           max="{$setting.max|default:39}">
+                                    <button class="ciphers-settings-shift-btn" id="{$setting.incrementId|default:''|escape}" type="button">+</button>
+                                </div>
+                            {/if}
                         </div>
-                    </div>
+                    {/foreach}
                 </div>
             </div>
 

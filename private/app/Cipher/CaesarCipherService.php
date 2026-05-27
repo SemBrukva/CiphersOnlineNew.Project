@@ -32,6 +32,46 @@ final class CaesarCipherService
     }
 
     /**
+     * Возвращает UI-настройки инструмента для шифра Цезаря.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function getToolSettings(): array
+    {
+        return [
+            [
+                'type' => 'select',
+                'id' => 'ciphers-alphabet',
+                'label' => locale() === 'ru' ? 'Алфавит' : 'Alphabet',
+                'class' => 'ciphers-settings-select',
+                'options' => [
+                    ['value' => 'auto', 'label' => locale() === 'ru' ? 'Авто' : 'Auto', 'attrs' => ['data-max-shift' => 39], 'selected' => true],
+                    ['value' => 'en', 'label' => 'English', 'attrs' => ['data-max-shift' => 25]],
+                    ['value' => 'ru', 'label' => 'Русский', 'attrs' => ['data-max-shift' => 32]],
+                    ['value' => 'es', 'label' => 'Español', 'attrs' => ['data-max-shift' => 26]],
+                    ['value' => 'pt', 'label' => 'Português', 'attrs' => ['data-max-shift' => 35]],
+                    ['value' => 'tr', 'label' => 'Türkçe', 'attrs' => ['data-max-shift' => 28]],
+                    ['value' => 'fr', 'label' => 'Français', 'attrs' => ['data-max-shift' => 39]],
+                    ['value' => 'de', 'label' => 'Deutsch', 'attrs' => ['data-max-shift' => 29]],
+                    ['value' => 'it', 'label' => 'Italiano', 'attrs' => ['data-max-shift' => 25]],
+                ],
+            ],
+            [
+                'type' => 'number_stepper',
+                'id' => 'ciphers-shift',
+                'label' => locale() === 'ru' ? 'Сдвиг' : 'Shift',
+                'class' => 'ciphers-settings-shift-input',
+                'min' => 0,
+                'max' => 39,
+                'step' => 1,
+                'value' => 3,
+                'decrementId' => 'ciphers-shift-dec',
+                'incrementId' => 'ciphers-shift-inc',
+            ],
+        ];
+    }
+
+    /**
      * Возвращает максимально допустимый сдвиг для алфавита.
      */
     public function maxShiftForAlphabet(string $alphabet): int
