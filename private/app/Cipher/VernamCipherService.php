@@ -28,7 +28,7 @@ final class VernamCipherService
                 'type' => 'text',
                 'id' => 'ciphers-key',
                 'label' => locale() === 'ru' ? 'Ключ' : 'Key',
-                'class' => 'ciphers-settings-select',
+                'class' => 'ciphers-settings-input',
                 'placeholder' => locale() === 'ru' ? 'Введите ключ' : 'Enter key',
                 'value' => '',
             ],

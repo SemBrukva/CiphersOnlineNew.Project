@@ -159,6 +159,7 @@ return [
     'CIPHER_TOOL_TRY_LABEL' => 'Попробовать:',
     'CIPHER_TOOL_COPY_LABEL' => 'Копировать',
     'CIPHER_TOOL_SHARE_LABEL' => 'Поделиться',
+    'CIPHER_TOOL_CLEAR_LABEL' => 'Очистить',
     'CIPHER_TOOL_CHARS_LABEL' => 'симв.',
     'CIPHER_TOOL_BYTES_LABEL' => 'байт',
     'CIPHER_TOOL_EXAMPLES_TITLE' => 'Примеры',

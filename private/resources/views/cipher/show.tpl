@@ -48,7 +48,7 @@
                                 <label class="ciphers-settings-label" for="{$setting.id|escape}">{$setting.label}</label>
                                 <input id="{$setting.id|escape}"
                                        type="text"
-                                       class="{$setting.class|default:'ciphers-settings-select'|escape}"
+                                       class="{$setting.class|default:'ciphers-settings-input'|escape}"
                                        placeholder="{$setting.placeholder|default:''|escape}"
                                        value="{$setting.value|default:''|escape}">
                             {/if}
@@ -64,7 +64,12 @@
             <div class="ciphers-unified__input-wrap">
                 <div class="ciphers-unified__field-header">
                     <span class="ciphers-unified__field-label" id="ciphers-input-label">{$tool_ui.inputLabelEncode}</span>
-                    <span class="ciphers-unified__counter" id="ciphers-counter">0 {$tool_ui.charsLabel} · 0 {$tool_ui.bytesLabel}</span>
+                    <div class="ciphers-unified__counter-group">
+                        <span class="ciphers-unified__counter" id="ciphers-counter">0 {$tool_ui.charsLabel} · 0 {$tool_ui.bytesLabel}</span>
+                        <button class="btn ciphers-unified__btn-ghost ciphers-unified__btn-clear" type="button" id="ciphers-clear">
+                            <i class="bi bi-x-lg"></i>{$tool_ui.clearLabel|default:'Clear'}
+                        </button>
+                    </div>
                 </div>
                 <textarea class="form-control ciphers-textarea ciphers-unified__textarea"
                           id="ciphers-input"
@@ -98,8 +103,8 @@
                 <div class="ciphers-unified__field-header">
                     <span class="ciphers-unified__field-label ciphers-unified__field-label--result">{$tool_ui.resultLabel}</span>
                     <div class="ciphers-unified__output-actions">
-                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy">{$tool_ui.copyLabel}</button>
-                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-share">{$tool_ui.shareLabel}</button>
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy"><i class="bi bi-clipboard"></i>{$tool_ui.copyLabel}</button>
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-share"><i class="bi bi-share"></i>{$tool_ui.shareLabel}</button>
                     </div>
                 </div>
 

@@ -141,6 +141,7 @@ return [
     'CIPHER_TOOL_TRY_LABEL' => 'Essayer :',
     'CIPHER_TOOL_COPY_LABEL' => 'Copier',
     'CIPHER_TOOL_SHARE_LABEL' => 'Partager',
+    'CIPHER_TOOL_CLEAR_LABEL' => 'Effacer',
     'CIPHER_TOOL_CHARS_LABEL' => 'caract.',
     'CIPHER_TOOL_BYTES_LABEL' => 'octets',
     'CIPHER_TOOL_EXAMPLES_TITLE' => 'Exemples',

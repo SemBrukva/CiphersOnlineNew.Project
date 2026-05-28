@@ -28,6 +28,7 @@ export function initCipherToolPage() {
   const shiftIncBtn = document.getElementById('ciphers-shift-inc')
   const alphabetSelect = document.getElementById('ciphers-alphabet')
   const keyInput = document.getElementById('ciphers-key')
+  const clearBtn = document.getElementById('ciphers-clear')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -353,12 +354,35 @@ export function initCipherToolPage() {
     })
   })
 
+  clearBtn?.addEventListener('click', () => {
+    input.value = ''
+    output.value = ''
+    updateCounter()
+    setOutputState(false)
+    setFeedback('')
+    const iconEl = clearBtn.querySelector('.bi')
+    if (iconEl) iconEl.className = 'bi bi-check-lg'
+    clearBtn.classList.add('ciphers-unified__btn-ghost--copied')
+    window.setTimeout(() => {
+      if (iconEl) iconEl.className = 'bi bi-x-lg'
+      clearBtn.classList.remove('ciphers-unified__btn-ghost--copied')
+    }, 800)
+    input.focus()
+  })
+
   copyBtn?.addEventListener('click', async () => {
     if (!output.value) return
     try {
       await navigator.clipboard.writeText(output.value)
+      const iconEl = copyBtn.querySelector('.bi')
+      if (iconEl) iconEl.className = 'bi bi-check-lg'
+      copyBtn.classList.add('ciphers-unified__btn-ghost--copied')
       setFeedback(labels.copied)
-      window.setTimeout(() => setFeedback(''), 1200)
+      window.setTimeout(() => {
+        if (iconEl) iconEl.className = 'bi bi-clipboard'
+        copyBtn.classList.remove('ciphers-unified__btn-ghost--copied')
+        setFeedback('')
+      }, 1200)
     } catch {
       setFeedback(labels.copyFailed, true)
     }
@@ -367,8 +391,15 @@ export function initCipherToolPage() {
   shareBtn?.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(window.location.href)
+      const iconEl = shareBtn.querySelector('.bi')
+      if (iconEl) iconEl.className = 'bi bi-check-lg'
+      shareBtn.classList.add('ciphers-unified__btn-ghost--copied')
       setFeedback(labels.urlCopied)
-      window.setTimeout(() => setFeedback(''), 1200)
+      window.setTimeout(() => {
+        if (iconEl) iconEl.className = 'bi bi-share'
+        shareBtn.classList.remove('ciphers-unified__btn-ghost--copied')
+        setFeedback('')
+      }, 1200)
     } catch {
       setFeedback(labels.urlCopyFailed, true)
     }
@@ -398,6 +429,101 @@ export function initCipherToolPage() {
   applySavedState()
   saveState()
   setMode('encode')
+  initCustomSelects()
+}
+
+/**
+ * Заменяет все `.ciphers-settings-select` на кастомные dropdown,
+ * сохраняя нативный select скрытым для совместимости с JS-логикой.
+ */
+function initCustomSelects() {
+  let documentListenerAdded = false
+
+  document.querySelectorAll('.ciphers-settings-select').forEach((nativeSelect) => {
+    if (nativeSelect.dataset.customSelectInit) return
+    nativeSelect.dataset.customSelectInit = '1'
+
+    const wrapper = document.createElement('div')
+    wrapper.className = 'ciphers-custom-select'
+    nativeSelect.parentNode.insertBefore(wrapper, nativeSelect)
+    nativeSelect.style.display = 'none'
+    wrapper.appendChild(nativeSelect)
+
+    const trigger = document.createElement('button')
+    trigger.type = 'button'
+    trigger.className = 'ciphers-custom-select__trigger'
+    trigger.setAttribute('aria-haspopup', 'listbox')
+    trigger.setAttribute('aria-expanded', 'false')
+
+    const dropdown = document.createElement('div')
+    dropdown.className = 'ciphers-custom-select__dropdown'
+    dropdown.setAttribute('role', 'listbox')
+
+    wrapper.appendChild(trigger)
+    wrapper.appendChild(dropdown)
+
+    const updateTrigger = () => {
+      const opt = nativeSelect.options[nativeSelect.selectedIndex]
+      trigger.textContent = opt ? opt.text : ''
+    }
+
+    const refreshOptions = () => {
+      dropdown.innerHTML = ''
+      Array.from(nativeSelect.options).forEach((opt) => {
+        const item = document.createElement('div')
+        item.className = 'ciphers-custom-select__option'
+        item.setAttribute('role', 'option')
+        const isSelected = opt.value === nativeSelect.value
+        if (isSelected) item.classList.add('ciphers-custom-select__option--selected')
+        item.setAttribute('aria-selected', isSelected ? 'true' : 'false')
+        item.dataset.value = opt.value
+        item.textContent = opt.text
+
+        item.addEventListener('click', () => {
+          nativeSelect.value = opt.value
+          nativeSelect.dispatchEvent(new Event('change', { bubbles: true }))
+          updateTrigger()
+          close()
+        })
+
+        dropdown.appendChild(item)
+      })
+    }
+
+    const open = () => {
+      document.querySelectorAll('.ciphers-custom-select--open').forEach((el) => {
+        if (el !== wrapper) el.classList.remove('ciphers-custom-select--open')
+      })
+      refreshOptions()
+      wrapper.classList.add('ciphers-custom-select--open')
+      trigger.setAttribute('aria-expanded', 'true')
+    }
+
+    const close = () => {
+      wrapper.classList.remove('ciphers-custom-select--open')
+      trigger.setAttribute('aria-expanded', 'false')
+    }
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation()
+      wrapper.classList.contains('ciphers-custom-select--open') ? close() : open()
+    })
+
+    dropdown.addEventListener('click', (e) => e.stopPropagation())
+
+    nativeSelect.addEventListener('change', updateTrigger)
+
+    updateTrigger()
+
+    if (!documentListenerAdded) {
+      documentListenerAdded = true
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.ciphers-custom-select--open').forEach((el) => {
+          el.classList.remove('ciphers-custom-select--open')
+        })
+      })
+    }
+  })
 }
 
 /**

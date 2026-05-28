@@ -159,6 +159,7 @@ return [
     'CIPHER_TOOL_TRY_LABEL' => 'Try:',
     'CIPHER_TOOL_COPY_LABEL' => 'Copy',
     'CIPHER_TOOL_SHARE_LABEL' => 'Share',
+    'CIPHER_TOOL_CLEAR_LABEL' => 'Clear',
     'CIPHER_TOOL_CHARS_LABEL' => 'chars',
     'CIPHER_TOOL_BYTES_LABEL' => 'bytes',
     'CIPHER_TOOL_EXAMPLES_TITLE' => 'Examples',

@@ -57,7 +57,7 @@ final class GronsfeldCipherService
                 'type' => 'text',
                 'id' => 'ciphers-key',
                 'label' => locale() === 'ru' ? 'Ключ' : 'Key',
-                'class' => 'ciphers-settings-select',
+                'class' => 'ciphers-settings-input',
                 'placeholder' => locale() === 'ru' ? 'Например: 314159' : 'Example: 314159',
                 'value' => '',
             ],

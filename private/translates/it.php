@@ -141,6 +141,7 @@ return [
     'CIPHER_TOOL_TRY_LABEL' => 'Prova:',
     'CIPHER_TOOL_COPY_LABEL' => 'Copia',
     'CIPHER_TOOL_SHARE_LABEL' => 'Condividi',
+    'CIPHER_TOOL_CLEAR_LABEL' => 'Cancella',
     'CIPHER_TOOL_CHARS_LABEL' => 'caratt.',
     'CIPHER_TOOL_BYTES_LABEL' => 'byte',
     'CIPHER_TOOL_EXAMPLES_TITLE' => 'Esempi',

@@ -141,6 +141,7 @@ return [
     'CIPHER_TOOL_TRY_LABEL' => 'Ausprobieren:',
     'CIPHER_TOOL_COPY_LABEL' => 'Kopieren',
     'CIPHER_TOOL_SHARE_LABEL' => 'Teilen',
+    'CIPHER_TOOL_CLEAR_LABEL' => 'Löschen',
     'CIPHER_TOOL_CHARS_LABEL' => 'Zeichen',
     'CIPHER_TOOL_BYTES_LABEL' => 'Bytes',
     'CIPHER_TOOL_EXAMPLES_TITLE' => 'Beispiele',

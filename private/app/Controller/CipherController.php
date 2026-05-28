@@ -124,6 +124,7 @@ final readonly class CipherController
             'tryLabel' => trans('CIPHER_TOOL_TRY_LABEL'),
             'copyLabel' => trans('CIPHER_TOOL_COPY_LABEL'),
             'shareLabel' => trans('CIPHER_TOOL_SHARE_LABEL'),
+            'clearLabel' => trans('CIPHER_TOOL_CLEAR_LABEL'),
             'charsLabel' => trans('CIPHER_TOOL_CHARS_LABEL'),
             'bytesLabel' => trans('CIPHER_TOOL_BYTES_LABEL'),
             'examplesTitle' => trans('CIPHER_TOOL_EXAMPLES_TITLE'),

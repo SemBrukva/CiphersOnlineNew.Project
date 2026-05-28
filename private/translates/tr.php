@@ -141,6 +141,7 @@ return [
     'CIPHER_TOOL_TRY_LABEL' => 'Dene:',
     'CIPHER_TOOL_COPY_LABEL' => 'Kopyala',
     'CIPHER_TOOL_SHARE_LABEL' => 'Paylaş',
+    'CIPHER_TOOL_CLEAR_LABEL' => 'Temizle',
     'CIPHER_TOOL_CHARS_LABEL' => 'kar.',
     'CIPHER_TOOL_BYTES_LABEL' => 'bayt',
     'CIPHER_TOOL_EXAMPLES_TITLE' => 'Örnekler',
