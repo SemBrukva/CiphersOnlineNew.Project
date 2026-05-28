@@ -120,7 +120,8 @@ php bin/console cipher:content:import private/storage/content/classical-ciphers.
 ```
 
 Подробный формат JSON и правила редактирования описаны в [docs/cipher-content-json.md](docs/cipher-content-json.md).
-Для расширения секций `blocks`, `faq`, `examples`, `tags` добавляйте новые элементы без `id` (или с `id: 0`) — импорт создаст записи автоматически.
+Для расширения секций `blocks`, `faq`, `examples`, `tags` добавляйте новые элементы без `id` (или с `id: 0`) только в файле, где `meta.language == meta.default_language` (обычно `en`).
+В остальных языках добавлять новые сущности нельзя: там нужно переводить уже существующие `id`.
 
 ## Архитектура
 

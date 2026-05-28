@@ -57,10 +57,15 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $categoryAlias = trim((string) ($meta['category_alias'] ?? ''));
         $cipherAlias = trim((string) ($meta['cipher_alias'] ?? ''));
         $language = mb_strtolower(trim((string) ($meta['language'] ?? '')));
+        $defaultLanguage = mb_strtolower(trim((string) ($meta['default_language'] ?? '')));
 
         if ($categoryAlias === '' || $cipherAlias === '' || $language === '') {
             echo 'В JSON отсутствуют обязательные meta-поля: category_alias, cipher_alias, language.' . PHP_EOL;
             return 1;
+        }
+
+        if ($defaultLanguage === '') {
+            $defaultLanguage = mb_strtolower((string) config('locale.locale', 'en'));
         }
 
         $cipher = $this->findCipher($categoryAlias, $cipherAlias);
@@ -96,8 +101,12 @@ final readonly class CipherContentImportCommand implements CommandInterface
                     $blockId = (int) ($item['id'] ?? 0);
                     $data = is_array($item['data'] ?? null) ? $item['data'] : [];
                     if ($blockId < 1) {
-                        $blockId = $this->createBlockEntity($cipherId, $item, $now);
-                        $summary['blocks_created']++;
+                        $this->assertCreationAllowedForLanguage($language, $defaultLanguage, 'blocks');
+                        $resolved = $this->createOrReuseBlockEntity($cipherId, $language, $item, $now);
+                        $blockId = $resolved['id'];
+                        if ($resolved['created']) {
+                            $summary['blocks_created']++;
+                        }
                     } else {
                         $this->assertOwnership(Tables::CIPHERS_BLOCKS, 'app_id', $cipherId, $blockId, 'block');
                     }
@@ -109,8 +118,12 @@ final readonly class CipherContentImportCommand implements CommandInterface
                     $faqId = (int) ($item['id'] ?? 0);
                     $data = is_array($item['data'] ?? null) ? $item['data'] : [];
                     if ($faqId < 1) {
-                        $faqId = $this->createFaqEntity($cipherId, $item, $now);
-                        $summary['faq_created']++;
+                        $this->assertCreationAllowedForLanguage($language, $defaultLanguage, 'faq');
+                        $resolved = $this->createOrReuseFaqEntity($cipherId, $language, $item, $now);
+                        $faqId = $resolved['id'];
+                        if ($resolved['created']) {
+                            $summary['faq_created']++;
+                        }
                     } else {
                         $this->assertOwnership(Tables::CIPHERS_FAQ, 'app_id', $cipherId, $faqId, 'faq');
                     }
@@ -122,8 +135,12 @@ final readonly class CipherContentImportCommand implements CommandInterface
                     $exampleId = (int) ($item['id'] ?? 0);
                     $data = is_array($item['data'] ?? null) ? $item['data'] : [];
                     if ($exampleId < 1) {
-                        $exampleId = $this->createExampleEntity($cipherId, $item, $now);
-                        $summary['examples_created']++;
+                        $this->assertCreationAllowedForLanguage($language, $defaultLanguage, 'examples');
+                        $resolved = $this->createOrReuseExampleEntity($cipherId, $language, $item, $now);
+                        $exampleId = $resolved['id'];
+                        if ($resolved['created']) {
+                            $summary['examples_created']++;
+                        }
                     } else {
                         $this->assertOwnership(Tables::CIPHERS_EXAMPLES, 'app_id', $cipherId, $exampleId, 'example');
                     }
@@ -135,8 +152,12 @@ final readonly class CipherContentImportCommand implements CommandInterface
                     $tagId = (int) ($item['id'] ?? 0);
                     $data = is_array($item['data'] ?? null) ? $item['data'] : [];
                     if ($tagId < 1) {
-                        $tagId = $this->createTagEntity($cipherId, $item, $now);
-                        $summary['tags_created']++;
+                        $this->assertCreationAllowedForLanguage($language, $defaultLanguage, 'tags');
+                        $resolved = $this->createOrReuseTagEntity($cipherId, $language, $item, $now);
+                        $tagId = $resolved['id'];
+                        if ($resolved['created']) {
+                            $summary['tags_created']++;
+                        }
                     } else {
                         $this->assertOwnership(Tables::CIPHERS_TAGS, 'app_id', $cipherId, $tagId, 'tag');
                     }
@@ -233,6 +254,20 @@ final readonly class CipherContentImportCommand implements CommandInterface
     }
 
     /**
+     * Проверяет, разрешено ли создание новой сущности для текущего языка.
+     */
+    private function assertCreationAllowedForLanguage(string $language, string $defaultLanguage, string $section): void
+    {
+        if ($language !== $defaultLanguage) {
+            throw new \RuntimeException(
+                'Добавление новых элементов в секции ' . $section
+                . ' разрешено только для default_language (текущий: ' . $language
+                . ', default: ' . $defaultLanguage . ').'
+            );
+        }
+    }
+
+    /**
      * Создаёт новую FAQ-сущность для шифра.
      *
      * @param array<string, mixed> $item Элемент FAQ из JSON.
@@ -302,6 +337,131 @@ final readonly class CipherContentImportCommand implements CommandInterface
         );
 
         return (int) $id;
+    }
+
+    /**
+     * Создаёт или переиспользует FAQ-сущность для языка по sort_order.
+     *
+     * @param array<string, mixed> $item Элемент FAQ из JSON.
+     */
+    private function createOrReuseFaqEntity(int $cipherId, string $language, array $item, string $now): array
+    {
+        $sortOrder = max(0, min(999999, (int) ($item['sort_order'] ?? 0)));
+        $reusedId = $this->findReusableEntityIdBySortOrder(
+            Tables::CIPHERS_FAQ,
+            Tables::CIPHERS_FAQ_TRANSLATIONS,
+            'faq_id',
+            $cipherId,
+            $sortOrder,
+            $language
+        );
+
+        if ($reusedId !== null) {
+            return ['id' => $reusedId, 'created' => false];
+        }
+
+        return ['id' => $this->createFaqEntity($cipherId, $item, $now), 'created' => true];
+    }
+
+    /**
+     * Создаёт или переиспользует сущность блока для языка по sort_order.
+     *
+     * @param array<string, mixed> $item Элемент блока из JSON.
+     */
+    private function createOrReuseBlockEntity(int $cipherId, string $language, array $item, string $now): array
+    {
+        $sortOrder = max(0, min(999999, (int) ($item['sort_order'] ?? 0)));
+        $reusedId = $this->findReusableEntityIdBySortOrder(
+            Tables::CIPHERS_BLOCKS,
+            Tables::CIPHERS_BLOCKS_TRANSLATIONS,
+            'block_id',
+            $cipherId,
+            $sortOrder,
+            $language
+        );
+
+        if ($reusedId !== null) {
+            return ['id' => $reusedId, 'created' => false];
+        }
+
+        return ['id' => $this->createBlockEntity($cipherId, $item, $now), 'created' => true];
+    }
+
+    /**
+     * Создаёт или переиспользует сущность примера для языка по sort_order.
+     *
+     * @param array<string, mixed> $item Элемент примера из JSON.
+     */
+    private function createOrReuseExampleEntity(int $cipherId, string $language, array $item, string $now): array
+    {
+        $sortOrder = max(0, min(999999, (int) ($item['sort_order'] ?? 0)));
+        $reusedId = $this->findReusableEntityIdBySortOrder(
+            Tables::CIPHERS_EXAMPLES,
+            Tables::CIPHERS_EXAMPLES_TRANSLATIONS,
+            'example_id',
+            $cipherId,
+            $sortOrder,
+            $language
+        );
+
+        if ($reusedId !== null) {
+            return ['id' => $reusedId, 'created' => false];
+        }
+
+        return ['id' => $this->createExampleEntity($cipherId, $item, $now), 'created' => true];
+    }
+
+    /**
+     * Создаёт или переиспользует сущность тега для языка по sort_order.
+     *
+     * @param array<string, mixed> $item Элемент тега из JSON.
+     */
+    private function createOrReuseTagEntity(int $cipherId, string $language, array $item, string $now): array
+    {
+        $sortOrder = max(0, min(999999, (int) ($item['sort_order'] ?? 0)));
+        $reusedId = $this->findReusableEntityIdBySortOrder(
+            Tables::CIPHERS_TAGS,
+            Tables::CIPHERS_TAGS_TRANSLATIONS,
+            'tag_id',
+            $cipherId,
+            $sortOrder,
+            $language
+        );
+
+        if ($reusedId !== null) {
+            return ['id' => $reusedId, 'created' => false];
+        }
+
+        return ['id' => $this->createTagEntity($cipherId, $item, $now), 'created' => true];
+    }
+
+    /**
+     * Ищет существующую сущность с тем же sort_order, у которой нет перевода для языка.
+     */
+    private function findReusableEntityIdBySortOrder(
+        string $entityTable,
+        string $translationTable,
+        string $translationForeignKey,
+        int $cipherId,
+        int $sortOrder,
+        string $language
+    ): ?int {
+        $row = $this->db->fetch(
+            'SELECT e.id '
+            . 'FROM ' . $entityTable . ' e '
+            . 'LEFT JOIN ' . $translationTable . ' t '
+            . 'ON t.' . $translationForeignKey . ' = e.id AND t.language = ? '
+            . 'WHERE e.app_id = ? AND e.sort_order = ? AND t.id IS NULL '
+            . 'ORDER BY e.id ASC '
+            . 'LIMIT 1',
+            [$language, $cipherId, $sortOrder]
+        );
+
+        if ($row === false) {
+            return null;
+        }
+
+        return (int) ($row['id'] ?? 0);
     }
 
     /**

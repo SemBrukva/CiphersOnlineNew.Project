@@ -69,6 +69,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
                 'Менять нужно только текстовые поля в data.',
                 'Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.',
                 'Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.',
+                'Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language.',
             ],
         ];
 
