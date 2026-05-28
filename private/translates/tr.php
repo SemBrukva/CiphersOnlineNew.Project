@@ -11,6 +11,8 @@ return [
     'MENU_CABINET' => 'Hesabım',
     'MENU_ADMIN' => 'Yönetici',
     'MENU_TOOLS' => 'Araçlar',
+    'MENU_CLASSICAL_CIPHERS' => 'Klasik şifreler',
+    'MENU_ENCODING' => 'Veri kodlama',
     'AUTH_SIGN_IN' => 'Giriş Yap',
     'AUTH_SIGN_OUT' => 'Çıkış Yap',
     'AUTH_CABINET' => 'Hesabım',

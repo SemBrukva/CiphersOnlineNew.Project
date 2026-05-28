@@ -11,6 +11,8 @@ return [
     'MENU_CABINET' => 'Konto',
     'MENU_ADMIN' => 'Admin',
     'MENU_TOOLS' => 'Tools',
+    'MENU_CLASSICAL_CIPHERS' => 'Klassische Chiffren',
+    'MENU_ENCODING' => 'Datenkodierung',
     'AUTH_SIGN_IN' => 'Anmelden',
     'AUTH_SIGN_OUT' => 'Abmelden',
     'AUTH_CABINET' => 'Konto',

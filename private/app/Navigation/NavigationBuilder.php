@@ -52,7 +52,7 @@ final class NavigationBuilder
             $items[] = $this->makeItem('MENU_CABINET', '/cabinet', null, $currentPath, '');
         }
 
-        $toolsChildren = $this->buildToolsChildren($currentPath, $localePrefix);
+        /*$toolsChildren = $this->buildToolsChildren($currentPath, $localePrefix);
 
         if ($toolsChildren !== []) {
             $items[] = [
@@ -62,7 +62,7 @@ final class NavigationBuilder
                 'icon' => 'bi-tools',
                 'children' => $toolsChildren,
             ];
-        }
+        }*/
 
         return $items;
     }

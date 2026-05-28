@@ -12,6 +12,8 @@ return [
     'MENU_CABINET'          => 'My Account',
     'MENU_ADMIN'            => 'Admin',
     'MENU_TOOLS'            => 'Tools',
+    'MENU_CLASSICAL_CIPHERS' => 'Classical ciphers',
+    'MENU_ENCODING'         => 'Data encoding',
 
     // Авторизация
     'AUTH_SIGN_IN'          => 'Sign In',

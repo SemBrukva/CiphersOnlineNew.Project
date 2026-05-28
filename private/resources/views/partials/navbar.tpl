@@ -71,10 +71,12 @@
                         </button>
                     </form>
                 {else}
-                    <button type="button" class="btn btn-sm site-header__btn d-inline-flex align-items-center"
-                            data-bs-toggle="modal" data-bs-target="#loginModal">
-                        <i class="bi bi-box-arrow-in-right me-1"></i>{$t.AUTH_SIGN_IN}
-                    </button>
+                    {if $registration_enabled}
+                        <button type="button" class="btn btn-sm site-header__btn d-inline-flex align-items-center"
+                                data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>{$t.AUTH_SIGN_IN}
+                        </button>
+                    {/if}
                 {/if}
             </div>
 
