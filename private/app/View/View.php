@@ -51,6 +51,19 @@ final class View
             return trans($key, $params);
         });
 
+        $smarty->registerPlugin('function', 'trans_choice', static function (array $params): string {
+            $key = isset($params['key']) && is_string($params['key']) ? $params['key'] : '';
+            $count = isset($params['count']) ? (int) $params['count'] : 0;
+
+            if ($key === '') {
+                return '';
+            }
+
+            unset($params['key'], $params['count']);
+
+            return trans_choice($key, $count, $params);
+        });
+
         $smarty->registerPlugin('modifier', 'starts_with', static fn (string $str, string $prefix): bool => str_starts_with($str, $prefix));
         $smarty->registerPlugin('modifier', 'json_encode', static fn (mixed $val, int $flags = JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES): string => json_encode($val, $flags) ?: '');
 

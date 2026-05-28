@@ -249,6 +249,52 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает опубликованные инструменты по списку alias с переводом и alias категории.
+     *
+     * Порядок результата соответствует переданному списку алиасов.
+     *
+     * @param  string[] $aliases Список alias шифров.
+     * @return array<int, array<string, mixed>>
+     */
+    public function findPublishedByAliasesWithTranslation(array $aliases, string $language, string $defaultLanguage): array
+    {
+        if ($aliases === []) {
+            return [];
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($aliases), '?'));
+
+        $rows = $this->db->fetchAll(
+            'SELECT c.id, c.alias, c.category_id, c.sort_order, c.calculation_mode, '
+            .'cat.alias AS category_alias, '
+            .'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
+            .'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name_short, '
+            .'COALESCE(t_cur.description, t_def.description, \'\') AS description, '
+            .'COALESCE(t_cur.description_stort, t_def.description_stort, \'\') AS description_short '
+            .'FROM '.$this->table.' c '
+            .'INNER JOIN '.Tables::CIPHER_CATEGORIES.' cat ON cat.id = c.category_id AND cat.published = 1 '
+            .'LEFT JOIN '.Tables::CIPHERS_TRANSLATIONS.' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
+            .'LEFT JOIN '.Tables::CIPHERS_TRANSLATIONS.' t_def ON t_def.app_id = c.id AND t_def.language = ? '
+            .'WHERE c.published = 1 AND c.alias IN ('.$placeholders.')',
+            array_merge([$language, $defaultLanguage], $aliases)
+        );
+
+        $byAlias = [];
+        foreach ($rows as $row) {
+            $byAlias[(string) $row['alias']] = $row;
+        }
+
+        $ordered = [];
+        foreach ($aliases as $alias) {
+            if (isset($byAlias[$alias])) {
+                $ordered[] = $byAlias[$alias];
+            }
+        }
+
+        return $ordered;
+    }
+
+    /**
      * Возвращает опубликованный инструмент по alias категории и alias инструмента с переводом.
      *
      * @return array<string, mixed>|null

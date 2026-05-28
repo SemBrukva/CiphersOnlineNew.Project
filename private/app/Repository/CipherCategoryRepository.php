@@ -153,6 +153,29 @@ final class CipherCategoryRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает все опубликованные категории с переводом для главной страницы.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findPublishedCategoriesForHome(string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT c.id, c.alias, c.category, c.sort_order, '
+            . 'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
+            . 'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name_short, '
+            . 'COALESCE(t_cur.description, t_def.description, \'\') AS description '
+            . 'FROM ' . $this->table . ' c '
+            . 'LEFT JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t_cur '
+            . 'ON t_cur.category_id = c.id AND t_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHER_CATEGORY_TRANSLATIONS . ' t_def '
+            . 'ON t_def.category_id = c.id AND t_def.language = ? '
+            . 'WHERE c.published = 1 '
+            . 'ORDER BY c.sort_order ASC, c.id ASC',
+            [$language, $defaultLanguage]
+        );
+    }
+
+    /**
      * Возвращает список блоков категории для админки.
      *
      * @return array<int, array<string, mixed>>
