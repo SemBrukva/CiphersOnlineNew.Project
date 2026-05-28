@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 use App\Console\Commands\ConfigCacheCommand;
 use App\Console\Commands\ConfigClearCommand;
+use App\Console\Commands\CipherContentExportCommand;
+use App\Console\Commands\CipherContentImportCommand;
 use App\Console\Commands\MailTestCommand;
 use App\Console\Commands\Make\MakeControllerCommand;
 use App\Console\Commands\Make\MakeJobCommand;
@@ -40,4 +42,6 @@ return [
     'make:repository'   => MakeRepositoryCommand::class,
     'make:job'          => MakeJobCommand::class,
     'openapi:generate'  => OpenApiCommand::class,
+    'cipher:content:export' => CipherContentExportCommand::class,
+    'cipher:content:import' => CipherContentImportCommand::class,
 ];

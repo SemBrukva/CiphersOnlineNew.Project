@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-28T18:24:01+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "playfair",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 12,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 12,
+        "data": {
+            "name": "Playfair Cipher",
+            "name_short": "Playfair Cipher",
+            "description": "Encrypt and decrypt text with the Playfair cipher online using a keyword-based 5×5 letter matrix. Supports multiple alphabets and client-side processing.",
+            "description_stort": "Classic digraph substitution cipher with keyword matrix encryption.",
+            "meta_title": "Playfair Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Playfair cipher online with a custom keyword and selectable alphabet. Encrypt and decrypt digraph-based classical cipher text instantly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 38,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Playfair cipher works",
+                "text": "The Playfair cipher is a classical encryption method that encrypts pairs of letters instead of single characters. A 5×5 matrix is generated from the keyword by removing duplicate letters and filling the remaining cells with the rest of the alphabet. During encryption, the plaintext is split into digraphs. If two letters belong to the same row, they are replaced with the letters to their right. If they are in the same column, the letters below them are used. Otherwise, the rectangle rule applies: each letter is replaced by the character in the same row but from the other corner of the rectangle. Filler letters such as X may be inserted to separate repeated characters or complete an odd-length message."
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Playfair cipher characteristics",
+                "text": "Unlike simple substitution ciphers such as Caesar, the Playfair cipher encrypts letter pairs, making frequency analysis more difficult. Historically, it was used for manual military communication because it provided stronger protection while remaining practical to use without machines. Traditional English Playfair implementations usually merge I and J into a single matrix cell."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 94,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why are extra letters added in Playfair encryption?",
+                "answer": "The Playfair cipher works with pairs of letters called digraphs. If a pair contains duplicate letters or the message length is odd, filler characters such as X are inserted."
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Does the keyword affect encryption strength?",
+                "answer": "Yes. The keyword determines the structure of the 5×5 matrix. Longer and less predictable keywords create more complex substitution patterns."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why are I and J sometimes treated as the same letter?",
+                "answer": "A standard Playfair matrix contains only 25 cells, so traditional English implementations combine I and J into one position to fit the alphabet."
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Is the Playfair cipher secure today?",
+                "answer": "No. The Playfair cipher is considered historically important but cryptographically weak by modern standards. It is mainly used for education, puzzles, and demonstrations of classical cryptography."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What is a digraph in the Playfair cipher?",
+                "answer": "A digraph is a pair of letters processed together during encryption and decryption. Playfair always transforms text two characters at a time."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Encrypt HELLO WORLD with MONARCHY",
+                "input": "HELLO WORLD",
+                "output": "CFSUPM VNMTBZ",
+                "description": "Keyword: MONARCHY. Mode: encrypt. Duplicate letters are separated with filler characters."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Decrypt Playfair ciphertext",
+                "input": "CFSUPM VNMTBZ",
+                "output": "HELXLO WORLDX",
+                "description": "Keyword: MONARCHY. Mode: decrypt. The decrypted result may contain inserted padding letters such as X."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Encrypt a short digraph message",
+                "input": "SECRET MESSAGE",
+                "output": "LQRSNV OQTXCZ",
+                "description": "Example of Playfair digraph encryption using a keyword-based matrix."
+            }
+        },
+        {
+            "id": 0,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Encrypt text with repeated letters",
+                "input": "BALLOON",
+                "output": "IBSUPMNA",
+                "description": "Keyword: MONARCHY. Repeated letters inside a digraph are separated with filler characters during Playfair encryption."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 50,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Digraph cipher"
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "5x5 matrix"
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Keyword cipher"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Manual encryption"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически."
+    ]
+}

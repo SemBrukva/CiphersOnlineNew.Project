@@ -101,6 +101,27 @@ php bin/console make:repository PostRepository
 php bin/console make:job ProcessPaymentJob
 ```
 
+### Контент страниц шифров через JSON
+
+Для задач, где тексты редактируются вне админки (например, через Atlas), используйте экспорт/импорт JSON:
+
+```bash
+# Экспорт контента страницы шифра
+php bin/console cipher:content:export <category_alias> <cipher_alias> <language> [output_path]
+
+# Пример
+php bin/console cipher:content:export classical-ciphers playfair en
+
+# Проверка импорта без записи в БД
+php bin/console cipher:content:import private/storage/content/classical-ciphers.playfair.en.json --dry-run
+
+# Боевой импорт
+php bin/console cipher:content:import private/storage/content/classical-ciphers.playfair.en.json
+```
+
+Подробный формат JSON и правила редактирования описаны в [docs/cipher-content-json.md](docs/cipher-content-json.md).
+Для расширения секций `blocks`, `faq`, `examples`, `tags` добавляйте новые элементы без `id` (или с `id: 0`) — импорт создаст записи автоматически.
+
 ## Архитектура
 
 ```
