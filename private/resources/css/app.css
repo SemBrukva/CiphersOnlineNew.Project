@@ -225,6 +225,13 @@
   pointer-events: none;
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
 
+  /* Явное позиционирование — Bootstrap применяет top/left только через [data-bs-popper],
+     который не добавляется при data-bs-display="static" или hover-триггере */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 2px;
+
   /* Dark navy styling */
   background-color: #012b4e;
   border: 1px solid rgba(255, 255, 255, 0.10);
@@ -233,7 +240,12 @@
   padding: 6px 0;
   min-width: 210px;
   box-shadow: 0 20px 50px rgba(0, 10, 30, 0.55), 0 4px 14px rgba(0, 10, 30, 0.30);
-  margin-top: 2px;
+}
+
+/* Языковой дропдаун прижат к правому краю кнопки */
+.site-header .dropdown-menu-end {
+  left: auto;
+  right: 0;
 }
 
 /* Невидимый мост над меню — перекрывает зазор между триггером и меню */
@@ -286,6 +298,66 @@
 /* Разделитель между пунктами */
 .site-header .dropdown-menu li + li > .dropdown-item {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === Language selector === */
+.site-header__lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px 5px 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 20px !important;
+  transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease,
+              color var(--co-transition);
+}
+
+.site-header__lang-toggle:hover,
+.site-header__lang-toggle:focus {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.07);
+  color: #fff;
+  outline: none;
+}
+
+.site-header .dropdown.show > .site-header__lang-toggle {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.site-header__lang-toggle .site-header__lang-flag-btn {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.site-header__lang-code {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Стрелка дропдауна чуть светлее внутри pill */
+.site-header__lang-toggle.dropdown-toggle::after {
+  border-top-color: rgba(255, 255, 255, 0.65);
+  margin-left: 2px;
+}
+
+.site-header .dropdown-item .site-header__lang-flag {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 1.5em;
+  text-align: center;
+}
+
+.site-header .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* === Offcanvas Nav Drawer === */

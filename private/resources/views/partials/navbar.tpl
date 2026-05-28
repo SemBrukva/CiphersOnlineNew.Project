@@ -1,6 +1,6 @@
 <header class="site-header">
     <div class="container">
-        <div class="d-flex align-items-center gap-3">
+        <div class="d-flex align-items-center gap-4">
 
             {* Логотип — всегда виден *}
             <a class="site-brand flex-shrink-0" href="{$locale_prefix|default:'/'}">
@@ -14,7 +14,7 @@
                     {if isset($item.children) && $item.children}
                         <div class="dropdown">
                             <button class="site-header-link dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
                                 {$item.label}
                             </button>
@@ -41,16 +41,26 @@
             <div class="d-none d-lg-flex align-items-center gap-2 ms-auto">
                 {if $multilang && $auth_user === null && $available_locales|@count > 1}
                     <div class="dropdown">
-                        <button class="site-header-link dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                            {$current_locale|upper}
+                        <button class="site-header-link dropdown-toggle site-header__lang-toggle" type="button"
+                                data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                            {if isset($locale_meta[$current_locale])}
+                                <span class="site-header__lang-flag-btn">{$locale_meta[$current_locale].flag}</span>
+                                <span class="site-header__lang-code">{$current_locale|upper}</span>
+                            {else}
+                                {$current_locale|upper}
+                            {/if}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             {foreach $available_locales as $lang}
                                 <li>
                                     <a class="dropdown-item{if $lang === $current_locale} active{/if}"
                                        href="{$locale_urls[$lang]}">
-                                        {$lang|upper}
+                                        {if isset($locale_meta[$lang])}
+                                            <span class="site-header__lang-flag">{$locale_meta[$lang].flag}</span>
+                                            {$locale_meta[$lang].name}
+                                        {else}
+                                            {$lang|upper}
+                                        {/if}
                                     </a>
                                 </li>
                             {/foreach}
@@ -157,7 +167,7 @@
                 {foreach $available_locales as $lang}
                     <a class="site-nav__locale{if $lang === $current_locale} active{/if}"
                        href="{$locale_urls[$lang]}">
-                        {$lang|upper}
+                        {if isset($locale_meta[$lang])}{$locale_meta[$lang].flag} {/if}{$lang|upper}
                     </a>
                 {/foreach}
             </div>

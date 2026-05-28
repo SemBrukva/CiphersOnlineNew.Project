@@ -88,6 +88,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         $this->view->share('is_admin', $isAdmin);
         $this->view->share('admin_path', config('admin.path', '/admin'));
         $this->view->share('available_locales', $locales);
+        $this->view->share('locale_meta', $this->buildLocaleMeta());
         $this->view->share('locale_urls', $isAuth ? [] : $this->buildLocaleUrls($request->path(), $defaultLocale, $locales));
 
         // Выполняем контроллер — шаблон рендерится здесь, все SQL и кеш-запросы происходят внутри.
@@ -148,5 +149,32 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         } catch (\Throwable) {
             return [];
         }
+    }
+
+    /**
+     * Возвращает метаданные локалей: флаг + название на родном языке.
+     *
+     * @return array<string, array{flag: string, name: string}>
+     */
+    private function buildLocaleMeta(): array
+    {
+        return [
+            'en' => ['flag' => '🇬🇧', 'name' => 'English'],
+            'ru' => ['flag' => '🇷🇺', 'name' => 'Русский'],
+            'de' => ['flag' => '🇩🇪', 'name' => 'Deutsch'],
+            'es' => ['flag' => '🇪🇸', 'name' => 'Español'],
+            'fr' => ['flag' => '🇫🇷', 'name' => 'Français'],
+            'it' => ['flag' => '🇮🇹', 'name' => 'Italiano'],
+            'pt' => ['flag' => '🇵🇹', 'name' => 'Português'],
+            'tr' => ['flag' => '🇹🇷', 'name' => 'Türkçe'],
+            'pl' => ['flag' => '🇵🇱', 'name' => 'Polski'],
+            'nl' => ['flag' => '🇳🇱', 'name' => 'Nederlands'],
+            'uk' => ['flag' => '🇺🇦', 'name' => 'Українська'],
+            'zh' => ['flag' => '🇨🇳', 'name' => '中文'],
+            'ja' => ['flag' => '🇯🇵', 'name' => '日本語'],
+            'ko' => ['flag' => '🇰🇷', 'name' => '한국어'],
+            'ar' => ['flag' => '🇸🇦', 'name' => 'العربية'],
+            'sv' => ['flag' => '🇸🇪', 'name' => 'Svenska'],
+        ];
     }
 }
