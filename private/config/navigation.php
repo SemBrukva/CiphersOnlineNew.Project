@@ -13,13 +13,16 @@ return [
             'icon' => 'bi bi-house-fill',
         ],
         [
-            'title_key' => 'MENU_CLASSICAL_CIPHERS',
-            'url' => '/classical-ciphers',
-            'icon' => 'bi bi-unlock2-fill'],
+            'title_key'      => 'MENU_CLASSICAL_CIPHERS',
+            'url'            => '/classical-ciphers',
+            'icon'           => 'bi bi-unlock2-fill',
+            'category_alias' => 'classical-ciphers',
+        ],
         [
-            'title_key' => 'MENU_ENCODING',
-            'url' => '/encoding',
-            'icon' => 'bi bi-file-code-fill',
+            'title_key'      => 'MENU_ENCODING',
+            'url'            => '/encoding',
+            'icon'           => 'bi bi-file-code-fill',
+            'category_alias' => 'encoding',
         ],
     ],
 

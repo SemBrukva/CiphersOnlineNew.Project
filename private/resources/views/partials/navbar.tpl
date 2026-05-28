@@ -13,12 +13,18 @@
                 {foreach $nav_main as $item}
                     {if isset($item.children) && $item.children}
                         <div class="dropdown">
-                            <button class="site-header-link dropdown-toggle" type="button"
+                            <button class="site-header-link dropdown-toggle{if $item.active} active{/if}" type="button"
                                     data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
                                 {$item.label}
                             </button>
                             <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item dropdown-item--category{if $item.page_active} active{/if}" href="{$item.url}">
+                                        {$item.label}
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
                                 {foreach $item.children as $child}
                                     <li>
                                         <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
@@ -154,11 +160,13 @@
                     </button>
                 </form>
             {else}
-                <button type="button" class="btn btn-sm site-header__btn w-100 d-flex align-items-center justify-content-center"
-                        data-bs-toggle="modal" data-bs-target="#loginModal"
-                        data-bs-dismiss="offcanvas">
-                    <i class="bi bi-box-arrow-in-right me-1"></i>{$t.AUTH_SIGN_IN}
-                </button>
+                {if $registration_enabled}
+                    <button type="button" class="btn btn-sm site-header__btn w-100 d-flex align-items-center justify-content-center"
+                            data-bs-toggle="modal" data-bs-target="#loginModal"
+                            data-bs-dismiss="offcanvas">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>{$t.AUTH_SIGN_IN}
+                    </button>
+                {/if}
             {/if}
         </div>
 

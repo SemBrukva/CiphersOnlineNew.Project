@@ -8,6 +8,7 @@ use App\Auth\Auth;
 use App\Cache\CacheInterface;
 use App\I18n\Translator;
 use App\Repository\CipherCategoryRepository;
+use App\Repository\CipherRepository;
 
 /**
  * Сборщик пунктов главного навигационного меню.
@@ -22,6 +23,7 @@ final class NavigationBuilder
         private readonly Auth       $auth,
         private readonly Translator $translator,
         private readonly CipherCategoryRepository $categories,
+        private readonly CipherRepository $ciphers,
         private readonly CacheInterface $cache,
     ) {
     }
@@ -35,16 +37,40 @@ final class NavigationBuilder
      */
     public function build(string $currentPath, string $localePrefix): array
     {
+        $language        = $this->translator->getLocale();
+        $defaultLanguage = $this->translator->getDefaultLocale();
+        $cacheTtl        = (int) config('cache.ttl', 3600);
+
+        $ciphersByCategory = $this->cache->tag('ciphers')->remember(
+            'nav.ciphers_by_category.' . $language . '.' . $defaultLanguage,
+            $cacheTtl,
+            fn (): array => $this->ciphers->listPublishedForNavigation($language, $defaultLanguage)
+        );
+
         $items = [];
 
         foreach (config('navigation.main', []) as $item) {
-            $items[] = $this->makeItem(
-                $item['title_key'],
-                $item['url'],
-                $item['icon'] ?? null,
-                $currentPath,
-                $localePrefix,
-            );
+            $categoryAlias = $item['category_alias'] ?? null;
+
+            if ($categoryAlias !== null && isset($ciphersByCategory[$categoryAlias])) {
+                $items[] = $this->makeDropdownItem(
+                    $item['title_key'],
+                    $item['url'],
+                    $item['icon'] ?? null,
+                    $categoryAlias,
+                    $ciphersByCategory[$categoryAlias],
+                    $currentPath,
+                    $localePrefix,
+                );
+            } else {
+                $items[] = $this->makeItem(
+                    $item['title_key'],
+                    $item['url'],
+                    $item['icon'] ?? null,
+                    $currentPath,
+                    $localePrefix,
+                );
+            }
         }
 
         if ($this->auth->check()) {
@@ -52,19 +78,50 @@ final class NavigationBuilder
             $items[] = $this->makeItem('MENU_CABINET', '/cabinet', null, $currentPath, '');
         }
 
-        /*$toolsChildren = $this->buildToolsChildren($currentPath, $localePrefix);
-
-        if ($toolsChildren !== []) {
-            $items[] = [
-                'label' => $this->translator->get('MENU_TOOLS'),
-                'url' => '#',
-                'active' => (bool) array_filter($toolsChildren, static fn (array $child): bool => $child['active']),
-                'icon' => 'bi-tools',
-                'children' => $toolsChildren,
-            ];
-        }*/
-
         return $items;
+    }
+
+    /**
+     * Формирует пункт меню с выпадающим списком сервисов категории.
+     *
+     * @param  list<array{alias: string, name: string}> $ciphers Список шифров категории.
+     * @return array{label: string, url: string, active: bool, icon: string|null, children: list<array{label: string, url: string, active: bool}>}
+     */
+    private function makeDropdownItem(
+        string  $titleKey,
+        string  $path,
+        ?string $icon,
+        string  $categoryAlias,
+        array   $ciphers,
+        string  $currentPath,
+        string  $localePrefix,
+    ): array {
+        $categoryUrl = ($localePrefix !== '' && $path === '/') ? $localePrefix : $localePrefix . $path;
+        $children    = [];
+
+        foreach ($ciphers as $cipher) {
+            $alias      = $cipher['alias'];
+            $cipherPath = '/' . $categoryAlias . '/' . $alias;
+            $cipherUrl  = $localePrefix !== '' ? $localePrefix . $cipherPath : $cipherPath;
+
+            $children[] = [
+                'label'  => $cipher['name'],
+                'url'    => $cipherUrl,
+                'active' => $currentPath === $cipherPath || $currentPath === $cipherUrl,
+            ];
+        }
+
+        $pageActive   = $currentPath === $path || $currentPath === $categoryUrl;
+        $childActive  = (bool) array_filter($children, static fn (array $c): bool => $c['active']);
+
+        return [
+            'label'       => $this->translator->get($titleKey),
+            'url'         => $categoryUrl,
+            'active'      => $pageActive || $childActive,
+            'page_active' => $pageActive,
+            'icon'        => $icon,
+            'children'    => $children,
+        ];
     }
 
     /**

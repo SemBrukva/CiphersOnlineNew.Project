@@ -21,6 +21,43 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает опубликованные шифры, сгруппированные по alias категории, для навигационного меню.
+     *
+     * @return array<string, list<array{alias: string, name: string}>>
+     */
+    public function listPublishedForNavigation(string $language, string $defaultLanguage): array
+    {
+        $rows = $this->db->fetchAll(
+            'SELECT c.alias, cat.alias AS category_alias, '
+            . 'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name '
+            . 'FROM ' . Tables::CIPHERS . ' c '
+            . 'JOIN ' . Tables::CIPHER_CATEGORIES . ' cat ON cat.id = c.category_id '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_def ON t_def.app_id = c.id AND t_def.language = ? '
+            . 'WHERE c.published = 1 AND cat.published = 1 '
+            . 'ORDER BY cat.sort_order ASC, c.sort_order ASC, c.id ASC',
+            [$language, $defaultLanguage]
+        );
+
+        $grouped = [];
+
+        foreach ($rows as $row) {
+            $catAlias = (string) ($row['category_alias'] ?? '');
+
+            if ($catAlias === '') {
+                continue;
+            }
+
+            $grouped[$catAlias][] = [
+                'alias' => (string) ($row['alias'] ?? ''),
+                'name'  => (string) ($row['name'] ?? ''),
+            ];
+        }
+
+        return $grouped;
+    }
+
+    /**
      * Возвращает список шифров для админской страницы.
      *
      * @return array<int, array<string, mixed>>
