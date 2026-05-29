@@ -1,7 +1,7 @@
 {
     "meta": {
         "schema": "cipher-content.v1",
-        "exported_at": "2026-05-28T18:24:01+00:00",
+        "exported_at": "2026-05-29T21:51:00+00:00",
         "category_alias": "classical-ciphers",
         "cipher_alias": "playfair",
         "language": "en",
@@ -93,10 +93,11 @@
             "sort_order": 10,
             "published": true,
             "data": {
-                "title": "Encrypt HELLO WORLD with MONARCHY",
+                "title": "Encrypt a message with a keyword",
+                "key": "MONARCHY",
                 "input": "HELLO WORLD",
-                "output": "CFSUPM VNMTBZ",
-                "description": "Keyword: MONARCHY. Mode: encrypt. Duplicate letters are separated with filler characters."
+                "output": "YFKRIRSCEVKD",
+                "description": "A basic Playfair encryption example using the keyword MONARCHY. The keyword is used to build the cipher matrix before the message is transformed."
             }
         },
         {
@@ -105,9 +106,10 @@
             "published": true,
             "data": {
                 "title": "Decrypt Playfair ciphertext",
-                "input": "CFSUPM VNMTBZ",
-                "output": "HELXLO WORLDX",
-                "description": "Keyword: MONARCHY. Mode: decrypt. The decrypted result may contain inserted padding letters such as X."
+                "key": "MONARCHY",
+                "input": "YFKRIRSCEVKD",
+                "output": "HELALOWORLDA",
+                "description": "Decrypt the ciphertext using the same keyword. Notice the additional A characters that were inserted as padding during encryption."
             }
         },
         {
@@ -115,21 +117,23 @@
             "sort_order": 30,
             "published": true,
             "data": {
-                "title": "Encrypt a short digraph message",
-                "input": "SECRET MESSAGE",
-                "output": "LQRSNV OQTXCZ",
-                "description": "Example of Playfair digraph encryption using a keyword-based matrix."
+                "title": "Handle repeated letters in a digraph",
+                "key": "MONARCHY",
+                "input": "BALLOON",
+                "output": "DNKRIRNA",
+                "description": "The double L in BALLOON cannot appear in the same digraph. A padding character is inserted automatically before encryption."
             }
         },
         {
-            "id": 0,
+            "id": 20,
             "sort_order": 40,
             "published": true,
             "data": {
-                "title": "Encrypt text with repeated letters",
-                "input": "BALLOON",
-                "output": "IBSUPMNA",
-                "description": "Keyword: MONARCHY. Repeated letters inside a digraph are separated with filler characters during Playfair encryption."
+                "title": "Encrypt an odd-length message",
+                "key": "MONARCHY",
+                "input": "SECRETS",
+                "output": "VYMCBVUO",
+                "description": "SECRETS contains an odd number of characters, so a padding letter is added automatically before encryption."
             }
         }
     ],
@@ -167,18 +171,36 @@
             }
         },
         {
+            "id": 76,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": ""
+            }
+        },
+        {
             "id": 75,
             "sort_order": 50,
             "published": true,
             "data": {
                 "tag": "Manual encryption"
             }
+        },
+        {
+            "id": 77,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": ""
+            }
         }
     ],
     "notes": [
         "Сохраняйте id у каждой сущности без изменений.",
         "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
         "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
-        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически."
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
     ]
 }
