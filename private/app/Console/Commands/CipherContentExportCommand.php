@@ -230,6 +230,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
         $rows = $this->db->fetchAll(
             'SELECT e.id, e.sort_order, e.published, '
             . 'COALESCE(cur.title, def.title, \'\') AS title, '
+            . 'COALESCE(cur.`key`, def.`key`, \'\') AS `key`, '
             . 'COALESCE(cur.input, def.input, \'\') AS input, '
             . 'COALESCE(cur.output, def.output, \'\') AS output, '
             . 'COALESCE(cur.description, def.description, \'\') AS description '
@@ -246,6 +247,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
             'published' => ((int) ($row['published'] ?? 0)) === 1,
             'data' => [
                 'title' => (string) ($row['title'] ?? ''),
+                'key' => (string) ($row['key'] ?? ''),
                 'input' => (string) ($row['input'] ?? ''),
                 'output' => (string) ($row['output'] ?? ''),
                 'description' => (string) ($row['description'] ?? ''),

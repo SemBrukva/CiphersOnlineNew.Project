@@ -599,6 +599,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
     private function upsertExampleTranslation(int $exampleId, string $language, array $row, string $now): void
     {
         $title = trim((string) ($row['title'] ?? ''));
+        $key = trim((string) ($row['key'] ?? ''));
         $input = trim((string) ($row['input'] ?? ''));
         $output = trim((string) ($row['output'] ?? ''));
         $description = trim((string) ($row['description'] ?? ''));
@@ -607,7 +608,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
             [$exampleId, $language]
         );
 
-        if ($title === '' && $input === '' && $output === '' && $description === '') {
+        if ($title === '' && $key === '' && $input === '' && $output === '' && $description === '') {
             if ($existing !== false) {
                 $this->db->execute(
                     'DELETE FROM ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ?',
@@ -620,16 +621,16 @@ final readonly class CipherContentImportCommand implements CommandInterface
 
         if ($existing === false) {
             $this->db->insert(
-                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, input, output, description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                [$exampleId, $language, $title, $input, $output, $description, $now, $now]
+                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, `key`, input, output, description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [$exampleId, $language, $title, $key, $input, $output, $description, $now, $now]
             );
 
             return;
         }
 
         $this->db->execute(
-            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, input = ?, output = ?, description = ?, updated_at = ? WHERE id = ?',
-            [$title, $input, $output, $description, $now, (int) $existing['id']]
+            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, `key` = ?, input = ?, output = ?, description = ?, updated_at = ? WHERE id = ?',
+            [$title, $key, $input, $output, $description, $now, (int) $existing['id']]
         );
     }
 

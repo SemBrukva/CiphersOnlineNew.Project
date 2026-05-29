@@ -68,6 +68,7 @@ php bin/console cipher:content:export classical-ciphers playfair en
       "published": true,
       "data": {
         "title": "Basic example",
+        "key": "MONARCHY",
         "input": "HELLO",
         "output": "KCNVMP",
         "description": "..."
