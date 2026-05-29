@@ -784,17 +784,34 @@
   color: var(--text-secondary);
 }
 
+/* === Related tools — ссылка «View all» в заголовке панели === */
+.ciphers-related-all-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.ciphers-related-all-link:hover {
+  color: var(--primary-hover);
+}
+
 /* === Ciphers Category Hub Panel === */
-.ciphers-category-hub-panel {
+.ciphers-category-hub-panel,
+.ciphers-hub-panel {
   border: 1px solid #dbe6f2;
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02), 0 4px 14px rgba(15, 23, 42, 0.04);
 }
 
-.ciphers-category-hub-panel + .ciphers-category-hub-panel {
+.ciphers-category-hub-panel + .ciphers-category-hub-panel,
+.ciphers-hub-panel + .ciphers-hub-panel {
   position: relative;
 }
 
-.ciphers-category-hub-panel + .ciphers-category-hub-panel::before {
+.ciphers-category-hub-panel + .ciphers-category-hub-panel::before,
+.ciphers-hub-panel + .ciphers-hub-panel::before {
   content: '';
   position: absolute;
   top: -11px;
@@ -804,25 +821,29 @@
   background: linear-gradient(90deg, transparent 0%, #d7e2ee 22%, #d7e2ee 78%, transparent 100%);
 }
 
-.ciphers-category-hub-panel .panel-heading {
+.ciphers-category-hub-panel .panel-heading,
+.ciphers-hub-panel .panel-heading {
   background: linear-gradient(180deg, #f9fbfe 0%, #f3f7fc 100%);
   justify-content: center;
 }
 
-.ciphers-category-hub-panel .panel-title {
+.ciphers-category-hub-panel .panel-title,
+.ciphers-hub-panel .panel-title {
   display: flex;
   align-items: center;
   gap: 7px;
 }
 
-.ciphers-category-hub-panel .panel-title i {
+.ciphers-category-hub-panel .panel-title i,
+.ciphers-hub-panel .panel-title i {
   font-size: 13px;
   color: var(--primary);
   opacity: 0.6;
   flex-shrink: 0;
 }
 
-.ciphers-category-hub-panel .panel-content p {
+.ciphers-category-hub-panel .panel-content p,
+.ciphers-hub-panel .panel-content p {
     margin-bottom: 14px;
     font-size: 14px;
     line-height: 1.7;

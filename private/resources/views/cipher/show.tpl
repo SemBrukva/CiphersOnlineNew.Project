@@ -129,7 +129,7 @@
 </section>
 
 {if $examples}
-<section class="panel">
+<section class="panel ciphers-hub-panel">
     <div class="panel-heading">
         <div class="panel-title">{$tool_ui.examplesTitle}</div>
     </div>
@@ -166,7 +166,7 @@
 
 {if $blocks}
     {foreach $blocks as $block}
-    <section class="panel">
+    <section class="panel ciphers-hub-panel">
         <div class="panel-heading">
             <div class="panel-title">{$block.title|default:$tool_ui.infoTitle}</div>
         </div>
@@ -178,7 +178,7 @@
 {/if}
 
 {if $faq}
-<section class="panel">
+<section class="panel ciphers-hub-panel">
     <div class="panel-heading">
         <div class="panel-title">{$tool_ui.faqTitle}</div>
     </div>
@@ -202,16 +202,24 @@
 {/if}
 
 {if $related}
-<section class="panel">
+<section class="panel ciphers-hub-panel">
     <div class="panel-heading">
         <div class="panel-title">{$tool_ui.relatedTitle}</div>
+        <a class="ciphers-related-all-link" href="/{$category.alias}">{$all_in_category_label} →</a>
     </div>
     <div class="panel-content">
-        <div class="ciphers-category-hub-hero__chips">
+        <div class="ciphers-category-hub-grid">
             {foreach $related as $tool}
-            <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}/{$tool.alias}">{$tool.name_short}</a>
+            <article class="ciphers-category-hub-card">
+                <h2 class="ciphers-category-hub-card__title">
+                    <a href="/{$category.alias}/{$tool.alias}">{$tool.name}</a>
+                </h2>
+                {if $tool.description_short}
+                <p class="ciphers-category-hub-card__desc">{$tool.description_short}</p>
+                {/if}
+                <span class="ciphers-category-hub-card__arrow" aria-hidden="true">→</span>
+            </article>
             {/foreach}
-            <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}">{$all_in_category_label}</a>
         </div>
     </div>
 </section>
