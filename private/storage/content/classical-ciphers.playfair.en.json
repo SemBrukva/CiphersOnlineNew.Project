@@ -27,7 +27,7 @@
             "published": true,
             "data": {
                 "title": "How the Playfair cipher works",
-                "text": "The Playfair cipher is a classical encryption method that encrypts pairs of letters instead of single characters. A 5×5 matrix is generated from the keyword by removing duplicate letters and filling the remaining cells with the rest of the alphabet. During encryption, the plaintext is split into digraphs. If two letters belong to the same row, they are replaced with the letters to their right. If they are in the same column, the letters below them are used. Otherwise, the rectangle rule applies: each letter is replaced by the character in the same row but from the other corner of the rectangle. Filler letters such as X may be inserted to separate repeated characters or complete an odd-length message."
+                "text": "<p>The Playfair cipher is a classical encryption method that works with pairs of letters instead of single characters. These pairs are called digraphs.</p><p>First, a letter matrix is generated from the keyword. Duplicate letters are removed from the keyword, and the remaining cells are filled with the rest of the alphabet. In traditional English Playfair, I and J are usually combined to fit the alphabet into a 5×5 matrix.</p><p>During encryption, the plaintext is split into digraphs. If two letters are in the same row, they are replaced with the letters to their right. If they are in the same column, the letters below them are used. Otherwise, the rectangle rule applies: each letter is replaced by the character in the same row but from the opposite corner of the rectangle.</p><p>Filler letters may be inserted automatically to separate repeated letters or complete a final incomplete pair.</p>"
             }
         },
         {
@@ -36,7 +36,7 @@
             "published": true,
             "data": {
                 "title": "Playfair cipher characteristics",
-                "text": "Unlike simple substitution ciphers such as Caesar, the Playfair cipher encrypts letter pairs, making frequency analysis more difficult. Historically, it was used for manual military communication because it provided stronger protection while remaining practical to use without machines. Traditional English Playfair implementations usually merge I and J into a single matrix cell."
+                "text": "<p>Unlike simple substitution ciphers such as Caesar, the Playfair cipher encrypts letter pairs. This makes basic single-letter frequency analysis less effective, because the same plaintext letter can produce different results depending on its pair.</p><p>The cipher was historically useful because it was stronger than many simple manual ciphers while still being practical to use without machines. It only required a keyword, a matrix, and a small set of substitution rules.</p><p>By modern cryptographic standards, Playfair is not secure. Today it is mainly useful for education, puzzles, demonstrations, and understanding how classical polygraphic substitution ciphers work.</p>"
             }
         }
     ],
