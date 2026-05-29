@@ -879,9 +879,10 @@ final class AdminController
                     continue;
                 }
 
+                $direction = $this->sanitizeDirection((string) ($row['direction'] ?? ''));
                 $this->db->execute(
-                    'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
-                    [max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $exampleId]
+                    'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET sort_order = ?, published = ?, direction = ?, updated_at = ? WHERE id = ?',
+                    [max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $direction, $now, $exampleId]
                 );
 
                 $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
@@ -968,9 +969,10 @@ final class AdminController
                 }
 
                 $tempId = (string) ($row['temp_id'] ?? '');
+                $newDirection = $this->sanitizeDirection((string) ($row['direction'] ?? ''));
                 $newId = (int) $this->db->insert(
-                    'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
-                    [$cipherId, max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $now, $now]
+                    'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+                    [$cipherId, max(0, min(999999, (int) ($row['sort_order'] ?? 0))), (bool) ($row['published'] ?? true) ? 1 : 0, $newDirection, $now, $now]
                 );
 
                 $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
@@ -1421,5 +1423,13 @@ final class AdminController
             'UPDATE ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' SET tag = ?, updated_at = ? WHERE id = ?',
             [$tagValue, $now, (int) $existing['id']]
         );
+    }
+
+    /**
+     * Нормализует значение direction: допустимы 'encrypt', 'decrypt' или '' (авто).
+     */
+    private function sanitizeDirection(string $value): string
+    {
+        return in_array($value, ['encrypt', 'decrypt'], true) ? $value : '';
     }
 }

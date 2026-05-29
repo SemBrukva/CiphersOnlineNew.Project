@@ -276,6 +276,14 @@
                                         <div class="cipher-entity border rounded" data-entity="example" data-id="{$example.id}">
                                             <div class="cipher-entity-head d-flex align-items-center gap-3 px-3 py-2 bg-light rounded-top border-bottom">
                                                 <span class="badge bg-secondary-subtle text-secondary font-monospace">#<span data-role="entity-id">{$example.id}</span></span>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <span class="text-muted small me-1">Режим</span>
+                                                    <select class="form-select form-select-sm" style="width:auto" data-meta-field="direction">
+                                                        <option value="" {if ($example.direction|default:'') == ''}selected{/if}>авто</option>
+                                                        <option value="encrypt" {if ($example.direction|default:'') == 'encrypt'}selected{/if}>encrypt</option>
+                                                        <option value="decrypt" {if ($example.direction|default:'') == 'decrypt'}selected{/if}>decrypt</option>
+                                                    </select>
+                                                </div>
                                                 <div class="d-flex align-items-center gap-1 ms-auto">
                                                     <span class="text-muted small me-1">Сорт.</span>
                                                     <input type="number" class="form-control form-control-sm entity-sort-input"

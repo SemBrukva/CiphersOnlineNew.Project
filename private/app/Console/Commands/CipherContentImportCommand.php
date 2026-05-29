@@ -89,7 +89,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
         ];
 
         try {
-            $this->db->transaction(function () use ($payload, $language, $cipherId, $now, $dryRun, &$summary): void {
+            $this->db->transaction(function () use ($payload, $language, $defaultLanguage, $cipherId, $now, $dryRun, &$summary): void {
                 $cipherTranslation = is_array($payload['cipher_translation'] ?? null) ? $payload['cipher_translation'] : null;
                 if ($cipherTranslation !== null) {
                     $data = is_array($cipherTranslation['data'] ?? null) ? $cipherTranslation['data'] : [];
@@ -143,6 +143,13 @@ final readonly class CipherContentImportCommand implements CommandInterface
                         }
                     } else {
                         $this->assertOwnership(Tables::CIPHERS_EXAMPLES, 'app_id', $cipherId, $exampleId, 'example');
+                        if ($language === $defaultLanguage) {
+                            $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
+                            $this->db->execute(
+                                'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, updated_at = ? WHERE id = ?',
+                                [$direction, $now, $exampleId]
+                            );
+                        }
                     }
                     $this->upsertExampleTranslation($exampleId, $language, $data, $now);
                     $summary['examples']++;
@@ -312,10 +319,11 @@ final readonly class CipherContentImportCommand implements CommandInterface
     {
         $sortOrder = max(0, min(999999, (int) ($item['sort_order'] ?? 0)));
         $published = (bool) ($item['published'] ?? true) ? 1 : 0;
+        $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
 
         $id = $this->db->insert(
-            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
-            [$cipherId, $sortOrder, $published, $now, $now]
+            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+            [$cipherId, $sortOrder, $published, $direction, $now, $now]
         );
 
         return (int) $id;
@@ -671,5 +679,13 @@ final readonly class CipherContentImportCommand implements CommandInterface
             'UPDATE ' . Tables::CIPHERS_TAGS_TRANSLATIONS . ' SET tag = ?, updated_at = ? WHERE id = ?',
             [$tagValue, $now, (int) $existing['id']]
         );
+    }
+
+    /**
+     * Нормализует значение direction: допустимы 'encrypt', 'decrypt' или '' (авто).
+     */
+    private function sanitizeDirection(string $value): string
+    {
+        return in_array($value, ['encrypt', 'decrypt'], true) ? $value : '';
     }
 }

@@ -364,6 +364,7 @@ export function initCipherToolPage() {
       const text = btn.getAttribute('data-example-text') || ''
       const alphabet = btn.getAttribute('data-alphabet') || ''
       const key = btn.getAttribute('data-key')
+      const direction = btn.getAttribute('data-direction') || ''
       if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
@@ -373,7 +374,11 @@ export function initCipherToolPage() {
         keyInput.dispatchEvent(new Event('input', { bubbles: true }))
       }
       input.value = text
-      if (looksLikeEncoded(text, decoder)) {
+      if (direction === 'decrypt') {
+        setMode('decode')
+      } else if (direction === 'encrypt') {
+        setMode('encode')
+      } else if (looksLikeEncoded(text, decoder)) {
         setMode('decode')
       } else {
         setMode('encode')

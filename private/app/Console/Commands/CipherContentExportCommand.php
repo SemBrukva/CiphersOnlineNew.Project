@@ -229,7 +229,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
     private function fetchExamples(int $cipherId, string $language, string $defaultLanguage): array
     {
         $rows = $this->db->fetchAll(
-            'SELECT e.id, e.sort_order, e.published, '
+            'SELECT e.id, e.sort_order, e.published, e.direction, '
             . 'COALESCE(cur.title, def.title, \'\') AS title, '
             . 'COALESCE(cur.`key`, def.`key`, \'\') AS `key`, '
             . 'COALESCE(cur.input, def.input, \'\') AS input, '
@@ -246,6 +246,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
             'id' => (int) ($row['id'] ?? 0),
             'sort_order' => (int) ($row['sort_order'] ?? 0),
             'published' => ((int) ($row['published'] ?? 0)) === 1,
+            'direction' => (string) ($row['direction'] ?? ''),
             'data' => [
                 'title' => (string) ($row['title'] ?? ''),
                 'key' => (string) ($row['key'] ?? ''),

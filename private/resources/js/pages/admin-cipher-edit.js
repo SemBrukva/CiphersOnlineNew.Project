@@ -95,9 +95,36 @@ export function initAdminCipherEdit() {
             </div>
         </div>`
 
+    const exampleHeadHtml = (tempId) => `
+        <div class="cipher-entity-head d-flex align-items-center gap-3 px-3 py-2 bg-warning-subtle border-bottom" style="border-radius: calc(var(--bs-border-radius) - 1px) calc(var(--bs-border-radius) - 1px) 0 0">
+            <span class="badge bg-warning text-dark small">Новый</span>
+            <div class="d-flex align-items-center gap-1">
+                <span class="text-muted small me-1">Режим</span>
+                <select class="form-select form-select-sm" style="width:auto" data-meta-field="direction">
+                    <option value="">авто</option>
+                    <option value="encrypt">encrypt</option>
+                    <option value="decrypt">decrypt</option>
+                </select>
+            </div>
+            <div class="d-flex align-items-center gap-1 ms-auto">
+                <span class="text-muted small me-1">Сорт.</span>
+                <input type="number" class="form-control form-control-sm entity-sort-input"
+                       min="0" max="999999" data-meta-field="sort_order" value="0">
+            </div>
+            <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" role="switch"
+                       data-meta-field="published" checked>
+                <label class="form-check-label small text-muted">Вкл.</label>
+            </div>
+            <button type="button" class="btn btn-sm btn-link text-danger p-0 ms-1"
+                    data-action="delete-item" title="Удалить">
+                <i class="bi bi-trash3"></i>
+            </button>
+        </div>`
+
     const newExampleHtml = (tempId, language) => `
         <div class="cipher-entity border rounded" data-entity="example" data-new-id="${tempId}">
-            ${entityHeadHtml(tempId)}
+            ${exampleHeadHtml(tempId)}
             <div class="p-3">
                 <div class="mb-3">
                     <label class="form-label fw-medium">Ключ (key)</label>
@@ -338,6 +365,7 @@ export function initAdminCipherEdit() {
                             temp_id:    newId,
                             sort_order: Number(item.querySelector('[data-meta-field="sort_order"]')?.value ?? 0),
                             published:  item.querySelector('[data-meta-field="published"]')?.checked ? 1 : 0,
+                            direction:  String(item.querySelector('[data-meta-field="direction"]')?.value ?? ''),
                             translations: {},
                         }
                         payload.new_examples.push(row)
@@ -356,6 +384,7 @@ export function initAdminCipherEdit() {
                             id,
                             sort_order: Number(item.querySelector('[data-meta-field="sort_order"]')?.value ?? 0),
                             published:  item.querySelector('[data-meta-field="published"]')?.checked ? 1 : 0,
+                            direction:  String(item.querySelector('[data-meta-field="direction"]')?.value ?? ''),
                             translations: {},
                         }
                         payload.examples.push(row)

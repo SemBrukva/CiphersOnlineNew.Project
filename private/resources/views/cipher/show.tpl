@@ -155,7 +155,8 @@
                     <button class="b64-example-card__use ciphers-example-use" type="button"
                             data-example-text="{$example.input|escape:'html'}"
                             {if $example.key}data-key="{$example.key|escape:'html'}"{/if}
-                            data-alphabet="{$example.language|escape:'html'}">{$tool_ui.useExampleLabel}</button>
+                            data-alphabet="{$example.language|escape:'html'}"
+                            {if $example.direction}data-direction="{$example.direction|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
                 </article>
             {/foreach}
         </div>
