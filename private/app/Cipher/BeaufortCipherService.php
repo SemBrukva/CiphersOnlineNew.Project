@@ -65,6 +65,21 @@ final class BeaufortCipherService
     }
 
     /**
+     * Возвращает элементы блока доверия для шифра Бофора.
+     *
+     * @return string[]
+     */
+    public function getTrustItems(string $calculationMode): array
+    {
+        return [
+            trans('CIPHER_TOOL_TRUST_POLYALPHA'),
+            trans('BEAUFORT_TRUST_RECIPROCAL'),
+            trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
+            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
+        ];
+    }
+
+    /**
      * Проверяет, содержит ли текст хотя бы один символ выбранного алфавита.
      */
     public function hasAlphabetCharacters(string $text, string $alphabet): bool

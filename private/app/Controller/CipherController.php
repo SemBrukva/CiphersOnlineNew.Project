@@ -139,12 +139,7 @@ final readonly class CipherController
             'feedbackCopyFailed' => trans('CIPHER_TOOL_FEEDBACK_RESULT_COPY_FAILED'),
             'feedbackUrlCopied' => trans('CIPHER_TOOL_FEEDBACK_URL_COPIED'),
             'feedbackUrlCopyFailed' => trans('CIPHER_TOOL_FEEDBACK_URL_COPY_FAILED'),
-            'trustItems' => [
-                trans('CIPHER_TOOL_TRUST_LOCAL'),
-                trans('CIPHER_TOOL_TRUST_UTF8'),
-                trans('CIPHER_TOOL_TRUST_API'),
-                trans('CIPHER_TOOL_TRUST_PRIVATE'),
-            ],
+            'trustItems' => $this->toolRegistry->trustItems($toolSlug, $calculationMode),
             'calculationMode' => in_array($calculationMode, ['api', 'client'], true) ? $calculationMode : 'client',
             'locale' => locale(),
             'apiAction' => $this->toolRegistry->apiAction($toolSlug),

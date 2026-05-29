@@ -57,6 +57,21 @@ final class AtbashCipherService
     }
 
     /**
+     * Возвращает элементы блока доверия для шифра Атбаш.
+     *
+     * @return string[]
+     */
+    public function getTrustItems(string $calculationMode): array
+    {
+        return [
+            trans('ATBASH_TRUST_RECIPROCAL'),
+            trans('ATBASH_TRUST_KEYLESS'),
+            trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
+            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
+        ];
+    }
+
+    /**
      * Проверяет, содержит ли текст хотя бы один символ выбранного алфавита.
      */
     public function hasAlphabetCharacters(string $text, string $alphabet): bool

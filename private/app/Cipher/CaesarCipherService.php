@@ -69,6 +69,21 @@ final class CaesarCipherService
     }
 
     /**
+     * Возвращает элементы блока доверия для шифра Цезаря.
+     *
+     * @return string[]
+     */
+    public function getTrustItems(string $calculationMode): array
+    {
+        return [
+            trans('CAESAR_TRUST_TYPE'),
+            trans('CIPHER_TOOL_TRUST_MULTI_ALPHA'),
+            trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
+            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
+        ];
+    }
+
+    /**
      * Возвращает максимально допустимый сдвиг для алфавита.
      */
     public function maxShiftForAlphabet(string $alphabet): int

@@ -192,4 +192,55 @@ return [
     'PLAYFAIR_ERR_TEXT_ALPHABET'        => 'Текст не содержит символов выбранного алфавита.',
     'PLAYFAIR_ERR_KEY_ALPHABET'         => 'Ключ не содержит символов выбранного алфавита.',
     'PLAYFAIR_DECODE_NOTE'              => 'Плейфер вставляет буквы-заполнители при шифровании. Удалите лишние символы (обычно А или Х) для восстановления исходного текста.',
+    'PLAYFAIR_TRUST_CLIENT_SIDE'        => 'Классический биграммный шифр',
+    'PLAYFAIR_TRUST_PRIVATE'            => 'Настраиваемое ключевое слово',
+    'PLAYFAIR_TRUST_MULTILANG'          => 'Поддержка разных алфавитов',
+    'PLAYFAIR_TRUST_KEY_BASED'          => 'Мы не сохраняем ваши сообщения',
+    // Shared cipher trust keys
+    'CIPHER_TOOL_TRUST_SERVER'         => 'Вычисления выполняются на сервере',
+    'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Мы не сохраняем ваши сообщения',
+    'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Поддержка разных алфавитов',
+    'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Многоалфавитный шифр подстановки',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Настраиваемое ключевое слово',
+    // Caesar
+    'CAESAR_TRUST_TYPE'                => 'Шифр простой замены со сдвигом',
+    // Atbash
+    'ATBASH_TRUST_RECIPROCAL'          => 'Самообратный: шифрование равно дешифрованию',
+    'ATBASH_TRUST_KEYLESS'             => 'Ключ не требуется',
+    // Beaufort
+    'BEAUFORT_TRUST_RECIPROCAL'        => 'Один ключ для шифрования и дешифрования',
+    // Gronsfeld
+    'GRONSFELD_TRUST_NUMERIC'          => 'Ключ — последовательность цифр от 0 до 9',
+    // Vernam
+    'VERNAM_TRUST_OTP'                 => 'Схема одноразового блокнота',
+    'VERNAM_TRUST_KEY_LENGTH'          => 'Ключ должен совпадать с длиной сообщения',
+    // Bacon
+    'BACON_TRUST_STEGO'                => 'Стеганография: текст скрыт внутри другого текста',
+    'BACON_TRUST_BINARY'               => 'Каждая буква кодируется 5 символами A/B',
+    // A1Z26
+    'A1Z26_TRUST_POSITIONAL'           => 'Каждая буква — её порядковый номер в алфавите',
+    // Base64
+    'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
+    'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',
+    // Hex
+    'HEX_TRUST_PURPOSE'                => 'Шестнадцатеричное представление байтов',
+    'HEX_TRUST_DEBUG'                  => 'Удобно для отладки и анализа данных',
+    // URL encode
+    'URL_TRUST_PURPOSE'                => 'Безопасная передача данных в URL',
+    'URL_TRUST_STANDARD'               => 'Соответствует стандарту RFC 3986',
+    // Binary converter
+    'BINARY_TRUST_PURPOSE'             => 'Преобразование текста в двоичный код',
+    'BINARY_TRUST_LEVEL'               => 'Побайтовое кодирование символов',
+    // ASCII converter
+    'ASCII_TRUST_PURPOSE'              => 'Преобразование текста в числовые коды ASCII',
+    'ASCII_TRUST_TABLE'                => 'Поддержка расширенной таблицы символов',
+    'ASCII_TRUST_USE'                  => 'Полезно при работе с низкоуровневыми данными',
+    // Unicode converter
+    'UNICODE_TRUST_PURPOSE'            => 'Преобразование в кодовые точки Unicode',
+    'UNICODE_TRUST_EMOJI'              => 'Поддержка эмодзи и многоязычного текста',
+    'UNICODE_TRUST_FORMATS'            => 'Форматы U+XXXX и \uXXXX',
+    // JWT decoder
+    'JWT_TRUST_PURPOSE'                => 'Декодирование токена без проверки подписи',
+    'JWT_TRUST_PARTS'                  => 'Просмотр заголовка и полезной нагрузки',
+    'JWT_TRUST_KEYLESS'                => 'Ключ не требуется для чтения содержимого',
 ];

@@ -174,4 +174,55 @@ return [
     'PLAYFAIR_ERR_TEXT_ALPHABET'        => 'Le texte ne contient pas de caractères de l’alphabet sélectionné.',
     'PLAYFAIR_ERR_KEY_ALPHABET'         => 'La clé ne contient pas de caractères de l’alphabet sélectionné.',
     'PLAYFAIR_DECODE_NOTE'              => 'Playfair insère des lettres de remplissage lors du chiffrement. Supprimez les caractères superflus (généralement A ou X) pour retrouver le texte original.',
+    'PLAYFAIR_TRUST_CLIENT_SIDE'        => 'Chiffre bigramme classique',
+    'PLAYFAIR_TRUST_PRIVATE'            => 'Mot-clé personnalisable',
+    'PLAYFAIR_TRUST_MULTILANG'          => 'Prise en charge de plusieurs alphabets',
+    'PLAYFAIR_TRUST_KEY_BASED'          => 'Vos messages ne sont pas enregistrés',
+    // Shared cipher trust keys
+    'CIPHER_TOOL_TRUST_SERVER'         => 'Traitement sur notre serveur',
+    'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Vos messages ne sont pas enregistrés',
+    'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Prise en charge de plusieurs alphabets',
+    'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Chiffre de substitution polyalphabétique',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Mot-clé personnalisable',
+    // Caesar
+    'CAESAR_TRUST_TYPE'                => 'Chiffre de décalage alphabétique',
+    // Atbash
+    'ATBASH_TRUST_RECIPROCAL'          => 'Auto-réciproque : chiffrer deux fois déchiffre',
+    'ATBASH_TRUST_KEYLESS'             => 'Aucune clé requise',
+    // Beaufort
+    'BEAUFORT_TRUST_RECIPROCAL'        => 'Même clé pour chiffrer et déchiffrer',
+    // Gronsfeld
+    'GRONSFELD_TRUST_NUMERIC'          => 'La clé est une suite de chiffres 0-9',
+    // Vernam
+    'VERNAM_TRUST_OTP'                 => 'Chiffrement à masque jetable',
+    'VERNAM_TRUST_KEY_LENGTH'          => 'La longueur de la clé doit égaler celle du message',
+    // Bacon
+    'BACON_TRUST_STEGO'                => 'Stéganographie : texte caché dans un autre texte',
+    'BACON_TRUST_BINARY'               => 'Chaque lettre codée par 5 caractères A/B',
+    // A1Z26
+    'A1Z26_TRUST_POSITIONAL'           => 'Chaque lettre correspond à sa position alphabétique',
+    // Base64
+    'BASE64_TRUST_PURPOSE'             => 'Encodage binaire vers texte',
+    'BASE64_TRUST_USES'                => 'Largement utilisé dans les API, e-mails et le web',
+    // Hex
+    'HEX_TRUST_PURPOSE'                => 'Représentation hexadécimale des octets',
+    'HEX_TRUST_DEBUG'                  => 'Utile pour déboguer et analyser les données',
+    // URL encode
+    'URL_TRUST_PURPOSE'                => 'Transmission sécurisée des données dans les URL',
+    'URL_TRUST_STANDARD'               => 'Conforme à la norme RFC 3986',
+    // Binary converter
+    'BINARY_TRUST_PURPOSE'             => 'Conversion de texte en binaire',
+    'BINARY_TRUST_LEVEL'               => 'Encodage des caractères au niveau octet',
+    // ASCII converter
+    'ASCII_TRUST_PURPOSE'              => 'Conversion du texte en codes ASCII numériques',
+    'ASCII_TRUST_TABLE'                => 'Prise en charge de la table de caractères étendue',
+    'ASCII_TRUST_USE'                  => 'Utile pour traiter des données bas niveau',
+    // Unicode converter
+    'UNICODE_TRUST_PURPOSE'            => 'Conversion en points de code Unicode',
+    'UNICODE_TRUST_EMOJI'              => 'Prise en charge des emoji et des textes multilingues',
+    'UNICODE_TRUST_FORMATS'            => 'Prend en charge les formats U+XXXX et \uXXXX',
+    // JWT decoder
+    'JWT_TRUST_PURPOSE'                => 'Décodage du token sans vérification de signature',
+    'JWT_TRUST_PARTS'                  => 'Visualisation des en-têtes et de la charge utile',
+    'JWT_TRUST_KEYLESS'                => 'Aucune clé requise pour lire le contenu',
 ];

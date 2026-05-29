@@ -67,6 +67,21 @@ final class A1z26CipherService
     }
 
     /**
+     * Возвращает элементы блока доверия для шифра A1Z26.
+     *
+     * @return string[]
+     */
+    public function getTrustItems(string $calculationMode): array
+    {
+        return [
+            trans('A1Z26_TRUST_POSITIONAL'),
+            trans('CIPHER_TOOL_TRUST_MULTI_ALPHA'),
+            trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
+            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
+        ];
+    }
+
+    /**
      * Проверяет, содержит ли текст хотя бы один символ выбранного алфавита.
      */
     public function hasAlphabetCharacters(string $text, string $alphabet): bool

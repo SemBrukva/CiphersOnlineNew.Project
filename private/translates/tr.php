@@ -174,4 +174,55 @@ return [
     'PLAYFAIR_ERR_TEXT_ALPHABET'        => 'Metin, seçilen alfabenin karakterlerini içermiyor.',
     'PLAYFAIR_ERR_KEY_ALPHABET'         => 'Anahtar, seçilen alfabenin karakterlerini içermiyor.',
     'PLAYFAIR_DECODE_NOTE'              => 'Playfair şifreleme sırasında dolgu harfleri ekler. Orijinal metni kurtarmak için fazladan karakterleri (genellikle A veya X) kaldırın.',
+    'PLAYFAIR_TRUST_CLIENT_SIDE'        => 'Klasik bigram şifresi',
+    'PLAYFAIR_TRUST_PRIVATE'            => 'Özelleştirilebilir anahtar kelime',
+    'PLAYFAIR_TRUST_MULTILANG'          => 'Farklı alfabeleri destekler',
+    'PLAYFAIR_TRUST_KEY_BASED'          => 'Mesajlarınızı saklamıyoruz',
+    // Shared cipher trust keys
+    'CIPHER_TOOL_TRUST_SERVER'         => 'Sunucumuzda işlenir',
+    'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Mesajlarınızı saklamıyoruz',
+    'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Çoklu alfabe desteği',
+    'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Polialfabetik ikame şifresi',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Özelleştirilebilir anahtar kelime',
+    // Caesar
+    'CAESAR_TRUST_TYPE'                => 'Harf kaydırma ikame şifresi',
+    // Atbash
+    'ATBASH_TRUST_RECIPROCAL'          => 'Öz-karşılıklı: tekrar şifreleme çözer',
+    'ATBASH_TRUST_KEYLESS'             => 'Anahtar gerekmez',
+    // Beaufort
+    'BEAUFORT_TRUST_RECIPROCAL'        => 'Aynı anahtar şifreleme ve çözme yapar',
+    // Gronsfeld
+    'GRONSFELD_TRUST_NUMERIC'          => 'Anahtar 0-9 basamaklarından oluşan bir dizidir',
+    // Vernam
+    'VERNAM_TRUST_OTP'                 => 'Tek kullanımlık anahtar şeması',
+    'VERNAM_TRUST_KEY_LENGTH'          => 'Anahtar uzunluğu mesaj uzunluğuyla eşit olmalıdır',
+    // Bacon
+    'BACON_TRUST_STEGO'                => 'Steganografi: metin başka bir metnin içine gizlenir',
+    'BACON_TRUST_BINARY'               => 'Her harf 5 A/B karakteriyle kodlanır',
+    // A1Z26
+    'A1Z26_TRUST_POSITIONAL'           => 'Her harf, alfabedeki konumuyla değiştirilir',
+    // Base64
+    'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
+    'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',
+    // Hex
+    'HEX_TRUST_PURPOSE'                => 'Baytların onaltılık gösterimi',
+    'HEX_TRUST_DEBUG'                  => 'Hata ayıklama ve veri analizi için kullanışlı',
+    // URL encode
+    'URL_TRUST_PURPOSE'                => 'URL adreslerde guvenli veri iletimi',
+    'URL_TRUST_STANDARD'               => 'RFC 3986 standardına uygundur',
+    // Binary converter
+    'BINARY_TRUST_PURPOSE'             => 'Metni ikili koda dönüştürme',
+    'BINARY_TRUST_LEVEL'               => 'Bayt düzeyinde karakter kodlama',
+    // ASCII converter
+    'ASCII_TRUST_PURPOSE'              => 'Metni sayısal ASCII kodlarına dönüştürme',
+    'ASCII_TRUST_TABLE'                => 'Genişletilmiş karakter tablosu desteği',
+    'ASCII_TRUST_USE'                  => 'Düşük seviyeli veri işleme için kullanışlı',
+    // Unicode converter
+    'UNICODE_TRUST_PURPOSE'            => 'Unicode kod noktalarına dönüştürme',
+    'UNICODE_TRUST_EMOJI'              => 'Emoji ve çok dilli metin desteği',
+    'UNICODE_TRUST_FORMATS'            => 'U+XXXX ve \uXXXX formatlarını destekler',
+    // JWT decoder
+    'JWT_TRUST_PURPOSE'                => 'İmza doğrulaması olmadan token çözümleme',
+    'JWT_TRUST_PARTS'                  => 'Başlık ve yükü görüntüleme',
+    'JWT_TRUST_KEYLESS'                => 'İçeriği okumak için anahtar gerekmez',
 ];

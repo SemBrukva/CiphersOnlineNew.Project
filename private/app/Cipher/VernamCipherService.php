@@ -36,6 +36,21 @@ final class VernamCipherService
     }
 
     /**
+     * Возвращает элементы блока доверия для шифра Вернама.
+     *
+     * @return string[]
+     */
+    public function getTrustItems(string $calculationMode): array
+    {
+        return [
+            trans('VERNAM_TRUST_OTP'),
+            trans('VERNAM_TRUST_KEY_LENGTH'),
+            trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
+            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
+        ];
+    }
+
+    /**
      * Выполняет шифрование/дешифрование текста по Вернаму.
      */
     public function process(string $text, string $key, string $direction): string

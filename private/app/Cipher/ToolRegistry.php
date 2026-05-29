@@ -161,6 +161,72 @@ final readonly class ToolRegistry
     }
 
     /**
+     * Возвращает элементы блока доверия для инструмента.
+     *
+     * @return string[]
+     */
+    public function trustItems(string $toolSlug, string $calculationMode): array
+    {
+        return match ($this->canonicalSlug($toolSlug)) {
+            'classical-ciphers/playfair'  => $this->playfairCipher->getTrustItems($calculationMode),
+            'classical-ciphers/caesar'    => $this->caesarCipher->getTrustItems($calculationMode),
+            'classical-ciphers/atbash'    => $this->atbashCipher->getTrustItems($calculationMode),
+            'classical-ciphers/beaufort'  => $this->beaufortCipher->getTrustItems($calculationMode),
+            'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getTrustItems($calculationMode),
+            'classical-ciphers/vigenere'  => $this->vigenereCipher->getTrustItems($calculationMode),
+            'classical-ciphers/vernam'    => $this->vernamCipher->getTrustItems($calculationMode),
+            'classical-ciphers/bacon'     => $this->baconCipher->getTrustItems($calculationMode),
+            'classical-ciphers/a1z26'     => $this->a1z26Cipher->getTrustItems($calculationMode),
+            'encoding/base64' => [
+                trans('BASE64_TRUST_PURPOSE'),
+                trans('BASE64_TRUST_USES'),
+                trans('CIPHER_TOOL_TRUST_UTF8'),
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+            ],
+            'encoding/hex' => [
+                trans('HEX_TRUST_PURPOSE'),
+                trans('HEX_TRUST_DEBUG'),
+                trans('CIPHER_TOOL_TRUST_UTF8'),
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+            ],
+            'encoding/url-encode' => [
+                trans('URL_TRUST_PURPOSE'),
+                trans('URL_TRUST_STANDARD'),
+                trans('CIPHER_TOOL_TRUST_UTF8'),
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+            ],
+            'encoding/binary-converter' => [
+                trans('BINARY_TRUST_PURPOSE'),
+                trans('BINARY_TRUST_LEVEL'),
+                trans('CIPHER_TOOL_TRUST_UTF8'),
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+            ],
+            'encoding/ascii-converter' => [
+                trans('ASCII_TRUST_PURPOSE'),
+                trans('ASCII_TRUST_TABLE'),
+                trans('ASCII_TRUST_USE'),
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+            ],
+            'encoding/unicode-converter' => [
+                trans('UNICODE_TRUST_PURPOSE'),
+                trans('UNICODE_TRUST_EMOJI'),
+                trans('UNICODE_TRUST_FORMATS'),
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+            ],
+            'encoding/jwt-decoder' => [
+                trans('JWT_TRUST_PURPOSE'),
+                trans('JWT_TRUST_PARTS'),
+                trans('JWT_TRUST_KEYLESS'),
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+            ],
+            default => [
+                trans('CIPHER_TOOL_TRUST_LOCAL'),
+                trans('CIPHER_TOOL_TRUST_PRIVATE'),
+            ],
+        };
+    }
+
+    /**
      * Возвращает пояснение, показываемое после дешифрования, или null если не нужно.
      */
     public function decodeNote(string $toolSlug): ?string

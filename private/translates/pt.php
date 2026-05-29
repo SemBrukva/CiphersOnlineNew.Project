@@ -174,4 +174,55 @@ return [
     'PLAYFAIR_ERR_TEXT_ALPHABET'        => 'O texto não contém caracteres do alfabeto selecionado.',
     'PLAYFAIR_ERR_KEY_ALPHABET'         => 'A chave não contém caracteres do alfabeto selecionado.',
     'PLAYFAIR_DECODE_NOTE'              => 'O Playfair insere letras de preenchimento durante a cifração. Remova os caracteres extras (geralmente A ou X) para recuperar o texto original.',
+    'PLAYFAIR_TRUST_CLIENT_SIDE'        => 'Cifra bigrâmica clássica',
+    'PLAYFAIR_TRUST_PRIVATE'            => 'Palavra-chave personalizável',
+    'PLAYFAIR_TRUST_MULTILANG'          => 'Suporte a vários alfabetos',
+    'PLAYFAIR_TRUST_KEY_BASED'          => 'Não armazenamos suas mensagens',
+    // Shared cipher trust keys
+    'CIPHER_TOOL_TRUST_SERVER'         => 'Processado em nosso servidor',
+    'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Não armazenamos suas mensagens',
+    'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Suporte a vários alfabetos',
+    'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Cifra de substituição polialfabética',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Palavra-chave personalizável',
+    // Caesar
+    'CAESAR_TRUST_TYPE'                => 'Cifra de substituição por deslocamento',
+    // Atbash
+    'ATBASH_TRUST_RECIPROCAL'          => 'Auto-recíproco: cifrar novamente decifra',
+    'ATBASH_TRUST_KEYLESS'             => 'Nenhuma chave necessária',
+    // Beaufort
+    'BEAUFORT_TRUST_RECIPROCAL'        => 'Mesma chave para cifrar e decifrar',
+    // Gronsfeld
+    'GRONSFELD_TRUST_NUMERIC'          => 'A chave é uma sequência de dígitos 0-9',
+    // Vernam
+    'VERNAM_TRUST_OTP'                 => 'Esquema de bloco de uso único',
+    'VERNAM_TRUST_KEY_LENGTH'          => 'O comprimento da chave deve igualar o da mensagem',
+    // Bacon
+    'BACON_TRUST_STEGO'                => 'Esteganografia: texto escondido dentro de outro texto',
+    'BACON_TRUST_BINARY'               => 'Cada letra codificada com 5 caracteres A/B',
+    // A1Z26
+    'A1Z26_TRUST_POSITIONAL'           => 'Cada letra corresponde à sua posição no alfabeto',
+    // Base64
+    'BASE64_TRUST_PURPOSE'             => 'Codificação de binário para texto',
+    'BASE64_TRUST_USES'                => 'Amplamente usado em APIs, e-mails e web',
+    // Hex
+    'HEX_TRUST_PURPOSE'                => 'Representação hexadecimal de bytes',
+    'HEX_TRUST_DEBUG'                  => 'Útil para depuração e análise de dados',
+    // URL encode
+    'URL_TRUST_PURPOSE'                => 'Transmissão segura de dados em URLs',
+    'URL_TRUST_STANDARD'               => 'Compatível com RFC 3986',
+    // Binary converter
+    'BINARY_TRUST_PURPOSE'             => 'Conversão de texto em binário',
+    'BINARY_TRUST_LEVEL'               => 'Codificação de caracteres em nível de byte',
+    // ASCII converter
+    'ASCII_TRUST_PURPOSE'              => 'Conversão de texto em códigos ASCII numéricos',
+    'ASCII_TRUST_TABLE'                => 'Suporte à tabela de caracteres estendida',
+    'ASCII_TRUST_USE'                  => 'Útil para processar dados de baixo nível',
+    // Unicode converter
+    'UNICODE_TRUST_PURPOSE'            => 'Conversão em pontos de código Unicode',
+    'UNICODE_TRUST_EMOJI'              => 'Suporte a emoji e texto multilíngue',
+    'UNICODE_TRUST_FORMATS'            => 'Suporta os formatos U+XXXX e \uXXXX',
+    // JWT decoder
+    'JWT_TRUST_PURPOSE'                => 'Decodificação de token sem verificação de assinatura',
+    'JWT_TRUST_PARTS'                  => 'Visualização de cabeçalho e payload',
+    'JWT_TRUST_KEYLESS'                => 'Nenhuma chave necessária para ler o conteúdo',
 ];

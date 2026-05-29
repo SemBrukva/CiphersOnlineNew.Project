@@ -192,4 +192,55 @@ return [
     'PLAYFAIR_ERR_TEXT_ALPHABET'        => 'Input does not contain characters from the selected alphabet.',
     'PLAYFAIR_ERR_KEY_ALPHABET'         => 'Key does not contain characters from the selected alphabet.',
     'PLAYFAIR_DECODE_NOTE'              => 'Playfair inserts filler letters during encryption. Remove any extra characters (usually A or X) to recover the original text.',
+    'PLAYFAIR_TRUST_CLIENT_SIDE'        => 'Classic digraph cipher',
+    'PLAYFAIR_TRUST_PRIVATE'            => 'Customizable keyword',
+    'PLAYFAIR_TRUST_MULTILANG'          => 'Multiple alphabets supported',
+    'PLAYFAIR_TRUST_KEY_BASED'          => 'We never store your messages',
+    // Shared cipher trust keys
+    'CIPHER_TOOL_TRUST_SERVER'         => 'Processed on our server',
+    'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'We never store your messages',
+    'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Multiple alphabets supported',
+    'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Polyalphabetic substitution cipher',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Customizable keyword',
+    // Caesar
+    'CAESAR_TRUST_TYPE'                => 'Letter-shift substitution cipher',
+    // Atbash
+    'ATBASH_TRUST_RECIPROCAL'          => 'Self-reciprocal: encrypting again decrypts',
+    'ATBASH_TRUST_KEYLESS'             => 'No key required',
+    // Beaufort
+    'BEAUFORT_TRUST_RECIPROCAL'        => 'Same key encrypts and decrypts',
+    // Gronsfeld
+    'GRONSFELD_TRUST_NUMERIC'          => 'Key is a sequence of digits 0-9',
+    // Vernam
+    'VERNAM_TRUST_OTP'                 => 'One-time pad scheme',
+    'VERNAM_TRUST_KEY_LENGTH'          => 'Key length must equal message length',
+    // Bacon
+    'BACON_TRUST_STEGO'                => 'Steganography: hides text inside other text',
+    'BACON_TRUST_BINARY'               => 'Each letter encoded as 5 A/B characters',
+    // A1Z26
+    'A1Z26_TRUST_POSITIONAL'           => 'Each letter maps to its alphabet position',
+    // Base64
+    'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
+    'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',
+    // Hex
+    'HEX_TRUST_PURPOSE'                => 'Hexadecimal byte representation',
+    'HEX_TRUST_DEBUG'                  => 'Useful for debugging and data analysis',
+    // URL encode
+    'URL_TRUST_PURPOSE'                => 'Safe data transmission in URLs',
+    'URL_TRUST_STANDARD'               => 'Compliant with RFC 3986',
+    // Binary converter
+    'BINARY_TRUST_PURPOSE'             => 'Text to binary representation',
+    'BINARY_TRUST_LEVEL'               => 'Byte-level character encoding',
+    // ASCII converter
+    'ASCII_TRUST_PURPOSE'              => 'Convert text to ASCII numeric codes',
+    'ASCII_TRUST_TABLE'                => 'Extended character table support',
+    'ASCII_TRUST_USE'                  => 'Useful for low-level data processing',
+    // Unicode converter
+    'UNICODE_TRUST_PURPOSE'            => 'Convert to Unicode code points',
+    'UNICODE_TRUST_EMOJI'              => 'Emoji and multilingual text support',
+    'UNICODE_TRUST_FORMATS'            => 'Supports U+XXXX and \uXXXX formats',
+    // JWT decoder
+    'JWT_TRUST_PURPOSE'                => 'Decode token without signature verification',
+    'JWT_TRUST_PARTS'                  => 'View header and payload',
+    'JWT_TRUST_KEYLESS'                => 'No key required to read the content',
 ];
