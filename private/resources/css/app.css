@@ -850,6 +850,135 @@
     color: var(--text-secondary);
 }
 
+/* === FAQ Accordion === */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  counter-reset: faq-counter;
+}
+
+.accordion-item {
+  background: transparent;
+  border: none;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--border);
+  counter-increment: faq-counter;
+}
+
+.accordion-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-button {
+  display: grid;
+  grid-template-columns: 28px 1fr 28px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 18px 4px;
+  background: transparent;
+  border: none;
+  box-shadow: none !important;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition);
+  border-radius: 0 !important;
+}
+
+.accordion-button:hover {
+  background: transparent;
+}
+
+.accordion-button::before {
+  content: counter(faq-counter, decimal-leading-zero);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0;
+  line-height: 1;
+  transition: background var(--transition);
+}
+
+.accordion-button:not(.collapsed)::before {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+.accordion-button::after {
+  content: '';
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background-image: none;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 50%;
+  position: relative;
+  transition: border-color var(--transition), transform var(--transition);
+  background-color: transparent;
+  order: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cline x1='6' y1='2' x2='6' y2='10' stroke='%23475569' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='2' y1='6' x2='10' y2='6' stroke='%23475569' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 12px;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cline x1='2' y1='6' x2='10' y2='6' stroke='%23002340' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  border-color: var(--primary);
+  transform: none;
+}
+
+.accordion-button-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-base);
+  line-height: 1.4;
+  transition: color var(--transition);
+}
+
+.accordion-button:not(.collapsed) .accordion-button-text {
+  color: var(--primary);
+}
+
+.accordion-collapse {
+  grid-column: 1 / -1;
+}
+
+.accordion-body {
+  padding: 0 0 20px 42px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.accordion-body p {
+  margin-bottom: 10px;
+}
+
+.accordion-body p:last-child {
+  margin-bottom: 0;
+}
+
 /* === Ciphers Category Hub Cards Grid === */
 .ciphers-category-hub-grid {
   display: grid;
