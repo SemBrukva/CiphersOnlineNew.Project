@@ -7,14 +7,14 @@ namespace App\Cipher;
 /**
  * Сервис шифра Плейфера с поддержкой нескольких алфавитов.
  */
-final class PlayfairCipherService
+final readonly class PlayfairCipherService
 {
     /**
      * Создаёт экземпляр сервиса шифра Плейфера.
      */
     public function __construct(
-        private readonly ?AlphabetCatalog $catalog = null,
-        private readonly ?AlphabetTool $alphabetTool = null
+        private ?AlphabetCatalog $catalog = null,
+        private ?AlphabetTool    $alphabetTool = null
     ) {
     }
 
@@ -39,10 +39,10 @@ final class PlayfairCipherService
             [
                 'type' => 'select',
                 'id' => 'ciphers-alphabet',
-                'label' => locale() === 'ru' ? 'Алфавит' : 'Alphabet',
+                'label' => trans('CIPHER_TOOL_SETTING_ALPHABET'),
                 'class' => 'ciphers-settings-select',
                 'options' => [
-                    ['value' => 'auto', 'label' => locale() === 'ru' ? 'Авто' : 'Auto', 'selected' => true],
+                    ['value' => 'auto', 'label' => trans('CIPHER_TOOL_SETTING_AUTO'), 'selected' => true],
                     ['value' => 'en', 'label' => 'English'],
                     ['value' => 'ru', 'label' => 'Русский'],
                     ['value' => 'es', 'label' => 'Español'],
@@ -56,9 +56,9 @@ final class PlayfairCipherService
             [
                 'type' => 'text',
                 'id' => 'ciphers-key',
-                'label' => locale() === 'ru' ? 'Ключ' : 'Key',
+                'label' => trans('CIPHER_TOOL_SETTING_KEY'),
                 'class' => 'ciphers-settings-input',
-                'placeholder' => locale() === 'ru' ? 'Введите ключ' : 'Enter key',
+                'placeholder' => trans('CIPHER_TOOL_SETTING_KEY_PLACEHOLDER'),
                 'value' => '',
             ],
         ];

@@ -39,10 +39,10 @@ final class AtbashCipherService
             [
                 'type' => 'select',
                 'id' => 'ciphers-alphabet',
-                'label' => locale() === 'ru' ? 'Алфавит' : 'Alphabet',
+                'label' => trans('CIPHER_TOOL_SETTING_ALPHABET'),
                 'class' => 'ciphers-settings-select',
                 'options' => [
-                    ['value' => 'auto', 'label' => locale() === 'ru' ? 'Авто' : 'Auto', 'selected' => true],
+                    ['value' => 'auto', 'label' => trans('CIPHER_TOOL_SETTING_AUTO'), 'selected' => true],
                     ['value' => 'en', 'label' => 'English'],
                     ['value' => 'ru', 'label' => 'Русский'],
                     ['value' => 'es', 'label' => 'Español'],

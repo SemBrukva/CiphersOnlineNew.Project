@@ -165,6 +165,15 @@ return [
     'CIPHER_TOOL_TRUST_UTF8' => 'Prise en charge UTF-8 et Unicode',
     'CIPHER_TOOL_TRUST_API' => 'Adapté aux données API et payload',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'La saisie n’est pas envoyée au serveur',
+    // Cipher tool settings labels
+    'CIPHER_TOOL_SETTING_ALPHABET'        => 'Alphabet',
+    'CIPHER_TOOL_SETTING_AUTO'            => 'Auto',
+    'CIPHER_TOOL_SETTING_KEY'             => 'Clé',
+    'CIPHER_TOOL_SETTING_KEY_PLACEHOLDER' => 'Saisir la clé',
+    'CIPHER_TOOL_SETTING_DELIMITER'       => 'Délimiteur',
+    'CIPHER_TOOL_SETTING_SPACE'           => 'Espace',
+    'CIPHER_TOOL_SETTING_SHIFT'           => 'Décalage',
+    'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Exemple : 314159',
 
     'PLAYFAIR_ERR_INVALID'              => 'Données d’entrée invalides.',
     'PLAYFAIR_ERR_DIRECTION'            => 'La direction doit être encrypt ou decrypt.',

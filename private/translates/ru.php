@@ -183,6 +183,15 @@ return [
     'CIPHER_TOOL_TRUST_UTF8' => 'Поддержка UTF-8 и Unicode',
     'CIPHER_TOOL_TRUST_API' => 'Подходит для API и payload-данных',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'Ввод не отправляется на сервер',
+    // Cipher tool settings labels
+    'CIPHER_TOOL_SETTING_ALPHABET'        => 'Алфавит',
+    'CIPHER_TOOL_SETTING_AUTO'            => 'Авто',
+    'CIPHER_TOOL_SETTING_KEY'             => 'Ключ',
+    'CIPHER_TOOL_SETTING_KEY_PLACEHOLDER' => 'Введите ключ',
+    'CIPHER_TOOL_SETTING_DELIMITER'       => 'Разделитель',
+    'CIPHER_TOOL_SETTING_SPACE'           => 'Пробел',
+    'CIPHER_TOOL_SETTING_SHIFT'           => 'Сдвиг',
+    'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Например: 314159',
 
     'PLAYFAIR_ERR_INVALID'              => 'Некорректные входные данные.',
     'PLAYFAIR_ERR_DIRECTION'            => 'Направление должно быть encrypt или decrypt.',

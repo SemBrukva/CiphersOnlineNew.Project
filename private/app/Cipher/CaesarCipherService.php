@@ -39,10 +39,10 @@ final class CaesarCipherService
             [
                 'type' => 'select',
                 'id' => 'ciphers-alphabet',
-                'label' => locale() === 'ru' ? 'Алфавит' : 'Alphabet',
+                'label' => trans('CIPHER_TOOL_SETTING_ALPHABET'),
                 'class' => 'ciphers-settings-select',
                 'options' => [
-                    ['value' => 'auto', 'label' => locale() === 'ru' ? 'Авто' : 'Auto', 'attrs' => ['data-max-shift' => 39], 'selected' => true],
+                    ['value' => 'auto', 'label' => trans('CIPHER_TOOL_SETTING_AUTO'), 'attrs' => ['data-max-shift' => 39], 'selected' => true],
                     ['value' => 'en', 'label' => 'English', 'attrs' => ['data-max-shift' => 25]],
                     ['value' => 'ru', 'label' => 'Русский', 'attrs' => ['data-max-shift' => 32]],
                     ['value' => 'es', 'label' => 'Español', 'attrs' => ['data-max-shift' => 26]],
@@ -56,7 +56,7 @@ final class CaesarCipherService
             [
                 'type' => 'number_stepper',
                 'id' => 'ciphers-shift',
-                'label' => locale() === 'ru' ? 'Сдвиг' : 'Shift',
+                'label' => trans('CIPHER_TOOL_SETTING_SHIFT'),
                 'class' => 'ciphers-settings-shift-input',
                 'min' => 0,
                 'max' => 39,

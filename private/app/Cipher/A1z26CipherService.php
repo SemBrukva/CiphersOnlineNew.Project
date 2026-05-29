@@ -39,10 +39,10 @@ final class A1z26CipherService
             [
                 'type' => 'select',
                 'id' => 'ciphers-alphabet',
-                'label' => locale() === 'ru' ? 'Алфавит' : 'Alphabet',
+                'label' => trans('CIPHER_TOOL_SETTING_ALPHABET'),
                 'class' => 'ciphers-settings-select',
                 'options' => [
-                    ['value' => 'auto', 'label' => locale() === 'ru' ? 'Авто' : 'Auto', 'selected' => true],
+                    ['value' => 'auto', 'label' => trans('CIPHER_TOOL_SETTING_AUTO'), 'selected' => true],
                     ['value' => 'en', 'label' => 'English'],
                     ['value' => 'ru', 'label' => 'Русский'],
                     ['value' => 'es', 'label' => 'Español'],
@@ -56,11 +56,11 @@ final class A1z26CipherService
             [
                 'type' => 'select',
                 'id' => 'ciphers-delimiter',
-                'label' => locale() === 'ru' ? 'Разделитель' : 'Delimiter',
+                'label' => trans('CIPHER_TOOL_SETTING_DELIMITER'),
                 'class' => 'ciphers-settings-select',
                 'options' => [
                     ['value' => 'dash', 'label' => '-'],
-                    ['value' => 'space', 'label' => locale() === 'ru' ? 'Пробел' : 'Space'],
+                    ['value' => 'space', 'label' => trans('CIPHER_TOOL_SETTING_SPACE')],
                 ],
             ],
         ];

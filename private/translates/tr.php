@@ -165,6 +165,15 @@ return [
     'CIPHER_TOOL_TRUST_UTF8' => 'UTF-8 ve Unicode desteği',
     'CIPHER_TOOL_TRUST_API' => 'API ve payload verileri için uygundur',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'Girdi sunucuya gönderilmez',
+    // Cipher tool settings labels
+    'CIPHER_TOOL_SETTING_ALPHABET'        => 'Alfabe',
+    'CIPHER_TOOL_SETTING_AUTO'            => 'Otomatik',
+    'CIPHER_TOOL_SETTING_KEY'             => 'Anahtar',
+    'CIPHER_TOOL_SETTING_KEY_PLACEHOLDER' => 'Anahtarı girin',
+    'CIPHER_TOOL_SETTING_DELIMITER'       => 'Ayırıcı',
+    'CIPHER_TOOL_SETTING_SPACE'           => 'Boşluk',
+    'CIPHER_TOOL_SETTING_SHIFT'           => 'Kaydırma',
+    'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Örnek: 314159',
 
     'PLAYFAIR_ERR_INVALID'              => 'Geçersiz giriş verisi.',
     'PLAYFAIR_ERR_DIRECTION'            => 'Yön encrypt veya decrypt olmalıdır.',
