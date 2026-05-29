@@ -99,14 +99,25 @@ final class PlayfairCipherService
             $second = $positions[$b];
 
             if ($first['row'] === $second['row']) {
-                $result .= $matrix[$first['row']][($first['col'] + ($isEncrypting ? 1 : $colCount - 1)) % $colCount];
-                $result .= $matrix[$second['row']][($second['col'] + ($isEncrypting ? 1 : $colCount - 1)) % $colCount];
+                $rowLen = count($matrix[$first['row']]);
+                $step   = $isEncrypting ? 1 : $rowLen - 1;
+                $result .= $matrix[$first['row']][($first['col'] + $step) % $rowLen];
+                $result .= $matrix[$second['row']][($second['col'] + $step) % $rowLen];
                 continue;
             }
 
             if ($first['col'] === $second['col']) {
-                $result .= $matrix[($first['row'] + ($isEncrypting ? 1 : $rowCount - 1)) % $rowCount][$first['col']];
-                $result .= $matrix[($second['row'] + ($isEncrypting ? 1 : $rowCount - 1)) % $rowCount][$second['col']];
+                $step     = $isEncrypting ? 1 : $rowCount - 1;
+                $nextRow1 = ($first['row'] + $step) % $rowCount;
+                while (!array_key_exists($first['col'], $matrix[$nextRow1])) {
+                    $nextRow1 = ($nextRow1 + $step) % $rowCount;
+                }
+                $nextRow2 = ($second['row'] + $step) % $rowCount;
+                while (!array_key_exists($second['col'], $matrix[$nextRow2])) {
+                    $nextRow2 = ($nextRow2 + $step) % $rowCount;
+                }
+                $result .= $matrix[$nextRow1][$first['col']];
+                $result .= $matrix[$nextRow2][$second['col']];
                 continue;
             }
 

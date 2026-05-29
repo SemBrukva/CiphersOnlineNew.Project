@@ -295,6 +295,12 @@
                                             </div>
                                             <div class="p-3">
                                                 <div class="mb-3">
+                                                    <label class="form-label fw-medium">Ключ (key)</label>
+                                                    <input type="text" class="form-control"
+                                                           data-translation-field="key"
+                                                           value="{$example_translation.key|default:''}">
+                                                </div>
+                                                <div class="mb-3">
                                                     <label class="form-label fw-medium">Заголовок</label>
                                                     <input type="text" class="form-control"
                                                            data-translation-field="title"

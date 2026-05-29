@@ -164,5 +164,14 @@ return [
     'CIPHER_TOOL_TRUST_LOCAL' => 'Elaborazione locale nel browser',
     'CIPHER_TOOL_TRUST_UTF8' => 'Supporto UTF-8 e Unicode',
     'CIPHER_TOOL_TRUST_API' => 'Adatto a dati API e payload',
-    'CIPHER_TOOL_TRUST_PRIVATE' => 'L’input non viene inviato al server',
+    ‘CIPHER_TOOL_TRUST_PRIVATE’ => ‘L’input non viene inviato al server’,
+
+    ‘PLAYFAIR_ERR_INVALID’              => ‘Dati di input non validi.’,
+    ‘PLAYFAIR_ERR_DIRECTION’            => ‘La direzione deve essere encrypt o decrypt.’,
+    ‘PLAYFAIR_ERR_TEXT_REQUIRED’        => ‘Il testo è obbligatorio.’,
+    ‘PLAYFAIR_ERR_KEY_REQUIRED’         => ‘La chiave è obbligatoria.’,
+    ‘PLAYFAIR_ERR_ALPHABET_UNSUPPORTED’ => ‘Alfabeto non supportato.’,
+    ‘PLAYFAIR_ERR_TEXT_ALPHABET’        => ‘Il testo non contiene caratteri dell’alfabeto selezionato.’,
+    ‘PLAYFAIR_ERR_KEY_ALPHABET’         => ‘La chiave non contiene caratteri dell’alfabeto selezionato.’,
+    ‘PLAYFAIR_DECODE_NOTE’              => ‘Playfair inserisce lettere di riempimento durante la cifratura. Rimuovere i caratteri extra (di solito A o X) per recuperare il testo originale.’,
 ];

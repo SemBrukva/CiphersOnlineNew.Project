@@ -165,4 +165,13 @@ return [
     'CIPHER_TOOL_TRUST_UTF8' => 'UTF-8 ve Unicode desteği',
     'CIPHER_TOOL_TRUST_API' => 'API ve payload verileri için uygundur',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'Girdi sunucuya gönderilmez',
+
+    'PLAYFAIR_ERR_INVALID'              => 'Geçersiz giriş verisi.',
+    'PLAYFAIR_ERR_DIRECTION'            => 'Yön encrypt veya decrypt olmalıdır.',
+    'PLAYFAIR_ERR_TEXT_REQUIRED'        => 'Metin zorunludur.',
+    'PLAYFAIR_ERR_KEY_REQUIRED'         => 'Anahtar zorunludur.',
+    'PLAYFAIR_ERR_ALPHABET_UNSUPPORTED' => 'Desteklenmeyen alfabe.',
+    'PLAYFAIR_ERR_TEXT_ALPHABET'        => 'Metin, seçilen alfabenin karakterlerini içermiyor.',
+    'PLAYFAIR_ERR_KEY_ALPHABET'         => 'Anahtar, seçilen alfabenin karakterlerini içermiyor.',
+    'PLAYFAIR_DECODE_NOTE'              => 'Playfair şifreleme sırasında dolgu harfleri ekler. Orijinal metni kurtarmak için fazladan karakterleri (genellikle A veya X) kaldırın.',
 ];

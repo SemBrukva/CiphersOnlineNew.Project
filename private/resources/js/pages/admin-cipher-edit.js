@@ -100,6 +100,10 @@ export function initAdminCipherEdit() {
             ${entityHeadHtml(tempId)}
             <div class="p-3">
                 <div class="mb-3">
+                    <label class="form-label fw-medium">Ключ (key)</label>
+                    <input type="text" class="form-control" data-translation-field="key" value="">
+                </div>
+                <div class="mb-3">
                     <label class="form-label fw-medium">Заголовок</label>
                     <input type="text" class="form-control" data-translation-field="title" value="">
                 </div>
@@ -343,6 +347,7 @@ export function initAdminCipherEdit() {
                         input:       String(item.querySelector('[data-translation-field="input"]')?.value ?? '').trim(),
                         output:      String(item.querySelector('[data-translation-field="output"]')?.value ?? '').trim(),
                         description: String(item.querySelector('[data-translation-field="description"]')?.value ?? '').trim(),
+                        key:         String(item.querySelector('[data-translation-field="key"]')?.value ?? '').trim(),
                     }
                 } else if (id) {
                     let row = payload.examples.find((r) => r.id === id)
@@ -360,6 +365,7 @@ export function initAdminCipherEdit() {
                         input:       String(item.querySelector('[data-translation-field="input"]')?.value ?? '').trim(),
                         output:      String(item.querySelector('[data-translation-field="output"]')?.value ?? '').trim(),
                         description: String(item.querySelector('[data-translation-field="description"]')?.value ?? '').trim(),
+                        key:         String(item.querySelector('[data-translation-field="key"]')?.value ?? '').trim(),
                     }
                 }
             })

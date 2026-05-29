@@ -1352,12 +1352,13 @@ final class AdminController
         $input = trim((string) ($row['input'] ?? ''));
         $output = trim((string) ($row['output'] ?? ''));
         $description = trim((string) ($row['description'] ?? ''));
+        $key = mb_substr(trim((string) ($row['key'] ?? '')), 0, 255);
         $existing = $this->db->fetch(
             'SELECT id FROM ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ? LIMIT 1',
             [$exampleId, $language]
         );
 
-        if ($title === '' && $input === '' && $output === '' && $description === '') {
+        if ($title === '' && $input === '' && $output === '' && $description === '' && $key === '') {
             if ($existing !== false) {
                 $this->db->execute(
                     'DELETE FROM ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ?',
@@ -1370,16 +1371,16 @@ final class AdminController
 
         if ($existing === false) {
             $this->db->insert(
-                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, input, output, description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                [$exampleId, $language, $title, $input, $output, $description, $now, $now]
+                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, input, output, description, key, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [$exampleId, $language, $title, $input, $output, $description, $key, $now, $now]
             );
 
             return;
         }
 
         $this->db->execute(
-            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, input = ?, output = ?, description = ?, updated_at = ? WHERE id = ?',
-            [$title, $input, $output, $description, $now, (int) $existing['id']]
+            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, input = ?, output = ?, description = ?, key = ?, updated_at = ? WHERE id = ?',
+            [$title, $input, $output, $description, $key, $now, (int) $existing['id']]
         );
     }
 

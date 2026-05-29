@@ -73,9 +73,9 @@ final readonly class ToolRegistry
                 ['label' => 'ID', 'value' => 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTIzLCJuYW1lIjoiQWxpY2UifQ.test'],
             ],
             'classical-ciphers/playfair' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+                ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'MONARCHY'],
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',          'alphabet' => 'en', 'key' => 'PLAYFAIR'],
+                ['label' => 'Secret',   'value' => 'HIDE THE GOLD',        'alphabet' => 'en', 'key' => 'SECRET'],
             ],
             'classical-ciphers/beaufort' => [
                 ['label' => 'EN', 'value' => 'DEFEND THE EAST WALL'],
@@ -157,6 +157,17 @@ final readonly class ToolRegistry
             'classical-ciphers/bacon' => $this->baconCipher->getToolSettings(),
             'classical-ciphers/a1z26' => $this->a1z26Cipher->getToolSettings(),
             default => [],
+        };
+    }
+
+    /**
+     * Возвращает пояснение, показываемое после дешифрования, или null если не нужно.
+     */
+    public function decodeNote(string $toolSlug): ?string
+    {
+        return match ($this->canonicalSlug($toolSlug)) {
+            'classical-ciphers/playfair' => trans('PLAYFAIR_DECODE_NOTE'),
+            default => null,
         };
     }
 

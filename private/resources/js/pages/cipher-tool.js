@@ -56,10 +56,11 @@ export function initCipherToolPage() {
     runFailed: ui.feedbackInvalidInput || 'Unable to process request.',
   }
 
-  const setFeedback = (message, isError = false) => {
+  const setFeedback = (message, isError = false, isInfo = false) => {
     if (!feedback) return
     feedback.textContent = message
     feedback.classList.toggle('error', isError)
+    feedback.classList.toggle('info', isInfo && !isError)
   }
 
   const saveState = () => {
@@ -258,6 +259,7 @@ export function initCipherToolPage() {
       const response = await apiMethod({
         text,
         direction,
+        locale: ui.locale ?? 'en',
         settings: Object.fromEntries(
           Object.entries({
             shift,
@@ -269,9 +271,17 @@ export function initCipherToolPage() {
 
       output.value = String(response?.result ?? '')
       setOutputState(Boolean(output.value))
-      setFeedback('')
+      if (output.value && mode === 'decode' && ui.decodeNote) {
+        setFeedback(ui.decodeNote, false, true)
+      } else {
+        setFeedback('')
+      }
     } catch (error) {
-      const message = String(error?.message ?? error?.response?.error?.message ?? labels.runFailed)
+      const fieldErrors = error?.response?.error?.details?.errors
+      const firstFieldError = fieldErrors && typeof fieldErrors === 'object'
+        ? Object.values(fieldErrors).flat()[0]
+        : null
+      const message = String(firstFieldError ?? error?.message ?? error?.response?.error?.message ?? labels.runFailed)
       output.value = ''
       setOutputState(false)
       setFeedback(message, true)
@@ -330,6 +340,15 @@ export function initCipherToolPage() {
   document.querySelectorAll('.ciphers-example-chip').forEach((chip) => {
     chip.addEventListener('click', () => {
       const text = chip.getAttribute('data-example') || ''
+      const alphabet = chip.getAttribute('data-alphabet') || ''
+      const key = chip.getAttribute('data-key')
+      if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
+        alphabetSelect.value = alphabet
+        alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      if (key !== null && keyInput) {
+        keyInput.value = key
+      }
       input.value = text
       if (looksLikeEncoded(text, decoder)) {
         setMode('decode')
@@ -343,6 +362,16 @@ export function initCipherToolPage() {
   document.querySelectorAll('.ciphers-example-use').forEach((btn) => {
     btn.addEventListener('click', () => {
       const text = btn.getAttribute('data-example-text') || ''
+      const alphabet = btn.getAttribute('data-alphabet') || ''
+      const key = btn.getAttribute('data-key')
+      if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
+        alphabetSelect.value = alphabet
+        alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      if (key !== null && keyInput) {
+        keyInput.value = key
+        keyInput.dispatchEvent(new Event('input', { bubbles: true }))
+      }
       input.value = text
       if (looksLikeEncoded(text, decoder)) {
         setMode('decode')

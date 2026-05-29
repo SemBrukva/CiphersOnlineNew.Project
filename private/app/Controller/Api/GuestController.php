@@ -317,6 +317,11 @@ final class GuestController
             $payload = [];
         }
 
+        $locale = trim((string) ($payload['locale'] ?? ''));
+        if ($locale !== '' && in_array($locale, $this->translator->getLocales(), true)) {
+            $this->translator->setLocale($locale);
+        }
+
         return Response::json($this->cipherTools->execute($action, $payload));
     }
 }

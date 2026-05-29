@@ -183,4 +183,13 @@ return [
     'CIPHER_TOOL_TRUST_UTF8' => 'Поддержка UTF-8 и Unicode',
     'CIPHER_TOOL_TRUST_API' => 'Подходит для API и payload-данных',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'Ввод не отправляется на сервер',
+
+    'PLAYFAIR_ERR_INVALID'              => 'Некорректные входные данные.',
+    'PLAYFAIR_ERR_DIRECTION'            => 'Направление должно быть encrypt или decrypt.',
+    'PLAYFAIR_ERR_TEXT_REQUIRED'        => 'Текст обязателен.',
+    'PLAYFAIR_ERR_KEY_REQUIRED'         => 'Ключ обязателен.',
+    'PLAYFAIR_ERR_ALPHABET_UNSUPPORTED' => 'Выбранный алфавит не поддерживается.',
+    'PLAYFAIR_ERR_TEXT_ALPHABET'        => 'Текст не содержит символов выбранного алфавита.',
+    'PLAYFAIR_ERR_KEY_ALPHABET'         => 'Ключ не содержит символов выбранного алфавита.',
+    'PLAYFAIR_DECODE_NOTE'              => 'Плейфер вставляет буквы-заполнители при шифровании. Удалите лишние символы (обычно А или Х) для восстановления исходного текста.',
 ];

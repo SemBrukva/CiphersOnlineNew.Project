@@ -146,10 +146,12 @@ final readonly class CipherController
                 trans('CIPHER_TOOL_TRUST_PRIVATE'),
             ],
             'calculationMode' => in_array($calculationMode, ['api', 'client'], true) ? $calculationMode : 'client',
+            'locale' => locale(),
             'apiAction' => $this->toolRegistry->apiAction($toolSlug),
             'runLabel' => locale() === 'ru' ? 'Выполнить' : 'Run',
             'settings' => $this->buildToolSettings($toolSlug),
             'exampleChips' => $this->toolRegistry->exampleChips($toolSlug),
+            'decodeNote'   => $this->toolRegistry->decodeNote($toolSlug),
         ];
     }
 

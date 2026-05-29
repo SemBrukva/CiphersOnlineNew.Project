@@ -81,7 +81,7 @@
                 <span class="ciphers-unified__examples-label">{$tool_ui.tryLabel}</span>
                 <div class="ciphers-example-chips">
                     {foreach $tool_ui.exampleChips as $chip}
-                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}">{$chip.label}</button>
+                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}>{$chip.label}</button>
                     {/foreach}
                 </div>
             </div>
@@ -138,6 +138,7 @@
             {foreach $examples as $example}
                 <article class="b64-example-card">
                     {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
+                    {if $example.key}<span class="b64-example-card__key-badge">Key: <code>{$example.key|escape}</code></span>{/if}
                     <div class="b64-example-card__row">
                         <div class="b64-example-card__slot">
                             <span class="b64-example-card__slot-tag">{$tool_ui.inputTag}</span>
@@ -151,7 +152,10 @@
                         {/if}
                     </div>
                     {if $example.desc}<p class="b64-example-card__desc">{$example.desc|escape}</p>{/if}
-                    <button class="b64-example-card__use ciphers-example-use" type="button" data-example-text="{$example.input|escape:'html'}">{$tool_ui.useExampleLabel}</button>
+                    <button class="b64-example-card__use ciphers-example-use" type="button"
+                            data-example-text="{$example.input|escape:'html'}"
+                            {if $example.key}data-key="{$example.key|escape:'html'}"{/if}
+                            data-alphabet="{$example.language|escape:'html'}">{$tool_ui.useExampleLabel}</button>
                 </article>
             {/foreach}
         </div>
