@@ -1,0 +1,203 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T09:44:38+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "playfair",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 12,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 12,
+        "data": {
+            "name": "Cifrario di Playfair",
+            "name_short": "Cifrario di Playfair",
+            "description": "Cifra e decifra testo online con il cifrario di Playfair usando una parola chiave e una matrice di lettere. Supporta più alfabeti e parole chiave personalizzate.",
+            "description_stort": "Classico cifrario a sostituzione per digrammi con matrice basata su parola chiave.",
+            "meta_title": "Cifrario di Playfair online: codificatore e decodificatore",
+            "meta_description": "Usa il cifrario di Playfair online con una parola chiave personalizzata e un alfabeto selezionabile. Cifra e decifra subito testi classici basati su digrammi."
+        }
+    },
+    "blocks": [
+        {
+            "id": 38,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario di Playfair",
+                "text": "<p>Il cifrario di Playfair è un metodo di cifratura classico che lavora con coppie di lettere invece che con singoli caratteri. Queste coppie sono chiamate digrammi.</p><p>Per prima cosa viene generata una matrice di lettere a partire dalla parola chiave. Le lettere duplicate nella chiave vengono rimosse, poi le celle rimanenti sono riempite con le altre lettere dell'alfabeto scelto. Negli esempi in italiano si usa l'alfabeto italiano configurato nello strumento, quindi la matrice è costruita per quell'alfabeto e non per la variante inglese tradizionale 5×5.</p><p>Durante la cifratura, il testo in chiaro viene diviso in digrammi. Se due lettere si trovano sulla stessa riga, vengono sostituite con le lettere alla loro destra. Se sono nella stessa colonna, si usano le lettere sottostanti. Negli altri casi si applica la regola del rettangolo: ogni lettera viene sostituita dal carattere nella stessa riga, ma nell'angolo opposto del rettangolo.</p><p>Le lettere di riempimento possono essere inserite automaticamente per separare lettere ripetute o completare l'ultima coppia incompleta.</p>"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Caratteristiche del cifrario di Playfair",
+                "text": "<p>A differenza dei cifrari a sostituzione semplice, come il cifrario di Cesare, Playfair cifra coppie di lettere. Questo rende meno efficace l'analisi delle frequenze delle singole lettere, perché la stessa lettera del testo in chiaro può produrre risultati diversi a seconda della coppia.</p><p>Storicamente il cifrario era utile perché era più robusto di molti sistemi manuali semplici, pur restando pratico senza macchine. Servono soltanto una parola chiave, una matrice e poche regole di sostituzione.</p><p>Secondo gli standard crittografici moderni, Playfair non è sicuro. Oggi è utile soprattutto per studio, enigmi, dimostrazioni e per capire come funzionano i cifrari classici a sostituzione poligrafica.</p>"
+            }
+        },
+        {
+            "id": 47,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Storia del cifrario di Playfair",
+                "text": "<p>Il cifrario di Playfair fu inventato nel 1854 dallo scienziato britannico Charles Wheatstone. Tuttavia divenne molto noto grazie a Lord Playfair, che promosse con forza il sistema per l'uso pratico. Per questo motivo il cifrario è associato al suo nome invece che a quello dell'inventore.</p><p>Il sistema fu progettato per migliorare i metodi di sostituzione semplice cifrando coppie di lettere invece di singoli caratteri. Questo rendeva molto più difficile la tradizionale analisi delle frequenze e aumentava la sicurezza delle comunicazioni manuali.</p><p>Playfair fu usato da organizzazioni militari e diplomatiche tra la fine del XIX secolo e l'inizio del XX. Anche se oggi non è più considerato sicuro, resta uno dei cifrari classici più noti ed è ancora studiato come tappa importante nella storia della crittografia.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 94,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Perché nella cifratura Playfair vengono aggiunte lettere extra?",
+                "answer": "Il cifrario di Playfair lavora con coppie di lettere, chiamate digrammi. Se una coppia contiene due lettere uguali o se il messaggio ha lunghezza dispari, vengono inseriti caratteri di riempimento per creare digrammi validi."
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "La parola chiave influisce sulla forza della cifratura?",
+                "answer": "Sì. La parola chiave determina la struttura della matrice di Playfair. Chiavi più lunghe e meno prevedibili creano schemi di sostituzione più complessi e rendono più difficile l'analisi manuale."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Come viene costruita la matrice per l'alfabeto italiano?",
+                "answer": "La matrice viene costruita con l'alfabeto scelto: prima si inseriscono le lettere uniche della parola chiave, poi le lettere rimanenti dell'alfabeto. Per i testi italiani si usa l'alfabeto italiano configurato nello strumento, quindi non è necessario applicare regole inglesi come l'unione di I e J."
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Playfair è sicuro oggi?",
+                "answer": "No. Il cifrario di Playfair era più forte di molti cifrari classici della sua epoca, ma può essere violato con tecniche moderne di crittoanalisi. Oggi viene usato soprattutto per didattica, enigmi e studio storico."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Perché Playfair usa coppie di lettere invece di lettere singole?",
+                "answer": "Cifrare coppie di lettere rende più difficile l'analisi semplice delle frequenze rispetto ai cifrari monoalfabetici. Questa fu una delle innovazioni che rese Playfair più robusto di molti sistemi manuali precedenti."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrare un messaggio con una parola chiave",
+                "key": "MONARCHIA",
+                "input": "CIAO MONDO",
+                "output": "OFRNONABNR",
+                "description": "Un esempio base di cifratura Playfair con la parola chiave MONARCHIA. La chiave viene usata per costruire la matrice prima di trasformare il messaggio."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decifrare un testo Playfair",
+                "key": "MONARCHIA",
+                "input": "OFRNONABNR",
+                "output": "CIAOMONDOA",
+                "description": "Decifra il crittogramma con la stessa parola chiave. Nel risultato possono rimanere lettere di riempimento aggiunte durante la cifratura."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Gestire lettere ripetute in un digramma",
+                "key": "MILITARE",
+                "input": "PALLA",
+                "output": "ORTRTR",
+                "description": "Le due L di PALLA non possono stare nello stesso digramma. Prima della cifratura viene inserita automaticamente una lettera di riempimento."
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrare un messaggio di lunghezza dispari",
+                "key": "CHIAVE",
+                "input": "SEGRETO",
+                "output": "XHBUIXUG",
+                "description": "SEGRETO contiene un numero dispari di lettere, quindi prima della cifratura viene aggiunta automaticamente una lettera di riempimento."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 50,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario a digrammi"
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Basato su parola chiave"
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Coppie di lettere"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Uso militare"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Matrice di lettere"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,203 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T09:44:38+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "playfair",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 12,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 12,
+        "data": {
+            "name": "Chiffre de Playfair",
+            "name_short": "Chiffre de Playfair",
+            "description": "Chiffrez et déchiffrez du texte en ligne avec le chiffre de Playfair à l'aide d'un mot-clé et d'une matrice de lettres. Plusieurs alphabets et mots-clés personnalisés sont pris en charge.",
+            "description_stort": "Chiffre classique par substitution de digrammes avec une matrice fondée sur un mot-clé.",
+            "meta_title": "Chiffre de Playfair en ligne : encodeur et décodeur",
+            "meta_description": "Utilisez le chiffre de Playfair en ligne avec votre propre mot-clé et un alphabet sélectionnable. Chiffrez et déchiffrez instantanément ce chiffre classique fondé sur les digrammes."
+        }
+    },
+    "blocks": [
+        {
+            "id": 38,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Playfair",
+                "text": "<p>Le chiffre de Playfair est une méthode de chiffrement classique qui travaille avec des paires de lettres plutôt qu'avec des caractères isolés. Ces paires sont appelées digrammes.</p><p>On commence par générer une matrice de lettres à partir du mot-clé. Les lettres répétées du mot-clé sont supprimées, puis les cases restantes sont remplies avec les autres lettres de l'alphabet choisi. Pour les exemples en français, l'alphabet français est utilisé ; la matrice s'adapte donc à cet alphabet plutôt qu'à la variante anglaise traditionnelle en 5×5.</p><p>Pendant le chiffrement, le texte clair est découpé en digrammes. Si les deux lettres se trouvent sur la même ligne, elles sont remplacées par les lettres situées à leur droite. Si elles sont dans la même colonne, on utilise les lettres situées en dessous. Dans les autres cas, on applique la règle du rectangle : chaque lettre est remplacée par le caractère de la même ligne, mais dans le coin opposé du rectangle.</p><p>Des lettres de remplissage peuvent être insérées automatiquement pour séparer des lettres répétées ou compléter une dernière paire incomplète.</p>"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Caractéristiques du chiffre de Playfair",
+                "text": "<p>Contrairement aux substitutions simples comme le chiffre de César, Playfair chiffre des paires de lettres. L'analyse de fréquence lettre par lettre devient donc moins efficace, car une même lettre du texte clair peut produire des résultats différents selon sa paire.</p><p>Historiquement, ce chiffre était utile parce qu'il était plus robuste que de nombreux procédés manuels simples tout en restant praticable sans machine. Il suffit d'un mot-clé, d'une matrice et d'un petit ensemble de règles de substitution.</p><p>Selon les critères cryptographiques modernes, Playfair n'est pas sûr. Aujourd'hui, il sert surtout à l'apprentissage, aux énigmes, aux démonstrations et à la compréhension des chiffrements classiques par substitution polygraphique.</p>"
+            }
+        },
+        {
+            "id": 47,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Histoire du chiffre de Playfair",
+                "text": "<p>Le chiffre de Playfair a été inventé en 1854 par le scientifique britannique Charles Wheatstone. Il est toutefois devenu largement connu grâce à Lord Playfair, qui a fortement encouragé son usage pratique. C'est pourquoi le chiffre est associé à son nom plutôt qu'à celui de son inventeur.</p><p>Le procédé visait à améliorer les substitutions simples en chiffrant des paires de lettres au lieu de caractères individuels. Cela rendait l'analyse de fréquence traditionnelle nettement plus difficile et renforçait la sécurité des communications manuelles.</p><p>Playfair a été utilisé par des organisations militaires et diplomatiques à la fin du XIXe siècle et au début du XXe siècle. Même s'il n'est plus considéré comme sûr, il reste l'un des chiffres classiques les plus connus et demeure étudié comme une étape importante de l'histoire de la cryptographie.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 94,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Pourquoi des lettres supplémentaires sont-elles ajoutées avec Playfair ?",
+                "answer": "Le chiffre de Playfair travaille avec des paires de lettres, appelées digrammes. Si une paire contient deux lettres identiques ou si le message a une longueur impaire, des caractères de remplissage sont insérés pour former des digrammes valides."
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Le mot-clé influence-t-il la force du chiffrement ?",
+                "answer": "Oui. Le mot-clé détermine la structure de la matrice de Playfair. Des clés plus longues et moins prévisibles créent des motifs de substitution plus complexes et rendent l'analyse manuelle plus difficile."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Comment la matrice est-elle construite pour l'alphabet français ?",
+                "answer": "La matrice est construite à partir de l'alphabet choisi : les lettres uniques du mot-clé sont placées d'abord, puis les autres lettres de l'alphabet. Pour un texte français, l'alphabet français est utilisé ; les règles anglaises comme la fusion de I et J ne sont donc pas nécessaires."
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Playfair est-il sûr aujourd'hui ?",
+                "answer": "Non. Le chiffre de Playfair était plus fort que de nombreux chiffres classiques de son époque, mais il peut être cassé avec des techniques modernes de cryptanalyse. Aujourd'hui, il est surtout utilisé pour l'enseignement, les énigmes et l'étude historique."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Pourquoi Playfair utilise-t-il des paires de lettres plutôt que des lettres isolées ?",
+                "answer": "Chiffrer des paires de lettres complique l'analyse de fréquence simple par rapport aux chiffres monoalphabétiques. C'est l'une des innovations qui a rendu Playfair plus résistant que de nombreux procédés manuels plus anciens."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Chiffrer un message avec un mot-clé",
+                "key": "CLÉFRANÇAISE",
+                "input": "BONJOUR MONDE",
+                "output": "ÀPLPKÛFOPRËÇ",
+                "description": "Un exemple de base du chiffre de Playfair avec le mot-clé CLÉFRANÇAISE. Le mot-clé sert à construire la matrice avant la transformation du message."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Déchiffrer un cryptogramme Playfair",
+                "key": "CLÉFRANÇAISE",
+                "input": "ÀPLPKÛFOPRËÇ",
+                "output": "BONJOURMONDE",
+                "description": "Déchiffrez le cryptogramme avec le même mot-clé. Des lettres de remplissage ajoutées pendant le chiffrement peuvent rester visibles dans le résultat."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Gérer les lettres répétées dans un digramme",
+                "key": "ÉCOLE",
+                "input": "BALLON",
+                "output": "ÊCEÀELQO",
+                "description": "Les deux L de BALLON ne peuvent pas apparaître dans le même digramme. Une lettre de remplissage est insérée automatiquement avant le chiffrement."
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Chiffrer un message de longueur impaire",
+                "key": "LUMIÈRE",
+                "input": "CODEX",
+                "output": "GÛÎDWÀ",
+                "description": "CODEX contient un nombre impair de lettres, une lettre de remplissage est donc ajoutée automatiquement avant le chiffrement."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 50,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre par digrammes"
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Basé sur un mot-clé"
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Paires de lettres"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Usage militaire"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Matrice de lettres"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

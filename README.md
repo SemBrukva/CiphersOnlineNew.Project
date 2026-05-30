@@ -123,6 +123,26 @@ php bin/console cipher:content:import private/storage/content/classical-ciphers.
 Для расширения секций `blocks`, `faq`, `examples`, `tags` добавляйте новые элементы без `id` (или с `id: 0`) только в файле, где `meta.language == meta.default_language` (обычно `en`).
 В остальных языках добавлять новые сущности нельзя: там нужно переводить уже существующие `id`.
 
+### Skill для локализации JSON
+
+В репозитории есть skill для локализации контента шифров с обязательной валидацией примеров через API:
+
+- [docs/skills/cipher-content-localizer/SKILL.md](docs/skills/cipher-content-localizer/SKILL.md)
+
+Ключевая идея:
+- локализация, а не дословный перевод;
+- адаптация `examples[].data.key/input/description` под целевой язык;
+- обязательный пересчёт `examples[].data.output` через `/api/tools/{cipher}`.
+
+Скрипт пересчёта:
+
+```bash
+python3 docs/skills/cipher-content-localizer/scripts/recompute_example_outputs.py \
+  --source /abs/path/classical-ciphers.playfair.en.json \
+  --target /abs/path/classical-ciphers.playfair.ru.json \
+  --base-url http://127.0.0.1:8080
+```
+
 ## Архитектура
 
 ```

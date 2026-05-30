@@ -1,0 +1,203 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T09:44:38+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "playfair",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 12,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 12,
+        "data": {
+            "name": "Cifrado Playfair",
+            "name_short": "Cifrado Playfair",
+            "description": "Cifra y descifra texto con el cifrado Playfair en línea usando una palabra clave y una matriz de letras. Admite varios alfabetos y palabras clave personalizadas.",
+            "description_stort": "Cifrado clásico de sustitución por bigramas con una matriz basada en clave.",
+            "meta_title": "Cifrado Playfair online: codificador y decodificador",
+            "meta_description": "Usa el cifrado Playfair online con una palabra clave propia y un alfabeto seleccionable. Cifra y descifra al instante textos de este cifrado clásico por bigramas."
+        }
+    },
+    "blocks": [
+        {
+            "id": 38,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado Playfair",
+                "text": "<p>El cifrado Playfair es un método clásico de cifrado que trabaja con pares de letras en lugar de caracteres individuales. Estos pares se llaman bigramas.</p><p>Primero se genera una matriz de letras a partir de la palabra clave. Se eliminan las letras repetidas de la clave y las celdas restantes se completan con las demás letras del alfabeto elegido. En los ejemplos en español se usa el alfabeto español, por lo que la matriz se adapta a ese alfabeto y no a la variante inglesa tradicional de 5×5.</p><p>Durante el cifrado, el texto claro se divide en bigramas. Si dos letras están en la misma fila, se sustituyen por las letras situadas a su derecha. Si están en la misma columna, se usan las letras que hay debajo. En los demás casos se aplica la regla del rectángulo: cada letra se reemplaza por el carácter de la misma fila situado en la esquina opuesta del rectángulo.</p><p>Los caracteres de relleno pueden insertarse automáticamente para separar letras repetidas o completar una última pareja incompleta.</p>"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Características del cifrado Playfair",
+                "text": "<p>A diferencia de cifrados de sustitución simples como el César, Playfair cifra pares de letras. Esto hace que el análisis de frecuencia de letras individuales sea menos eficaz, porque una misma letra del texto claro puede producir resultados distintos según su pareja.</p><p>Históricamente fue útil porque era más fuerte que muchos cifrados manuales sencillos, pero seguía siendo práctico sin máquinas. Solo requiere una palabra clave, una matriz y un conjunto pequeño de reglas de sustitución.</p><p>Según los estándares criptográficos modernos, Playfair no es seguro. Hoy se utiliza sobre todo para enseñanza, acertijos, demostraciones y para comprender cómo funcionan los cifrados clásicos de sustitución poligráfica.</p>"
+            }
+        },
+        {
+            "id": 47,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Historia del cifrado Playfair",
+                "text": "<p>El cifrado Playfair fue inventado en 1854 por el científico británico Charles Wheatstone. Sin embargo, se hizo ampliamente conocido gracias a Lord Playfair, quien promovió con fuerza el sistema para usos prácticos. Por eso el cifrado quedó asociado a su nombre y no al de su inventor.</p><p>El método se diseñó para mejorar las sustituciones simples cifrando pares de letras en vez de caracteres individuales. Esto dificultaba de forma notable el análisis de frecuencia tradicional y aumentaba la seguridad de la comunicación manual.</p><p>Playfair fue utilizado por organizaciones militares y diplomáticas a finales del siglo XIX y principios del XX. Aunque hoy ya no se considera seguro, sigue siendo uno de los cifrados clásicos más conocidos y se estudia como un paso importante en la historia de la criptografía.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 94,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Por qué se añaden letras extra en el cifrado Playfair?",
+                "answer": "El cifrado Playfair trabaja con pares de letras llamados bigramas. Si una pareja contiene dos letras iguales o el mensaje tiene una longitud impar, se insertan caracteres de relleno para formar bigramas válidos."
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿La palabra clave afecta a la fortaleza del cifrado?",
+                "answer": "Sí. La palabra clave determina la estructura de la matriz Playfair. Las claves más largas y menos predecibles crean patrones de sustitución más complejos y dificultan el análisis manual."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Cómo se construye la matriz para el alfabeto español?",
+                "answer": "La matriz se construye con el alfabeto elegido: primero se colocan las letras únicas de la palabra clave y después las letras restantes del alfabeto. Para textos en español se usa el alfabeto español, por lo que no hace falta aplicar reglas inglesas como unir I y J."
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro el cifrado Playfair hoy en día?",
+                "answer": "No. Aunque Playfair fue más fuerte que muchos cifrados clásicos de su época, puede romperse con técnicas modernas de criptoanálisis. Hoy se usa principalmente para aprendizaje, acertijos y estudio histórico."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Por qué Playfair usa pares de letras en vez de letras individuales?",
+                "answer": "Cifrar pares de letras dificulta el análisis de frecuencia simple en comparación con los cifrados monoalfabéticos. Esta fue una de las innovaciones que hizo a Playfair más resistente que muchos cifrados manuales anteriores."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrar un mensaje con una palabra clave",
+                "key": "ESPAÑA",
+                "input": "HOLA MUNDO",
+                "output": "INMPUAKHMB",
+                "description": "Un ejemplo básico de cifrado Playfair con la palabra clave ESPAÑA. La clave se usa para construir la matriz antes de transformar el mensaje."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Descifrar un texto Playfair",
+                "key": "ESPAÑA",
+                "input": "INMPUAKHMB",
+                "output": "HOLAMUNDOA",
+                "description": "Descifra el criptograma con la misma palabra clave. Observa que pueden quedar caracteres de relleno añadidos durante el cifrado."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Tratar letras repetidas en un bigrama",
+                "key": "ESPAÑA",
+                "input": "LLAMA",
+                "output": "MPMPUG",
+                "description": "Las dos L de LLAMA no pueden quedar en el mismo bigrama. Antes del cifrado se inserta automáticamente un carácter de relleno."
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrar un mensaje de longitud impar",
+                "key": "CLAVEÑ",
+                "input": "SECRETO",
+                "output": "UALQVUME",
+                "description": "SECRETO contiene un número impar de letras, por lo que se añade automáticamente una letra de relleno antes de cifrar."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 50,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado por bigramas"
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Basado en palabra clave"
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Pares de letras"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Uso militar"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Matriz de letras"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

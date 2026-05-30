@@ -1,0 +1,203 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T09:44:38+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "playfair",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 12,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 12,
+        "data": {
+            "name": "Playfair-Chiffre",
+            "name_short": "Playfair-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text online mit der Playfair-Chiffre, einem Schlüsselwort und einer Buchstabenmatrix. Unterstützt mehrere Alphabete und eigene Schlüsselwörter.",
+            "description_stort": "Klassische Bigramm-Substitution mit Verschlüsselung über eine Schlüsselmatrix.",
+            "meta_title": "Playfair-Chiffre online: Encoder und Decoder",
+            "meta_description": "Nutzen Sie die Playfair-Chiffre online mit eigenem Schlüsselwort und wählbarem Alphabet. Verschlüsseln und entschlüsseln Sie klassische Bigramm-Chiffren sofort."
+        }
+    },
+    "blocks": [
+        {
+            "id": 38,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Playfair-Chiffre funktioniert",
+                "text": "<p>Die Playfair-Chiffre ist ein klassisches Verschlüsselungsverfahren, das nicht mit einzelnen Buchstaben, sondern mit Buchstabenpaaren arbeitet. Diese Paare heißen Bigramme.</p><p>Zuerst wird aus dem Schlüsselwort eine Buchstabenmatrix erzeugt. Doppelte Buchstaben im Schlüssel werden entfernt, anschließend werden die übrigen Felder mit den restlichen Buchstaben des gewählten Alphabets gefüllt. Für deutsche Beispiele wird das deutsche Alphabet verwendet; die Matrix richtet sich also nach diesem Alphabet und nicht nach der traditionellen englischen 5×5-Variante.</p><p>Beim Verschlüsseln wird der Klartext in Bigramme zerlegt. Befinden sich beide Buchstaben in derselben Zeile, werden sie durch die Buchstaben rechts daneben ersetzt. Befinden sie sich in derselben Spalte, werden die darunterliegenden Buchstaben verwendet. In allen anderen Fällen gilt die Rechteckregel: Jeder Buchstabe wird durch das Zeichen in derselben Zeile, aber an der gegenüberliegenden Ecke des Rechtecks ersetzt.</p><p>Füllbuchstaben können automatisch eingefügt werden, um doppelte Buchstaben in einem Paar zu trennen oder ein letztes unvollständiges Paar zu ergänzen.</p>"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Eigenschaften der Playfair-Chiffre",
+                "text": "<p>Im Unterschied zu einfachen Substitutionschiffren wie der Caesar-Chiffre verschlüsselt Playfair Buchstabenpaare. Dadurch ist eine einfache Häufigkeitsanalyse einzelner Buchstaben weniger wirksam, weil derselbe Klartextbuchstabe je nach Paar unterschiedliche Ergebnisse erzeugen kann.</p><p>Historisch war die Chiffre nützlich, weil sie stärker war als viele einfache manuelle Verfahren und trotzdem ohne Maschinen praktikabel blieb. Benötigt werden nur ein Schlüsselwort, eine Matrix und wenige Ersetzungsregeln.</p><p>Nach modernen kryptografischen Maßstäben ist Playfair nicht sicher. Heute eignet sich die Chiffre vor allem für Unterricht, Rätsel, Demonstrationen und zum Verständnis klassischer polygraphischer Substitutionsverfahren.</p>"
+            }
+        },
+        {
+            "id": 47,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Geschichte der Playfair-Chiffre",
+                "text": "<p>Die Playfair-Chiffre wurde 1854 vom britischen Wissenschaftler Charles Wheatstone erfunden. Bekannt wurde sie jedoch vor allem durch Lord Playfair, der das Verfahren stark für die praktische Nutzung bewarb. Deshalb ist die Chiffre heute mit seinem Namen verbunden und nicht mit dem Namen ihres Erfinders.</p><p>Das Verfahren sollte einfache Substitutionsmethoden verbessern, indem es Buchstabenpaare statt einzelner Zeichen verschlüsselt. Dadurch wurde die klassische Häufigkeitsanalyse deutlich erschwert und die Sicherheit manueller Kommunikation erhöht.</p><p>Playfair wurde im späten 19. und frühen 20. Jahrhundert von militärischen und diplomatischen Stellen genutzt. Obwohl sie heute nicht mehr als sicher gilt, bleibt sie eine der bekanntesten klassischen Chiffren und ein wichtiger Schritt in der Geschichte der Kryptografie.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 94,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Warum werden bei Playfair zusätzliche Buchstaben eingefügt?",
+                "answer": "Die Playfair-Chiffre arbeitet mit Buchstabenpaaren, also Bigrammen. Wenn ein Paar zwei gleiche Buchstaben enthält oder die Nachricht eine ungerade Länge hat, werden Füllzeichen eingefügt, damit gültige Bigramme entstehen."
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Beeinflusst das Schlüsselwort die Stärke der Verschlüsselung?",
+                "answer": "Ja. Das Schlüsselwort bestimmt den Aufbau der Playfair-Matrix. Längere und weniger vorhersehbare Schlüssel erzeugen komplexere Ersetzungsmuster und erschweren die manuelle Analyse."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Wie wird die Matrix für das deutsche Alphabet gebildet?",
+                "answer": "Die Matrix wird aus dem gewählten Alphabet aufgebaut: Zuerst kommen die eindeutigen Buchstaben des Schlüsselworts, danach die übrigen Buchstaben des Alphabets. Für deutsche Texte wird das deutsche Alphabet verwendet; englische Sonderregeln wie das Zusammenlegen von I und J sind dafür nicht nötig."
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Ist die Playfair-Chiffre heute noch sicher?",
+                "answer": "Nein. Die Playfair-Chiffre war stärker als viele klassische Chiffren ihrer Zeit, kann aber mit moderner Kryptoanalyse gebrochen werden. Heute wird sie hauptsächlich für Ausbildung, Rätsel und historische Beispiele genutzt."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Warum nutzt Playfair Buchstabenpaare statt einzelner Buchstaben?",
+                "answer": "Die Verschlüsselung von Buchstabenpaaren erschwert einfache Häufigkeitsanalysen stärker als monoalphabetische Verfahren. Das war eine der wichtigsten Ideen, durch die Playfair robuster wurde als viele frühere manuelle Chiffren."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Eine Nachricht mit einem Schlüsselwort verschlüsseln",
+                "key": "MONARCHIE",
+                "input": "HALLO WELT",
+                "output": "ÄMKRGRNJTY",
+                "description": "Ein grundlegendes Playfair-Beispiel mit dem Schlüsselwort MONARCHIE. Aus dem Schlüssel wird die Matrix gebildet, bevor die Nachricht in Bigrammen umgewandelt wird."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Playfair-Geheimtext entschlüsseln",
+                "key": "MONARCHIE",
+                "input": "ÄMKRGRNJTY",
+                "output": "HALALOWELT",
+                "description": "Entschlüsseln Sie den Geheimtext mit demselben Schlüsselwort. Im Ergebnis können zusätzliche Füllbuchstaben stehen bleiben, die beim Verschlüsseln eingefügt wurden."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Doppelte Buchstaben in einem Bigramm behandeln",
+                "key": "MILITÄR",
+                "input": "BALLON",
+                "output": "CBMCRJGE",
+                "description": "Die beiden L in BALLON dürfen nicht im selben Bigramm stehen. Vor dem Verschlüsseln wird automatisch ein Füllzeichen eingefügt."
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Eine Nachricht mit ungerader Länge verschlüsseln",
+                "key": "STRAßE",
+                "input": "GEHEIMNIS",
+                "output": "MGGÄJNIJTE",
+                "description": "GEHEIMNIS enthält eine ungerade Anzahl von Buchstaben. Deshalb wird vor der Verschlüsselung automatisch ein Füllbuchstabe ergänzt."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 50,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Bigramm-Chiffre"
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselwortbasiert"
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Buchstabenpaare"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Militärische Nutzung"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Buchstabenmatrix"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

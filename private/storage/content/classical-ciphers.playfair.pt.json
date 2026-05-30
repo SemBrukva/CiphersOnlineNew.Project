@@ -1,0 +1,203 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T09:44:38+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "playfair",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 12,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 12,
+        "data": {
+            "name": "Cifra de Playfair",
+            "name_short": "Cifra de Playfair",
+            "description": "Criptografe e descriptografe texto online com a cifra de Playfair usando uma palavra-chave e uma matriz de letras. Há suporte a vários alfabetos e palavras-chave personalizadas.",
+            "description_stort": "Cifra clássica de substituição por dígrafos com matriz baseada em palavra-chave.",
+            "meta_title": "Cifra de Playfair online: codificador e decodificador",
+            "meta_description": "Use a cifra de Playfair online com uma palavra-chave personalizada e alfabeto selecionável. Criptografe e descriptografe instantaneamente textos clássicos baseados em dígrafos."
+        }
+    },
+    "blocks": [
+        {
+            "id": 38,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra de Playfair funciona",
+                "text": "<p>A cifra de Playfair é um método clássico de criptografia que trabalha com pares de letras em vez de caracteres isolados. Esses pares são chamados de dígrafos.</p><p>Primeiro, uma matriz de letras é gerada a partir da palavra-chave. Letras repetidas na chave são removidas, e as células restantes são preenchidas com as outras letras do alfabeto escolhido. Nos exemplos em português, é usado o alfabeto português, então a matriz se adapta a esse alfabeto, e não à variante inglesa tradicional de 5×5.</p><p>Durante a criptografia, o texto claro é dividido em dígrafos. Se duas letras estiverem na mesma linha, elas são substituídas pelas letras à direita. Se estiverem na mesma coluna, são usadas as letras abaixo. Nos demais casos, aplica-se a regra do retângulo: cada letra é substituída pelo caractere da mesma linha, mas no canto oposto do retângulo.</p><p>Letras de preenchimento podem ser inseridas automaticamente para separar letras repetidas ou completar o último par incompleto.</p>"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Características da cifra de Playfair",
+                "text": "<p>Diferentemente de cifras de substituição simples, como a cifra de César, Playfair criptografa pares de letras. Isso torna a análise de frequência de letras individuais menos eficaz, pois a mesma letra do texto claro pode gerar resultados diferentes dependendo do par.</p><p>Historicamente, a cifra foi útil porque era mais forte que muitos métodos manuais simples, mas ainda podia ser usada sem máquinas. Ela exige apenas uma palavra-chave, uma matriz e um pequeno conjunto de regras de substituição.</p><p>Pelos padrões criptográficos modernos, Playfair não é segura. Hoje ela é útil principalmente para ensino, desafios, demonstrações e para entender como funcionam as cifras clássicas de substituição poligráfica.</p>"
+            }
+        },
+        {
+            "id": 47,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "História da cifra de Playfair",
+                "text": "<p>A cifra de Playfair foi inventada em 1854 pelo cientista britânico Charles Wheatstone. No entanto, tornou-se amplamente conhecida por meio de Lord Playfair, que promoveu fortemente o sistema para uso prático. Por isso, a cifra ficou associada ao seu nome, e não ao de seu inventor.</p><p>O método foi criado para melhorar substituições simples ao criptografar pares de letras em vez de caracteres individuais. Isso dificultava bastante a análise de frequência tradicional e aumentava a segurança da comunicação manual.</p><p>Playfair foi usada por organizações militares e diplomáticas no fim do século XIX e no início do século XX. Embora hoje não seja mais considerada segura, continua sendo uma das cifras clássicas mais conhecidas e ainda é estudada como uma etapa importante na história da criptografia.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 94,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Por que letras extras são adicionadas na cifra de Playfair?",
+                "answer": "A cifra de Playfair trabalha com pares de letras, chamados dígrafos. Se um par contém duas letras iguais ou se a mensagem tem comprimento ímpar, caracteres de preenchimento são inseridos para formar dígrafos válidos."
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "A palavra-chave influencia a força da criptografia?",
+                "answer": "Sim. A palavra-chave determina a estrutura da matriz de Playfair. Chaves mais longas e menos previsíveis criam padrões de substituição mais complexos e dificultam a análise manual."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Como a matriz é construída para o alfabeto português?",
+                "answer": "A matriz é construída a partir do alfabeto escolhido: primeiro entram as letras únicas da palavra-chave, depois as letras restantes do alfabeto. Para textos em português, usa-se o alfabeto português; regras inglesas como unir I e J não são necessárias."
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "A cifra de Playfair é segura hoje?",
+                "answer": "Não. A cifra de Playfair era mais forte que muitas cifras clássicas de sua época, mas pode ser quebrada com técnicas modernas de criptoanálise. Hoje é usada principalmente para ensino, desafios e estudo histórico."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Por que Playfair usa pares de letras em vez de letras isoladas?",
+                "answer": "Criptografar pares de letras dificulta a análise de frequência simples em comparação com cifras monoalfabéticas. Essa foi uma das principais inovações que tornou Playfair mais resistente que muitos métodos manuais anteriores."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Criptografar uma mensagem com uma palavra-chave",
+                "key": "AÇÃO",
+                "input": "OLA MUNDO",
+                "output": "ÇNÃKSÔEÃ",
+                "description": "Um exemplo básico da cifra de Playfair com a palavra-chave AÇÃO. A chave é usada para construir a matriz antes de transformar a mensagem."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Descriptografar um texto Playfair",
+                "key": "AÇÃO",
+                "input": "ÇNÃKSÔEÃ",
+                "output": "OLAMUNDO",
+                "description": "Descriptografe o criptograma com a mesma palavra-chave. Caracteres de preenchimento adicionados durante a criptografia podem permanecer visíveis no resultado."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Tratar letras repetidas em um dígrafo",
+                "key": "AÇÃO",
+                "input": "MASSA",
+                "output": "KÃPOPO",
+                "description": "As duas letras S em MASSA não podem ficar no mesmo dígrafo. Antes da criptografia, um caractere de preenchimento é inserido automaticamente."
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Criptografar uma mensagem de comprimento ímpar",
+                "key": "CHAVEÇÃO",
+                "input": "SEGREDO",
+                "output": "YBMXÇBÁH",
+                "description": "SEGREDO contém um número ímpar de letras, então uma letra de preenchimento é adicionada automaticamente antes da criptografia."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 50,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra por dígrafos"
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Baseada em palavra-chave"
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Pares de letras"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Uso militar"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Matriz de letras"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

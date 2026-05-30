@@ -1,0 +1,203 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T09:44:38+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "playfair",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 12,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 12,
+        "data": {
+            "name": "Playfair Şifresi",
+            "name_short": "Playfair Şifresi",
+            "description": "Playfair şifresiyle metni çevrim içi olarak anahtar sözcük ve harf matrisi kullanarak şifreleyin veya çözün. Birden çok alfabe ve özel anahtar sözcükler desteklenir.",
+            "description_stort": "Anahtar matrisine dayalı klasik digraf yerine koyma şifresi.",
+            "meta_title": "Playfair Şifresi Online Şifreleyici ve Çözücü",
+            "meta_description": "Playfair şifresini özel bir anahtar sözcük ve seçilebilir alfabe ile online kullanın. Digraf tabanlı klasik şifreli metinleri anında şifreleyin ve çözün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 38,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Playfair şifresi nasıl çalışır",
+                "text": "<p>Playfair şifresi, tek tek karakterler yerine harf çiftleriyle çalışan klasik bir şifreleme yöntemidir. Bu çiftlere digraf denir.</p><p>Önce anahtar sözcükten bir harf matrisi oluşturulur. Anahtardaki tekrar eden harfler kaldırılır ve kalan hücreler seçilen alfabenin diğer harfleriyle doldurulur. Türkçe örneklerde Türk alfabesi kullanılır; bu nedenle matris, geleneksel İngilizce 5×5 düzene göre değil, seçilen Türk alfabesine göre kurulur.</p><p>Şifreleme sırasında açık metin digraflara ayrılır. İki harf aynı satırdaysa sağlarındaki harflerle değiştirilir. Aynı sütundalarsa altlarındaki harfler kullanılır. Diğer durumlarda dikdörtgen kuralı uygulanır: Her harf, aynı satırdaki fakat dikdörtgenin karşı köşesindeki karakterle değiştirilir.</p><p>Tekrarlanan harfleri ayırmak veya son eksik çifti tamamlamak için dolgu harfleri otomatik olarak eklenebilir.</p>"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Playfair şifresinin özellikleri",
+                "text": "<p>Sezar şifresi gibi basit yerine koyma şifrelerinden farklı olarak Playfair harf çiftlerini şifreler. Bu, tek harf frekans analizini daha az etkili hâle getirir; çünkü aynı açık metin harfi, bulunduğu çifte göre farklı sonuçlar üretebilir.</p><p>Tarihsel olarak bu şifre yararlıydı çünkü birçok basit elle uygulanan şifreden daha güçlüydü, ancak makine gerektirmeden kullanılabilecek kadar pratiktı. Yalnızca bir anahtar sözcük, bir matris ve küçük bir yerine koyma kuralı kümesi gerekir.</p><p>Modern kriptografik ölçütlere göre Playfair güvenli değildir. Günümüzde daha çok eğitim, bulmaca, gösterim ve klasik poligrafik yerine koyma şifrelerinin çalışma mantığını anlamak için kullanılır.</p>"
+            }
+        },
+        {
+            "id": 47,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Playfair şifresinin tarihi",
+                "text": "<p>Playfair şifresi 1854 yılında İngiliz bilim insanı Charles Wheatstone tarafından icat edildi. Ancak sistem, pratik kullanım için onu güçlü biçimde tanıtan Lord Playfair sayesinde yaygın olarak bilinir hâle geldi. Bu yüzden şifre, mucidinin adı yerine Playfair adıyla anılır.</p><p>Şifre, tek tek karakterler yerine harf çiftlerini şifreleyerek basit yerine koyma yöntemlerini geliştirmek için tasarlandı. Bu yaklaşım geleneksel frekans analizini belirgin biçimde zorlaştırdı ve elle yapılan iletişimin güvenliğini artırdı.</p><p>Playfair, 19. yüzyılın sonlarında ve 20. yüzyılın başlarında askerî ve diplomatik kuruluşlar tarafından kullanıldı. Bugün artık güvenli kabul edilmese de en bilinen klasik şifrelerden biri olarak kriptografi tarihinde önemli bir aşama sayılır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 94,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Playfair şifrelemesinde neden ek harfler eklenir?",
+                "answer": "Playfair şifresi digraf adı verilen harf çiftleriyle çalışır. Bir çift aynı iki harfi içerirse veya mesajın uzunluğu tek sayıysa geçerli digraflar oluşturmak için dolgu karakterleri eklenir."
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Anahtar sözcük şifrelemenin gücünü etkiler mi?",
+                "answer": "Evet. Anahtar sözcük Playfair matrisinin yapısını belirler. Daha uzun ve daha az tahmin edilebilir anahtarlar daha karmaşık yerine koyma örüntüleri oluşturur ve elle analizi zorlaştırır."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Türk alfabesi için matris nasıl oluşturulur?",
+                "answer": "Matris seçilen alfabeden oluşturulur: Önce anahtar sözcüğün benzersiz harfleri, ardından alfabenin kalan harfleri yerleştirilir. Türkçe metinlerde Türk alfabesi kullanılır; bu yüzden I ve J harflerini birleştirmek gibi İngilizceye özgü kurallar gerekmez."
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Playfair şifresi bugün güvenli midir?",
+                "answer": "Hayır. Playfair şifresi kendi dönemindeki birçok klasik şifreden daha güçlüydü, ancak modern kriptoanaliz teknikleriyle kırılabilir. Bugün çoğunlukla eğitim, bulmaca ve tarihsel inceleme için kullanılır."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Playfair neden tek harfler yerine harf çiftleri kullanır?",
+                "answer": "Harf çiftlerini şifrelemek, monoalfabetik şifrelere göre basit frekans analizini zorlaştırır. Bu, Playfair'i önceki birçok elle uygulanan şifreden daha dayanıklı yapan başlıca yeniliklerden biriydi."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Bir mesajı anahtar sözcükle şifreleme",
+                "key": "TÜRKİYE",
+                "input": "MERHABA DUNYA",
+                "output": "STCOBCBFÜUTD",
+                "description": "TÜRKİYE anahtar sözcüğüyle temel bir Playfair şifreleme örneği. Mesaj dönüştürülmeden önce anahtardan şifre matrisi oluşturulur."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Playfair şifreli metnini çözme",
+                "key": "TÜRKİYE",
+                "input": "STCOBCBFÜUTD",
+                "output": "MERHABADUNYA",
+                "description": "Şifreli metni aynı anahtar sözcükle çözün. Şifreleme sırasında eklenen dolgu harfleri sonuçta kalabilir."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Bir digraftaki tekrarlanan harfleri işleme",
+                "key": "ŞİFRE",
+                "input": "KAPPA",
+                "output": "MRTRTR",
+                "description": "KAPPA sözcüğündeki iki P aynı digrafta yer alamaz. Şifrelemeden önce araya otomatik olarak bir dolgu harfi eklenir."
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Tek uzunluklu bir mesajı şifreleme",
+                "key": "ŞİFRE",
+                "input": "MESAJ",
+                "output": "LATEMF",
+                "description": "MESAJ tek sayıda harf içerdiği için şifrelemeden önce otomatik olarak bir dolgu harfi eklenir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 50,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Digraf şifresi"
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Anahtar sözcük tabanlı"
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Harf çiftleri"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Askerî kullanım"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Harf matrisi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
