@@ -77,15 +77,20 @@ final readonly class ToolRegistry
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',          'alphabet' => 'en', 'key' => 'PLAYFAIR'],
                 ['label' => 'Secret',   'value' => 'HIDE THE GOLD',        'alphabet' => 'en', 'key' => 'SECRET'],
             ],
+            'classical-ciphers/caesar' => [
+                ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'shift' => 3],
+                ['label' => 'ROT-13',   'value' => 'HELLO WORLD',          'alphabet' => 'en', 'shift' => 13],
+                ['label' => 'Secret',   'value' => 'ATTACK AT DAWN',       'alphabet' => 'en', 'shift' => 7],
+            ],
             'classical-ciphers/beaufort' => [
-                ['label' => 'EN', 'value' => 'DEFEND THE EAST WALL'],
-                ['label' => 'RU', 'value' => 'ЗАЩИЩАЙ ВОСТОЧНУЮ СТЕНУ'],
-                ['label' => 'ES', 'value' => 'DEFIENDE EL MURO ESTE'],
+                ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'SECRET'],
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',          'alphabet' => 'en', 'key' => 'BEAUFORT'],
+                ['label' => 'Secret',   'value' => 'ATTACK AT DAWN',       'alphabet' => 'en', 'key' => 'KEY'],
             ],
             'classical-ciphers/gronsfeld' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+                ['label' => 'Military', 'value' => 'HELLO WORLD',    'alphabet' => 'en', 'key' => '9871'],
+                ['label' => 'Classic',  'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => '1234'],
+                ['label' => 'Secret',   'value' => 'HIDE THE GOLD',  'alphabet' => 'en', 'key' => '5678'],
             ],
             'classical-ciphers/vigenere' => [
                 ['label' => 'EN', 'value' => 'ATTACK AT DAWN'],
