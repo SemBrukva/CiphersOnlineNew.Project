@@ -129,6 +129,8 @@ return [
 
     // Карта сайта
     'SITEMAP_TITLE'         => 'Sitemap',
+    'SITEMAP_META'          => 'Catalog of all cipher and encoding tools available on CiphersOnline.',
+    'SITEMAP_DESC'          => 'Browse all available cipher and encoding tools, organized by category.',
     'SITEMAP_MAIN_PAGES'    => 'Main pages',
     'SITEMAP_PAGES'         => 'Pages',
 

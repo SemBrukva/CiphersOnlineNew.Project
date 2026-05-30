@@ -58,6 +58,39 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает опубликованные шифры, сгруппированные по alias категории, для XML-карты сайта.
+     *
+     * @return array<string, list<array{alias: string, updated_at: string|null}>>
+     */
+    public function listPublishedForSitemap(): array
+    {
+        $rows = $this->db->fetchAll(
+            'SELECT c.alias, c.updated_at, cat.alias AS category_alias '
+            . 'FROM ' . Tables::CIPHERS . ' c '
+            . 'JOIN ' . Tables::CIPHER_CATEGORIES . ' cat ON cat.id = c.category_id '
+            . 'WHERE c.published = 1 AND cat.published = 1 '
+            . 'ORDER BY cat.sort_order ASC, c.sort_order ASC, c.id ASC'
+        );
+
+        $grouped = [];
+
+        foreach ($rows as $row) {
+            $catAlias = (string) ($row['category_alias'] ?? '');
+
+            if ($catAlias === '') {
+                continue;
+            }
+
+            $grouped[$catAlias][] = [
+                'alias'      => (string) ($row['alias'] ?? ''),
+                'updated_at' => $row['updated_at'] !== null ? (string) $row['updated_at'] : null,
+            ];
+        }
+
+        return $grouped;
+    }
+
+    /**
      * Возвращает список шифров для админской страницы.
      *
      * @return array<int, array<string, mixed>>

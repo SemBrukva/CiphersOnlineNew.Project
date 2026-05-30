@@ -49,7 +49,7 @@ final readonly class Response
         return new self(
             $content,
             $status,
-            ['Content-Type' => 'text/xml; charset=utf-8']
+            ['Content-Type' => 'application/xml; charset=utf-8']
         );
     }
 

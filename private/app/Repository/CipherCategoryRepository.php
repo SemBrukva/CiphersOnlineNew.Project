@@ -153,6 +153,19 @@ final class CipherCategoryRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает опубликованные категории с alias и датой обновления для XML-карты сайта.
+     *
+     * @return array<int, array{alias: string, updated_at: string|null}>
+     */
+    public function listPublishedForSitemap(): array
+    {
+        return $this->db->fetchAll(
+            'SELECT alias, updated_at FROM ' . $this->table
+            . ' WHERE published = 1 ORDER BY sort_order ASC, id ASC'
+        );
+    }
+
+    /**
      * Возвращает все опубликованные категории с переводом для главной страницы.
      *
      * @return array<int, array<string, mixed>>

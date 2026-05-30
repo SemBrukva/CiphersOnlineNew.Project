@@ -4,27 +4,34 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Cache\CacheInterface;
 use App\Http\Request;
 use App\Http\Response;
 use App\I18n\Translator;
-use App\Repository\SystemPageRepository;
+use App\Repository\CipherCategoryRepository;
+use App\Repository\CipherRepository;
 use App\View\View;
 use XMLWriter;
 
 /**
  * Контроллер карты сайта.
  *
- * Генерирует HTML-карту (для текущей локали) и XML-карту (для всех языков).
+ * Генерирует HTML-карту (категории и инструменты для текущей локали)
+ * и XML-карту (категории и инструменты для всех языков).
  */
 final readonly class SitemapController
 {
+    private const int CACHE_TTL = 3600;
+
     /**
      * Создаёт экземпляр контроллера.
      */
     public function __construct(
-        private View       $view,
-        private SystemPageRepository $pages,
-        private Translator $translator
+        private View                     $view,
+        private CipherCategoryRepository $categories,
+        private CipherRepository         $ciphers,
+        private Translator               $translator,
+        private CacheInterface           $cache,
     ) {
     }
 
@@ -33,12 +40,33 @@ final readonly class SitemapController
      */
     public function html(Request $request): Response
     {
-        $pages = $this->loadPages();
+        $language        = locale();
+        $defaultLanguage = (string) config('locale.locale', 'en');
+
+        $publishedCategories = $this->categories->findPublishedCategoriesForHome($language, $defaultLanguage);
+
+        $categoriesWithTools = [];
+        foreach ($publishedCategories as $category) {
+            $tools = $this->ciphers->findPublishedByCategoryWithTranslation(
+                (int) $category['id'],
+                $language,
+                $defaultLanguage,
+            );
+
+            if ($tools !== []) {
+                $category['tools'] = $tools;
+                $categoriesWithTools[] = $category;
+            }
+        }
 
         $this->view
             ->setTitle(trans('SITEMAP_TITLE'))
+            ->setMeta(trans('SITEMAP_META'))
+            ->setBreadcrumbs([
+                ['label' => trans('SITEMAP_TITLE')],
+            ])
             ->setContent($this->view->fetch('sitemap/html.tpl', [
-                'pages' => $pages,
+                'categories' => $categoriesWithTools,
             ]));
 
         return new Response($this->view->render());
@@ -47,7 +75,7 @@ final readonly class SitemapController
     /**
      * Возвращает XML-карту сайта для всех активных языков.
      *
-     * Формат: Sitemap Protocol 0.9 с xhtml:link для мультиязычности.
+     * Включает страницы категорий и инструментов по всем языкам с lastmod и xhtml:link.
      */
     public function xml(Request $request): Response
     {
@@ -55,32 +83,62 @@ final readonly class SitemapController
         $multilang = $this->translator->isMultilang();
         $locales   = $this->translator->getLocales();
         $default   = $this->translator->getDefaultLocale();
-        $pages     = $this->loadPages();
 
-        $paths = [
-            ['path' => '/', 'priority' => '1.0', 'changefreq' => 'weekly'],
-            ['path' => '/contacts', 'priority' => '0.7', 'changefreq' => 'monthly'],
-        ];
+        $paths = $this->cache->remember('sitemap.xml.paths', self::CACHE_TTL, function (): array {
+            $grouped    = $this->ciphers->listPublishedForSitemap();
+            $categories = $this->categories->listPublishedForSitemap();
+            $today      = date('Y-m-d');
+            $paths      = [];
 
-        foreach ($pages as $page) {
-            $paths[] = [
-                'path'       => '/page/' . $page['alias'],
-                'priority'   => '0.7',
-                'changefreq' => 'monthly',
-            ];
-        }
+            foreach ($categories as $category) {
+                $catAlias = (string) $category['alias'];
+                $lastmod  = $this->formatLastmod($category['updated_at'], $today);
+
+                $paths[] = [
+                    'path'       => '/' . $catAlias,
+                    'priority'   => '0.8',
+                    'changefreq' => 'weekly',
+                    'lastmod'    => $lastmod,
+                ];
+
+                foreach ($grouped[$catAlias] ?? [] as $tool) {
+                    $paths[] = [
+                        'path'       => '/' . $catAlias . '/' . $tool['alias'],
+                        'priority'   => '0.9',
+                        'changefreq' => 'monthly',
+                        'lastmod'    => $this->formatLastmod($tool['updated_at'], $today),
+                    ];
+                }
+            }
+
+            return $paths;
+        });
 
         return Response::xml($this->buildXml($appUrl, $paths, $multilang, $locales, $default));
     }
 
     /**
+     * Форматирует дату lastmod из datetime-строки в формат Y-m-d.
+     *
+     * @param string|null $datetime Значение поля updated_at из БД.
+     * @param string      $fallback Дата по умолчанию, если поле пустое.
+     */
+    private function formatLastmod(?string $datetime, string $fallback): string
+    {
+        if ($datetime === null || $datetime === '') {
+            return $fallback;
+        }
+
+        return substr($datetime, 0, 10);
+    }
+
+    /**
      * Строит XML-содержимое карты сайта через XMLWriter.
      *
-     * Экранирование и форматирование делегируются XMLWriter.
      * При мультиязычности каждый путь раскрывается в N записей (по числу локалей)
      * с xhtml:link-альтернативами во всех записях.
      *
-     * @param array<int, array{path: string, priority: string, changefreq: string}> $paths
+     * @param array<int, array{path: string, priority: string, changefreq: string, lastmod: string}> $paths
      * @param string[] $locales
      */
     private function buildXml(
@@ -104,7 +162,7 @@ final readonly class SitemapController
             $w->writeAttribute('xmlns:xhtml', 'http://www.w3.org/1999/xhtml');
         }
 
-        foreach ($paths as ['path' => $path, 'priority' => $priority, 'changefreq' => $changefreq]) {
+        foreach ($paths as ['path' => $path, 'priority' => $priority, 'changefreq' => $changefreq, 'lastmod' => $lastmod]) {
             $localeList = $withAlternates ? $locales : [$default];
 
             foreach ($localeList as $locale) {
@@ -113,6 +171,7 @@ final readonly class SitemapController
                 $w->startElement('url');
 
                 $w->writeElement('loc', $appUrl . $localePath);
+                $w->writeElement('lastmod', $lastmod);
 
                 if ($withAlternates) {
                     foreach ($locales as $altLocale) {
@@ -136,19 +195,5 @@ final readonly class SitemapController
         $w->endDocument();
 
         return $w->outputMemory();
-    }
-
-    /**
-     * Загружает опубликованные системные страницы из базы данных.
-     *
-     * @return array<int, array{alias: string, name: string}>
-     */
-    private function loadPages(): array
-    {
-        try {
-            return $this->pages->listPublishedForNavigation();
-        } catch (\Throwable) {
-            return [];
-        }
     }
 }

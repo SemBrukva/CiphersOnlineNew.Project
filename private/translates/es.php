@@ -116,6 +116,8 @@ return [
     'FAVORITES_EMPTY_TEXT'   => 'Aún no hay herramientas guardadas. Haz clic en ★ en cualquier página de herramienta para guardarla aquí.',
     'FAVORITES_BROWSE_BTN'   => 'Explorar herramientas',
     'SITEMAP_TITLE' => 'Mapa del sitio',
+    'SITEMAP_META'  => 'Catálogo de todas las herramientas de cifrado y codificación disponibles en CiphersOnline.',
+    'SITEMAP_DESC'  => 'Todas las herramientas de cifrado y codificación disponibles, organizadas por categoría.',
     'SITEMAP_MAIN_PAGES' => 'Páginas principales',
     'SITEMAP_PAGES' => 'Páginas',
     'ITEMS_COUNT' => ':count elemento|:count elementos',

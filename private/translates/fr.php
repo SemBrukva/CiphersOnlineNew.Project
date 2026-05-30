@@ -116,6 +116,8 @@ return [
     'FAVORITES_EMPTY_TEXT'   => 'Aucun outil enregistré pour l\'instant. Cliquez sur ★ sur n\'importe quelle page d\'outil pour l\'enregistrer ici.',
     'FAVORITES_BROWSE_BTN'   => 'Parcourir les outils',
     'SITEMAP_TITLE' => 'Plan du site',
+    'SITEMAP_META'  => 'Catalogue de tous les outils de chiffrement et d\'encodage disponibles sur CiphersOnline.',
+    'SITEMAP_DESC'  => 'Tous les outils de chiffrement et d\'encodage disponibles, organisés par catégorie.',
     'SITEMAP_MAIN_PAGES' => 'Pages principales',
     'SITEMAP_PAGES' => 'Pages',
     'ITEMS_COUNT' => ':count élément|:count éléments',

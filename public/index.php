@@ -46,6 +46,12 @@ $adminPath   = config('admin.path', '/admin');
         'contentType' => null,
         'isApi' => true,
     ],
+    $requestPath === '/sitemap.xml' => [
+        'router' => app(Router::class),
+        'middleware' => config('middleware', []),
+        'contentType' => null,
+        'isApi' => false,
+    ],
     $requestPath === $adminPath || str_starts_with($requestPath, $adminPath . '/') => [
         'router' => app(AdminRouter::class),
         'middleware' => config('middleware', []),

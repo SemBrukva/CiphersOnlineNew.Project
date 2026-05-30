@@ -116,6 +116,8 @@ return [
     'FAVORITES_EMPTY_TEXT'   => 'Henüz kaydedilmiş araç yok. Bir araç sayfasındaki ★ düğmesine tıklayarak buraya ekleyin.',
     'FAVORITES_BROWSE_BTN'   => 'Araçlara göz at',
     'SITEMAP_TITLE' => 'Site Haritası',
+    'SITEMAP_META'  => 'CiphersOnline\'da mevcut tüm şifreleme ve kodlama araçlarının kataloğu.',
+    'SITEMAP_DESC'  => 'Kategorilere göre düzenlenmiş tüm mevcut şifreleme ve kodlama araçları.',
     'SITEMAP_MAIN_PAGES' => 'Ana sayfalar',
     'SITEMAP_PAGES' => 'Sayfalar',
     'ITEMS_COUNT' => ':count öğe|:count öğe',

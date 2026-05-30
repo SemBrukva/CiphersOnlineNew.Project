@@ -3264,3 +3264,119 @@ a:focus .nav-fav-count {
     }
 }
 
+/* === Sitemap page === */
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.sitemap-category {
+  padding: 18px 20px 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid var(--co-accent);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sitemap-category__header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.sitemap-category__icon {
+  font-size: 13px;
+  color: #7a9a00;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sitemap-category__name {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-secondary);
+  flex: 1;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.sitemap-category__name a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--co-transition);
+}
+
+.sitemap-category__name a:hover {
+  color: var(--co-primary);
+}
+
+.sitemap-category__count {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(193, 255, 0, 0.18);
+  color: #3d6400;
+  border: 1px solid rgba(140, 195, 0, 0.4);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.sitemap-category__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sitemap-tool-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  text-decoration: none;
+  line-height: 1.3;
+  transition: background var(--co-transition), border-color var(--co-transition), color var(--co-transition);
+}
+
+.sitemap-tool-link::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #a8c800;
+  opacity: 0.45;
+  flex-shrink: 0;
+  transition: opacity var(--co-transition);
+}
+
+.sitemap-tool-link:hover {
+  background: rgba(193, 255, 0, 0.1);
+  border-color: rgba(140, 195, 0, 0.45);
+  color: #1e3d00;
+}
+
+.sitemap-tool-link:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 575px) {
+  .sitemap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

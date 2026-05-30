@@ -116,6 +116,8 @@ return [
     'FAVORITES_EMPTY_TEXT'   => 'Noch keine gespeicherten Werkzeuge. Klicken Sie auf ★ auf einer Werkzeugseite, um sie hier zu speichern.',
     'FAVORITES_BROWSE_BTN'   => 'Werkzeuge durchsuchen',
     'SITEMAP_TITLE' => 'Sitemap',
+    'SITEMAP_META'  => 'Verzeichnis aller Verschlüsselungs- und Kodierungswerkzeuge auf CiphersOnline.',
+    'SITEMAP_DESC'  => 'Alle verfügbaren Verschlüsselungs- und Kodierungswerkzeuge, nach Kategorien geordnet.',
     'SITEMAP_MAIN_PAGES' => 'Hauptseiten',
     'SITEMAP_PAGES' => 'Seiten',
     'ITEMS_COUNT' => ':count Eintrag|:count Einträge',
