@@ -1,0 +1,257 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:10:58+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "beaufort",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 13,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 13,
+        "data": {
+            "name": "Chiffre de Beaufort",
+            "name_short": "Chiffre de Beaufort",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre de Beaufort en ligne, à l’aide d’un mot-clé et d’un alphabet sélectionnable. C’est un chiffre polyalphabétique classique dans lequel la même opération peut servir au chiffrement comme au déchiffrement.",
+            "description_stort": "Chiffre classique réciproque fondé sur un mot-clé.",
+            "meta_title": "Chiffre de Beaufort en ligne : chiffreur et déchiffreur",
+            "meta_description": "Chiffrez et déchiffrez du texte avec le chiffre de Beaufort en utilisant un mot-clé personnalisé et un alphabet sélectionnable. Découvrez le fonctionnement de ce chiffre classique réciproque."
+        }
+    },
+    "blocks": [
+        {
+            "id": 39,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Beaufort",
+                "text": "<p>Le chiffre de Beaufort est un chiffre de substitution polyalphabétique classique qui utilise un mot-clé répété pour transformer le texte. Contrairement au chiffre de Vigenere, chaque lettre de sortie est calculée à partir de la lettre du mot-clé et de la lettre du texte clair selon une relation inversée.</p><p>La caractéristique la plus distinctive du chiffre de Beaufort est sa nature réciproque. La même transformation sert au chiffrement et au déchiffrement, ce qui signifie que le même mot-clé peut traiter le texte dans les deux sens.</p><p>Comme les substitutions changent selon la lettre courante du mot-clé, ce chiffre résiste mieux à l’analyse fréquentielle simple que les chiffres monoalphabétiques comme César.</p>"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Chiffre de Beaufort et chiffre de Vigenere",
+                "text": "<p>Le chiffre de Beaufort appartient à la même famille de chiffres polyalphabétiques à mot-clé que Vigenere. Tous deux utilisent un mot-clé répété et une table alphabétique de type tabula recta.</p><p>La principale différence se trouve dans la formule de chiffrement. Dans le chiffre de Beaufort, la lettre du mot-clé détermine effectivement la position de départ, puis la lettre du texte clair en est soustraite. Cela crée un système réciproque dans lequel chiffrement et déchiffrement utilisent la même opération.</p><p>Même si le niveau de sécurité pratique est comparable, Beaufort est souvent étudié pour son élégante symétrie et son usage historique.</p>"
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Histoire du chiffre de Beaufort",
+                "text": "<p>Le chiffre de Beaufort doit son nom à Sir Francis Beaufort, officier naval britannique surtout connu pour avoir créé l’échelle de force du vent de Beaufort. Le chiffre a été associé aux communications militaires et navales au XIXe siècle.</p><p>Aujourd’hui, il est principalement utilisé dans l’enseignement, les cours de cryptographie et les collections de chiffres historiques. Il n’est plus sûr pour les communications réelles, mais reste un exemple important de chiffrement polyalphabétique classique.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 96,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Beaufort est-il symétrique ?",
+                "answer": "Oui. La même transformation peut être utilisée pour le chiffrement comme pour le déchiffrement."
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Le mot-clé peut-il contenir des espaces ?",
+                "answer": "Seuls les symboles de l’alphabet sélectionné participent au flux de clé ; les autres caractères sont ignorés."
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Beaufort est-il identique au chiffre de Vigenere ?",
+                "answer": "Non. Les deux utilisent un mot-clé répété, mais le chiffre de Beaufort applique une règle de chiffrement différente et il est réciproque, c’est-à-dire que la même opération sert au chiffrement et au déchiffrement."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Pourquoi la même opération déchiffre-t-elle le texte ?",
+                "answer": "Le chiffre de Beaufort est conçu comme un chiffre réciproque. En appliquant de nouveau l’algorithme avec le même mot-clé, la transformation s’inverse automatiquement."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Beaufort est-il sûr aujourd’hui ?",
+                "answer": "Non. Comme la plupart des chiffres classiques, Beaufort peut être cassé avec la cryptanalyse moderne et la puissance de calcul actuelle. Il sert surtout à l’apprentissage et à l’étude historique."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces et la ponctuation ?",
+                "answer": "Les espaces, les nombres et les signes de ponctuation sont généralement conservés tels quels. Seules les lettres de l’alphabet sélectionné participent au chiffrement."
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Qui était Francis Beaufort ?",
+                "answer": "Sir Francis Beaufort était un officier naval et hydrographe britannique. Le chiffre porte son nom et a été associé aux communications militaires du XIXe siècle."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 7,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Chiffrer avec le mot-clé ÉTÉ",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "PROTÈGE LE VIEUX PONT",
+                "output": "OÂPKLWÀ ÈÀ HHÀJÜ OPEK",
+                "description": "Mot-clé : ÉTÉ. Le mot-clé répété est appliqué à chaque lettre, tandis que les espaces restent inchangés."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Déchiffrer avec le même mot-clé",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "OÂPKLWÀ ÈÀ HHÀJÜ OPEK",
+                "output": "PROTÈGE LE VIEUX PONT",
+                "description": "Mot-clé : ÉTÉ. Beaufort est réciproque : appliquer de nouveau la même transformation restitue le message d’origine."
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Chiffrement à mot-clé sur un message court",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "ÉTÉ CLAIR",
+                "output": "AAA CÈÉÜÂ",
+                "description": "Mot-clé : ÉTÉ. Chaque lettre du texte clair est transformée avec la lettre courante du mot-clé, puis le mot-clé se répète."
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Conserver les espaces, nombres et ponctuation",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "RENDEZ-VOUS À 9, ÉTÉ!",
+                "output": "MNQÂNÈ-HDJL S 9, AKM!",
+                "description": "Mot-clé : ÉTÉ. Seules les lettres sont transformées ; espaces, signes de ponctuation, nombres et autres symboles restent inchangés."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 53,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabétique"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiffre réciproque"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Chiffre à mot-clé"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Famille Vigenere"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Famille Vigenere"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

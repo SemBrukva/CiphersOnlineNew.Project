@@ -1,0 +1,216 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:53:44+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "gronsfeld",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 14,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 14,
+        "data": {
+            "name": "Gronsfeld Şifresi",
+            "name_short": "Gronsfeld Şifresi",
+            "description": "Sayısal anahtar, tekrarlanan rakam kaydırmaları ve seçilebilir alfabe ile Gronsfeld şifresini çevrimiçi olarak şifreleyin ve çözün.",
+            "description_stort": "Sayısal anahtar kullanan Vigenere tarzı klasik şifre.",
+            "meta_title": "Çevrimiçi Gronsfeld Şifresi Kodlayıcı ve Çözücü",
+            "meta_description": "Sayısal anahtar ve seçilebilir alfabe ile Gronsfeld şifresini çevrimiçi kullanın. Vigenere tarzı klasik şifre metinlerini anında şifreleyin ve çözün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Gronsfeld şifresi nasıl çalışır",
+                "text": "<p>Gronsfeld şifresi, Caesar kaydırmalarından oluşan bir dizi gibi çalışan klasik bir çok alfabeli şifredir. Tüm mesaj için tek bir sabit kaydırma kullanmak yerine, her rakamın farklı bir kaydırmayı tanımladığı sayısal bir anahtar kullanır.</p><p>Örneğin 314159 anahtarında ilk harf 3 konum, ikinci harf 1 konum, üçüncü harf 4 konum kaydırılır ve işlem böyle devam eder. Anahtarın sonuna gelindiğinde rakamlar baştan tekrar eder ve mesajın tamamı işlenene kadar kullanılır.</p><p>Çözme sırasında aynı sayısal anahtar ters yönde kullanılır: her şifreli harf, karşılık gelen rakam kadar geri kaydırılır. Seçilen alfabenin parçası olmayan boşluklar, noktalama işaretleri, rakamlar ve semboller genellikle değiştirilmeden korunur.</p>"
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Gronsfeld şifresi ve Vigenere şifresi",
+                "text": "<p>Gronsfeld şifresi Vigenere şifresine yakından bağlıdır, ancak anahtar olarak harfler yerine rakamlar kullanır. Vigenere'de her anahtar harfi bir kaydırma değerini temsil eder. Gronsfeld'de ise kaydırma değerleri 0 ile 9 arasındaki sayılarla doğrudan yazılır.</p><p>Bu özellik Gronsfeld yöntemini elle kullanmayı kolaylaştırır, çünkü anahtar her harfin ne kadar ilerlemesi gerektiğini açıkça gösterir. Bununla birlikte, diğer klasik çok alfabeli şifrelerle benzer zayıflıklara sahiptir ve modern standartlara göre güvenli kabul edilmemelidir.</p>"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Gronsfeld şifresinin tarihi",
+                "text": "<p>Gronsfeld şifresi geleneksel olarak Kont Gronsfeld ile ilişkilendirilir ve çoğu zaman Vigenere şifresinin sayısal bir çeşidi olarak anlatılır. Tarihi çok alfabeli yerine koyma şifreleri ailesine aittir.</p><p>Bugün kırılması çok daha kolay olsa da Gronsfeld şifresi, tekrarlanan anahtarların, değişen kaydırmaların ve klasik şifreleme sistemlerinin nasıl çalıştığını öğrenmek için hâlâ yararlıdır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 98,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Gronsfeld anahtarı nedir?",
+                "answer": "Gronsfeld anahtarı bir rakam dizisidir. Her rakam, seçilen alfabede karşılık gelen harfin kaç konum kaydırılacağını belirler."
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Gronsfeld şifresi Vigenere'den nasıl ayrılır?",
+                "answer": "Vigenere şifresi anahtar olarak harfler kullanırken Gronsfeld şifresi rakamlar kullanır. Her rakam, mesajdaki bir karakter için Caesar kaydırması gibi çalışır."
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Sayısal anahtar tekrar eder mi?",
+                "answer": "Evet. Mesaj anahtardan uzunsa sayısal anahtar baştan tekrar eder ve tüm harfler işlenene kadar kullanılmaya devam eder."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Boşluklara ve noktalama işaretlerine ne olur?",
+                "answer": "Boşluklar, noktalama işaretleri, sayılar ve seçilen alfabenin dışındaki diğer karakterler genellikle değiştirilmeden korunur. Yalnızca seçilen alfabedeki harfler kaydırılır."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Gronsfeld şifresi bugün güvenli midir?",
+                "answer": "Hayır. Gronsfeld şifresi tarihsel bir şifreleme yöntemidir ve modern kriptografik standartlara göre güvenli değildir. En çok eğitim, bulmacalar ve gösterimler için uygundur."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Her uzunlukta sayısal anahtar kullanabilir miyim?",
+                "answer": "Daha uzun bir anahtar kaydırmalarda daha fazla çeşitlilik sağlar, ancak araç kullanılabilirlik ve doğrulama için pratik sınırlar uygulayabilir. Anahtar yalnızca rakamlardan oluşmalıdır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 9,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "314159 sayısal anahtarıyla şifreleme",
+                "key": "314159",
+                "shift": 0,
+                "input": "ÖZEL MESAJ",
+                "output": "SAHM UĞŞDK",
+                "description": "Sayısal anahtar: 314159. Mod: şifreleme. Her rakam, eşleşen harf için kaydırmayı belirler."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "314159 sayısal anahtarıyla çözme",
+                "key": "314159",
+                "shift": 0,
+                "input": "SAHM UĞŞDK",
+                "output": "UBKN DITĞL",
+                "description": "Sayısal anahtar: 314159. Mod: çözme. Aynı tekrarlanan anahtar harfleri geri kaydırarak özgün metni verir."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Kısa anahtar metin boyunca tekrar eder",
+                "key": "123",
+                "shift": 0,
+                "input": "KISA ŞİFRE",
+                "output": "LKUB ÜİĞTF",
+                "description": "Sayısal anahtar: 123. Mesaj şifrelenirken anahtar 1, 2, 3, 1, 2, 3 şeklinde tekrar eder."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Boşlukları ve noktalama işaretlerini koruma",
+                "key": "314159",
+                "shift": 0,
+                "input": "ŞAFAKTA 9 DA HAZIR!",
+                "output": "ÜBIBÖÇÇ 9 HH IDANA!",
+                "description": "Sayısal anahtar: 314159. Yalnızca harfler kaydırılır. Boşluklar, noktalama işaretleri ve diğer semboller değişmeden kalır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 56,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Sayısal anahtar"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Çok alfabeli şifre"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Vigenere çeşidi"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Rakam kaydırmaları"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,216 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:53:44+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "gronsfeld",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 14,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 14,
+        "data": {
+            "name": "Cifrado Gronsfeld",
+            "name_short": "Cifrado Gronsfeld",
+            "description": "Cifra y descifra texto con el cifrado Gronsfeld en línea usando una clave numérica, desplazamientos de dígitos repetidos y un alfabeto seleccionable.",
+            "description_stort": "Cifrado clásico de estilo Vigenere que usa una clave numérica.",
+            "meta_title": "Cifrado Gronsfeld en línea: cifrador y descifrador",
+            "meta_description": "Usa el cifrado Gronsfeld en línea con una clave numérica y un alfabeto seleccionable. Cifra y descifra al instante texto clásico de estilo Vigenere."
+        }
+    },
+    "blocks": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado Gronsfeld",
+                "text": "<p>El cifrado Gronsfeld es un cifrado polialfabético clásico que funciona como una secuencia de desplazamientos César. En lugar de usar un único desplazamiento fijo para todo el mensaje, usa una clave numérica en la que cada dígito define un desplazamiento distinto.</p><p>Por ejemplo, con la clave 314159, la primera letra se desplaza 3 posiciones, la segunda 1, la tercera 4, y así sucesivamente. Cuando se llega al final de la clave, los dígitos se repiten desde el principio hasta procesar todo el mensaje.</p><p>Durante el descifrado, la misma clave numérica se usa en sentido inverso: cada letra cifrada retrocede según el dígito correspondiente. Los espacios, la puntuación, los números y los símbolos que no pertenecen al alfabeto seleccionado normalmente se conservan sin cambios.</p>"
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifrado Gronsfeld frente a cifrado Vigenere",
+                "text": "<p>El cifrado Gronsfeld está estrechamente relacionado con el cifrado Vigenere, pero usa dígitos en lugar de letras como clave. En Vigenere, cada letra de la clave representa un valor de desplazamiento. En Gronsfeld, los valores de desplazamiento se escriben directamente como números del 0 al 9.</p><p>Esto hace que Gronsfeld sea más fácil de usar manualmente, porque la clave ya indica cuánto debe moverse cada letra. Al mismo tiempo, tiene debilidades parecidas a otros cifrados polialfabéticos clásicos y no debe considerarse seguro según los estándares modernos.</p>"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Historia del cifrado Gronsfeld",
+                "text": "<p>El cifrado Gronsfeld se asocia tradicionalmente con el conde Gronsfeld y suele describirse como una variante numérica del cifrado Vigenere. Pertenece a la familia de los cifrados históricos de sustitución polialfabética.</p><p>Aunque hoy es mucho más fácil de romper, el cifrado Gronsfeld sigue siendo útil para aprender cómo funcionan las claves repetidas, los desplazamientos variables y los sistemas clásicos de cifrado.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 98,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué es una clave Gronsfeld?",
+                "answer": "Una clave Gronsfeld es una secuencia de dígitos. Cada dígito define cuántas posiciones debe desplazarse la letra correspondiente en el alfabeto seleccionado."
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿En qué se diferencia Gronsfeld de Vigenere?",
+                "answer": "El cifrado Vigenere usa letras como clave, mientras que el cifrado Gronsfeld usa dígitos. Cada dígito funciona como un desplazamiento César para un carácter del mensaje."
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿La clave numérica se repite?",
+                "answer": "Sí. Si el mensaje es más largo que la clave, la clave numérica se repite desde el principio hasta que se procesan todas las letras."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Qué ocurre con los espacios y la puntuación?",
+                "answer": "Los espacios, signos de puntuación, números y otros caracteres fuera del alfabeto seleccionado normalmente se conservan sin cambios. Solo se desplazan las letras del alfabeto seleccionado."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿El cifrado Gronsfeld es seguro hoy?",
+                "answer": "No. El cifrado Gronsfeld es un método histórico de cifrado y no es seguro según los estándares criptográficos modernos. Es más adecuado para educación, acertijos y demostraciones."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Puedo usar una clave numérica de cualquier longitud?",
+                "answer": "Una clave más larga crea más variación en los desplazamientos, pero la herramienta puede aplicar límites prácticos por usabilidad y validación. La clave debe contener solo dígitos."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 9,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Cifrar con clave numérica 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "AÑO NUEVO",
+                "output": "DOS RDHWS",
+                "description": "Clave numérica: 314159. Modo: cifrar. Cada dígito define el desplazamiento para la posición correspondiente del texto."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Descifrar con clave numérica 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "ÑMEWJ",
+                "output": "QNIXÑ",
+                "description": "Clave numérica: 314159. Modo: descifrar. La misma clave repetida desplaza las letras hacia atrás para recuperar el texto original."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "La clave corta se repite por el texto",
+                "key": "123",
+                "shift": 0,
+                "input": "SEÑAL SECRETA",
+                "output": "TGQBN TGFSGWB",
+                "description": "Clave numérica: 123. Al cifrar, la clave se repite como 1, 2, 3, 1, 2, 3 a lo largo de las posiciones del texto."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Conservar espacios y puntuación",
+                "key": "314159",
+                "shift": 0,
+                "input": "ATAQUE AL AMANECER, AÑO!",
+                "output": "DUERZN BO FUDÑIDJA, EOT!",
+                "description": "Clave numérica: 314159. Solo se desplazan las letras. Los espacios, signos de puntuación y otros símbolos permanecen sin cambios."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 56,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Clave numérica"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifrado polialfabético"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Variante de Vigenere"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Desplazamientos por dígitos"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,216 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:53:44+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "gronsfeld",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 14,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 14,
+        "data": {
+            "name": "Gronsfeld-Chiffre",
+            "name_short": "Gronsfeld-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text online mit der Gronsfeld-Chiffre, einem numerischen Schlüssel, wiederholten Ziffernverschiebungen und einem auswählbaren Alphabet.",
+            "description_stort": "Klassische Chiffre im Stil von Vigenere mit numerischem Schlüssel.",
+            "meta_title": "Gronsfeld-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die Gronsfeld-Chiffre online mit numerischem Schlüssel und auswählbarem Alphabet. Verschlüsseln und entschlüsseln Sie klassische Texte im Vigenere-Stil sofort."
+        }
+    },
+    "blocks": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert die Gronsfeld-Chiffre",
+                "text": "<p>Die Gronsfeld-Chiffre ist eine klassische polyalphabetische Chiffre, die wie eine Folge von Caesar-Verschiebungen funktioniert. Statt einer einzigen festen Verschiebung für die ganze Nachricht verwendet sie einen numerischen Schlüssel, bei dem jede Ziffer eine eigene Verschiebung festlegt.</p><p>Beim Schlüssel 314159 wird zum Beispiel der erste Buchstabe um 3 Positionen verschoben, der zweite um 1, der dritte um 4 und so weiter. Wenn das Ende des Schlüssels erreicht ist, wiederholen sich die Ziffern von vorn, bis die ganze Nachricht verarbeitet ist.</p><p>Beim Entschlüsseln wird derselbe numerische Schlüssel umgekehrt verwendet: Jeder verschlüsselte Buchstabe wird um die passende Ziffer zurückgeschoben. Leerzeichen, Satzzeichen, Ziffern und Symbole außerhalb des ausgewählten Alphabets bleiben normalerweise unverändert.</p>"
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Gronsfeld-Chiffre und Vigenere-Chiffre",
+                "text": "<p>Die Gronsfeld-Chiffre ist eng mit der Vigenere-Chiffre verwandt, verwendet aber Ziffern statt Buchstaben als Schlüssel. Bei Vigenere steht jeder Schlüsselbuchstabe für einen Verschiebungswert. Bei Gronsfeld werden die Verschiebungswerte direkt als Zahlen von 0 bis 9 notiert.</p><p>Dadurch lässt sich Gronsfeld leichter von Hand verwenden, weil der Schlüssel bereits angibt, wie weit jeder Buchstabe verschoben werden soll. Gleichzeitig besitzt die Chiffre ähnliche Schwächen wie andere klassische polyalphabetische Chiffren und gilt nach modernen Maßstäben nicht als sicher.</p>"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Geschichte der Gronsfeld-Chiffre",
+                "text": "<p>Die Gronsfeld-Chiffre wird traditionell mit Graf Gronsfeld in Verbindung gebracht und oft als numerische Variante der Vigenere-Chiffre beschrieben. Sie gehört zur Familie historischer polyalphabetischer Substitutionschiffren.</p><p>Obwohl sie heute viel leichter zu brechen ist, bleibt die Gronsfeld-Chiffre nützlich, um wiederholte Schlüssel, wechselnde Verschiebungen und klassische Verschlüsselungssysteme zu verstehen.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 98,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist ein Gronsfeld-Schlüssel?",
+                "answer": "Ein Gronsfeld-Schlüssel ist eine Folge von Ziffern. Jede Ziffer legt fest, um wie viele Positionen der entsprechende Buchstabe im ausgewählten Alphabet verschoben wird."
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Wie unterscheidet sich Gronsfeld von Vigenere?",
+                "answer": "Die Vigenere-Chiffre verwendet Buchstaben als Schlüssel, während die Gronsfeld-Chiffre Ziffern verwendet. Jede Ziffer wirkt wie eine Caesar-Verschiebung für ein Zeichen der Nachricht."
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Wiederholt sich der numerische Schlüssel?",
+                "answer": "Ja. Wenn die Nachricht länger als der Schlüssel ist, wiederholt sich der numerische Schlüssel von vorn, bis alle Buchstaben verarbeitet sind."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was passiert mit Leerzeichen und Satzzeichen?",
+                "answer": "Leerzeichen, Satzzeichen, Zahlen und andere Zeichen außerhalb des ausgewählten Alphabets bleiben normalerweise unverändert. Nur Buchstaben aus dem ausgewählten Alphabet werden verschoben."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist die Gronsfeld-Chiffre heute sicher?",
+                "answer": "Nein. Die Gronsfeld-Chiffre ist ein historisches Verschlüsselungsverfahren und nach modernen kryptografischen Standards nicht sicher. Sie eignet sich vor allem für Unterricht, Rätsel und Demonstrationen."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Kann ich einen numerischen Schlüssel beliebiger Länge verwenden?",
+                "answer": "Ein längerer Schlüssel erzeugt mehr Abwechslung in den Verschiebungen, aber das Werkzeug kann aus Gründen der Bedienbarkeit und Validierung praktische Grenzen setzen. Der Schlüssel sollte nur Ziffern enthalten."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 9,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Mit numerischem Schlüssel 314159 verschlüsseln",
+                "key": "314159",
+                "shift": 0,
+                "input": "ÄPFEL SIND ROT",
+                "output": "DQJFP ÜJQE ZQU",
+                "description": "Numerischer Schlüssel: 314159. Modus: Verschlüsseln. Jede Ziffer legt die Verschiebung für die entsprechende Textposition fest."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Mit numerischem Schlüssel 314159 entschlüsseln",
+                "key": "314159",
+                "shift": 0,
+                "input": "DQJFP ÜJQE ZQU",
+                "output": "GRNGU XKUF HTÜ",
+                "description": "Numerischer Schlüssel: 314159. Modus: Entschlüsseln. Derselbe wiederholte Schlüssel verschiebt die Buchstaben zurück zum ursprünglichen Text."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Kurzer Schlüssel wiederholt sich über den Text",
+                "key": "123",
+                "shift": 0,
+                "input": "GEHEIME ÄPFELKISTE",
+                "output": "HGKFKÖF DQHHMMLTÜH",
+                "description": "Numerischer Schlüssel: 123. Beim Verschlüsseln wiederholt sich der Schlüssel als 1, 2, 3, 1, 2, 3 über die Textpositionen."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Leerzeichen und Satzzeichen beibehalten",
+                "key": "314159",
+                "shift": 0,
+                "input": "ANGRIFF UM 9, ÄPFEL!",
+                "output": "COKSNOI XN 9, EQKNO!",
+                "description": "Numerischer Schlüssel: 314159. Nur Buchstaben werden verschoben. Leerzeichen, Satzzeichen und andere Symbole bleiben unverändert."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 56,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Numerischer Schlüssel"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetische Chiffre"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Vigenere-Variante"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Ziffernverschiebungen"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,216 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:53:44+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "gronsfeld",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 14,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 14,
+        "data": {
+            "name": "Cifra de Gronsfeld",
+            "name_short": "Cifra de Gronsfeld",
+            "description": "Cifre e decifre texto com a cifra de Gronsfeld online usando uma chave numérica, deslocamentos repetidos por dígitos e um alfabeto selecionável.",
+            "description_stort": "Cifra clássica no estilo Vigenere que usa uma chave numérica.",
+            "meta_title": "Cifra de Gronsfeld online: cifrador e decifrador",
+            "meta_description": "Use a cifra de Gronsfeld online com uma chave numérica e um alfabeto selecionável. Cifre e decifre instantaneamente texto clássico no estilo Vigenere."
+        }
+    },
+    "blocks": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra de Gronsfeld funciona",
+                "text": "<p>A cifra de Gronsfeld é uma cifra polialfabética clássica que funciona como uma sequência de deslocamentos de César. Em vez de usar um único deslocamento fixo para toda a mensagem, ela usa uma chave numérica em que cada dígito define um deslocamento diferente.</p><p>Por exemplo, com a chave 314159, a primeira letra é deslocada 3 posições, a segunda 1, a terceira 4, e assim por diante. Quando o fim da chave é alcançado, os dígitos se repetem desde o início até que toda a mensagem seja processada.</p><p>Durante a decifragem, a mesma chave numérica é usada no sentido inverso: cada letra cifrada é deslocada para trás pelo dígito correspondente. Espaços, pontuação, números e símbolos que não fazem parte do alfabeto selecionado geralmente permanecem sem alteração.</p>"
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifra de Gronsfeld vs. cifra de Vigenere",
+                "text": "<p>A cifra de Gronsfeld é bastante próxima da cifra de Vigenere, mas usa dígitos em vez de letras como chave. Em Vigenere, cada letra da chave representa um valor de deslocamento. Em Gronsfeld, os valores de deslocamento são escritos diretamente como números de 0 a 9.</p><p>Isso torna Gronsfeld mais fácil de usar manualmente, porque a chave já informa quanto cada letra deve se mover. Ao mesmo tempo, ela tem fraquezas semelhantes às de outras cifras polialfabéticas clássicas e não deve ser considerada segura pelos padrões modernos.</p>"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "História da cifra de Gronsfeld",
+                "text": "<p>A cifra de Gronsfeld é tradicionalmente associada ao conde Gronsfeld e costuma ser descrita como uma variante numérica da cifra de Vigenere. Ela pertence à família das cifras históricas de substituição polialfabética.</p><p>Embora hoje seja muito mais fácil de quebrar, a cifra de Gronsfeld continua útil para aprender como funcionam chaves repetidas, deslocamentos variáveis e sistemas clássicos de cifragem.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 98,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "O que é uma chave Gronsfeld?",
+                "answer": "Uma chave Gronsfeld é uma sequência de dígitos. Cada dígito define quantas posições a letra correspondente deve ser deslocada no alfabeto selecionado."
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Como Gronsfeld é diferente de Vigenere?",
+                "answer": "A cifra de Vigenere usa letras como chave, enquanto a cifra de Gronsfeld usa dígitos. Cada dígito funciona como um deslocamento de César para um caractere da mensagem."
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "A chave numérica se repete?",
+                "answer": "Sim. Se a mensagem for mais longa que a chave, a chave numérica se repete desde o início até que todas as letras sejam processadas."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "O que acontece com espaços e pontuação?",
+                "answer": "Espaços, sinais de pontuação, números e outros caracteres fora do alfabeto selecionado geralmente permanecem sem alteração. Apenas as letras do alfabeto selecionado são deslocadas."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A cifra de Gronsfeld é segura hoje?",
+                "answer": "Não. A cifra de Gronsfeld é um método histórico de cifragem e não é segura pelos padrões criptográficos modernos. Ela é mais indicada para educação, enigmas e demonstrações."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Posso usar uma chave numérica de qualquer tamanho?",
+                "answer": "Uma chave mais longa cria mais variação nos deslocamentos, mas a ferramenta pode aplicar limites práticos por usabilidade e validação. A chave deve conter apenas dígitos."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 9,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Cifrar com chave numérica 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "AÇÃO LIVRE",
+                "output": "ÃDDÓ SKWÚÉ",
+                "description": "Chave numérica: 314159. Modo: cifrar. Cada dígito define o deslocamento para a posição correspondente do texto."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Decifrar com chave numérica 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "ÃDDÓ SKWÚÉ",
+                "output": "ÇEFÔ ANXYÊ",
+                "description": "Chave numérica: 314159. Modo: decifrar. A mesma chave repetida desloca as letras para trás e recupera o texto original."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "A chave curta se repete pelo texto",
+                "key": "123",
+                "shift": 0,
+                "input": "AÇÃO SECRETA",
+                "output": "ÁEÇÓ ÚÉDUÉÚÃ",
+                "description": "Chave numérica: 123. Ao cifrar, a chave se repete como 1, 2, 3, 1, 2, 3 pelas posições do texto."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Preservar espaços e pontuação",
+                "key": "314159",
+                "shift": 0,
+                "input": "ATAQUE ÀS 9, AÇÃO!",
+                "output": "ÃUBRYK ÃV 9, ÁÊBR!",
+                "description": "Chave numérica: 314159. Apenas as letras são deslocadas. Espaços, sinais de pontuação e outros símbolos permanecem sem alteração."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 56,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chave numérica"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifra polialfabética"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Variante de Vigenere"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Deslocamentos por dígitos"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

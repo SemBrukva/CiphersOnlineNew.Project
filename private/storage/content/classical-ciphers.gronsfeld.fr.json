@@ -1,0 +1,216 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:53:44+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "gronsfeld",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 14,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 14,
+        "data": {
+            "name": "Chiffre de Gronsfeld",
+            "name_short": "Chiffre de Gronsfeld",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre de Gronsfeld en ligne, à l’aide d’une clé numérique, de décalages répétés par chiffres et d’un alphabet sélectionnable.",
+            "description_stort": "Chiffre classique de type Vigenere utilisant une clé numérique.",
+            "meta_title": "Chiffre de Gronsfeld en ligne : chiffreur et déchiffreur",
+            "meta_description": "Utilisez le chiffre de Gronsfeld en ligne avec une clé numérique et un alphabet sélectionnable. Chiffrez et déchiffrez instantanément un texte classique de type Vigenere."
+        }
+    },
+    "blocks": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Gronsfeld",
+                "text": "<p>Le chiffre de Gronsfeld est un chiffre polyalphabétique classique qui fonctionne comme une suite de décalages de César. Au lieu d’utiliser un seul décalage fixe pour tout le message, il utilise une clé numérique dont chaque chiffre définit un décalage différent.</p><p>Par exemple, avec la clé 314159, la première lettre est décalée de 3 positions, la deuxième de 1, la troisième de 4, et ainsi de suite. Lorsque la fin de la clé est atteinte, les chiffres se répètent depuis le début jusqu’à ce que tout le message soit traité.</p><p>Lors du déchiffrement, la même clé numérique est utilisée en sens inverse : chaque lettre chiffrée est reculée du chiffre correspondant. Les espaces, la ponctuation, les chiffres et les symboles qui ne font pas partie de l’alphabet sélectionné sont généralement conservés tels quels.</p>"
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Chiffre de Gronsfeld et chiffre de Vigenere",
+                "text": "<p>Le chiffre de Gronsfeld est étroitement lié au chiffre de Vigenere, mais il utilise des chiffres au lieu de lettres comme clé. Dans Vigenere, chaque lettre de la clé représente une valeur de décalage. Dans Gronsfeld, les valeurs de décalage sont écrites directement sous forme de nombres de 0 à 9.</p><p>Cela rend Gronsfeld plus facile à utiliser manuellement, car la clé indique déjà de combien chaque lettre doit se déplacer. En même temps, il présente des faiblesses similaires à celles des autres chiffres polyalphabétiques classiques et ne doit pas être considéré comme sûr selon les standards modernes.</p>"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Histoire du chiffre de Gronsfeld",
+                "text": "<p>Le chiffre de Gronsfeld est traditionnellement associé au comte de Gronsfeld et souvent décrit comme une variante numérique du chiffre de Vigenere. Il appartient à la famille des chiffres historiques de substitution polyalphabétique.</p><p>Même s’il est aujourd’hui beaucoup plus facile à casser, le chiffre de Gronsfeld reste utile pour comprendre les clés répétées, les décalages variables et les systèmes de chiffrement classiques.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 98,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce qu’une clé Gronsfeld ?",
+                "answer": "Une clé Gronsfeld est une suite de chiffres. Chaque chiffre définit de combien de positions la lettre correspondante doit être décalée dans l’alphabet sélectionné."
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "En quoi Gronsfeld diffère-t-il de Vigenere ?",
+                "answer": "Le chiffre de Vigenere utilise des lettres comme clé, tandis que le chiffre de Gronsfeld utilise des chiffres. Chaque chiffre agit comme un décalage de César pour un caractère du message."
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "La clé numérique se répète-elle ?",
+                "answer": "Oui. Si le message est plus long que la clé, la clé numérique se répète depuis le début jusqu’à ce que toutes les lettres soient traitées."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces et la ponctuation ?",
+                "answer": "Les espaces, les signes de ponctuation, les nombres et les autres caractères hors de l’alphabet sélectionné sont généralement conservés tels quels. Seules les lettres de l’alphabet sélectionné sont décalées."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Gronsfeld est-il sûr aujourd’hui ?",
+                "answer": "Non. Le chiffre de Gronsfeld est une méthode historique de chiffrement et n’est pas sûr selon les standards cryptographiques modernes. Il convient surtout à l’apprentissage, aux énigmes et aux démonstrations."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Puis-je utiliser une clé numérique de n’importe quelle longueur ?",
+                "answer": "Une clé plus longue crée davantage de variations dans les décalages, mais l’outil peut appliquer des limites pratiques pour l’ergonomie et la validation. La clé doit contenir uniquement des chiffres."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 9,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Chiffrer avec la clé numérique 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "ÉTÉ CLAIR",
+                "output": "ËUF ÈTBÎÙ",
+                "description": "Clé numérique : 314159. Mode : chiffrer. Chaque chiffre définit le décalage pour la position correspondante du texte."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Déchiffrer avec la clé numérique 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "ËUF ÈTBÎÙ",
+                "output": "HÙÎ HŸDÏW",
+                "description": "Clé numérique : 314159. Mode : déchiffrer. La même clé répétée décale les lettres en arrière pour retrouver le texte d’origine."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "La clé courte se répète dans le texte",
+                "key": "123",
+                "shift": 0,
+                "input": "ÉTÉ SECRET",
+                "output": "ÈÙË UÊÇTÊU",
+                "description": "Clé numérique : 123. Lors du chiffrement, la clé se répète comme 1, 2, 3, 1, 2, 3 sur les positions du texte."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Conserver les espaces et la ponctuation",
+                "key": "314159",
+                "shift": 0,
+                "input": "ATTAQUE À 9, ÉTÉ!",
+                "output": "BUÜÀÙZÊ Ç 9, ÈÜÈ!",
+                "description": "Clé numérique : 314159. Seules les lettres sont décalées. Les espaces, les signes de ponctuation et les autres symboles restent inchangés."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 56,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Clé numérique"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiffre polyalphabétique"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Variante de Vigenere"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Décalages par chiffres"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

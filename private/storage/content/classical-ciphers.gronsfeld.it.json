@@ -1,0 +1,216 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:53:44+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "gronsfeld",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 14,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 14,
+        "data": {
+            "name": "Cifrario di Gronsfeld",
+            "name_short": "Cifrario di Gronsfeld",
+            "description": "Cifra e decifra testi online con il cifrario di Gronsfeld usando una chiave numerica, spostamenti di cifre ripetuti e un alfabeto selezionabile.",
+            "description_stort": "Cifrario classico in stile Vigenere che usa una chiave numerica.",
+            "meta_title": "Cifrario di Gronsfeld online: cifratore e decifratore",
+            "meta_description": "Usa il cifrario di Gronsfeld online con una chiave numerica e un alfabeto selezionabile. Cifra e decifra subito testi classici in stile Vigenere."
+        }
+    },
+    "blocks": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario di Gronsfeld",
+                "text": "<p>Il cifrario di Gronsfeld è un cifrario polialfabetico classico che funziona come una sequenza di spostamenti di Cesare. Invece di usare un solo spostamento fisso per tutto il messaggio, usa una chiave numerica in cui ogni cifra definisce uno spostamento diverso.</p><p>Per esempio, con la chiave 314159, la prima lettera viene spostata di 3 posizioni, la seconda di 1, la terza di 4 e così via. Quando si raggiunge la fine della chiave, le cifre si ripetono dall’inizio finché l’intero messaggio non è stato elaborato.</p><p>Durante la decifratura, la stessa chiave numerica viene usata al contrario: ogni lettera cifrata viene spostata indietro della cifra corrispondente. Spazi, punteggiatura, cifre e simboli che non appartengono all’alfabeto selezionato di solito restano invariati.</p>"
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifrario di Gronsfeld e cifrario di Vigenere",
+                "text": "<p>Il cifrario di Gronsfeld è strettamente legato al cifrario di Vigenere, ma usa cifre invece di lettere come chiave. Nel Vigenere, ogni lettera della chiave rappresenta un valore di spostamento. Nel Gronsfeld, i valori di spostamento sono scritti direttamente come numeri da 0 a 9.</p><p>Questo rende Gronsfeld più facile da usare manualmente, perché la chiave indica già di quanto deve muoversi ogni lettera. Allo stesso tempo, presenta debolezze simili ad altri cifrari polialfabetici classici e non deve essere considerato sicuro secondo gli standard moderni.</p>"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Storia del cifrario di Gronsfeld",
+                "text": "<p>Il cifrario di Gronsfeld è tradizionalmente associato al conte Gronsfeld e viene spesso descritto come una variante numerica del cifrario di Vigenere. Appartiene alla famiglia dei cifrari storici a sostituzione polialfabetica.</p><p>Anche se oggi è molto più facile da violare, il cifrario di Gronsfeld resta utile per imparare come funzionano le chiavi ripetute, gli spostamenti variabili e i sistemi di cifratura classici.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 98,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Che cos’è una chiave Gronsfeld?",
+                "answer": "Una chiave Gronsfeld è una sequenza di cifre. Ogni cifra definisce di quante posizioni deve essere spostata la lettera corrispondente nell’alfabeto selezionato."
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "In che cosa Gronsfeld differisce da Vigenere?",
+                "answer": "Il cifrario di Vigenere usa lettere come chiave, mentre il cifrario di Gronsfeld usa cifre. Ogni cifra funziona come uno spostamento di Cesare per un carattere del messaggio."
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "La chiave numerica si ripete?",
+                "answer": "Sì. Se il messaggio è più lungo della chiave, la chiave numerica si ripete dall’inizio finché tutte le lettere non sono state elaborate."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede a spazi e punteggiatura?",
+                "answer": "Spazi, segni di punteggiatura, numeri e altri caratteri fuori dall’alfabeto selezionato di solito restano invariati. Vengono spostate solo le lettere dell’alfabeto selezionato."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Gronsfeld è sicuro oggi?",
+                "answer": "No. Il cifrario di Gronsfeld è un metodo storico di cifratura e non è sicuro secondo gli standard crittografici moderni. È più adatto per la didattica, gli enigmi e le dimostrazioni."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Posso usare una chiave numerica di qualsiasi lunghezza?",
+                "answer": "Una chiave più lunga crea più variazione negli spostamenti, ma lo strumento può applicare limiti pratici per usabilità e validazione. La chiave deve contenere solo cifre."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 9,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Cifrare con chiave numerica 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "CIAO MONDO",
+                "output": "FJEP VROHP",
+                "description": "Chiave numerica: 314159. Modalità: cifrare. Ogni cifra definisce lo spostamento per la posizione corrispondente del testo."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Decifrare con chiave numerica 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "FJEP VROHP",
+                "output": "CIAO MONDO",
+                "description": "Chiave numerica: 314159. Modalità: decifrare. La stessa chiave ripetuta sposta le lettere all’indietro per recuperare il testo originale."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "La chiave breve si ripete lungo il testo",
+                "key": "123",
+                "shift": 0,
+                "input": "MESSAGGIO SEGRETO",
+                "output": "NGVTCJHKR UHHTHUQ",
+                "description": "Chiave numerica: 123. Durante la cifratura, la chiave si ripete come 1, 2, 3, 1, 2, 3 lungo le posizioni del testo."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Conservare spazi e punteggiatura",
+                "key": "314159",
+                "shift": 0,
+                "input": "ATTACCO ALLE 9, SEGRETO!",
+                "output": "DUXBHLR EMQN 9, XNJSIUT!",
+                "description": "Chiave numerica: 314159. Solo le lettere vengono spostate. Spazi, segni di punteggiatura e altri simboli restano invariati."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 56,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiave numerica"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifrario polialfabetico"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Variante di Vigenere"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Spostamenti per cifra"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

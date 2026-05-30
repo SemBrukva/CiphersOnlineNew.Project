@@ -1,0 +1,257 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:10:58+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "beaufort",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 13,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 13,
+        "data": {
+            "name": "Cifra de Beaufort",
+            "name_short": "Cifra de Beaufort",
+            "description": "Cifre e decifre texto com a cifra de Beaufort online usando uma palavra-chave e um alfabeto selecionável. É uma cifra polialfabética clássica em que a mesma operação pode ser usada tanto para cifrar quanto para decifrar.",
+            "description_stort": "Cifra clássica recíproca baseada em uma palavra-chave.",
+            "meta_title": "Cifra de Beaufort online: cifrador e decifrador",
+            "meta_description": "Cifre e decifre texto com a cifra de Beaufort usando uma palavra-chave personalizada e um alfabeto selecionável. Aprenda como essa cifra clássica recíproca funciona."
+        }
+    },
+    "blocks": [
+        {
+            "id": 39,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra de Beaufort funciona",
+                "text": "<p>A cifra de Beaufort é uma cifra de substituição polialfabética clássica que usa uma palavra-chave repetida para transformar o texto. Diferentemente da cifra de Vigenere, cada letra de saída é calculada a partir da letra da chave e da letra do texto claro por meio de uma relação invertida.</p><p>A característica mais marcante da cifra de Beaufort é sua natureza recíproca. A mesma transformação é usada para cifrar e decifrar, o que significa que a mesma palavra-chave pode processar o texto em qualquer direção.</p><p>Como a cifra muda as substituições de acordo com a letra atual da chave, ela resiste melhor à análise de frequência simples do que cifras monoalfabéticas como César.</p>"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifra de Beaufort vs. Vigenere",
+                "text": "<p>A cifra de Beaufort pertence à mesma família de cifras polialfabéticas baseadas em palavra-chave que Vigenere. Ambas usam uma palavra-chave repetida e uma tabela de alfabetos no estilo da tabula recta.</p><p>A principal diferença está na fórmula de cifragem. Na cifra de Beaufort, a letra da chave efetivamente determina a posição inicial, e a letra do texto claro é subtraída dela. Isso cria um sistema recíproco em que cifragem e decifragem usam a mesma operação.</p><p>Embora o nível prático de segurança seja semelhante, Beaufort é frequentemente estudada por sua simetria elegante e por seu uso histórico.</p>"
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "História da cifra de Beaufort",
+                "text": "<p>A cifra de Beaufort recebeu esse nome em homenagem a Sir Francis Beaufort, oficial naval britânico mais conhecido por criar a escala Beaufort de força do vento. A cifra passou a ser associada à comunicação militar e naval durante o século XIX.</p><p>Hoje ela é usada principalmente em educação, cursos de criptografia e coleções de cifras históricas. Embora não seja mais segura para comunicação real, continua sendo um exemplo importante de cifragem polialfabética clássica.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 96,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Beaufort é simétrica?",
+                "answer": "Sim. A mesma transformação pode ser usada tanto para cifrar quanto para decifrar."
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "A chave pode incluir espaços?",
+                "answer": "Apenas símbolos do alfabeto selecionado participam do fluxo da chave; outros caracteres são ignorados."
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "A cifra de Beaufort é igual à cifra de Vigenere?",
+                "answer": "Não. Ambas usam uma palavra-chave repetida, mas a cifra de Beaufort aplica uma regra de cifragem diferente e é recíproca, ou seja, a mesma operação é usada para cifrar e decifrar."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Por que a mesma operação decifra o texto?",
+                "answer": "A cifra de Beaufort foi projetada como uma cifra recíproca. Ao aplicar o algoritmo novamente com a mesma palavra-chave, a transformação é revertida automaticamente."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A cifra de Beaufort é segura hoje?",
+                "answer": "Não. Como a maioria das cifras clássicas, Beaufort pode ser quebrada com criptoanálise moderna e poder computacional. Ela é usada principalmente para aprendizado e estudo histórico."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "O que acontece com espaços e pontuação?",
+                "answer": "Espaços, números e sinais de pontuação geralmente permanecem inalterados. Apenas letras do alfabeto selecionado participam da cifragem."
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Quem foi Francis Beaufort?",
+                "answer": "Sir Francis Beaufort foi um oficial naval e hidrógrafo britânico. A cifra leva seu nome e ficou associada à comunicação militar do século XIX."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 7,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrar com a palavra-chave AÇÃO",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "PROTEGE A PONTE ANTIGA",
+                "output": "GJLUTÚV O GOMUT ÇMUÓÚÃ",
+                "description": "Palavra-chave: AÇÃO. A palavra-chave repetida é aplicada a cada letra, enquanto os espaços permanecem sem alteração."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decifrar com a mesma palavra-chave",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "GJLUTÚV O GOMUT ÇMUÓÚÃ",
+                "output": "PROTEGE A PONTE ANTIGA",
+                "description": "Palavra-chave: AÇÃO. Beaufort é recíproca, então aplicar a mesma transformação novamente restaura a mensagem original."
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifragem com palavra-chave em uma mensagem curta",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "AÇÃO LIVRE",
+                "output": "AAAA LTEVT",
+                "description": "Palavra-chave: AÇÃO. Cada letra do texto claro é transformada com a letra atual da chave; depois, a chave se repete."
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Preservar espaços, números e pontuação",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "REUNIÃO ÀS 9, AÇÃO!",
+                "output": "ÊYÊÁÓÃL MÉ 9, ÇXLÍ!",
+                "description": "Palavra-chave: AÇÃO. Apenas as letras são transformadas; espaços, sinais de pontuação, números e outros símbolos permanecem sem alteração."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 53,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Polialfabética"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifra recíproca"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifra com palavra-chave"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Família Vigenere"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Família Vigenere"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

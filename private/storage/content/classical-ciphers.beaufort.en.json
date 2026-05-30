@@ -1,0 +1,257 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:10:58+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "beaufort",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 13,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 13,
+        "data": {
+            "name": "Beaufort Cipher",
+            "name_short": "Beaufort Cipher",
+            "description": "Encrypt and decrypt text with the Beaufort cipher online using a keyword and selectable alphabet. A classical polyalphabetic cipher where the same operation can be used for both encryption and decryption.",
+            "description_stort": "Classical reciprocal cipher based on a keyword.",
+            "meta_title": "Beaufort Cipher Online Encoder & Decoder",
+            "meta_description": "Encrypt and decrypt text with the Beaufort cipher using a custom keyword and selectable alphabet. Learn how this classical reciprocal cipher works."
+        }
+    },
+    "blocks": [
+        {
+            "id": 39,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Beaufort cipher works",
+                "text": "<p>The Beaufort cipher is a classical polyalphabetic substitution cipher that uses a repeating keyword to transform text. Unlike the Vigenere cipher, each output letter is calculated from the key letter and the plaintext letter using a reversed relationship.</p><p>The most distinctive feature of the Beaufort cipher is its reciprocal nature. The same transformation is used for both encryption and decryption, which means the same keyword can process text in either direction.</p><p>Because the cipher changes substitutions based on the current key letter, it is more resistant to simple frequency analysis than monoalphabetic ciphers such as Caesar.</p>"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Beaufort cipher vs Vigenere",
+                "text": "<p>The Beaufort cipher belongs to the same family of keyword-based polyalphabetic ciphers as Vigenere. Both use a repeating keyword and a tabula recta style alphabet table.</p><p>The main difference is the encryption formula. In the Beaufort cipher, the key letter effectively determines the starting position and the plaintext letter is subtracted from it. This creates a reciprocal system where encryption and decryption use the same operation.</p><p>Although the practical security level is similar, Beaufort is often studied because of its elegant symmetry and historical use.</p>"
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "History of the Beaufort cipher",
+                "text": "<p>The Beaufort cipher is named after Sir Francis Beaufort, a British naval officer best known for creating the Beaufort wind force scale. The cipher became associated with military and naval communication during the nineteenth century.</p><p>Today it is mainly used in education, cryptography courses, and historical cipher collections. While no longer secure for real-world communication, it remains an important example of classical polyalphabetic encryption.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 96,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is Beaufort symmetric?",
+                "answer": "Yes. The same transformation can be used for both encryption and decryption."
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Can key include spaces?",
+                "answer": "Only alphabet symbols participate in transformation; other characters are ignored in key stream."
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is the Beaufort cipher the same as the Vigenere cipher?",
+                "answer": "No. Both use a repeating keyword, but the Beaufort cipher applies a different encryption rule and is reciprocal, meaning the same operation is used for encryption and decryption."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Why does the same operation decrypt the text?",
+                "answer": "The Beaufort cipher is designed as a reciprocal cipher. Applying the algorithm again with the same keyword reverses the transformation automatically."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is the Beaufort cipher secure today?",
+                "answer": "No. Like most classical ciphers, Beaufort can be broken with modern cryptanalysis and computing power. It is primarily used for learning and historical study."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces and punctuation?",
+                "answer": "Spaces, numbers, and punctuation marks are usually preserved unchanged. Only letters from the selected alphabet participate in encryption."
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Who was Francis Beaufort?",
+                "answer": "Sir Francis Beaufort was a British naval officer and hydrographer. The cipher bears his name and became associated with nineteenth-century military communication."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 7,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Encrypt with the keyword FORT",
+                "key": "FORT",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "CKMPSL YMB KRBM SRIU",
+                "description": "Keyword: FORT. The repeating keyword is applied to each letter while spaces are preserved unchanged."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decrypt with the same keyword",
+                "key": "FORT",
+                "shift": 0,
+                "input": "CKMPSL YMB KRBM SRIU",
+                "output": "DEFEND THE EAST WALL",
+                "description": "Keyword: FORT. Beaufort is reciprocal, so applying the same transformation again restores the original message."
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Keyword encryption on a short message",
+                "key": "FORT",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "YKGIR SDCUL",
+                "description": "Keyword: FORT. Each plaintext letter is transformed using the current keyword letter, then the keyword repeats."
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Preserve spaces, numbers, and punctuation",
+                "key": "FORT",
+                "shift": 0,
+                "input": "MEET AT 9 PM!",
+                "output": "TKNA FV 9 CH!",
+                "description": "Keyword: FORT. Only letters are transformed; spaces, punctuation marks, numbers, and other symbols remain unchanged."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 53,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetic"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Reciprocal cipher"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Keyword cipher"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Vigenere family"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Vigenere family"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

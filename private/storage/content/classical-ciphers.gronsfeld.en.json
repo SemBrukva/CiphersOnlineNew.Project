@@ -1,0 +1,216 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:53:44+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "gronsfeld",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 14,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 14,
+        "data": {
+            "name": "Gronsfeld Cipher",
+            "name_short": "Gronsfeld Cipher",
+            "description": "Encrypt and decrypt text with the Gronsfeld cipher online using a numeric key, repeated digit shifts, and a selectable alphabet.",
+            "description_stort": "Vigenere-style classical cipher that uses a numeric key.",
+            "meta_title": "Gronsfeld Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Gronsfeld cipher online with a numeric key and selectable alphabet. Encrypt and decrypt Vigenere-style classical cipher text instantly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Gronsfeld cipher works",
+                "text": "<p>The Gronsfeld cipher is a classical polyalphabetic cipher that works like a sequence of Caesar shifts. Instead of using one fixed shift for the whole message, it uses a numeric key where each digit defines a different shift.</p><p>For example, with the key 314159, the first letter is shifted by 3 positions, the second by 1, the third by 4, and so on. When the end of the key is reached, the digits repeat from the beginning until the full message is processed.</p><p>During decryption, the same numeric key is used in reverse: each encrypted letter is shifted back by the corresponding digit. Spaces, punctuation, digits, and symbols that are not part of the selected alphabet are usually preserved unchanged.</p>"
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Gronsfeld cipher vs Vigenere cipher",
+                "text": "<p>The Gronsfeld cipher is closely related to the Vigenere cipher, but it uses digits instead of letters as the key. In Vigenere, each key letter represents a shift value. In Gronsfeld, the shift values are written directly as numbers from 0 to 9.</p><p>This makes Gronsfeld easier to use manually, because the key already tells you how far each letter should move. At the same time, it has similar weaknesses to other classical polyalphabetic ciphers and should not be considered secure by modern standards.</p>"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "History of the Gronsfeld cipher",
+                "text": "<p>The Gronsfeld cipher is traditionally associated with Count Gronsfeld and is often described as a numeric variant of the Vigenere cipher. It belongs to the family of historical polyalphabetic substitution ciphers.</p><p>Although it is much easier to break today, the Gronsfeld cipher remains useful for learning how repeated keys, changing shifts, and classical encryption systems work.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 98,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is a Gronsfeld key?",
+                "answer": "A Gronsfeld key is a sequence of digits. Each digit defines how many positions the corresponding letter should be shifted in the selected alphabet."
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How is the Gronsfeld cipher different from Vigenere?",
+                "answer": "The Vigenere cipher uses letters as the key, while the Gronsfeld cipher uses digits. Each digit works like a Caesar shift for one character of the message."
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Does the numeric key repeat?",
+                "answer": "Yes. If the message is longer than the key, the numeric key repeats from the beginning until all letters are processed."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces and punctuation?",
+                "answer": "Spaces, punctuation marks, numbers, and other characters outside the selected alphabet are usually preserved unchanged. Only letters from the selected alphabet are shifted."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is the Gronsfeld cipher secure today?",
+                "answer": "No. The Gronsfeld cipher is a historical encryption method and is not secure by modern cryptographic standards. It is best used for education, puzzles, and demonstrations."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can I use any length of numeric key?",
+                "answer": "A longer key creates more variation in the shifts, but the tool may apply practical limits for usability and validation. The key should contain digits only."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 9,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Encrypt with numeric key 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "KFPMT ZPVMI",
+                "description": "Numeric key: 314159. Mode: encrypt. Each digit defines the shift for the matching letter."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Decrypt with numeric key 314159",
+                "key": "314159",
+                "shift": 0,
+                "input": "KFPMT ZPVMI",
+                "output": "HELLO WORLD",
+                "description": "Numeric key: 314159. Mode: decrypt. The same repeated key shifts letters back to the original text."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Short key repeated across text",
+                "key": "123",
+                "shift": 0,
+                "input": "SECRET MESSAGE",
+                "output": "TGFTFV NFUUCIG",
+                "description": "Numeric key: 123. The key repeats as 1, 2, 3, 1, 2, 3 while the message is encrypted."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Preserve spaces and punctuation",
+                "key": "314159",
+                "shift": 0,
+                "input": "ATTACK AT DAWN!",
+                "output": "DUYBLP DY EDFO!",
+                "description": "Numeric key: 314159. Only letters are shifted. Spaces, punctuation marks, and other symbols remain unchanged."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 56,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Numeric key"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetic cipher"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Vigenere variant"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Digit shifts"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

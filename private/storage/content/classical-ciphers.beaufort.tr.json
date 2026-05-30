@@ -1,0 +1,257 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T17:10:58+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "beaufort",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 13,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 13,
+        "data": {
+            "name": "Beaufort Şifresi",
+            "name_short": "Beaufort Şifresi",
+            "description": "Bir anahtar sözcük ve seçilebilir alfabe kullanarak Beaufort şifresiyle metni çevrim içi şifreleyin ve çözün. Aynı işlemin hem şifreleme hem de çözme için kullanılabildiği klasik bir çok alfabeli şifredir.",
+            "description_stort": "Anahtar sözcüğe dayalı klasik karşılıklı şifre.",
+            "meta_title": "Beaufort Şifresi Çevrim İçi Şifreleyici ve Çözücü",
+            "meta_description": "Özel anahtar sözcük ve seçilebilir alfabe ile Beaufort şifresini kullanarak metni şifreleyin ve çözün. Bu klasik karşılıklı şifrenin nasıl çalıştığını öğrenin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 39,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Beaufort şifresi nasıl çalışır",
+                "text": "<p>Beaufort şifresi, metni dönüştürmek için tekrarlanan bir anahtar sözcük kullanan klasik bir çok alfabeli yerine koyma şifresidir. Vigenere şifresinden farklı olarak her çıktı harfi, anahtar harfi ile açık metin harfi arasındaki ters ilişkiyle hesaplanır.</p><p>Beaufort şifresinin en ayırt edici özelliği karşılıklı yapısıdır. Şifreleme ve çözme için aynı dönüşüm kullanılır; bu nedenle aynı anahtar sözcük metni iki yönde de işleyebilir.</p><p>Şifre, yerine koymaları geçerli anahtar harfine göre değiştirdiği için Sezar gibi tek alfabeli şifrelere kıyasla basit frekans analizine karşı daha dayanıklıdır.</p>"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Beaufort şifresi ve Vigenere",
+                "text": "<p>Beaufort şifresi, Vigenere gibi anahtar sözcük tabanlı çok alfabeli şifreler ailesine aittir. Her ikisi de tekrarlanan bir anahtar sözcük ve tabula recta tarzı bir alfabe tablosu kullanır.</p><p>Temel fark şifreleme formülündedir. Beaufort şifresinde anahtar harfi fiilen başlangıç konumunu belirler ve açık metin harfi bundan çıkarılır. Böylece şifreleme ve çözmenin aynı işlemi kullandığı karşılıklı bir sistem oluşur.</p><p>Pratik güvenlik düzeyi benzer olsa da Beaufort, zarif simetrisi ve tarihsel kullanımı nedeniyle sıkça incelenir.</p>"
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Beaufort şifresinin tarihi",
+                "text": "<p>Beaufort şifresi adını, en çok Beaufort rüzgâr kuvveti ölçeğini oluşturmasıyla tanınan Britanyalı deniz subayı Sir Francis Beaufort’tan alır. Şifre, 19. yüzyılda askeri ve deniz iletişimiyle ilişkilendirilmiştir.</p><p>Bugün daha çok eğitimde, kriptografi derslerinde ve tarihsel şifre koleksiyonlarında kullanılır. Gerçek dünya iletişimi için artık güvenli olmasa da klasik çok alfabeli şifrelemeye önemli bir örnektir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 96,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Beaufort simetrik midir?",
+                "answer": "Evet. Aynı dönüşüm hem şifreleme hem de çözme için kullanılabilir."
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Anahtar boşluk içerebilir mi?",
+                "answer": "Anahtar akışına yalnızca seçilen alfabenin sembolleri katılır; diğer karakterler yok sayılır."
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Beaufort şifresi Vigenere şifresiyle aynı mı?",
+                "answer": "Hayır. İkisi de tekrarlanan bir anahtar sözcük kullanır, ancak Beaufort farklı bir şifreleme kuralı uygular ve karşılıklıdır; yani aynı işlem şifreleme ve çözme için kullanılır."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Aynı işlem metni neden çözer?",
+                "answer": "Beaufort şifresi karşılıklı bir şifre olarak tasarlanmıştır. Algoritma aynı anahtar sözcükle tekrar uygulandığında dönüşüm otomatik olarak tersine döner."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Beaufort şifresi bugün güvenli mi?",
+                "answer": "Hayır. Çoğu klasik şifre gibi Beaufort da modern kriptanaliz ve hesaplama gücüyle kırılabilir. Temel olarak öğrenme ve tarihsel inceleme için kullanılır."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Boşluklara ve noktalama işaretlerine ne olur?",
+                "answer": "Boşluklar, sayılar ve noktalama işaretleri genellikle değişmeden korunur. Şifrelemeye yalnızca seçilen alfabedeki harfler katılır."
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Francis Beaufort kimdi?",
+                "answer": "Sir Francis Beaufort, Britanyalı bir deniz subayı ve hidrograftı. Şifre onun adını taşır ve 19. yüzyıl askeri iletişimiyle ilişkilendirilmiştir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 7,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "ŞİFRE anahtar sözcüğüyle şifrele",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "KÖPRÜYÜ KORU",
+                "output": "HŞNAHUM ŞÇLY",
+                "description": "Anahtar sözcük: ŞİFRE. Tekrarlanan anahtar her harfe uygulanır, boşluklar ise değişmeden korunur."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Aynı anahtar sözcükle çöz",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "HŞNAHUM ŞÇLY",
+                "output": "KÖPRÜYÜ KORU",
+                "description": "Anahtar sözcük: ŞİFRE. Beaufort karşılıklıdır; aynı dönüşümü tekrar uygulamak özgün mesajı geri getirir."
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Kısa mesajda anahtar sözcükle şifreleme",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "ŞİFRE MESAJ",
+                "output": "AİEMM POPFĞ",
+                "description": "Anahtar sözcük: ŞİFRE. Açık metindeki her harf geçerli anahtar harfiyle dönüştürülür, sonra anahtar tekrar eder."
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Boşlukları, sayıları ve noktalama işaretlerini koru",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "TOPLANTI 9DA, ŞİFRE!",
+                "output": "ZTNFEFOU 9NE, AİEMM!",
+                "description": "Anahtar sözcük: ŞİFRE. Yalnızca harfler dönüştürülür; boşluklar, noktalama işaretleri, sayılar ve diğer semboller değişmeden kalır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 53,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Çok alfabeli"
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Karşılıklı şifre"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Anahtar sözcük şifresi"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Vigenere ailesi"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Vigenere ailesi"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Francis Beaufort"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
