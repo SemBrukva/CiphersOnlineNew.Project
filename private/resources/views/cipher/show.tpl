@@ -205,7 +205,6 @@
 <section class="panel ciphers-hub-panel">
     <div class="panel-heading">
         <div class="panel-title">{$tool_ui.relatedTitle}</div>
-        <a class="ciphers-related-all-link" href="/{$category.alias}">{$all_in_category_label} →</a>
     </div>
     <div class="panel-content">
         <div class="ciphers-category-hub-grid">
@@ -220,6 +219,9 @@
                 <span class="ciphers-category-hub-card__arrow" aria-hidden="true">→</span>
             </article>
             {/foreach}
+        </div>
+        <div class="ciphers-related-all-wrap">
+            <a class="ciphers-related-all-link" href="/{$category.alias}">{$all_in_category_label} →</a>
         </div>
     </div>
 </section>

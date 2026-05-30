@@ -14,7 +14,7 @@
         "data": {
             "name": "Playfair Cipher",
             "name_short": "Playfair Cipher",
-            "description": "Encrypt and decrypt text with the Playfair cipher online using a keyword-based 5×5 letter matrix. Supports multiple alphabets and client-side processing.",
+            "description": "Encrypt and decrypt text with the Playfair cipher online using a keyword-based 5×5 letter matrix. Supports multiple alphabets and custom keywords.",
             "description_stort": "Classic digraph substitution cipher with keyword matrix encryption.",
             "meta_title": "Playfair Cipher Online Encoder & Decoder",
             "meta_description": "Use the Playfair cipher online with a custom keyword and selectable alphabet. Encrypt and decrypt digraph-based classical cipher text instantly."
@@ -38,6 +38,16 @@
                 "title": "Playfair cipher characteristics",
                 "text": "<p>Unlike simple substitution ciphers such as Caesar, the Playfair cipher encrypts letter pairs. This makes basic single-letter frequency analysis less effective, because the same plaintext letter can produce different results depending on its pair.</p><p>The cipher was historically useful because it was stronger than many simple manual ciphers while still being practical to use without machines. It only required a keyword, a matrix, and a small set of substitution rules.</p><p>By modern cryptographic standards, Playfair is not secure. Today it is mainly useful for education, puzzles, demonstrations, and understanding how classical polygraphic substitution ciphers work.</p>"
             }
+        },
+        {
+            "id": 0,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "History of the Playfair Cipher",
+                "text": "<p>The Playfair cipher was invented in 1854 by the British scientist Charles Wheatstone. However, it became widely known through Lord Playfair, who strongly promoted the system for practical use. As a result, the cipher became associated with his name rather than its inventor.</p><p>The cipher was designed to improve upon simple substitution methods by encrypting pairs of letters instead of individual characters. This made traditional frequency analysis significantly more difficult and increased the security of manual communications.</p><p>Playfair was used by military and diplomatic organizations in the late nineteenth and early twentieth centuries. Although it is no longer considered secure, it remains one of the most famous classical ciphers and is still widely studied as an important step in the history of cryptography.</p>"
+            }
+
         }
     ],
     "faq": [
@@ -47,7 +57,7 @@
             "published": true,
             "data": {
                 "question": "Why are extra letters added in Playfair encryption?",
-                "answer": "The Playfair cipher works with pairs of letters called digraphs. If a pair contains duplicate letters or the message length is odd, filler characters such as X are inserted."
+                "answer": "The Playfair cipher works with pairs of letters called digraphs. If a pair contains duplicate letters or the message length is odd, filler characters such as X are inserted to create valid digraphs."
             }
         },
         {
@@ -56,7 +66,7 @@
             "published": true,
             "data": {
                 "question": "Does the keyword affect encryption strength?",
-                "answer": "Yes. The keyword determines the structure of the 5×5 matrix. Longer and less predictable keywords create more complex substitution patterns."
+                "answer": "Yes. The keyword determines the structure of the Playfair matrix. Longer and less predictable keywords create more complex substitution patterns and make manual analysis harder."
             }
         },
         {
@@ -65,7 +75,7 @@
             "published": true,
             "data": {
                 "question": "Why are I and J sometimes treated as the same letter?",
-                "answer": "A standard Playfair matrix contains only 25 cells, so traditional English implementations combine I and J into one position to fit the alphabet."
+                "answer": "A traditional Playfair matrix contains only 25 cells. To fit the English alphabet into a 5×5 grid, the letters I and J are commonly combined into a single position."
             }
         },
         {
@@ -74,7 +84,7 @@
             "published": true,
             "data": {
                 "question": "Is the Playfair cipher secure today?",
-                "answer": "No. The Playfair cipher is considered historically important but cryptographically weak by modern standards. It is mainly used for education, puzzles, and demonstrations of classical cryptography."
+                "answer": "No. While the Playfair cipher was stronger than many classical ciphers of its time, it can be broken using modern cryptanalysis techniques. Today it is mainly used for education, puzzles, and historical study."
             }
         },
         {
@@ -82,8 +92,8 @@
             "sort_order": 50,
             "published": true,
             "data": {
-                "question": "What is a digraph in the Playfair cipher?",
-                "answer": "A digraph is a pair of letters processed together during encryption and decryption. Playfair always transforms text two characters at a time."
+                "question": "Why does Playfair use letter pairs instead of single letters?",
+                "answer": "Encrypting pairs of letters makes simple frequency analysis more difficult than in monoalphabetic ciphers. This was one of the main innovations that made Playfair more secure than many earlier manual ciphers."
             }
         }
     ],
@@ -121,9 +131,9 @@
             "direction": "encrypt",
             "data": {
                 "title": "Handle repeated letters in a digraph",
-                "key": "MONARCHY",
+                "key": "MILITARY",
                 "input": "BALLOON",
-                "output": "DNKRIRNA",
+                "output": "EITRRJGO",
                 "description": "The double L in BALLOON cannot appear in the same digraph. A padding character is inserted automatically before encryption."
             }
         },
@@ -134,9 +144,9 @@
             "direction": "encrypt",
             "data": {
                 "title": "Encrypt an odd-length message",
-                "key": "MONARCHY",
+                "key": "PLAYFAIR",
                 "input": "SECRETS",
-                "output": "VYMCBVUO",
+                "output": "VBDBCVTL",
                 "description": "SECRETS contains an odd number of characters, so a padding letter is added automatically before encryption."
             }
         }
@@ -155,7 +165,7 @@
             "sort_order": 20,
             "published": true,
             "data": {
-                "tag": "5x5 matrix"
+                "tag": "Keyword-based"
             }
         },
         {
@@ -163,7 +173,7 @@
             "sort_order": 30,
             "published": true,
             "data": {
-                "tag": "Classical cryptography"
+                "tag": "Letter pairs"
             }
         },
         {
@@ -171,15 +181,7 @@
             "sort_order": 40,
             "published": true,
             "data": {
-                "tag": "Keyword cipher"
-            }
-        },
-        {
-            "id": 76,
-            "sort_order": 40,
-            "published": true,
-            "data": {
-                "tag": ""
+                "tag": "Military use"
             }
         },
         {
@@ -187,15 +189,7 @@
             "sort_order": 50,
             "published": true,
             "data": {
-                "tag": "Manual encryption"
-            }
-        },
-        {
-            "id": 77,
-            "sort_order": 50,
-            "published": true,
-            "data": {
-                "tag": ""
+                "tag": "5×5 matrix"
             }
         }
     ],
