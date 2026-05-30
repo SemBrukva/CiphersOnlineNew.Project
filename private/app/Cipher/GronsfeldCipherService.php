@@ -7,14 +7,14 @@ namespace App\Cipher;
 /**
  * Сервис шифра Гронсфельда с поддержкой нескольких алфавитов.
  */
-final class GronsfeldCipherService
+final readonly class GronsfeldCipherService
 {
     /**
      * Создаёт экземпляр сервиса шифра Гронсфельда.
      */
     public function __construct(
-        private readonly ?AlphabetCatalog $catalog = null,
-        private readonly ?AlphabetTool $alphabetTool = null
+        private ?AlphabetCatalog $catalog = null,
+        private ?AlphabetTool    $alphabetTool = null
     ) {
     }
 

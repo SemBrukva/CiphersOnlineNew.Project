@@ -7,14 +7,14 @@ namespace App\Cipher;
 /**
  * Сервис шифра Бэкона с поддержкой нескольких алфавитов.
  */
-final class BaconCipherService
+final readonly class BaconCipherService
 {
     /**
      * Создаёт экземпляр сервиса шифра Бэкона.
      */
     public function __construct(
-        private readonly ?AlphabetCatalog $catalog = null,
-        private readonly ?AlphabetTool $alphabetTool = null
+        private ?AlphabetCatalog $catalog = null,
+        private ?AlphabetTool    $alphabetTool = null
     ) {
     }
 

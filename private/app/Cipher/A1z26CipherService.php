@@ -7,14 +7,14 @@ namespace App\Cipher;
 /**
  * Сервис шифра A1Z26 с поддержкой нескольких алфавитов.
  */
-final class A1z26CipherService
+final readonly class A1z26CipherService
 {
     /**
      * Создаёт экземпляр сервиса шифра A1Z26.
      */
     public function __construct(
-        private readonly ?AlphabetCatalog $catalog = null,
-        private readonly ?AlphabetTool $alphabetTool = null
+        private ?AlphabetCatalog $catalog = null,
+        private ?AlphabetTool    $alphabetTool = null
     ) {
     }
 

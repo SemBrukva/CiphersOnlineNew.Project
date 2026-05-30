@@ -7,14 +7,14 @@ namespace App\Cipher;
 /**
  * Сервис шифра Цезаря с поддержкой нескольких алфавитов.
  */
-final class CaesarCipherService
+final readonly class CaesarCipherService
 {
     /**
      * Создаёт экземпляр сервиса шифра Цезаря.
      */
     public function __construct(
-        private readonly ?AlphabetCatalog $catalog = null,
-        private readonly ?AlphabetTool $alphabetTool = null
+        private ?AlphabetCatalog $catalog = null,
+        private ?AlphabetTool    $alphabetTool = null
     ) {
     }
 

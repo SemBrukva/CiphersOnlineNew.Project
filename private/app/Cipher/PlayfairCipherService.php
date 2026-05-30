@@ -103,10 +103,11 @@ final readonly class PlayfairCipherService
         [$matrix, $positions] = $this->generateSquare($key, $alphabet);
         $isEncrypting = $direction === 'encrypt';
         $preparedText = $this->normalizeInput($text, $alphabet);
-        $bigrams = $this->buildBigrams($preparedText, $alphabet);
+        $bigrams = $isEncrypting
+            ? $this->buildBigrams($preparedText, $alphabet)
+            : $this->splitDecryptPairs($preparedText);
 
         $rowCount = count($matrix);
-        $colCount = count($matrix[0]);
         $result = '';
 
         foreach ($bigrams as [$a, $b]) {
@@ -136,8 +137,11 @@ final readonly class PlayfairCipherService
                 continue;
             }
 
-            $result .= $matrix[$first['row']][$second['col']];
-            $result .= $matrix[$second['row']][$first['col']];
+            // Если буква в неполной последней строке, wrapping-колонки по длине строки.
+            $r1Len = count($matrix[$first['row']]);
+            $r2Len = count($matrix[$second['row']]);
+            $result .= $matrix[$first['row']][$second['col'] % $r1Len];
+            $result .= $matrix[$second['row']][$first['col'] % $r2Len];
         }
 
         return $result;
@@ -148,22 +152,49 @@ final readonly class PlayfairCipherService
      */
     private function normalizeInput(string $text, string $alphabet): string
     {
-        $upperAlphabet = array_map('mb_strtoupper', $this->alphabetCatalog()->alphabet($alphabet));
+        $upperAlphabet = array_map(fn($l) => $this->toUpper($l, $alphabet), $this->alphabetCatalog()->alphabet($alphabet));
         $allowed = implode('', $upperAlphabet);
-        $input = mb_strtoupper($text);
+        $input = $this->toUpper($text, $alphabet);
 
         return (string) preg_replace('/[^' . preg_quote($allowed, '/') . ']/u', '', $input);
     }
 
     /**
-     * Строит биграммы для алгоритма Плейфера с заполнителем.
+     * Разбивает шифротекст на биграммы без вставки заполнителей (для дешифрования).
+     *
+     * @return array<int, array{0: string, 1: string}>
+     */
+    private function splitDecryptPairs(string $text): array
+    {
+        $pairs = [];
+        $length = mb_strlen($text);
+        for ($i = 0; $i + 1 < $length; $i += 2) {
+            $pairs[] = [mb_substr($text, $i, 1), mb_substr($text, $i + 1, 1)];
+        }
+        return $pairs;
+    }
+
+    /**
+     * Приводит текст к верхнему регистру с учётом особенностей алфавита.
+     * Для турецкого: i → İ перед mb_strtoupper, чтобы разделить «i с точкой» и «ı без точки».
+     */
+    private function toUpper(string $text, string $alphabet): string
+    {
+        if ($alphabet === 'tr') {
+            $text = str_replace('i', 'İ', $text);
+        }
+        return mb_strtoupper($text);
+    }
+
+    /**
+     * Строит биграммы для алгоритма Плейфера с заполнителем (только для шифрования).
      *
      * @return array<int, array{0: string, 1: string}>
      */
     private function buildBigrams(string $text, string $alphabet): array
     {
         $letters = $this->alphabetCatalog()->alphabet($alphabet);
-        $filler = mb_strtoupper($letters[0] ?? 'X');
+        $filler = $this->toUpper($letters[0] ?? 'X', $alphabet);
         $pairs = [];
         $index = 0;
 
@@ -198,9 +229,9 @@ final readonly class PlayfairCipherService
     private function generateSquare(string $key, string $alphabet): array
     {
         $letters = $this->alphabetCatalog()->alphabet($alphabet);
-        $upperLetters = array_map('mb_strtoupper', $letters);
+        $upperLetters = array_map(fn($l) => $this->toUpper($l, $alphabet), $letters);
         $allowed = implode('', $upperLetters);
-        $normalizedKey = mb_strtoupper($key);
+        $normalizedKey = $this->toUpper($key, $alphabet);
         $normalizedKey = (string) preg_replace('/[^' . preg_quote($allowed, '/') . ']/u', '', $normalizedKey);
         $keyChars = mb_str_split($normalizedKey);
 

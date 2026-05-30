@@ -7,14 +7,14 @@ namespace App\Cipher;
 /**
  * Сервис шифра Бофора с поддержкой нескольких алфавитов.
  */
-final class BeaufortCipherService
+final readonly class BeaufortCipherService
 {
     /**
      * Создаёт экземпляр сервиса шифра Бофора.
      */
     public function __construct(
-        private readonly ?AlphabetCatalog $catalog = null,
-        private readonly ?AlphabetTool $alphabetTool = null
+        private ?AlphabetCatalog $catalog = null,
+        private ?AlphabetTool    $alphabetTool = null
     ) {
     }
 
