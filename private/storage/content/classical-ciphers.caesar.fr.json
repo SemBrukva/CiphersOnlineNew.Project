@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T11:38:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "caesar",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 11,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 11,
+        "data": {
+            "name": "Chiffre de César",
+            "name_short": "Chiffre de César",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre de César en ligne, avec des valeurs de décalage personnalisées et plusieurs alphabets. C’est l’une des méthodes de chiffrement classique les plus anciennes et les plus connues.",
+            "description_stort": "Chiffrement classique par décalage de lettres avec valeur de décalage personnalisée.",
+            "meta_title": "Chiffre de César en ligne : chiffreur et déchiffreur",
+            "meta_description": "Utilisez le chiffre de César en ligne pour chiffrer et déchiffrer du texte avec un décalage personnalisé, plusieurs alphabets et un résultat instantané."
+        }
+    },
+    "blocks": [
+        {
+            "id": 35,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de César",
+                "text": "<p>Le chiffre de César est un chiffrement par substitution qui décale chaque lettre de l’alphabet sélectionné d’un nombre fixe de positions. Par exemple, dans l’alphabet français avec un décalage de 3, A devient B, À devient C et Â devient Ç.</p><p>Le chiffrement fait avancer les lettres dans l’alphabet, tandis que le déchiffrement les fait reculer avec la même valeur de décalage. Les espaces, les nombres et la ponctuation sont généralement conservés tels quels.</p><p>Comme la méthode est simple et prévisible, elle sert souvent à introduire les notions de base de la cryptographie classique : texte clair, texte chiffré, clés, chiffrement et déchiffrement.</p>"
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Sécurité et limites pratiques",
+                "text": "<p>Le chiffre de César n’est pas considéré comme sûr selon les standards modernes. Comme le nombre de décalages possibles est limité, un attaquant peut tester toutes les options très rapidement.</p><p>Malgré cette faiblesse, ce chiffre reste utile pour l’apprentissage, les énigmes et les démonstrations, car il montre clairement comment un paramètre secret transforme un texte lisible en texte chiffré.</p><p>Si vous devez retrouver automatiquement un décalage inconnu, utilisez le casseur de César pour la recherche de clé et l’analyse.</p>"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Histoire du chiffre de César",
+                "text": "<p>Le chiffre de César doit son nom à Jules César, que la tradition associe à l’utilisation d’un chiffrement par décalage de lettres pour protéger des messages militaires.</p><p>Même si cette méthode est extrêmement faible aujourd’hui, elle reste l’un des chiffres historiques les plus reconnaissables et un point de départ important pour comprendre les chiffrements par substitution.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 85,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de César est-il sûr ?",
+                "answer": "Non. Le chiffre de César peut être cassé rapidement par force brute, car il n’existe qu’un nombre limité de décalages possibles. Il convient surtout à l’apprentissage, aux énigmes et aux démonstrations simples."
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Puis-je utiliser du texte non latin ?",
+                "answer": "Oui. Choisissez l’alphabet correspondant dans les paramètres avant de traiter le texte."
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces et la ponctuation ?",
+                "answer": "Les espaces, les chiffres et les caractères spéciaux ne sont pas modifiés. Seules les lettres de l’alphabet sélectionné sont chiffrées."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Pourquoi parle-t-on de chiffre de César ?",
+                "answer": "Le chiffre porte le nom de Jules César, à qui l’on attribue traditionnellement l’usage d’une méthode de décalage de lettres pour protéger des communications militaires."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que le mode en direct ?",
+                "answer": "Le mode en direct recalcule automatiquement le résultat lorsque vous modifiez le texte ou les paramètres de chiffrement. Vous voyez ainsi le résultat immédiatement, sans appuyer sur le bouton."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Puis-je utiliser cet outil pour casser un chiffre de César ?",
+                "answer": "Cette mini-application est conçue pour chiffrer et déchiffrer lorsque vous connaissez déjà le décalage. Pour une recherche automatique de clé et une analyse fondée sur les fréquences, utilisez le casseur de César."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Chiffrer avec un décalage de 3",
+                "key": "",
+                "shift": 3,
+                "input": "ÉTÉ CLAIR",
+                "output": "ËÛË EOBJU",
+                "description": "Alphabet : français. Décalage : 3. Mode : chiffrer. Chaque lettre est déplacée de trois positions vers l’avant."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Déchiffrer avec un décalage de 3",
+                "key": "",
+                "shift": 3,
+                "input": "ËÛË EOBJU",
+                "output": "ÉTÉ CLAIR",
+                "description": "Alphabet : français. Décalage : 3. Mode : déchiffrer. Le même décalage est appliqué en sens inverse pour retrouver le texte d’origine."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Exemple avec un décalage de 13",
+                "key": "",
+                "shift": 13,
+                "input": "ÈCOLE",
+                "output": "NÏXÜL",
+                "description": "Alphabet : français. Décalage : 13. Cet exemple illustre la même idée que ROT13 dans l’alphabet anglais : masquer un texte avec un décalage fixe."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Conserver les espaces et la ponctuation",
+                "key": "",
+                "shift": 5,
+                "input": "ÉTÉ, CLAIR!",
+                "output": "GVG, ÈPÇLÛ!",
+                "description": "Seules les lettres sont décalées. Les espaces, les signes de ponctuation et les autres symboles restent inchangés."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement par décalage"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Pédagogique"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement par substitution"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13"
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Jules César"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

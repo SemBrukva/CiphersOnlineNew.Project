@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T11:38:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "caesar",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 11,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 11,
+        "data": {
+            "name": "Sezar Şifresi",
+            "name_short": "Sezar Şifresi",
+            "description": "Özel kaydırma değerleri ve birden çok alfabe kullanarak Sezar şifresiyle metni çevrim içi şifreleyin ve çözün. Klasik şifreleme yöntemlerinin en eski ve en bilinen örneklerinden biridir.",
+            "description_stort": "Özel kaydırma değerleriyle çalışan klasik harf kaydırma şifresi.",
+            "meta_title": "Sezar Şifresi Çevrim İçi Şifreleyici ve Çözücü",
+            "meta_description": "Özel kaydırma değerleri, birden çok alfabe ve anında sonuçlarla metni şifrelemek ve çözmek için Sezar şifresini çevrim içi kullanın."
+        }
+    },
+    "blocks": [
+        {
+            "id": 35,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Sezar şifresi nasıl çalışır",
+                "text": "<p>Sezar şifresi, seçilen alfabedeki her harfi sabit sayıda konum kaydıran bir yerine koyma şifresidir. Örneğin Türk alfabesinde 3 kaydırma ile A harfi Ç olur, B harfi D olur ve C harfi E olur.</p><p>Şifreleme harfleri alfabe boyunca ileri taşır; çözme işlemi ise aynı kaydırma değerini ters yönde uygular. Boşluklar, sayılar ve noktalama işaretleri genellikle değişmeden korunur.</p><p>Yöntem basit ve öngörülebilir olduğu için klasik kriptografinin temel kavramlarını tanıtmak için sık kullanılır: açık metin, şifreli metin, anahtarlar, şifreleme ve çözme.</p>"
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Güvenlik ve pratik sınırlar",
+                "text": "<p>Sezar şifresi modern standartlara göre güvenli kabul edilmez. Olası kaydırma değerlerinin sayısı az olduğu için bir saldırgan tüm seçenekleri çok hızlı deneyebilir.</p><p>Bu zayıflığa rağmen şifre eğitim, bulmacalar ve gösterimler için yararlıdır; çünkü gizli bir parametrenin okunabilir metni nasıl şifreli metne dönüştürdüğünü açıkça gösterir.</p><p>Bilinmeyen bir kaydırmayı otomatik olarak bulmanız gerekiyorsa anahtar arama ve analiz için Sezar kırıcıyı kullanın.</p>"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sezar şifresinin tarihi",
+                "text": "<p>Sezar şifresi adını, askeri mesajları korumak için harf kaydırmalı şifreleme kullandığı geleneksel olarak anlatılan Jül Sezar’dan alır.</p><p>Yöntem bugün son derece zayıf olsa da en tanınan tarihsel şifrelerden biri olmayı sürdürür ve yerine koyma şifrelerinin nasıl çalıştığını öğrenmek için önemli bir başlangıç noktasıdır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 85,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Sezar şifresi güvenli mi?",
+                "answer": "Hayır. Sezar şifresi hızlıca kaba kuvvetle çözülebilir, çünkü olası kaydırma değerlerinin sayısı sınırlıdır. En iyi kullanım alanları öğrenme, bulmacalar ve basit gösterimlerdir."
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Latin dışı metin kullanabilir miyim?",
+                "answer": "Evet. Metni işlemeden önce ayarlardan uygun alfabeyi seçin."
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Boşluklara ve noktalama işaretlerine ne olur?",
+                "answer": "Boşluklar, rakamlar ve özel karakterler değiştirilmez. Yalnızca seçilen alfabedeki harfler şifrelenir."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Neden Sezar şifresi deniyor?",
+                "answer": "Şifre adını Jül Sezar’dan alır; geleneksel anlatıma göre Sezar, askeri iletişimi korumak için harf kaydırma yöntemini kullanmıştır."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Canlı Mod nedir?",
+                "answer": "Canlı Mod, metni veya şifreleme ayarlarını değiştirdiğinizde sonucu otomatik olarak yeniden hesaplar. Böylece düğmeye basmadan sonucu anında görebilirsiniz."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bu aracı Sezar şifresini kırmak için kullanabilir miyim?",
+                "answer": "Bu mini uygulama, kaydırmayı zaten bildiğiniz durumlarda şifreleme ve çözme için tasarlanmıştır. Otomatik anahtar arama ve frekans tabanlı analiz için Sezar kırıcıyı kullanın."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "3 kaydırma ile şifrele",
+                "key": "",
+                "shift": 3,
+                "input": "ŞİFRE MESAJ",
+                "output": "ÜİHTĞ ÖĞUÇM",
+                "description": "Alfabe: Türkçe. Kaydırma: 3. Mod: şifreleme. Her harf üç konum ileri taşınır."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "3 kaydırma ile çöz",
+                "key": "",
+                "shift": 3,
+                "input": "ÜİHTĞ ÖĞUÇM",
+                "output": "ŞİFRE MESAJ",
+                "description": "Alfabe: Türkçe. Kaydırma: 3. Mod: çözme. Özgün metni geri getirmek için aynı kaydırma ters yönde uygulanır."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "13 kaydırma örneği",
+                "key": "",
+                "shift": 13,
+                "input": "TÜRKİYE",
+                "output": "GHDVİIÖ",
+                "description": "Alfabe: Türkçe. Kaydırma: 13. Bu örnek, İngiliz alfabesindeki ROT13 ile aynı fikri gösterir: metni sabit bir kaydırmayla gizlemek."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Boşlukları ve noktalama işaretlerini koru",
+                "key": "",
+                "shift": 5,
+                "input": "ŞİFRE, MESAJ!",
+                "output": "YİIÜI, RIVEO!",
+                "description": "Yalnızca harfler kaydırılır. Boşluklar, noktalama işaretleri ve diğer semboller değişmeden kalır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Kaydırma şifresi"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Eğitici"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Yerine koyma şifresi"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13"
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Jül Sezar"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

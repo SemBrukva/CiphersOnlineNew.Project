@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T11:38:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "caesar",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 11,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 11,
+        "data": {
+            "name": "Caesar Cipher",
+            "name_short": "Caesar Cipher",
+            "description": "Encrypt and decrypt text with the Caesar cipher online using custom shift values and multiple alphabets. One of the oldest and most widely known classical encryption methods.",
+            "description_stort": "Classic letter-shift cipher with custom shift values.",
+            "meta_title": "Caesar Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Caesar cipher online to encrypt and decrypt text with custom shift values, multiple alphabets, and instant results."
+        }
+    },
+    "blocks": [
+        {
+            "id": 35,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Caesar cipher works",
+                "text": "<p>The Caesar cipher is a substitution cipher that shifts each letter in the selected alphabet by a fixed number of positions. For example, with a shift of 3, A becomes D, B becomes E, and C becomes F.</p><p>Encryption moves letters forward through the alphabet, while decryption moves them backward by the same shift value. Spaces, numbers, and punctuation are usually preserved unchanged.</p><p>Because the method is simple and predictable, it is often used to introduce the basic ideas of classical cryptography: plaintext, ciphertext, keys, encryption, and decryption.</p>"
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Security and practical limits",
+                "text": "<p>The Caesar cipher is not considered secure by modern standards. Since only a small number of shift values are possible, an attacker can test every option very quickly.</p><p>Despite its weakness, the cipher remains useful for education, puzzles, and demonstrations because it clearly shows how a secret key changes readable text into ciphertext.</p><p>If you need to recover an unknown shift automatically, use Caesar Cracker for key search and analysis.</p>"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "History of the Caesar cipher",
+                "text": "<p>The Caesar cipher is named after Julius Caesar, who is traditionally associated with using letter-shift encryption to protect military messages.</p><p>Although the method is extremely weak today, it remains one of the most recognizable historical ciphers and an important starting point for learning how substitution ciphers work.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 85,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is the Caesar cipher secure?",
+                "answer": "No. The Caesar cipher can be brute-forced quickly because there are only a limited number of possible shifts. It is best used for learning, puzzles, and simple demonstrations."
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Can I use non-Latin text?",
+                "answer": "Yes. Choose the matching alphabet in settings before processing text."
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces and punctuation?",
+                "answer": "Spaces, digits, and special characters are not changed. Only letters from the selected alphabet are encrypted."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Why is it called the Caesar cipher?",
+                "answer": "The cipher is named after Julius Caesar, who is traditionally said to have used a letter-shift method to protect military communication."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What is Live Mode?",
+                "answer": "Live Mode automatically recalculates the result when you change the text or encryption settings. This lets you see the result instantly without pressing the button."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can I use this tool to crack a Caesar cipher?",
+                "answer": "This mini-app is designed for encryption and decryption when you already know the shift. For automatic key search and frequency-based analysis, use Caesar Cracker."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Encrypt with shift 3",
+                "key": "",
+                "shift": 3,
+                "input": "HELLO WORLD",
+                "output": "KHOOR ZRUOG",
+                "description": "Alphabet: English. Shift: 3. Mode: encrypt. Each letter is moved three positions forward."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Decrypt with shift 3",
+                "key": "",
+                "shift": 3,
+                "input": "KHOOR ZRUOG",
+                "output": "HELLO WORLD",
+                "description": "Alphabet: English. Shift: 3. Mode: decrypt. The same shift is applied in reverse to restore the original text."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "ROT13 example",
+                "key": "",
+                "shift": 13,
+                "input": "HELLO",
+                "output": "URYYB",
+                "description": "Alphabet: English. Shift: 13. ROT13 is a special Caesar cipher variant commonly used to obscure text."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Preserve spaces and punctuation",
+                "key": "",
+                "shift": 5,
+                "input": "HELLO, WORLD!",
+                "output": "MJQQT, BTWQI!",
+                "description": "Only letters are shifted. Spaces, punctuation marks, and other symbols remain unchanged."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Shift cipher"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Educational"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Substitution cipher"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13"
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Julius Caesar"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

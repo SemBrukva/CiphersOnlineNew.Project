@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-30T11:38:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "caesar",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 11,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 11,
+        "data": {
+            "name": "Cifrado César",
+            "name_short": "Cifrado César",
+            "description": "Cifra y descifra texto con el cifrado César en línea usando valores de desplazamiento personalizados y varios alfabetos. Es uno de los métodos de cifrado clásico más antiguos y conocidos.",
+            "description_stort": "Cifrado clásico por desplazamiento de letras con valores de desplazamiento personalizados.",
+            "meta_title": "Cifrado César en línea: cifrador y descifrador",
+            "meta_description": "Usa el cifrado César en línea para cifrar y descifrar texto con desplazamientos personalizados, varios alfabetos y resultados instantáneos."
+        }
+    },
+    "blocks": [
+        {
+            "id": 35,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado César",
+                "text": "<p>El cifrado César es un cifrado de sustitución que desplaza cada letra del alfabeto seleccionado un número fijo de posiciones. Por ejemplo, en el alfabeto español con un desplazamiento de 3, A se convierte en D, B en E y C en F.</p><p>Al cifrar, las letras avanzan por el alfabeto; al descifrar, retroceden usando el mismo valor de desplazamiento. Los espacios, números y signos de puntuación normalmente se conservan sin cambios.</p><p>Como el método es simple y predecible, se usa a menudo para presentar las ideas básicas de la criptografía clásica: texto claro, texto cifrado, claves, cifrado y descifrado.</p>"
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Seguridad y límites prácticos",
+                "text": "<p>El cifrado César no se considera seguro según los estándares modernos. Como solo hay un número reducido de desplazamientos posibles, un atacante puede probar todas las opciones muy rápidamente.</p><p>A pesar de su debilidad, el cifrado sigue siendo útil para aprender, crear acertijos y hacer demostraciones, porque muestra con claridad cómo un parámetro secreto transforma texto legible en texto cifrado.</p><p>Si necesitas recuperar automáticamente un desplazamiento desconocido, usa el descifrador de César para buscar la clave y analizar el texto.</p>"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Historia del cifrado César",
+                "text": "<p>El cifrado César recibe su nombre de Julio César, a quien tradicionalmente se asocia con el uso de desplazamientos de letras para proteger mensajes militares.</p><p>Aunque hoy el método es extremadamente débil, sigue siendo uno de los cifrados históricos más reconocibles y un punto de partida importante para aprender cómo funcionan los cifrados de sustitución.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 85,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro el cifrado César?",
+                "answer": "No. El cifrado César puede romperse rápidamente por fuerza bruta porque solo existe una cantidad limitada de desplazamientos posibles. Es más adecuado para aprender, resolver acertijos y hacer demostraciones sencillas."
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Puedo usar texto que no sea latino?",
+                "answer": "Sí. Antes de procesar el texto, elige el alfabeto correspondiente en la configuración."
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Qué ocurre con los espacios y la puntuación?",
+                "answer": "Los espacios, dígitos y caracteres especiales no cambian. Solo se cifran las letras del alfabeto seleccionado."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Por qué se llama cifrado César?",
+                "answer": "El cifrado recibe su nombre de Julio César, de quien tradicionalmente se dice que usó un método de desplazamiento de letras para proteger comunicaciones militares."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Qué es el modo en vivo?",
+                "answer": "El modo en vivo recalcula automáticamente el resultado cuando cambias el texto o la configuración de cifrado. Así puedes ver el resultado al instante sin pulsar el botón."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Puedo usar esta herramienta para romper un cifrado César?",
+                "answer": "Esta miniaplicación está pensada para cifrar y descifrar cuando ya conoces el desplazamiento. Para búsqueda automática de clave y análisis basado en frecuencias, usa el descifrador de César."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Cifrar con desplazamiento 3",
+                "key": "",
+                "shift": 3,
+                "input": "AÑO NUEVO",
+                "output": "DQR PXHYR",
+                "description": "Alfabeto: español. Desplazamiento: 3. Modo: cifrar. Cada letra se mueve tres posiciones hacia delante."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Descifrar con desplazamiento 3",
+                "key": "",
+                "shift": 3,
+                "input": "ÑÑDYH",
+                "output": "LLAVE",
+                "description": "Alfabeto: español. Desplazamiento: 3. Modo: descifrar. El mismo desplazamiento se aplica en sentido inverso para recuperar el texto original."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Ejemplo con desplazamiento 13",
+                "key": "",
+                "shift": 13,
+                "input": "ESPAÑA",
+                "output": "QFCNAN",
+                "description": "Alfabeto: español. Desplazamiento: 13. Este ejemplo muestra la misma idea que ROT13 en el alfabeto inglés: ocultar texto con un desplazamiento fijo."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Conservar espacios y puntuación",
+                "key": "",
+                "shift": 5,
+                "input": "¡AÑO, NUEVO!",
+                "output": "¡FST, RZJAT!",
+                "description": "Solo se desplazan las letras. Los espacios, signos de puntuación y otros símbolos permanecen sin cambios."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado por desplazamiento"
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Educativo"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cifrado de sustitución"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13"
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Julio César"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
