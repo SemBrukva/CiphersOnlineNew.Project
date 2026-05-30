@@ -309,6 +309,13 @@
                                                            value="{$example_translation.key|default:''}">
                                                 </div>
                                                 <div class="mb-3">
+                                                    <label class="form-label fw-medium">Shift</label>
+                                                    <input type="number" class="form-control"
+                                                           min="0" max="999999" step="1"
+                                                           data-translation-field="shift"
+                                                           value="{$example_translation.shift|default:0}">
+                                                </div>
+                                                <div class="mb-3">
                                                     <label class="form-label fw-medium">Заголовок</label>
                                                     <input type="text" class="form-control"
                                                            data-translation-field="title"

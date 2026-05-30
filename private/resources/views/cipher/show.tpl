@@ -139,6 +139,7 @@
                 <article class="b64-example-card">
                     {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
                     {if $example.key}<span class="b64-example-card__key-badge">Key: <code>{$example.key|escape}</code></span>{/if}
+                    {if $example.shift|default:0}<span class="b64-example-card__key-badge">Shift: <code>{$example.shift|escape}</code></span>{/if}
                     <div class="b64-example-card__row">
                         <div class="b64-example-card__slot">
                             <span class="b64-example-card__slot-tag">{$tool_ui.inputTag}</span>
@@ -155,6 +156,7 @@
                     <button class="b64-example-card__use ciphers-example-use" type="button"
                             data-example-text="{$example.input|escape:'html'}"
                             {if $example.key}data-key="{$example.key|escape:'html'}"{/if}
+                            {if $example.shift|default:0}data-shift="{$example.shift|escape:'html'}"{/if}
                             data-alphabet="{$example.language|escape:'html'}"
                             {if $example.direction}data-direction="{$example.direction|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
                 </article>

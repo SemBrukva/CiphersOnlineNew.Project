@@ -1355,10 +1355,14 @@ final class AdminController
         $output = trim((string) ($row['output'] ?? ''));
         $description = trim((string) ($row['description'] ?? ''));
         $key = mb_substr(trim((string) ($row['key'] ?? '')), 0, 255);
+        $hasShift = array_key_exists('shift', $row);
         $existing = $this->db->fetch(
-            'SELECT id FROM ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ? LIMIT 1',
+            'SELECT id, shift FROM ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ? LIMIT 1',
             [$exampleId, $language]
         );
+        $shift = $hasShift
+            ? max(0, min(999999, (int) ($row['shift'] ?? 0)))
+            : (int) ($existing['shift'] ?? 0);
 
         if ($title === '' && $input === '' && $output === '' && $description === '' && $key === '') {
             if ($existing !== false) {
@@ -1373,16 +1377,16 @@ final class AdminController
 
         if ($existing === false) {
             $this->db->insert(
-                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, input, output, description, key, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                [$exampleId, $language, $title, $input, $output, $description, $key, $now, $now]
+                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, input, output, description, `key`, shift, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [$exampleId, $language, $title, $input, $output, $description, $key, $shift, $now, $now]
             );
 
             return;
         }
 
         $this->db->execute(
-            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, input = ?, output = ?, description = ?, key = ?, updated_at = ? WHERE id = ?',
-            [$title, $input, $output, $description, $key, $now, (int) $existing['id']]
+            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, input = ?, output = ?, description = ?, `key` = ?, shift = ?, updated_at = ? WHERE id = ?',
+            [$title, $input, $output, $description, $key, $shift, $now, (int) $existing['id']]
         );
     }
 

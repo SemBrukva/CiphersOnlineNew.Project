@@ -131,6 +131,11 @@ export function initAdminCipherEdit() {
                     <input type="text" class="form-control" data-translation-field="key" value="">
                 </div>
                 <div class="mb-3">
+                    <label class="form-label fw-medium">Shift</label>
+                    <input type="number" class="form-control" min="0" max="999999" step="1"
+                           data-translation-field="shift" value="0">
+                </div>
+                <div class="mb-3">
                     <label class="form-label fw-medium">Заголовок</label>
                     <input type="text" class="form-control" data-translation-field="title" value="">
                 </div>
@@ -376,6 +381,7 @@ export function initAdminCipherEdit() {
                         output:      String(item.querySelector('[data-translation-field="output"]')?.value ?? '').trim(),
                         description: String(item.querySelector('[data-translation-field="description"]')?.value ?? '').trim(),
                         key:         String(item.querySelector('[data-translation-field="key"]')?.value ?? '').trim(),
+                        shift:       Number(item.querySelector('[data-translation-field="shift"]')?.value ?? 0),
                     }
                 } else if (id) {
                     let row = payload.examples.find((r) => r.id === id)
@@ -395,6 +401,7 @@ export function initAdminCipherEdit() {
                         output:      String(item.querySelector('[data-translation-field="output"]')?.value ?? '').trim(),
                         description: String(item.querySelector('[data-translation-field="description"]')?.value ?? '').trim(),
                         key:         String(item.querySelector('[data-translation-field="key"]')?.value ?? '').trim(),
+                        shift:       Number(item.querySelector('[data-translation-field="shift"]')?.value ?? 0),
                     }
                 }
             })

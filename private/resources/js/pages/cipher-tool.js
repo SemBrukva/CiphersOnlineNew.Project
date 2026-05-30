@@ -342,12 +342,16 @@ export function initCipherToolPage() {
       const text = chip.getAttribute('data-example') || ''
       const alphabet = chip.getAttribute('data-alphabet') || ''
       const key = chip.getAttribute('data-key')
+      const shift = chip.getAttribute('data-shift')
       if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
       if (key !== null && keyInput) {
         keyInput.value = key
+      }
+      if (shift !== null && shiftInput) {
+        setShiftValue(Number(shift))
       }
       input.value = text
       if (looksLikeEncoded(text, decoder)) {
@@ -364,6 +368,7 @@ export function initCipherToolPage() {
       const text = btn.getAttribute('data-example-text') || ''
       const alphabet = btn.getAttribute('data-alphabet') || ''
       const key = btn.getAttribute('data-key')
+      const shift = btn.getAttribute('data-shift')
       const direction = btn.getAttribute('data-direction') || ''
       if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
         alphabetSelect.value = alphabet
@@ -372,6 +377,9 @@ export function initCipherToolPage() {
       if (key !== null && keyInput) {
         keyInput.value = key
         keyInput.dispatchEvent(new Event('input', { bubbles: true }))
+      }
+      if (shift !== null && shiftInput) {
+        setShiftValue(Number(shift))
       }
       input.value = text
       if (direction === 'decrypt') {

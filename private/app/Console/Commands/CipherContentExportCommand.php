@@ -232,6 +232,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
             'SELECT e.id, e.sort_order, e.published, e.direction, '
             . 'COALESCE(cur.title, def.title, \'\') AS title, '
             . 'COALESCE(cur.`key`, def.`key`, \'\') AS `key`, '
+            . 'COALESCE(cur.shift, def.shift, 0) AS shift, '
             . 'COALESCE(cur.input, def.input, \'\') AS input, '
             . 'COALESCE(cur.output, def.output, \'\') AS output, '
             . 'COALESCE(cur.description, def.description, \'\') AS description '
@@ -250,6 +251,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
             'data' => [
                 'title' => (string) ($row['title'] ?? ''),
                 'key' => (string) ($row['key'] ?? ''),
+                'shift' => (int) ($row['shift'] ?? 0),
                 'input' => (string) ($row['input'] ?? ''),
                 'output' => (string) ($row['output'] ?? ''),
                 'description' => (string) ($row['description'] ?? ''),
