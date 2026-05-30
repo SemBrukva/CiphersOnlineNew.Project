@@ -40,16 +40,16 @@ final readonly class GronsfeldApiCipherTool implements ApiCipherToolInterface
 
         $errors = [];
         if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
+            $errors['direction'][] = trans('GRONSFELD_ERR_DIRECTION');
         }
         if ($text === '') {
-            $errors['text'][] = 'Text is required.';
+            $errors['text'][] = trans('GRONSFELD_ERR_TEXT_REQUIRED');
         }
         if (!$this->cipher->isValidNumericKey($key)) {
-            $errors['settings.key'][] = 'Key must be numeric and 1-32 characters long.';
+            $errors['settings.key'][] = trans('GRONSFELD_ERR_KEY_INVALID');
         }
         if (!in_array($alphabet, array_merge(['auto'], $this->cipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
+            $errors['settings.alphabet'][] = trans('GRONSFELD_ERR_ALPHABET_UNSUPPORTED');
         }
 
         $detectedAlphabet = null;
@@ -59,11 +59,11 @@ final readonly class GronsfeldApiCipherTool implements ApiCipherToolInterface
         }
 
         if (!$this->cipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
+            $errors['text'][] = trans('GRONSFELD_ERR_TEXT_ALPHABET');
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('GRONSFELD_ERR_INVALID'), ['errors' => $errors]);
         }
 
         return [

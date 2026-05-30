@@ -40,16 +40,16 @@ final readonly class BeaufortApiCipherTool implements ApiCipherToolInterface
 
         $errors = [];
         if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
+            $errors['direction'][] = trans('BEAUFORT_ERR_DIRECTION');
         }
         if ($text === '') {
-            $errors['text'][] = 'Text is required.';
+            $errors['text'][] = trans('BEAUFORT_ERR_TEXT_REQUIRED');
         }
         if ($key === '') {
-            $errors['settings.key'][] = 'Key is required.';
+            $errors['settings.key'][] = trans('BEAUFORT_ERR_KEY_REQUIRED');
         }
         if (!in_array($alphabet, array_merge(['auto'], $this->cipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
+            $errors['settings.alphabet'][] = trans('BEAUFORT_ERR_ALPHABET_UNSUPPORTED');
         }
 
         $detectedAlphabet = null;
@@ -59,14 +59,14 @@ final readonly class BeaufortApiCipherTool implements ApiCipherToolInterface
         }
 
         if (!$this->cipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
+            $errors['text'][] = trans('BEAUFORT_ERR_TEXT_ALPHABET');
         }
         if (!$this->cipher->hasAlphabetCharacters($key, $alphabet)) {
-            $errors['settings.key'][] = 'Key does not contain symbols from the selected alphabet.';
+            $errors['settings.key'][] = trans('BEAUFORT_ERR_KEY_ALPHABET');
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('BEAUFORT_ERR_INVALID'), ['errors' => $errors]);
         }
 
         return [

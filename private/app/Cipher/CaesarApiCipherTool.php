@@ -40,13 +40,13 @@ final readonly class CaesarApiCipherTool implements ApiCipherToolInterface
 
         $errors = [];
         if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
+            $errors['direction'][] = trans('CAESAR_ERR_DIRECTION');
         }
         if ($text === '') {
-            $errors['text'][] = 'Text is required.';
+            $errors['text'][] = trans('CAESAR_ERR_TEXT_REQUIRED');
         }
         if (!in_array($alphabet, array_merge(['auto'], $this->cipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
+            $errors['settings.alphabet'][] = trans('CAESAR_ERR_ALPHABET_UNSUPPORTED');
         }
 
         $detectedAlphabet = null;
@@ -58,7 +58,7 @@ final readonly class CaesarApiCipherTool implements ApiCipherToolInterface
         }
 
         if (!$this->cipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
+            $errors['text'][] = trans('CAESAR_ERR_TEXT_ALPHABET');
         }
 
         $maxShift = $this->cipher->maxShiftForAlphabet($alphabet);
@@ -66,12 +66,12 @@ final readonly class CaesarApiCipherTool implements ApiCipherToolInterface
             if ($usedAutoAlphabet) {
                 $shift = max(0, min($shift, $maxShift));
             } else {
-                $errors['settings.shift'][] = 'Shift must be in range 0-' . $maxShift . '.';
+                $errors['settings.shift'][] = trans('CAESAR_ERR_SHIFT', ['max' => $maxShift]);
             }
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('CAESAR_ERR_INVALID'), ['errors' => $errors]);
         }
 
         return [
