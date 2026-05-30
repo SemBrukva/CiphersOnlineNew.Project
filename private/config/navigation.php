@@ -24,6 +24,11 @@ return [
             'icon'           => 'bi bi-file-code-fill',
             'category_alias' => 'encoding',
         ],
+        [
+            'title_key' => 'MENU_FAVORITES',
+            'url'       => '/favorites',
+            'icon'      => 'bi-star-fill',
+        ],
     ],
 
 ];

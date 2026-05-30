@@ -332,6 +332,67 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Возвращает опубликованные шифры по массиву слагов «category_alias/cipher_alias» с переводом.
+     *
+     * Порядок результата соответствует переданному списку слагов.
+     *
+     * @param  string[] $slugs Список слагов вида «classical-ciphers/caesar».
+     * @return array<int, array<string, mixed>>
+     */
+    public function findPublishedBySlugsWithTranslation(array $slugs, string $language, string $defaultLanguage): array
+    {
+        if ($slugs === []) {
+            return [];
+        }
+
+        $conditions = [];
+        $params      = [$language, $defaultLanguage];
+
+        foreach ($slugs as $slug) {
+            $parts = explode('/', (string) $slug, 2);
+            if (count($parts) !== 2 || $parts[0] === '' || $parts[1] === '') {
+                continue;
+            }
+            $conditions[] = '(cat.alias = ? AND c.alias = ?)';
+            $params[]     = $parts[0];
+            $params[]     = $parts[1];
+        }
+
+        if ($conditions === []) {
+            return [];
+        }
+
+        $rows = $this->db->fetchAll(
+            'SELECT c.id, c.alias, c.category_id, '
+            .'cat.alias AS category_alias, '
+            .'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
+            .'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name_short, '
+            .'COALESCE(t_cur.description_stort, t_def.description_stort, \'\') AS description_short '
+            .'FROM '.$this->table.' c '
+            .'INNER JOIN '.Tables::CIPHER_CATEGORIES.' cat ON cat.id = c.category_id AND cat.published = 1 '
+            .'LEFT JOIN '.Tables::CIPHERS_TRANSLATIONS.' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
+            .'LEFT JOIN '.Tables::CIPHERS_TRANSLATIONS.' t_def ON t_def.app_id = c.id AND t_def.language = ? '
+            .'WHERE c.published = 1 AND ('.implode(' OR ', $conditions).')',
+            $params
+        );
+
+        $bySlug = [];
+        foreach ($rows as $row) {
+            $key          = $row['category_alias'].'/'.$row['alias'];
+            $bySlug[$key] = $row;
+        }
+
+        $ordered = [];
+        foreach ($slugs as $slug) {
+            if (isset($bySlug[$slug])) {
+                $ordered[] = $bySlug[$slug];
+            }
+        }
+
+        return $ordered;
+    }
+
+    /**
      * Возвращает опубликованный инструмент по alias категории и alias инструмента с переводом.
      *
      * @return array<string, mixed>|null

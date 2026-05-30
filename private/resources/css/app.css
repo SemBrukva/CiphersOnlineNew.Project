@@ -1412,13 +1412,156 @@ details[open] > .faq-question::after {
   padding: 20px 32px 0;
 }
 
+/* Кнопка «добавить в избранное» */
+.ciphers-unified__btn-favorite {
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ciphers-unified__btn-favorite.is-favorite,
+.ciphers-unified__btn-favorite.is-favorite:hover,
+.ciphers-unified__btn-favorite.is-favorite:focus {
+  background: rgba(193, 255, 0, 0.14) !important;
+  border-color: rgba(193, 255, 0, 0.40) !important;
+  color: var(--co-accent) !important;
+  box-shadow: 0 0 10px rgba(193, 255, 0, 0.08);
+}
+
+/* Скелет загрузки на странице избранного */
+.favorites-skeleton {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.favorites-skeleton__card {
+  height: 110px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, var(--border) 25%, rgba(226, 232, 240, 0.6) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: favorites-shimmer 1.4s infinite;
+}
+@keyframes favorites-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Пустое состояние на странице избранного */
+.favorites-empty {
+  text-align: center;
+  padding: 52px 20px 60px;
+}
+.favorites-empty__icon {
+  font-size: 44px;
+  color: var(--co-text-muted);
+  display: block;
+  margin-bottom: 14px;
+}
+.favorites-empty__text {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 400px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+/* Кнопка удаления из избранного на карточке */
+.favorites-hub-card .ciphers-category-hub-card__title a::after {
+  display: none;
+}
+
+.favorites-hub-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.favorites-hub-card__title {
+  flex: 1;
+  margin: 0 !important;
+}
+
+.favorites-card__remove {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #c0cfe0;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+  margin-top: 1px;
+  transition: color 0.15s;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+.favorites-card__remove:hover {
+  color: #e05252;
+}
+
+@media (max-width: 575px) {
+  .favorites-skeleton {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Бейдж количества избранных в навигации */
+.nav-fav-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0;
+  vertical-align: 1px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.active .nav-fav-count {
+  background: rgba(193, 255, 0, 0.15);
+  border-color: rgba(193, 255, 0, 0.35);
+  color: var(--co-accent);
+}
+a:hover .nav-fav-count,
+a:focus .nav-fav-count {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+}
+.active:hover .nav-fav-count,
+.active:focus .nav-fav-count {
+  background: rgba(193, 255, 0, 0.25);
+  border-color: rgba(193, 255, 0, 0.55);
+  color: var(--co-accent);
+}
+
+.ciphers-unified__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 7px;
+}
+
 .ciphers-unified__title {
   color: #ffffff;
   font-size: 26px;
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.22;
-  margin: 0 0 7px;
+  margin: 0;
+  flex: 1;
 }
 
 .ciphers-unified__desc {
@@ -1820,6 +1963,13 @@ details[open] > .faq-question::after {
   font-size: 10px;
   margin-right: 4px;
   vertical-align: -0.05em;
+}
+
+.ciphers-unified__btn-favorite .bi {
+  font-size: 14px;
+  margin-right: 0;
+  vertical-align: 0;
+  line-height: 1;
 }
 
 .ciphers-unified__btn-ghost--copied {

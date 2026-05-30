@@ -35,6 +35,8 @@ use App\Mail\MailjetStubSender;
 use App\Queue\QueueManager;
 use App\Queue\Worker;
 use App\View\View;
+use App\Controller\FavoritesController;
+use App\Controller\Api\FavoritesController as ApiFavoritesController;
 
 return [
     App\Http\Middleware\TrustedProxyMiddleware::class => static function (): App\Http\Middleware\TrustedProxyMiddleware {
@@ -287,6 +289,17 @@ return [
             $notFoundHandler,
             $container->get(App\Debug\MatchedRoute::class),
             $container->get(App\Debug\Profiler::class)
+        );
+    },
+
+    FavoritesController::class => static function (Container $container): FavoritesController {
+        return new FavoritesController($container->get(View::class));
+    },
+
+    ApiFavoritesController::class => static function (Container $container): ApiFavoritesController {
+        return new ApiFavoritesController(
+            $container->get(App\Repository\CipherRepository::class),
+            $container->get(Translator::class),
         );
     },
 

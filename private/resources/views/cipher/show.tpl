@@ -4,7 +4,17 @@
          data-cipher-ui="{$tool_ui_json|escape:'html'}">
     <div class="ciphers-unified" id="ciphers-tool-shell">
         <div class="ciphers-unified__header">
-            <h1 class="ciphers-unified__title">{$cipher.name}</h1>
+            <div class="ciphers-unified__title-row">
+                <h1 class="ciphers-unified__title">{$cipher.name}</h1>
+                <button class="btn ciphers-unified__btn-ghost ciphers-unified__btn-favorite"
+                        id="ciphers-favorite"
+                        type="button"
+                        data-slug="{$tool_slug|escape:'html'}"
+                        data-name="{$cipher.name|escape:'html'}"
+                        title="{$tool_ui.favoriteAddLabel|default:'Add to favorites'}">
+                    <i class="bi bi-star" id="ciphers-favorite-icon"></i>
+                </button>
+            </div>
             <p class="ciphers-unified__desc">{$cipher.description}</p>
 
             <div class="ciphers-unified__controls-row">
@@ -55,6 +65,7 @@
                         </div>
                     {/foreach}
                 </div>
+
             </div>
 
         </div>

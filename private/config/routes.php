@@ -9,6 +9,7 @@ use App\Controller\CabinetController;
 use App\Controller\CipherCategoryController;
 use App\Controller\CipherController;
 use App\Controller\ContactsController;
+use App\Controller\FavoritesController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
 use App\Controller\PageController;
@@ -76,6 +77,12 @@ return [
         'controller' => SitemapController::class,
         'method'     => 'xml',
         'name'       => 'sitemap.xml',
+    ],
+
+    'GET /favorites' => [
+        'controller' => FavoritesController::class,
+        'method'     => 'index',
+        'name'       => 'favorites.index',
     ],
 
     'GET /{category:[a-z0-9-]+}/{cipher:[a-z0-9-]+}' => [

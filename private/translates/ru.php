@@ -5,6 +5,7 @@ declare(strict_types=1);
 return [
     // Навигация
     'MENU_HOME'             => 'Главная',
+    'MENU_FAVORITES'        => 'Избранное',
     'BREADCRUMB_HOME'       => 'Шифрование онлайн',
     'BREADCRUMB_HOME_FULL'  => 'Системы шифрования и кодирования онлайн',
     'MENU_CONTACTS'         => 'Контакты',
@@ -118,6 +119,14 @@ return [
     'CABINET_ACTIVITY_TXT'  => 'Здесь будет история активности пользователя.',
     'CABINET_SIGN_OUT'      => 'Выйти из аккаунта',
 
+    // Избранное
+    'FAVORITES_PAGE_TITLE'   => 'Избранное — CiphersOnline',
+    'FAVORITES_PAGE_META'    => 'Сохранённые инструменты шифрования и кодирования.',
+    'FAVORITES_PAGE_HEADING' => 'Избранное',
+    'FAVORITES_PAGE_DESC'    => 'Инструменты, которые вы сохранили для быстрого доступа.',
+    'FAVORITES_EMPTY_TEXT'   => 'Здесь пока ничего нет. Нажмите ★ на странице любого инструмента, чтобы добавить его сюда.',
+    'FAVORITES_BROWSE_BTN'   => 'Перейти к инструментам',
+
     // Карта сайта
     'SITEMAP_TITLE'         => 'Карта сайта',
     'SITEMAP_MAIN_PAGES'    => 'Основные страницы',
@@ -179,6 +188,10 @@ return [
     'CIPHER_TOOL_FEEDBACK_RESULT_COPY_FAILED' => 'Не удалось скопировать результат.',
     'CIPHER_TOOL_FEEDBACK_URL_COPIED' => 'Ссылка на страницу скопирована.',
     'CIPHER_TOOL_FEEDBACK_URL_COPY_FAILED' => 'Не удалось скопировать ссылку на страницу.',
+    'CIPHER_TOOL_FAVORITE_ADD'              => 'Добавить в избранное',
+    'CIPHER_TOOL_FAVORITE_REMOVE'           => 'Убрать из избранного',
+    'CIPHER_TOOL_FEEDBACK_FAVORITE_ADDED'   => '★ Добавлено в избранное',
+    'CIPHER_TOOL_FEEDBACK_FAVORITE_REMOVED' => '☆ Убрано из избранного',
     'CIPHER_TOOL_TRUST_LOCAL' => 'Обработка выполняется локально в браузере',
     'CIPHER_TOOL_TRUST_UTF8' => 'Поддержка UTF-8 и Unicode',
     'CIPHER_TOOL_TRUST_API' => 'Подходит для API и payload-данных',

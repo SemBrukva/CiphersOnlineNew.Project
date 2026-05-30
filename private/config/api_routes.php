@@ -5,6 +5,7 @@ declare(strict_types=1);
 // Маршруты API. Пути указываются относительно префикса /api, который добавляется в services.php.
 
 use App\Controller\Api\AdminController;
+use App\Controller\Api\FavoritesController as ApiFavoritesController;
 use App\Controller\Api\GuestController;
 use App\Controller\Api\UserController;
 use App\Http\Middleware\ApiAdminMiddleware;
@@ -96,6 +97,13 @@ return [
         'method'     => 'a1z26',
         'middleware' => [RateLimitMiddleware::class],
         'name'       => 'api.tools.a1z26',
+    ],
+
+    'GET /favorites/ciphers' => [
+        'controller' => ApiFavoritesController::class,
+        'method'     => 'ciphers',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.favorites.ciphers',
     ],
 
     // Маршруты авторизованного пользователя

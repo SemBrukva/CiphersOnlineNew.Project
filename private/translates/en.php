@@ -5,6 +5,7 @@ declare(strict_types=1);
 return [
     // Навигация
     'MENU_HOME'             => 'Home',
+    'MENU_FAVORITES'        => 'Favorites',
     'BREADCRUMB_HOME'       => 'Encryption Online',
     'BREADCRUMB_HOME_FULL'  => 'Online Encryption and Encoding Systems',
     'MENU_CONTACTS'         => 'Contacts',
@@ -118,6 +119,14 @@ return [
     'CABINET_ACTIVITY_TXT'  => 'User activity history will be shown here.',
     'CABINET_SIGN_OUT'      => 'Sign out of account',
 
+    // Избранное
+    'FAVORITES_PAGE_TITLE'   => 'Favorites — CiphersOnline',
+    'FAVORITES_PAGE_META'    => 'Your saved cipher and encoding tools.',
+    'FAVORITES_PAGE_HEADING' => 'Favorites',
+    'FAVORITES_PAGE_DESC'    => 'Tools you have saved for quick access.',
+    'FAVORITES_EMPTY_TEXT'   => 'No saved tools yet. Click the ★ button on any tool page to save it here.',
+    'FAVORITES_BROWSE_BTN'   => 'Browse tools',
+
     // Карта сайта
     'SITEMAP_TITLE'         => 'Sitemap',
     'SITEMAP_MAIN_PAGES'    => 'Main pages',
@@ -179,6 +188,10 @@ return [
     'CIPHER_TOOL_FEEDBACK_RESULT_COPY_FAILED' => 'Unable to copy result.',
     'CIPHER_TOOL_FEEDBACK_URL_COPIED' => 'Page URL copied.',
     'CIPHER_TOOL_FEEDBACK_URL_COPY_FAILED' => 'Unable to copy page URL.',
+    'CIPHER_TOOL_FAVORITE_ADD'              => 'Add to favorites',
+    'CIPHER_TOOL_FAVORITE_REMOVE'           => 'Remove from favorites',
+    'CIPHER_TOOL_FEEDBACK_FAVORITE_ADDED'   => '★ Added to favorites',
+    'CIPHER_TOOL_FEEDBACK_FAVORITE_REMOVED' => '☆ Removed from favorites',
     'CIPHER_TOOL_TRUST_LOCAL' => 'Client-side processing only',
     'CIPHER_TOOL_TRUST_UTF8' => 'UTF-8 and Unicode support',
     'CIPHER_TOOL_TRUST_API' => 'API and payload friendly',
