@@ -1,0 +1,249 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T10:11:06+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vernam",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 16,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 16,
+        "data": {
+            "name": "Vernam Cipher",
+            "name_short": "Vernam Cipher",
+            "description": "Encrypt and decrypt text using the Vernam cipher, a classical XOR-based encryption method. Generate random keys or use your own key for encryption and decryption. Encrypted data is returned in Base64 format for safe storage and transfer.",
+            "description_stort": "XOR-based Vernam encryption with Base64 output.",
+            "meta_title": "Vernam Cipher Online Encoder & Decoder",
+            "meta_description": "Encrypt and decrypt text with the Vernam cipher online. XOR-based encryption with Base64 output and custom text keys."
+        }
+    },
+    "blocks": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Vernam cipher works",
+                "text": "<p>The Vernam cipher encrypts data by applying the XOR (exclusive OR) operation between each byte of the message and the corresponding byte of a key. Because XOR is reversible, applying the same key again restores the original text.</p><p>In this tool, encrypted binary data is automatically encoded as Base64 so it can be copied, stored, and transferred safely as text. During decryption, Base64 is decoded first and then XOR is applied using the same key.</p><p>For maximum security, the key should be random, at least as long as the message, and used only once. When a shorter key is reused, the cipher still demonstrates XOR encryption but no longer provides the security guarantees of a true One-Time Pad.</p><p>The Vernam cipher is historically important because it introduced the XOR principle that later became the foundation of many modern stream cipher designs.</p>"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Vernam cipher vs One-Time Pad",
+                "text": "<p>The One-Time Pad (OTP) is a special case of the Vernam cipher. For perfect theoretical security, the key must be truly random, at least as long as the message, and never reused.</p><p>Most practical Vernam implementations, including educational tools, use reusable text keys. While this still demonstrates XOR-based encryption, it does not provide the unconditional security associated with a true One-Time Pad.</p><p>The warning shown by this tool helps identify situations where the key is reused or shorter than the message, which weakens security and removes the guarantees of an OTP.</p>"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "History of the Vernam cipher",
+                "text": "<p>The cipher is named after Gilbert Vernam, an engineer who developed XOR-based encryption techniques for teleprinter communication in the early 20th century.</p><p>His work became one of the foundations of modern cryptography and inspired later stream ciphers and secure communication systems.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Do I need the same key for decryption?",
+                "answer": "Yes. Vernam decryption requires exactly the same key that was used during encryption."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why is encrypted output in Base64?",
+                "answer": "XOR result is binary data. Base64 makes it safe to copy, store and transfer as text."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Can Vernam work with Unicode text?",
+                "answer": "Yes. The tool works byte-wise with UTF-8 data, so it supports multilingual input."
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What is XOR encryption?",
+                "answer": "XOR encryption combines message data and key data using the XOR operation. Applying the same key again reverses the process and restores the original message."
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is the Vernam cipher secure today?",
+                "answer": "Security depends on the key. A true One-Time Pad with a random single-use key is theoretically unbreakable, while reusable keys can be vulnerable to cryptanalysis."
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 55,
+            "published": true,
+            "data": {
+                "question": "Why does the tool warn about key length?",
+                "answer": "A key shorter than the message must be repeated during encryption. Reusing key material weakens security and removes the theoretical guarantees of a true One-Time Pad."
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does the encrypted text look random?",
+                "answer": "The XOR operation produces binary output that usually has no readable patterns. The tool displays this data as Base64 text for convenience."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Encrypt basic text",
+                "key": "KEY",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "AwAVBwo=",
+                "description": "Key: KEY. Encrypt mode applies XOR and outputs Base64."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Decrypt Base64 text",
+                "key": "KEY",
+                "shift": 0,
+                "input": "AwAVBwo=",
+                "output": "HELLO",
+                "description": "Key: KEY. Decrypt mode decodes Base64 and applies XOR."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Unicode text example",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "Hello World",
+                "output": "GyAvPip0BCoxPiE=",
+                "description": "The tool supports UTF-8 text and can encrypt data from many languages and writing systems."
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Different key, different result",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "GwAPHgo=",
+                "description": "Changing the key changes every XOR operation and produces completely different encrypted output."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Base64 output"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Symmetric cipher"
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Key-based"
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "One-Time Pad"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Gilbert Vernam"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Stream cipher concepts"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Random key generation"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

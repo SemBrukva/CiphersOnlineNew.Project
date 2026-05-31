@@ -260,6 +260,12 @@ return [
     // Vernam
     'VERNAM_TRUST_OTP'                 => 'One-time pad scheme',
     'VERNAM_TRUST_KEY_LENGTH'          => 'Key length must equal message length',
+    'VERNAM_KEY_HINT'                  => 'For best security, use a random key that is as long as the message and never reuse it.',
+    'VERNAM_GENERATE_KEY'              => 'Generate Random Key',
+    'VERNAM_ERROR_DIRECTION'           => 'Direction must be encrypt or decrypt.',
+    'VERNAM_ERROR_TEXT_REQUIRED'       => 'Text is required.',
+    'VERNAM_ERROR_KEY_REQUIRED'        => 'Key is required.',
+    'VERNAM_WARNING_KEY_SHORT'         => 'Key is shorter than the message and will repeat — this breaks the one-time pad guarantee.',
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganography: hides text inside other text',
     'BACON_TRUST_BINARY'               => 'Each letter encoded as 5 A/B characters',

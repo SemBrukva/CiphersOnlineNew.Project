@@ -39,23 +39,29 @@ final readonly class VernamApiCipherTool implements ApiCipherToolInterface
 
         $errors = [];
         if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
+            $errors['direction'][] = trans('VERNAM_ERROR_DIRECTION');
         }
         if ($text === '') {
-            $errors['text'][] = 'Text is required.';
+            $errors['text'][] = trans('VERNAM_ERROR_TEXT_REQUIRED');
         }
         if ($key === '') {
-            $errors['settings.key'][] = 'Key is required.';
+            $errors['settings.key'][] = trans('VERNAM_ERROR_KEY_REQUIRED');
         }
 
         if ($errors !== []) {
             throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
         }
 
+        $warning = null;
+        if ($direction === 'encrypt' && strlen($key) < strlen($text)) {
+            $warning = trans('VERNAM_WARNING_KEY_SHORT');
+        }
+
         return [
             'ok' => true,
             'result' => $this->cipher->process($text, $key, $direction),
             'key' => $key,
+            'warning' => $warning,
         ];
     }
 }

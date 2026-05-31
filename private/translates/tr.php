@@ -240,6 +240,12 @@ return [
     // Vernam
     'VERNAM_TRUST_OTP'                 => 'Tek kullanımlık anahtar şeması',
     'VERNAM_TRUST_KEY_LENGTH'          => 'Anahtar uzunluğu mesaj uzunluğuyla eşit olmalıdır',
+    'VERNAM_KEY_HINT'                  => 'Maksimum güvenlik için mesaj uzunluğunda rastgele bir anahtar kullanın ve asla yeniden kullanmayın.',
+    'VERNAM_GENERATE_KEY'              => 'Rastgele anahtar oluştur',
+    'VERNAM_ERROR_DIRECTION'           => 'Yön encrypt veya decrypt olmalıdır.',
+    'VERNAM_ERROR_TEXT_REQUIRED'       => 'Metin zorunludur.',
+    'VERNAM_ERROR_KEY_REQUIRED'        => 'Anahtar zorunludur.',
+    'VERNAM_WARNING_KEY_SHORT'         => 'Anahtar mesajdan kısa ve tekrarlanacak — bu tek kullanımlık anahtar garantisini bozar.',
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganografi: metin başka bir metnin içine gizlenir',
     'BACON_TRUST_BINARY'               => 'Her harf 5 A/B karakteriyle kodlanır',

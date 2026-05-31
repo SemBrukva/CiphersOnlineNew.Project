@@ -20,12 +20,26 @@ if (!defined('APP_PATH')) {
 require_once BASE_PATH . '/vendor/autoload.php';
 
 // Инициализируем тестовые глобальные зависимости для хелперов config()/app().
-$config = new Config([
+// Используем $GLOBALS напрямую: PHPUnit загружает bootstrap внутри функции,
+// поэтому обычные переменные не попадают в глобальный скоп.
+$GLOBALS['config'] = new Config([
     'app' => [
         'user_verification' => false,
     ],
 ]);
 
-$container = new Container();
-$container->instance(Config::class, $config);
-$container->instance(Container::class, $container);
+$GLOBALS['container'] = new Container();
+$GLOBALS['container']->instance(Config::class, $GLOBALS['config']);
+$GLOBALS['container']->instance(Container::class, $GLOBALS['container']);
+
+// Регистрируем Translator для хелпера trans() — без этого container пытается
+// собрать его через рефлексию и падает (массив $config нельзя autowire).
+$GLOBALS['container']->instance(
+    App\I18n\Translator::class,
+    new App\I18n\Translator([
+        'locale'    => 'en',
+        'locales'   => ['en', 'ru', 'de', 'es', 'fr', 'it', 'pt', 'tr'],
+        'path'      => PRIVATE_PATH . '/translates',
+        'multilang' => false,
+    ])
+);

@@ -1707,6 +1707,96 @@ a:focus .nav-fav-count {
     box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.10);
 }
 
+.ciphers-unified__key-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.ciphers-unified__key-area-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.ciphers-settings-item--block {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 6px;
+}
+
+.ciphers-settings-textarea {
+    background-color: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    color: rgba(255, 255, 255, 0.82);
+    padding: 8px 11px;
+    font-size: 12.5px;
+    font-weight: 500;
+    width: 100%;
+    cursor: text;
+    transition: background-color var(--transition), border-color var(--transition);
+    outline: none;
+    font-family: inherit;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.ciphers-settings-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.30);
+}
+
+.ciphers-settings-textarea:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.ciphers-settings-textarea:focus {
+    background-color: rgba(255, 255, 255, 0.13);
+    border-color: rgba(193, 255, 0, 0.45);
+    box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.10);
+}
+
+.ciphers-settings-generate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    color: rgba(255, 255, 255, 0.70);
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 500;
+    height: 32px;
+    cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+    outline: none;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.ciphers-settings-generate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: rgba(255, 255, 255, 0.90);
+}
+
+.ciphers-settings-generate-btn:active {
+    background-color: rgba(193, 255, 0, 0.12);
+    border-color: rgba(193, 255, 0, 0.35);
+}
+
+.ciphers-settings-hint {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.38);
+    margin: 0;
+    line-height: 1.5;
+}
+
 /* === Custom Select Dropdown === */
 .ciphers-custom-select {
   position: relative;

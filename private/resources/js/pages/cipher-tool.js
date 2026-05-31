@@ -28,6 +28,7 @@ export function initCipherToolPage() {
   const shiftIncBtn = document.getElementById('ciphers-shift-inc')
   const alphabetSelect = document.getElementById('ciphers-alphabet')
   const keyInput = document.getElementById('ciphers-key')
+  const generateKeyBtn = document.getElementById('ciphers-generate-key')
   const clearBtn = document.getElementById('ciphers-clear')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
@@ -271,7 +272,9 @@ export function initCipherToolPage() {
 
       output.value = String(response?.result ?? '')
       setOutputState(Boolean(output.value))
-      if (output.value && mode === 'decode' && ui.decodeNote) {
+      if (output.value && response?.warning) {
+        setFeedback(String(response.warning), false, true)
+      } else if (output.value && mode === 'decode' && ui.decodeNote) {
         setFeedback(ui.decodeNote, false, true)
       } else {
         setFeedback('')
@@ -335,6 +338,17 @@ export function initCipherToolPage() {
   keyInput?.addEventListener('input', () => {
     saveState()
     scheduleApiRun()
+  })
+
+  generateKeyBtn?.addEventListener('click', () => {
+    const text = input.value || ''
+    if (!text || !keyInput) return
+    const codepoints = Array.from(text)
+    const randomKey = codepoints.map(() => {
+      return String.fromCharCode(33 + Math.floor(Math.random() * 94))
+    }).join('')
+    keyInput.value = randomKey
+    keyInput.dispatchEvent(new Event('input', { bubbles: true }))
   })
 
   document.querySelectorAll('.ciphers-example-chip').forEach((chip) => {

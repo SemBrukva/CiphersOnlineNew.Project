@@ -1,0 +1,249 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T10:11:06+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vernam",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 16,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 16,
+        "data": {
+            "name": "Vernam-Chiffre",
+            "name_short": "Vernam-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Texte mit der Vernam-Chiffre, einem klassischen Verfahren auf XOR-Basis. Erzeugen Sie zufällige Schlüssel oder verwenden Sie einen eigenen Schlüssel. Verschlüsselte Daten werden im Base64-Format ausgegeben, damit sie sicher gespeichert und übertragen werden können.",
+            "description_stort": "XOR-basierte Vernam-Verschlüsselung mit Base64-Ausgabe.",
+            "meta_title": "Vernam-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Texte online mit der Vernam-Chiffre verschlüsseln und entschlüsseln. XOR-basierte Verschlüsselung mit Base64-Ausgabe und eigenen Textschlüsseln."
+        }
+    },
+    "blocks": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert die Vernam-Chiffre",
+                "text": "<p>Die Vernam-Chiffre verschlüsselt Daten, indem sie auf jedes Byte der Nachricht und das entsprechende Byte eines Schlüssels die XOR-Operation (exklusives Oder) anwendet. Da XOR umkehrbar ist, stellt die erneute Anwendung desselben Schlüssels den ursprünglichen Text wieder her.</p><p>Dieses Werkzeug kodiert die verschlüsselten Binärdaten automatisch als Base64. Dadurch lassen sie sich sicher als Text kopieren, speichern und übertragen. Beim Entschlüsseln wird zuerst Base64 dekodiert und anschließend XOR mit demselben Schlüssel angewendet.</p><p>Für maximale Sicherheit sollte der Schlüssel zufällig sein, mindestens die Länge der Nachricht haben und nur einmal verwendet werden. Wird ein kürzerer Schlüssel wiederholt, veranschaulicht das Verfahren weiterhin die XOR-Verschlüsselung, bietet aber nicht mehr die Sicherheitsgarantien eines echten One-Time Pads.</p><p>Die Vernam-Chiffre ist historisch bedeutsam, weil sie das XOR-Prinzip einführte, das später zur Grundlage vieler moderner Stromchiffren wurde.</p>"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Vernam-Chiffre und One-Time Pad",
+                "text": "<p>Das One-Time Pad (OTP) ist ein Sonderfall der Vernam-Chiffre. Für theoretisch perfekte Sicherheit muss der Schlüssel wirklich zufällig sein, mindestens die Länge der Nachricht haben und darf niemals erneut verwendet werden.</p><p>Viele praktische Vernam-Implementierungen, darunter auch Lernwerkzeuge, verwenden wiederverwendbare Textschlüssel. Das veranschaulicht zwar die XOR-basierte Verschlüsselung, bietet aber nicht die bedingungslose Sicherheit eines echten One-Time Pads.</p><p>Die Warnung dieses Werkzeugs weist darauf hin, wenn der Schlüssel wiederholt wird oder kürzer als die Nachricht ist. Dadurch wird die Verschlüsselung geschwächt und die Sicherheitsgarantie eines OTP aufgehoben.</p>"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Geschichte der Vernam-Chiffre",
+                "text": "<p>Die Chiffre ist nach Gilbert Vernam benannt, einem Ingenieur, der Anfang des 20. Jahrhunderts XOR-basierte Verschlüsselungstechniken für die Fernschreiberkommunikation entwickelte.</p><p>Seine Arbeit wurde zu einer Grundlage der modernen Kryptografie und inspirierte spätere Stromchiffren und sichere Kommunikationssysteme.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Benötige ich zum Entschlüsseln denselben Schlüssel?",
+                "answer": "Ja. Für die Vernam-Entschlüsselung ist genau derselbe Schlüssel erforderlich, der bei der Verschlüsselung verwendet wurde."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum wird das verschlüsselte Ergebnis als Base64 ausgegeben?",
+                "answer": "Das Ergebnis der XOR-Operation besteht aus Binärdaten. Mit Base64 lassen sie sich sicher als Text kopieren, speichern und übertragen."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Funktioniert die Vernam-Chiffre mit Unicode-Text?",
+                "answer": "Ja. Das Werkzeug verarbeitet UTF-8-Daten byteweise und unterstützt daher mehrsprachige Eingaben."
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was ist XOR-Verschlüsselung?",
+                "answer": "Bei der XOR-Verschlüsselung werden die Daten der Nachricht und des Schlüssels mit der XOR-Operation verknüpft. Wird derselbe Schlüssel erneut angewendet, kehrt sich der Vorgang um und die ursprüngliche Nachricht wird wiederhergestellt."
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist die Vernam-Chiffre heute sicher?",
+                "answer": "Die Sicherheit hängt vom Schlüssel ab. Ein echtes One-Time Pad mit einem zufälligen, nur einmal verwendeten Schlüssel ist theoretisch nicht zu brechen. Wiederverwendbare Schlüssel können dagegen durch Kryptoanalyse angreifbar sein."
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 55,
+            "published": true,
+            "data": {
+                "question": "Warum warnt das Werkzeug vor einem zu kurzen Schlüssel?",
+                "answer": "Ein Schlüssel, der kürzer als die Nachricht ist, muss bei der Verschlüsselung wiederholt werden. Die Wiederverwendung von Schlüsselmaterial schwächt die Sicherheit und hebt die theoretischen Garantien eines echten One-Time Pads auf."
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Warum sieht der verschlüsselte Text zufällig aus?",
+                "answer": "Die XOR-Operation erzeugt Binärdaten, die üblicherweise keine lesbaren Muster enthalten. Das Werkzeug stellt diese Daten zur besseren Handhabung als Base64-Text dar."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Einfachen Text verschlüsseln",
+                "key": "SCHLUESSEL",
+                "shift": 0,
+                "input": "HALLO",
+                "output": "GwIEABo=",
+                "description": "Schlüssel: SCHLUESSEL. Im Verschlüsselungsmodus wendet das Werkzeug XOR an und gibt das Ergebnis als Base64 aus."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Base64-Text entschlüsseln",
+                "key": "SCHLUESSEL",
+                "shift": 0,
+                "input": "GwIEABo=",
+                "output": "HALLO",
+                "description": "Schlüssel: SCHLUESSEL. Im Entschlüsselungsmodus dekodiert das Werkzeug Base64 und wendet anschließend XOR an."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Beispiel mit Unicode-Text",
+                "key": "GEHEIM",
+                "shift": 0,
+                "input": "Grüße Welt",
+                "output": "ADeL+YrSImUfICU5",
+                "description": "Das Werkzeug unterstützt UTF-8-Text und kann Daten aus vielen Sprachen und Schriftsystemen verschlüsseln."
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Anderer Schlüssel, anderes Ergebnis",
+                "key": "GEHEIM",
+                "shift": 0,
+                "input": "HALLO",
+                "output": "DwQECQY=",
+                "description": "Wird der Schlüssel geändert, verändert sich jede XOR-Operation und es entsteht ein völlig anderes verschlüsseltes Ergebnis."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Base64-Ausgabe"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Symmetrische Chiffre"
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselbasiert"
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "One-Time Pad"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Gilbert Vernam"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Stromchiffren"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Zufällige Schlüsselerzeugung"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

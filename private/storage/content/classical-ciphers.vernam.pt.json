@@ -1,0 +1,249 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T10:11:06+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vernam",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 16,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 16,
+        "data": {
+            "name": "Cifra de Vernam",
+            "name_short": "Cifra de Vernam",
+            "description": "Cifre e decifre textos com a cifra de Vernam, um método clássico baseado na operação XOR. Gere chaves aleatórias ou utilize a sua própria chave. Os dados cifrados são devolvidos no formato Base64 para facilitar o armazenamento e a transferência em segurança.",
+            "description_stort": "Cifragem de Vernam baseada em XOR com saída Base64.",
+            "meta_title": "Cifra de Vernam online: cifrar e decifrar textos",
+            "meta_description": "Cifre e decifre textos online com a cifra de Vernam. Cifragem baseada em XOR com saída Base64 e chaves de texto personalizadas."
+        }
+    },
+    "blocks": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona a cifra de Vernam",
+                "text": "<p>A cifra de Vernam transforma os dados aplicando a operação XOR (OU exclusivo) entre cada byte da mensagem e o byte correspondente de uma chave. Como XOR é reversível, voltar a aplicar a mesma chave restaura o texto original.</p><p>Nesta ferramenta, os dados binários cifrados são codificados automaticamente em Base64, para que possam ser copiados, armazenados e transferidos em segurança como texto. Durante a decifragem, o Base64 é primeiro descodificado e, em seguida, é aplicado XOR com a mesma chave.</p><p>Para obter a máxima segurança, a chave deve ser aleatória, ter pelo menos o mesmo comprimento da mensagem e ser utilizada apenas uma vez. Quando uma chave mais curta é repetida, a cifra continua a demonstrar a cifragem XOR, mas deixa de oferecer as garantias de segurança de uma verdadeira chave de uso único.</p><p>A cifra de Vernam é historicamente importante porque introduziu o princípio XOR, que mais tarde se tornou a base de muitas cifras de fluxo modernas.</p>"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifra de Vernam e chave de uso único",
+                "text": "<p>A chave de uso único (One-Time Pad, OTP) é um caso particular da cifra de Vernam. Para alcançar uma segurança teórica perfeita, a chave deve ser verdadeiramente aleatória, ter pelo menos o mesmo comprimento da mensagem e nunca ser reutilizada.</p><p>Muitas implementações práticas de Vernam, incluindo ferramentas educativas, utilizam chaves de texto reutilizáveis. Embora isto permita compreender a cifragem baseada em XOR, não oferece a segurança incondicional de uma verdadeira chave de uso único.</p><p>O aviso apresentado por esta ferramenta ajuda a identificar situações em que a chave é repetida ou mais curta do que a mensagem. Nesses casos, a segurança é reduzida e as garantias de uma OTP deixam de existir.</p>"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "História da cifra de Vernam",
+                "text": "<p>A cifra recebeu o nome de Gilbert Vernam, um engenheiro que desenvolveu técnicas de cifragem baseadas em XOR para comunicações por teletipo no início do século XX.</p><p>O seu trabalho tornou-se uma das bases da criptografia moderna e inspirou cifras de fluxo e sistemas de comunicação seguros desenvolvidos posteriormente.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Preciso da mesma chave para decifrar?",
+                "answer": "Sim. A decifragem de Vernam exige exatamente a mesma chave que foi utilizada durante a cifragem."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Porque é que o resultado cifrado é apresentado em Base64?",
+                "answer": "O resultado da operação XOR consiste em dados binários. O Base64 permite copiá-los, armazená-los e transferi-los em segurança como texto."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "A cifra de Vernam funciona com texto Unicode?",
+                "answer": "Sim. A ferramenta processa os dados UTF-8 byte a byte, pelo que suporta texto em vários idiomas."
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "O que é a cifragem XOR?",
+                "answer": "A cifragem XOR combina os dados da mensagem e da chave através da operação XOR. Voltar a aplicar a mesma chave inverte o processo e restaura a mensagem original."
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A cifra de Vernam é segura atualmente?",
+                "answer": "A segurança depende da chave. Uma verdadeira chave de uso único, aleatória e utilizada apenas uma vez, é teoricamente inviolável, enquanto as chaves reutilizáveis podem ser vulneráveis à criptoanálise."
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 55,
+            "published": true,
+            "data": {
+                "question": "Porque é que a ferramenta avisa quando a chave é demasiado curta?",
+                "answer": "Uma chave mais curta do que a mensagem tem de ser repetida durante a cifragem. A reutilização do material da chave reduz a segurança e elimina as garantias teóricas de uma verdadeira chave de uso único."
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Porque é que o texto cifrado parece aleatório?",
+                "answer": "A operação XOR produz dados binários que normalmente não apresentam padrões legíveis. Para maior comodidade, a ferramenta mostra esses dados como texto Base64."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Cifrar um texto simples",
+                "key": "CHAVE",
+                "shift": 0,
+                "input": "OLA",
+                "output": "DAQA",
+                "description": "Chave: CHAVE. No modo de cifragem, a ferramenta aplica XOR e devolve o resultado em Base64."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Decifrar texto Base64",
+                "key": "CHAVE",
+                "shift": 0,
+                "input": "DAQA",
+                "output": "OLA",
+                "description": "Chave: CHAVE. No modo de decifragem, a ferramenta descodifica Base64 e aplica XOR."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Exemplo com texto Unicode",
+                "key": "SEGREDO",
+                "shift": 0,
+                "input": "Olá, mundo",
+                "output": "HCmE82lkIiYrIz0=",
+                "description": "A ferramenta suporta texto UTF-8 e pode cifrar dados de vários idiomas e sistemas de escrita."
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Uma chave diferente produz outro resultado",
+                "key": "SEGREDO",
+                "shift": 0,
+                "input": "OLA",
+                "output": "HAkG",
+                "description": "Alterar a chave modifica cada operação XOR e produz um resultado cifrado completamente diferente."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Saída Base64"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifra simétrica"
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Baseada em chave"
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Chave de uso único"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Gilbert Vernam"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Conceitos de cifras de fluxo"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Geração de chaves aleatórias"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

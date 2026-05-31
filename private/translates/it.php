@@ -240,6 +240,12 @@ return [
     // Vernam
     'VERNAM_TRUST_OTP'                 => 'Schema a blocco monouso',
     'VERNAM_TRUST_KEY_LENGTH'          => 'La lunghezza della chiave deve eguagliare quella del messaggio',
+    'VERNAM_KEY_HINT'                  => 'Per la massima sicurezza, usa una chiave casuale lunga quanto il messaggio e non riutilizzarla mai.',
+    'VERNAM_GENERATE_KEY'              => 'Genera chiave casuale',
+    'VERNAM_ERROR_DIRECTION'           => 'La direzione deve essere encrypt o decrypt.',
+    'VERNAM_ERROR_TEXT_REQUIRED'       => 'Il testo è obbligatorio.',
+    'VERNAM_ERROR_KEY_REQUIRED'        => 'La chiave è obbligatoria.',
+    'VERNAM_WARNING_KEY_SHORT'         => 'La chiave è più corta del messaggio e verrà ripetuta — questo viola la garanzia del blocco monouso.',
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganografia: testo nascosto in altro testo',
     'BACON_TRUST_BINARY'               => 'Ogni lettera codificata con 5 caratteri A/B',

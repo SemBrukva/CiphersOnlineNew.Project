@@ -240,6 +240,12 @@ return [
     // Vernam
     'VERNAM_TRUST_OTP'                 => 'Einmalschlüssel-Verfahren',
     'VERNAM_TRUST_KEY_LENGTH'          => 'Schlüssellänge muss der Nachrichtenlänge entsprechen',
+    'VERNAM_KEY_HINT'                  => 'Für maximale Sicherheit verwenden Sie einen zufälligen Schlüssel, der so lang ist wie die Nachricht, und verwenden Sie ihn nie erneut.',
+    'VERNAM_GENERATE_KEY'              => 'Zufälligen Schlüssel generieren',
+    'VERNAM_ERROR_DIRECTION'           => 'Richtung muss encrypt oder decrypt sein.',
+    'VERNAM_ERROR_TEXT_REQUIRED'       => 'Text ist erforderlich.',
+    'VERNAM_ERROR_KEY_REQUIRED'        => 'Schlüssel ist erforderlich.',
+    'VERNAM_WARNING_KEY_SHORT'         => 'Der Schlüssel ist kürzer als die Nachricht und wird wiederholt — das verletzt die Einmalschlüssel-Garantie.',
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganografie: Text in anderem Text versteckt',
     'BACON_TRUST_BINARY'               => 'Jeder Buchstabe als 5 A/B-Zeichen kodiert',

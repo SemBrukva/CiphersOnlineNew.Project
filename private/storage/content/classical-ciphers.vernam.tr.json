@@ -1,0 +1,249 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T10:11:06+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vernam",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 16,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 16,
+        "data": {
+            "name": "Vernam Şifresi",
+            "name_short": "Vernam Şifresi",
+            "description": "XOR işlemine dayanan klasik bir yöntem olan Vernam şifresiyle metinleri şifreleyin ve çözün. Rastgele anahtarlar oluşturun veya kendi anahtarınızı kullanın. Şifrelenmiş veriler, güvenli biçimde saklanabilmesi ve aktarılabilmesi için Base64 formatında döndürülür.",
+            "description_stort": "Base64 çıktılı, XOR tabanlı Vernam şifreleme.",
+            "meta_title": "Çevrimiçi Vernam Şifresi ile Metin Şifreleme ve Çözme",
+            "meta_description": "Vernam şifresiyle çevrimiçi metin şifreleyin ve çözün. Base64 çıktılı XOR tabanlı şifreleme ve özel metin anahtarları."
+        }
+    },
+    "blocks": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Vernam şifresi nasıl çalışır?",
+                "text": "<p>Vernam şifresi, mesajın her baytı ile anahtarın karşılık gelen baytı arasında XOR (özel veya) işlemini uygulayarak verileri dönüştürür. XOR tersine çevrilebilir olduğundan, aynı anahtar yeniden uygulandığında özgün metin geri elde edilir.</p><p>Bu araçta şifrelenmiş ikili veriler otomatik olarak Base64 biçiminde kodlanır. Böylece sonuç metin olarak güvenli biçimde kopyalanabilir, saklanabilir ve aktarılabilir. Şifre çözme sırasında önce Base64 kodu çözülür, ardından aynı anahtarla XOR işlemi uygulanır.</p><p>En yüksek güvenlik için anahtar rastgele olmalı, en az mesaj kadar uzun olmalı ve yalnızca bir kez kullanılmalıdır. Daha kısa bir anahtar tekrarlandığında yöntem XOR şifrelemesini göstermeye devam eder, ancak gerçek bir tek kullanımlık anahtarın güvenlik garantilerini artık sağlamaz.</p><p>Vernam şifresi, daha sonra birçok modern akış şifresinin temelini oluşturan XOR ilkesini ortaya koyduğu için kriptografi tarihinde önemlidir.</p>"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Vernam şifresi ve tek kullanımlık anahtar",
+                "text": "<p>Tek kullanımlık anahtar (One-Time Pad, OTP), Vernam şifresinin özel bir durumudur. Kuramsal olarak kusursuz güvenlik için anahtar gerçekten rastgele olmalı, en az mesaj kadar uzun olmalı ve asla tekrar kullanılmamalıdır.</p><p>Eğitim araçları da dahil olmak üzere birçok pratik Vernam uygulaması tekrar kullanılabilen metin anahtarları kullanır. Bu yaklaşım XOR tabanlı şifrelemeyi göstermeye devam eder, ancak gerçek bir tek kullanımlık anahtarın koşulsuz güvenliğini sağlamaz.</p><p>Bu aracın gösterdiği uyarı, anahtarın tekrarlandığı veya mesajdan kısa olduğu durumları belirlemeye yardımcı olur. Bu durumlarda güvenlik zayıflar ve OTP garantileri ortadan kalkar.</p>"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Vernam şifresinin tarihi",
+                "text": "<p>Şifre, 20. yüzyılın başlarında teleprinter iletişimi için XOR tabanlı şifreleme teknikleri geliştiren mühendis Gilbert Vernam'ın adını taşır.</p><p>Çalışmaları modern kriptografinin temellerinden biri olmuş, sonraki akış şifrelerine ve güvenli iletişim sistemlerine ilham vermiştir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Şifreyi çözmek için aynı anahtar gerekli mi?",
+                "answer": "Evet. Vernam şifresini çözmek için şifreleme sırasında kullanılan anahtarın tamamen aynısı gereklidir."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Şifrelenmiş çıktı neden Base64 biçiminde?",
+                "answer": "XOR işleminin sonucu ikili veridir. Base64, bu verilerin metin olarak güvenli biçimde kopyalanmasını, saklanmasını ve aktarılmasını sağlar."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Vernam şifresi Unicode metinlerle çalışır mı?",
+                "answer": "Evet. Araç UTF-8 verilerini bayt bayt işlediğinden çok dilli girdileri destekler."
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "XOR şifreleme nedir?",
+                "answer": "XOR şifreleme, mesaj ve anahtar verilerini XOR işlemiyle birleştirir. Aynı anahtar yeniden uygulandığında işlem tersine çevrilir ve özgün mesaj geri elde edilir."
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Vernam şifresi günümüzde güvenli mi?",
+                "answer": "Güvenlik anahtara bağlıdır. Yalnızca bir kez kullanılan rastgele bir anahtara sahip gerçek OTP kuramsal olarak kırılamazken, tekrar kullanılan anahtarlar kriptanalize karşı savunmasız olabilir."
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 55,
+            "published": true,
+            "data": {
+                "question": "Araç neden anahtar uzunluğu hakkında uyarı veriyor?",
+                "answer": "Mesajdan daha kısa olan bir anahtar şifreleme sırasında tekrarlanmalıdır. Anahtar malzemesinin yeniden kullanılması güvenliği zayıflatır ve gerçek bir tek kullanımlık anahtarın kuramsal garantilerini ortadan kaldırır."
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Şifrelenmiş metin neden rastgele görünüyor?",
+                "answer": "XOR işlemi genellikle okunabilir örüntüler içermeyen ikili çıktı üretir. Araç, kolay kullanım için bu verileri Base64 metni olarak gösterir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Basit bir metni şifreleme",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "MERHABA",
+                "output": "DAsTABUDEw==",
+                "description": "Anahtar: ANAHTAR. Şifreleme modunda araç XOR uygular ve sonucu Base64 biçiminde döndürür."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Base64 metninin şifresini çözme",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "DAsTABUDEw==",
+                "output": "MERHABA",
+                "description": "Anahtar: ANAHTAR. Şifre çözme modunda araç Base64 kodunu çözer ve XOR uygular."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Unicode metin örneği",
+                "key": "GIZLI",
+                "shift": 0,
+                "input": "Merhaba dünya",
+                "output": "CiwoJCglKHooivsnIy0=",
+                "description": "Araç UTF-8 metinlerini destekler ve birçok dildeki ve yazı sistemindeki verileri şifreleyebilir."
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Farklı anahtar, farklı sonuç",
+                "key": "GIZLI",
+                "shift": 0,
+                "input": "MERHABA",
+                "output": "CgwIBAgFCA==",
+                "description": "Anahtar değiştirildiğinde her XOR işlemi değişir ve tamamen farklı bir şifrelenmiş sonuç elde edilir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Base64 çıktısı"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Simetrik şifre"
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Anahtar tabanlı"
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Tek kullanımlık anahtar"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Gilbert Vernam"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Akış şifresi kavramları"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Rastgele anahtar üretimi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

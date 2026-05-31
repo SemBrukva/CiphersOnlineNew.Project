@@ -240,6 +240,12 @@ return [
     // Vernam
     'VERNAM_TRUST_OTP'                 => 'Chiffrement à masque jetable',
     'VERNAM_TRUST_KEY_LENGTH'          => 'La longueur de la clé doit égaler celle du message',
+    'VERNAM_KEY_HINT'                  => 'Pour une sécurité maximale, utilisez une clé aléatoire de la même longueur que le message et ne la réutilisez jamais.',
+    'VERNAM_GENERATE_KEY'              => 'Générer une clé aléatoire',
+    'VERNAM_ERROR_DIRECTION'           => 'La direction doit être encrypt ou decrypt.',
+    'VERNAM_ERROR_TEXT_REQUIRED'       => 'Le texte est obligatoire.',
+    'VERNAM_ERROR_KEY_REQUIRED'        => 'La clé est obligatoire.',
+    'VERNAM_WARNING_KEY_SHORT'         => 'La clé est plus courte que le message et sera répétée — cela brise la garantie du masque jetable.',
     // Bacon
     'BACON_TRUST_STEGO'                => 'Stéganographie : texte caché dans un autre texte',
     'BACON_TRUST_BINARY'               => 'Chaque lettre codée par 5 caractères A/B',

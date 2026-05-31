@@ -25,12 +25,15 @@ final class VernamCipherService
     {
         return [
             [
-                'type' => 'text',
+                'type' => 'textarea',
                 'id' => 'ciphers-key',
                 'label' => trans('CIPHER_TOOL_SETTING_KEY'),
-                'class' => 'ciphers-settings-input',
+                'class' => 'ciphers-settings-textarea',
                 'placeholder' => trans('CIPHER_TOOL_SETTING_KEY_PLACEHOLDER'),
                 'value' => '',
+                'hint' => trans('VERNAM_KEY_HINT'),
+                'generateKey' => true,
+                'generateKeyLabel' => trans('VERNAM_GENERATE_KEY'),
             ],
         ];
     }

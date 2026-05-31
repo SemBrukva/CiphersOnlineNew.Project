@@ -26,6 +26,7 @@
 
                 <div class="ciphers-settings">
                     {foreach $tool_ui.settings|default:[] as $setting}
+                        {if $setting.type != 'textarea'}
                         <div class="ciphers-settings-item">
                             {if $setting.type == 'select'}
                                 <label class="ciphers-settings-label" for="{$setting.id|escape}">{$setting.label}</label>
@@ -63,6 +64,7 @@
                                        value="{$setting.value|default:''|escape}">
                             {/if}
                         </div>
+                        {/if}
                     {/foreach}
                 </div>
 
@@ -71,7 +73,31 @@
         </div>
 
         <div class="ciphers-unified__body">
-            
+
+            {foreach $tool_ui.settings|default:[] as $setting}
+                {if $setting.type == 'textarea'}
+                <div class="ciphers-unified__key-area">
+                    <div class="ciphers-unified__field-header">
+                        <span class="ciphers-unified__field-label">{$setting.label|escape}</span>
+                    </div>
+                    <textarea id="{$setting.id|escape}"
+                              class="{$setting.class|default:'ciphers-settings-textarea'|escape}"
+                              placeholder="{$setting.placeholder|default:''|escape}"
+                              rows="3">{$setting.value|default:''|escape}</textarea>
+                    <div class="ciphers-unified__key-area-footer">
+                        {if $setting.generateKey|default:false}
+                            <button class="ciphers-settings-generate-btn" type="button" id="ciphers-generate-key">
+                                <i class="bi bi-shuffle"></i> {$setting.generateKeyLabel|default:''|escape}
+                            </button>
+                        {/if}
+                        {if $setting.hint|default:''}
+                            <p class="ciphers-settings-hint">{$setting.hint|escape}</p>
+                        {/if}
+                    </div>
+                </div>
+                {/if}
+            {/foreach}
+
             <div class="ciphers-unified__input-wrap">
                 <div class="ciphers-unified__field-header">
                     <span class="ciphers-unified__field-label" id="ciphers-input-label">{$tool_ui.inputLabelEncode}</span>

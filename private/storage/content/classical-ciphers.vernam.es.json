@@ -1,0 +1,249 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T10:11:06+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vernam",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 16,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 16,
+        "data": {
+            "name": "Cifrado de Vernam",
+            "name_short": "Cifrado de Vernam",
+            "description": "Cifra y descifra texto con el cifrado de Vernam, un método clásico basado en la operación XOR. Genera claves aleatorias o utiliza tu propia clave. Los datos cifrados se devuelven en formato Base64 para que sea sencillo almacenarlos y transferirlos de forma segura.",
+            "description_stort": "Cifrado de Vernam basado en XOR con salida en Base64.",
+            "meta_title": "Cifrado de Vernam online: cifrar y descifrar texto",
+            "meta_description": "Cifra y descifra texto online con el cifrado de Vernam. Cifrado basado en XOR con salida en Base64 y claves de texto personalizadas."
+        }
+    },
+    "blocks": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado de Vernam",
+                "text": "<p>El cifrado de Vernam transforma los datos aplicando la operación XOR (O exclusivo) entre cada byte del mensaje y el byte correspondiente de una clave. Como XOR es reversible, volver a aplicar la misma clave permite recuperar el texto original.</p><p>En esta herramienta, los datos binarios cifrados se codifican automáticamente en Base64 para que puedan copiarse, almacenarse y transferirse de forma segura como texto. Durante el descifrado, primero se decodifica Base64 y después se aplica XOR con la misma clave.</p><p>Para obtener la máxima seguridad, la clave debe ser aleatoria, tener como mínimo la misma longitud que el mensaje y utilizarse una sola vez. Cuando se repite una clave más corta, el cifrado sigue demostrando el funcionamiento de XOR, pero deja de ofrecer las garantías de seguridad de una libreta de un solo uso auténtica.</p><p>El cifrado de Vernam tiene una gran importancia histórica porque introdujo el principio XOR, que más adelante se convirtió en la base de muchos cifrados de flujo modernos.</p>"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifrado de Vernam y libreta de un solo uso",
+                "text": "<p>La libreta de un solo uso (One-Time Pad, OTP) es un caso especial del cifrado de Vernam. Para alcanzar una seguridad teórica perfecta, la clave debe ser verdaderamente aleatoria, tener como mínimo la misma longitud que el mensaje y no reutilizarse nunca.</p><p>Muchas implementaciones prácticas de Vernam, incluidas las herramientas educativas, utilizan claves de texto reutilizables. Aunque esto permite comprender el cifrado basado en XOR, no proporciona la seguridad incondicional de una libreta de un solo uso auténtica.</p><p>La advertencia de esta herramienta ayuda a detectar cuándo la clave se repite o es más corta que el mensaje. En estos casos, la seguridad se debilita y desaparecen las garantías de una OTP.</p>"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Historia del cifrado de Vernam",
+                "text": "<p>El cifrado recibe su nombre de Gilbert Vernam, un ingeniero que desarrolló técnicas de cifrado basadas en XOR para las comunicaciones por teletipo a principios del siglo XX.</p><p>Su trabajo se convirtió en una de las bases de la criptografía moderna e inspiró posteriores cifrados de flujo y sistemas de comunicación seguros.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Necesito la misma clave para descifrar?",
+                "answer": "Sí. Para descifrar con Vernam se necesita exactamente la misma clave que se utilizó durante el cifrado."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Por qué el resultado cifrado está en Base64?",
+                "answer": "El resultado de XOR son datos binarios. Base64 permite copiarlos, almacenarlos y transferirlos de forma segura como texto."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Funciona el cifrado de Vernam con texto Unicode?",
+                "answer": "Sí. La herramienta procesa los datos UTF-8 byte a byte, por lo que admite texto en distintos idiomas."
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Qué es el cifrado XOR?",
+                "answer": "El cifrado XOR combina los datos del mensaje y de la clave mediante la operación XOR. Volver a aplicar la misma clave invierte el proceso y recupera el mensaje original."
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro el cifrado de Vernam actualmente?",
+                "answer": "La seguridad depende de la clave. Una libreta de un solo uso auténtica con una clave aleatoria utilizada una sola vez es teóricamente irrompible, mientras que las claves reutilizables pueden ser vulnerables al criptoanálisis."
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 55,
+            "published": true,
+            "data": {
+                "question": "¿Por qué la herramienta avisa sobre la longitud de la clave?",
+                "answer": "Una clave más corta que el mensaje debe repetirse durante el cifrado. Reutilizar el material de la clave debilita la seguridad y elimina las garantías teóricas de una libreta de un solo uso auténtica."
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Por qué el texto cifrado parece aleatorio?",
+                "answer": "La operación XOR genera datos binarios que normalmente no presentan patrones legibles. Para mayor comodidad, la herramienta muestra estos datos como texto Base64."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Cifrar un texto sencillo",
+                "key": "CLAVE",
+                "shift": 0,
+                "input": "HOLA",
+                "output": "CwMNFw==",
+                "description": "Clave: CLAVE. En el modo de cifrado, la herramienta aplica XOR y devuelve el resultado en Base64."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Descifrar texto Base64",
+                "key": "CLAVE",
+                "shift": 0,
+                "input": "CwMNFw==",
+                "output": "HOLA",
+                "description": "Clave: CLAVE. En el modo de descifrado, la herramienta decodifica Base64 y aplica XOR."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Ejemplo con texto Unicode",
+                "key": "SECRETO",
+                "shift": 0,
+                "input": "¡Hola, mundo!",
+                "output": "keQLPSk1Y3MoNjwhO24=",
+                "description": "La herramienta admite texto UTF-8 y puede cifrar datos de múltiples idiomas y sistemas de escritura."
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Una clave distinta produce otro resultado",
+                "key": "SECRETO",
+                "shift": 0,
+                "input": "HOLA",
+                "output": "GwoPEw==",
+                "description": "Al cambiar la clave, cambia cada operación XOR y se obtiene un resultado cifrado completamente diferente."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Salida Base64"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifrado simétrico"
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Basado en clave"
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Libreta de un solo uso"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Gilbert Vernam"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Conceptos de cifrado de flujo"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Generación de claves aleatorias"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

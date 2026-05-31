@@ -1,0 +1,249 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T10:11:06+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vernam",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 16,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 16,
+        "data": {
+            "name": "Chiffre de Vernam",
+            "name_short": "Chiffre de Vernam",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre de Vernam, une méthode classique fondée sur l'opération XOR. Générez des clés aléatoires ou utilisez votre propre clé. Les données chiffrées sont renvoyées au format Base64 afin de faciliter leur stockage et leur transfert en toute sécurité.",
+            "description_stort": "Chiffrement de Vernam fondé sur XOR avec sortie Base64.",
+            "meta_title": "Chiffre de Vernam en ligne : chiffrer et déchiffrer un texte",
+            "meta_description": "Chiffrez et déchiffrez du texte en ligne avec le chiffre de Vernam. Chiffrement fondé sur XOR, sortie Base64 et clés textuelles personnalisées."
+        }
+    },
+    "blocks": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Vernam",
+                "text": "<p>Le chiffre de Vernam transforme les données en appliquant l'opération XOR (OU exclusif) entre chaque octet du message et l'octet correspondant d'une clé. Comme XOR est réversible, appliquer à nouveau la même clé permet de retrouver le texte d'origine.</p><p>Dans cet outil, les données binaires chiffrées sont automatiquement encodées en Base64 afin de pouvoir être copiées, stockées et transmises en toute sécurité sous forme de texte. Lors du déchiffrement, la chaîne Base64 est d'abord décodée, puis XOR est appliqué avec la même clé.</p><p>Pour une sécurité maximale, la clé doit être aléatoire, au moins aussi longue que le message et utilisée une seule fois. Lorsqu'une clé plus courte est répétée, le chiffre illustre toujours le chiffrement XOR, mais n'offre plus les garanties de sécurité d'un véritable masque jetable.</p><p>Le chiffre de Vernam occupe une place importante dans l'histoire de la cryptographie, car il a introduit le principe XOR, devenu ensuite la base de nombreux chiffrements par flot modernes.</p>"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Chiffre de Vernam et masque jetable",
+                "text": "<p>Le masque jetable (One-Time Pad, OTP) est un cas particulier du chiffre de Vernam. Pour obtenir une sécurité théorique parfaite, la clé doit être réellement aléatoire, au moins aussi longue que le message et ne jamais être réutilisée.</p><p>De nombreuses implémentations pratiques de Vernam, y compris les outils pédagogiques, utilisent des clés textuelles réutilisables. Cela permet de comprendre le chiffrement fondé sur XOR, mais n'offre pas la sécurité inconditionnelle d'un véritable masque jetable.</p><p>L'avertissement affiché par cet outil permet de repérer les situations où la clé est répétée ou plus courte que le message. La sécurité est alors affaiblie et les garanties d'un OTP disparaissent.</p>"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Histoire du chiffre de Vernam",
+                "text": "<p>Le chiffre doit son nom à Gilbert Vernam, un ingénieur qui a développé des techniques de chiffrement fondées sur XOR pour les communications par téléscripteur au début du XXe siècle.</p><p>Ses travaux sont devenus l'un des fondements de la cryptographie moderne et ont inspiré les chiffrements par flot et les systèmes de communication sécurisés apparus par la suite.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Ai-je besoin de la même clé pour déchiffrer ?",
+                "answer": "Oui. Le déchiffrement de Vernam nécessite exactement la même clé que celle utilisée pour le chiffrement."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le résultat chiffré est-il affiché en Base64 ?",
+                "answer": "Le résultat de XOR est constitué de données binaires. Base64 permet de les copier, de les stocker et de les transmettre en toute sécurité sous forme de texte."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Vernam fonctionne-t-il avec du texte Unicode ?",
+                "answer": "Oui. L'outil traite les données UTF-8 octet par octet et prend donc en charge les textes multilingues."
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Qu'est-ce que le chiffrement XOR ?",
+                "answer": "Le chiffrement XOR combine les données du message et celles de la clé à l'aide de l'opération XOR. Appliquer à nouveau la même clé inverse le processus et restaure le message d'origine."
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Vernam est-il sûr aujourd'hui ?",
+                "answer": "La sécurité dépend de la clé. Un véritable masque jetable avec une clé aléatoire utilisée une seule fois est théoriquement incassable, tandis que les clés réutilisables peuvent être vulnérables à la cryptanalyse."
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 55,
+            "published": true,
+            "data": {
+                "question": "Pourquoi l'outil avertit-il lorsque la clé est trop courte ?",
+                "answer": "Une clé plus courte que le message doit être répétée pendant le chiffrement. La réutilisation du matériau de clé affaiblit la sécurité et supprime les garanties théoriques d'un véritable masque jetable."
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le texte chiffré semble-t-il aléatoire ?",
+                "answer": "L'opération XOR produit des données binaires qui ne présentent généralement aucun motif lisible. Pour plus de commodité, l'outil affiche ces données sous forme de texte Base64."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Chiffrer un texte simple",
+                "key": "CLE",
+                "shift": 0,
+                "input": "BONJOUR",
+                "output": "AQMLCQMQEQ==",
+                "description": "Clé : CLE. En mode chiffrement, l'outil applique XOR et renvoie le résultat en Base64."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Déchiffrer un texte Base64",
+                "key": "CLE",
+                "shift": 0,
+                "input": "AQMLCQMQEQ==",
+                "output": "BONJOUR",
+                "description": "Clé : CLE. En mode déchiffrement, l'outil décode Base64 puis applique XOR."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Exemple avec du texte Unicode",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "Bonjour le monde",
+                "output": "ESotOCohIWUvN2U5PCsnNw==",
+                "description": "L'outil prend en charge le texte UTF-8 et peut chiffrer des données issues de nombreuses langues et systèmes d'écriture."
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Une autre clé produit un autre résultat",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "BONJOUR",
+                "output": "EQoNGAoBAQ==",
+                "description": "Modifier la clé change chaque opération XOR et produit un résultat chiffré totalement différent."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Sortie Base64"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement symétrique"
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Fondé sur une clé"
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Masque jetable"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Gilbert Vernam"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Principes des chiffrements par flot"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Génération de clés aléatoires"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

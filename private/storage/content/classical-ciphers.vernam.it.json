@@ -1,0 +1,249 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T10:11:06+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vernam",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 16,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 16,
+        "data": {
+            "name": "Cifrario di Vernam",
+            "name_short": "Cifrario di Vernam",
+            "description": "Cifra e decifra testi con il cifrario di Vernam, un metodo classico basato sull'operazione XOR. Genera chiavi casuali oppure utilizza una chiave personalizzata. I dati cifrati vengono restituiti in formato Base64 per consentirne l'archiviazione e il trasferimento in modo sicuro.",
+            "description_stort": "Cifratura di Vernam basata su XOR con output Base64.",
+            "meta_title": "Cifrario di Vernam online: cifra e decifra testi",
+            "meta_description": "Cifra e decifra testi online con il cifrario di Vernam. Cifratura basata su XOR con output Base64 e chiavi testuali personalizzate."
+        }
+    },
+    "blocks": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario di Vernam",
+                "text": "<p>Il cifrario di Vernam trasforma i dati applicando l'operazione XOR (OR esclusivo) tra ogni byte del messaggio e il byte corrispondente di una chiave. Poiché XOR è reversibile, applicando nuovamente la stessa chiave si ripristina il testo originale.</p><p>In questo strumento, i dati binari cifrati vengono codificati automaticamente in Base64, così possono essere copiati, archiviati e trasferiti in modo sicuro come testo. Durante la decifratura, Base64 viene prima decodificato e poi viene applicato XOR con la stessa chiave.</p><p>Per la massima sicurezza, la chiave dovrebbe essere casuale, lunga almeno quanto il messaggio e utilizzata una sola volta. Quando si ripete una chiave più corta, il cifrario continua a illustrare la cifratura XOR, ma non offre più le garanzie di sicurezza di un vero cifrario monouso.</p><p>Il cifrario di Vernam è storicamente importante perché ha introdotto il principio XOR, che in seguito è diventato la base di molti moderni cifrari a flusso.</p>"
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifrario di Vernam e cifrario monouso",
+                "text": "<p>Il cifrario monouso (One-Time Pad, OTP) è un caso particolare del cifrario di Vernam. Per ottenere una sicurezza teorica perfetta, la chiave deve essere davvero casuale, lunga almeno quanto il messaggio e non deve mai essere riutilizzata.</p><p>Molte implementazioni pratiche di Vernam, inclusi gli strumenti didattici, utilizzano chiavi testuali riutilizzabili. Questo permette di comprendere la cifratura basata su XOR, ma non garantisce la sicurezza incondizionata di un vero cifrario monouso.</p><p>L'avviso mostrato dallo strumento aiuta a individuare i casi in cui la chiave viene ripetuta o è più corta del messaggio. In queste situazioni la sicurezza si riduce e vengono meno le garanzie di un OTP.</p>"
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Storia del cifrario di Vernam",
+                "text": "<p>Il cifrario prende il nome da Gilbert Vernam, un ingegnere che sviluppò tecniche di cifratura basate su XOR per le comunicazioni tramite telescrivente all'inizio del XX secolo.</p><p>Il suo lavoro divenne uno dei fondamenti della crittografia moderna e ispirò i successivi cifrari a flusso e sistemi di comunicazione sicuri.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Serve la stessa chiave per decifrare?",
+                "answer": "Sì. La decifratura di Vernam richiede esattamente la stessa chiave utilizzata durante la cifratura."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Perché il risultato cifrato è in Base64?",
+                "answer": "Il risultato dell'operazione XOR è costituito da dati binari. Base64 permette di copiarli, archiviarli e trasferirli in modo sicuro come testo."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Vernam funziona con il testo Unicode?",
+                "answer": "Sì. Lo strumento elabora i dati UTF-8 byte per byte, quindi supporta testi in più lingue."
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cos'è la cifratura XOR?",
+                "answer": "La cifratura XOR combina i dati del messaggio e della chiave tramite l'operazione XOR. Applicando nuovamente la stessa chiave si inverte il processo e si ripristina il messaggio originale."
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Vernam è sicuro oggi?",
+                "answer": "La sicurezza dipende dalla chiave. Un vero cifrario monouso con una chiave casuale usata una sola volta è teoricamente inviolabile, mentre le chiavi riutilizzabili possono essere vulnerabili alla crittoanalisi."
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 55,
+            "published": true,
+            "data": {
+                "question": "Perché lo strumento avvisa quando la chiave è troppo corta?",
+                "answer": "Una chiave più corta del messaggio deve essere ripetuta durante la cifratura. Riutilizzare il materiale della chiave indebolisce la sicurezza ed elimina le garanzie teoriche di un vero cifrario monouso."
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Perché il testo cifrato sembra casuale?",
+                "answer": "L'operazione XOR produce dati binari che normalmente non presentano schemi leggibili. Per comodità, lo strumento visualizza questi dati come testo Base64."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Cifrare un testo semplice",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "CIAO",
+                "output": "AAEIDg==",
+                "description": "Chiave: CHIAVE. In modalità cifratura, lo strumento applica XOR e restituisce il risultato in Base64."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Decifrare un testo Base64",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "AAEIDg==",
+                "output": "CIAO",
+                "description": "Chiave: CHIAVE. In modalità decifratura, lo strumento decodifica Base64 e applica XOR."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Esempio con testo Unicode",
+                "key": "SEGRETO",
+                "shift": 0,
+                "input": "Ciao, mondo",
+                "output": "ECwmPWl0IjwrIz0=",
+                "description": "Lo strumento supporta il testo UTF-8 e può cifrare dati provenienti da molte lingue e sistemi di scrittura."
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "data": {
+                "title": "Una chiave diversa produce un altro risultato",
+                "key": "SEGRETO",
+                "shift": 0,
+                "input": "CIAO",
+                "output": "EAwGHQ==",
+                "description": "Modificare la chiave cambia ogni operazione XOR e produce un risultato cifrato completamente diverso."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Output Base64"
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifrario simmetrico"
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Basato su chiave"
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifrario monouso"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Gilbert Vernam"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Concetti dei cifrari a flusso"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Generazione di chiavi casuali"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

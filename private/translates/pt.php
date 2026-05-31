@@ -240,6 +240,12 @@ return [
     // Vernam
     'VERNAM_TRUST_OTP'                 => 'Esquema de bloco de uso único',
     'VERNAM_TRUST_KEY_LENGTH'          => 'O comprimento da chave deve igualar o da mensagem',
+    'VERNAM_KEY_HINT'                  => 'Para máxima segurança, use uma chave aleatória do mesmo comprimento que a mensagem e nunca a reutilize.',
+    'VERNAM_GENERATE_KEY'              => 'Gerar chave aleatória',
+    'VERNAM_ERROR_DIRECTION'           => 'A direção deve ser encrypt ou decrypt.',
+    'VERNAM_ERROR_TEXT_REQUIRED'       => 'O texto é obrigatório.',
+    'VERNAM_ERROR_KEY_REQUIRED'        => 'A chave é obrigatória.',
+    'VERNAM_WARNING_KEY_SHORT'         => 'A chave é mais curta que a mensagem e será repetida — isso quebra a garantia do bloco de uso único.',
     // Bacon
     'BACON_TRUST_STEGO'                => 'Esteganografia: texto escondido dentro de outro texto',
     'BACON_TRUST_BINARY'               => 'Cada letra codificada com 5 caracteres A/B',
