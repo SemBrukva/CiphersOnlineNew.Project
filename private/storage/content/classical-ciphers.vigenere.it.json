@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T08:56:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vigenere",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 15,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 15,
+        "data": {
+            "name": "Cifrario di Vigenere",
+            "name_short": "Cifrario di Vigenere",
+            "description": "Cifra e decifra testi online con il cifrario di Vigenere usando una parola chiave personalizzata e un alfabeto selezionabile. È uno dei cifrari polialfabetici più noti della crittografia classica.",
+            "description_stort": "Cifratura e decifratura polialfabetiche basate su una parola chiave.",
+            "meta_title": "Cifrario di Vigenere online: cifratore e decifratore",
+            "meta_description": "Cifra e decifra testi con il cifrario di Vigenere online. Usa una parola chiave personalizzata, scegli un alfabeto e scopri uno dei cifrari classici più noti."
+        }
+    },
+    "blocks": [
+        {
+            "id": 41,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario di Vigenere",
+                "text": "<p>Il cifrario di Vigenere è un cifrario a sostituzione polialfabetica che usa una parola chiave per determinare lo spostamento di ogni lettera del messaggio. A differenza del cifrario di Cesare, che applica un solo spostamento fisso, Vigenere usa spostamenti diversi in base alla lettera corrispondente della chiave.</p><p>Se la parola chiave è più corta del messaggio, viene ripetuta fino a elaborare l’intero testo. Ogni lettera della chiave definisce uno spostamento in stile Cesare, creando una sequenza di sostituzioni variabili nel messaggio.</p><p>Questo approccio rende più difficile la semplice analisi delle frequenze. Storicamente, il cifrario di Vigenere fu uno dei metodi più importanti della cifratura classica.</p>"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifrario di Vigenere e cifrario di Cesare",
+                "text": "<p>Il cifrario di Cesare usa un solo spostamento costante per tutto il messaggio. Il cifrario di Vigenere sviluppa questa idea usando una parola chiave che cambia lo spostamento da una lettera all’altra.</p><p>Poiché nel testo vengono usate più sostituzioni, Vigenere resiste meglio alla crittoanalisi di base rispetto a Cesare. Tuttavia, secondo gli standard moderni non è comunque considerato sicuro.</p>"
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Storia del cifrario di Vigenere",
+                "text": "<p>Il cifrario di Vigenere prende il nome dal diplomatico francese Blaise de Vigenere, che descrisse un metodo correlato di cifratura polialfabetica nel XVI secolo. Per secoli fu considerato uno dei cifrari pratici più robusti disponibili.</p><p>Poiché resisteva alla semplice analisi delle frequenze, ricevette il soprannome di «cifrario indecifrabile» prima dello sviluppo di tecniche crittoanalitiche più avanzate.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 100,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Che cos’è una chiave Vigenere?",
+                "answer": "Una chiave Vigenere è una parola o una frase usata per generare la sequenza di spostamenti applicata durante la cifratura e la decifratura."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Vigenere è più robusto di Cesare?",
+                "answer": "Sì. Il cifrario di Vigenere cambia il valore dello spostamento lungo il messaggio, mentre il cifrario di Cesare usa un solo spostamento costante."
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede a spazi e punteggiatura?",
+                "answer": "Spazi, segni di punteggiatura, numeri e altri caratteri fuori dall’alfabeto selezionato di solito restano invariati e non vengono cifrati."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "La parola chiave può essere più corta del testo?",
+                "answer": "Sì. La parola chiave viene ripetuta automaticamente fino a elaborare l’intero messaggio."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Vigenere è sicuro oggi?",
+                "answer": "No. Anche se è molto più robusto dei semplici cifrari a sostituzione, la crittoanalisi moderna può violare con relativa facilità i messaggi cifrati con Vigenere."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Chi ha inventato il cifrario di Vigenere?",
+                "answer": "Il cifrario è tradizionalmente associato a Blaise de Vigenere, anche se tecniche polialfabetiche simili esistevano già prima del suo lavoro."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrare ATTACCO ALL ALBA",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "ATTACCO ALL ALBA",
+                "output": "CABAXGQ HTL VPDH",
+                "description": "Parola chiave: CHIAVE. Modalità: cifrare. Ogni lettera della chiave crea uno spostamento diverso in stile Cesare."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decifrare CABAXGQ HTL VPDH",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "CABAXGQ HTL VPDH",
+                "output": "ATTACCO ALL ALBA",
+                "description": "Parola chiave: CHIAVE. Modalità: decifrare. La stessa parola chiave ripristina il messaggio originale."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Ripetizione di una parola chiave breve",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "MESSAGGIO SEGRETO",
+                "output": "OLASVKIPW SZKTLBO",
+                "description": "Parola chiave: CHIAVE. Se il testo è più lungo della chiave, la parola chiave viene ripetuta automaticamente."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Conservare spazi, numeri e punteggiatura",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "INCONTRO ALLE 9:30!",
+                "output": "KUKOIXTV ILGI 9:30!",
+                "description": "Vengono cifrate solo le lettere dell’alfabeto selezionato. Spazi, numeri, segni di punteggiatura e altri simboli restano invariati."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario con parola chiave"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polialfabetico"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cifrario a sostituzione"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifratura con parola chiave"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Famiglia di Cesare"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

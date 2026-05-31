@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T08:56:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vigenere",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 15,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 15,
+        "data": {
+            "name": "Cifrado Vigenere",
+            "name_short": "Cifrado Vigenere",
+            "description": "Cifra y descifra texto con el cifrado Vigenere en línea usando una palabra clave personalizada y un alfabeto seleccionable. Es uno de los cifrados polialfabéticos más conocidos de la criptografía clásica.",
+            "description_stort": "Cifrado y descifrado polialfabético basado en una palabra clave.",
+            "meta_title": "Cifrado Vigenere en línea: cifrador y descifrador",
+            "meta_description": "Cifra y descifra texto con el cifrado Vigenere en línea. Usa una palabra clave personalizada, elige un alfabeto y explora uno de los cifrados clásicos más conocidos."
+        }
+    },
+    "blocks": [
+        {
+            "id": 41,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado Vigenere",
+                "text": "<p>El cifrado Vigenere es un cifrado de sustitución polialfabético que usa una palabra clave para determinar el desplazamiento de cada letra del mensaje. A diferencia del cifrado César, que aplica un único desplazamiento fijo, Vigenere utiliza desplazamientos distintos según la letra correspondiente de la clave.</p><p>Si la palabra clave es más corta que el mensaje, se repite hasta procesar todo el texto. Cada letra de la clave define un desplazamiento al estilo César, creando una secuencia de sustituciones variables a lo largo del mensaje.</p><p>Este enfoque dificulta el análisis simple de frecuencias. Históricamente, el cifrado Vigenere fue uno de los métodos más importantes de cifrado clásico.</p>"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifrado Vigenere frente a cifrado César",
+                "text": "<p>El cifrado César usa un único desplazamiento constante para todo el mensaje. El cifrado Vigenere amplía esta idea mediante una palabra clave que cambia el desplazamiento de una letra a otra.</p><p>Como se usan varias sustituciones a lo largo del texto, Vigenere resiste mejor el criptoanálisis básico que César. Sin embargo, todavía se considera inseguro según los estándares modernos.</p>"
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Historia del cifrado Vigenere",
+                "text": "<p>El cifrado Vigenere recibe su nombre del diplomático francés Blaise de Vigenere, que describió un método relacionado de cifrado polialfabético en el siglo XVI. Durante siglos se consideró uno de los cifrados prácticos más robustos disponibles.</p><p>Como resistía el análisis simple de frecuencias, recibió el apodo de «cifrado indescifrable» antes de que se desarrollaran técnicas de criptoanálisis más avanzadas.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 100,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué es una clave Vigenere?",
+                "answer": "Una clave Vigenere es una palabra o frase que se usa para generar la secuencia de desplazamientos aplicada durante el cifrado y el descifrado."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Vigenere es más robusto que César?",
+                "answer": "Sí. El cifrado Vigenere cambia el valor del desplazamiento a lo largo del mensaje, mientras que el cifrado César usa un solo desplazamiento constante."
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Qué ocurre con los espacios y la puntuación?",
+                "answer": "Los espacios, signos de puntuación, números y otros caracteres fuera del alfabeto seleccionado normalmente se conservan sin cambios y no se cifran."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿La palabra clave puede ser más corta que el texto?",
+                "answer": "Sí. La palabra clave se repite automáticamente hasta que se procesa el mensaje completo."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿El cifrado Vigenere es seguro hoy?",
+                "answer": "No. Aunque es mucho más robusto que los cifrados de sustitución simples, el criptoanálisis moderno puede romper mensajes cifrados con Vigenere con relativa facilidad."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Quién inventó el cifrado Vigenere?",
+                "answer": "El cifrado se asocia tradicionalmente con Blaise de Vigenere, aunque ya existían técnicas polialfabéticas similares antes de su trabajo."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrar ATAQUE AL AMANECER",
+                "key": "PEÑA",
+                "shift": 0,
+                "input": "ATAQUE AL AMANECER",
+                "output": "PXÑQKI ÑL PPÑNTGRR",
+                "description": "Palabra clave: PEÑA. Modo: cifrar. Cada letra de la clave crea un desplazamiento distinto al estilo César."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Descifrar PXÑQKI ÑL PPÑNTGRR",
+                "key": "PEÑA",
+                "shift": 0,
+                "input": "PXÑQKI ÑL PPÑNTGRR",
+                "output": "ATAQUE AL AMANECER",
+                "description": "Palabra clave: PEÑA. Modo: descifrar. La misma palabra clave restaura el mensaje original."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Repetición de una palabra clave corta",
+                "key": "PEÑA",
+                "shift": 0,
+                "input": "SEÑAL SECRETA",
+                "output": "IIBAA WRCHIHA",
+                "description": "Palabra clave: PEÑA. Si el texto es más largo que la clave, la palabra clave se repite automáticamente."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Conservar espacios, números y puntuación",
+                "key": "PEÑA",
+                "shift": 0,
+                "input": "REUNION A LAS 9:30, AÑO!",
+                "output": "HIINXSA A AEG 9:30, ADS!",
+                "description": "Solo se cifran las letras del alfabeto seleccionado. Los espacios, números, signos de puntuación y otros símbolos permanecen sin cambios."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado con palabra clave"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polialfabético"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cifrado de sustitución"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifrado por palabra clave"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Familia César"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

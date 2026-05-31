@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T08:56:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vigenere",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 15,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 15,
+        "data": {
+            "name": "Vigenere-Chiffre",
+            "name_short": "Vigenere-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text online mit der Vigenere-Chiffre, einem eigenen Schlüsselwort und auswählbarem Alphabet. Sie gehört zu den bekanntesten polyalphabetischen Chiffren der klassischen Kryptografie.",
+            "description_stort": "Polyalphabetische Verschlüsselung und Entschlüsselung mit Schlüsselwort.",
+            "meta_title": "Vigenere-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Verschlüsseln und entschlüsseln Sie Text online mit der Vigenere-Chiffre. Verwenden Sie ein eigenes Schlüsselwort, wählen Sie ein Alphabet und lernen Sie eine der bekanntesten klassischen Chiffren kennen."
+        }
+    },
+    "blocks": [
+        {
+            "id": 41,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert die Vigenere-Chiffre",
+                "text": "<p>Die Vigenere-Chiffre ist eine polyalphabetische Substitutionschiffre, bei der ein Schlüsselwort die Verschiebung jedes Buchstabens der Nachricht bestimmt. Anders als die Caesar-Chiffre mit einer einzigen festen Verschiebung verwendet Vigenere je nach zugehörigem Schlüsselbuchstaben unterschiedliche Verschiebungen.</p><p>Wenn das Schlüsselwort kürzer als die Nachricht ist, wird es wiederholt, bis der gesamte Text verarbeitet wurde. Jeder Schlüsselbuchstabe legt eine Verschiebung im Stil der Caesar-Chiffre fest, sodass sich die Ersetzungen innerhalb der Nachricht fortlaufend ändern.</p><p>Dieser Ansatz erschwert eine einfache Häufigkeitsanalyse. Historisch zählte die Vigenere-Chiffre zu den wichtigsten klassischen Verschlüsselungsverfahren.</p>"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Vigenere-Chiffre und Caesar-Chiffre",
+                "text": "<p>Die Caesar-Chiffre verwendet eine einzige feste Verschiebung für die gesamte Nachricht. Die Vigenere-Chiffre entwickelt diese Idee weiter: Ein Schlüsselwort verändert die Verschiebung von Buchstabe zu Buchstabe.</p><p>Da im Text mehrere Ersetzungen verwendet werden, widersteht Vigenere einer grundlegenden Kryptoanalyse besser als Caesar. Nach modernen Maßstäben gilt die Chiffre dennoch nicht als sicher.</p>"
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Geschichte der Vigenere-Chiffre",
+                "text": "<p>Die Vigenere-Chiffre ist nach dem französischen Diplomaten Blaise de Vigenere benannt, der im 16. Jahrhundert ein verwandtes polyalphabetisches Verschlüsselungsverfahren beschrieb. Über Jahrhunderte galt sie als eine der stärksten praktisch einsetzbaren Chiffren.</p><p>Weil sie einer einfachen Häufigkeitsanalyse widerstand, erhielt sie den Beinamen „die unentzifferbare Chiffre“, bevor fortgeschrittenere kryptoanalytische Methoden entwickelt wurden.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 100,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist ein Vigenere-Schlüssel?",
+                "answer": "Ein Vigenere-Schlüssel ist ein Wort oder eine Wortgruppe, aus der die beim Verschlüsseln und Entschlüsseln verwendete Folge von Verschiebungen erzeugt wird."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Ist Vigenere stärker als Caesar?",
+                "answer": "Ja. Die Vigenere-Chiffre ändert den Verschiebungswert im Verlauf der Nachricht, während die Caesar-Chiffre nur eine einzige feste Verschiebung verwendet."
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was passiert mit Leerzeichen und Satzzeichen?",
+                "answer": "Leerzeichen, Satzzeichen, Zahlen und andere Zeichen außerhalb des ausgewählten Alphabets bleiben normalerweise unverändert und werden nicht verschlüsselt."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Darf das Schlüsselwort kürzer als der Text sein?",
+                "answer": "Ja. Das Schlüsselwort wird automatisch wiederholt, bis die gesamte Nachricht verarbeitet wurde."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist die Vigenere-Chiffre heute sicher?",
+                "answer": "Nein. Obwohl sie deutlich stärker als einfache Substitutionschiffren ist, lassen sich mit Vigenere verschlüsselte Nachrichten durch moderne Kryptoanalyse vergleichsweise leicht brechen."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Wer hat die Vigenere-Chiffre erfunden?",
+                "answer": "Die Chiffre wird traditionell mit Blaise de Vigenere verbunden, obwohl ähnliche polyalphabetische Verfahren bereits vor seiner Arbeit existierten."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "ANGRIFF BEI MORGEN verschlüsseln",
+                "key": "BÄR",
+                "shift": 0,
+                "input": "ANGRIFF BEI MORGEN",
+                "output": "BOXTJWH CVK NETHVÖ",
+                "description": "Schlüsselwort: BÄR. Modus: Verschlüsseln. Jeder Schlüsselbuchstabe erzeugt eine eigene Verschiebung im Stil der Caesar-Chiffre."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "BOXTJWH CVK NETHVÖ entschlüsseln",
+                "key": "BÄR",
+                "shift": 0,
+                "input": "BOXTJWH CVK NETHVÖ",
+                "output": "ANGRIFF BEI MORGEN",
+                "description": "Schlüsselwort: BÄR. Modus: Entschlüsseln. Dasselbe Schlüsselwort stellt die ursprüngliche Nachricht wieder her."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Wiederholung eines kurzen Schlüsselworts",
+                "key": "BÄR",
+                "shift": 0,
+                "input": "GEHEIME NACHRICHT",
+                "output": "IFYGJCG OREIIKDYÜ",
+                "description": "Schlüsselwort: BÄR. Wenn der Text länger als der Schlüssel ist, wird das Schlüsselwort automatisch wiederholt."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Leerzeichen, Zahlen und Satzzeichen beibehalten",
+                "key": "BÄR",
+                "shift": 0,
+                "input": "TREFFEN UM 9:30!",
+                "output": "ÜSVHGVÖ ÜC 9:30!",
+                "description": "Nur Buchstaben des ausgewählten Alphabets werden verschlüsselt. Leerzeichen, Zahlen, Satzzeichen und andere Symbole bleiben unverändert."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselwortchiffre"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetisch"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Substitutionschiffre"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselwortverschlüsselung"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Caesar-Familie"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

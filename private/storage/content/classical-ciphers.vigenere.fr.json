@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T08:56:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vigenere",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 15,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 15,
+        "data": {
+            "name": "Chiffre de Vigenere",
+            "name_short": "Chiffre de Vigenere",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre de Vigenere en ligne, à l’aide d’un mot-clé personnalisé et d’un alphabet sélectionnable. C’est l’un des chiffres polyalphabétiques les plus connus de la cryptographie classique.",
+            "description_stort": "Chiffrement et déchiffrement polyalphabétiques fondés sur un mot-clé.",
+            "meta_title": "Chiffre de Vigenere en ligne : chiffreur et déchiffreur",
+            "meta_description": "Chiffrez et déchiffrez du texte avec le chiffre de Vigenere en ligne. Utilisez un mot-clé personnalisé, choisissez un alphabet et découvrez l’un des chiffres classiques les plus connus."
+        }
+    },
+    "blocks": [
+        {
+            "id": 41,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Vigenere",
+                "text": "<p>Le chiffre de Vigenere est un chiffre de substitution polyalphabétique qui utilise un mot-clé pour déterminer le décalage de chaque lettre du message. Contrairement au chiffre de César, qui applique un seul décalage fixe, Vigenere utilise des décalages différents selon la lettre correspondante du mot-clé.</p><p>Si le mot-clé est plus court que le message, il se répète jusqu’à ce que tout le texte soit traité. Chaque lettre du mot-clé définit un décalage de type César, créant une suite de substitutions variables dans l’ensemble du message.</p><p>Cette approche rend l’analyse fréquentielle simple plus difficile. Historiquement, le chiffre de Vigenere fut l’une des méthodes les plus importantes de chiffrement classique.</p>"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Chiffre de Vigenere et chiffre de César",
+                "text": "<p>Le chiffre de César utilise un seul décalage constant pour tout le message. Le chiffre de Vigenere développe cette idée en employant un mot-clé qui modifie le décalage d’une lettre à l’autre.</p><p>Comme plusieurs substitutions sont utilisées dans le texte, Vigenere résiste mieux à la cryptanalyse élémentaire que César. Il reste néanmoins considéré comme peu sûr selon les standards modernes.</p>"
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Histoire du chiffre de Vigenere",
+                "text": "<p>Le chiffre de Vigenere doit son nom au diplomate français Blaise de Vigenere, qui décrivit une méthode apparentée de chiffrement polyalphabétique au XVIe siècle. Pendant des siècles, il fut considéré comme l’un des chiffres pratiques les plus robustes.</p><p>Parce qu’il résistait à l’analyse fréquentielle simple, il reçut le surnom de « chiffre indéchiffrable » avant le développement de techniques de cryptanalyse plus avancées.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 100,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce qu’une clé Vigenere ?",
+                "answer": "Une clé Vigenere est un mot ou une expression utilisés pour générer la suite de décalages appliquée lors du chiffrement et du déchiffrement."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Vigenere est-il plus robuste que César ?",
+                "answer": "Oui. Le chiffre de Vigenere modifie la valeur du décalage tout au long du message, tandis que le chiffre de César n’utilise qu’un seul décalage constant."
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces et la ponctuation ?",
+                "answer": "Les espaces, les signes de ponctuation, les nombres et les autres caractères hors de l’alphabet sélectionné sont généralement conservés tels quels et ne sont pas chiffrés."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Le mot-clé peut-il être plus court que le texte ?",
+                "answer": "Oui. Le mot-clé se répète automatiquement jusqu’à ce que l’ensemble du message soit traité."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Vigenere est-il sûr aujourd’hui ?",
+                "answer": "Non. Bien qu’il soit beaucoup plus robuste que les chiffres de substitution simples, la cryptanalyse moderne peut casser assez facilement les messages chiffrés avec Vigenere."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Qui a inventé le chiffre de Vigenere ?",
+                "answer": "Le chiffre est traditionnellement associé à Blaise de Vigenere, même si des techniques polyalphabétiques similaires existaient avant ses travaux."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Chiffrer ATTAQUE À LAUBE",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "ATTAQUE À LAUBE",
+                "output": "ÉJYÉIŸI U SÉKËI",
+                "description": "Mot-clé : ÉTÉ. Mode : chiffrer. Chaque lettre du mot-clé crée un décalage différent de type César."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Déchiffrer ÉJYÉIŸI U SÉKËI",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "ÉJYÉIŸI U SÉKËI",
+                "output": "ATTAQUE À LAUBE",
+                "description": "Mot-clé : ÉTÉ. Mode : déchiffrer. Le même mot-clé restitue le message d’origine."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Répétition d’un mot-clé court",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "MESSAGE SECRET",
+                "output": "TXXXTMI ÏIFÎIY",
+                "description": "Mot-clé : ÉTÉ. Si le texte est plus long que la clé, le mot-clé se répète automatiquement."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Conserver les espaces, nombres et ponctuation",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "RENDEZ-VOUS À 9, ÉTÉ!",
+                "output": "WXUHXE-ÂFŸX U 9, ÎYY!",
+                "description": "Seules les lettres de l’alphabet sélectionné sont chiffrées. Les espaces, les nombres, les signes de ponctuation et les autres symboles restent inchangés."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre à mot-clé"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabétique"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de substitution"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement par mot-clé"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Famille César"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

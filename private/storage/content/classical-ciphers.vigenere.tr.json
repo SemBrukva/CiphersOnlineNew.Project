@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T08:56:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vigenere",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 15,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 15,
+        "data": {
+            "name": "Vigenere Şifresi",
+            "name_short": "Vigenere Şifresi",
+            "description": "Özel bir anahtar sözcük ve seçilebilir alfabe kullanarak Vigenere şifresiyle metni çevrim içi şifreleyin ve çözün. Klasik kriptografinin en tanınmış çok alfabeli şifrelerinden biridir.",
+            "description_stort": "Anahtar sözcüğe dayalı çok alfabeli şifreleme ve çözme.",
+            "meta_title": "Çevrim İçi Vigenere Şifresi Şifreleyici ve Çözücü",
+            "meta_description": "Vigenere şifresiyle metni çevrim içi şifreleyin ve çözün. Özel bir anahtar sözcük kullanın, alfabe seçin ve en tanınmış klasik şifrelerden birini keşfedin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 41,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Vigenere şifresi nasıl çalışır",
+                "text": "<p>Vigenere şifresi, mesajdaki her harfin ne kadar kaydırılacağını belirlemek için bir anahtar sözcük kullanan çok alfabeli bir yerine koyma şifresidir. Tek bir sabit kaydırma kullanan Caesar şifresinden farklı olarak Vigenere, anahtarın karşılık gelen harfine göre farklı kaydırmalar uygular.</p><p>Anahtar sözcük mesajdan kısaysa metnin tamamı işlenene kadar tekrar edilir. Anahtarın her harfi Caesar tarzı bir kaydırma tanımlar ve mesaj boyunca değişen bir yerine koyma dizisi oluşturur.</p><p>Bu yaklaşım basit frekans analizini zorlaştırır. Vigenere şifresi tarih boyunca klasik şifrelemenin en önemli yöntemlerinden biri olmuştur.</p>"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Vigenere şifresi ve Caesar şifresi",
+                "text": "<p>Caesar şifresi tüm mesaj için tek bir sabit kaydırma kullanır. Vigenere şifresi bu fikri geliştirir: anahtar sözcük, kaydırmayı harften harfe değiştirir.</p><p>Metin boyunca birden fazla yerine koyma kullanıldığı için Vigenere, temel kriptanalize karşı Caesar’dan daha dayanıklıdır. Ancak modern standartlara göre yine de güvenli kabul edilmez.</p>"
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Vigenere şifresinin tarihi",
+                "text": "<p>Vigenere şifresi adını, 16. yüzyılda ilişkili bir çok alfabeli şifreleme yöntemi tanımlayan Fransız diplomat Blaise de Vigenere’den alır. Yüzyıllar boyunca kullanılabilen en güçlü pratik şifrelerden biri olarak görülmüştür.</p><p>Basit frekans analizine direndiği için daha gelişmiş kriptanaliz teknikleri geliştirilmeden önce “çözülemez şifre” olarak anılmıştır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 100,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Vigenere anahtarı nedir?",
+                "answer": "Vigenere anahtarı, şifreleme ve çözme sırasında uygulanan kaydırma dizisini oluşturmak için kullanılan bir sözcük veya ifadedir."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Vigenere Caesar’dan daha güçlü müdür?",
+                "answer": "Evet. Vigenere şifresi mesaj boyunca kaydırma değerini değiştirirken Caesar şifresi yalnızca tek bir sabit kaydırma kullanır."
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Boşluklara ve noktalama işaretlerine ne olur?",
+                "answer": "Boşluklar, noktalama işaretleri, sayılar ve seçilen alfabenin dışındaki diğer karakterler genellikle değiştirilmeden korunur ve şifrelenmez."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Anahtar sözcük metinden kısa olabilir mi?",
+                "answer": "Evet. Anahtar sözcük, mesajın tamamı işlenene kadar otomatik olarak tekrar edilir."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Vigenere şifresi bugün güvenli midir?",
+                "answer": "Hayır. Basit yerine koyma şifrelerinden çok daha güçlü olsa da modern kriptanaliz, Vigenere ile şifrelenmiş mesajları görece kolay biçimde kırabilir."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Vigenere şifresini kim icat etti?",
+                "answer": "Şifre geleneksel olarak Blaise de Vigenere ile ilişkilendirilir, ancak benzer çok alfabeli teknikler onun çalışmalarından önce de vardı."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "ŞAFAKTA SALDIR mesajını şifrele",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "ŞAFAKTA SALDIR",
+                "output": "MIJRÖNI YRPVŞV",
+                "description": "Anahtar sözcük: ŞİFRE. Mod: şifreleme. Anahtarın her harfi Caesar tarzında farklı bir kaydırma oluşturur."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "MIJRÖNI YRPVŞV mesajını çöz",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "MIJRÖNI YRPVŞV",
+                "output": "ŞAFAKTA SALDIR",
+                "description": "Anahtar sözcük: ŞİFRE. Mod: çözme. Aynı anahtar sözcük özgün mesajı geri getirir."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Kısa anahtar sözcüğün tekrarı",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "GİZLİ MESAJ",
+                "output": "AİIRİ FILIÖ",
+                "description": "Anahtar sözcük: ŞİFRE. Metin anahtardan uzunsa anahtar sözcük otomatik olarak tekrar edilir."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Boşlukları, sayıları ve noktalama işaretlerini koru",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "TOPLANTI 9DA, ŞİFRE!",
+                "output": "NZÜEEHEO 9UE, MİOVÜ!",
+                "description": "Yalnızca seçilen alfabedeki harfler şifrelenir. Boşluklar, sayılar, noktalama işaretleri ve diğer semboller değişmeden kalır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Anahtar sözcük şifresi"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Çok alfabeli"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Yerine koyma şifresi"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Anahtar sözcükle şifreleme"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Caesar ailesi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

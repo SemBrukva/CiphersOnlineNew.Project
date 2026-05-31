@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T08:56:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vigenere",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 15,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 15,
+        "data": {
+            "name": "Cifra de Vigenere",
+            "name_short": "Cifra de Vigenere",
+            "description": "Cifre e decifre texto com a cifra de Vigenere online usando uma palavra-chave personalizada e um alfabeto selecionável. É uma das cifras polialfabéticas mais conhecidas da criptografia clássica.",
+            "description_stort": "Cifragem e decifragem polialfabéticas baseadas em uma palavra-chave.",
+            "meta_title": "Cifra de Vigenere online: cifrador e decifrador",
+            "meta_description": "Cifre e decifre texto com a cifra de Vigenere online. Use uma palavra-chave personalizada, escolha um alfabeto e conheça uma das cifras clássicas mais famosas."
+        }
+    },
+    "blocks": [
+        {
+            "id": 41,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra de Vigenere funciona",
+                "text": "<p>A cifra de Vigenere é uma cifra de substituição polialfabética que usa uma palavra-chave para determinar o deslocamento de cada letra da mensagem. Diferentemente da cifra de César, que aplica um único deslocamento fixo, Vigenere usa deslocamentos diferentes conforme a letra correspondente da chave.</p><p>Se a palavra-chave for mais curta que a mensagem, ela será repetida até que todo o texto seja processado. Cada letra da chave define um deslocamento no estilo César, criando uma sequência de substituições variáveis ao longo da mensagem.</p><p>Essa abordagem dificulta a análise simples de frequência. Historicamente, a cifra de Vigenere foi um dos métodos mais importantes da cifragem clássica.</p>"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cifra de Vigenere vs. cifra de César",
+                "text": "<p>A cifra de César usa um único deslocamento constante para toda a mensagem. A cifra de Vigenere desenvolve essa ideia usando uma palavra-chave que altera o deslocamento de uma letra para outra.</p><p>Como várias substituições são usadas ao longo do texto, Vigenere resiste melhor à criptoanálise básica do que César. No entanto, ainda é considerada insegura pelos padrões modernos.</p>"
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "História da cifra de Vigenere",
+                "text": "<p>A cifra de Vigenere recebeu esse nome em homenagem ao diplomata francês Blaise de Vigenere, que descreveu um método relacionado de cifragem polialfabética no século XVI. Durante séculos, ela foi considerada uma das cifras práticas mais robustas disponíveis.</p><p>Como resistia à análise simples de frequência, recebeu o apelido de «cifra indecifrável» antes do desenvolvimento de técnicas mais avançadas de criptoanálise.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 100,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "O que é uma chave Vigenere?",
+                "answer": "Uma chave Vigenere é uma palavra ou frase usada para gerar a sequência de deslocamentos aplicada durante a cifragem e a decifragem."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Vigenere é mais robusta que César?",
+                "answer": "Sim. A cifra de Vigenere altera o valor do deslocamento ao longo da mensagem, enquanto a cifra de César usa apenas um deslocamento constante."
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "O que acontece com espaços e pontuação?",
+                "answer": "Espaços, sinais de pontuação, números e outros caracteres fora do alfabeto selecionado geralmente permanecem inalterados e não são cifrados."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "A palavra-chave pode ser mais curta que o texto?",
+                "answer": "Sim. A palavra-chave se repete automaticamente até que toda a mensagem seja processada."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A cifra de Vigenere é segura hoje?",
+                "answer": "Não. Embora seja muito mais robusta que cifras de substituição simples, a criptoanálise moderna pode quebrar mensagens cifradas com Vigenere com relativa facilidade."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Quem inventou a cifra de Vigenere?",
+                "answer": "A cifra é tradicionalmente associada a Blaise de Vigenere, embora técnicas polialfabéticas semelhantes já existissem antes de seu trabalho."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrar ATAQUE AO AMANHECER",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "ATAQUE AO AMANHECER",
+                "output": "AYÃÊUI ÃÇ AQÃCHIEUR",
+                "description": "Palavra-chave: AÇÃO. Modo: cifrar. Cada letra da chave cria um deslocamento diferente no estilo César."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decifrar AYÃÊUI ÃÇ AQÃCHIEUR",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "AYÃÊUI ÃÇ AQÃCHIEUR",
+                "output": "ATAQUE AO AMANHECER",
+                "description": "Palavra-chave: AÇÃO. Modo: decifrar. A mesma palavra-chave restaura a mensagem original."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Repetição de uma palavra-chave curta",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "AÇÃO SECRETA",
+                "output": "AGÇÇ SIEFEYÃ",
+                "description": "Palavra-chave: AÇÃO. Se o texto for mais longo que a chave, a palavra-chave será repetida automaticamente."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Preservar espaços, números e pontuação",
+                "key": "AÇÃO",
+                "shift": 0,
+                "input": "REUNIÃO ÀS 9:30, AÇÃO!",
+                "output": "RIWCIÉP ÔS 9:30, ÇÉPO!",
+                "description": "Apenas as letras do alfabeto selecionado são cifradas. Espaços, números, sinais de pontuação e outros símbolos permanecem inalterados."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra com palavra-chave"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polialfabética"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cifra de substituição"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifragem com palavra-chave"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Família de César"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

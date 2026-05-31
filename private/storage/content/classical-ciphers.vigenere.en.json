@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T08:56:19+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "vigenere",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 15,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 15,
+        "data": {
+            "name": "Vigenere Cipher",
+            "name_short": "Vigenere Cipher",
+            "description": "Encrypt and decrypt text with the Vigenere cipher using a custom keyword and selectable alphabet. One of the most famous polyalphabetic ciphers in classical cryptography.",
+            "description_stort": "Keyword-based polyalphabetic encryption and decryption.",
+            "meta_title": "Vigenere Cipher Online Encoder & Decoder",
+            "meta_description": "Encrypt and decrypt text with the Vigenere cipher online. Use a custom keyword, choose an alphabet, and explore one of the most famous classical ciphers."
+        }
+    },
+    "blocks": [
+        {
+            "id": 41,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Vigenere cipher works",
+                "text": "<p>The Vigenere cipher is a polyalphabetic substitution cipher that uses a keyword to determine how each letter in the message is shifted. Unlike the Caesar cipher, which uses a single shift value, Vigenere applies a different shift for each character based on the corresponding letter of the keyword.</p><p>If the keyword is shorter than the message, it is repeated until the entire text is processed. Each keyword letter defines a Caesar-style shift, creating a sequence of changing substitutions across the message.</p><p>This approach makes simple frequency analysis more difficult and historically made the Vigenere cipher one of the most important classical encryption methods.</p>"
+            }
+        },
+        {
+            "id": 55,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Vigenere vs Caesar cipher",
+                "text": "<p>The Caesar cipher uses a single constant shift for the entire message. The Vigenere cipher improves on this idea by using a keyword that changes the shift from letter to letter.</p><p>Because multiple substitutions are used throughout the text, Vigenere is generally more resistant to basic cryptanalysis than Caesar. However, it is still considered insecure by modern standards.</p>"
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "History of the Vigenere cipher",
+                "text": "<p>The Vigenere cipher is named after the French diplomat Blaise de Vigenere, who described a related polyalphabetic encryption method in the 16th century. For centuries it was considered one of the strongest practical ciphers available.</p><p>Because it resisted simple frequency analysis, the cipher earned the nickname 'the indecipherable cipher' before more advanced cryptanalytic techniques were developed.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 100,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is a Vigenere key?",
+                "answer": "A Vigenere key is a word or phrase used to generate the sequence of shifts applied during encryption and decryption."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Is Vigenere stronger than Caesar?",
+                "answer": "Yes. The Vigenere cipher changes the shift value throughout the message, while the Caesar cipher uses only one constant shift."
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces and punctuation?",
+                "answer": "Spaces, punctuation marks, numbers, and other non-alphabet characters are usually preserved and are not encrypted."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can the keyword be shorter than the text?",
+                "answer": "Yes. The keyword is automatically repeated until the entire message has been processed."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is the Vigenere cipher secure today?",
+                "answer": "No. While it is much stronger than simple substitution ciphers, modern cryptanalysis can break Vigenere-encrypted messages relatively easily."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Who invented the Vigenere cipher?",
+                "answer": "The cipher is traditionally associated with Blaise de Vigenere, although similar polyalphabetic techniques existed before his work."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Encrypt ATTACK AT DAWN",
+                "key": "LEMON",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "LXFOPV EF RNHR",
+                "description": "Keyword: LEMON. Mode: encrypt. Each keyword letter creates a different Caesar-style shift."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decrypt LXFOPV EF RNHR",
+                "key": "LEMON",
+                "shift": 0,
+                "input": "LXFOPV EF RNHR",
+                "output": "ATTACK AT DAWN",
+                "description": "Keyword: LEMON. Mode: decrypt. The same keyword restores the original message."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Repeating keyword example",
+                "key": "KEY",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "RIJVS UYVJN",
+                "description": "Keyword: KEY. The keyword is repeated automatically when the text is longer than the key."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Preserve spaces and punctuation",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "HELLO, WORLD!",
+                "output": "ZINCS, PGVNU!",
+                "description": "Only alphabet characters are encrypted. Spaces, punctuation marks, and other symbols remain unchanged."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Keyword cipher"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetic"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Substitution cipher"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Keyword encryption"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Caesar family"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
