@@ -249,6 +249,14 @@ return [
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganografi: metin başka bir metnin içine gizlenir',
     'BACON_TRUST_BINARY'               => 'Her harf 5 A/B karakteriyle kodlanır',
+    'BACON_ERR_DIRECTION'              => 'Yön encrypt veya decrypt olmalıdır.',
+    'BACON_ERR_TEXT_REQUIRED'          => 'Metin gereklidir.',
+    'BACON_ERR_ALPHABET_UNSUPPORTED'   => 'Desteklenmeyen alfabe.',
+    'BACON_ERR_TEXT_ALPHABET'          => 'Girdi, seçilen alfabeden karakter içermiyor.',
+    'BACON_ERR_COVER_TOO_SHORT'        => 'Örtü metni çok kısa: en az :needed harf gerekli, ancak yalnızca :available bulundu.',
+    'BACON_COVER_LABEL'                => 'Örtü metni (isteğe bağlı)',
+    'BACON_COVER_PLACEHOLDER'          => 'Mesajı içinde gizlemek için metin girin…',
+    'BACON_COVER_HINT'                 => 'Doldurulduğunda, sır harf büyüklüğüyle kodlanır. Standart A/B çıktısı için boş bırakın.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Her harf, alfabedeki konumuyla değiştirilir',
     // Base64

@@ -30,6 +30,8 @@ export function initCipherToolPage() {
   const keyInput = document.getElementById('ciphers-key')
   const generateKeyBtn = document.getElementById('ciphers-generate-key')
   const clearBtn = document.getElementById('ciphers-clear')
+  const coverInput = document.getElementById('ciphers-cover')
+  const coverCapacityEl = document.getElementById('ciphers-cover-capacity')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -62,6 +64,27 @@ export function initCipherToolPage() {
     feedback.textContent = message
     feedback.classList.toggle('error', isError)
     feedback.classList.toggle('info', isInfo && !isError)
+  }
+
+  const countUnicodeLetters = (text) => (text.match(/\p{L}/gu) ?? []).length
+
+  const updateCoverCapacity = () => {
+    if (!coverCapacityEl) return
+
+    const secretLetters = countUnicodeLetters(input?.value ?? '')
+
+    if (secretLetters === 0 || mode !== 'encode' || !(coverInput?.value ?? '').trim()) {
+      coverCapacityEl.textContent = ''
+      coverCapacityEl.className = 'ciphers-cover-capacity'
+      return
+    }
+
+    const needed    = secretLetters * 5 + 10
+    const available = countUnicodeLetters(coverInput?.value ?? '')
+
+    coverCapacityEl.textContent = `${available} / ${needed}`
+    coverCapacityEl.classList.toggle('ciphers-cover-capacity--ok',   available >= needed)
+    coverCapacityEl.classList.toggle('ciphers-cover-capacity--warn', available < needed)
   }
 
   const saveState = () => {
@@ -120,6 +143,9 @@ export function initCipherToolPage() {
     tabDecode.setAttribute('aria-selected', !isEncode ? 'true' : 'false')
     inputLabel.textContent = isEncode ? labels.inputEncode : labels.inputDecode
     input.placeholder = isEncode ? labels.placeholderEncode : labels.placeholderDecode
+    document.querySelectorAll('[data-encode-only]').forEach((el) => {
+      el.style.display = isEncode ? '' : 'none'
+    })
     process()
   }
 
@@ -190,6 +216,7 @@ export function initCipherToolPage() {
   const process = () => {
     const value = input.value || ''
     updateCounter()
+    updateCoverCapacity()
 
     if (!value.trim()) {
       output.value = ''
@@ -245,6 +272,7 @@ export function initCipherToolPage() {
     const shift = Number(shiftInput?.value ?? 3)
     const alphabet = String(alphabetSelect?.value ?? 'auto')
     const key = String(keyInput?.value ?? '')
+    const coverText = String(coverInput?.value ?? '')
     const direction = mode === 'decode' ? 'decrypt' : 'encrypt'
 
     if (runBtn) {
@@ -266,6 +294,7 @@ export function initCipherToolPage() {
             shift,
             alphabet,
             key,
+            cover_text: coverText,
           }).filter(([, value]) => value !== '')
         ),
       })
@@ -337,6 +366,11 @@ export function initCipherToolPage() {
 
   keyInput?.addEventListener('input', () => {
     saveState()
+    scheduleApiRun()
+  })
+
+  coverInput?.addEventListener('input', () => {
+    updateCoverCapacity()
     scheduleApiRun()
   })
 
@@ -412,6 +446,8 @@ export function initCipherToolPage() {
 
   clearBtn?.addEventListener('click', () => {
     input.value = ''
+    if (coverInput) coverInput.value = ''
+    if (coverCapacityEl) { coverCapacityEl.textContent = ''; coverCapacityEl.className = 'ciphers-cover-capacity' }
     output.value = ''
     updateCounter()
     setOutputState(false)

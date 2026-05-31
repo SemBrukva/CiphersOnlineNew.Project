@@ -249,6 +249,14 @@ return [
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganografie: Text in anderem Text versteckt',
     'BACON_TRUST_BINARY'               => 'Jeder Buchstabe als 5 A/B-Zeichen kodiert',
+    'BACON_ERR_DIRECTION'              => 'Richtung muss encrypt oder decrypt sein.',
+    'BACON_ERR_TEXT_REQUIRED'          => 'Text ist erforderlich.',
+    'BACON_ERR_ALPHABET_UNSUPPORTED'   => 'Nicht unterstütztes Alphabet.',
+    'BACON_ERR_TEXT_ALPHABET'          => 'Die Eingabe enthält keine Zeichen des gewählten Alphabets.',
+    'BACON_ERR_COVER_TOO_SHORT'        => 'Decktext zu kurz: mindestens :needed Buchstaben nötig, nur :available gefunden.',
+    'BACON_COVER_LABEL'                => 'Decktext (optional)',
+    'BACON_COVER_PLACEHOLDER'          => 'Text eingeben, in dem die Nachricht versteckt werden soll…',
+    'BACON_COVER_HINT'                 => 'Wenn ausgefüllt, wird das Geheimnis durch Groß-/Kleinschreibung kodiert. Leer lassen für Standard-A/B-Ausgabe.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Jeder Buchstabe wird durch seine Alphabetposition ersetzt',
     // Base64

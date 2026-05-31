@@ -53,6 +53,17 @@ final readonly class BaconCipherService
                     ['value' => 'it', 'label' => 'Italiano'],
                 ],
             ],
+            [
+                'type' => 'textarea',
+                'id' => 'ciphers-cover',
+                'label' => trans('BACON_COVER_LABEL'),
+                'class' => 'ciphers-settings-textarea',
+                'placeholder' => trans('BACON_COVER_PLACEHOLDER'),
+                'value' => '',
+                'hint' => trans('BACON_COVER_HINT'),
+                'encodeOnly' => true,
+                'showCapacity' => true,
+            ],
         ];
     }
 
@@ -95,6 +106,125 @@ final readonly class BaconCipherService
         return $direction === 'decrypt'
             ? $this->decrypt($text, $alphabet)
             : $this->encrypt($text, $alphabet);
+    }
+
+    /**
+     * Возвращает true, если текст является стеганографическим (не классический A/B-формат).
+     */
+    public function isStegoText(string $text): bool
+    {
+        return preg_match('/[^AB\s]/iu', $text) === 1;
+    }
+
+    /**
+     * Подсчитывает количество Unicode-букв в тексте (для проверки длины cover-текста).
+     */
+    public function countLetters(string $text): int
+    {
+        return (int) preg_match_all('/\p{L}/u', $text);
+    }
+
+    /**
+     * Подсчитывает количество символов текста, входящих в заданный алфавит.
+     */
+    public function countAlphabetChars(string $text, string $alphabet): int
+    {
+        $alphabetData = $this->alphabetCatalog()->alphabet(mb_strtolower(trim($alphabet)));
+        $indexMap = array_flip($alphabetData);
+        $count = 0;
+
+        foreach (mb_str_split(mb_strtolower($text)) as $char) {
+            $normalized = $char === 'ё' ? 'е' : $char;
+            if (isset($indexMap[$normalized])) {
+                $count++;
+            }
+        }
+
+        return $count;
+    }
+
+    /**
+     * Возвращает фактическое количество A/B-бит при кодировании текста.
+     * Учитывает, что для алфавитов с индексами > 31 генерируется более 5 бит на символ.
+     */
+    public function encodedBitCount(string $text, string $alphabet): int
+    {
+        return mb_strlen((string) preg_replace('/[^AB]/i', '', $this->encrypt($text, $alphabet)));
+    }
+
+    /**
+     * Кодирует секретное сообщение в cover-текст через регистр букв (стеганография Бэкона).
+     *
+     * Первые 10 букв cover-текста образуют 10-битный заголовок с длиной A/B-потока
+     * (старшие 5 бит, затем младшие 5 бит). Это позволяет декодеру точно остановиться
+     * после нужного количества бит и не захватывать «лишние» буквы.
+     *
+     * Заглавная буква cover-текста = B, строчная = A.
+     */
+    public function steganographyEncrypt(string $secret, string $coverText, string $alphabet): string
+    {
+        $bodyAb = (string) preg_replace('/[^AB]/i', '', $this->encrypt($secret, $alphabet));
+        $totalBits = mb_strlen($bodyAb);
+
+        // 10-битный заголовок: старшие 5 бит + младшие 5 бит числа totalBits
+        $headerHigh = str_pad(decbin(($totalBits >> 5) & 0x1f), 5, '0', STR_PAD_LEFT);
+        $headerLow  = str_pad(decbin($totalBits & 0x1f),        5, '0', STR_PAD_LEFT);
+        $allBits = mb_str_split(
+            mb_strtoupper(strtr($headerHigh . $headerLow . $bodyAb, ['0' => 'A', '1' => 'B']))
+        );
+
+        $bitCount = count($allBits);
+        $bitIndex = 0;
+
+        $result = '';
+        foreach (mb_str_split($coverText) as $char) {
+            if ($bitIndex >= $bitCount) {
+                $result .= $char;
+                continue;
+            }
+
+            if (preg_match('/\p{L}/u', $char) === 1) {
+                $result .= $allBits[$bitIndex] === 'B'
+                    ? mb_strtoupper($char)
+                    : mb_strtolower($char);
+                $bitIndex++;
+            } else {
+                $result .= $char;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Декодирует стеганографический текст Бэкона: читает 10-битный заголовок длины,
+     * затем извлекает ровно столько A/B-бит, сколько закодировано, и декодирует секрет.
+     */
+    public function steganographyDecrypt(string $stegoText, string $alphabet): string
+    {
+        $allBits = [];
+        foreach (mb_str_split($stegoText) as $char) {
+            if (preg_match('/\p{L}/u', $char) === 1) {
+                $allBits[] = mb_strtoupper($char) === $char ? 'B' : 'A';
+            }
+        }
+
+        if (count($allBits) < 10) {
+            return '';
+        }
+
+        // Читаем 10-битный заголовок
+        $headerHigh = bindec(strtr(implode('', array_slice($allBits, 0, 5)), ['A' => '0', 'B' => '1']));
+        $headerLow  = bindec(strtr(implode('', array_slice($allBits, 5, 5)), ['A' => '0', 'B' => '1']));
+        $totalBits  = ((int) $headerHigh << 5) | (int) $headerLow;
+
+        if ($totalBits === 0 || count($allBits) < 10 + $totalBits) {
+            return '';
+        }
+
+        $bodyBits = implode('', array_slice($allBits, 10, $totalBits));
+
+        return $this->decrypt($bodyBits, $alphabet);
     }
 
     /**

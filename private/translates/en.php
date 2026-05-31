@@ -269,6 +269,14 @@ return [
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganography: hides text inside other text',
     'BACON_TRUST_BINARY'               => 'Each letter encoded as 5 A/B characters',
+    'BACON_ERR_DIRECTION'              => 'Direction must be encrypt or decrypt.',
+    'BACON_ERR_TEXT_REQUIRED'          => 'Text is required.',
+    'BACON_ERR_ALPHABET_UNSUPPORTED'   => 'Unsupported alphabet.',
+    'BACON_ERR_TEXT_ALPHABET'          => 'Input does not contain characters from the selected alphabet.',
+    'BACON_ERR_COVER_TOO_SHORT'        => 'Cover text is too short: need at least :needed letters, but only :available found.',
+    'BACON_COVER_LABEL'                => 'Cover text (optional)',
+    'BACON_COVER_PLACEHOLDER'          => 'Enter text to hide the message inside…',
+    'BACON_COVER_HINT'                 => 'When filled, the secret is encoded by letter case. Leave empty for standard A/B output.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Each letter maps to its alphabet position',
     // Base64

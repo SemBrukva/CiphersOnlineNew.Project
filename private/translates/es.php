@@ -249,6 +249,14 @@ return [
     // Bacon
     'BACON_TRUST_STEGO'                => 'Esteganografía: texto oculto dentro de otro texto',
     'BACON_TRUST_BINARY'               => 'Cada letra se codifica con 5 caracteres A/B',
+    'BACON_ERR_DIRECTION'              => 'La dirección debe ser encrypt o decrypt.',
+    'BACON_ERR_TEXT_REQUIRED'          => 'El texto es obligatorio.',
+    'BACON_ERR_ALPHABET_UNSUPPORTED'   => 'Alfabeto no soportado.',
+    'BACON_ERR_TEXT_ALPHABET'          => 'La entrada no contiene caracteres del alfabeto seleccionado.',
+    'BACON_ERR_COVER_TOO_SHORT'        => 'El texto de cobertura es demasiado corto: se necesitan al menos :needed letras, pero solo se encontraron :available.',
+    'BACON_COVER_LABEL'                => 'Texto de cobertura (opcional)',
+    'BACON_COVER_PLACEHOLDER'          => 'Ingrese el texto donde ocultar el mensaje…',
+    'BACON_COVER_HINT'                 => 'Si se completa, el secreto se codifica mediante mayúsculas y minúsculas. Déjelo vacío para la salida A/B estándar.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Cada letra se reemplaza por su posición en el alfabeto',
     // Base64

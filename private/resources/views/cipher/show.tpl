@@ -76,9 +76,12 @@
 
             {foreach $tool_ui.settings|default:[] as $setting}
                 {if $setting.type == 'textarea'}
-                <div class="ciphers-unified__key-area">
+                <div class="ciphers-unified__key-area"{if $setting.encodeOnly|default:false} data-encode-only="1"{/if}>
                     <div class="ciphers-unified__field-header">
                         <span class="ciphers-unified__field-label">{$setting.label|escape}</span>
+                        {if $setting.showCapacity|default:false}
+                        <span id="{$setting.id|escape}-capacity" class="ciphers-cover-capacity"></span>
+                        {/if}
                     </div>
                     <textarea id="{$setting.id|escape}"
                               class="{$setting.class|default:'ciphers-settings-textarea'|escape}"

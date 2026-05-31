@@ -269,6 +269,14 @@ return [
     // Bacon
     'BACON_TRUST_STEGO'                => 'Стеганография: текст скрыт внутри другого текста',
     'BACON_TRUST_BINARY'               => 'Каждая буква кодируется 5 символами A/B',
+    'BACON_ERR_DIRECTION'              => 'Направление должно быть encrypt или decrypt.',
+    'BACON_ERR_TEXT_REQUIRED'          => 'Текст обязателен.',
+    'BACON_ERR_ALPHABET_UNSUPPORTED'   => 'Выбранный алфавит не поддерживается.',
+    'BACON_ERR_TEXT_ALPHABET'          => 'Текст не содержит символов выбранного алфавита.',
+    'BACON_ERR_COVER_TOO_SHORT'        => 'Текст-обёртка слишком короткий: нужно минимум :needed букв, найдено :available.',
+    'BACON_COVER_LABEL'                => 'Текст-обёртка (необязательно)',
+    'BACON_COVER_PLACEHOLDER'          => 'Введите текст, внутри которого будет скрыто сообщение…',
+    'BACON_COVER_HINT'                 => 'Если заполнено, секрет кодируется регистром букв. Оставьте пустым для стандартного вывода A/B.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Каждая буква — её порядковый номер в алфавите',
     // Base64

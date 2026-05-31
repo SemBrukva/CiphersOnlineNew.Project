@@ -249,6 +249,14 @@ return [
     // Bacon
     'BACON_TRUST_STEGO'                => 'Steganografia: testo nascosto in altro testo',
     'BACON_TRUST_BINARY'               => 'Ogni lettera codificata con 5 caratteri A/B',
+    'BACON_ERR_DIRECTION'              => 'La direzione deve essere encrypt o decrypt.',
+    'BACON_ERR_TEXT_REQUIRED'          => 'Il testo è obbligatorio.',
+    'BACON_ERR_ALPHABET_UNSUPPORTED'   => 'Alfabeto non supportato.',
+    'BACON_ERR_TEXT_ALPHABET'          => "L'input non contiene caratteri dell'alfabeto selezionato.",
+    'BACON_ERR_COVER_TOO_SHORT'        => 'Il testo di copertura è troppo corto: servono almeno :needed lettere, ma ne sono state trovate solo :available.',
+    'BACON_COVER_LABEL'                => 'Testo di copertura (opzionale)',
+    'BACON_COVER_PLACEHOLDER'          => 'Inserisci il testo in cui nascondere il messaggio…',
+    'BACON_COVER_HINT'                 => "Se compilato, il segreto viene codificato tramite maiuscole e minuscole. Lasciare vuoto per l'output A/B standard.",
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Ogni lettera corrisponde alla propria posizione alfabetica',
     // Base64
