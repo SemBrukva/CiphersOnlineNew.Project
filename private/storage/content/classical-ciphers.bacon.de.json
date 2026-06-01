@@ -1,0 +1,233 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T16:58:02+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bacon",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 17,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 17,
+        "data": {
+            "name": "Bacon-Chiffre",
+            "name_short": "Bacon-Chiffre",
+            "description": "Verbergen Sie Nachrichten mit der Bacon-Chiffre in gewöhnlichem Text oder wandeln Sie Buchstaben in klassische fünfstellige A/B-Gruppen um.",
+            "description_stort": "Klassische A/B-Codierung und Textsteganografie mit der Bacon-Chiffre.",
+            "meta_title": "Bacon-Chiffre online codieren und decodieren",
+            "meta_description": "Nutzen Sie die Bacon-Chiffre online: Codieren Sie Text als A/B-Gruppen, decodieren Sie Bacon-Nachrichten oder verbergen Sie eine geheime Botschaft mithilfe der Groß- und Kleinschreibung in einem Trägertext."
+        }
+    },
+    "blocks": [
+        {
+            "id": 42,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert die Bacon-Chiffre",
+                "text": "<p>Die Bacon-Chiffre stellt jeden Buchstaben als feste Folge aus fünf Zeichen A und B dar. Jedes unterstützte Zeichen des gewählten Alphabets wird beispielsweise in eine Gruppe wie AABBB oder ABBBA umgewandelt. Beim Decodieren werden diese Gruppen wieder in Blöcken zu je fünf Zeichen gelesen.</p><p>Besonders interessant ist die Verwendung der Bacon-Chiffre für Steganografie: Eine geheime Nachricht kann in einem gewöhnlichen Trägertext verborgen werden. In diesem Werkzeug wird das A/B-Muster durch Groß- und Kleinschreibung dargestellt: Eine Schreibweise steht für A, die andere für B. Das Ergebnis sieht weiterhin wie normaler Text aus, doch die Schreibweise der Buchstaben trägt die versteckte Nachricht.</p><p>Wenn kein Trägertext angegeben wird, gibt das Werkzeug die klassische A/B-Folge aus. Ist ein Trägertext vorhanden, wird die geheime Nachricht über die Groß- und Kleinschreibung darin codiert.</p>"
+            }
+        },
+        {
+            "id": 59,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Bacon-Chiffre und Steganografie",
+                "text": "<p>Francis Bacon beschrieb die Methode im 17. Jahrhundert als Möglichkeit, Nachrichten in scheinbar unverdächtigem Text zu verbergen. Die Bacon-Chiffre wird häufig als klassische Chiffre bezeichnet, doch ihre wichtigste Idee ähnelt eher der Steganografie als einer gewöhnlichen Verschlüsselung. Sie kann nicht nur eine Nachricht in unlesbare Zeichen verwandeln, sondern sogar die Existenz der Nachricht verbergen.</p><p>Historisch konnten die beiden Bacon-Symbole auf viele Arten dargestellt werden: durch verschiedene Schriftarten, Schriftschnitte, Formen oder andere sichtbare Unterschiede. Dieses Werkzeug verwendet eine einfache und anschauliche Variante: Klein- und Großbuchstaben dienen als die beiden möglichen Symbole.</p>"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Praktische Grenzen",
+                "text": "<p>Der Trägertext muss genügend Buchstaben enthalten, um die vollständige versteckte Nachricht aufzunehmen. Für jeden geheimen Buchstaben werden üblicherweise fünf nutzbare Buchstaben im Trägertext benötigt; zusätzlich verwendet dieses Werkzeug Steuerdaten. Wählen Sie daher einen Trägertext mit ausreichender Reserve.</p><p>Die Bacon-Chiffre ist nach modernen kryptografischen Maßstäben nicht sicher. Sie eignet sich besonders für Lernzwecke, Rätsel, historische Demonstrationen und einfache Experimente mit Steganografie.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 102,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist ein Trägertext bei der Bacon-Chiffre?",
+                "answer": "Ein Trägertext ist ein gewöhnlicher Satz oder Absatz, in dem die geheime Nachricht verborgen wird. Das Werkzeug verändert die Groß- und Kleinschreibung im Trägertext, um die A/B-Muster der Bacon-Chiffre darzustellen."
+            }
+        },
+        {
+            "id": 103,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum bestehen Bacon-Gruppen aus genau fünf Zeichen?",
+                "answer": "Ein A/B-Muster aus fünf Zeichen bietet genügend Kombinationen für Buchstaben des Alphabets. Das klassische Bacon-System verwendet Gruppen mit fester Länge, um jedes Zeichen zu codieren."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Kann ich die Bacon-Chiffre ohne Trägertext verwenden?",
+                "answer": "Ja. Wenn das Feld für den Trägertext leer ist, gibt das Werkzeug die klassische Bacon-Folge als A/B-Gruppen aus. Das ist beim Lernen, Prüfen und direkten Decodieren hilfreich."
+            }
+        },
+        {
+            "id": 140,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Wie lang sollte der Trägertext sein?",
+                "answer": "Der Trägertext muss genügend Buchstaben für die Steuerdaten und die vollständige geheime Nachricht enthalten. Für jeden geheimen Buchstaben werden üblicherweise weitere fünf Buchstaben benötigt. Ein längerer Trägertext bietet Reserve und wirkt natürlicher."
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Was passiert mit Leerzeichen und Satzzeichen?",
+                "answer": "Leerzeichen und Satzzeichen bleiben nach Möglichkeit erhalten. Im klassischen A/B-Modus werden nicht unterstützte Zeichen je nach Vorgang ignoriert oder nur als Trennzeichen verwendet."
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Ist die Bacon-Chiffre sicher?",
+                "answer": "Nein. Die Bacon-Chiffre ist historisch bedeutsam und zum Erlernen der Steganografie nützlich, sollte aber nicht zum Schutz vertraulicher Informationen eingesetzt werden."
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Kann ich ein anderes Alphabet auswählen?",
+                "answer": "Ja. Das Werkzeug unterstützt mehrere Alphabete und wendet das Bacon-Prinzip auf das ausgewählte Alphabet an. Die klassische Bacon-Chiffre war ursprünglich für ein begrenztes Alphabet gedacht; dieses Werkzeug passt die Idee für Lernzwecke an."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "HALLO in einem Trägertext verbergen",
+                "key": "Gewöhnliche Texte können unauffällig eine geheime Nachricht für aufmerksame Leser transportieren.",
+                "shift": 0,
+                "input": "HALLO",
+                "output": "gewöhNLicHe Texte könneN UnauFFällIG EIne geheime Nachricht für aufmerksame Leser transportieren.",
+                "description": "Wählen Sie das deutsche Alphabet. Im Trägertext-Modus wird die geheime Nachricht HALLO durch veränderte Groß- und Kleinschreibung in einem gewöhnlichen Satz codiert."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Eine versteckte Bacon-Nachricht extrahieren",
+                "key": "Gewöhnliche Texte können unauffällig eine geheime Nachricht für aufmerksame Leser transportieren.",
+                "shift": 0,
+                "input": "gewöhNLicHe Texte könneN UnauFFällIG EIne geheime Nachricht für aufmerksame Leser transportieren.",
+                "output": "hallo",
+                "description": "Wählen Sie das deutsche Alphabet. Beim Decodieren liest das Werkzeug das Muster aus Groß- und Kleinbuchstaben und stellt die versteckte Bacon-Nachricht wieder her."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Klassische A/B-Codierung",
+                "key": "",
+                "shift": 0,
+                "input": "GEHEIM",
+                "output": "AABBBAABABABAAAAABABABAABABBAB",
+                "description": "Wählen Sie das deutsche Alphabet. Ohne Trägertext gibt der Codierungsmodus direkt die klassischen fünfstelligen A/B-Gruppen aus."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "A/B-Gruppen decodieren",
+                "key": "",
+                "shift": 0,
+                "input": "ABAAAAAAAAABBAAABBAAABBBB",
+                "output": "hallo",
+                "description": "Wählen Sie das deutsche Alphabet. Der klassische Decodierungsmodus liest Bacon-Gruppen in Blöcken zu je fünf Zeichen und wandelt sie wieder in Buchstaben um."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 62,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Textsteganografie"
+            }
+        },
+        {
+            "id": 63,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "A/B-Codierung"
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Versteckte Nachrichten"
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "5-Bit-Gruppen"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Bacon-Chiffre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

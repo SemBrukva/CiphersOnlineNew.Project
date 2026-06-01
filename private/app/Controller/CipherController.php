@@ -151,6 +151,8 @@ final readonly class CipherController
             'settings' => $this->buildToolSettings($toolSlug),
             'exampleChips' => $this->toolRegistry->exampleChips($toolSlug),
             'decodeNote'   => $this->toolRegistry->decodeNote($toolSlug),
+            'exampleKeyLabel'   => $this->toolRegistry->exampleKeyLabel($toolSlug),
+            'exampleKeyInputId' => $this->toolRegistry->exampleKeyInputId($toolSlug),
         ];
     }
 

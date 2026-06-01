@@ -390,13 +390,16 @@ export function initCipherToolPage() {
       const text = chip.getAttribute('data-example') || ''
       const alphabet = chip.getAttribute('data-alphabet') || ''
       const key = chip.getAttribute('data-key')
+      const keyInputId = chip.getAttribute('data-key-input') || 'ciphers-key'
       const shift = chip.getAttribute('data-shift')
       if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
-      if (key !== null && keyInput) {
-        keyInput.value = key
+      const targetKeyInput = document.getElementById(keyInputId)
+      if (targetKeyInput) {
+        targetKeyInput.value = key ?? ''
+        targetKeyInput.dispatchEvent(new Event('input', { bubbles: true }))
       }
       if (shift !== null && shiftInput) {
         setShiftValue(Number(shift))
@@ -416,15 +419,17 @@ export function initCipherToolPage() {
       const text = btn.getAttribute('data-example-text') || ''
       const alphabet = btn.getAttribute('data-alphabet') || ''
       const key = btn.getAttribute('data-key')
+      const keyInputId = btn.getAttribute('data-key-input') || 'ciphers-key'
       const shift = btn.getAttribute('data-shift')
       const direction = btn.getAttribute('data-direction') || ''
       if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
-      if (key !== null && keyInput) {
-        keyInput.value = key
-        keyInput.dispatchEvent(new Event('input', { bubbles: true }))
+      const targetKeyInput = document.getElementById(keyInputId)
+      if (targetKeyInput) {
+        targetKeyInput.value = key ?? ''
+        targetKeyInput.dispatchEvent(new Event('input', { bubbles: true }))
       }
       if (shift !== null && shiftInput) {
         setShiftValue(Number(shift))

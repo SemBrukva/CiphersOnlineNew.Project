@@ -77,8 +77,8 @@ final readonly class BaconCipherService
         return [
             trans('BACON_TRUST_STEGO'),
             trans('BACON_TRUST_BINARY'),
+            trans('BACON_TRUST_STEGANOGRAPHY'),
             trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
-            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
         ];
     }
 

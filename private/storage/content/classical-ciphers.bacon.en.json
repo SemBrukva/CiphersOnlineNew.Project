@@ -1,0 +1,233 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T16:58:02+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bacon",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 17,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 17,
+        "data": {
+            "name": "Bacon Cipher",
+            "name_short": "Bacon Cipher",
+            "description": "Hide messages inside ordinary text with the Bacon cipher, or convert letters into classical five-symbol A/B groups.",
+            "description_stort": "Classical A/B encoding and text steganography with the Bacon cipher.",
+            "meta_title": "Bacon Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Bacon cipher online to encode text as A/B groups, decode Baconian messages, or hide a secret message inside cover text using letter case."
+        }
+    },
+    "blocks": [
+        {
+            "id": 42,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Bacon cipher works",
+                "text": "<p>The Bacon cipher represents each letter as a fixed five-symbol pattern made from A and B. For example, every supported alphabet character is converted into a group such as AABBB or ABBBA, and decryption reads these groups back in chunks of five.</p><p>The most interesting use of the Bacon cipher is steganography: a secret message can be hidden inside ordinary cover text. In this tool, the A/B pattern can be represented by letter case, where one case stands for A and the other stands for B. The result still looks like normal text, but the capitalization carries the hidden message.</p><p>If no cover text is provided, the tool returns the standard A/B Bacon output. If cover text is provided, the secret message is encoded into that text using letter case.</p>"
+            }
+        },
+        {
+            "id": 59,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Bacon cipher and steganography",
+                "text": "<p>Francis Bacon described the method in the 17th century as a way to conceal messages inside seemingly innocent text. The Bacon cipher is often described as a classical cipher, but its strongest idea is closer to steganography than ordinary encryption. Instead of only transforming a message into unreadable symbols, it can conceal the existence of the message itself.</p><p>Historically, the two Bacon symbols could be represented in many ways: different fonts, styles, shapes, or other visible differences. This tool uses letter case as a simple and practical demonstration: lowercase and uppercase letters act as the two possible symbols.</p>"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Practical limits",
+                "text": "<p>The cover text must contain enough alphabetic characters to store the full hidden message. Each secret letter requires five usable letters in the cover text. For example, hiding HELLO requires at least 25 letters in the cover text.</p><p>The Bacon cipher is not secure by modern cryptographic standards. It is best used for education, puzzles, historical demonstrations, and simple steganography experiments.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 102,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is cover text in the Bacon cipher?",
+                "answer": "Cover text is an ordinary sentence or paragraph used to hide the secret message. The tool changes letter case inside the cover text to represent Bacon A/B patterns."
+            }
+        },
+        {
+            "id": 103,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why are Bacon groups exactly five characters long?",
+                "answer": "A five-symbol A/B pattern can represent enough combinations for alphabet letters. The classical Bacon system uses these fixed-length groups to encode each character."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Can I use the Bacon cipher without cover text?",
+                "answer": "Yes. If the cover text field is empty, the tool returns the standard Bacon output as A/B groups. This is useful for learning, debugging, and direct decoding."
+            }
+        },
+        {
+            "id": 140,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "How long should the cover text be?",
+                "answer": "The cover text must contain at least five alphabetic characters for each secret letter. A longer cover text is usually better because the hidden capitalization looks more natural."
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces and punctuation?",
+                "answer": "Spaces and punctuation are preserved where possible. In standard A/B mode, unsupported symbols are ignored or used only as separators depending on the operation."
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is the Bacon cipher secure?",
+                "answer": "No. The Bacon cipher is historically important and useful for learning steganography, but it should not be used to protect sensitive information."
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can I choose another alphabet?",
+                "answer": "Yes. The tool supports multiple alphabets and applies Bacon-style mapping to the selected alphabet. Classical Bacon was originally designed for a limited alphabet, while this tool adapts the idea for educational use."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Hide HELLO inside cover text",
+                "key": "Ordinary letters can carry a hidden notes.",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "orDINarY letTeRS cAn CArRY A hidden note.",
+                "description": "Cover text mode. The secret message HELLO is encoded by changing letter case in the cover sentence."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Extract a hidden Bacon message",
+                "key": "Ordinary letters can carry a hidden notes.",
+                "shift": 0,
+                "input": "ordinARy lEttERS caN carRy A HiDdEN nOTEs.",
+                "output": "hello",
+                "description": "Decode mode reads the capitalization pattern from the text and restores the hidden Bacon message."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Standard A/B encoding",
+                "key": "",
+                "shift": 0,
+                "input": "SECRET",
+                "output": "BAABAAABAAAAABABAAABAABAABAABB",
+                "description": "Without cover text, encode mode returns the classical five-symbol A/B groups directly."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decode A/B groups",
+                "key": "",
+                "shift": 0,
+                "input": "AABBBAABAAABABBABABBABBBA",
+                "output": "hello",
+                "description": "Standard decode mode reads Bacon groups in chunks of five and converts them back into letters."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 62,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Text steganography"
+            }
+        },
+        {
+            "id": 63,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "A/B encoding"
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Hidden messages"
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "5-bit groups"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Baconian cipher"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

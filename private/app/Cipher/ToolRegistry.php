@@ -29,6 +29,7 @@ final readonly class ToolRegistry
 
     /**
      * Возвращает примерные значения (chips) для инструмента.
+     * Все примеры должны быть универсальными по языкам, поэтому решено делать их на английском.
      *
      * @return array<int, array{label: string, value: string}>
      */
@@ -108,9 +109,9 @@ final readonly class ToolRegistry
                 ['label' => 'ES', 'value' => 'HOLA MUNDO'],
             ],
             'classical-ciphers/bacon' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'AB', 'value' => 'AABBB AABAA'],
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en'],
+                ['label' => 'Stego',    'value' => 'HELLO',           'alphabet' => 'en', 'key' => 'The quick brown fox jumps over the lazy dog'],
             ],
             'classical-ciphers/a1z26' => [
                 ['label' => 'EN', 'value' => 'HELLO WORLD'],
@@ -228,6 +229,30 @@ final readonly class ToolRegistry
                 trans('CIPHER_TOOL_TRUST_LOCAL'),
                 trans('CIPHER_TOOL_TRUST_PRIVATE'),
             ],
+        };
+    }
+
+    /**
+     * Возвращает метку поля «ключ» для карточек примеров (переопределяется шифрами, у которых
+     * «ключом» в примере является не секретный ключ, а, например, текст-обёртка).
+     */
+    public function exampleKeyLabel(string $toolSlug): string
+    {
+        return match ($this->canonicalSlug($toolSlug)) {
+            'classical-ciphers/bacon' => trans('BACON_COVER_LABEL_SHORT'),
+            default => trans('CIPHER_TOOL_EXAMPLE_KEY_LABEL'),
+        };
+    }
+
+    /**
+     * Возвращает id HTML-элемента, в который нужно подставить значение ключа при нажатии
+     * «Use example». По умолчанию это поле ключа шифра; для Bacon — поле cover-текста.
+     */
+    public function exampleKeyInputId(string $toolSlug): string
+    {
+        return match ($this->canonicalSlug($toolSlug)) {
+            'classical-ciphers/bacon' => 'ciphers-cover',
+            default => 'ciphers-key',
         };
     }
 

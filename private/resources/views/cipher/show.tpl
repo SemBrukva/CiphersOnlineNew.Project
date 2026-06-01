@@ -121,7 +121,7 @@
                 <span class="ciphers-unified__examples-label">{$tool_ui.tryLabel}</span>
                 <div class="ciphers-example-chips">
                     {foreach $tool_ui.exampleChips as $chip}
-                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}>{$chip.label}</button>
+                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}>{$chip.label}</button>
                     {/foreach}
                 </div>
             </div>
@@ -178,7 +178,7 @@
             {foreach $examples as $example}
                 <article class="b64-example-card">
                     {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
-                    {if $example.key}<span class="b64-example-card__key-badge">Key: <code>{$example.key|escape}</code></span>{/if}
+                    {if $example.key}<span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code></span>{/if}
                     {if $example.shift|default:0}<span class="b64-example-card__key-badge">Shift: <code>{$example.shift|escape}</code></span>{/if}
                     <div class="b64-example-card__row">
                         <div class="b64-example-card__slot">
@@ -196,6 +196,7 @@
                     <button class="b64-example-card__use ciphers-example-use" type="button"
                             data-example-text="{$example.input|escape:'html'}"
                             {if $example.key}data-key="{$example.key|escape:'html'}"{/if}
+                            data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"
                             {if $example.shift|default:0}data-shift="{$example.shift|escape:'html'}"{/if}
                             data-alphabet="{$example.language|escape:'html'}"
                             {if $example.direction}data-direction="{$example.direction|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
