@@ -189,6 +189,15 @@ return [
     'CIPHER_TOOL_SETTING_SHIFT'           => 'Kaydırma',
     'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Örnek: 314159',
 
+    'LANG_EN' => 'İngilizce',
+    'LANG_RU' => 'Rusça',
+    'LANG_ES' => 'İspanyolca',
+    'LANG_PT' => 'Portekizce',
+    'LANG_TR' => 'Türkçe',
+    'LANG_FR' => 'Fransızca',
+    'LANG_DE' => 'Almanca',
+    'LANG_IT' => 'İtalyanca',
+
     'PLAYFAIR_ERR_INVALID'              => 'Geçersiz giriş verisi.',
     'PLAYFAIR_ERR_DIRECTION'            => 'Yön encrypt veya decrypt olmalıdır.',
     'PLAYFAIR_ERR_TEXT_REQUIRED'        => 'Metin zorunludur.',

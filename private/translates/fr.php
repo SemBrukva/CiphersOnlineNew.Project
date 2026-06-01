@@ -189,6 +189,15 @@ return [
     'CIPHER_TOOL_SETTING_SHIFT'           => 'Décalage',
     'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Exemple : 314159',
 
+    'LANG_EN' => 'Anglais',
+    'LANG_RU' => 'Russe',
+    'LANG_ES' => 'Espagnol',
+    'LANG_PT' => 'Portugais',
+    'LANG_TR' => 'Turc',
+    'LANG_FR' => 'Français',
+    'LANG_DE' => 'Allemand',
+    'LANG_IT' => 'Italien',
+
     'PLAYFAIR_ERR_INVALID'              => 'Données d’entrée invalides.',
     'PLAYFAIR_ERR_DIRECTION'            => 'La direction doit être encrypt ou decrypt.',
     'PLAYFAIR_ERR_TEXT_REQUIRED'        => 'Le texte est obligatoire.',

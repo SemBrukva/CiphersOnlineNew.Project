@@ -209,6 +209,15 @@ return [
     'CIPHER_TOOL_SETTING_SHIFT'           => 'Shift',
     'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Example: 314159',
 
+    'LANG_EN' => 'English',
+    'LANG_RU' => 'Russian',
+    'LANG_ES' => 'Spanish',
+    'LANG_PT' => 'Portuguese',
+    'LANG_TR' => 'Turkish',
+    'LANG_FR' => 'French',
+    'LANG_DE' => 'German',
+    'LANG_IT' => 'Italian',
+
     'PLAYFAIR_ERR_INVALID'              => 'Invalid input data.',
     'PLAYFAIR_ERR_DIRECTION'            => 'Direction must be encrypt or decrypt.',
     'PLAYFAIR_ERR_TEXT_REQUIRED'        => 'Text is required.',

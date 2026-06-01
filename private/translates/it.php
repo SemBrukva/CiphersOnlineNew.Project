@@ -189,6 +189,15 @@ return [
     'CIPHER_TOOL_SETTING_SHIFT'           => 'Spostamento',
     'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Esempio: 314159',
 
+    'LANG_EN' => 'Inglese',
+    'LANG_RU' => 'Russo',
+    'LANG_ES' => 'Spagnolo',
+    'LANG_PT' => 'Portoghese',
+    'LANG_TR' => 'Turco',
+    'LANG_FR' => 'Francese',
+    'LANG_DE' => 'Tedesco',
+    'LANG_IT' => 'Italiano',
+
     'PLAYFAIR_ERR_INVALID'              => 'Dati di input non validi.',
     'PLAYFAIR_ERR_DIRECTION'            => 'La direzione deve essere encrypt o decrypt.',
     'PLAYFAIR_ERR_TEXT_REQUIRED'        => 'Il testo è obbligatorio.',

@@ -209,6 +209,15 @@ return [
     'CIPHER_TOOL_SETTING_SHIFT'           => 'Сдвиг',
     'CIPHER_TOOL_SETTING_KEY_EXAMPLE'     => 'Например: 314159',
 
+    'LANG_EN' => 'Английский',
+    'LANG_RU' => 'Русский',
+    'LANG_ES' => 'Испанский',
+    'LANG_PT' => 'Португальский',
+    'LANG_TR' => 'Турецкий',
+    'LANG_FR' => 'Французский',
+    'LANG_DE' => 'Немецкий',
+    'LANG_IT' => 'Итальянский',
+
     'PLAYFAIR_ERR_INVALID'              => 'Некорректные входные данные.',
     'PLAYFAIR_ERR_DIRECTION'            => 'Направление должно быть encrypt или decrypt.',
     'PLAYFAIR_ERR_TEXT_REQUIRED'        => 'Текст обязателен.',
