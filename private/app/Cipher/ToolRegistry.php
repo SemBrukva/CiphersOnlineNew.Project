@@ -114,9 +114,9 @@ final readonly class ToolRegistry
                 ['label' => 'Stego',    'value' => 'HELLO',           'alphabet' => 'en', 'key' => 'The quick brown fox jumps over the lazy dog'],
             ],
             'classical-ciphers/a1z26' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'Digits', 'value' => '8-5-12-12-15'],
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en', 'direction' => 'encrypt'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'direction' => 'encrypt'],
+                ['label' => 'Decode',   'value' => '8-5-12-12-15',   'alphabet' => 'en', 'direction' => 'decrypt', 'delimiter' => 'dash'],
             ],
             default => [],
         };

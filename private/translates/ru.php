@@ -248,7 +248,8 @@ return [
     'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Мы не сохраняем ваши сообщения',
     'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Поддержка разных алфавитов',
     'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Многоалфавитный шифр подстановки',
-    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Настраиваемое ключевое слово',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'       => 'Настраиваемое ключевое слово',
+    'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Настраиваемые разделители',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Шифр простой замены со сдвигом',
     // Atbash

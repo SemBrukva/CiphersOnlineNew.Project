@@ -121,7 +121,7 @@
                 <span class="ciphers-unified__examples-label">{$tool_ui.tryLabel}</span>
                 <div class="ciphers-example-chips">
                     {foreach $tool_ui.exampleChips as $chip}
-                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}>{$chip.label}</button>
+                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}{if isset($chip.direction)} data-direction="{$chip.direction|escape:'html'}"{/if}{if isset($chip.delimiter)} data-delimiter="{$chip.delimiter|escape:'html'}"{/if}>{$chip.label}</button>
                     {/foreach}
                 </div>
             </div>

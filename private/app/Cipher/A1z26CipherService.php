@@ -79,8 +79,8 @@ final readonly class A1z26CipherService
         return [
             trans('A1Z26_TRUST_POSITIONAL'),
             trans('CIPHER_TOOL_TRUST_MULTI_ALPHA'),
+            trans('CIPHER_TOOL_TRUST_CUSTOM_DELIMITER'),
             trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
-            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
         ];
     }
 

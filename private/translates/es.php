@@ -228,7 +228,8 @@ return [
     'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'No guardamos tus mensajes',
     'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Compatible con varios alfabetos',
     'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Cifrado de sustitución polialfabético',
-    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Palabra clave personalizable',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'       => 'Palabra clave personalizable',
+    'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Delimitadores personalizables',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Cifrado de sustitución por desplazamiento',
     // Atbash

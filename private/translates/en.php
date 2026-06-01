@@ -248,7 +248,8 @@ return [
     'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'We never store your messages',
     'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Multiple alphabets supported',
     'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Polyalphabetic substitution cipher',
-    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Customizable keyword',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'       => 'Customizable keyword',
+    'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Customizable delimiters',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Letter-shift substitution cipher',
     // Atbash

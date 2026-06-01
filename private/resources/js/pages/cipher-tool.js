@@ -405,12 +405,17 @@ export function initCipherToolPage() {
     chip.addEventListener('click', () => {
       const text = chip.getAttribute('data-example') || ''
       const alphabet = chip.getAttribute('data-alphabet') || ''
+      const delimiter = chip.getAttribute('data-delimiter') || ''
       const key = chip.getAttribute('data-key')
       const keyInputId = chip.getAttribute('data-key-input') || 'ciphers-key'
       const shift = chip.getAttribute('data-shift')
       if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
+        delimiterSelect.value = delimiter
+        delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
       const targetKeyInput = document.getElementById(keyInputId)
       if (targetKeyInput) {
@@ -421,11 +426,21 @@ export function initCipherToolPage() {
         setShiftValue(Number(shift))
       }
       input.value = text
-      if (looksLikeEncoded(text, decoder)) {
+      const chipDirection = chip.getAttribute('data-direction') || ''
+      if (chipDirection === 'decrypt') {
+        setMode('decode')
+      } else if (chipDirection === 'encrypt') {
+        setMode('encode')
+      } else if (looksLikeEncoded(text, decoder)) {
         setMode('decode')
       } else {
         setMode('encode')
       }
+      if (isApiMode && liveModeInput && !liveModeInput.checked) {
+        liveModeInput.checked = true
+        saveState()
+      }
+      scheduleApiRun()
       input.focus()
     })
   })

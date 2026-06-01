@@ -228,7 +228,8 @@ return [
     'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Mesajlarınızı saklamıyoruz',
     'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Çoklu alfabe desteği',
     'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Polialfabetik ikame şifresi',
-    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Özelleştirilebilir anahtar kelime',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'       => 'Özelleştirilebilir anahtar kelime',
+    'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Özelleştirilebilir ayırıcılar',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Harf kaydırma ikame şifresi',
     // Atbash

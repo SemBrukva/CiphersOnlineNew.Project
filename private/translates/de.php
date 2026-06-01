@@ -228,7 +228,8 @@ return [
     'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Wir speichern keine Nachrichten',
     'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Unterstützung verschiedener Alphabete',
     'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Polyalphabetische Substitutionschiffre',
-    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Anpassbares Schlüsselwort',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'       => 'Anpassbares Schlüsselwort',
+    'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Anpassbare Trennzeichen',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Buchstabenverschiebungs-Chiffre',
     // Atbash

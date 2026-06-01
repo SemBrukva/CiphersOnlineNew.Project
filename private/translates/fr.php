@@ -228,7 +228,8 @@ return [
     'CIPHER_TOOL_TRUST_NO_STORAGE'     => 'Vos messages ne sont pas enregistrés',
     'CIPHER_TOOL_TRUST_MULTI_ALPHA'    => 'Prise en charge de plusieurs alphabets',
     'CIPHER_TOOL_TRUST_POLYALPHA'      => 'Chiffre de substitution polyalphabétique',
-    'CIPHER_TOOL_TRUST_CUSTOM_KEY'     => 'Mot-clé personnalisable',
+    'CIPHER_TOOL_TRUST_CUSTOM_KEY'       => 'Mot-clé personnalisable',
+    'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Délimiteurs personnalisables',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Chiffre de décalage alphabétique',
     // Atbash
