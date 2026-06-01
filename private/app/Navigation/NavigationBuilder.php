@@ -7,7 +7,6 @@ namespace App\Navigation;
 use App\Auth\Auth;
 use App\Cache\CacheInterface;
 use App\I18n\Translator;
-use App\Repository\CipherCategoryRepository;
 use App\Repository\CipherRepository;
 
 /**
@@ -20,11 +19,10 @@ use App\Repository\CipherRepository;
 final class NavigationBuilder
 {
     public function __construct(
-        private readonly Auth       $auth,
-        private readonly Translator $translator,
-        private readonly CipherCategoryRepository $categories,
+        private readonly Auth             $auth,
+        private readonly Translator       $translator,
         private readonly CipherRepository $ciphers,
-        private readonly CacheInterface $cache,
+        private readonly CacheInterface   $cache,
     ) {
     }
 
@@ -151,43 +149,5 @@ final class NavigationBuilder
         ];
     }
 
-    /**
-     * Собирает дочерние пункты меню «Инструменты».
-     *
-     * @return array<int, array{label: string, url: string, active: bool}>
-     */
-    private function buildToolsChildren(string $currentPath, string $localePrefix): array
-    {
-        $language = $this->translator->getLocale();
-        $defaultLanguage = $this->translator->getDefaultLocale();
-        $cacheTtl = (int) config('cache.ttl', 3600);
 
-        $categories = $this->cache->tag('cipher_categories')->remember(
-            'nav.tools.categories.' . $language . '.' . $defaultLanguage,
-            $cacheTtl,
-            fn (): array => $this->categories->listPublishedForNavigation($language, $defaultLanguage)
-        );
-
-        $items = [];
-
-        foreach ($categories as $category) {
-            $alias = (string) ($category['alias'] ?? '');
-            $name = trim((string) ($category['name'] ?? ''));
-
-            if ($alias === '') {
-                continue;
-            }
-
-            $path = '/' . $alias;
-            $url = $localePrefix !== '' ? $localePrefix . $path : $path;
-
-            $items[] = [
-                'label' => $name !== '' ? $name : $alias,
-                'url' => $url,
-                'active' => $currentPath === $path,
-            ];
-        }
-
-        return $items;
-    }
 }

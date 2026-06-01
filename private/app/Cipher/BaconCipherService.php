@@ -168,7 +168,7 @@ final readonly class BaconCipherService
 
         // 10-битный заголовок: старшие 5 бит + младшие 5 бит числа totalBits
         $headerHigh = str_pad(decbin(($totalBits >> 5) & 0x1f), 5, '0', STR_PAD_LEFT);
-        $headerLow  = str_pad(decbin($totalBits & 0x1f),        5, '0', STR_PAD_LEFT);
+        $headerLow  = str_pad(decbin($totalBits & 0x1f), 5, '0', STR_PAD_LEFT);
         $allBits = mb_str_split(
             mb_strtoupper(strtr($headerHigh . $headerLow . $bodyAb, ['0' => 'A', '1' => 'B']))
         );

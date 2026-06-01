@@ -230,6 +230,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
     /**
      * Возвращает список сущностей указанной секции.
      *
+     * @param  array<string, mixed> $payload Данные импортируемого JSON.
      * @return array<int, array<string, mixed>>
      */
     private function readEntityItems(array $payload, string $section): array
@@ -352,7 +353,8 @@ final readonly class CipherContentImportCommand implements CommandInterface
     /**
      * Создаёт или переиспользует FAQ-сущность для языка по sort_order.
      *
-     * @param array<string, mixed> $item Элемент FAQ из JSON.
+     * @param  array<string, mixed> $item Элемент FAQ из JSON.
+     * @return array{id: int, created: bool}
      */
     private function createOrReuseFaqEntity(int $cipherId, string $language, array $item, string $now): array
     {
@@ -376,7 +378,8 @@ final readonly class CipherContentImportCommand implements CommandInterface
     /**
      * Создаёт или переиспользует сущность блока для языка по sort_order.
      *
-     * @param array<string, mixed> $item Элемент блока из JSON.
+     * @param  array<string, mixed> $item Элемент блока из JSON.
+     * @return array{id: int, created: bool}
      */
     private function createOrReuseBlockEntity(int $cipherId, string $language, array $item, string $now): array
     {
@@ -400,7 +403,8 @@ final readonly class CipherContentImportCommand implements CommandInterface
     /**
      * Создаёт или переиспользует сущность примера для языка по sort_order.
      *
-     * @param array<string, mixed> $item Элемент примера из JSON.
+     * @param  array<string, mixed> $item Элемент примера из JSON.
+     * @return array{id: int, created: bool}
      */
     private function createOrReuseExampleEntity(int $cipherId, string $language, array $item, string $now): array
     {
@@ -424,7 +428,8 @@ final readonly class CipherContentImportCommand implements CommandInterface
     /**
      * Создаёт или переиспользует сущность тега для языка по sort_order.
      *
-     * @param array<string, mixed> $item Элемент тега из JSON.
+     * @param  array<string, mixed> $item Элемент тега из JSON.
+     * @return array{id: int, created: bool}
      */
     private function createOrReuseTagEntity(int $cipherId, string $language, array $item, string $now): array
     {

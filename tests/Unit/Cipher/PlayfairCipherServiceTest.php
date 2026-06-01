@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher;
 
 use App\Cipher\PlayfairCipherService;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -58,9 +59,8 @@ final class PlayfairCipherServiceTest extends TestCase
 
     /**
      * Round-trip для всех поддерживаемых алфавитов.
-     *
-     * @dataProvider roundTripProvider
      */
+    #[DataProvider('roundTripProvider')]
     public function testRoundTripAllAlphabets(
         string $alphabet,
         string $text,
@@ -159,8 +159,8 @@ final class PlayfairCipherServiceTest extends TestCase
     {
         $service = new PlayfairCipherService();
 
-        $encI    = $service->process('BIR',  'ANAHTAR', 'tr', 'encrypt'); // I без точки (ı)
-        $encIdot = $service->process('BİR',  'ANAHTAR', 'tr', 'encrypt'); // İ с точкой
+        $encI    = $service->process('BIR', 'ANAHTAR', 'tr', 'encrypt'); // I без точки (ı)
+        $encIdot = $service->process('BİR', 'ANAHTAR', 'tr', 'encrypt'); // İ с точкой
 
         self::assertNotSame($encI, $encIdot, 'BIR и BİR должны давать разные шифротексты');
     }
@@ -222,9 +222,8 @@ final class PlayfairCipherServiceTest extends TestCase
 
     /**
      * detectAlphabet корректно определяет язык для каждого поддерживаемого алфавита.
-     *
-     * @dataProvider detectAlphabetProvider
      */
+    #[DataProvider('detectAlphabetProvider')]
     public function testDetectAlphabetForVariousTexts(string $text, string $expectedAlphabet): void
     {
         $service = new PlayfairCipherService();
@@ -260,9 +259,8 @@ final class PlayfairCipherServiceTest extends TestCase
 
     /**
      * hasAlphabetCharacters корректно работает для нелатинских и расширенных алфавитов.
-     *
-     * @dataProvider hasAlphabetCharactersProvider
      */
+    #[DataProvider('hasAlphabetCharactersProvider')]
     public function testHasAlphabetCharactersAllAlphabets(
         string $text,
         string $alphabet,

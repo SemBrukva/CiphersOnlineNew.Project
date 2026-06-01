@@ -341,9 +341,9 @@ final class BaconCipherServiceTest extends TestCase
         $service = new BaconCipherService();
 
         self::assertSame(10, $service->countLetters('hello world'));
-        self::assertSame(6,  $service->countLetters('привет'));
-        self::assertSame(0,  $service->countLetters('!!! 123'));
-        self::assertSame(3,  $service->countLetters('a-b-c'));
+        self::assertSame(6, $service->countLetters('привет'));
+        self::assertSame(0, $service->countLetters('!!! 123'));
+        self::assertSame(3, $service->countLetters('a-b-c'));
     }
 
     // ─────────────────────────── countAlphabetChars ──────────────────────────────────────

@@ -64,10 +64,10 @@ final readonly class CipherController
             $language,
             $defaultLanguage
         );
-        $related = array_values(array_slice(array_filter(
+        $related = array_slice(array_filter(
             $toolsInCategory,
             static fn (array $tool): bool => (string) ($tool['alias'] ?? '') !== $cipherAlias
-        ), 0, 6));
+        ), 0, 6);
 
         $title = (string) ($cipher['meta_title'] ?: $cipher['name']);
         $metaDescription = (string) ($cipher['meta_description'] ?: $cipher['description']);

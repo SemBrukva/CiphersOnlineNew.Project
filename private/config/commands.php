@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 // Карта консольных команд: имя команды → FQCN класса, используется в bin/console.
 
-use App\Console\Commands\ConfigCacheCommand;
-use App\Console\Commands\ConfigClearCommand;
 use App\Console\Commands\CipherContentExportCommand;
 use App\Console\Commands\CipherContentImportCommand;
+use App\Console\Commands\ConfigCacheCommand;
+use App\Console\Commands\ConfigClearCommand;
 use App\Console\Commands\MailTestCommand;
 use App\Console\Commands\Make\MakeControllerCommand;
 use App\Console\Commands\Make\MakeJobCommand;

@@ -6,6 +6,8 @@ use App\Cache\CacheInterface;
 use App\Cache\MemcacheCache;
 use App\Cache\NullCache;
 use App\Container\Container;
+use App\Controller\Api\FavoritesController as ApiFavoritesController;
+use App\Controller\FavoritesController;
 use App\Database\Database;
 use App\Database\Migrator;
 use App\Debug\DebugInfo;
@@ -35,8 +37,6 @@ use App\Mail\MailjetStubSender;
 use App\Queue\QueueManager;
 use App\Queue\Worker;
 use App\View\View;
-use App\Controller\FavoritesController;
-use App\Controller\Api\FavoritesController as ApiFavoritesController;
 
 return [
     App\Http\Middleware\TrustedProxyMiddleware::class => static function (): App\Http\Middleware\TrustedProxyMiddleware {

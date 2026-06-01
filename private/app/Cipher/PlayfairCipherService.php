@@ -152,7 +152,7 @@ final readonly class PlayfairCipherService
      */
     private function normalizeInput(string $text, string $alphabet): string
     {
-        $upperAlphabet = array_map(fn($l) => $this->toUpper($l, $alphabet), $this->alphabetCatalog()->alphabet($alphabet));
+        $upperAlphabet = array_map(fn ($l) => $this->toUpper($l, $alphabet), $this->alphabetCatalog()->alphabet($alphabet));
         $allowed = implode('', $upperAlphabet);
         $input = $this->toUpper($text, $alphabet);
 
@@ -229,7 +229,7 @@ final readonly class PlayfairCipherService
     private function generateSquare(string $key, string $alphabet): array
     {
         $letters = $this->alphabetCatalog()->alphabet($alphabet);
-        $upperLetters = array_map(fn($l) => $this->toUpper($l, $alphabet), $letters);
+        $upperLetters = array_map(fn ($l) => $this->toUpper($l, $alphabet), $letters);
         $allowed = implode('', $upperLetters);
         $normalizedKey = $this->toUpper($key, $alphabet);
         $normalizedKey = (string) preg_replace('/[^' . preg_quote($allowed, '/') . ']/u', '', $normalizedKey);
