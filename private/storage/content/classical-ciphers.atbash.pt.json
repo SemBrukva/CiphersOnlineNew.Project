@@ -1,0 +1,223 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-01T16:31:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "atbash",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 18,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 18,
+        "data": {
+            "name": "Cifra Atbash",
+            "name_short": "Cifra Atbash",
+            "description": "Cifre e decifre textos com a cifra Atbash substituindo as letras pelas posições opostas no alfabeto selecionado. É uma das cifras de substituição mais antigas conhecidas na criptografia clássica.",
+            "description_stort": "Cifra clássica com espelhamento do alfabeto.",
+            "meta_title": "Cifra Atbash online: cifrar e decifrar textos",
+            "meta_description": "Use a cifra Atbash online. Espelhe as letras do alfabeto, cifre ou decifre textos instantaneamente e conheça uma das cifras clássicas mais antigas."
+        }
+    },
+    "blocks": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona a cifra Atbash",
+                "text": "<p>A cifra Atbash substitui cada letra por aquela que ocupa a posição oposta no alfabeto. No alfabeto português da ferramenta, A se torna Z, Á se torna Y, À se torna X e assim por diante.</p><p>Ao contrário da maioria das cifras clássicas, Atbash não exige uma chave. A substituição é fixa e sempre segue o mesmo padrão de alfabeto espelhado.</p><p>Atbash é recíproca: a mesma operação é usada para cifrar e decifrar. Ao aplicar a cifra duas vezes, o texto original é restaurado.</p>"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "História da cifra Atbash",
+                "text": "<p>Atbash surgiu no antigo alfabeto hebraico e é considerada uma das primeiras cifras de substituição conhecidas. Ela era aplicada invertendo a ordem das letras do alfabeto e substituindo cada símbolo por seu equivalente espelhado.</p><p>Hoje, Atbash é usada principalmente para fins educacionais, quebra-cabeças e demonstrações históricas de criptografia clássica.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 105,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Atbash é segura para uso moderno?",
+                "answer": "Não. Atbash é uma substituição monoalfabética clássica e pode ser quebrada facilmente com análise de frequência."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Por que a cifragem e a decifragem são idênticas?",
+                "answer": "Porque Atbash usa um alfabeto perfeitamente espelhado. Ao aplicar a mesma substituição uma segunda vez, cada letra retorna à sua posição original."
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Posso trabalhar com alfabetos não latinos?",
+                "answer": "Sim. Selecione o alfabeto apropriado nas configurações e a ferramenta espelhará as letras dentro dele."
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Atbash usa uma chave secreta?",
+                "answer": "Não. Atbash usa um alfabeto espelhado fixo e não exige chave nem senha."
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Qual é a diferença entre Atbash e a cifra de César?",
+                "answer": "A cifra de César desloca as letras por uma quantidade escolhida de posições, enquanto Atbash sempre espelha as letras no alfabeto. Por isso, Atbash não exige chave nem configurações adicionais."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Os espaços e sinais de pontuação são preservados?",
+                "answer": "Sim. Espaços, sinais de pontuação e números permanecem inalterados, enquanto as letras são espelhadas."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 15,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrar OLÁ MUNDO",
+                "key": "",
+                "shift": 0,
+                "input": "OLÁ MUNDO",
+                "output": "IKY JÇÍTI",
+                "description": "Alfabeto: português. Atbash substitui as letras por suas posições espelhadas."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decifrar IKY JÇÍTI",
+                "key": "",
+                "shift": 0,
+                "input": "IKY JÇÍTI",
+                "output": "OLÁ MUNDO",
+                "description": "Alfabeto: português. Aplicar Atbash novamente restaura o texto original."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Preservar espaços e sinais de pontuação",
+                "key": "",
+                "shift": 0,
+                "input": "OLÁ, MUNDO!",
+                "output": "IKY, JÇÍTI!",
+                "description": "As letras são espelhadas, enquanto os espaços e sinais de pontuação permanecem inalterados."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Espelhar todo o alfabeto",
+                "key": "",
+                "shift": 0,
+                "input": "AÁÀÃBCÇDEÉÊFGHIÍJKLMNOÓÔPQRSTUÚVWXYZ",
+                "output": "ZYXWVÚUTSRQPÔÓONMLKJÍIHGFÊÉEDÇCBÃÀÁA",
+                "description": "Um exemplo completo do mapeamento Atbash para o alfabeto português da ferramenta."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 66,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substituição espelhada"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifra simétrica"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Monoalfabética"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifra hebraica"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cifra sem chave"
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Criptografia antiga"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

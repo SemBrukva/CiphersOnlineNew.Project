@@ -1,0 +1,223 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-01T16:31:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "atbash",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 18,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 18,
+        "data": {
+            "name": "Chiffrement Atbash",
+            "name_short": "Chiffrement Atbash",
+            "description": "Chiffrez et déchiffrez des textes avec Atbash en remplaçant les lettres par leur position opposée dans l’alphabet sélectionné. Il s’agit de l’un des plus anciens chiffrements par substitution connus en cryptographie classique.",
+            "description_stort": "Chiffrement classique par miroir de l’alphabet.",
+            "meta_title": "Chiffrement Atbash en ligne : chiffrer et déchiffrer",
+            "meta_description": "Utilisez le chiffrement Atbash en ligne. Remplacez les lettres par leur position opposée dans l’alphabet, chiffrez ou déchiffrez instantanément vos textes et découvrez l’un des plus anciens chiffrements classiques."
+        }
+    },
+    "blocks": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffrement Atbash",
+                "text": "<p>Le chiffrement Atbash remplace chaque lettre par celle qui occupe la position opposée dans l’alphabet. Dans l’alphabet français de l’outil, A devient Z, À devient Ÿ, Â devient Y, et ainsi de suite.</p><p>Contrairement à la plupart des chiffrements classiques, Atbash ne nécessite aucune clé. La substitution est fixe et suit toujours le même schéma d’alphabet inversé.</p><p>Atbash est réciproque : la même opération sert au chiffrement et au déchiffrement. Appliquer le chiffrement deux fois permet de retrouver le texte d’origine.</p>"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Histoire du chiffrement Atbash",
+                "text": "<p>Atbash est apparu dans l’ancien alphabet hébreu et compte parmi les premiers chiffrements par substitution connus. Il consistait à inverser l’ordre des lettres de l’alphabet et à remplacer chaque symbole par son équivalent symétrique.</p><p>Aujourd’hui, Atbash est principalement utilisé pour l’apprentissage, les énigmes et les démonstrations historiques de cryptographie classique.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 105,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Atbash est-il sûr pour un usage moderne ?",
+                "answer": "Non. Atbash est une substitution monoalphabétique classique qui se casse facilement par analyse fréquentielle."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le chiffrement et le déchiffrement sont-ils identiques ?",
+                "answer": "Parce qu’Atbash utilise un alphabet parfaitement inversé. En appliquant la même substitution une seconde fois, chaque lettre retrouve sa position d’origine."
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Puis-je utiliser des alphabets non latins ?",
+                "answer": "Oui. Sélectionnez l’alphabet approprié dans les paramètres : l’outil remplacera les lettres au sein de cet alphabet."
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Atbash utilise-t-il une clé secrète ?",
+                "answer": "Non. Atbash utilise un alphabet inversé fixe et ne nécessite ni clé ni mot de passe."
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre Atbash et le chiffrement de César ?",
+                "answer": "Le chiffrement de César décale les lettres d’un nombre choisi de positions, tandis qu’Atbash inverse toujours leur position dans l’alphabet. Atbash ne nécessite donc aucune clé."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Les espaces et les signes de ponctuation sont-ils conservés ?",
+                "answer": "Oui. Les espaces, les signes de ponctuation et les chiffres restent inchangés tandis que les lettres sont remplacées."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 15,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Chiffrer BONJOUR MONDE",
+                "key": "",
+                "shift": 0,
+                "input": "BONJOUR MONDE",
+                "output": "XÎÏMÎÈF JÎÏÜÛ",
+                "description": "Alphabet : français. Atbash remplace les lettres par leur position opposée."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Déchiffrer XÎÏMÎÈF JÎÏÜÛ",
+                "key": "",
+                "shift": 0,
+                "input": "XÎÏMÎÈF JÎÏÜÛ",
+                "output": "BONJOUR MONDE",
+                "description": "Alphabet : français. Appliquer Atbash une seconde fois permet de retrouver le texte d’origine."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Conserver les espaces et la ponctuation",
+                "key": "",
+                "shift": 0,
+                "input": "BONJOUR, MONDE!",
+                "output": "XÎÏMÎÈF, JÎÏÜÛ!",
+                "description": "Les lettres sont remplacées, tandis que les espaces et les signes de ponctuation restent inchangés."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Inverser tout l’alphabet",
+                "key": "",
+                "shift": 0,
+                "input": "AÀÂBCÇDEÉÈÊËFGHIÎÏJKLMNOÔPQRSTUÙÛÜVWXYŸZ",
+                "output": "ZŸYXWVÜÛÙUTSRQPÔONMLKJÏÎIHGFËÊÈÉEDÇCBÂÀA",
+                "description": "Exemple complet de la correspondance Atbash pour l’alphabet français de l’outil."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 66,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substitution inversée"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement symétrique"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Monoalphabétique"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement hébreu"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement sans clé"
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie antique"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

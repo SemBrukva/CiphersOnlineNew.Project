@@ -1,0 +1,223 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-01T16:31:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "atbash",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 18,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 18,
+        "data": {
+            "name": "Cifrario Atbash",
+            "name_short": "Cifrario Atbash",
+            "description": "Cifra e decifra testi con il cifrario Atbash sostituendo ogni lettera con quella nella posizione opposta dell’alfabeto selezionato. È uno dei più antichi cifrari a sostituzione noti nella crittografia classica.",
+            "description_stort": "Cifrario classico con alfabeto speculare.",
+            "meta_title": "Cifrario Atbash online: cifrare e decifrare testi",
+            "meta_description": "Usa il cifrario Atbash online. Sostituisci le lettere con le loro posizioni opposte nell’alfabeto, cifra o decifra testi all’istante e scopri uno dei più antichi cifrari classici."
+        }
+    },
+    "blocks": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario Atbash",
+                "text": "<p>Il cifrario Atbash sostituisce ogni lettera con quella che occupa la posizione opposta nell’alfabeto. Nell’alfabeto italiano dello strumento, A diventa Z, B diventa Y, C diventa X e così via.</p><p>A differenza della maggior parte dei cifrari classici, Atbash non richiede una chiave. La sostituzione è fissa e segue sempre lo stesso schema di alfabeto speculare.</p><p>Atbash è reciproco: la stessa operazione viene usata sia per cifrare sia per decifrare. Applicando il cifrario due volte si ottiene nuovamente il testo originale.</p>"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Storia del cifrario Atbash",
+                "text": "<p>Atbash nacque nell’antico alfabeto ebraico ed è considerato uno dei primi cifrari a sostituzione conosciuti. Consisteva nell’invertire l’ordine delle lettere dell’alfabeto e sostituire ogni simbolo con il suo equivalente speculare.</p><p>Oggi Atbash viene utilizzato soprattutto a scopo didattico, negli enigmi e nelle dimostrazioni storiche di crittografia classica.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 105,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Atbash è sicuro per un utilizzo moderno?",
+                "answer": "No. Atbash è una sostituzione monoalfabetica classica e può essere violato facilmente con l’analisi delle frequenze."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Perché cifratura e decifratura sono identiche?",
+                "answer": "Perché Atbash utilizza un alfabeto perfettamente speculare. Applicando la stessa sostituzione una seconda volta, ogni lettera torna nella posizione originale."
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Posso usare alfabeti non latini?",
+                "answer": "Sì. Seleziona l’alfabeto appropriato nelle impostazioni e lo strumento sostituirà le lettere al suo interno."
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Atbash utilizza una chiave segreta?",
+                "answer": "No. Atbash utilizza un alfabeto speculare fisso e non richiede né una chiave né una password."
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Qual è la differenza tra Atbash e il cifrario di Cesare?",
+                "answer": "Il cifrario di Cesare sposta le lettere di un numero scelto di posizioni, mentre Atbash le sostituisce sempre con quelle nella posizione opposta dell’alfabeto. Atbash non richiede quindi alcuna chiave."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Gli spazi e i segni di punteggiatura vengono conservati?",
+                "answer": "Sì. Gli spazi, i segni di punteggiatura e i numeri rimangono invariati, mentre le lettere vengono sostituite."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 15,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cifrare CIAO MONDO",
+                "key": "",
+                "shift": 0,
+                "input": "CIAO MONDO",
+                "output": "XRZL NLMWL",
+                "description": "Alfabeto: italiano. Atbash sostituisce le lettere con quelle nelle posizioni opposte."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Decifrare XRZL NLMWL",
+                "key": "",
+                "shift": 0,
+                "input": "XRZL NLMWL",
+                "output": "CIAO MONDO",
+                "description": "Alfabeto: italiano. Applicando nuovamente Atbash si ripristina il testo originale."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Conservare spazi e punteggiatura",
+                "key": "",
+                "shift": 0,
+                "input": "CIAO, MONDO!",
+                "output": "XRZL, NLMWL!",
+                "description": "Le lettere vengono sostituite, mentre gli spazi e i segni di punteggiatura rimangono invariati."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Riflettere l’intero alfabeto",
+                "key": "",
+                "shift": 0,
+                "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "output": "ZYXWVUTSRQPONMLKJIHGFEDCBA",
+                "description": "Un esempio completo della corrispondenza Atbash per l’alfabeto italiano dello strumento."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 66,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Sostituzione speculare"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifrario simmetrico"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Monoalfabetico"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifrario ebraico"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cifrario senza chiave"
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Crittografia antica"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,223 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-01T16:31:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "atbash",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 18,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 18,
+        "data": {
+            "name": "Atbash Şifresi",
+            "name_short": "Atbash Şifresi",
+            "description": "Seçilen alfabetteki harfleri karşıt konumlarıyla eşleştirerek metinleri Atbash şifresiyle şifreleyin ve çözün. Klasik kriptografide bilinen en eski yerine koyma şifrelerinden biridir.",
+            "description_stort": "Alfabeyi yansıtan klasik şifre.",
+            "meta_title": "Atbash Şifresi Online Şifreleme ve Çözme",
+            "meta_description": "Atbash şifresini online kullanın. Alfabedeki harfleri karşıt konumlarıyla eşleştirin, metinleri anında şifreleyin veya çözün ve en eski klasik şifrelerden birini keşfedin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Atbash şifresi nasıl çalışır?",
+                "text": "<p>Atbash şifresi, her harfi alfabedeki karşıt konumunda bulunan harfle değiştirir. Aracın Türkçe alfabesinde A harfi Z, B harfi Y, C harfi V olur ve bu şekilde devam eder.</p><p>Çoğu klasik şifreden farklı olarak Atbash bir anahtar gerektirmez. Yerine koyma düzeni sabittir ve her zaman aynı yansıtılmış alfabe şemasını izler.</p><p>Atbash kendi kendinin tersidir: şifreleme ve çözme için aynı işlem kullanılır. Şifre iki kez uygulandığında özgün metin geri elde edilir.</p>"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Atbash şifresinin tarihi",
+                "text": "<p>Atbash, eski İbrani alfabesinde ortaya çıkmıştır ve bilinen en eski yerine koyma şifrelerinden biri kabul edilir. Alfabe harflerinin sırası tersine çevrilir ve her simge yansıtılmış karşılığıyla değiştirilir.</p><p>Günümüzde Atbash çoğunlukla eğitim, bulmacalar ve klasik kriptografinin tarihsel gösterimleri için kullanılır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 105,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Atbash modern kullanım için güvenli midir?",
+                "answer": "Hayır. Atbash klasik bir monoalfabetik yerine koyma şifresidir ve frekans analiziyle kolayca kırılabilir."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Şifreleme ve çözme neden aynıdır?",
+                "answer": "Çünkü Atbash tamamen yansıtılmış bir alfabe kullanır. Aynı yerine koyma işlemi ikinci kez uygulandığında her harf özgün konumuna döner."
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Latin alfabesi dışındaki alfabelerle çalışabilir miyim?",
+                "answer": "Evet. Ayarlardan uygun alfabeyi seçin; araç harfleri bu alfabe içinde karşıt konumlarıyla eşleştirir."
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Atbash gizli bir anahtar kullanır mı?",
+                "answer": "Hayır. Atbash sabit bir yansıtılmış alfabe kullanır ve anahtar ya da parola gerektirmez."
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Atbash ile Sezar şifresi arasındaki fark nedir?",
+                "answer": "Sezar şifresi harfleri seçilen sayıda konum kaydırırken Atbash harfleri her zaman alfabedeki karşıt konumlarıyla eşleştirir. Bu nedenle Atbash anahtar veya ek ayar gerektirmez."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Boşluklar ve noktalama işaretleri korunur mu?",
+                "answer": "Evet. Harfler değiştirilirken boşluklar, noktalama işaretleri ve sayılar aynı kalır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 15,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "MERHABA DÜNYA metnini şifrele",
+                "key": "",
+                "shift": 0,
+                "input": "MERHABA DÜNYA",
+                "output": "KTĞPZYZ UÇJBZ",
+                "description": "Alfabe: Türkçe. Atbash harfleri yansıtılmış konumlarıyla değiştirir."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "KTĞPZYZ UÇJBZ metninin şifresini çöz",
+                "key": "",
+                "shift": 0,
+                "input": "KTĞPZYZ UÇJBZ",
+                "output": "MERHABA DÜNYA",
+                "description": "Alfabe: Türkçe. Atbash yeniden uygulandığında özgün metin geri elde edilir."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Boşlukları ve noktalama işaretlerini koru",
+                "key": "",
+                "shift": 0,
+                "input": "MERHABA, DÜNYA!",
+                "output": "KTĞPZYZ, UÇJBZ!",
+                "description": "Harfler değiştirilirken boşluklar ve noktalama işaretleri aynı kalır."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Alfabenin tamamını yansıt",
+                "key": "",
+                "shift": 0,
+                "input": "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ",
+                "output": "ZYVÜUTŞSRPOİNMLKJIIHĞGFEDÇCBA",
+                "description": "Aracın Türkçe alfabesi için eksiksiz Atbash eşleştirmesi örneği."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 66,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Yansıtılmış yerine koyma"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Simetrik şifre"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Monoalfabetik"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "İbrani şifresi"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Anahtarsız şifre"
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Antik kriptografi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

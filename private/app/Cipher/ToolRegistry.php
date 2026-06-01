@@ -104,9 +104,9 @@ final readonly class ToolRegistry
                 ['label' => 'ES', 'value' => 'HOLA MUNDO'],
             ],
             'classical-ciphers/atbash' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en'],
+                ['label' => 'Secret',   'value' => 'HIDE THE GOLD',  'alphabet' => 'en'],
             ],
             'classical-ciphers/bacon' => [
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en'],

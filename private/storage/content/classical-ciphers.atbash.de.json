@@ -1,0 +1,223 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-01T16:31:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "atbash",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 18,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 18,
+        "data": {
+            "name": "Atbash-Chiffre",
+            "name_short": "Atbash-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Texte mit der Atbash-Chiffre, indem Sie Buchstaben im ausgewählten Alphabet spiegeln. Sie gehört zu den ältesten bekannten Substitutionschiffren der klassischen Kryptografie.",
+            "description_stort": "Klassische Chiffre mit gespiegeltem Alphabet.",
+            "meta_title": "Atbash-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die Atbash-Chiffre online. Spiegeln Sie Buchstaben im Alphabet, verschlüsseln oder entschlüsseln Sie Texte sofort und entdecken Sie eine der ältesten klassischen Chiffren."
+        }
+    },
+    "blocks": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert die Atbash-Chiffre",
+                "text": "<p>Die Atbash-Chiffre ersetzt jeden Buchstaben durch den Buchstaben an der gegenüberliegenden Position im Alphabet. Im deutschen Alphabet des Tools wird A zu Z, Ä zu Y, B zu X und so weiter.</p><p>Anders als die meisten klassischen Chiffren benötigt Atbash keinen Schlüssel. Die Ersetzung ist fest vorgegeben und folgt immer demselben gespiegelten Alphabetmuster.</p><p>Atbash ist selbstreziprok: Für die Verschlüsselung und Entschlüsselung wird dieselbe Operation verwendet. Wird die Chiffre zweimal angewendet, entsteht wieder der ursprüngliche Text.</p>"
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Geschichte der Atbash-Chiffre",
+                "text": "<p>Atbash entstand im alten hebräischen Alphabet und gilt als eine der frühesten bekannten Substitutionschiffren. Dabei wurde die Reihenfolge der Buchstaben umgekehrt und jedes Zeichen durch sein gespiegeltes Gegenstück ersetzt.</p><p>Heute wird Atbash vor allem für Lernzwecke, Rätsel und historische Demonstrationen der klassischen Kryptografie verwendet.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 105,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Ist Atbash für moderne Anwendungen sicher?",
+                "answer": "Nein. Atbash ist eine klassische monoalphabetische Substitution und lässt sich mit einer Häufigkeitsanalyse leicht brechen."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum sind Verschlüsselung und Entschlüsselung identisch?",
+                "answer": "Weil Atbash ein vollständig gespiegeltes Alphabet verwendet. Wird dieselbe Ersetzung ein zweites Mal angewendet, kehrt jeder Buchstabe an seine ursprüngliche Position zurück."
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Kann ich mit nicht-lateinischen Alphabeten arbeiten?",
+                "answer": "Ja. Wählen Sie in den Einstellungen das passende Alphabet aus. Das Tool spiegelt die Buchstaben innerhalb dieses Alphabets."
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Verwendet Atbash einen geheimen Schlüssel?",
+                "answer": "Nein. Atbash verwendet ein fest vorgegebenes gespiegeltes Alphabet und benötigt weder einen Schlüssel noch ein Passwort."
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen Atbash und der Caesar-Chiffre?",
+                "answer": "Die Caesar-Chiffre verschiebt Buchstaben um eine gewählte Anzahl von Positionen. Atbash spiegelt Buchstaben dagegen immer im Alphabet und benötigt daher keinen Schlüssel."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bleiben Leerzeichen und Satzzeichen erhalten?",
+                "answer": "Ja. Leerzeichen, Satzzeichen und Zahlen bleiben unverändert, während Buchstaben gespiegelt werden."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 15,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "HALLO WELT verschlüsseln",
+                "key": "",
+                "shift": 0,
+                "input": "HALLO WELT",
+                "output": "SZÖÖM CÜÖG",
+                "description": "Alphabet: Deutsch. Atbash ersetzt Buchstaben durch ihre gespiegelten Positionen."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "SZÖÖM CÜÖG entschlüsseln",
+                "key": "",
+                "shift": 0,
+                "input": "SZÖÖM CÜÖG",
+                "output": "HALLO WELT",
+                "description": "Alphabet: Deutsch. Eine erneute Anwendung von Atbash stellt den ursprünglichen Text wieder her."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Leerzeichen und Satzzeichen beibehalten",
+                "key": "",
+                "shift": 0,
+                "input": "HALLO, WELT!",
+                "output": "SZÖÖM, CÜÖG!",
+                "description": "Buchstaben werden gespiegelt, während Leerzeichen und Satzzeichen unverändert bleiben."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Das gesamte Alphabet spiegeln",
+                "key": "",
+                "shift": 0,
+                "input": "AÄBCDEFGHIJKLMNOÖPQRSTUÜVWXYZ",
+                "output": "ZYXWVÜUTSRQPÖONMLKJIHGFEDCBÄA",
+                "description": "Ein vollständiges Beispiel für die Atbash-Zuordnung im deutschen Alphabet des Tools."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 66,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Gespiegelte Substitution"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Symmetrische Chiffre"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Monoalphabetisch"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Hebräische Chiffre"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Chiffre ohne Schlüssel"
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Antike Kryptografie"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

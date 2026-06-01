@@ -66,8 +66,8 @@ final readonly class AtbashCipherService
         return [
             trans('ATBASH_TRUST_RECIPROCAL'),
             trans('ATBASH_TRUST_KEYLESS'),
+            trans('CIPHER_TOOL_TRUST_MULTI_ALPHA'),
             trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
-            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
         ];
     }
 
