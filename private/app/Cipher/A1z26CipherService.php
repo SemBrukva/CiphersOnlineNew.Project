@@ -61,6 +61,9 @@ final readonly class A1z26CipherService
                 'options' => [
                     ['value' => 'dash', 'label' => '-'],
                     ['value' => 'space', 'label' => trans('CIPHER_TOOL_SETTING_SPACE')],
+                    ['value' => 'comma', 'label' => ','],
+                    ['value' => 'slash', 'label' => '/'],
+                    ['value' => 'dot', 'label' => '.'],
                 ],
             ],
         ];
@@ -114,7 +117,13 @@ final readonly class A1z26CipherService
     {
         $alphabetData = $this->alphabetCatalog()->alphabet(mb_strtolower(trim($alphabet)));
         $indexMap = array_flip($alphabetData);
-        $normalizedDelimiter = $delimiter === 'space' ? ' ' : '-';
+        $normalizedDelimiter = match ($delimiter) {
+            'space' => ' ',
+            'comma' => ',',
+            'slash' => '/',
+            'dot'   => '.',
+            default => '-',
+        };
         $result = '';
         $lower = mb_strtolower($text);
         $length = mb_strlen($lower);
@@ -148,7 +157,13 @@ final readonly class A1z26CipherService
     private function decrypt(string $text, string $alphabet, string $delimiter): string
     {
         $alphabetData = $this->alphabetCatalog()->alphabet(mb_strtolower(trim($alphabet)));
-        $normalizedDelimiter = $delimiter === 'space' ? ' ' : '-';
+        $normalizedDelimiter = match ($delimiter) {
+            'space' => ' ',
+            'comma' => ',',
+            'slash' => '/',
+            'dot'   => '.',
+            default => '-',
+        };
         $words = $normalizedDelimiter === ' '
             ? [$text]
             : explode(' ', $text);

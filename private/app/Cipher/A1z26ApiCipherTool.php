@@ -48,8 +48,8 @@ final readonly class A1z26ApiCipherTool implements ApiCipherToolInterface
         if (!in_array($alphabet, array_merge(['auto'], $this->cipher->supportedAlphabetCodes()), true)) {
             $errors['settings.alphabet'][] = 'Unsupported alphabet.';
         }
-        if (!in_array($delimiter, ['dash', 'space'], true)) {
-            $errors['settings.delimiter'][] = 'Delimiter must be dash or space.';
+        if (!in_array($delimiter, ['dash', 'space', 'comma', 'slash', 'dot'], true)) {
+            $errors['settings.delimiter'][] = 'Delimiter must be dash, space, comma, slash or dot.';
         }
 
         $detectedAlphabet = null;

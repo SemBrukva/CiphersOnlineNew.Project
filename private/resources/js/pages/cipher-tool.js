@@ -27,6 +27,7 @@ export function initCipherToolPage() {
   const shiftDecBtn = document.getElementById('ciphers-shift-dec')
   const shiftIncBtn = document.getElementById('ciphers-shift-inc')
   const alphabetSelect = document.getElementById('ciphers-alphabet')
+  const delimiterSelect = document.getElementById('ciphers-delimiter')
   const keyInput = document.getElementById('ciphers-key')
   const generateKeyBtn = document.getElementById('ciphers-generate-key')
   const clearBtn = document.getElementById('ciphers-clear')
@@ -93,6 +94,7 @@ export function initCipherToolPage() {
     try {
       const state = {
         alphabet: String(alphabetSelect?.value ?? 'auto'),
+        delimiter: String(delimiterSelect?.value ?? 'dash'),
         shift: Number(shiftInput?.value ?? 0),
         key: String(keyInput?.value ?? ''),
         liveMode: Boolean(liveModeInput?.checked),
@@ -198,6 +200,13 @@ export function initCipherToolPage() {
       }
     }
 
+    if (delimiterSelect && typeof savedState.delimiter === 'string' && savedState.delimiter !== '') {
+      const hasOption = Array.from(delimiterSelect.options).some((option) => option.value === savedState.delimiter)
+      if (hasOption) {
+        delimiterSelect.value = savedState.delimiter
+      }
+    }
+
     if (shiftInput && Number.isFinite(Number(savedState.shift))) {
       shiftInput.value = String(Math.trunc(Number(savedState.shift)))
     }
@@ -271,6 +280,7 @@ export function initCipherToolPage() {
 
     const shift = Number(shiftInput?.value ?? 3)
     const alphabet = String(alphabetSelect?.value ?? 'auto')
+    const delimiter = String(delimiterSelect?.value ?? 'dash')
     const key = String(keyInput?.value ?? '')
     const coverText = String(coverInput?.value ?? '')
     const direction = mode === 'decode' ? 'decrypt' : 'encrypt'
@@ -293,6 +303,7 @@ export function initCipherToolPage() {
           Object.entries({
             shift,
             alphabet,
+            delimiter,
             key,
             cover_text: coverText,
           }).filter(([, value]) => value !== '')
@@ -342,6 +353,11 @@ export function initCipherToolPage() {
 
   alphabetSelect?.addEventListener('change', () => {
     syncShiftWithAlphabet()
+    saveState()
+    scheduleApiRun()
+  })
+
+  delimiterSelect?.addEventListener('change', () => {
     saveState()
     scheduleApiRun()
   })
