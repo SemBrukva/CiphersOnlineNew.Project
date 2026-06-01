@@ -512,7 +512,7 @@ final class CipherRepository extends AbstractRepository
     public function findExamplesByCipherIdWithTranslation(int $cipherId, string $language, string $defaultLanguage): array
     {
         return $this->db->fetchAll(
-            'SELECT e.id, e.app_id, e.sort_order, e.published, e.direction, '
+            'SELECT e.id, e.app_id, e.sort_order, e.published, e.direction, e.delimiter, '
             .'COALESCE(et_cur.language, et_def.language, ?) AS language, '
             .'COALESCE(et_cur.title, et_def.title, \'\') AS label, '
             .'COALESCE(et_cur.input, et_def.input, \'\') AS input, '

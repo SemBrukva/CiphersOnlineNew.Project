@@ -145,9 +145,10 @@ final readonly class CipherContentImportCommand implements CommandInterface
                         $this->assertOwnership(Tables::CIPHERS_EXAMPLES, 'app_id', $cipherId, $exampleId, 'example');
                         if ($language === $defaultLanguage) {
                             $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
+                            $delimiter = $this->sanitizeDelimiter((string) ($item['delimiter'] ?? ''));
                             $this->db->execute(
-                                'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, updated_at = ? WHERE id = ?',
-                                [$direction, $now, $exampleId]
+                                'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, delimiter = ?, updated_at = ? WHERE id = ?',
+                                [$direction, $delimiter, $now, $exampleId]
                             );
                         }
                     }
@@ -320,10 +321,11 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $sortOrder = max(0, min(999999, (int) ($item['sort_order'] ?? 0)));
         $published = (bool) ($item['published'] ?? true) ? 1 : 0;
         $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
+        $delimiter = $this->sanitizeDelimiter((string) ($item['delimiter'] ?? ''));
 
         $id = $this->db->insert(
-            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
-            [$cipherId, $sortOrder, $published, $direction, $now, $now]
+            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, delimiter, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            [$cipherId, $sortOrder, $published, $direction, $delimiter, $now, $now]
         );
 
         return (int) $id;
@@ -691,5 +693,13 @@ final readonly class CipherContentImportCommand implements CommandInterface
     private function sanitizeDirection(string $value): string
     {
         return in_array($value, ['encrypt', 'decrypt'], true) ? $value : '';
+    }
+
+    /**
+     * Нормализует значение delimiter: допустимы 'dash', 'space', 'comma', 'slash', 'dot' или '' (не задан).
+     */
+    private function sanitizeDelimiter(string $value): string
+    {
+        return in_array($value, ['dash', 'space', 'comma', 'slash', 'dot'], true) ? $value : '';
     }
 }

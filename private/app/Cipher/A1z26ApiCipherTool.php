@@ -54,9 +54,13 @@ final readonly class A1z26ApiCipherTool implements ApiCipherToolInterface
 
         $detectedAlphabet = null;
         if ($alphabet === 'auto') {
-            $detectedAlphabet = $direction === 'decrypt'
-                ? 'en'
-                : $this->cipher->detectAlphabet($text);
+            if ($direction === 'decrypt') {
+                $pageLocale = mb_strtolower(trim((string) ($payload['locale'] ?? 'en')));
+                $supportedCodes = $this->cipher->supportedAlphabetCodes();
+                $detectedAlphabet = in_array($pageLocale, $supportedCodes, true) ? $pageLocale : 'en';
+            } else {
+                $detectedAlphabet = $this->cipher->detectAlphabet($text);
+            }
             $alphabet = $detectedAlphabet;
         }
 

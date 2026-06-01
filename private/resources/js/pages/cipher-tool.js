@@ -449,6 +449,7 @@ export function initCipherToolPage() {
     btn.addEventListener('click', () => {
       const text = btn.getAttribute('data-example-text') || ''
       const alphabet = btn.getAttribute('data-alphabet') || ''
+      const delimiter = btn.getAttribute('data-delimiter') || ''
       const key = btn.getAttribute('data-key')
       const keyInputId = btn.getAttribute('data-key-input') || 'ciphers-key'
       const shift = btn.getAttribute('data-shift')
@@ -456,6 +457,10 @@ export function initCipherToolPage() {
       if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
+        delimiterSelect.value = delimiter
+        delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
       const targetKeyInput = document.getElementById(keyInputId)
       if (targetKeyInput) {
@@ -475,6 +480,11 @@ export function initCipherToolPage() {
       } else {
         setMode('encode')
       }
+      if (isApiMode && liveModeInput && !liveModeInput.checked) {
+        liveModeInput.checked = true
+        saveState()
+      }
+      scheduleApiRun()
       document.getElementById('ciphers-tool-shell')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       input.focus()
     })
