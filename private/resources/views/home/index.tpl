@@ -21,7 +21,7 @@
                 {foreach $quick_access_tools as $tool}
                     <a class="home-hero__chip"
                        data-search-name="{$tool.name_short|escape:'html'} {$tool.alias}"
-                       href="/{$tool.category_alias}/{$tool.alias}">
+                       href="{$locale_prefix}/{$tool.category_alias}/{$tool.alias}">
                         {$tool.name_short}
                     </a>
                 {/foreach}
@@ -51,7 +51,7 @@
                 </div>
                 <div>
                     <h3 class="home-category-card__title">
-                        <a href="/{$cat.alias}">{$cat.name}</a>
+                        <a href="{$locale_prefix}/{$cat.alias}">{$cat.name}</a>
                     </h3>
                     {if $cat.tools_count}
                         <span class="home-category-card__count">
@@ -67,7 +67,7 @@
             <ul class="home-category-card__tools">
                 {foreach $cat.tools as $tool}
                     <li>
-                        <a href="/{$cat.alias}/{$tool.alias}">
+                        <a href="{$locale_prefix}/{$cat.alias}/{$tool.alias}">
                             <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                             <span>{$tool.name_short}</span>
                         </a>
@@ -76,7 +76,7 @@
             </ul>
             {/if}
 
-            <a class="home-category-card__cta" href="/{$cat.alias}">
+            <a class="home-category-card__cta" href="{$locale_prefix}/{$cat.alias}">
                 {$t.HOME_OPEN_CATEGORY}
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
             </a>
@@ -113,7 +113,7 @@
 
     <div class="home-tools-grid">
         {foreach $popular_tools as $tool}
-        <a class="home-tool-card" href="/{$tool.category_alias}/{$tool.alias}">
+        <a class="home-tool-card" href="{$locale_prefix}/{$tool.category_alias}/{$tool.alias}">
             <div class="home-tool-card__top">
                 <h3 class="home-tool-card__title">{$tool.name_short}</h3>
                 <span class="home-tool-card__arrow" aria-hidden="true">→</span>
@@ -195,7 +195,7 @@
 
     <div class="home-tools-grid">
         {foreach $recent_tools as $tool}
-        <a class="home-tool-card home-tool-card--new" href="/{$tool.category_alias}/{$tool.alias}">
+        <a class="home-tool-card home-tool-card--new" href="{$locale_prefix}/{$tool.category_alias}/{$tool.alias}">
             <div class="home-tool-card__top">
                 <h3 class="home-tool-card__title">{$tool.name_short}</h3>
                 <span class="home-tool-card__flag">{$t.HOME_BADGE_NEW}</span>
@@ -216,12 +216,12 @@
         {foreach $categories_with_tools as $cat}
         <div class="home-footnav__col">
             <h4 class="home-footnav__title">
-                <a href="/{$cat.alias}">{$cat.name}</a>
+                <a href="{$locale_prefix}/{$cat.alias}">{$cat.name}</a>
             </h4>
             {if $cat.tools}
             <ul class="home-footnav__list">
                 {foreach $cat.tools as $tool}
-                    <li><a href="/{$cat.alias}/{$tool.alias}">{$tool.name_short}</a></li>
+                    <li><a href="{$locale_prefix}/{$cat.alias}/{$tool.alias}">{$tool.name_short}</a></li>
                 {/foreach}
             </ul>
             {/if}

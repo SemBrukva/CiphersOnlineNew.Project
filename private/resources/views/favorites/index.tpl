@@ -27,7 +27,7 @@
         </div>
 
         {* Сетка карточек — заполняется через JS *}
-        <div class="ciphers-category-hub-grid" id="favorites-grid" style="display:none"></div>
+        <div class="ciphers-category-hub-grid" id="favorites-grid" data-locale="{$current_locale}" data-locale-prefix="{$locale_prefix}" style="display:none"></div>
 
     </div>
 </section>

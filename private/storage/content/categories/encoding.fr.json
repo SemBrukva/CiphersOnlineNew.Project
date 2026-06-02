@@ -1,0 +1,196 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-02T09:22:14+00:00",
+        "category_alias": "encoding",
+        "language": "fr",
+        "default_language": "en",
+        "category_id": 1
+    },
+    "category_translation": {
+        "id": 1,
+        "data": {
+            "name": "Encodage et conversion de données",
+            "name_short": "Encodage",
+            "description": "Outils pour encoder, décoder et convertir du texte et des données binaires. Utilisez Base64, Hex, l’encodage URL, le format binaire, ASCII, Unicode, JWT et d’autres formats en ligne.",
+            "meta_title": "Encodage et conversion de données | Ciphers Online",
+            "meta_description": "Outils d’encodage et de conversion de données : Base64, Hex, encodage URL, format binaire, ASCII, convertisseur Unicode et décodeur JWT."
+        }
+    },
+    "blocks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Qu’est-ce que l’encodage de données ?",
+                "text": "<p>L’encodage de données consiste à convertir des informations dans un autre format pour les transférer, les stocker ou assurer la compatibilité entre différents systèmes. Les formats comme Base64 et Hex facilitent le traitement de textes et de données binaires dans les API, les e-mails, HTTP, les fichiers et les protocoles.</p>\n<p>Les développeurs utilisent des outils d’encodage pour échanger des données en toute sécurité entre systèmes, diagnostiquer des charges utiles, traiter des paramètres de requête, analyser des données au niveau des octets et convertir des informations entre différents formats.</p>\n<div class=\"block-notice\">\n                <div class=\"block-notice_header\">\n                    <i class=\"bi bi-exclamation-triangle-fill\"></i>\n                    <strong>Encodage ≠ Chiffrement</strong>\n                </div>\n                <p>Base64, Hex et les formats similaires ne sont pas conçus pour protéger des informations. Ils modifient la représentation des données, mais sont généralement faciles à inverser sans mot de passe ni clé secrète.</p>\n                <p>Les algorithmes cryptographiques et les systèmes de chiffrement servent à protéger les données.</p>            </div>"
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Comment choisir le bon outil d’encodage",
+                "text": "<p>Les différents formats d’encodage répondent à des besoins différents. Base64 est couramment utilisé pour transporter des données binaires dans des systèmes textuels, tandis que Hex est utile pour l’inspection au niveau des octets et le débogage.</p><p>L’encodage URL est conçu pour les paramètres de requête et les adresses web, le format binaire permet de visualiser les données au niveau des bits, les séquences d’échappement Unicode sont utiles dans le code source et les API, et le décodeur JWT facilite l’inspection des jetons d’authentification.</p><p>Si vous ne savez pas quel outil utiliser, commencez par le format exigé par l’application, le protocole ou l’API avec lesquels vous travaillez.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "base64",
+            "data": {
+                "title": "Encoder des charges utiles API et JSON",
+                "description": "Utilisez Base64 lorsque vous devez transporter des données binaires ou des charges utiles de services sous une forme textuelle sûre."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "cipher_alias": "url-encode",
+            "data": {
+                "title": "Transmettre des paramètres de requête en toute sécurité",
+                "description": "Encodez les caractères spéciaux afin de garantir la stabilité des URL, des redirections et des requêtes HTTP."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "cipher_alias": "jwt-decoder",
+            "data": {
+                "title": "Inspecter des jetons JWT et leurs champs",
+                "description": "Décodez rapidement la structure des jetons lors du débogage de l’authentification et des API."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "cipher_alias": "hex",
+            "data": {
+                "title": "Analyser des octets et des chaînes Hex",
+                "description": "Travaillez avec des séquences d’octets de bas niveau et des fragments de protocoles sous une forme lisible."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "base64",
+            "second_cipher_alias": "hex",
+            "data": {
+                "title": "Convertissez les données entre le format Base64 adapté au texte et le format Hex au niveau des octets lors du débogage de protocoles."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "hex",
+            "second_cipher_alias": "binary-converter",
+            "data": {
+                "title": "Représentez les structures binaires au format Hex avant de les analyser en détail au niveau des bits."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "jwt-decoder",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Inspectez les sections des jetons et vérifiez l’interprétation des charges utiles Base64URL dans les processus d’authentification."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "first_cipher_alias": "url-encode",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Préparez des données Base64 pour les paramètres de requête et les URL de callback dans les intégrations web."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre l’encodage et le chiffrement ?",
+                "answer": "L’encodage modifie la représentation des données pour leur transfert ou leur stockage. Le chiffrement protège les données à l’aide de clés."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que Base64 ?",
+                "answer": "Base64 représente des données binaires avec des symboles textuels ASCII et est souvent utilisé dans les API et HTTP."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "À quoi sert Hex ?",
+                "answer": "Hex représente chaque octet avec deux symboles et est utile pour le débogage et l’analyse de données binaires."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Peut-on restaurer des données encodées ?",
+                "answer": "Oui. Base64 et Hex sont généralement réversibles lorsque les données d’entrée sont valides."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Est-il sûr de stocker des mots de passe en Base64 ou en Hex ?",
+                "answer": "Non. Base64 et Hex ne sont pas des méthodes sûres de stockage des mots de passe."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Quand faut-il utiliser Base64 plutôt que Hex ?",
+                "answer": "Base64 est plus compact et couramment utilisé pour transporter des données binaires dans des systèmes textuels. Hex est plus facile à lire pour les humains et sert souvent au débogage et à l’analyse au niveau des octets."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Quel format d’encodage choisir ?",
+                "answer": "Utilisez Base64 pour transporter des données binaires sous une forme textuelle sûre, Hex pour inspecter les octets et déboguer, l’encodage URL pour les paramètres de requête et les URL, le format binaire pour l’analyse au niveau des bits, les séquences d’échappement Unicode pour le code source et les API, et le décodeur JWT pour inspecter les jetons d’authentification."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров."
+    ]
+}

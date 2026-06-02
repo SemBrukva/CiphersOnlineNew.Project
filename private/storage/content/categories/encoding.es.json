@@ -1,0 +1,196 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-02T09:22:14+00:00",
+        "category_alias": "encoding",
+        "language": "es",
+        "default_language": "en",
+        "category_id": 1
+    },
+    "category_translation": {
+        "id": 1,
+        "data": {
+            "name": "Codificación y conversión de datos",
+            "name_short": "Codificación",
+            "description": "Herramientas para codificar, decodificar y convertir texto y datos binarios. Utiliza Base64, Hex, codificación URL, formato binario, ASCII, Unicode, JWT y otros formatos en línea.",
+            "meta_title": "Codificación y conversión de datos | Ciphers Online",
+            "meta_description": "Herramientas de codificación y conversión de datos, como Base64, Hex, codificación URL, formato binario, ASCII, conversor Unicode y decodificador JWT."
+        }
+    },
+    "blocks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "¿Qué es la codificación de datos?",
+                "text": "<p>La codificación de datos es el proceso de convertir información a otro formato para transferirla, almacenarla o garantizar la compatibilidad entre sistemas. Formatos como Base64 y Hex facilitan el trabajo con texto y datos binarios en API, correo electrónico, HTTP, archivos y protocolos.</p>\n<p>Los desarrolladores utilizan herramientas de codificación para intercambiar datos de forma segura entre sistemas, diagnosticar cargas útiles, procesar parámetros de consulta, analizar datos a nivel de bytes y convertir información entre distintos formatos.</p>\n<div class=\"block-notice\">\n                <div class=\"block-notice_header\">\n                    <i class=\"bi bi-exclamation-triangle-fill\"></i>\n                    <strong>Codificación ≠ Cifrado</strong>\n                </div>\n                <p>Base64, Hex y otros formatos similares no están diseñados para proteger información. Cambian la representación de los datos, pero normalmente se pueden revertir con facilidad sin contraseña ni clave secreta.</p>\n                <p>Para proteger datos se utilizan algoritmos criptográficos y sistemas de cifrado.</p>            </div>"
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cómo elegir la herramienta de codificación adecuada",
+                "text": "<p>Los distintos formatos de codificación resuelven problemas diferentes. Base64 se utiliza habitualmente para transportar datos binarios a través de sistemas basados en texto, mientras que Hex resulta útil para inspeccionar datos a nivel de bytes y depurar errores.</p><p>La codificación URL está diseñada para parámetros de consulta y direcciones web, el formato binario ayuda a visualizar datos a nivel de bits, las secuencias de escape Unicode son útiles en código fuente y API, y el decodificador JWT permite inspeccionar tokens de autenticación.</p><p>Si no tienes claro qué herramienta utilizar, empieza por el formato requerido por la aplicación, el protocolo o la API con los que estés trabajando.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "base64",
+            "data": {
+                "title": "Codificar cargas útiles de API y JSON",
+                "description": "Utiliza Base64 cuando necesites transportar datos binarios o cargas útiles de servicios en un formato de texto seguro."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "cipher_alias": "url-encode",
+            "data": {
+                "title": "Transportar parámetros de consulta de forma segura",
+                "description": "Codifica caracteres especiales para obtener URL, redirecciones y solicitudes HTTP estables."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "cipher_alias": "jwt-decoder",
+            "data": {
+                "title": "Inspeccionar tokens JWT y sus campos",
+                "description": "Decodifica rápidamente la estructura de los tokens durante la depuración de autenticación y API."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "cipher_alias": "hex",
+            "data": {
+                "title": "Analizar bytes y cadenas Hex",
+                "description": "Trabaja con secuencias de bytes de bajo nivel y fragmentos de protocolos en un formato legible."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "base64",
+            "second_cipher_alias": "hex",
+            "data": {
+                "title": "Convierte datos entre el formato Base64 apto para texto y el formato Hex a nivel de bytes durante la depuración de protocolos."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "hex",
+            "second_cipher_alias": "binary-converter",
+            "data": {
+                "title": "Representa estructuras binarias mediante Hex antes de realizar un análisis detallado a nivel de bits."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "jwt-decoder",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Inspecciona las secciones de los tokens y comprueba la interpretación de cargas útiles Base64URL en los procesos de autenticación."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "first_cipher_alias": "url-encode",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Prepara datos Base64 para parámetros de consulta y URL de callback en integraciones web."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿En qué se diferencia la codificación del cifrado?",
+                "answer": "La codificación cambia la representación de los datos para su transporte o almacenamiento. El cifrado protege los datos mediante claves."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Qué es Base64?",
+                "answer": "Base64 representa datos binarios mediante símbolos de texto ASCII y se utiliza a menudo en API y HTTP."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Para qué se utiliza Hex?",
+                "answer": "Hex representa cada byte mediante dos símbolos y resulta útil para depurar errores y analizar datos binarios."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Se pueden restaurar los datos codificados?",
+                "answer": "Sí. Base64 y Hex suelen ser reversibles cuando los datos de entrada son válidos."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro almacenar contraseñas en Base64 o Hex?",
+                "answer": "No. Base64 y Hex no son métodos seguros para almacenar contraseñas."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Cuándo debo utilizar Base64 en lugar de Hex?",
+                "answer": "Base64 es más compacto y se utiliza habitualmente para transportar datos binarios a través de sistemas basados en texto. Hex resulta más fácil de leer para las personas y suele utilizarse para depurar errores y analizar datos a nivel de bytes."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Qué formato de codificación debo elegir?",
+                "answer": "Utiliza Base64 para transportar datos binarios de forma segura en texto, Hex para inspeccionar bytes y depurar errores, codificación URL para parámetros de consulta y URL, formato binario para análisis a nivel de bits, secuencias de escape Unicode para código fuente y API, y el decodificador JWT para inspeccionar tokens de autenticación."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров."
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-02T09:22:14+00:00",
+        "category_alias": "encoding",
+        "language": "tr",
+        "default_language": "en",
+        "category_id": 1
+    },
+    "category_translation": {
+        "id": 1,
+        "data": {
+            "name": "Kodlama ve Veri Dönüştürme",
+            "name_short": "Kodlama",
+            "description": "Metinleri ve ikili verileri kodlamak, kodlarını çözmek ve dönüştürmek için araçlar. Base64, Hex, URL Kodlama, ikili format, ASCII, Unicode, JWT ve diğer formatları çevrim içi kullanın.",
+            "meta_title": "Kodlama ve Veri Dönüştürme | Ciphers Online",
+            "meta_description": "Base64, Hex, URL Kodlama, ikili format, ASCII, Unicode dönüştürücü ve JWT çözücü dahil olmak üzere kodlama ve veri dönüştürme araçları."
+        }
+    },
+    "blocks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Veri kodlama nedir?",
+                "text": "<p>Veri kodlama; bilgileri aktarmak, saklamak veya sistemler arasında uyumluluk sağlamak için başka bir formata dönüştürme işlemidir. Base64 ve Hex gibi formatlar API’lerde, e-postalarda, HTTP’de, dosyalarda ve protokollerde metinler ve ikili verilerle çalışmayı kolaylaştırır.</p>\n<p>Geliştiriciler kodlama araçlarını sistemler arasında güvenli veri alışverişi, yük verisi tanılama, sorgu parametrelerini işleme, bayt düzeyinde analiz ve farklı formatlar arasında veri dönüştürme için kullanır.</p>\n<div class=\"block-notice\">\n                <div class=\"block-notice_header\">\n                    <i class=\"bi bi-exclamation-triangle-fill\"></i>\n                    <strong>Kodlama ≠ Şifreleme</strong>\n                </div>\n                <p>Base64, Hex ve benzeri formatlar bilgileri korumak için tasarlanmamıştır. Verilerin temsil biçimini değiştirirler, ancak genellikle parola veya gizli anahtar olmadan kolayca tersine çevrilebilirler.</p>\n                <p>Verileri korumak için kriptografik algoritmalar ve şifreleme sistemleri kullanılır.</p>            </div>"
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Doğru kodlama aracı nasıl seçilir?",
+                "text": "<p>Farklı kodlama formatları farklı sorunları çözer. Base64 genellikle ikili verileri metin tabanlı sistemler üzerinden aktarmak için kullanılırken Hex, bayt düzeyinde inceleme ve hata ayıklama için kullanışlıdır.</p><p>URL Kodlama sorgu parametreleri ve web adresleri için tasarlanmıştır; ikili format verileri bit düzeyinde görselleştirmeye yardımcı olur; Unicode kaçış dizileri kaynak kodda ve API’lerde kullanışlıdır; JWT çözücü ise kimlik doğrulama belirteçlerini incelemeyi kolaylaştırır.</p><p>Hangi aracı kullanacağınızdan emin değilseniz çalıştığınız uygulamanın, protokolün veya API’nin gerektirdiği formatla başlayın.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "base64",
+            "data": {
+                "title": "API ve JSON yük verilerini kodlamak",
+                "description": "İkili verileri veya hizmet yük verilerini metin açısından güvenli biçimde aktarmanız gerektiğinde Base64 kullanın."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "cipher_alias": "url-encode",
+            "data": {
+                "title": "Sorgu parametrelerini güvenli biçimde aktarmak",
+                "description": "Kararlı URL’ler, yönlendirmeler ve HTTP istekleri için özel karakterleri kodlayın."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "cipher_alias": "jwt-decoder",
+            "data": {
+                "title": "JWT belirteçlerini ve alanlarını incelemek",
+                "description": "Kimlik doğrulama ve API hata ayıklama süreçlerinde belirteç yapısını hızla çözün."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "cipher_alias": "hex",
+            "data": {
+                "title": "Baytları ve Hex dizelerini analiz etmek",
+                "description": "Düşük düzeyli bayt dizileri ve protokol parçalarıyla okunabilir biçimde çalışın."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "base64",
+            "second_cipher_alias": "hex",
+            "data": {
+                "title": "Protokol hata ayıklama sırasında metin açısından güvenli Base64 ile bayt düzeyindeki Hex formatı arasında veri dönüştürün."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "hex",
+            "second_cipher_alias": "binary-converter",
+            "data": {
+                "title": "Ayrıntılı bit düzeyi analizinden önce ikili yapıları Hex biçiminde gösterin."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "jwt-decoder",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Belirteç bölümlerini inceleyin ve kimlik doğrulama süreçlerinde Base64URL yük verilerinin yorumlanmasını doğrulayın."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "first_cipher_alias": "url-encode",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Web entegrasyonlarında sorgu parametreleri ve callback URL’leri için Base64 verilerini hazırlayın."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Kodlama ve şifreleme arasındaki fark nedir?",
+                "answer": "Kodlama, verilerin aktarım veya saklama için temsil biçimini değiştirir. Şifreleme, verileri anahtarlarla korur."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Base64 nedir?",
+                "answer": "Base64, ikili verileri ASCII metin sembolleriyle temsil eder ve API’lerde ve HTTP’de sıkça kullanılır."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Hex ne için kullanılır?",
+                "answer": "Hex her baytı iki sembolle temsil eder ve hata ayıklama ile ikili veri analizi için kullanışlıdır."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Kodlanmış veriler geri yüklenebilir mi?",
+                "answer": "Evet. Girdi geçerliyse Base64 ve Hex genellikle tersine çevrilebilir."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Parolaları Base64 veya Hex biçiminde saklamak güvenli midir?",
+                "answer": "Hayır. Base64 ve Hex, parolalar için güvenli saklama yöntemleri değildir."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Hex yerine ne zaman Base64 kullanmalıyım?",
+                "answer": "Base64 daha kompakttır ve ikili verileri metin tabanlı sistemler üzerinden aktarmak için sıkça kullanılır. Hex insanlar tarafından daha kolay okunur ve genellikle hata ayıklama ile bayt düzeyinde analiz için kullanılır."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Hangi kodlama formatını seçmeliyim?",
+                "answer": "İkili verileri metin açısından güvenli biçimde aktarmak için Base64, baytları incelemek ve hata ayıklamak için Hex, sorgu parametreleri ve URL’ler için URL Kodlama, bit düzeyinde analiz için ikili format, kaynak kod ve API’ler için Unicode kaçış dizileri, kimlik doğrulama belirteçlerini incelemek için JWT çözücü kullanın."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров."
+    ]
+}

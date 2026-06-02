@@ -5,7 +5,7 @@
         {if $tools}
         <div class="ciphers-category-hub-hero__chips">
             {foreach $tools as $tool}
-                <a class="ciphers-category-hub-hero__chip" href="/{$category.alias}/{$tool.alias}">{$tool.name_short}</a>
+                <a class="ciphers-category-hub-hero__chip" href="{$locale_prefix}/{$category.alias}/{$tool.alias}">{$tool.name_short}</a>
             {/foreach}
         </div>
         {/if}
@@ -25,7 +25,7 @@
             {foreach $tools as $tool}
             <article class="ciphers-category-hub-card">
                 <h2 class="ciphers-category-hub-card__title">
-                    <a href="/{$category.alias}/{$tool.alias}">{$tool.name}</a>
+                    <a href="{$locale_prefix}/{$category.alias}/{$tool.alias}">{$tool.name}</a>
                 </h2>
                 {if $tool.description}
                 <p class="ciphers-category-hub-card__desc">{$tool.description_short}</p>
@@ -51,7 +51,7 @@
         <div class="panel-content">
             <div class="ciphers-category-hub-popular-grid">
                 {foreach $tasks as $task}
-                    <a class="ciphers-category-hub-popular-item" href="/{$category.alias}/{$task.cipher_alias}">
+                    <a class="ciphers-category-hub-popular-item" href="{$locale_prefix}/{$category.alias}/{$task.cipher_alias}">
                     <span class="ciphers-category-hub-popular-item__icon">
                         <i class="bi bi-list-task"></i>
                     </span>
@@ -89,9 +89,9 @@
                 {foreach $used_together as $item}
                     <div class="ciphers-category-hub-combo-card">
                         <div class="ciphers-category-hub-combo-card__tools">
-                            <a class="ciphers-category-hub-combo-tag" href="/{$category.alias}/{$item.first_cipher_alias}">{$item.first_cipher_name_short}</a>
+                            <a class="ciphers-category-hub-combo-tag" href="{$locale_prefix}/{$category.alias}/{$item.first_cipher_alias}">{$item.first_cipher_name_short}</a>
                             <span class="ciphers-category-hub-combo-card__connector"><i class="bi bi-arrow-left-right"></i></span>
-                            <a class="ciphers-category-hub-combo-tag" href="/{$category.alias}/{$item.second_cipher_alias}">{$item.second_cipher_name_short}</a>
+                            <a class="ciphers-category-hub-combo-tag" href="{$locale_prefix}/{$category.alias}/{$item.second_cipher_alias}">{$item.second_cipher_name_short}</a>
                         </div>
                         <p class="ciphers-category-hub-combo-card__desc">{$item.title}</p>
                     </div>

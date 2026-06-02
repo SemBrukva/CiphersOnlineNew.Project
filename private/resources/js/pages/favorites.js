@@ -115,7 +115,8 @@ export async function initFavoritesPage() {
 
     updateNavFavCount()
 
-    const slugs = getFavorites()
+    const slugs  = getFavorites()
+    const locale = grid.dataset.locale || ''
 
     if (slugs.length === 0) {
         if (skeleton) skeleton.style.display = 'none'
@@ -123,10 +124,8 @@ export async function initFavoritesPage() {
         return
     }
 
-    const params = slugs.map(s => 'slugs[]=' + encodeURIComponent(s)).join('&')
-
     try {
-        const data = await window.api.guest.getFavorites(slugs)
+        const data = await window.api.guest.getFavorites(slugs, locale)
         const ciphers = data.ciphers || []
 
         if (skeleton) skeleton.style.display = 'none'

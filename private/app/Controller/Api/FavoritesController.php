@@ -42,8 +42,13 @@ final class FavoritesController
             20
         ));
 
-        $language        = $this->translator->getLocale();
         $defaultLanguage = $this->translator->getDefaultLocale();
+        $localeParam     = $request->query('locale');
+        $language        = (is_string($localeParam) && in_array($localeParam, $this->translator->getLocales(), true))
+            ? $localeParam
+            : $defaultLanguage;
+
+        $localePrefix = ($language !== $defaultLanguage) ? '/' . $language : '';
 
         $ciphers = $this->ciphers->findPublishedBySlugsWithTranslation($slugs, $language, $defaultLanguage);
 
@@ -52,7 +57,7 @@ final class FavoritesController
             'name'        => $c['name'],
             'name_short'  => $c['name_short'],
             'description' => $c['description_short'],
-            'url'         => '/'.$c['category_alias'].'/'.$c['alias'],
+            'url'         => $localePrefix.'/'.$c['category_alias'].'/'.$c['alias'],
         ], $ciphers);
 
         return Response::json(['ciphers' => $result]);

@@ -1,0 +1,196 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-02T09:22:14+00:00",
+        "category_alias": "encoding",
+        "language": "en",
+        "default_language": "en",
+        "category_id": 1
+    },
+    "category_translation": {
+        "id": 1,
+        "data": {
+            "name": "Encoding and Data Conversion",
+            "name_short": "Encoding",
+            "description": "Tools for encoding, decoding, and converting text and binary data. Use Base64, Hex, URL Encode, Binary, ASCII, Unicode, JWT, and other formats online.",
+            "meta_title": "Encoding and Data Conversion | Ciphers Online",
+            "meta_description": "Encoding and data conversion tools including Base64, Hex, URL Encode, Binary, ASCII, Unicode Converter, and JWT Decoder."
+        }
+    },
+    "blocks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is data encoding?",
+                "text": "<p>Data encoding is the process of converting information into another format for transfer, storage, or compatibility between systems. Formats like Base64 and Hex make it easier to work with text and binary data in APIs, email, HTTP, files, and protocols.</p>\n<p>Encoding tools are used by developers for safe data exchange between systems, payload diagnostics, query parameter handling, byte-level analysis, and converting data between different formats.</p>\n<div class=\"block-notice\">\n                <div class=\"block-notice_header\">\n                    <i class=\"bi bi-exclamation-triangle-fill\"></i>\n                    <strong>Encoding ≠ Encryption</strong>\n                </div>\n                <p>Base64, Hex, and similar formats are not meant to protect information. They change data representation, but are usually easily reversible without a password or secret key.</p>\n                <p>Cryptographic algorithms and encryption systems are used to protect data.</p>            </div>"
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "How to choose the right encoding tool",
+                "text": "<p>Different encoding formats solve different problems. Base64 is commonly used for transporting binary data through text-based systems, while Hex is useful for byte-level inspection and debugging.</p><p>URL Encoding is designed for query parameters and web addresses, Binary helps visualize data at the bit level, Unicode escapes are useful for source code and APIs, and JWT Decoder helps inspect authentication tokens.</p><p>If you are unsure which tool to use, start with the format required by the application, protocol, or API you are working with.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "base64",
+            "data": {
+                "title": "Encode API and JSON payloads",
+                "description": "Use Base64 when you need text-safe transport for binary or service payloads."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "cipher_alias": "url-encode",
+            "data": {
+                "title": "Safe query parameter transport",
+                "description": "Encode special characters for stable URLs, redirects, and HTTP requests."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "cipher_alias": "jwt-decoder",
+            "data": {
+                "title": "Inspect JWT tokens and claims",
+                "description": "Decode token structure quickly during auth and API debugging workflows."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "cipher_alias": "hex",
+            "data": {
+                "title": "Analyze bytes and hex strings",
+                "description": "Work with low-level byte sequences and protocol fragments in readable form."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "base64",
+            "second_cipher_alias": "hex",
+            "data": {
+                "title": "Move between text-safe Base64 and byte-level hex format for protocol debugging."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "hex",
+            "second_cipher_alias": "binary-converter",
+            "data": {
+                "title": "Represent binary structures through hex before detailed bit-level analysis."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "jwt-decoder",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Inspect token sections and verify Base64URL payload interpretation in auth pipelines."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "first_cipher_alias": "url-encode",
+            "second_cipher_alias": "base64",
+            "data": {
+                "title": "Prepare Base64 data for query parameters and callback URLs in web integrations."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 1,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How is encoding different from encryption?",
+                "answer": "Encoding changes representation for transport or storage. Encryption protects data with keys."
+            }
+        },
+        {
+            "id": 2,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is Base64?",
+                "answer": "Base64 represents binary data using ASCII text symbols and is often used in APIs and HTTP."
+            }
+        },
+        {
+            "id": 3,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What is Hex used for?",
+                "answer": "Hex represents each byte as two symbols and is useful for debugging and binary analysis."
+            }
+        },
+        {
+            "id": 4,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can encoded data be restored?",
+                "answer": "Yes. Base64 and Hex are typically reversible when the input is valid."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is it safe to store passwords in Base64 or Hex?",
+                "answer": "No. Base64 and Hex are not secure storage methods for passwords."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "When should I use Base64 instead of Hex?",
+                "answer": "Base64 is more compact and is commonly used for transporting binary data through text-based systems. Hex is easier for humans to read and is often used for debugging and byte-level analysis."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Which encoding format should I choose?",
+                "answer": "Use Base64 for text-safe transport of binary data, Hex for byte inspection and debugging, URL Encoding for query parameters and URLs, Binary for bit-level analysis, Unicode escapes for source code and APIs, and JWT Decoder for inspecting authentication tokens."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров."
+    ]
+}

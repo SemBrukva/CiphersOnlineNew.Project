@@ -63,7 +63,7 @@ final readonly class CipherCategoryContentExportCommand implements CommandInterf
                 'Сохраняйте id у каждой сущности без изменений.',
                 'Менять нужно только текстовые поля в data.',
                 'Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.',
-                'Новые элементы без id или с id=0 разрешено добавлять только в файле default_language.',
+                'Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.',
                 'Для новых tasks и used_together указывайте alias связанных шифров.',
             ],
         ];
