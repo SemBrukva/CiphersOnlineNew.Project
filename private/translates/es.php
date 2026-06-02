@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 return [
+    'MENU_NAV'  => 'Menú',
     'MENU_HOME' => 'Inicio',
     'MENU_FAVORITES' => 'Favoritos',
     'BREADCRUMB_HOME' => 'Cifrado en línea',

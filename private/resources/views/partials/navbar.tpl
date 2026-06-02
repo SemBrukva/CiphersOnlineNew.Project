@@ -114,17 +114,40 @@
 <div class="offcanvas offcanvas-end site-nav" id="siteNav" tabindex="-1"
      aria-labelledby="siteNavLabel">
     <div class="offcanvas-header site-nav__header">
-        <div class="site-nav__title" id="siteNavLabel">Navigation</div>
+        <div class="site-nav__title" id="siteNavLabel">{$t.MENU_NAV}</div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body site-nav__body">
+        <div class="site-nav__search-wrap">
+            <i class="bi bi-search site-nav__search-icon"></i>
+            <input id="siteNavSearch" class="site-nav__search" type="search"
+                   placeholder="{$t.SEARCH_PLACEHOLDER|default:'Поиск...'}"
+                   autocomplete="off" spellcheck="false">
+        </div>
+
         {if $nav_main}
             <ul class="site-nav__list">
+                <li class="site-nav__no-results" hidden>{$t.SEARCH_NO_RESULTS|default:'Ничего не найдено'}</li>
                 {foreach $nav_main as $item}
                     {if isset($item.children) && $item.children}
-                        <li class="site-nav__item">
-                            <span class="site-nav__group-label">{$item.label}</span>
-                            <ul class="site-nav__sub">
+                        <li class="site-nav__item site-nav__item--group">
+                            <button class="site-nav__group-btn{if $item.active} active{/if}"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#navGroup{$item@iteration}"
+                                    aria-expanded="{if $item.active}true{else}false{/if}"
+                                    aria-controls="navGroup{$item@iteration}">
+                                {if $item.icon}<i class="bi {$item.icon} site-nav__group-icon"></i>{/if}
+                                <span class="site-nav__group-label">{$item.label}</span>
+                                <i class="bi bi-chevron-down site-nav__chevron"></i>
+                            </button>
+                            <ul class="site-nav__sub collapse{if $item.active} show{/if}" id="navGroup{$item@iteration}">
+                                <li>
+                                    <a class="site-nav__sublink site-nav__sublink--category{if $item.page_active} active{/if}" href="{$item.url}">
+                                        {$item.label}
+                                    </a>
+                                </li>
+                                <li class="site-nav__sub-divider"></li>
                                 {foreach $item.children as $child}
                                     <li>
                                         <a class="site-nav__sublink{if $child.active} active{/if}" href="{$child.url}">

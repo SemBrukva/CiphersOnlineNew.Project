@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 return [
+    'MENU_NAV'  => 'Menü',
     'MENU_HOME' => 'Ana Sayfa',
     'MENU_FAVORITES' => 'Favoriler',
     'BREADCRUMB_HOME' => 'Şifreleme Çevrimiçi',

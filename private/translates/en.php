@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     // Навигация
+    'MENU_NAV'              => 'Menu',
     'MENU_HOME'             => 'Home',
     'MENU_FAVORITES'        => 'Favorites',
     'BREADCRUMB_HOME'       => 'Encryption Online',
