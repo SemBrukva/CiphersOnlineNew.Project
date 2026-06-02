@@ -297,4 +297,6 @@ return [
     'JWT_TRUST_PURPOSE'                => 'Décodage du token sans vérification de signature',
     'JWT_TRUST_PARTS'                  => 'Visualisation des en-têtes et de la charge utile',
     'JWT_TRUST_KEYLESS'                => 'Aucune clé requise pour lire le contenu',
+    // Footer
+    'FOOTER_DESC'                      => 'catalogue des systèmes de chiffrement populaires avec la possibilité de chiffrer et déchiffrer du texte en ligne',
 ];

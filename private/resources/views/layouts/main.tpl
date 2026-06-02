@@ -44,7 +44,7 @@
 
 <footer class="site-footer mt-auto">
     <div class="container">
-        <p>&copy; {$current_year} CiphersOnline &mdash; catalog of popular encryption systems with the ability to encrypt and decrypt text online.</p>
+        <p>&copy; {$current_year} CiphersOnline &mdash; {$t.FOOTER_DESC}.</p>
         <ul class="footer-nav">
             <li><a href="{$locale_prefix}/contacts">{$t.MENU_CONTACTS|default:'Contacts'}</a></li>
             {foreach $nav_pages as $pg}

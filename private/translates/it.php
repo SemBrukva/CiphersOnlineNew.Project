@@ -297,4 +297,6 @@ return [
     'JWT_TRUST_PURPOSE'                => 'Decodifica del token senza verifica della firma',
     'JWT_TRUST_PARTS'                  => 'Visualizzazione di intestazione e payload',
     'JWT_TRUST_KEYLESS'                => 'Nessuna chiave necessaria per leggere il contenuto',
+    // Footer
+    'FOOTER_DESC'                      => 'catalogo dei sistemi di crittografia più diffusi con la possibilità di cifrare e decifrare testo online',
 ];

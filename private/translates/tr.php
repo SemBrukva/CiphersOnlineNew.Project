@@ -297,4 +297,6 @@ return [
     'JWT_TRUST_PURPOSE'                => 'İmza doğrulaması olmadan token çözümleme',
     'JWT_TRUST_PARTS'                  => 'Başlık ve yükü görüntüleme',
     'JWT_TRUST_KEYLESS'                => 'İçeriği okumak için anahtar gerekmez',
+    // Footer
+    'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
 ];

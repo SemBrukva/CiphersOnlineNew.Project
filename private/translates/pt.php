@@ -297,4 +297,6 @@ return [
     'JWT_TRUST_PURPOSE'                => 'Decodificação de token sem verificação de assinatura',
     'JWT_TRUST_PARTS'                  => 'Visualização de cabeçalho e payload',
     'JWT_TRUST_KEYLESS'                => 'Nenhuma chave necessária para ler o conteúdo',
+    // Footer
+    'FOOTER_DESC'                      => 'catálogo de sistemas de criptografia populares com a possibilidade de criptografar e descriptografar texto online',
 ];

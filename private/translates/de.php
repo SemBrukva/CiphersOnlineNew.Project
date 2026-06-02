@@ -297,4 +297,6 @@ return [
     'JWT_TRUST_PURPOSE'                => 'Token ohne Signaturprüfung dekodieren',
     'JWT_TRUST_PARTS'                  => 'Header und Payload einsehen',
     'JWT_TRUST_KEYLESS'                => 'Kein Schlüssel zum Lesen des Inhalts erforderlich',
+    // Footer
+    'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',
 ];

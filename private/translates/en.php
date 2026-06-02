@@ -318,4 +318,6 @@ return [
     'JWT_TRUST_PURPOSE'                => 'Decode token without signature verification',
     'JWT_TRUST_PARTS'                  => 'View header and payload',
     'JWT_TRUST_KEYLESS'                => 'No key required to read the content',
+    // Footer
+    'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];
