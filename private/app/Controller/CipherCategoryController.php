@@ -8,10 +8,11 @@ use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
 use App\Repository\CipherRepository;
+use App\Repository\SystemPageRepository;
 use App\View\View;
 
 /**
- * Контроллер публичных страниц категорий шифров.
+ * Контроллер публичных страниц категорий шифров и системных страниц.
  */
 final readonly class CipherCategoryController
 {
@@ -21,17 +22,29 @@ final readonly class CipherCategoryController
     public function __construct(
         private View $view,
         private CipherCategoryRepository $categories,
-        private CipherRepository $ciphers
+        private CipherRepository $ciphers,
+        private SystemPageRepository $pages
     ) {
     }
 
     /**
-     * Отображает страницу категории по alias и текущей локали.
+     * Отображает системную страницу или страницу категории по alias и текущей локали.
      */
     public function show(Request $request): Response
     {
-        $alias = (string) $request->route('alias', '');
+        $alias    = (string) $request->route('alias', '');
         $language = locale();
+
+        $page = $this->pages->findPublishedByAliasAndLanguage($alias, $language)
+            ?? $this->pages->findPublishedByAlias($alias);
+
+        if ($page !== null) {
+            $this->view
+                ->setTitle($page['name'])
+                ->setContent($this->view->fetch('page/show.tpl', ['page' => $page]));
+
+            return new Response($this->view->render());
+        }
 
         $category = $this->categories->findPublishedCategoryPageByAliasAndLanguage($alias, $language);
 

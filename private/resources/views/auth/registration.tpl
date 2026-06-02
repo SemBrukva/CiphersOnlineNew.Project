@@ -49,7 +49,7 @@
                         <input class="form-check-input" type="checkbox" id="regPolicyAgreement">
                         <label class="form-check-label" for="regPolicyAgreement">
                             {$t.AUTH_POLICY_AGREEMENT_TEXT}
-                            <a href="{$locale_prefix}/page/privacy-policy" target="_blank" rel="noopener noreferrer">
+                            <a href="{$locale_prefix}/privacy-policy" target="_blank" rel="noopener noreferrer">
                                 {$t.AUTH_POLICY_AGREEMENT_LINK}
                             </a>
                         </label>

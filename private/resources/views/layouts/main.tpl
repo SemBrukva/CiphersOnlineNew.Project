@@ -46,7 +46,7 @@
         <p>&copy; {$current_year} CiphersOnline &mdash; catalog of popular encryption systems with the ability to encrypt and decrypt text online.</p>
         <ul class="footer-nav">
             {foreach $nav_pages as $pg}
-                <li><a href="{$locale_prefix}/page/{$pg.alias}">{$pg.name}</a></li>
+                <li><a href="{$locale_prefix}/{$pg.alias}">{$pg.name}</a></li>
             {/foreach}
             <li><a href="{$locale_prefix}/contacts">{$t.MENU_CONTACTS|default:'Contacts'}</a></li>
             <li><a href="{$locale_prefix}/sitemap">{$t.MENU_SITEMAP}</a></li>

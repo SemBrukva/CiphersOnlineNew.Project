@@ -12,7 +12,6 @@ use App\Controller\ContactsController;
 use App\Controller\FavoritesController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
-use App\Controller\PageController;
 use App\Controller\SitemapController;
 use App\Http\Middleware\AuthMiddleware;
 
@@ -59,12 +58,6 @@ return [
         'controller' => AuthController::class,
         'method'     => 'logout',
         'name'       => 'auth.logout',
-    ],
-
-    'GET /page/{alias}' => [
-        'controller' => PageController::class,
-        'method'     => 'show',
-        'name'       => 'page.show',
     ],
 
     'GET /sitemap' => [
