@@ -163,4 +163,13 @@ final class View
         $this->smarty->assign('breadcrumbs', $crumbs);
         return $this;
     }
+
+    /**
+     * Устанавливает значение мета-тега robots (например, «noindex,follow»).
+     */
+    public function setRobots(string $value): static
+    {
+        $this->smarty->assign('meta_robots', $value);
+        return $this;
+    }
 }

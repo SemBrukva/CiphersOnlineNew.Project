@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$title|default:'Application'}</title>
     {if $meta_description}<meta name="description" content="{$meta_description}">{/if}
+    {if $meta_robots}<meta name="robots" content="{$meta_robots}">{/if}
     {assign var="canonical_path" value=$locale_urls[$current_locale]|default:($locale_prefix|cat:$current_path)}
     {assign var="canonical_url" value=$app_url|cat:$canonical_path}
     <link rel="canonical" href="{$canonical_url}">
@@ -45,10 +46,10 @@
     <div class="container">
         <p>&copy; {$current_year} CiphersOnline &mdash; catalog of popular encryption systems with the ability to encrypt and decrypt text online.</p>
         <ul class="footer-nav">
+            <li><a href="{$locale_prefix}/contacts">{$t.MENU_CONTACTS|default:'Contacts'}</a></li>
             {foreach $nav_pages as $pg}
                 <li><a href="{$locale_prefix}/{$pg.alias}">{$pg.name}</a></li>
             {/foreach}
-            <li><a href="{$locale_prefix}/contacts">{$t.MENU_CONTACTS|default:'Contacts'}</a></li>
             <li><a href="{$locale_prefix}/sitemap">{$t.MENU_SITEMAP}</a></li>
         </ul>
     </div>

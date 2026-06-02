@@ -41,6 +41,8 @@ final readonly class CipherCategoryController
         if ($page !== null) {
             $this->view
                 ->setTitle($page['name'])
+                ->setBreadcrumbs([['label' => (string) $page['name']]])
+                ->setRobots('noindex,follow')
                 ->setContent($this->view->fetch('page/show.tpl', ['page' => $page]));
 
             return new Response($this->view->render());
