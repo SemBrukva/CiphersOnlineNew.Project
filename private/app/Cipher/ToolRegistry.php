@@ -94,14 +94,14 @@ final readonly class ToolRegistry
                 ['label' => 'Secret',   'value' => 'HIDE THE GOLD',  'alphabet' => 'en', 'key' => '5678'],
             ],
             'classical-ciphers/vigenere' => [
-                ['label' => 'EN', 'value' => 'ATTACK AT DAWN'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'ATAQUE AL AMANECER'],
+                ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'SECRET'],
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',          'alphabet' => 'en', 'key' => 'VIGENERE'],
+                ['label' => 'Secret',   'value' => 'ATTACK AT DAWN',       'alphabet' => 'en', 'key' => 'KEY'],
             ],
             'classical-ciphers/vernam' => [
-                ['label' => 'EN', 'value' => 'HELLO WORLD'],
-                ['label' => 'RU', 'value' => 'ПРИВЕТ МИР'],
-                ['label' => 'ES', 'value' => 'HOLA MUNDO'],
+                ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'SECRET'],
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',          'alphabet' => 'en', 'key' => 'VERNAM'],
+                ['label' => 'Secret',   'value' => 'ATTACK AT DAWN',       'alphabet' => 'en', 'key' => 'KEY'],
             ],
             'classical-ciphers/atbash' => [
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en'],
@@ -111,7 +111,7 @@ final readonly class ToolRegistry
             'classical-ciphers/bacon' => [
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en'],
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en'],
-                ['label' => 'Stego',    'value' => 'HELLO',           'alphabet' => 'en', 'key' => 'The quick brown fox jumps over the lazy dog'],
+                ['label' => 'Stego',    'value' => 'HELLO',          'alphabet' => 'en', 'key' => 'The quick brown fox jumps over the lazy dog'],
             ],
             'classical-ciphers/a1z26' => [
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en', 'direction' => 'encrypt'],
