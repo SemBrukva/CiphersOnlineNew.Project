@@ -212,39 +212,6 @@
 </section>
 {/if}
 
-{* === FOOTER NAVIGATION === *}
-{if $categories_with_tools}
-<section class="home-footnav">
-    <div class="home-footnav__inner">
-        {foreach $categories_with_tools as $cat}
-        <div class="home-footnav__col">
-            <h4 class="home-footnav__title">
-                <a href="{$locale_prefix}/{$cat.alias}">{$cat.name}</a>
-            </h4>
-            {if $cat.tools}
-            <ul class="home-footnav__list">
-                {foreach $cat.tools as $tool}
-                    <li><a href="{$locale_prefix}/{$cat.alias}/{$tool.alias}">{$tool.name_short}</a></li>
-                {/foreach}
-            </ul>
-            {/if}
-        </div>
-        {/foreach}
-
-        {if $planned_categories}
-        <div class="home-footnav__col home-footnav__col--planned">
-            <h4 class="home-footnav__title">{$t.HOME_COMING_SOON}</h4>
-            <ul class="home-footnav__list">
-                {foreach $planned_categories as $planned}
-                    <li><span>{$planned.name}</span></li>
-                {/foreach}
-            </ul>
-        </div>
-        {/if}
-    </div>
-</section>
-{/if}
-
 <script nonce="{$csp_nonce}">
 (function () {
     var input      = document.getElementById('homeToolSearch');
