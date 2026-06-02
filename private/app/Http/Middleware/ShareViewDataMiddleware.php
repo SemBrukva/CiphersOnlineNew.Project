@@ -76,7 +76,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         $this->view->share('csrf_token', $this->session->csrfToken());
         $this->view->share('auth_user', $authUser);
         $this->view->share('nav_main', $this->navigationBuilder->build($request->path(), $prefix));
-        $this->view->share('nav_pages', $this->loadPages());
+        $this->view->share('nav_pages', $this->loadPages($locale));
         $this->view->share('current_path', $request->path());
         $this->view->share('current_year', (int) date('Y'));
         $this->view->share('t', $this->translationTracker);
@@ -142,10 +142,10 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
      *
      * @return array<int, array<string, mixed>>
      */
-    private function loadPages(): array
+    private function loadPages(string $language): array
     {
         try {
-            return $this->pages->listPublishedForNavigation();
+            return $this->pages->listPublishedForNavigation($language);
         } catch (\Throwable) {
             return [];
         }

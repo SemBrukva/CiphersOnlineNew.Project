@@ -55,10 +55,11 @@ final class SystemPageRepository extends AbstractRepository
      *
      * @return array<int, array{alias:string, name:string}>
      */
-    public function listPublishedForNavigation(): array
+    public function listPublishedForNavigation(string $language): array
     {
         return $this->db->fetchAll(
-            'SELECT alias, name FROM ' . $this->table . ' WHERE published = 1 ORDER BY id'
+            'SELECT alias, name FROM ' . $this->table . ' WHERE language = ? AND published = 1 ORDER BY id',
+            [$language]
         );
     }
 }

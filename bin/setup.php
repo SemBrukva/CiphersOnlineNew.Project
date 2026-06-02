@@ -16,8 +16,6 @@ require_once BASE_PATH . '/vendor/autoload.php';
 require_once PRIVATE_PATH . '/bootstrap.php';
 
 $db     = app(App\Database\Database::class);
-$driver = config('database.default', 'sqlite');
-
 // ─── Миграции ────────────────────────────────────────────────────────────────
 
 $migrator = app(App\Database\Migrator::class);
@@ -33,13 +31,8 @@ if (empty($ran)) {
 
 // ─── Начальные данные ─────────────────────────────────────────────────────────
 
+$driver = config('database.default', 'sqlite');
 $ignore = $driver === 'sqlite' ? 'INSERT OR IGNORE' : 'INSERT IGNORE';
-
-$db->execute(
-    "{$ignore} INTO system_pages (language, alias, name, text, published) VALUES (?, ?, ?, ?, ?)",
-    ['en', 'privacy', 'Privacy Policy', '<p>This is the privacy policy page.</p>', 1]
-);
-echo 'Seeded: system_pages — Privacy Policy (en)' . PHP_EOL;
 
 $db->execute(
     "{$ignore} INTO users (name, email, password) VALUES (?, ?, ?)",
