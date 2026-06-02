@@ -113,6 +113,11 @@ export class ApiClient {
         bacon: (data) => this.#request('POST', '/tools/bacon', data),
         /** POST /api/tools/a1z26 */
         a1z26: (data) => this.#request('POST', '/tools/a1z26', data),
+        /** GET /api/tools/search?q=...&locale=ru */
+        searchTools: (q, locale = '') => {
+            const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')
+            return this.#request('GET', '/tools/search?' + params)
+        },
         /** GET /api/favorites/ciphers?slugs[]=...&locale=ru */
         getFavorites: (slugs, locale = '') => {
             const params = slugs.map(s => 'slugs[]=' + encodeURIComponent(s)).join('&')

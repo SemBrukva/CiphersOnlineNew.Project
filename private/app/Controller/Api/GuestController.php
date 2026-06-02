@@ -21,6 +21,7 @@ use App\Http\Exception\ValidationFailedException;
 use App\Http\Request;
 use App\Http\Response;
 use App\I18n\Translator;
+use App\Repository\CipherRepository;
 use App\Repository\ContactRepository;
 use App\Repository\UserRepository;
 
@@ -38,7 +39,8 @@ final class GuestController
         private readonly Auth $auth,
         private readonly Translator $translator,
         private readonly EventDispatcherInterface $dispatcher,
-        private readonly ApiCipherToolRegistry $cipherTools
+        private readonly ApiCipherToolRegistry $cipherTools,
+        private readonly CipherRepository $ciphers,
     ) {
     }
 
@@ -305,6 +307,41 @@ final class GuestController
     public function a1z26(Request $request): Response
     {
         return $this->handleCipherTool($request, 'a1z26');
+    }
+
+    /**
+     * Выполняет полнотекстовый поиск инструментов по запросу.
+     *
+     * GET /api/tools/search?q=caesar&locale=ru
+     */
+    public function searchTools(Request $request): Response
+    {
+        $query = trim((string) ($request->query('q') ?? ''));
+        $locale = trim((string) ($request->query('locale') ?? ''));
+
+        if (mb_strlen($query) < 2) {
+            return Response::json(['results' => []]);
+        }
+
+        $query = mb_substr($query, 0, 100);
+
+        $defaultLanguage = (string) config('locale.locale', 'en');
+        $language = ($locale !== '' && in_array($locale, $this->translator->getLocales(), true))
+            ? $locale
+            : $defaultLanguage;
+
+        $rows = $this->ciphers->searchPublished($query, $language, $defaultLanguage, 10);
+
+        $results = array_map(static function (array $row): array {
+            return [
+                'alias'            => (string) $row['alias'],
+                'category_alias'   => (string) $row['category_alias'],
+                'name_short'       => (string) $row['name_short'],
+                'description_short' => (string) $row['description_short'],
+            ];
+        }, $rows);
+
+        return Response::json(['results' => $results]);
     }
 
     /**

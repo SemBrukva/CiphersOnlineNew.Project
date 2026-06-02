@@ -99,6 +99,13 @@ return [
         'name'       => 'api.tools.a1z26',
     ],
 
+    'GET /tools/search' => [
+        'controller' => GuestController::class,
+        'method'     => 'searchTools',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.search',
+    ],
+
     'GET /favorites/ciphers' => [
         'controller' => ApiFavoritesController::class,
         'method'     => 'ciphers',

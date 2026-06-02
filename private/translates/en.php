@@ -50,6 +50,7 @@ return [
     'HOME_HERO_TITLE'                  => 'Online tools for encryption, encoding and data conversion',
     'HOME_HERO_SUBTITLE'               => 'Classical ciphers, Base64, JWT, Hex, URL Encode and other tools for developers, learning and data analysis.',
     'HOME_SEARCH_PLACEHOLDER'          => 'Search tools — Base64, Caesar, JWT…',
+    'HOME_SEARCH_NO_RESULTS'           => 'No tools found',
     'HOME_QUICK_ACCESS'                => 'Quick access',
     'HOME_CATEGORIES_TITLE'            => 'Main categories',
     'HOME_CATEGORIES_LEAD'             => 'Navigation hubs grouped by purpose. Each category bundles related tools, explanatory blocks and use cases.',

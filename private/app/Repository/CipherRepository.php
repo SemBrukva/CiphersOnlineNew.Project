@@ -575,6 +575,61 @@ final class CipherRepository extends AbstractRepository
     }
 
     /**
+     * Ищет опубликованные шифры по строке запроса (name_short, name, alias).
+     *
+     * Фильтрация выполняется на PHP через mb_strtolower, чтобы корректно
+     * обрабатывать кириллицу и другие Unicode-символы: LOWER() в SQLite
+     * работает только для ASCII.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function searchPublished(string $query, string $language, string $defaultLanguage, int $limit = 10): array
+    {
+        $rows = $this->db->fetchAll(
+            'SELECT c.id, c.alias, cat.alias AS category_alias, '
+            . 'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name_short, '
+            . 'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
+            . 'COALESCE(t_cur.description_stort, t_def.description_stort, \'\') AS description_short '
+            . 'FROM ' . $this->table . ' c '
+            . 'INNER JOIN ' . Tables::CIPHER_CATEGORIES . ' cat ON cat.id = c.category_id AND cat.published = 1 '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_TRANSLATIONS . ' t_def ON t_def.app_id = c.id AND t_def.language = ? '
+            . 'WHERE c.published = 1 '
+            . 'ORDER BY c.sort_order ASC, c.id ASC',
+            [$language, $defaultLanguage]
+        );
+
+        $needle = mb_strtolower($query);
+
+        $prefixMatches = [];
+        $otherMatches  = [];
+
+        foreach ($rows as $row) {
+            $nameShort = mb_strtolower((string) $row['name_short']);
+            $name      = mb_strtolower((string) $row['name']);
+            $alias     = mb_strtolower((string) $row['alias']);
+
+            $matched = mb_strpos($nameShort, $needle) !== false
+                || mb_strpos($name, $needle) !== false
+                || mb_strpos($alias, $needle) !== false;
+
+            if (!$matched) {
+                continue;
+            }
+
+            unset($row['name']);
+
+            if (str_starts_with($nameShort, $needle)) {
+                $prefixMatches[] = $row;
+            } else {
+                $otherMatches[] = $row;
+            }
+        }
+
+        return array_slice(array_merge($prefixMatches, $otherMatches), 0, $limit);
+    }
+
+    /**
      * Проверяет уникальность alias среди шифров.
      */
     public function existsByAlias(string $alias, ?int $exceptId = null): bool
