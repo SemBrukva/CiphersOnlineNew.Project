@@ -123,6 +123,23 @@ php bin/console cipher:content:import private/storage/content/classical-ciphers.
 Для расширения секций `blocks`, `faq`, `examples`, `tags` добавляйте новые элементы без `id` (или с `id: 0`) только в файле, где `meta.language == meta.default_language` (обычно `en`).
 В остальных языках добавлять новые сущности нельзя: там нужно переводить уже существующие `id`.
 
+### Контент страниц категорий через JSON
+
+Для категорий шифров доступен аналогичный экспорт/импорт:
+
+```bash
+# Экспорт контента категории
+php bin/console cipher:category:content:export <category_alias> <language> [output_path]
+
+# Проверка импорта без записи в БД
+php bin/console cipher:category:content:import private/storage/content/categories/encoding.en.json --dry-run
+
+# Боевой импорт
+php bin/console cipher:category:content:import private/storage/content/categories/encoding.en.json
+```
+
+Подробный формат описан в [docs/cipher-category-content-json.md](docs/cipher-category-content-json.md).
+
 ### Skill для локализации JSON
 
 В репозитории есть skill для локализации контента шифров с обязательной валидацией примеров через API:

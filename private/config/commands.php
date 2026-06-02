@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 use App\Console\Commands\CipherContentExportCommand;
 use App\Console\Commands\CipherContentImportCommand;
+use App\Console\Commands\CipherCategoryContentExportCommand;
+use App\Console\Commands\CipherCategoryContentImportCommand;
 use App\Console\Commands\ConfigCacheCommand;
 use App\Console\Commands\ConfigClearCommand;
 use App\Console\Commands\MailTestCommand;
@@ -44,4 +46,6 @@ return [
     'openapi:generate'  => OpenApiCommand::class,
     'cipher:content:export' => CipherContentExportCommand::class,
     'cipher:content:import' => CipherContentImportCommand::class,
+    'cipher:category:content:export' => CipherCategoryContentExportCommand::class,
+    'cipher:category:content:import' => CipherCategoryContentImportCommand::class,
 ];
