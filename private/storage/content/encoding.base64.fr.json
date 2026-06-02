@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-02T10:15:00+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base64",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 1,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 1,
+        "data": {
+            "name": "Encodeur et décodeur Base64",
+            "name_short": "Base64",
+            "description": "Encodez et décodez du Base64 directement dans votre navigateur. Compatible avec UTF-8, Unicode, les charges utiles JSON et les données d'API. Les données sont traitées localement et ne sont pas envoyées au serveur.",
+            "description_stort": "Encodez du texte et des données binaires en Base64, puis décodez-les avec la prise en charge d'UTF-8.",
+            "meta_title": "Encodeur et décodeur Base64 | Ciphers Online",
+            "meta_description": "Encodez et décodez du Base64 en ligne. Compatible avec le texte UTF-8, les charges utiles JSON, les données d'API, les en-têtes HTTP et le contenu Unicode directement dans votre navigateur."
+        }
+    },
+    "blocks": [
+        {
+            "id": 29,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement de Base64",
+                "text": "<p>Base64 convertit les données binaires en une représentation textuelle à l'aide d'un ensemble de 64 caractères ASCII. Chaque groupe de 3 octets des données source est transformé en 4 caractères Base64, ce qui augmente la taille du résultat d'environ 33 %.</p><p>Comme le résultat ne contient que des caractères textuels sûrs, Base64 est largement utilisé dans les API, les charges utiles JSON, les pièces jointes d'e-mails, les jetons JWT, les en-têtes HTTP, les URI de données et de nombreux autres systèmes qui doivent transporter des données binaires via des canaux textuels.</p>"
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64 et sécurité",
+                "text": "<p>Base64 est un moyen de représenter des données, et non une méthode de chiffrement. Une chaîne encodée peut être facilement décodée sans mot de passe ni clé secrète. Base64 est utile pour transférer des données, mais n'offre ni protection ni confidentialité.</p>"
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cas d'utilisation courants de Base64",
+                "text": "<p>Base64 est couramment utilisé lorsque des données binaires doivent être représentées sous forme de texte. Les exemples classiques incluent les requêtes et réponses d'API, les charges utiles JSON, les pièces jointes d'e-mails, les jetons JWT, les URI de données permettant d'intégrer des images et les fichiers de configuration.</p><p>Les développeurs utilisent souvent Base64 pour transférer en toute sécurité des fichiers, des images, des certificats, des clés cryptographiques et d'autres contenus binaires via des systèmes principalement conçus pour le texte.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 64,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Base64 est-il sécurisé ?",
+                "answer": "Non. Base64 modifie uniquement la représentation des données et cette transformation est facilement réversible."
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le caractère = apparaît-il à la fin ?",
+                "answer": "Il s'agit d'un caractère de remplissage utilisé pour aligner les données sur des groupes de 4 caractères."
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Peut-on décoder du Base64 ?",
+                "answer": "Oui. Base64 peut facilement être décodé pour retrouver les données d'origine sans mot de passe ni clé secrète."
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Où Base64 est-il utilisé ?",
+                "answer": "Base64 est largement utilisé dans les API, les e-mails, JSON, JWT, les en-têtes HTTP et pour transférer des données binaires via des protocoles textuels."
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Pourquoi une chaîne Base64 est-elle plus longue que les données d'origine ?",
+                "answer": "Chaque groupe de 3 octets est encodé en 4 caractères Base64. La taille de la chaîne augmente donc d'environ 33 %."
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre Base64 et le chiffrement ?",
+                "answer": "Base64 n'est pas conçu pour protéger les données. Il s'agit d'un format d'encodage et non d'une méthode de chiffrement."
+            }
+        },
+        {
+            "id": 70,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Peut-on stocker un mot de passe en Base64 ?",
+                "answer": "Non. Base64 ne protège pas les données. Stocker des mots de passe de cette manière n'est donc pas sécurisé."
+            }
+        },
+        {
+            "id": 153,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Pourquoi Base64 est-il couramment utilisé dans les API ?",
+                "answer": "De nombreuses API et de nombreux protocoles sont conçus pour gérer du texte plutôt que des données binaires brutes. Base64 permet de transmettre des fichiers, des images et d'autres contenus binaires en toute sécurité sous forme de texte."
+            }
+        },
+        {
+            "id": 154,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre Base64 et Base64URL ?",
+                "answer": "Base64URL est une variante de Base64 compatible avec les URL. Elle remplace des caractères tels que '+' et '/' par des équivalents adaptés aux URL. Elle est couramment utilisée dans les jetons JWT et les applications web."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder du texte simple",
+                "key": "",
+                "shift": 0,
+                "input": "Bonjour le monde !",
+                "output": "Qm9uam91ciBsZSBtb25kZSAh",
+                "description": "Convertissez du texte UTF-8 simple en Base64."
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Décoder une chaîne Base64",
+                "key": "",
+                "shift": 0,
+                "input": "Qm9uam91ciBsZSBtb25kZSAh",
+                "output": "Bonjour le monde !",
+                "description": "Restaurez le texte d'origine à partir d'une chaîne Base64."
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder une charge utile JSON",
+                "key": "",
+                "shift": 0,
+                "input": "{\"user\":\"jean\",\"role\":\"admin\"}",
+                "output": "eyJ1c2VyIjoiamVhbiIsInJvbGUiOiJhZG1pbiJ9",
+                "description": "Base64 est souvent utilisé pour transporter des données JSON via des API."
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder du texte Unicode",
+                "key": "",
+                "shift": 0,
+                "input": "Café, résumé et émoji ☕",
+                "output": "Q2Fmw6ksIHLDqXN1bcOpIGV0IMOpbW9qaSDimJU=",
+                "description": "Base64 préserve correctement les caractères accentués, les émojis et les autres contenus Unicode."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 22,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Encodage de données binaires en texte"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Prise en charge d'UTF-8"
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Adapté aux développeurs"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

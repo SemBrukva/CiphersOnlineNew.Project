@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-02T10:15:00+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base64",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 1,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 1,
+        "data": {
+            "name": "Base64-Encoder und -Decoder",
+            "name_short": "Base64",
+            "description": "Kodieren und dekodieren Sie Base64 direkt in Ihrem Browser. Unterstützt werden UTF-8, Unicode, JSON-Nutzdaten und API-Daten. Die Daten werden lokal verarbeitet und nicht an den Server gesendet.",
+            "description_stort": "Kodieren Sie Text und Binärdaten in Base64 und dekodieren Sie sie mit UTF-8-Unterstützung zurück.",
+            "meta_title": "Base64-Encoder und -Decoder | Ciphers Online",
+            "meta_description": "Kodieren und dekodieren Sie Base64 online. Unterstützt werden UTF-8-Text, JSON-Nutzdaten, API-Daten, HTTP-Header und Unicode-Inhalte direkt in Ihrem Browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 29,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert Base64",
+                "text": "<p>Base64 wandelt Binärdaten mithilfe eines Zeichensatzes aus 64 ASCII-Zeichen in eine Textdarstellung um. Jeweils 3 Byte der Ausgangsdaten werden in 4 Base64-Zeichen umgewandelt. Dadurch erhöht sich die Größe des Ergebnisses um etwa 33 %.</p><p>Da das Ergebnis nur sichere Textzeichen enthält, wird Base64 häufig in APIs, JSON-Nutzdaten, E-Mail-Anhängen, JWT-Tokens, HTTP-Headern, Data-URIs und vielen anderen Systemen verwendet, die Binärdaten über textbasierte Kanäle übertragen müssen.</p>"
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64 und Sicherheit",
+                "text": "<p>Base64 ist eine Darstellungsform für Daten und kein Verschlüsselungsverfahren. Eine kodierte Zeichenfolge lässt sich ohne Passwort oder geheimen Schlüssel leicht wieder dekodieren. Base64 ist für die Übertragung von Daten nützlich, bietet aber keinen Schutz und keine Vertraulichkeit.</p>"
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Typische Anwendungsfälle für Base64",
+                "text": "<p>Base64 wird häufig verwendet, wenn Binärdaten als Text dargestellt werden müssen. Typische Beispiele sind API-Anfragen und -Antworten, JSON-Nutzdaten, E-Mail-Anhänge, JWT-Tokens, Data-URIs zum Einbetten von Bildern und Konfigurationsdateien.</p><p>Entwickler verwenden Base64 häufig, um Dateien, Bilder, Zertifikate, kryptografische Schlüssel und andere Binärdaten sicher über Systeme zu übertragen, die in erster Linie Text erwarten.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 64,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Ist Base64 sicher?",
+                "answer": "Nein. Base64 ändert lediglich die Darstellung der Daten und lässt sich leicht rückgängig machen."
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum steht am Ende ein =?",
+                "answer": "Dabei handelt es sich um ein Füllzeichen, das die Daten an Gruppen mit jeweils 4 Zeichen ausrichtet."
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Kann Base64 wieder dekodiert werden?",
+                "answer": "Ja. Base64 lässt sich ohne Passwort oder geheimen Schlüssel leicht in die ursprünglichen Daten zurückdekodieren."
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Wo wird Base64 verwendet?",
+                "answer": "Base64 wird häufig in APIs, E-Mails, JSON, JWT, HTTP-Headern und bei der Übertragung von Binärdaten über textbasierte Protokolle eingesetzt."
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Warum ist eine Base64-Zeichenfolge länger als die Ausgangsdaten?",
+                "answer": "Jeweils 3 Byte werden in 4 Base64-Zeichen kodiert. Dadurch erhöht sich die Größe der Zeichenfolge um etwa 33 %."
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Wie unterscheidet sich Base64 von einer Verschlüsselung?",
+                "answer": "Base64 ist nicht zum Schutz von Daten gedacht. Es handelt sich um ein Kodierungsformat und nicht um ein Verschlüsselungsverfahren."
+            }
+        },
+        {
+            "id": 70,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Kann ein Passwort in Base64 gespeichert werden?",
+                "answer": "Nein. Base64 bietet keine Datensicherheit. Passwörter auf diese Weise zu speichern ist daher unsicher."
+            }
+        },
+        {
+            "id": 153,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Warum wird Base64 häufig in APIs verwendet?",
+                "answer": "Viele APIs und Protokolle sind auf Text statt auf rohe Binärdaten ausgelegt. Mit Base64 lassen sich Dateien, Bilder und andere Binärdaten sicher als Text übertragen."
+            }
+        },
+        {
+            "id": 154,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen Base64 und Base64URL?",
+                "answer": "Base64URL ist eine URL-sichere Variante von Base64, bei der Zeichen wie '+' und '/' durch URL-kompatible Alternativen ersetzt werden. Sie wird häufig in JWT-Tokens und Webanwendungen verwendet."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Einfachen Text kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "Hallo, Welt!",
+                "output": "SGFsbG8sIFdlbHQh",
+                "description": "Wandeln Sie einfachen UTF-8-Text in Base64 um."
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Base64-Zeichenfolge dekodieren",
+                "key": "",
+                "shift": 0,
+                "input": "SGFsbG8sIFdlbHQh",
+                "output": "Hallo, Welt!",
+                "description": "Stellen Sie den ursprünglichen Text aus einer Base64-Zeichenfolge wieder her."
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "JSON-Nutzdaten kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "{\"user\":\"johann\",\"role\":\"admin\"}",
+                "output": "eyJ1c2VyIjoiam9oYW5uIiwicm9sZSI6ImFkbWluIn0=",
+                "description": "Base64 wird häufig verwendet, um JSON-Daten über APIs zu übertragen."
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Unicode-Text kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "Café, Grüße und Emoji ☕",
+                "output": "Q2Fmw6ksIEdyw7zDn2UgdW5kIEVtb2ppIOKYlQ==",
+                "description": "Base64 bewahrt Umlaute, Emojis und andere Unicode-Inhalte korrekt."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 22,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Binärdaten-zu-Text-Kodierung"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "UTF-8-Unterstützung"
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Entwicklerfreundlich"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

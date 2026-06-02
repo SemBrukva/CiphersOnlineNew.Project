@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-02T10:15:00+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base64",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 1,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 1,
+        "data": {
+            "name": "Base64 Kodlayıcı ve Kod Çözücü",
+            "name_short": "Base64",
+            "description": "Base64 verilerini doğrudan tarayıcınızda kodlayın ve çözün. UTF-8, Unicode, JSON yük verileri ve API verileri desteklenir. Veriler yerel olarak işlenir ve sunucuya gönderilmez.",
+            "description_stort": "Metinleri ve ikili verileri Base64 biçiminde kodlayın, UTF-8 desteğiyle tekrar çözün.",
+            "meta_title": "Base64 Kodlayıcı ve Kod Çözücü | Ciphers Online",
+            "meta_description": "Base64 verilerini çevrimiçi kodlayın ve çözün. UTF-8 metinleri, JSON yük verilerini, API verilerini, HTTP başlıklarını ve Unicode içeriklerini doğrudan tarayıcınızda işleyin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 29,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Base64 Nasıl Çalışır?",
+                "text": "<p>Base64, ikili verileri 64 ASCII karakterinden oluşan bir küme kullanarak metin biçiminde temsil eder. Kaynak verideki her 3 bayt, 4 Base64 karakterine dönüştürülür. Bu nedenle sonuç yaklaşık %33 daha uzun olur.</p><p>Sonuç yalnızca güvenli metin karakterleri içerdiğinden Base64; API'lerde, JSON yük verilerinde, e-posta eklerinde, JWT belirteçlerinde, HTTP başlıklarında, Data URI'lerde ve ikili verileri metin tabanlı kanallar üzerinden taşıması gereken birçok sistemde yaygın olarak kullanılır.</p>"
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64 ve Güvenlik",
+                "text": "<p>Base64, verileri temsil etmenin bir yoludur; bir şifreleme yöntemi değildir. Kodlanmış bir metin, parola veya gizli anahtar olmadan kolayca tekrar çözülebilir. Base64 veri aktarımı için kullanışlıdır ancak koruma veya gizlilik sağlamaz.</p>"
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Yaygın Base64 Kullanım Alanları",
+                "text": "<p>Base64, ikili verilerin metin olarak temsil edilmesi gerektiğinde yaygın olarak kullanılır. API istekleri ve yanıtları, JSON yük verileri, e-posta ekleri, JWT belirteçleri, görselleri gömmek için Data URI'ler ve yapılandırma dosyaları tipik örneklerdir.</p><p>Geliştiriciler dosyaları, görselleri, sertifikaları, kriptografik anahtarları ve diğer ikili içerikleri öncelikle metin bekleyen sistemler üzerinden güvenli biçimde aktarmak için sıklıkla Base64 kullanır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 64,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Base64 güvenli midir?",
+                "answer": "Hayır. Yalnızca verinin temsil biçimini değiştirir ve kolayca tersine çevrilebilir."
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Sonda neden = işareti görünüyor?",
+                "answer": "Bu, verileri 4 karakterlik gruplara hizalamak için kullanılan dolgu karakteridir."
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Base64 tekrar çözülebilir mi?",
+                "answer": "Evet. Base64, parola veya gizli anahtar olmadan kolayca çözülerek özgün verilere dönüştürülebilir."
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Base64 nerede kullanılır?",
+                "answer": "Base64; API'lerde, e-postalarda, JSON verilerinde, JWT belirteçlerinde, HTTP başlıklarında ve ikili verilerin metin tabanlı protokoller üzerinden aktarılmasında yaygın olarak kullanılır."
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Base64 metni neden özgün veriden daha uzundur?",
+                "answer": "Her 3 bayt veri 4 Base64 karakteri olarak kodlanır. Bu nedenle metnin boyutu yaklaşık %33 artar."
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Base64 ile şifreleme arasındaki fark nedir?",
+                "answer": "Base64 verileri korumak için tasarlanmamıştır. Bir şifreleme yöntemi değil, kodlama biçimidir."
+            }
+        },
+        {
+            "id": 70,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Parolalar Base64 biçiminde saklanabilir mi?",
+                "answer": "Hayır. Base64 veri güvenliği sağlamaz, bu nedenle parolaları bu şekilde saklamak güvenli değildir."
+            }
+        },
+        {
+            "id": 153,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Base64 neden API'lerde yaygın olarak kullanılır?",
+                "answer": "Birçok API ve protokol, ham ikili veriler yerine metin işlemek üzere tasarlanmıştır. Base64; dosyaların, görsellerin ve diğer ikili içeriklerin metin olarak güvenli biçimde aktarılmasını sağlar."
+            }
+        },
+        {
+            "id": 154,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Base64 ile Base64URL arasındaki fark nedir?",
+                "answer": "Base64URL, '+' ve '/' gibi karakterleri URL uyumlu alternatiflerle değiştiren, URL'ler için güvenli bir Base64 çeşididir. JWT belirteçlerinde ve web uygulamalarında yaygın olarak kullanılır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 43,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Düz metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba, dünya!",
+                "output": "TWVyaGFiYSwgZMO8bnlhIQ==",
+                "description": "Düz UTF-8 metnini Base64 biçimine dönüştürün."
+            }
+        },
+        {
+            "id": 44,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Base64 metnini çözme",
+                "key": "",
+                "shift": 0,
+                "input": "TWVyaGFiYSwgZMO8bnlhIQ==",
+                "output": "Merhaba, dünya!",
+                "description": "Özgün metni bir Base64 metninden geri yükleyin."
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "JSON yük verisini kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "{\"user\":\"ayse\",\"role\":\"admin\"}",
+                "output": "eyJ1c2VyIjoiYXlzZSIsInJvbGUiOiJhZG1pbiJ9",
+                "description": "Base64, JSON verilerini API'ler üzerinden taşımak için sıklıkla kullanılır."
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Unicode metnini kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Kahve, şifre ve emoji ☕",
+                "output": "S2FodmUsIMWfaWZyZSB2ZSBlbW9qaSDimJU=",
+                "description": "Base64; Türkçe karakterleri, emojileri ve diğer Unicode içeriklerini doğru şekilde korur."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 22,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "İkili veriden metne kodlama"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "UTF-8 desteği"
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Geliştirici dostu"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

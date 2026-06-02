@@ -40,7 +40,7 @@ final readonly class ToolRegistry
         return match ($canonicalSlug) {
             'encoding/base64' => [
                 ['label' => 'JSON', 'value' => '{"id":42,"role":"admin","active":true}'],
-                ['label' => 'Unicode', 'value' => 'Привет мир 👋'],
+                ['label' => 'Unicode', 'value' => 'Café naïve résumé ☕'],
                 ['label' => 'Header', 'value' => 'Authorization: Basic dXNlcjpwYXNzd29yZA=='],
             ],
             'encoding/hex' => [
