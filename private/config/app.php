@@ -17,6 +17,11 @@ return [
         env('APP_FORCE_HTTPS', false),
         FILTER_VALIDATE_BOOL
     ),
+    'dev_basic_auth' => [
+        'username' => env('DEV_BASIC_AUTH_USER', ''),
+        'password' => env('DEV_BASIC_AUTH_PASSWORD', ''),
+        'realm'    => env('DEV_BASIC_AUTH_REALM', 'Dev Server'),
+    ],
     'charset' => 'UTF-8',
     'user_registration' => filter_var(
         env('USER_REGISTRATION', false),

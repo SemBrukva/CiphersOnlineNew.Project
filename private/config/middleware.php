@@ -5,6 +5,7 @@ declare(strict_types=1);
 // Глобальный стек middleware для веб-маршрутов; выполняется для каждого запроса в указанном порядке.
 
 use App\Http\Middleware\CsrfMiddleware;
+use App\Http\Middleware\DevBasicAuthMiddleware;
 use App\Http\Middleware\EnforceHttpsMiddleware;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Http\Middleware\RedirectMiddleware;
@@ -16,6 +17,7 @@ use App\Http\Middleware\TrustedProxyMiddleware;
 
 return [
     TrustedProxyMiddleware::class,
+    DevBasicAuthMiddleware::class,
     EnforceHttpsMiddleware::class,
     TrailingSlashMiddleware::class,
     SecurityHeadersMiddleware::class,

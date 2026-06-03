@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Middleware\CorsMiddleware;
+use App\Http\Middleware\DevBasicAuthMiddleware;
 use App\Http\Middleware\EnforceHttpsMiddleware;
 use App\Http\Middleware\SessionMiddleware;
 use App\Http\Middleware\TrustedProxyMiddleware;
@@ -15,6 +16,7 @@ use App\Http\Middleware\TrustedProxyMiddleware;
  */
 return [
     TrustedProxyMiddleware::class,
+    DevBasicAuthMiddleware::class,
     EnforceHttpsMiddleware::class,
     CorsMiddleware::class,
     SessionMiddleware::class,

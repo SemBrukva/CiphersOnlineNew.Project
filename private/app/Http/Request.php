@@ -117,6 +117,14 @@ final readonly class Request
     }
 
     /**
+     * Возвращает значение серверной переменной запроса.
+     */
+    public function server(string $key, mixed $default = null): mixed
+    {
+        return $this->server[$key] ?? $default;
+    }
+
+    /**
      * Возвращает все параметры строки запроса ($_GET).
      *
      * @return array<string, mixed>
