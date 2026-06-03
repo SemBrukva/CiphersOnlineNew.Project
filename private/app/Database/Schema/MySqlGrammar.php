@@ -53,7 +53,7 @@ final class MySqlGrammar extends Grammar
             $col      = $this->wrap($fk->column);
             $refCol   = $this->wrap($fk->getReferences());
             $refTable = $this->wrap($fk->getOn());
-            $fkName   = 'fk_' . $fk->column;
+            $fkName   = $this->foreignKeyName($table, $fk->column);
             $actions  = $this->compileFkActions($fk);
             $defs[]   = "CONSTRAINT `{$fkName}` FOREIGN KEY ({$col}) REFERENCES {$refTable} ({$refCol}){$actions}";
         }
@@ -140,6 +140,20 @@ final class MySqlGrammar extends Grammar
     protected function wrap(string $value): string
     {
         return '`' . str_replace('`', '``', $value) . '`';
+    }
+
+    /**
+     * Генерирует уникальное имя внешнего ключа для MySQL.
+     */
+    private function foreignKeyName(string $table, string $column): string
+    {
+        $name = 'fk_' . $table . '_' . $column;
+
+        if (strlen($name) <= 64) {
+            return $name;
+        }
+
+        return substr($name, 0, 55) . '_' . substr(sha1($name), 0, 8);
     }
 
     /**
