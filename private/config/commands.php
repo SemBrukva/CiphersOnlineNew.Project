@@ -10,6 +10,7 @@ use App\Console\Commands\CipherContentExportCommand;
 use App\Console\Commands\CipherContentImportCommand;
 use App\Console\Commands\ConfigCacheCommand;
 use App\Console\Commands\ConfigClearCommand;
+use App\Console\Commands\DbImportSqliteCommand;
 use App\Console\Commands\MailTestCommand;
 use App\Console\Commands\Make\MakeControllerCommand;
 use App\Console\Commands\Make\MakeJobCommand;
@@ -36,6 +37,7 @@ return [
     'route:cache'       => RouteCacheCommand::class,
     'route:clear'       => RouteClearCommand::class,
     'route:list'        => RouteListCommand::class,
+    'db:import-sqlite'  => DbImportSqliteCommand::class,
     'queue:work'        => QueueWorkCommand::class,
     'queue:retry'       => QueueRetryCommand::class,
     'make:controller'   => MakeControllerCommand::class,
