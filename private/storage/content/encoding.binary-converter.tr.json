@@ -1,0 +1,239 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T16:33:59+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "binary-converter",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 8,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 8,
+        "data": {
+            "name": "Çevrimiçi İkili Dönüştürücü",
+            "name_short": "İkili Dönüştürücü",
+            "description": "Metni ikili baytlara dönüştürün ve ikili dizileri doğrudan tarayıcınızda yeniden düz metne çözün. UTF-8 girişini, boşlukla ayrılmış bayt gruplarını ve hızlı yerel işlemeyi destekler.",
+            "description_stort": "Metni 8 bitlik ikili gruplara dönüştürün ve ikili baytları yeniden okunabilir metne çözün.",
+            "meta_title": "Çevrimiçi İkili Dönüştürücü | Ciphers Online",
+            "meta_description": "Metni ikili biçime dönüştürün ve ikili baytları UTF-8 desteğiyle yeniden çözün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 27,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "İkili Dönüştürme Nasıl Çalışır",
+                "text": "<p>Her bayt, 0 ve 1’den oluşan 8 bit ile temsil edilir. Metin önce baytlara (UTF-8) dönüştürülür, ardından her bayt 8 bitlik bir ikili grup olarak gösterilir. Çözme işlemi bunun tersini yapar.</p><p>Bilgisayarlar verileri 0 ve 1 ile temsil edilen ikili değerler kullanarak depolar ve işler. Harfler, sayılar, semboller, görseller ve dosyalar en sonunda bit dizileri olarak saklanır. İkili dönüştürme, verilerin en düşük düzeyde nasıl temsil edildiğini görselleştirmeye yardımcı olur.</p>"
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "İkili Gösterim ve Güvenlik",
+                "text": "<p>İkili dönüştürme bir gösterim biçimidir, şifreleme değildir. İkili veriler parola olmadan yeniden metne dönüştürülebilir. Gizlilik gerektiğinde kriptografik araçlar kullanın.</p>"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "İkili Gösterimin Yaygın Kullanım Alanları",
+                "text": "<p>İkili dönüştürme; bilgisayarların verileri nasıl depoladığını öğrenmek, baytları ve bitleri anlamak, protokol yüklerini incelemek, ağ kavramlarını çalışmak ve gömülü sistemler ya da dijital elektronikle çalışmak için yaygın olarak kullanılır.</p><p>Geliştiriciler ve öğrenciler karakter kodlamasını görselleştirmek, bayt düzeyindeki verilerde hata ayıklamak ve bilginin bilgisayarların içinde nasıl temsil edildiğini daha iyi anlamak için ikili gösterimi sıkça kullanır.</p>"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "İkili ve Hex",
+                "text": "<p>İkili gösterim her biti yalnızca 0 ve 1 kullanarak gösterir, bu yüzden veri temsilinin en ayrıntılı görünümünü sağlar. Ancak uzun ikili dizileri okumak zor olabilir.</p><p>Onaltılık gösterim daha kompakttır: her Hex basamağı dört ikili biti temsil eder. İkili gösterim genellikle öğrenme ve bit düzeyi analizi için tercih edilirken, Hex hata ayıklama ve ham verileri inceleme için yaygın olarak kullanılır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "İkili dönüştürme şifreleme midir?",
+                "answer": "Hayır. Yalnızca gösterimi bitlere dönüştürür ve geri çevrilebilir."
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Boşluk içeren ikili veriyi çözebilir miyim?",
+                "answer": "Evet. 01001000 01101001 gibi boşlukla ayrılmış 8 bitlik gruplar desteklenir."
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "İkili çıktı neden daha uzun görünür?",
+                "answer": "Her bayt 8 sembole dönüşür, bu nedenle ikili gösterim düz metinden çok daha uzundur."
+            }
+        },
+        {
+            "id": 62,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "İkili girişte hangi semboller geçerlidir?",
+                "answer": "Yalnızca 0, 1 ve bayt grupları arasındaki boşluk gibi ayırıcılar geçerlidir."
+            }
+        },
+        {
+            "id": 63,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "İkili çözme neden başarısız olabilir?",
+                "answer": "Genellikle girişte geçersiz karakterler veya hatalı biçimlendirilmiş bayt grupları bulunduğu için."
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "İkili gruplar neden genellikle 8 bit uzunluğundadır?",
+                "answer": "Sekiz bit bir bayt oluşturur; bayt modern bilgisayar sistemlerinde karakterleri ve verileri temsil etmek için kullanılan standart birimdir."
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "İkili ile Hex arasındaki fark nedir?",
+                "answer": "İkili her biti 0 ve 1 ile gösterirken, Hex bitleri daha kısa bir onaltılık gösterimde gruplar. Hex daha kolay okunur, ikili ise tam bit yapısını gösterir."
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "İkili gösterim Unicode karakterleri temsil edebilir mi?",
+                "answer": "Evet. Unicode metin önce genellikle UTF-8 kullanılarak baytlara kodlanır; ardından bu baytlar ikili değerler olarak temsil edilebilir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 55,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Düz metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba",
+                "output": "01001101 01100101 01110010 01101000 01100001 01100010 01100001",
+                "description": "Okunabilir metni 8 bitlik ikili bayt gruplarına dönüştürün."
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "İkili baytları çözme",
+                "key": "",
+                "shift": 0,
+                "input": "01001101 01100101 01110010 01101000 01100001 01100010 01100001",
+                "output": "Merhaba",
+                "description": "İkili bayt dizilerinden okunabilir metni geri yükleyin."
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "JSON yükünü kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123,\"status\":\"hazir\"}",
+                "output": "01111011 00100010 01101001 01100100 00100010 00111010 00110001 00110010 00110011 00101100 00100010 01110011 01110100 01100001 01110100 01110101 01110011 00100010 00111010 00100010 01101000 01100001 01111010 01101001 01110010 00100010 01111101",
+                "description": "JSON verilerini ikili gösterimle bit düzeyinde inceleyin."
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Unicode metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Türkçe ☕",
+                "output": "01010100 11000011 10111100 01110010 01101011 11000011 10100111 01100101 00100000 11100010 10011000 10010101",
+                "description": "İkili gösterim UTF-8 bayt dizilerini, Türkçe karakterleri ve emojileri korur."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 28,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "İkili gösterim"
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "8 bitlik bayt grupları"
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "UTF-8 desteği"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Eğitim ve hata ayıklama aracı"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,239 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T16:33:59+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "binary-converter",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 8,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 8,
+        "data": {
+            "name": "Convertisseur binaire en ligne",
+            "name_short": "Convertisseur binaire",
+            "description": "Convertissez du texte en octets binaires et décodez des chaînes binaires en texte brut directement dans votre navigateur. Prend en charge les entrées UTF-8, les groupes d’octets séparés par des espaces et un traitement local rapide.",
+            "description_stort": "Convertissez du texte en groupes binaires de 8 bits et décodez des octets binaires en texte lisible.",
+            "meta_title": "Convertisseur binaire en ligne | Ciphers Online",
+            "meta_description": "Convertissez du texte en binaire et décodez des octets binaires avec prise en charge UTF-8."
+        }
+    },
+    "blocks": [
+        {
+            "id": 27,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement de la conversion binaire",
+                "text": "<p>Chaque octet est représenté par 8 bits composés de 0 et de 1. Le texte est d’abord converti en octets (UTF-8), puis chaque octet est affiché comme un groupe binaire de 8 bits. Le décodage effectue l’opération inverse.</p><p>Les ordinateurs stockent et traitent les données à l’aide de valeurs binaires représentées par 0 et 1. Les lettres, nombres, symboles, images et fichiers sont finalement stockés sous forme de séquences de bits. La conversion binaire aide à visualiser comment les données sont représentées au niveau le plus bas.</p>"
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Binaire et sécurité",
+                "text": "<p>La conversion binaire est un format de représentation, pas un chiffrement. Les données binaires peuvent être restaurées en texte sans mot de passe. Utilisez des outils cryptographiques lorsque la confidentialité est requise.</p>"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cas d’utilisation courants du binaire",
+                "text": "<p>La conversion binaire est couramment utilisée pour apprendre comment les ordinateurs stockent les données, comprendre les octets et les bits, inspecter les charges utiles de protocoles, étudier les concepts réseau et travailler avec des systèmes embarqués ou de l’électronique numérique.</p><p>Les développeurs et les étudiants utilisent souvent la notation binaire pour visualiser l’encodage des caractères, déboguer des données au niveau des octets et mieux comprendre comment l’information est représentée dans les ordinateurs.</p>"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Binaire vs Hex",
+                "text": "<p>Le binaire affiche chaque bit uniquement avec 0 et 1, ce qui donne la vue la plus détaillée de la représentation des données. Cependant, les longues séquences binaires peuvent être difficiles à lire.</p><p>L’hexadécimal est une représentation plus compacte où chaque chiffre Hex représente quatre bits binaires. Le binaire est souvent préféré pour l’apprentissage et l’analyse au niveau des bits, tandis que Hex est couramment utilisé pour le débogage et l’inspection de données brutes.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "La conversion binaire est-elle un chiffrement ?",
+                "answer": "Non. Elle change seulement la représentation en bits et reste réversible."
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Puis-je décoder du binaire avec des espaces ?",
+                "answer": "Oui. Les groupes de 8 bits séparés par des espaces, comme 01001000 01101001, sont pris en charge."
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Pourquoi la sortie binaire paraît-elle plus longue ?",
+                "answer": "Chaque octet devient 8 symboles, la représentation binaire est donc beaucoup plus longue que le texte brut."
+            }
+        },
+        {
+            "id": 62,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Quels symboles sont valides dans une entrée binaire ?",
+                "answer": "Uniquement 0, 1 et des séparateurs comme les espaces entre les groupes d’octets."
+            }
+        },
+        {
+            "id": 63,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le décodage binaire peut-il échouer ?",
+                "answer": "Le plus souvent parce que l’entrée contient des caractères invalides ou des groupes d’octets mal formés."
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Pourquoi les groupes binaires font-ils généralement 8 bits ?",
+                "answer": "Huit bits forment un octet, l’unité standard utilisée pour représenter les caractères et les données dans les systèmes informatiques modernes."
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre binaire et Hex ?",
+                "answer": "Le binaire affiche chaque bit avec 0 et 1, tandis que Hex regroupe les bits dans une représentation hexadécimale plus courte. Hex est plus facile à lire, tandis que le binaire montre la structure exacte des bits."
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Le binaire peut-il représenter des caractères Unicode ?",
+                "answer": "Oui. Le texte Unicode est d’abord encodé en octets, généralement avec UTF-8, et ces octets peuvent ensuite être représentés sous forme de valeurs binaires."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 55,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder du texte brut",
+                "key": "",
+                "shift": 0,
+                "input": "Bonjour",
+                "output": "01000010 01101111 01101110 01101010 01101111 01110101 01110010",
+                "description": "Convertissez du texte lisible en groupes binaires d’octets de 8 bits."
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Décoder des octets binaires",
+                "key": "",
+                "shift": 0,
+                "input": "01000010 01101111 01101110 01101010 01101111 01110101 01110010",
+                "output": "Bonjour",
+                "description": "Restaurez du texte lisible à partir de séquences d’octets binaires."
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder une charge utile JSON",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123,\"status\":\"pret\"}",
+                "output": "01111011 00100010 01101001 01100100 00100010 00111010 00110001 00110010 00110011 00101100 00100010 01110011 01110100 01100001 01110100 01110101 01110011 00100010 00111010 00100010 01110000 01110010 01100101 01110100 00100010 01111101",
+                "description": "Inspectez des données JSON au niveau des bits à l’aide de la notation binaire."
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder du texte Unicode",
+                "key": "",
+                "shift": 0,
+                "input": "Café ☕",
+                "output": "01000011 01100001 01100110 11000011 10101001 00100000 11100010 10011000 10010101",
+                "description": "Le binaire conserve les séquences d’octets UTF-8, les caractères accentués et les emoji."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 28,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Représentation binaire"
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Groupes d’octets de 8 bits"
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Prise en charge UTF-8"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Outil pédagogique et de débogage"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

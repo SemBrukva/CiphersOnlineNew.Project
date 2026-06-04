@@ -1,0 +1,239 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T16:33:59+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "binary-converter",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 8,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 8,
+        "data": {
+            "name": "Binary Converter Online",
+            "name_short": "Binary Converter",
+            "description": "Convert text to binary bytes and decode binary strings back to plain text directly in your browser. Supports UTF-8 input, space-separated byte groups, and fast local processing.",
+            "description_stort": "Convert text into 8-bit binary groups and decode binary bytes back into readable text.",
+            "meta_title": "Binary Converter Online | Ciphers Online",
+            "meta_description": "Convert text to binary and decode binary bytes back with UTF-8 support."
+        }
+    },
+    "blocks": [
+        {
+            "id": 27,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Binary Conversion Works",
+                "text": "<p>Each byte is represented by 8 bits made of 0 and 1. Text is first converted to bytes (UTF-8), then each byte is shown as an 8-bit binary group. Decoding performs the reverse operation.</p><p>Computers store and process data using binary values represented by 0 and 1. Letters, numbers, symbols, images, and files are ultimately stored as sequences of bits. Binary conversion helps visualize how data is represented at the lowest level.</p>"
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Binary and Security",
+                "text": "<p>Binary conversion is a representation format, not encryption. Binary data can be restored back to text without a password. Use cryptographic tools when confidentiality is required.</p>"
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Common Binary Use Cases",
+                "text": "<p>Binary conversion is commonly used for learning how computers store data, understanding bytes and bits, inspecting protocol payloads, studying networking concepts, and working with embedded systems or digital electronics.</p><p>Developers and students often use binary notation to visualize character encoding, troubleshoot byte-level data, and better understand how information is represented inside computers.</p>"
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Binary vs Hex",
+                "text": "<p>Binary displays every bit using only 0 and 1, providing the most detailed view of data representation. However, long binary sequences can be difficult to read.</p><p>Hexadecimal is a more compact representation where each hex digit represents four binary bits. Binary is often preferred for learning and bit-level analysis, while Hex is commonly used for debugging and inspecting raw data.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 59,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is binary conversion encryption?",
+                "answer": "No. It only changes representation into bits and is reversible."
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Can I decode binary with spaces?",
+                "answer": "Yes. Space-separated 8-bit groups like 01001000 01101001 are supported."
+            }
+        },
+        {
+            "id": 61,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why does binary output look longer?",
+                "answer": "Each byte becomes 8 symbols, so binary representation is much longer than plain text."
+            }
+        },
+        {
+            "id": 62,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Which symbols are valid in binary input?",
+                "answer": "Only 0, 1, and separators like spaces between byte groups."
+            }
+        },
+        {
+            "id": 63,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why can binary decoding fail?",
+                "answer": "Usually because input contains invalid characters or malformed byte groups."
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why are binary groups usually 8 bits long?",
+                "answer": "Eight bits form one byte, which is the standard unit used to represent characters and data in modern computing systems."
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "What is the difference between Binary and Hex?",
+                "answer": "Binary shows every bit using 0 and 1, while Hex groups bits into a shorter hexadecimal representation. Hex is easier to read, while Binary shows the exact bit structure."
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can binary represent Unicode characters?",
+                "answer": "Yes. Unicode text is first encoded into bytes, usually using UTF-8, and those bytes can then be represented as binary values."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 55,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode plain text",
+                "key": "",
+                "shift": 0,
+                "input": "Hello",
+                "output": "01001000 01100101 01101100 01101100 01101111",
+                "description": "Convert readable text into 8-bit binary byte groups."
+            }
+        },
+        {
+            "id": 56,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decode binary bytes",
+                "key": "",
+                "shift": 0,
+                "input": "01001000 01100101 01101100 01101100 01101111",
+                "output": "Hello",
+                "description": "Restore readable text from binary byte sequences."
+            }
+        },
+        {
+            "id": 57,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode JSON payload",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123}",
+                "output": "01111011 00100010 01101001 01100100 00100010 00111010 00110001 00110010 00110011 01111101",
+                "description": "Inspect JSON data at the bit level using binary notation."
+            }
+        },
+        {
+            "id": 58,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode Unicode text",
+                "key": "",
+                "shift": 0,
+                "input": "Café ☕",
+                "output": "01000011 01100001 01100110 11000011 10101001 00100000 11100010 10011000 10010101",
+                "description": "Binary preserves UTF-8 byte sequences, accented characters, and emoji."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 28,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Binary representation"
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "8-bit byte groups"
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "UTF-8 support"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Educational and debugging tool"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
