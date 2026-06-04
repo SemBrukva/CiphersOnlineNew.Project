@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T20:46:09+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "url-encode",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 3,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 3,
+        "data": {
+            "name": "Çevrimiçi URL Kodlama ve Çözme",
+            "name_short": "URL",
+            "description": "URL'leri doğrudan tarayıcınızda anında kodlayın ve çözün. Güvensiz karakterleri URL için güvenli biçime dönüştürün veya kodlanmış metni yeniden okunabilir hâle getirin.",
+            "description_stort": "HTTP ve API'lerde güvenli taşıma için URL dizelerini ve sorgu parametrelerini kodlayın ve çözün.",
+            "meta_title": "Çevrimiçi URL Kodlama ve Çözme | Ciphers Online",
+            "meta_description": "Sorgu dizeleri, API'ler ve web geliştirme için hızlı URL kodlama ve çözme."
+        }
+    },
+    "blocks": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "URL Kodlama Nasıl Çalışır",
+                "text": "<p>URL kodlama, güvensiz veya ayrılmış karakterleri yüzde kodlu değerlere dönüştürür. Örneğin boşluklar %20 olur; ? veya &amp; gibi karakterler URL'ler ve HTTP istekleri için güvenli bir biçime çevrilir.</p><p>Kodlanan her bayt, yüzde işareti (%) ve ardından gelen iki onaltılık basamakla temsil edilir. Bu sayede URL'ler boşlukları, Unicode karakterleri, özel sembolleri ve sorgu parametrelerini tarayıcılar, API'ler ve web sunucuları arasında güvenle taşıyabilir.</p>"
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "URL Kodlama ve Güvenlik",
+                "text": "<p>URL kodlama bir şifreleme yöntemi değildir ve verilerin okunmasını engellemez. Yalnızca karakterleri URL içinde güvenle aktarılabilecek bir biçime dönüştürür.</p><p>Kodlanmış değerler kolayca özgün biçimine çözülebilir. URL kodlama gizlilik veya güvenlik için değil, uyumluluk ve veri taşıma için kullanılmalıdır.</p>"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "URL Kodlamanın Yaygın Kullanım Alanları",
+                "text": "<p>URL kodlama; arama sorguları, form verileri, kullanıcı girdileri, dosya adları ve API parametreleri URL üzerinden aktarılırken yaygın olarak kullanılır. Boşluklar, ampersand işaretleri, eğik çizgiler, soru işaretleri ve Unicode sembolleri gibi karakterlerin URL yapısını bozmaması için çoğu zaman kodlanması gerekir.</p><p>Geliştiriciler URL kodlamayı sorgu dizeleri, yönlendirmeler, OAuth callback'leri, REST API'ler ve kullanıcı tarafından üretilen içeriği güvenle taşıması gereken web uygulamaları için sıkça kullanır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 27,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "URL kodlama nedir?",
+                "answer": "URL kodlama, güvensiz karakterleri URL içinde aktarılabilecek bir biçime dönüştürür."
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Boşluklar neden %20 ile değiştirilir?",
+                "answer": "Boşluklar URL içinde geçerli değildir, bu yüzden %20 olarak kodlanırlar."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "URL kodlamayı ne zaman kullanmalıyım?",
+                "answer": "URL içinde metin, arama sorgusu veya parametre aktarırken kullanın."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Bu araç kodlanmış URL'leri çözebilir mi?",
+                "answer": "Evet. Okunabilir metni geri yüklemek için Decode sekmesine geçin."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "URL kodlama güvenli şifreleme midir?",
+                "answer": "Hayır. URL kodlama yalnızca karakterleri güvenli taşıma için dönüştürür."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bu araç çevrimdışı çalışır mı?",
+                "answer": "Evet. Her şey doğrudan tarayıcınızda çalışır."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Girdilerim bir sunucuya gönderiliyor mu?",
+                "answer": "Hayır. Araç verileri cihazınızda yerel olarak işler."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "%20 ile + arasındaki fark nedir?",
+                "answer": "%20, boşluğun standart URL kodlu gösterimidir. Artı işareti (+), sorgu dizelerinde ve form gönderimlerinde genellikle boşluk yerine kullanılır."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "%2F, %3A veya %3F gibi kodları neden görüyorum?",
+                "answer": "Bunlar ayrılmış URL karakterlerinin yüzde kodlu gösterimleridir. Örneğin %2F '/', %3A ':' ve %3F '?' anlamına gelir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 51,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "URL parametresini kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Ali Yılmaz",
+                "output": "Ali%20Y%C4%B1lmaz",
+                "description": "URL parametreleri için boşlukları ve özel karakterleri kodlayın."
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Arama sorgusunu kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "kahve & süt",
+                "output": "kahve%20%26%20s%C3%BCt",
+                "description": "'&' gibi özel karakterler sorgu değerlerinin içinde kodlanmalıdır."
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Kodlanmış URL'yi çözme",
+                "key": "",
+                "shift": 0,
+                "input": "https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dmerhaba%2520d%C3%BCnya",
+                "output": "https://example.com/search?q=merhaba%20dünya",
+                "description": "Yüzde kodlu bir URL'yi yeniden okunabilir biçime dönüştürün."
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Unicode metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Türkçe ☕",
+                "output": "T%C3%BCrk%C3%A7e%20%E2%98%95",
+                "description": "URL kodlama Türkçe karakterleri, emojileri ve diğer Unicode içerikleri URL içinde güvenle temsil eder."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Yüzde kodlama"
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Sorgu dizeleri"
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "RFC 3986"
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "URL parametreleri"
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Web geliştirme"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

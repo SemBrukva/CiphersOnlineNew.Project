@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T08:22:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "hex",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 2,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 2,
+        "data": {
+            "name": "Encodeur et décodeur Hex en ligne",
+            "name_short": "Hex",
+            "description": "Convertissez du texte et des données binaires au format hexadécimal, puis décodez Hex en texte lisible directement dans votre navigateur. Utile pour le débogage, l’analyse de protocoles, les hachages, l’inspection de fichiers et le traitement de données de bas niveau. Prend en charge UTF-8, Unicode, les espaces et les séquences Hex multilignes.",
+            "description_stort": "Convertissez du texte et des octets au format hexadécimal et décodez les séquences Hex en texte.",
+            "meta_title": "Encodeur et décodeur Hex en ligne | Ciphers Online",
+            "meta_description": "Convertissez du texte et des octets au format hexadécimal, décodez des séquences Hex, inspectez des données binaires et travaillez avec du contenu UTF-8 en ligne."
+        }
+    },
+    "blocks": [
+        {
+            "id": 2,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement de Hex",
+                "text": "<p>Le format hexadécimal représente chaque octet avec deux caractères de 00 à FF. Contrairement au binaire, qui n’utilise que 0 et 1, Hex utilise seize symboles : 0–9 et A–F.</p><p>Comme un chiffre Hex représente quatre bits binaires, la notation hexadécimale est beaucoup plus courte et plus facile à lire que des données binaires brutes. Elle est couramment utilisée pour le débogage, l’analyse de protocoles, l’inspection de fichiers, les vidages mémoire, les hachages, les valeurs de couleur et le traitement de données de bas niveau.</p><p>\n\nL’hexadécimal utilise seize symboles (0-9 et A-F). Chaque chiffre Hex représente 4 bits binaires, et chaque octet s’écrit avec deux caractères Hex de 00 à FF.\n\n<div class=\"hex-ref-table\">\n    <span class=\"cell\">\n        <span class=\"letter\">0</span>\n        <span class=\"number\">0</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">1</span>\n        <span class=\"number\">1</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">2</span>\n        <span class=\"number\">2</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">3</span>\n        <span class=\"number\">3</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">4</span>\n        <span class=\"number\">4</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">5</span>\n        <span class=\"number\">5</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">6</span>\n        <span class=\"number\">6</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">7</span>\n        <span class=\"number\">7</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">8</span>\n        <span class=\"number\">8</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">9</span>\n        <span class=\"number\">9</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">A</span>\n        <span class=\"number\">10</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">B</span>\n        <span class=\"number\">11</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">C</span>\n        <span class=\"number\">12</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">D</span>\n        <span class=\"number\">13</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">E</span>\n        <span class=\"number\">14</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">F</span>\n        <span class=\"number\">15</span>\n    </span>\n</div></p>"
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Hex et sécurité",
+                "text": "<p>Hex est un format de représentation des octets, pas une méthode de chiffrement. Une chaîne Hex peut être reconvertie en données d’origine sans mot de passe ni clé secrète. Ce format aide à afficher et à transférer des données binaires sous forme de texte, mais il n’apporte ni protection ni confidentialité.</p>"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cas d’utilisation courants de Hex",
+                "text": "<p>Hex est couramment utilisé lorsque des données binaires doivent être affichées sous une forme lisible. Les cas typiques incluent le débogage de protocoles, l’inspection de fichiers binaires, les hachages cryptographiques, l’analyse mémoire, les valeurs de couleur comme #FF0000 et le dépannage au niveau des octets.</p><p>Les développeurs utilisent souvent la notation hexadécimale pour inspecter des paquets réseau, le contenu de fichiers, des certificats, des clés et d’autres données qui seraient difficiles à lire au format binaire brut.</p>"
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hex vs Base64",
+                "text": "<p>Hex et Base64 sont deux manières de représenter des données binaires sous forme de texte, mais elles répondent à des besoins différents. Hex est plus facile à inspecter pour un humain, car chaque octet est affiché directement sous forme de deux caractères hexadécimaux.</p><p>Base64 est plus compact et sert souvent à transporter des données binaires via des API, des e-mails, des jetons JWT et d’autres systèmes textuels. Hex est généralement préféré pour le débogage et l’analyse, tandis que Base64 est préféré pour la transmission.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Hex est-il un chiffrement ?",
+                "answer": "Non. Hex est un format de représentation des octets, pas une méthode de chiffrement. Il peut être reconverti en données d’origine."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Puis-je décoder du Hex avec des espaces ?",
+                "answer": "Oui. Les espaces, retours à la ligne et séparateurs peuvent être ignorés si la séquence Hex elle-même contient des paires de caractères valides."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Pourquoi une chaîne Hex est-elle plus longue que le texte original ?",
+                "answer": "Parce que chaque octet est représenté par deux caractères Hex. Le Hex sous forme de texte fait donc généralement environ deux fois la longueur des octets d’origine."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Quels symboles sont valides en Hex ?",
+                "answer": "Hex utilise les chiffres 0-9 et les lettres A-F. La casse n’a pas d’importance : a-f et A-F signifient la même chose."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le décodage Hex peut-il échouer ?",
+                "answer": "Le plus souvent à cause d’un nombre impair de symboles ou de caractères en dehors de la plage 0-9 et A-F."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Où Hex est-il utilisé ?",
+                "answer": "Hex est utilisé en programmation, dans le débogage de protocoles, l’analyse de fichiers binaires, les hachages, les codes couleur, l’encodage d’URL et la représentation des octets."
+            }
+        },
+        {
+            "id": 155,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Pourquoi les programmeurs utilisent-ils Hex plutôt que le binaire ?",
+                "answer": "Hex est beaucoup plus court et plus facile à lire. Un chiffre hexadécimal représente quatre bits binaires, ce qui rend les données binaires nettement plus compactes et lisibles."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre Hex et Base64 ?",
+                "answer": "Hex affiche chaque octet directement avec deux caractères hexadécimaux, ce qui facilite l’inspection et le débogage des données. Base64 est plus compact et sert souvent à transporter des données binaires dans des systèmes textuels."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder du texte brut",
+                "key": "",
+                "shift": 0,
+                "input": "Bonjour",
+                "output": "426F6E6A6F7572",
+                "description": "Convertissez du texte lisible en représentation hexadécimale des octets."
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Décoder une chaîne Hex",
+                "key": "",
+                "shift": 0,
+                "input": "426F6E6A6F7572",
+                "output": "Bonjour",
+                "description": "Restaurez le texte original à partir d’une séquence hexadécimale."
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder une charge utile JSON",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123,\"status\":\"pret\"}",
+                "output": "7B226964223A3132332C22737461747573223A2270726574227D",
+                "description": "Inspectez des données JSON au niveau des octets à l’aide de la notation hexadécimale."
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder du texte Unicode",
+                "key": "",
+                "shift": 0,
+                "input": "Café ☕",
+                "output": "436166C3A920E29895",
+                "description": "Hex conserve les séquences d’octets UTF-8, les caractères accentués et les emoji."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 25,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UTF-8"
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Décodage Hex"
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Format d’octets"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

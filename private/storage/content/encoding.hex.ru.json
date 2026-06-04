@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T08:22:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "hex",
+        "language": "ru",
+        "default_language": "en",
+        "cipher_id": 2,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 2,
+        "data": {
+            "name": "Онлайн Hex-кодировщик и декодер",
+            "name_short": "Hex",
+            "description": "Преобразуйте текст и бинарные данные в шестнадцатеричный формат и декодируйте Hex обратно в читаемый текст прямо в браузере. Полезно для отладки, анализа протоколов, хешей, проверки файлов и низкоуровневой обработки данных. Поддерживает UTF-8, Unicode, пробелы и многострочные Hex-последовательности.",
+            "description_stort": "Преобразуйте текст и байты в шестнадцатеричный формат и декодируйте Hex-последовательности обратно в текст.",
+            "meta_title": "Онлайн Hex-кодировщик и декодер | Ciphers Online",
+            "meta_description": "Преобразуйте текст и байты в шестнадцатеричный формат, декодируйте Hex-последовательности, анализируйте бинарные данные и работайте с UTF-8 онлайн."
+        }
+    },
+    "blocks": [
+        {
+            "id": 2,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Как работает Hex",
+                "text": "<p>Шестнадцатеричный формат представляет каждый байт двумя символами от 00 до FF. В отличие от двоичной записи, где используются только 0 и 1, Hex использует шестнадцать символов: 0–9 и A–F.</p><p>Поскольку одна Hex-цифра соответствует четырём битам, такая запись намного короче и удобнее для чтения, чем необработанные двоичные данные. Её часто используют для отладки, анализа протоколов, проверки файлов, дампов памяти, хешей, цветовых значений и низкоуровневой обработки данных.</p><p>\n\nHex использует шестнадцать символов (0-9 и A-F). Каждая Hex-цифра представляет 4 двоичных бита, а каждый байт записывается двумя Hex-символами от 00 до FF.\n\n<div class=\"hex-ref-table\">\n    <span class=\"cell\">\n        <span class=\"letter\">0</span>\n        <span class=\"number\">0</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">1</span>\n        <span class=\"number\">1</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">2</span>\n        <span class=\"number\">2</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">3</span>\n        <span class=\"number\">3</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">4</span>\n        <span class=\"number\">4</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">5</span>\n        <span class=\"number\">5</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">6</span>\n        <span class=\"number\">6</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">7</span>\n        <span class=\"number\">7</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">8</span>\n        <span class=\"number\">8</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">9</span>\n        <span class=\"number\">9</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">A</span>\n        <span class=\"number\">10</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">B</span>\n        <span class=\"number\">11</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">C</span>\n        <span class=\"number\">12</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">D</span>\n        <span class=\"number\">13</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">E</span>\n        <span class=\"number\">14</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">F</span>\n        <span class=\"number\">15</span>\n    </span>\n</div></p>"
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Hex и безопасность",
+                "text": "<p>Hex — это формат представления байтов, а не метод шифрования. Hex-строку можно преобразовать обратно в исходные данные без пароля или секретного ключа. Такой формат помогает отображать и передавать бинарные данные как текст, но не обеспечивает защиту или конфиденциальность.</p>"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Где применяется Hex",
+                "text": "<p>Hex часто используют, когда бинарные данные нужно показать в читаемом виде. Типичные задачи включают отладку протоколов, проверку бинарных файлов, криптографические хеши, анализ памяти, цветовые значения вроде #FF0000 и поиск проблем на уровне байтов.</p><p>Разработчики используют шестнадцатеричную запись, чтобы изучать сетевые пакеты, содержимое файлов, сертификаты, ключи и другие данные, которые сложно читать в сыром двоичном формате.</p>"
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hex и Base64",
+                "text": "<p>Hex и Base64 — это способы представить бинарные данные в виде текста, но они решают разные задачи. Hex проще проверять человеку, потому что каждый байт напрямую отображается двумя шестнадцатеричными символами.</p><p>Base64 компактнее и часто используется для передачи бинарных данных через API, электронную почту, JWT-токены и другие текстовые системы. Hex обычно выбирают для отладки и анализа, а Base64 — для передачи данных.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Hex — это шифрование?",
+                "answer": "Нет. Hex — это формат представления байтов, а не метод шифрования. Его можно преобразовать обратно в исходные данные."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Можно ли декодировать Hex с пробелами?",
+                "answer": "Да. Пробелы, переносы строк и разделители можно игнорировать, если сама Hex-последовательность содержит корректные пары символов."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Почему Hex-строка длиннее исходного текста?",
+                "answer": "Потому что каждый байт представлен двумя Hex-символами. Поэтому текстовая Hex-запись обычно примерно вдвое длиннее исходных байтов."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Какие символы допустимы в Hex?",
+                "answer": "Hex использует цифры 0-9 и буквы A-F. Регистр не важен: a-f и A-F означают одно и то же."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Почему декодирование Hex может завершиться ошибкой?",
+                "answer": "Чаще всего причина в нечётном количестве символов или в символах вне диапазона 0-9 и A-F."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Где используется Hex?",
+                "answer": "Hex используют в программировании, отладке протоколов, анализе бинарных файлов, хешах, цветовых кодах, URL-кодировании и представлении байтов."
+            }
+        },
+        {
+            "id": 155,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Почему программисты используют Hex вместо двоичной записи?",
+                "answer": "Hex намного короче и удобнее для чтения. Одна шестнадцатеричная цифра представляет четыре двоичных бита, поэтому бинарные данные становятся значительно компактнее и понятнее."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "В чём разница между Hex и Base64?",
+                "answer": "Hex напрямую показывает каждый байт двумя шестнадцатеричными символами, поэтому данные удобно проверять и отлаживать. Base64 компактнее и часто применяется для передачи бинарных данных через текстовые системы."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Кодирование обычного текста",
+                "key": "",
+                "shift": 0,
+                "input": "Привет",
+                "output": "D09FD180D0B8D0B2D0B5D182",
+                "description": "Преобразуйте читаемый текст в шестнадцатеричное представление байтов."
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Декодирование Hex-строки",
+                "key": "",
+                "shift": 0,
+                "input": "D09FD180D0B8D0B2D0B5D182",
+                "output": "Привет",
+                "description": "Восстановите исходный текст из шестнадцатеричной последовательности."
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Кодирование JSON-пакета",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123,\"status\":\"ок\"}",
+                "output": "7B226964223A3132332C22737461747573223A22D0BED0BA227D",
+                "description": "Изучите JSON-данные на уровне байтов с помощью шестнадцатеричной записи."
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Кодирование Unicode-текста",
+                "key": "",
+                "shift": 0,
+                "input": "Кафе ☕",
+                "output": "D09AD0B0D184D0B520E29895",
+                "description": "Hex сохраняет UTF-8-последовательности байтов, кириллицу и эмодзи."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 25,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UTF-8"
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hex-декодирование"
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Формат байтов"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T20:46:09+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "url-encode",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 3,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 3,
+        "data": {
+            "name": "Codificar e decodificar URL online",
+            "name_short": "URL",
+            "description": "Codifique e decodifique URLs instantaneamente no navegador. Converta caracteres inseguros para um formato seguro para URL ou restaure texto codificado para uma forma legível.",
+            "description_stort": "Codifique e decodifique strings de URL e parâmetros de consulta para transporte seguro em HTTP e APIs.",
+            "meta_title": "Codificar e decodificar URL online | Ciphers Online",
+            "meta_description": "Codificação e decodificação de URL rápidas para query strings, APIs e desenvolvimento web."
+        }
+    },
+    "blocks": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a codificação URL funciona",
+                "text": "<p>A codificação URL substitui caracteres inseguros ou reservados por valores codificados em porcentagem. Por exemplo, espaços viram %20, e caracteres como ? ou &amp; são convertidos para um formato seguro para URLs e requisições HTTP.</p><p>Cada byte codificado é representado por um sinal de porcentagem (%) seguido de dois dígitos hexadecimais. Isso permite que URLs transportem com segurança espaços, caracteres Unicode, símbolos especiais e parâmetros de consulta entre navegadores, APIs e servidores web.</p>"
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Codificação URL e segurança",
+                "text": "<p>A codificação URL não é um método de criptografia e não protege os dados contra leitura. Ela apenas converte caracteres para um formato que pode ser transmitido com segurança em URLs.</p><p>Valores codificados podem ser facilmente decodificados de volta à forma original. A codificação URL deve ser usada para compatibilidade e transporte, não para confidencialidade ou segurança.</p>"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Usos comuns da codificação URL",
+                "text": "<p>A codificação URL é comumente usada ao passar buscas, dados de formulários, entrada de usuários, nomes de arquivos e parâmetros de API por URLs. Caracteres como espaços, ampersands, barras, pontos de interrogação e símbolos Unicode muitas vezes precisam ser codificados para não quebrar a estrutura da URL.</p><p>Desenvolvedores usam frequentemente a codificação URL para query strings, redirecionamentos, callbacks OAuth, APIs REST e aplicações web que precisam transportar com segurança conteúdo gerado por usuários.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 27,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "O que é codificação URL?",
+                "answer": "A codificação URL converte caracteres inseguros para um formato que pode ser transmitido em URLs."
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Por que espaços são substituídos por %20?",
+                "answer": "Espaços não são válidos em URLs, por isso são codificados como %20."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quando devo usar codificação URL?",
+                "answer": "Use-a ao passar texto, buscas ou parâmetros dentro de URLs."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Esta ferramenta pode decodificar URLs codificadas?",
+                "answer": "Sim. Mude para a aba Decode para restaurar texto legível."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A codificação URL é criptografia segura?",
+                "answer": "Não. A codificação URL apenas transforma caracteres para transporte seguro."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Esta ferramenta funciona offline?",
+                "answer": "Sim. Tudo é executado diretamente no seu navegador."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Minhas entradas são enviadas para um servidor?",
+                "answer": "Não. A ferramenta processa os dados localmente no seu dispositivo."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Qual é a diferença entre %20 e + ?",
+                "answer": "%20 é a representação padrão de um espaço codificado em URL. O sinal de mais (+) é frequentemente usado como substituto de espaço em query strings e envios de formulários."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Por que vejo códigos como %2F, %3A ou %3F?",
+                "answer": "São representações codificadas em porcentagem de caracteres reservados de URL. Por exemplo, %2F é '/', %3A é ':' e %3F é '?'."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 51,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar parâmetro de URL",
+                "key": "",
+                "shift": 0,
+                "input": "Joao Silva",
+                "output": "Joao%20Silva",
+                "description": "Codifique espaços e caracteres especiais para parâmetros de URL."
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar busca",
+                "key": "",
+                "shift": 0,
+                "input": "cafe & leite",
+                "output": "cafe%20%26%20leite",
+                "description": "Caracteres especiais como '&' devem ser codificados dentro de valores de consulta."
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificar URL codificada",
+                "key": "",
+                "shift": 0,
+                "input": "https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dola%2520mundo",
+                "output": "https://example.com/search?q=ola%20mundo",
+                "description": "Restaure uma URL codificada em porcentagem para uma forma legível."
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar texto Unicode",
+                "key": "",
+                "shift": 0,
+                "input": "Café ☕",
+                "output": "Caf%C3%A9%20%E2%98%95",
+                "description": "A codificação URL representa com segurança caracteres acentuados, emoji e outros conteúdos Unicode dentro de URLs."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Codificação percentual"
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Query strings"
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "RFC 3986"
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Parâmetros de URL"
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Desenvolvimento web"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

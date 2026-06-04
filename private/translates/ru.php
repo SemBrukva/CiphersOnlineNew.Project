@@ -199,6 +199,7 @@ return [
     'CIPHER_TOOL_FEEDBACK_FAVORITE_REMOVED' => '☆ Убрано из избранного',
     'CIPHER_TOOL_TRUST_LOCAL' => 'Обработка выполняется локально в браузере',
     'CIPHER_TOOL_TRUST_UTF8' => 'Поддержка UTF-8 и Unicode',
+    'CIPHER_TOOL_TRUST_NEVER_LEAVES' => 'Ваши данные не покидают браузер',
     'CIPHER_TOOL_TRUST_API' => 'Подходит для API и payload-данных',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'Ввод не отправляется на сервер',
     // Cipher tool settings labels

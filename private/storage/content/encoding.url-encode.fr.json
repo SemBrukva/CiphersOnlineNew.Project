@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T20:46:09+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "url-encode",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 3,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 3,
+        "data": {
+            "name": "Encoder et décoder une URL en ligne",
+            "name_short": "URL",
+            "description": "Encodez et décodez des URL instantanément dans votre navigateur. Convertissez les caractères non sûrs dans un format compatible avec les URL ou restaurez un texte encodé sous une forme lisible.",
+            "description_stort": "Encodez et décodez des chaînes URL et des paramètres de requête pour un transport sûr dans HTTP et les API.",
+            "meta_title": "Encoder et décoder une URL en ligne | Ciphers Online",
+            "meta_description": "Encodage et décodage URL rapides pour les chaînes de requête, les API et le développement web."
+        }
+    },
+    "blocks": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement de l’encodage URL",
+                "text": "<p>L’encodage URL remplace les caractères non sûrs ou réservés par des valeurs encodées en pourcentage. Par exemple, les espaces deviennent %20, et les caractères comme ? ou &amp; sont convertis dans un format sûr pour les URL et les requêtes HTTP.</p><p>Chaque octet encodé est représenté par un signe pourcentage (%) suivi de deux chiffres hexadécimaux. Cela permet aux URL de transporter en toute sécurité des espaces, des caractères Unicode, des symboles spéciaux et des paramètres de requête entre navigateurs, API et serveurs web.</p>"
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Encodage URL et sécurité",
+                "text": "<p>L’encodage URL n’est pas une méthode de chiffrement et ne protège pas les données contre la lecture. Il convertit seulement les caractères dans un format pouvant être transmis en toute sécurité dans les URL.</p><p>Les valeurs encodées peuvent être facilement décodées pour retrouver leur forme d’origine. L’encodage URL doit être utilisé pour la compatibilité et le transport, pas pour la confidentialité ou la sécurité.</p>"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cas d’utilisation courants de l’encodage URL",
+                "text": "<p>L’encodage URL est couramment utilisé pour transmettre des recherches, des données de formulaire, des saisies utilisateur, des noms de fichiers et des paramètres d’API via des URL. Les caractères comme les espaces, esperluettes, barres obliques, points d’interrogation et symboles Unicode doivent souvent être encodés pour ne pas casser la structure de l’URL.</p><p>Les développeurs utilisent fréquemment l’encodage URL pour les chaînes de requête, les redirections, les callbacks OAuth, les API REST et les applications web qui doivent transporter en toute sécurité du contenu généré par les utilisateurs.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 27,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que l’encodage URL ?",
+                "answer": "L’encodage URL convertit les caractères non sûrs dans un format pouvant être transmis dans les URL."
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi les espaces sont-ils remplacés par %20 ?",
+                "answer": "Les espaces ne sont pas valides dans les URL, ils sont donc encodés sous la forme %20."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quand dois-je utiliser l’encodage URL ?",
+                "answer": "Utilisez-le lorsque vous transmettez du texte, des recherches ou des paramètres à l’intérieur d’URL."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Cet outil peut-il décoder des URL encodées ?",
+                "answer": "Oui. Passez à l’onglet Decode pour restaurer du texte lisible."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "L’encodage URL est-il un chiffrement sécurisé ?",
+                "answer": "Non. L’encodage URL transforme seulement les caractères pour un transport sûr."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Cet outil fonctionne-t-il hors ligne ?",
+                "answer": "Oui. Tout s’exécute directement dans votre navigateur."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Mes saisies sont-elles envoyées à un serveur ?",
+                "answer": "Non. L’outil traite les données localement sur votre appareil."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre %20 et + ?",
+                "answer": "%20 est la représentation standard d’un espace encodé dans une URL. Le signe plus (+) est souvent utilisé comme remplacement d’espace dans les chaînes de requête et les soumissions de formulaire."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Pourquoi vois-je des codes comme %2F, %3A ou %3F ?",
+                "answer": "Ce sont des représentations encodées en pourcentage de caractères réservés dans les URL. Par exemple, %2F correspond à '/', %3A à ':' et %3F à '?'."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 51,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder un paramètre URL",
+                "key": "",
+                "shift": 0,
+                "input": "Jean Dupont",
+                "output": "Jean%20Dupont",
+                "description": "Encodez les espaces et caractères spéciaux pour les paramètres URL."
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder une recherche",
+                "key": "",
+                "shift": 0,
+                "input": "cafe & lait",
+                "output": "cafe%20%26%20lait",
+                "description": "Les caractères spéciaux comme '&' doivent être encodés dans les valeurs de requête."
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Décoder une URL encodée",
+                "key": "",
+                "shift": 0,
+                "input": "https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dbonjour%2520monde",
+                "output": "https://example.com/search?q=bonjour%20monde",
+                "description": "Restaurez une URL encodée en pourcentage sous une forme lisible."
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder du texte Unicode",
+                "key": "",
+                "shift": 0,
+                "input": "Café ☕",
+                "output": "Caf%C3%A9%20%E2%98%95",
+                "description": "L’encodage URL représente en toute sécurité les caractères accentués, les emoji et les autres contenus Unicode dans les URL."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Encodage en pourcentage"
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chaînes de requête"
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "RFC 3986"
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Paramètres URL"
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Développement web"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

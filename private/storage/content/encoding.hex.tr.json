@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T08:22:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "hex",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 2,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 2,
+        "data": {
+            "name": "Çevrimiçi Hex Kodlayıcı ve Kod Çözücü",
+            "name_short": "Hex",
+            "description": "Metni ve ikili verileri doğrudan tarayıcınızda onaltılık biçime dönüştürün ve Hex değerlerini yeniden okunabilir metne çözün. Hata ayıklama, protokol analizi, hashler, dosya inceleme ve düşük seviyeli veri işleme için kullanışlıdır. UTF-8, Unicode, boşluklar ve çok satırlı Hex dizilerini destekler.",
+            "description_stort": "Metni ve baytları onaltılık biçime dönüştürün, Hex dizilerini yeniden metne çözün.",
+            "meta_title": "Çevrimiçi Hex Kodlayıcı ve Kod Çözücü | Ciphers Online",
+            "meta_description": "Metni ve baytları onaltılık biçime dönüştürün, Hex dizilerini çözün, ikili verileri inceleyin ve UTF-8 içerikle çevrimiçi çalışın."
+        }
+    },
+    "blocks": [
+        {
+            "id": 2,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Hex Nasıl Çalışır",
+                "text": "<p>Onaltılık biçim her baytı 00 ile FF arasında iki karakterle gösterir. Yalnızca 0 ve 1 kullanan ikili gösterimden farklı olarak Hex, on altı sembol kullanır: 0–9 ve A–F.</p><p>Bir Hex basamağı dört ikili biti temsil ettiği için onaltılık gösterim, ham ikili veriye göre çok daha kısa ve okunması daha kolaydır. Hata ayıklama, protokol analizi, dosya inceleme, bellek dökümleri, hashler, renk değerleri ve düşük seviyeli veri işleme için yaygın olarak kullanılır.</p><p>\n\nOnaltılık sistem on altı sembol kullanır (0-9 ve A-F). Her Hex basamağı 4 ikili biti temsil eder ve her bayt 00 ile FF arasında iki Hex karakteri olarak yazılır.\n\n<div class=\"hex-ref-table\">\n    <span class=\"cell\">\n        <span class=\"letter\">0</span>\n        <span class=\"number\">0</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">1</span>\n        <span class=\"number\">1</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">2</span>\n        <span class=\"number\">2</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">3</span>\n        <span class=\"number\">3</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">4</span>\n        <span class=\"number\">4</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">5</span>\n        <span class=\"number\">5</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">6</span>\n        <span class=\"number\">6</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">7</span>\n        <span class=\"number\">7</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">8</span>\n        <span class=\"number\">8</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">9</span>\n        <span class=\"number\">9</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">A</span>\n        <span class=\"number\">10</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">B</span>\n        <span class=\"number\">11</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">C</span>\n        <span class=\"number\">12</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">D</span>\n        <span class=\"number\">13</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">E</span>\n        <span class=\"number\">14</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">F</span>\n        <span class=\"number\">15</span>\n    </span>\n</div></p>"
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Hex ve Güvenlik",
+                "text": "<p>Hex bir bayt gösterim biçimidir, şifreleme yöntemi değildir. Bir Hex dizisi parola veya gizli anahtar olmadan özgün verilere geri dönüştürülebilir. Bu biçim ikili verileri metin olarak göstermeye ve aktarmaya yardımcı olur, ancak koruma veya gizlilik sağlamaz.</p>"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Hex İçin Yaygın Kullanım Alanları",
+                "text": "<p>Hex, ikili verilerin okunabilir biçimde gösterilmesi gerektiğinde sık kullanılır. Tipik kullanım alanları arasında protokol hata ayıklama, ikili dosya inceleme, kriptografik hashler, bellek analizi, #FF0000 gibi renk değerleri ve bayt düzeyinde sorun giderme bulunur.</p><p>Geliştiriciler ağ paketlerini, dosya içeriklerini, sertifikaları, anahtarları ve ham ikili biçimde okunması zor olan diğer verileri incelemek için genellikle onaltılık gösterimi kullanır.</p>"
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hex ve Base64",
+                "text": "<p>Hex ve Base64, ikili verileri metin olarak temsil etmenin iki yoludur, ancak farklı amaçlara hizmet eder. Hex insanlar için daha kolay incelenir, çünkü her bayt doğrudan iki onaltılık karakter olarak gösterilir.</p><p>Base64 daha kompakttır ve ikili verileri API'ler, e-posta, JWT tokenları ve diğer metin tabanlı sistemler üzerinden taşımak için yaygın olarak kullanılır. Hex genellikle hata ayıklama ve analiz için, Base64 ise aktarım için tercih edilir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Hex şifreleme midir?",
+                "answer": "Hayır. Hex bir bayt gösterim biçimidir, şifreleme yöntemi değildir. Özgün verilere geri dönüştürülebilir."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Boşluk içeren Hex değerlerini çözebilir miyim?",
+                "answer": "Evet. Hex dizisinin kendisi geçerli karakter çiftleri içeriyorsa boşluklar, satır sonları ve ayırıcılar yok sayılabilir."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Bir Hex dizisi neden özgün metinden daha uzundur?",
+                "answer": "Çünkü her bayt iki Hex karakteriyle temsil edilir. Bu yüzden metin biçimindeki Hex genellikle özgün baytların yaklaşık iki katı uzunluğundadır."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Hex içinde hangi semboller geçerlidir?",
+                "answer": "Hex 0-9 rakamlarını ve A-F harflerini kullanır. Büyük/küçük harf önemli değildir: a-f ve A-F aynı anlama gelir."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Hex çözme neden başarısız olabilir?",
+                "answer": "Çoğunlukla tek sayıda sembol bulunması veya 0-9 ve A-F aralığı dışında karakterler kullanılması nedeniyle."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Hex nerede kullanılır?",
+                "answer": "Hex programlamada, protokol hata ayıklamada, ikili dosya analizinde, hashlerde, renk kodlarında, URL kodlamada ve bayt gösteriminde kullanılır."
+            }
+        },
+        {
+            "id": 155,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Programcılar neden ikili yerine Hex kullanır?",
+                "answer": "Hex çok daha kısa ve okunması daha kolaydır. Bir onaltılık basamak dört ikili biti temsil eder, bu da ikili verileri önemli ölçüde daha kompakt ve okunabilir hâle getirir."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Hex ile Base64 arasındaki fark nedir?",
+                "answer": "Hex her baytı doğrudan iki onaltılık karakterle gösterir, bu da verileri incelemeyi ve hata ayıklamayı kolaylaştırır. Base64 daha kompakttır ve ikili verileri metin tabanlı sistemler üzerinden taşımak için yaygın olarak kullanılır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Düz metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba",
+                "output": "4D657268616261",
+                "description": "Okunabilir metni onaltılık bayt gösterimine dönüştürün."
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Hex dizisini çözme",
+                "key": "",
+                "shift": 0,
+                "input": "4D657268616261",
+                "output": "Merhaba",
+                "description": "Onaltılık bir diziden özgün metni geri yükleyin."
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "JSON yükünü kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123,\"status\":\"hazir\"}",
+                "output": "7B226964223A3132332C22737461747573223A2268617A6972227D",
+                "description": "JSON verilerini onaltılık gösterimle bayt düzeyinde inceleyin."
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Unicode metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Kafe ☕",
+                "output": "4B61666520E29895",
+                "description": "Hex UTF-8 bayt dizilerini, özel karakterleri ve emojileri korur."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 25,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UTF-8"
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hex çözme"
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Bayt biçimi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

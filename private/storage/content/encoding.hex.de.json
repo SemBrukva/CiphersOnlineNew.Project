@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T08:22:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "hex",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 2,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 2,
+        "data": {
+            "name": "Hex-Encoder & Decoder Online",
+            "name_short": "Hex",
+            "description": "Wandeln Sie Text und Binärdaten direkt im Browser in das Hexadezimalformat um und dekodieren Sie Hex wieder zurück in lesbaren Text. Nützlich für Debugging, Protokollanalyse, Hashes, Dateiprüfung und Low-Level-Datenverarbeitung. Unterstützt UTF-8, Unicode, Leerzeichen und mehrzeilige Hex-Sequenzen.",
+            "description_stort": "Wandeln Sie Text und Bytes in das Hexadezimalformat um und dekodieren Sie Hex-Sequenzen zurück in Text.",
+            "meta_title": "Hex-Encoder & Decoder Online | Ciphers Online",
+            "meta_description": "Wandeln Sie Text und Bytes in das Hexadezimalformat um, dekodieren Sie Hex-Sequenzen, prüfen Sie Binärdaten und arbeiten Sie online mit UTF-8-Inhalten."
+        }
+    },
+    "blocks": [
+        {
+            "id": 2,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie Hex funktioniert",
+                "text": "<p>Das Hexadezimalformat stellt jedes Byte mit zwei Zeichen von 00 bis FF dar. Anders als Binärdaten, die nur 0 und 1 verwenden, nutzt Hex sechzehn Symbole: 0–9 und A–F.</p><p>Da eine Hex-Ziffer vier Binärbits repräsentiert, ist die hexadezimale Schreibweise deutlich kürzer und leichter lesbar als rohe Binärdaten. Sie wird häufig für Debugging, Protokollanalyse, Dateiprüfung, Speicher-Dumps, Hashes, Farbwerte und Low-Level-Datenverarbeitung verwendet.</p><p>\n\nHexadezimal nutzt sechzehn Symbole (0-9 und A-F). Jede Hex-Ziffer repräsentiert 4 Binärbits, und jedes Byte wird als zwei Hex-Zeichen von 00 bis FF geschrieben.\n\n<div class=\"hex-ref-table\">\n    <span class=\"cell\">\n        <span class=\"letter\">0</span>\n        <span class=\"number\">0</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">1</span>\n        <span class=\"number\">1</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">2</span>\n        <span class=\"number\">2</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">3</span>\n        <span class=\"number\">3</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">4</span>\n        <span class=\"number\">4</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">5</span>\n        <span class=\"number\">5</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">6</span>\n        <span class=\"number\">6</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">7</span>\n        <span class=\"number\">7</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">8</span>\n        <span class=\"number\">8</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">9</span>\n        <span class=\"number\">9</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">A</span>\n        <span class=\"number\">10</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">B</span>\n        <span class=\"number\">11</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">C</span>\n        <span class=\"number\">12</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">D</span>\n        <span class=\"number\">13</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">E</span>\n        <span class=\"number\">14</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">F</span>\n        <span class=\"number\">15</span>\n    </span>\n</div></p>"
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Hex und Sicherheit",
+                "text": "<p>Hex ist ein Format zur Darstellung von Bytes, keine Verschlüsselungsmethode. Eine Hex-Zeichenfolge kann ohne Passwort oder geheimen Schlüssel wieder in die ursprünglichen Daten umgewandelt werden. Dieses Format hilft dabei, Binärdaten als Text anzuzeigen und zu übertragen, bietet aber keinen Schutz und keine Vertraulichkeit.</p>"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Häufige Anwendungsfälle für Hex",
+                "text": "<p>Hex wird häufig verwendet, wenn Binärdaten in lesbarer Form angezeigt werden müssen. Typische Anwendungsfälle sind Protokoll-Debugging, Prüfung von Binärdateien, kryptografische Hashes, Speicheranalyse, Farbwerte wie #FF0000 und Fehlersuche auf Byte-Ebene.</p><p>Entwickler nutzen die hexadezimale Schreibweise oft, um Netzwerkpakete, Dateiinhalte, Zertifikate, Schlüssel und andere Daten zu prüfen, die im rohen Binärformat schwer lesbar wären.</p>"
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hex vs. Base64",
+                "text": "<p>Hex und Base64 sind beide Möglichkeiten, Binärdaten als Text darzustellen, erfüllen aber unterschiedliche Zwecke. Hex ist für Menschen leichter zu prüfen, weil jedes Byte direkt als zwei hexadezimale Zeichen angezeigt wird.</p><p>Base64 ist kompakter und wird häufig verwendet, um Binärdaten über APIs, E-Mail, JWT-Tokens und andere textbasierte Systeme zu übertragen. Hex wird meist für Debugging und Analyse bevorzugt, Base64 dagegen für die Übertragung.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Ist Hex Verschlüsselung?",
+                "answer": "Nein. Hex ist ein Format zur Darstellung von Bytes, keine Verschlüsselungsmethode. Es kann wieder in die ursprünglichen Daten umgewandelt werden."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Kann ich Hex mit Leerzeichen dekodieren?",
+                "answer": "Ja. Leerzeichen, Zeilenumbrüche und Trennzeichen können ignoriert werden, wenn die Hex-Sequenz selbst gültige Zeichenpaare enthält."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Warum ist eine Hex-Zeichenfolge länger als der ursprüngliche Text?",
+                "answer": "Weil jedes Byte durch zwei Hex-Zeichen dargestellt wird. Deshalb ist Hex in Textform normalerweise etwa doppelt so lang wie die ursprünglichen Bytes."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Welche Zeichen sind in Hex gültig?",
+                "answer": "Hex verwendet die Ziffern 0-9 und die Buchstaben A-F. Die Groß- und Kleinschreibung spielt keine Rolle: a-f und A-F bedeuten dasselbe."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Warum kann das Hex-Dekodieren fehlschlagen?",
+                "answer": "Meist liegt es an einer ungeraden Anzahl von Zeichen oder an Zeichen außerhalb des Bereichs 0-9 und A-F."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Wo wird Hex verwendet?",
+                "answer": "Hex wird in der Programmierung, beim Protokoll-Debugging, bei der Analyse von Binärdateien, für Hashes, Farbcodes, URL-Encoding und Byte-Darstellung verwendet."
+            }
+        },
+        {
+            "id": 155,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Warum verwenden Programmierer Hex statt Binärdarstellung?",
+                "answer": "Hex ist viel kürzer und leichter lesbar. Eine hexadezimale Ziffer repräsentiert vier Binärbits, wodurch Binärdaten deutlich kompakter und verständlicher werden."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen Hex und Base64?",
+                "answer": "Hex zeigt jedes Byte direkt mit zwei hexadezimalen Zeichen an und macht Daten dadurch leicht prüf- und debugbar. Base64 ist kompakter und wird häufig für die Übertragung von Binärdaten durch textbasierte Systeme verwendet."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Klartext kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "Hallo",
+                "output": "48616C6C6F",
+                "description": "Wandeln Sie lesbaren Text in eine hexadezimale Byte-Darstellung um."
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Hex-Zeichenfolge dekodieren",
+                "key": "",
+                "shift": 0,
+                "input": "48616C6C6F",
+                "output": "Hallo",
+                "description": "Stellen Sie den ursprünglichen Text aus einer hexadezimalen Sequenz wieder her."
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "JSON-Payload kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123,\"status\":\"bereit\"}",
+                "output": "7B226964223A3132332C22737461747573223A22626572656974227D",
+                "description": "Prüfen Sie JSON-Daten auf Byte-Ebene mithilfe der hexadezimalen Schreibweise."
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Unicode-Text kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "Grüße ☕",
+                "output": "4772C3BCC39F6520E29895",
+                "description": "Hex bewahrt UTF-8-Byte-Sequenzen, Umlaute und Emoji."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 25,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UTF-8"
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hex-Dekodierung"
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Byte-Format"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

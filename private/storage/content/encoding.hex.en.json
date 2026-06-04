@@ -1,0 +1,231 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T08:22:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "hex",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 2,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 2,
+        "data": {
+            "name": "Hex Encoder & Decoder Online",
+            "name_short": "Hex",
+            "description": "Convert text and binary data to hexadecimal format and decode hex back to readable text directly in your browser. Useful for debugging, protocol analysis, hashes, file inspection, and low-level data processing. Supports UTF-8, Unicode, spaces, and multiline hex sequences.",
+            "description_stort": "Convert text and bytes to hexadecimal format and decode hex sequences back to text.",
+            "meta_title": "Hex Encoder & Decoder Online | Ciphers Online",
+            "meta_description": "Convert text and bytes to hexadecimal format, decode hex sequences, inspect binary data, and work with UTF-8 content online."
+        }
+    },
+    "blocks": [
+        {
+            "id": 2,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Hex Works",
+                "text": "<p>Hexadecimal format represents each byte using two characters from 00 to FF. Unlike binary, which uses only 0 and 1, hexadecimal uses sixteen symbols: 0–9 and A–F.</p><p>Because one hex digit represents four binary bits, hexadecimal notation is much shorter and easier to read than raw binary data. It is commonly used for debugging, protocol analysis, file inspection, memory dumps, hashes, color values, and low-level data processing.</p><p>\n\nHexadecimal uses sixteen symbols (0-9 and A-F). Each hex digit represents 4 binary bits, and every byte is written as two hex characters from 00 to FF.\n\n<div class=\"hex-ref-table\">\n    <span class=\"cell\">\n        <span class=\"letter\">0</span>\n        <span class=\"number\">0</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">1</span>\n        <span class=\"number\">1</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">2</span>\n        <span class=\"number\">2</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">3</span>\n        <span class=\"number\">3</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">4</span>\n        <span class=\"number\">4</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">5</span>\n        <span class=\"number\">5</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">6</span>\n        <span class=\"number\">6</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">7</span>\n        <span class=\"number\">7</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">8</span>\n        <span class=\"number\">8</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">9</span>\n        <span class=\"number\">9</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">A</span>\n        <span class=\"number\">10</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">B</span>\n        <span class=\"number\">11</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">C</span>\n        <span class=\"number\">12</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">D</span>\n        <span class=\"number\">13</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">E</span>\n        <span class=\"number\">14</span>\n    </span>\n    <span class=\"cell\">\n        <span class=\"letter\">F</span>\n        <span class=\"number\">15</span>\n    </span>\n</div></p>"
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Hex and Security",
+                "text": "<p>Hex is a byte representation format, not an encryption method. A hex string can be converted back to original data without a password or secret key. This format helps display and transfer binary data as text, but it does not provide protection or confidentiality.</p>"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Common Hex Use Cases",
+                "text": "<p>Hex is commonly used when binary data needs to be displayed in a readable form. Typical use cases include protocol debugging, binary file inspection, cryptographic hashes, memory analysis, color values such as #FF0000, and byte-level troubleshooting.</p><p>Developers often use hexadecimal notation to inspect network packets, file contents, certificates, keys, and other data that would be difficult to read in raw binary format.</p>"
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hex vs Base64",
+                "text": "<p>Hex and Base64 are both ways to represent binary data as text, but they serve different purposes. Hex is easier for humans to inspect because every byte is displayed directly as two hexadecimal characters.</p><p>Base64 is more compact and is commonly used for transporting binary data through APIs, email, JWT tokens, and other text-based systems. Hex is typically preferred for debugging and analysis, while Base64 is preferred for transmission.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is Hex encryption?",
+                "answer": "No. Hex is a byte representation format, not an encryption method. It can be converted back to original data."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Can I decode hex with spaces?",
+                "answer": "Yes. Spaces, line breaks, and separators can be ignored if the hex sequence itself contains valid character pairs."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why is a hex string longer than the original text?",
+                "answer": "Because each byte is represented by two hex characters. So text-form hex is usually about twice the length of the original bytes."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Which symbols are valid in hex?",
+                "answer": "Hex uses digits 0-9 and letters A-F. Case is not important: a-f and A-F mean the same."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why can hex decoding fail?",
+                "answer": "Most often because of an odd number of symbols or characters outside the 0-9 and A-F range."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Where is Hex used?",
+                "answer": "Hex is used in programming, protocol debugging, binary file analysis, hashes, color codes, URL encoding, and byte representation."
+            }
+        },
+        {
+            "id": 155,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Why do programmers use hex instead of binary?",
+                "answer": "Hex is much shorter and easier to read. One hexadecimal digit represents four binary bits, making binary data significantly more compact and readable."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "What is the difference between Hex and Base64?",
+                "answer": "Hex displays each byte directly using two hexadecimal characters, making it easy to inspect and debug data. Base64 is more compact and is commonly used for transporting binary data through text-based systems."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 47,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode plain text",
+                "key": "",
+                "shift": 0,
+                "input": "Hello",
+                "output": "48656C6C6F",
+                "description": "Convert readable text into hexadecimal byte representation."
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decode hex string",
+                "key": "",
+                "shift": 0,
+                "input": "48656C6C6F",
+                "output": "Hello",
+                "description": "Restore the original text from a hexadecimal sequence."
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode JSON payload",
+                "key": "",
+                "shift": 0,
+                "input": "{\"id\":123,\"status\":\"ok\"}",
+                "output": "7B226964223A3132332C22737461747573223A226F6B227D",
+                "description": "Inspect JSON data at the byte level using hexadecimal notation."
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode Unicode text",
+                "key": "",
+                "shift": 0,
+                "input": "Café ☕",
+                "output": "436166C3A920E29895",
+                "description": "Hex preserves UTF-8 byte sequences, accented characters, and emoji."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 25,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UTF-8"
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hex decode"
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Byte format"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

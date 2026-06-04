@@ -46,7 +46,7 @@ final readonly class ToolRegistry
             'encoding/hex' => [
                 ['label' => 'JSON', 'value' => '{"id":42,"role":"admin","active":true}'],
                 ['label' => 'Unicode', 'value' => 'Привет мир 👋'],
-                ['label' => 'Hex', 'value' => '48 65 6c 6c 6f 2c 20 77 6f 72 6c 64 21'],
+                ['label' => 'Hex Bytes', 'value' => '48 65 6c 6c 6f 2c 20 77 6f 72 6c 64 21'],
             ],
             'encoding/url-encode' => [
                 ['label' => 'URL', 'value' => 'https://example.com/search?q=smart tools'],
@@ -193,7 +193,7 @@ final readonly class ToolRegistry
                 trans('HEX_TRUST_PURPOSE'),
                 trans('HEX_TRUST_DEBUG'),
                 trans('CIPHER_TOOL_TRUST_UTF8'),
-                trans('CIPHER_TOOL_TRUST_LOCAL'),
+                trans('CIPHER_TOOL_TRUST_NEVER_LEAVES'),
             ],
             'encoding/url-encode' => [
                 trans('URL_TRUST_PURPOSE'),

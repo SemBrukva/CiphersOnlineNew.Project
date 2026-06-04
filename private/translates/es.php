@@ -178,6 +178,7 @@ return [
     'CIPHER_TOOL_FEEDBACK_FAVORITE_REMOVED' => '☆ Eliminado de favoritos',
     'CIPHER_TOOL_TRUST_LOCAL' => 'Procesamiento local en el navegador',
     'CIPHER_TOOL_TRUST_UTF8' => 'Compatibilidad con UTF-8 y Unicode',
+    'CIPHER_TOOL_TRUST_NEVER_LEAVES' => 'Sus datos nunca salen del navegador',
     'CIPHER_TOOL_TRUST_API' => 'Apto para datos API y payload',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'La entrada no se envía al servidor',
     // Cipher tool settings labels

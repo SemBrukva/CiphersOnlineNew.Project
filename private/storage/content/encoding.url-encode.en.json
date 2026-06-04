@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-03T20:46:09+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "url-encode",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 3,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 3,
+        "data": {
+            "name": "URL Encode & Decode Online",
+            "name_short": "URL",
+            "description": "Encode and decode URLs instantly in your browser. Convert unsafe characters into URL-safe format or restore encoded text back to readable form.",
+            "description_stort": "Encode and decode URL strings and query params for safe transport in HTTP and APIs.",
+            "meta_title": "URL Encode & Decode Online | Ciphers Online",
+            "meta_description": "Fast URL Encode/Decode for query strings, APIs, and web development."
+        }
+    },
+    "blocks": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How URL Encoding Works",
+                "text": "<p>URL encoding replaces unsafe or reserved characters with percent-encoded values. For example, spaces become %20, and characters like ? or &amp; are converted into a safe format for URLs and HTTP requests.</p><p>Each encoded byte is represented by a percent sign (%) followed by two hexadecimal digits. This allows URLs to safely transport spaces, Unicode characters, special symbols, and query parameters across browsers, APIs, and web servers.</p>"
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "URL Encoding and Security",
+                "text": "<p>URL encoding is not an encryption method and does not protect data from being read. It only converts characters into a format that can be safely transmitted in URLs.</p><p>Encoded values can be easily decoded back to their original form. URL encoding should be used for compatibility and transport, not for confidentiality or security.</p>"
+            }
+        },
+        {
+            "id": 67,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Common URL Encoding Use Cases",
+                "text": "<p>URL encoding is commonly used when passing search queries, form data, user input, file names, and API parameters through URLs. Characters such as spaces, ampersands, slashes, question marks, and Unicode symbols must often be encoded to avoid breaking the URL structure.</p><p>Developers frequently use URL encoding for query strings, redirects, OAuth callbacks, REST APIs, and web applications that need to safely transport user-generated content.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 27,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is URL encoding?",
+                "answer": "URL encoding converts unsafe characters into a format that can be transmitted in URLs."
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why are spaces replaced with %20?",
+                "answer": "Spaces are not valid in URLs, so they are encoded as %20."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "When should I use URL encoding?",
+                "answer": "Use it when passing text, search queries, or parameters inside URLs."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can this tool decode encoded URLs?",
+                "answer": "Yes. Switch to the Decode tab to restore readable text."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is URL encoding secure encryption?",
+                "answer": "No. URL encoding only transforms characters for safe transport."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does this tool work offline?",
+                "answer": "Yes. Everything runs directly in your browser."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Are my inputs sent to a server?",
+                "answer": "No. The tool processes data locally on your device."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "What is the difference between %20 and + ?",
+                "answer": "%20 is the standard URL-encoded representation of a space. The plus sign (+) is often used as a space replacement in query strings and form submissions."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Why do I see codes like %2F, %3A, or %3F?",
+                "answer": "These are percent-encoded representations of reserved URL characters. For example, %2F is '/', %3A is ':', and %3F is '?'."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 51,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode URL parameter",
+                "key": "",
+                "shift": 0,
+                "input": "John Doe",
+                "output": "John%20Doe",
+                "description": "Encode spaces and special characters for URL parameters."
+            }
+        },
+        {
+            "id": 52,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode search query",
+                "key": "",
+                "shift": 0,
+                "input": "coffee & cream",
+                "output": "coffee%20%26%20cream",
+                "description": "Special characters such as '&' must be encoded inside query values."
+            }
+        },
+        {
+            "id": 53,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decode encoded URL",
+                "key": "",
+                "shift": 0,
+                "input": "https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dhello%2520world",
+                "output": "https://example.com/search?q=hello%20world",
+                "description": "Restore a percent-encoded URL back to readable form."
+            }
+        },
+        {
+            "id": 54,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encode Unicode text",
+                "key": "",
+                "shift": 0,
+                "input": "Café ☕",
+                "output": "Caf%C3%A9%20%E2%98%95",
+                "description": "URL encoding safely represents accented characters, emoji, and other Unicode content inside URLs."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 37,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Percent encoding"
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Query strings"
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "RFC 3986"
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "URL parameters"
+            }
+        },
+        {
+            "id": 107,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Web development"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

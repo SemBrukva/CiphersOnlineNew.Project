@@ -178,6 +178,7 @@ return [
     'CIPHER_TOOL_FEEDBACK_FAVORITE_REMOVED' => '☆ Retiré des favoris',
     'CIPHER_TOOL_TRUST_LOCAL' => 'Traitement local dans le navigateur',
     'CIPHER_TOOL_TRUST_UTF8' => 'Prise en charge UTF-8 et Unicode',
+    'CIPHER_TOOL_TRUST_NEVER_LEAVES' => 'Vos données ne quittent jamais le navigateur',
     'CIPHER_TOOL_TRUST_API' => 'Adapté aux données API et payload',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'La saisie n’est pas envoyée au serveur',
     // Cipher tool settings labels

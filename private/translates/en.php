@@ -199,6 +199,7 @@ return [
     'CIPHER_TOOL_FEEDBACK_FAVORITE_REMOVED' => '☆ Removed from favorites',
     'CIPHER_TOOL_TRUST_LOCAL' => 'Client-side processing only',
     'CIPHER_TOOL_TRUST_UTF8' => 'UTF-8 and Unicode support',
+    'CIPHER_TOOL_TRUST_NEVER_LEAVES' => 'Your data never leaves the browser',
     'CIPHER_TOOL_TRUST_API' => 'API and payload friendly',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'Input is not sent to server',
     // Cipher tool settings labels

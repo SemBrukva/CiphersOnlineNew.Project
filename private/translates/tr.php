@@ -178,6 +178,7 @@ return [
     'CIPHER_TOOL_FEEDBACK_FAVORITE_REMOVED' => '☆ Favorilerden kaldırıldı',
     'CIPHER_TOOL_TRUST_LOCAL' => 'İşleme tarayıcıda yerel olarak yapılır',
     'CIPHER_TOOL_TRUST_UTF8' => 'UTF-8 ve Unicode desteği',
+    'CIPHER_TOOL_TRUST_NEVER_LEAVES' => 'Verileriniz tarayıcıyı hiç terk etmez',
     'CIPHER_TOOL_TRUST_API' => 'API ve payload verileri için uygundur',
     'CIPHER_TOOL_TRUST_PRIVATE' => 'Girdi sunucuya gönderilmez',
     // Cipher tool settings labels
