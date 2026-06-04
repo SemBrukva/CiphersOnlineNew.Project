@@ -168,6 +168,7 @@ return [
     'CIPHER_TOOL_EXAMPLE_KEY_LABEL' => 'Schlüssel',
     'CIPHER_TOOL_ALL_IN_CATEGORY' => 'Alle :category',
     'CIPHER_TOOL_FEEDBACK_INVALID' => 'Ungültige Eingabe für den aktuellen Modus.',
+    'CIPHER_TOOL_FEEDBACK_NOT_JSON' => 'Die Eingabe muss gültiges JSON sein.',
     'CIPHER_TOOL_FEEDBACK_RESULT_COPIED' => 'Ergebnis kopiert.',
     'CIPHER_TOOL_FEEDBACK_RESULT_COPY_FAILED' => 'Ergebnis konnte nicht kopiert werden.',
     'CIPHER_TOOL_FEEDBACK_URL_COPIED' => 'Seiten-URL kopiert.',

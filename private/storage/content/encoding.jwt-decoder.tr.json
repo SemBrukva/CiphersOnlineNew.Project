@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T17:53:42+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "jwt-decoder",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 4,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 4,
+        "data": {
+            "name": "JWT Decoder Online",
+            "name_short": "JWT Decoder",
+            "description": "JWT ve Bearer tokenlarını doğrudan tarayıcınızda decode edip inceleyin. Auth debug, OAuth akışları ve API entegrasyonları için header, payload, claims, son kullanma zamanı ve token yapısını görüntüleyin.",
+            "description_stort": "JWT tokenlarını tarayıcı içinde decode edin; header, payload, claims ve son kullanma verilerini inceleyin.",
+            "meta_title": "JWT Decoder Online | Header, Payload ve Claims Decode Et",
+            "meta_description": "JWT tokenlarını tarayıcınızda yerel olarak decode edin. Auth ve API debug için header, payload, claims, son kullanma zamanı ve Bearer token yapısını inceleyin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "JWT Decoder Nasıl Çalışır",
+                "text": "<p>Bir JSON Web Token (JWT) genellikle üç bölümden oluşur: Header, Payload ve Signature. Bu bölümler noktalarla ayrılır ve Base64URL ile kodlanır.</p><p>Bu decoder tokenı okur, header ve payload bölümlerini decode eder ve JSON verilerini okunabilir biçimde gösterir. Böylece issuer, subject, audience, oluşturulma zamanı, son kullanma zamanı, scopes, roles ve uygulamaya özel alanlar gibi claims değerleri incelenebilir.</p><p>Bu decoder imza doğrulaması yapmaz. Decode işlemi tokenın içinde ne olduğunu gösterir, ancak tokenın geçerli, güvenilir veya değiştirilmemiş olduğunu kanıtlamaz.</p>"
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "JWT, Base64URL ve Güvenlik",
+                "text": "<p>JWT header ve payload bölümleri şifrelenmiş değil, kodlanmıştır. Tokena sahip olan herkes bu bölümleri decode edip içeriğini okuyabilir. Bu nedenle, token ayrı bir mekanizmayla şifrelenmedikçe hassas sırlar JWT payload içine yerleştirilmemelidir.</p><p>Signature bölümü değişiklikleri tespit etmek için kullanılır. Sunucu, algoritmaya bağlı olarak gizli anahtar veya açık/özel anahtar çiftiyle imzayı doğrulayabilir. Bu araç inceleme ve debug için tasarlanmıştır; kriptografik doğrulama için değildir.</p>"
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Yaygın JWT Debug Kullanımları",
+                "text": "<p>JWT decode işlemi; kimlik doğrulama, OAuth, OpenID Connect, API yetkilendirme, access tokens, refresh tokens ve Authorization header içindeki Bearer tokenları debug ederken sıkça kullanılır.</p><p>Geliştiriciler JWT'leri genellikle son kullanma timestamp değerlerini, token issuer bilgisini, audience, scopes, roles, permissions, kullanıcı kimliklerini ve giriş ya da API entegrasyonu sorunlarında beklenmeyen claim değerlerini kontrol etmek için inceler.</p>"
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "JWT Decode ve JWT Verify",
+                "text": "<p>JWT decode işlemi yalnızca header ve payload bölümlerini okunabilir hale getirir. Tokenın geçerli, süresi dolmuş, güvenilir veya doğru imzalanmış olup olmadığını kontrol etmez.</p><p>JWT doğrulaması; imza, algoritma, issuer, audience, son kullanma zamanı ve uygulamanızın kullandığı diğer doğrulama kurallarının kontrol edilmesini gerektirir. Bu decoder token içeriğini incelemeye yardımcı olur; tam doğrulama ise kimlik doğrulama sisteminiz tarafından yapılmalıdır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "JWT nedir?",
+                "answer": "JWT (JSON Web Token), kimlik doğrulama ve güvenli veri alışverişi için kullanılan kompakt, kendi kendine yeterli bir token formatıdır. OAuth, OpenID Connect ve Authorization header içinde Bearer token olarak yaygın biçimde kullanılır."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Bu araç JWT imzalarını doğrular mı?",
+                "answer": "Hayır. Bu araç yalnızca token yapısını decode edip inceler: header, payload ve claims. İmza doğrulaması ve token validasyonu yapılmaz."
+            }
+        },
+        {
+            "id": 18,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "JWT decode etmek güvenli mi?",
+                "answer": "Evet. Decode işlemi yalnızca Base64URL verisini okunabilir JSON'a dönüştürür."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Süresi dolmuş tokenları decode edebilir miyim?",
+                "answer": "Evet. Süresi dolmuş tokenlar hâlâ decode edilip incelenebilir; bu, auth debug ve access token sorunlarını araştırırken faydalıdır."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Tokenlarım herhangi bir yere yükleniyor mu?",
+                "answer": "Hayır. Tüm decode işlemi yerel olarak tarayıcınızda gerçekleşir. Tokenlarınız cihazınızdan ayrılmaz."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Neden herkes bir JWT'yi decode edebilir?",
+                "answer": "JWT payloadları Base64URL ile kodlanır, şifrelenmez. Okunabilir olacak şekilde tasarlanmıştır; gizlilik kodlama tarafından değil, aktarım katmanı (HTTPS) tarafından sağlanır."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Signature bölümü nedir?",
+                "answer": "Signature, sunucunun tokenın değiştirilmediğini doğrulamasını sağlar. Header ve payload üzerinden gizli anahtar veya özel anahtar kullanılarak hesaplanır (RS256, HS256 vb.)."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "JWT şifrelenmiş midir?",
+                "answer": "Genellikle hayır. Standart bir JWT kodlanır ve imzalanır, ancak şifrelenmez. Header ve payload, tokena sahip olan herkes tarafından decode edilebilir."
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "exp claim ne anlama gelir?",
+                "answer": "exp claim, tokenın son kullanma zamanını Unix timestamp olarak saklar. Bu zamandan sonra token sunucu tarafından kabul edilmemelidir."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Bearer token nedir?",
+                "answer": "Bearer token, HTTP Authorization header içinde gönderilen tokendır. Birçok Bearer token JWT'dir, ancak bu terim tokenın nasıl kullanıldığını açıklar; formatını zorunlu olarak belirtmez."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "question": "JWT payload içine parola veya sır koymalı mıyım?",
+                "answer": "Hayır. JWT payloadları decode edildikten sonra genellikle okunabilir olur. Normal bir JWT payload içine parolalar, API anahtarları, özel tokenlar veya başka sırlar koymayın."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 63,
+            "sort_order": 10,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Temel bir JWT'yi decode et",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFobWV0IFnEsWxtYXoiLCJpYXQiOjE1MTYyMzkwMjJ9.signature",
+                "output": "Header:\n{\n  \"alg\": \"HS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"sub\": \"1234567890\",\n  \"name\": \"Ahmet Yılmaz\",\n  \"iat\": 1516239022\n}",
+                "description": "İmzayı doğrulamadan JWT header ve payload bölümlerini inceleyin."
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Bearer token decode et",
+                "key": "",
+                "shift": 0,
+                "input": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkuZXhhbXBsZS5jb20iLCJhdWQiOiJteS1hcHAiLCJzY29wZSI6InJlYWQ6dXNlcnMiLCJleHAiOjE5MjQ5OTIwMDB9.signature",
+                "output": "Header:\n{\n  \"alg\": \"HS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"iss\": \"api.example.com\",\n  \"aud\": \"my-app\",\n  \"scope\": \"read:users\",\n  \"exp\": 1924992000\n}",
+                "description": "Bearer önekleri Authorization header içinde yaygındır ve JWT incelemesinden önce kaldırılabilir."
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Son kullanma claim değerini incele",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzQyIiwiZXhwIjoxOTI0OTkyMDAwLCJpYXQiOjE3MTcyMDAwMDAsInJvbGUiOiJhZG1pbiJ9.signature",
+                "output": "Header:\n{\n  \"alg\": \"RS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"sub\": \"user_42\",\n  \"exp\": 1924992000,\n  \"iat\": 1717200000,\n  \"role\": \"admin\"\n}",
+                "description": "exp ve iat gibi JWT claims değerleri Unix timestamp'tir ve süresi dolmuş ya da henüz geçerli olmayan tokenları debug ederken yararlıdır."
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "JWT payload oluştur",
+                "key": "",
+                "shift": 0,
+                "input": "{\"sub\":\"user_42\",\"role\":\"admin\",\"exp\":1924992000}",
+                "output": "eyJzdWIiOiJ1c2VyXzQyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxOTI0OTkyMDAwfQ",
+                "description": "Bir JSON payload değerini Base64URL JWT payload segmentine kodlayın. Bu, JWT claims değerlerinin imzalamadan önce nasıl temsil edildiğini anlamaya yardımcı olur."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "JWT header ve payload"
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Claims inceleme"
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Auth debug"
+            }
+        },
+        {
+            "id": 110,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Bearer token"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "OAuth ve API'ler"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -168,6 +168,7 @@ return [
     'CIPHER_TOOL_EXAMPLE_KEY_LABEL' => 'Anahtar',
     'CIPHER_TOOL_ALL_IN_CATEGORY' => ':category kategorisindeki tüm araçlar',
     'CIPHER_TOOL_FEEDBACK_INVALID' => 'Mevcut mod için geçersiz girdi.',
+    'CIPHER_TOOL_FEEDBACK_NOT_JSON' => 'Girdi geçerli bir JSON olmalıdır.',
     'CIPHER_TOOL_FEEDBACK_RESULT_COPIED' => 'Sonuç kopyalandı.',
     'CIPHER_TOOL_FEEDBACK_RESULT_COPY_FAILED' => 'Sonuç kopyalanamadı.',
     'CIPHER_TOOL_FEEDBACK_URL_COPIED' => 'Sayfa URL\'si kopyalandı.',

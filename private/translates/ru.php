@@ -189,6 +189,7 @@ return [
     'CIPHER_TOOL_EXAMPLE_KEY_LABEL' => 'Ключ',
     'CIPHER_TOOL_ALL_IN_CATEGORY' => 'Все инструменты: :category',
     'CIPHER_TOOL_FEEDBACK_INVALID' => 'Некорректные данные для выбранного режима.',
+    'CIPHER_TOOL_FEEDBACK_NOT_JSON' => 'Введите корректный JSON.',
     'CIPHER_TOOL_FEEDBACK_RESULT_COPIED' => 'Результат скопирован.',
     'CIPHER_TOOL_FEEDBACK_RESULT_COPY_FAILED' => 'Не удалось скопировать результат.',
     'CIPHER_TOOL_FEEDBACK_URL_COPIED' => 'Ссылка на страницу скопирована.',

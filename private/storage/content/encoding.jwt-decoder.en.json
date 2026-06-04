@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T17:53:42+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "jwt-decoder",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 4,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 4,
+        "data": {
+            "name": "JWT Decoder Online",
+            "name_short": "JWT Decoder",
+            "description": "Decode and inspect JWT and Bearer tokens directly in your browser. View header, payload, claims, expiration time, and token structure for auth debugging, OAuth flows, and API integration.",
+            "description_stort": "Decode JWT tokens in-browser and inspect header, payload, claims, and expiration data.",
+            "meta_title": "JWT Decoder Online | Decode Header, Payload & Claims",
+            "meta_description": "Decode JWT tokens locally in your browser. Inspect header, payload, claims, expiration time, and Bearer token structure for auth and API debugging."
+        }
+    },
+    "blocks": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How JWT Decoder Works",
+                "text": "<p>A JSON Web Token (JWT) usually has three parts: Header, Payload, and Signature. These parts are separated by dots and are encoded with Base64URL.</p><p>This decoder reads the token, decodes the header and payload, and displays the JSON data in a readable form. This helps inspect claims such as issuer, subject, audience, issued-at time, expiration time, scopes, roles, and custom application fields.</p><p>Signature verification is not performed by this decoder. Decoding shows what is inside the token, but it does not prove that the token is valid, trusted, or untampered.</p>"
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "JWT, Base64URL, and Security",
+                "text": "<p>JWT header and payload sections are encoded, not encrypted. Anyone who has the token can decode these parts and read their contents. For this reason, sensitive secrets should not be placed in a JWT payload unless the token is encrypted using a separate mechanism.</p><p>The signature section is used to detect tampering. A server can verify the signature with a secret key or public/private key pair, depending on the algorithm. This tool is intended for inspection and debugging, not for cryptographic validation.</p>"
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Common JWT Debugging Use Cases",
+                "text": "<p>JWT decoding is commonly used when debugging authentication, OAuth, OpenID Connect, API authorization, access tokens, refresh tokens, and Bearer tokens from Authorization headers.</p><p>Developers often inspect JWTs to check expiration timestamps, token issuer, audience, scopes, roles, permissions, user identifiers, and unexpected claim values during login or API integration issues.</p>"
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "JWT Decode vs JWT Verify",
+                "text": "<p>Decoding a JWT only makes the header and payload readable. It does not check whether the token is valid, expired, trusted, or correctly signed.</p><p>Verifying a JWT requires checking the signature, algorithm, issuer, audience, expiration time, and other validation rules used by your application. This decoder helps inspect token contents, while full validation must be performed by your authentication system.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is a JWT?",
+                "answer": "JWT (JSON Web Token) is a compact, self-contained token format used for authentication and secure data exchange. It is widely used in OAuth, OpenID Connect, and as a Bearer token in Authorization headers."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Does this tool verify JWT signatures?",
+                "answer": "No. This tool only decodes and inspects token structure — header, payload, and claims. Signature verification and token validation are not performed."
+            }
+        },
+        {
+            "id": 18,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is JWT decoding safe?",
+                "answer": "Yes. Decoding simply converts Base64URL data into readable JSON."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can I decode expired tokens?",
+                "answer": "Yes. Expired tokens can still be decoded and inspected — useful for auth debugging and investigating access token issues."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Are my tokens uploaded anywhere?",
+                "answer": "No. All decoding happens locally in your browser. Your tokens never leave your device."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why can anyone decode a JWT?",
+                "answer": "JWT payloads are encoded with Base64URL, not encrypted. They are designed to be readable — confidentiality is provided by transport (HTTPS), not encoding."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "What is the signature section?",
+                "answer": "The signature lets the server verify the token was not tampered with. It is computed from the header and payload using a secret key or private key (RS256, HS256, etc.)."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Is a JWT encrypted?",
+                "answer": "Usually no. A standard JWT is encoded and signed, not encrypted. The header and payload can be decoded by anyone who has the token."
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "What does the exp claim mean?",
+                "answer": "The exp claim stores the token expiration time as a Unix timestamp. After this time, the token should no longer be accepted by the server."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "What is a Bearer token?",
+                "answer": "A Bearer token is a token sent in an HTTP Authorization header. Many Bearer tokens are JWTs, but the term describes how the token is used, not necessarily its format."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "question": "Should I put passwords or secrets inside JWT payloads?",
+                "answer": "No. JWT payloads are usually readable after decoding. Do not place passwords, API keys, private tokens, or other secrets inside a normal JWT payload."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 63,
+            "sort_order": 10,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decode a basic JWT",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+                "output": "Header: {\"alg\":\"HS256\",\"typ\":\"JWT\"}\nPayload: {\"sub\":\"1234567890\",\"name\":\"John Doe\",\"iat\":1516239022}",
+                "description": "Inspect the JWT header and payload without verifying the signature."
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decode a Bearer token",
+                "key": "",
+                "shift": 0,
+                "input": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkuZXhhbXBsZS5jb20iLCJhdWQiOiJteS1hcHAiLCJzY29wZSI6InJlYWQ6dXNlcnMiLCJleHAiOjE5MjQ5OTIwMDB9.signature",
+                "output": "Payload: {\"iss\":\"api.example.com\",\"aud\":\"my-app\",\"scope\":\"read:users\",\"exp\":1924992000}",
+                "description": "Bearer prefixes are common in Authorization headers and can be stripped before JWT inspection."
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Inspect expiration claim",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzQyIiwiZXhwIjoxOTI0OTkyMDAwLCJpYXQiOjE3MTcyMDAwMDAsInJvbGUiOiJhZG1pbiJ9.signature",
+                "output": "Payload includes exp, iat, sub, and role claims for debugging token lifetime and permissions.",
+                "description": "JWT claims such as exp and iat are Unix timestamps and are useful when debugging expired or not-yet-valid tokens."
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Create a JWT payload",
+                "key": "",
+                "shift": 0,
+                "input": "{\"sub\":\"user_42\",\"role\":\"admin\",\"exp\":1924992000}",
+                "output": "eyJzdWIiOiJ1c2VyXzQyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxOTI0OTkyMDAwfQ",
+                "description": "Encode a JSON payload into a Base64URL JWT payload segment. Useful for understanding how JWT claims are represented before signing."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "JWT header and payload"
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Claims inspection"
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Auth debugging"
+            }
+        },
+        {
+            "id": 110,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Bearer token"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "OAuth and APIs"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

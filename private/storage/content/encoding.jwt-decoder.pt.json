@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T17:53:42+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "jwt-decoder",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 4,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 4,
+        "data": {
+            "name": "Decodificador JWT online",
+            "name_short": "Decodificador JWT",
+            "description": "Decodifique e inspecione JWTs e tokens Bearer diretamente no navegador. Veja header, payload, claims, tempo de expiração e estrutura do token para depurar autenticação, fluxos OAuth e integrações de API.",
+            "description_stort": "Decodifique tokens JWT no navegador e inspecione header, payload, claims e dados de expiração.",
+            "meta_title": "Decodificador JWT online | Decodifique Header, Payload e Claims",
+            "meta_description": "Decodifique tokens JWT localmente no navegador. Inspecione header, payload, claims, tempo de expiração e estrutura de tokens Bearer para depurar auth e APIs."
+        }
+    },
+    "blocks": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como o decodificador JWT funciona",
+                "text": "<p>Um JSON Web Token (JWT) normalmente tem três partes: Header, Payload e Signature. Essas partes são separadas por pontos e codificadas com Base64URL.</p><p>Este decodificador lê o token, decodifica o header e o payload e exibe os dados JSON em um formato legível. Isso ajuda a inspecionar claims como issuer, subject, audience, horário de emissão, horário de expiração, scopes, roles e campos personalizados da aplicação.</p><p>Este decodificador não realiza verificação de assinatura. A decodificação mostra o que existe dentro do token, mas não prova que o token é válido, confiável ou que não foi alterado.</p>"
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "JWT, Base64URL e segurança",
+                "text": "<p>As seções header e payload de um JWT são codificadas, não criptografadas. Qualquer pessoa que tenha o token pode decodificar essas partes e ler seu conteúdo. Por isso, segredos sensíveis não devem ser colocados no payload de um JWT, a menos que o token seja criptografado por um mecanismo separado.</p><p>A seção signature é usada para detectar adulterações. Um servidor pode verificar a assinatura com uma chave secreta ou com um par de chaves pública/privada, dependendo do algoritmo. Esta ferramenta é destinada a inspeção e depuração, não à validação criptográfica.</p>"
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Casos comuns de depuração com JWT",
+                "text": "<p>A decodificação de JWT é usada com frequência ao depurar autenticação, OAuth, OpenID Connect, autorização de API, access tokens, refresh tokens e tokens Bearer de headers Authorization.</p><p>Desenvolvedores costumam inspecionar JWTs para verificar timestamps de expiração, issuer do token, audience, scopes, roles, permissões, identificadores de usuário e valores inesperados de claims durante problemas de login ou integração de API.</p>"
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "JWT Decode vs JWT Verify",
+                "text": "<p>Decodificar um JWT apenas torna o header e o payload legíveis. Isso não verifica se o token é válido, expirou, é confiável ou foi assinado corretamente.</p><p>Verificar um JWT exige validar a assinatura, o algoritmo, issuer, audience, tempo de expiração e outras regras usadas pela sua aplicação. Este decodificador ajuda a inspecionar o conteúdo do token, enquanto a validação completa deve ser feita pelo seu sistema de autenticação.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "O que é um JWT?",
+                "answer": "JWT (JSON Web Token) é um formato de token compacto e autocontido usado para autenticação e troca segura de dados. Ele é amplamente usado em OAuth, OpenID Connect e como token Bearer em headers Authorization."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Esta ferramenta verifica assinaturas JWT?",
+                "answer": "Não. Esta ferramenta apenas decodifica e inspeciona a estrutura do token: header, payload e claims. A verificação de assinatura e a validação do token não são realizadas."
+            }
+        },
+        {
+            "id": 18,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Decodificar JWT é seguro?",
+                "answer": "Sim. A decodificação apenas converte dados Base64URL em JSON legível."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Posso decodificar tokens expirados?",
+                "answer": "Sim. Tokens expirados ainda podem ser decodificados e inspecionados; isso é útil para depuração de auth e investigação de problemas com access token."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Meus tokens são enviados para algum lugar?",
+                "answer": "Não. Toda a decodificação acontece localmente no seu navegador. Seus tokens nunca saem do seu dispositivo."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Por que qualquer pessoa pode decodificar um JWT?",
+                "answer": "Payloads JWT são codificados com Base64URL, não criptografados. Eles são projetados para serem legíveis; a confidencialidade é fornecida pelo transporte (HTTPS), não pela codificação."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "O que é a seção signature?",
+                "answer": "A signature permite que o servidor verifique se o token não foi adulterado. Ela é calculada a partir do header e do payload usando uma chave secreta ou uma chave privada (RS256, HS256 etc.)."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Um JWT é criptografado?",
+                "answer": "Normalmente, não. Um JWT padrão é codificado e assinado, mas não criptografado. O header e o payload podem ser decodificados por qualquer pessoa que tenha o token."
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "O que significa o claim exp?",
+                "answer": "O claim exp armazena o tempo de expiração do token como Unix timestamp. Depois desse momento, o token não deve mais ser aceito pelo servidor."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "O que é um token Bearer?",
+                "answer": "Um token Bearer é um token enviado em um header HTTP Authorization. Muitos tokens Bearer são JWTs, mas o termo descreve como o token é usado, não necessariamente seu formato."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "question": "Devo colocar senhas ou segredos dentro do payload de um JWT?",
+                "answer": "Não. Payloads JWT geralmente ficam legíveis após a decodificação. Não coloque senhas, chaves de API, tokens privados ou outros segredos dentro de um payload JWT normal."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 63,
+            "sort_order": 10,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificar um JWT básico",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIFNpbHZhIiwiaWF0IjoxNTE2MjM5MDIyfQ.signature",
+                "output": "Header:\n{\n  \"alg\": \"HS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"sub\": \"1234567890\",\n  \"name\": \"João Silva\",\n  \"iat\": 1516239022\n}",
+                "description": "Inspecione o header e o payload do JWT sem verificar a assinatura."
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificar um token Bearer",
+                "key": "",
+                "shift": 0,
+                "input": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkuZXhhbXBsZS5jb20iLCJhdWQiOiJteS1hcHAiLCJzY29wZSI6InJlYWQ6dXNlcnMiLCJleHAiOjE5MjQ5OTIwMDB9.signature",
+                "output": "Header:\n{\n  \"alg\": \"HS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"iss\": \"api.example.com\",\n  \"aud\": \"my-app\",\n  \"scope\": \"read:users\",\n  \"exp\": 1924992000\n}",
+                "description": "Prefixos Bearer são comuns em headers Authorization e podem ser removidos antes da inspeção do JWT."
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Inspecionar o claim de expiração",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzQyIiwiZXhwIjoxOTI0OTkyMDAwLCJpYXQiOjE3MTcyMDAwMDAsInJvbGUiOiJhZG1pbiJ9.signature",
+                "output": "Header:\n{\n  \"alg\": \"RS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"sub\": \"user_42\",\n  \"exp\": 1924992000,\n  \"iat\": 1717200000,\n  \"role\": \"admin\"\n}",
+                "description": "Claims JWT como exp e iat são Unix timestamps e são úteis ao depurar tokens expirados ou ainda não válidos."
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Criar um payload JWT",
+                "key": "",
+                "shift": 0,
+                "input": "{\"sub\":\"user_42\",\"role\":\"admin\",\"exp\":1924992000}",
+                "output": "eyJzdWIiOiJ1c2VyXzQyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxOTI0OTkyMDAwfQ",
+                "description": "Codifique um payload JSON em um segmento de payload JWT Base64URL. Isso ajuda a entender como os claims JWT são representados antes da assinatura."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "JWT header e payload"
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Inspeção de claims"
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Depuração de auth"
+            }
+        },
+        {
+            "id": 110,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Token Bearer"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "OAuth e APIs"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -2,8 +2,22 @@
  * Преобразование для инструмента JWT Decoder.
  */
 export function transformJwt(value, mode) {
-  if (mode === 'decode') return ''
+  if (mode === 'encode') return encodeJwtPayload(value)
   return decodeJwtSummary(value)
+}
+
+function encodeJwtPayload(text) {
+  const json = (text || '').trim()
+  try {
+    JSON.parse(json)
+  } catch {
+    const err = new Error('not-json')
+    err.code = 'not-json'
+    throw err
+  }
+  const bytes = new TextEncoder().encode(json)
+  const binary = Array.from(bytes, (b) => String.fromCharCode(b)).join('')
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
 }
 
 /**

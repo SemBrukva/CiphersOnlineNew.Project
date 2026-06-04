@@ -135,6 +135,7 @@ final readonly class CipherController
             'outputTag' => trans('CIPHER_TOOL_OUTPUT_TAG'),
             'useExampleLabel' => trans('CIPHER_TOOL_USE_EXAMPLE'),
             'feedbackInvalidInput' => trans('CIPHER_TOOL_FEEDBACK_INVALID'),
+            'feedbackNotJson' => trans('CIPHER_TOOL_FEEDBACK_NOT_JSON'),
             'feedbackResultCopied' => trans('CIPHER_TOOL_FEEDBACK_RESULT_COPIED'),
             'feedbackCopyFailed' => trans('CIPHER_TOOL_FEEDBACK_RESULT_COPY_FAILED'),
             'feedbackUrlCopied' => trans('CIPHER_TOOL_FEEDBACK_URL_COPIED'),

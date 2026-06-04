@@ -53,6 +53,7 @@ export function initCipherToolPage() {
     placeholderEncode: ui.placeholderEncode || 'Enter text...',
     placeholderDecode: ui.placeholderDecode || 'Paste encoded value...',
     invalid: ui.feedbackInvalidInput || 'Invalid input for current mode.',
+    notJson: ui.feedbackNotJson || 'Input must be valid JSON.',
     copied: ui.feedbackResultCopied || 'Result copied.',
     copyFailed: ui.feedbackResultCopyFailed || 'Unable to copy result.',
     urlCopied: ui.feedbackUrlCopied || 'Page URL copied.',
@@ -257,10 +258,10 @@ export function initCipherToolPage() {
       output.value = transform(value, mode, decoder)
       setOutputState(true)
       setFeedback('')
-    } catch {
+    } catch (error) {
       output.value = ''
       setOutputState(false)
-      setFeedback(labels.invalid, true)
+      setFeedback(error?.code === 'not-json' ? labels.notJson : labels.invalid, true)
     }
   }
 

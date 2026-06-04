@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T17:53:42+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "jwt-decoder",
+        "language": "ru",
+        "default_language": "en",
+        "cipher_id": 4,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 4,
+        "data": {
+            "name": "JWT-декодер онлайн",
+            "name_short": "JWT-декодер",
+            "description": "Декодируйте и проверяйте JWT и Bearer-токены прямо в браузере. Просматривайте header, payload, claims, время истечения и структуру токена для отладки авторизации, OAuth-потоков и API-интеграций.",
+            "description_stort": "Декодируйте JWT в браузере и просматривайте header, payload, claims и срок действия токена.",
+            "meta_title": "JWT-декодер онлайн | Header, Payload и Claims",
+            "meta_description": "Декодируйте JWT локально в браузере. Проверяйте header, payload, claims, время истечения и структуру Bearer-токена при отладке авторизации и API."
+        }
+    },
+    "blocks": [
+        {
+            "id": 3,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Как работает JWT-декодер",
+                "text": "<p>JSON Web Token (JWT) обычно состоит из трех частей: Header, Payload и Signature. Эти части разделены точками и закодированы в формате Base64URL.</p><p>Декодер читает токен, декодирует header и payload и показывает JSON-данные в удобном виде. Это помогает проверять claims: issuer, subject, audience, время выпуска, время истечения, scopes, roles и пользовательские поля приложения.</p><p>Этот декодер не выполняет проверку подписи. Декодирование показывает содержимое токена, но не доказывает, что токен действителен, доверен или не был изменен.</p>"
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "JWT, Base64URL и безопасность",
+                "text": "<p>Разделы header и payload в JWT закодированы, а не зашифрованы. Любой, у кого есть токен, может декодировать эти части и прочитать их содержимое. Поэтому чувствительные секреты не следует помещать в payload JWT, если токен не зашифрован отдельным механизмом.</p><p>Раздел signature используется для обнаружения подмены. Сервер может проверить подпись с помощью секретного ключа или пары публичного и приватного ключей, в зависимости от алгоритма. Этот инструмент предназначен для просмотра и отладки, а не для криптографической валидации.</p>"
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Типичные задачи отладки JWT",
+                "text": "<p>Декодирование JWT часто используют при отладке аутентификации, OAuth, OpenID Connect, API-авторизации, access tokens, refresh tokens и Bearer-токенов из заголовков Authorization.</p><p>Разработчики проверяют JWT, чтобы увидеть timestamp истечения, issuer, audience, scopes, roles, permissions, идентификаторы пользователей и неожиданные значения claims во время проблем со входом или интеграцией API.</p>"
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "JWT Decode и JWT Verify",
+                "text": "<p>Декодирование JWT только делает header и payload читаемыми. Оно не проверяет, является ли токен действительным, не истек ли он, можно ли ему доверять и корректно ли он подписан.</p><p>Проверка JWT требует валидации подписи, алгоритма, issuer, audience, времени истечения и других правил, которые использует ваше приложение. Этот декодер помогает изучить содержимое токена, а полная валидация должна выполняться вашей системой аутентификации.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Что такое JWT?",
+                "answer": "JWT (JSON Web Token) — компактный самодостаточный формат токена для аутентификации и безопасного обмена данными. Он широко используется в OAuth, OpenID Connect и как Bearer-токен в заголовках Authorization."
+            }
+        },
+        {
+            "id": 19,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Проверяет ли этот инструмент подписи JWT?",
+                "answer": "Нет. Инструмент только декодирует и показывает структуру токена: header, payload и claims. Проверка подписи и валидация токена не выполняются."
+            }
+        },
+        {
+            "id": 18,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Безопасно ли декодировать JWT?",
+                "answer": "Да. Декодирование просто преобразует данные Base64URL в читаемый JSON."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Можно ли декодировать истекшие токены?",
+                "answer": "Да. Истекшие токены по-прежнему можно декодировать и просматривать — это полезно при отладке авторизации и разборе проблем с access token."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Загружаются ли мои токены куда-нибудь?",
+                "answer": "Нет. Все декодирование выполняется локально в вашем браузере. Ваши токены не покидают устройство."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Почему любой может декодировать JWT?",
+                "answer": "Payload в JWT кодируется через Base64URL, а не шифруется. Он рассчитан на чтение; конфиденциальность обеспечивает транспортный уровень (HTTPS), а не кодирование."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Что такое раздел signature?",
+                "answer": "Signature позволяет серверу проверить, что токен не был изменен. Она вычисляется по header и payload с использованием секретного ключа или приватного ключа (RS256, HS256 и т. д.)."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "JWT зашифрован?",
+                "answer": "Обычно нет. Стандартный JWT кодируется и подписывается, но не шифруется. Header и payload может декодировать любой, у кого есть токен."
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Что означает claim exp?",
+                "answer": "Claim exp хранит время истечения токена в виде Unix timestamp. После этого момента сервер не должен принимать токен."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Что такое Bearer-токен?",
+                "answer": "Bearer-токен — это токен, который отправляют в HTTP-заголовке Authorization. Многие Bearer-токены являются JWT, но термин описывает способ использования токена, а не обязательно его формат."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "question": "Стоит ли помещать пароли или секреты в payload JWT?",
+                "answer": "Нет. Payload JWT обычно читается после декодирования. Не помещайте пароли, API-ключи, приватные токены и другие секреты в обычный payload JWT."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 63,
+            "sort_order": 10,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Декодировать базовый JWT",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ItCY0LLQsNC9INCY0LLQsNC90L7QsiIsImlhdCI6MTUxNjIzOTAyMn0.signature",
+                "output": "Header:\n{\n  \"alg\": \"HS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"sub\": \"1234567890\",\n  \"name\": \"Иван Иванов\",\n  \"iat\": 1516239022\n}",
+                "description": "Просмотрите header и payload JWT без проверки подписи."
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Декодировать Bearer-токен",
+                "key": "",
+                "shift": 0,
+                "input": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkuZXhhbXBsZS5jb20iLCJhdWQiOiJteS1hcHAiLCJzY29wZSI6InJlYWQ6dXNlcnMiLCJleHAiOjE5MjQ5OTIwMDB9.signature",
+                "output": "Header:\n{\n  \"alg\": \"HS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"iss\": \"api.example.com\",\n  \"aud\": \"my-app\",\n  \"scope\": \"read:users\",\n  \"exp\": 1924992000\n}",
+                "description": "Префикс Bearer часто встречается в заголовках Authorization; перед просмотром JWT его можно удалить."
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Проверить claim истечения",
+                "key": "",
+                "shift": 0,
+                "input": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzQyIiwiZXhwIjoxOTI0OTkyMDAwLCJpYXQiOjE3MTcyMDAwMDAsInJvbGUiOiJhZG1pbiJ9.signature",
+                "output": "Header:\n{\n  \"alg\": \"RS256\",\n  \"typ\": \"JWT\"\n}\n\nPayload:\n{\n  \"sub\": \"user_42\",\n  \"exp\": 1924992000,\n  \"iat\": 1717200000,\n  \"role\": \"admin\"\n}",
+                "description": "Claims exp и iat являются Unix timestamp и помогают отлаживать истекшие или еще не действующие токены."
+            }
+        },
+        {
+            "id": 66,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Создать payload JWT",
+                "key": "",
+                "shift": 0,
+                "input": "{\"sub\":\"user_42\",\"role\":\"admin\",\"exp\":1924992000}",
+                "output": "eyJzdWIiOiJ1c2VyXzQyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxOTI0OTkyMDAwfQ",
+                "description": "Закодируйте JSON payload в сегмент JWT payload формата Base64URL. Это помогает понять, как claims представлены до подписания."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 40,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "JWT header и payload"
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Просмотр claims"
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Отладка авторизации"
+            }
+        },
+        {
+            "id": 110,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Bearer-токен"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "OAuth и API"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
