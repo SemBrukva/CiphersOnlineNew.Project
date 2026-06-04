@@ -13,7 +13,7 @@ use App\Repository\RedirectRepository;
 /**
  * Middleware обработки HTTP-редиректов из базы данных.
  *
- * При каждом GET-запросе проверяет путь по таблице активных редиректов
+ * При каждом GET/HEAD-запросе проверяет путь по таблице активных редиректов
  * (список кешируется). При совпадении — инкрементирует счётчик и отдаёт редирект.
  */
 final readonly class RedirectMiddleware implements MiddlewareInterface
@@ -35,7 +35,7 @@ final readonly class RedirectMiddleware implements MiddlewareInterface
      */
     public function process(Request $request, callable $next): Response
     {
-        if ($request->getMethod() !== 'GET') {
+        if (!in_array($request->getMethod(), ['GET', 'HEAD'], true)) {
             return $next($request);
         }
 

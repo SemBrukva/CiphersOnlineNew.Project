@@ -1,0 +1,283 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T18:12:43+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "unicode-converter",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 10,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 10,
+        "data": {
+            "name": "Conversor Unicode",
+            "name_short": "Unicode",
+            "description": "Converta texto em sequências de escape Unicode e decodifique escapes Unicode, entidades HTML e texto internacional de volta para uma forma legível. Útil para JavaScript, JSON, localização, depuração e conteúdo multilíngue.",
+            "description_stort": "Converta texto em escapes Unicode e decodifique escapes Unicode, entidades HTML e texto multilíngue.",
+            "meta_title": "Conversor Unicode online | Decodificador Unicode Escape",
+            "meta_description": "Converta texto em sequências de escape Unicode e decodifique escapes Unicode e entidades HTML online. Conversor Unicode no navegador para JavaScript, JSON, localização, emoji e depuração de texto."
+        }
+    },
+    "blocks": [
+        {
+            "id": 33,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a codificação Unicode funciona",
+                "text": "<p>Unicode atribui um ponto de código único a caracteres, símbolos, sistemas de escrita e emoji de muitos sistemas de escrita. Por exemplo, a letra latina A é U+0041, o sinal de euro € é U+20AC, a marca de verificação ✓ é U+2713, e muitos emoji são representados por pontos de código fora do Basic Multilingual Plane.</p><p>Sequências de escape Unicode tornam esses caracteres representáveis em código-fonte, strings JSON, arquivos de configuração e ferramentas de depuração. Formatos comuns incluem escapes no estilo JavaScript \\uXXXX, notações mais longas de ponto de código e entidades HTML.</p><p>Este conversor pode transformar texto legível em sequências de escape e decodificar Unicode escapado ou entidades HTML de volta para texto normal.</p>"
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Unicode e segurança",
+                "text": "<p>A conversão Unicode não é criptografia. Ela apenas muda a forma como o texto é representado e normalmente pode ser revertida sem senha ou chave secreta.</p><p>Escapes Unicode são úteis para compatibilidade, código-fonte, localização e depuração, mas não protegem informações sensíveis.</p>"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Usos comuns do Unicode",
+                "text": "<p>A conversão Unicode é comumente usada em JavaScript, JSON, APIs, arquivos de localização, sites multilíngues, depuração de texto e código-fonte quando caracteres especiais precisam ser representados com segurança.</p><p>Desenvolvedores costumam usar escapes Unicode para inspecionar caracteres invisíveis, depurar texto quebrado, preservar strings multilíngues, trabalhar com emoji e representar com segurança caracteres que podem ser difíceis de digitar ou exibir diretamente.</p>"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Unicode, ASCII e UTF-8",
+                "text": "<p>ASCII é um conjunto de caracteres mais antigo que cobre apenas 128 caracteres básicos, principalmente letras inglesas, dígitos, pontuação e códigos de controle. Unicode é muito mais amplo e pode representar caracteres de muitos idiomas, símbolos e emoji.</p><p>UTF-8 é uma forma de codificar texto Unicode como bytes. Unicode define o que cada caractere significa, enquanto UTF-8 define como esses caracteres são armazenados ou transmitidos em forma binária.</p>"
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Escapes Unicode e entidades HTML",
+                "text": "<p>Escapes Unicode como \\u041F são comuns em JavaScript, JSON e código-fonte. Entidades HTML como &amp;copy; ou &amp;#169; são comumente usadas em documentos HTML.</p><p>Ambos os formatos podem representar caracteres indiretamente, mas são usados em contextos diferentes. Escapes Unicode são comuns em linguagens de programação, enquanto entidades HTML são projetadas para marcação web.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 78,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "O que é Unicode?",
+                "answer": "Unicode é um padrão universal de codificação de caracteres que oferece suporte a texto de quase todos os idiomas e sistemas de símbolos."
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "O que o Conversor Unicode faz?",
+                "answer": "Ele converte texto comum em sequências de escape Unicode e decodifica sequências Unicode de volta para texto legível."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Esta ferramenta suporta emoji?",
+                "answer": "Sim. Unicode inclui emoji, símbolos, caracteres matemáticos e muitos sistemas de escrita internacionais."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Unicode é o mesmo que ASCII?",
+                "answer": "Não. ASCII suporta apenas caracteres ingleses básicos, enquanto Unicode suporta milhares de caracteres de muitos idiomas."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Meu texto é enviado para um servidor?",
+                "answer": "Não. O conversor funciona inteiramente no navegador e processa os dados localmente."
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Por que alguns caracteres Unicode são representados por dois códigos?",
+                "answer": "Caracteres fora do Basic Multilingual Plane, como muitos emoji, usam pares substitutos na codificação UTF-16."
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Posso decodificar strings Unicode de JavaScript?",
+                "answer": "Sim. A ferramenta suporta sequências Unicode comuns no estilo JavaScript, como \\\\uXXXX."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "O que é uma sequência de escape Unicode?",
+                "answer": "Uma sequência de escape Unicode representa um caractere usando notação de código, como \\u0041 para A, \\u20ac para o sinal de euro € ou \\u2713 para a marca de verificação ✓."
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Qual é a diferença entre Unicode e UTF-8?",
+                "answer": "Unicode define pontos de código de caracteres, enquanto UTF-8 é um formato de codificação que armazena texto Unicode como bytes."
+            }
+        },
+        {
+            "id": 171,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Esta ferramenta pode decodificar entidades HTML?",
+                "answer": "Sim. O conversor pode decodificar entidades HTML comuns e referências numéricas de caracteres de volta para texto legível."
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "question": "Por que emoji às vezes aparecem como pares substitutos?",
+                "answer": "Muitos emoji ficam fora do Basic Multilingual Plane. Em UTF-16, esses caracteres são representados como duas unidades de código chamadas par substituto."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 67,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar texto com acentos",
+                "key": "",
+                "shift": 0,
+                "input": "Ação café coração",
+                "output": "\\u0041\\u00e7\\u00e3\\u006f\\u0020\\u0063\\u0061\\u0066\\u00e9\\u0020\\u0063\\u006f\\u0072\\u0061\\u00e7\\u00e3\\u006f",
+                "description": "Converta cada caractere para sua representação de escape Unicode, incluindo letras ASCII, espaços, cedilha e caracteres acentuados."
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificar texto escapado de API",
+                "key": "",
+                "shift": 0,
+                "input": "Total do pedido: \\u20ac99 \\u2014 status: \\u2713",
+                "output": "Total do pedido: €99 — status: ✓",
+                "description": "Decodifique símbolos escapados comumente encontrados em respostas de API, logs, strings JSON e arquivos de localização."
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificar entidades HTML",
+                "key": "",
+                "shift": 0,
+                "input": "Tom &#38; Jerry &#169; 2026",
+                "output": "Tom & Jerry © 2026",
+                "description": "Decodifique entidades HTML comuns e referências numéricas de caracteres de volta para texto legível."
+            }
+        },
+        {
+            "id": 70,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar texto com emoji",
+                "key": "",
+                "shift": 0,
+                "input": "Olá ☕ 😀",
+                "output": "\\u004f\\u006c\\u00e1\\u0020\\u2615\\u0020\\ud83d\\ude00",
+                "description": "Converta texto, símbolos e emoji em sequências de escape Unicode. Caracteres fora do Basic Multilingual Plane podem aparecer como pares substitutos UTF-16."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Escapes Unicode"
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Entidades HTML"
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "UTF-8 e emoji"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "JavaScript e JSON"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Depuração de localização"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

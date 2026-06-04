@@ -1,0 +1,283 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-04T18:12:43+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "unicode-converter",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 10,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 10,
+        "data": {
+            "name": "Unicode Dönüştürücü",
+            "name_short": "Unicode",
+            "description": "Metni Unicode escape dizilerine dönüştürün; Unicode escape dizilerini, HTML varlıklarını ve uluslararası metni yeniden okunabilir biçime çözün. JavaScript, JSON, yerelleştirme, hata ayıklama ve çok dilli içerik için kullanışlıdır.",
+            "description_stort": "Metni Unicode escape dizilerine dönüştürün; Unicode escape dizilerini, HTML varlıklarını ve çok dilli metni çözün.",
+            "meta_title": "Çevrimiçi Unicode Dönüştürücü | Unicode Escape Çözücü",
+            "meta_description": "Metni Unicode escape dizilerine dönüştürün ve Unicode escape dizilerini ve HTML varlıklarını çevrimiçi çözün. JavaScript, JSON, yerelleştirme, emoji ve metin hata ayıklama için tarayıcı tabanlı Unicode dönüştürücü."
+        }
+    },
+    "blocks": [
+        {
+            "id": 33,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Unicode Kodlama Nasıl Çalışır",
+                "text": "<p>Unicode, birçok yazı sistemindeki karakterlere, sembollere, alfabelere ve emojilere benzersiz bir kod noktası atar. Örneğin Latin harfi A U+0041, euro işareti € U+20AC, onay işareti ✓ U+2713’tür; birçok emoji ise Basic Multilingual Plane dışındaki kod noktalarıyla temsil edilir.</p><p>Unicode escape dizileri bu karakterlerin kaynak kodda, JSON dizelerinde, yapılandırma dosyalarında ve hata ayıklama araçlarında açık biçimde temsil edilmesini sağlar. Yaygın biçimler arasında JavaScript tarzı \\uXXXX escape dizileri, daha uzun kod noktası gösterimleri ve HTML varlıkları bulunur.</p><p>Bu dönüştürücü okunabilir metni escape dizilerine dönüştürebilir ve escape edilmiş Unicode ya da HTML varlıklarını yeniden normal metne çözebilir.</p>"
+            }
+        },
+        {
+            "id": 34,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Unicode ve Güvenlik",
+                "text": "<p>Unicode dönüştürme şifreleme değildir. Yalnızca metnin nasıl temsil edildiğini değiştirir ve genellikle parola ya da gizli anahtar olmadan geri çevrilebilir.</p><p>Unicode escape dizileri uyumluluk, kaynak kod, yerelleştirme ve hata ayıklama için yararlıdır; ancak hassas bilgileri korumaz.</p>"
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Unicode İçin Yaygın Kullanım Alanları",
+                "text": "<p>Unicode dönüştürme JavaScript, JSON, API’ler, yerelleştirme dosyaları, çok dilli web siteleri, metin hata ayıklama ve özel karakterlerin güvenli biçimde temsil edilmesi gereken kaynak kodlarda yaygın olarak kullanılır.</p><p>Geliştiriciler görünmez karakterleri incelemek, bozuk metni hata ayıklamak, çok dilli dizeleri korumak, emojilerle çalışmak ve doğrudan yazılması ya da görüntülenmesi zor karakterleri güvenle temsil etmek için Unicode escape dizilerini sıkça kullanır.</p>"
+            }
+        },
+        {
+            "id": 75,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Unicode, ASCII ve UTF-8",
+                "text": "<p>ASCII yalnızca 128 temel karakteri kapsayan daha eski bir karakter kümesidir; çoğunlukla İngilizce harfler, rakamlar, noktalama işaretleri ve kontrol kodlarını içerir. Unicode çok daha geniştir ve birçok dildeki karakterleri, sembolleri ve emojileri temsil edebilir.</p><p>UTF-8, Unicode metnini baytlar olarak kodlamanın bir yoludur. Unicode her karakterin ne anlama geldiğini tanımlar; UTF-8 ise bu karakterlerin ikili biçimde nasıl saklandığını veya aktarıldığını tanımlar.</p>"
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Unicode Escape Dizileri ve HTML Varlıkları",
+                "text": "<p>\\u041F gibi Unicode escape dizileri JavaScript, JSON ve kaynak kodda yaygındır. &amp;copy; veya &amp;#169; gibi HTML varlıkları ise HTML belgelerinde sıkça kullanılır.</p><p>Her iki biçim de karakterleri dolaylı olarak temsil edebilir, ancak farklı bağlamlarda kullanılır. Unicode escape dizileri programlama dillerinde yaygındır; HTML varlıkları ise web işaretlemesi için tasarlanmıştır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 78,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Unicode nedir?",
+                "answer": "Unicode, neredeyse tüm dillerden ve sembol sistemlerinden metni destekleyen evrensel bir karakter kodlama standardıdır."
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Unicode Dönüştürücü ne yapar?",
+                "answer": "Normal metni Unicode escape dizilerine dönüştürür ve Unicode dizilerini yeniden okunabilir metne çözer."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Bu araç emoji destekler mi?",
+                "answer": "Evet. Unicode emoji, semboller, matematiksel karakterler ve birçok uluslararası yazı sistemini içerir."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Unicode, ASCII ile aynı mıdır?",
+                "answer": "Hayır. ASCII yalnızca temel İngilizce karakterleri destekler; Unicode ise birçok dilden binlerce karakteri destekler."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Metnim bir sunucuya gönderiliyor mu?",
+                "answer": "Hayır. Dönüştürücü tamamen tarayıcınızda çalışır ve verileri yerel olarak işler."
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bazı Unicode karakterleri neden iki kodla temsil edilir?",
+                "answer": "Emoji gibi Basic Multilingual Plane dışındaki karakterler UTF-16 kodlamasında vekil çiftler kullanır."
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "JavaScript Unicode dizelerini çözebilir miyim?",
+                "answer": "Evet. Araç \\\\uXXXX biçimindeki yaygın JavaScript tarzı Unicode dizilerini destekler."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Unicode escape dizisi nedir?",
+                "answer": "Unicode escape dizisi bir karakteri kod gösterimiyle temsil eder; örneğin A için \\u0041, euro işareti € için \\u20ac veya onay işareti ✓ için \\u2713."
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Unicode ile UTF-8 arasındaki fark nedir?",
+                "answer": "Unicode karakter kod noktalarını tanımlar; UTF-8 ise Unicode metnini baytlar olarak saklayan bir kodlama biçimidir."
+            }
+        },
+        {
+            "id": 171,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Bu araç HTML varlıklarını çözebilir mi?",
+                "answer": "Evet. Dönüştürücü yaygın HTML varlıklarını ve sayısal karakter başvurularını yeniden okunabilir metne çözebilir."
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "question": "Emojiler neden bazen vekil çiftler olarak görünür?",
+                "answer": "Birçok emoji Basic Multilingual Plane dışındadır. UTF-16’da bu karakterler vekil çift adı verilen iki kod birimiyle temsil edilir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 67,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Türkçe karakterli metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Türkçe ışık İstanbul",
+                "output": "\\u0054\\u00fc\\u0072\\u006b\\u00e7\\u0065\\u0020\\u0131\\u015f\\u0131\\u006b\\u0020\\u0130\\u0073\\u0074\\u0061\\u006e\\u0062\\u0075\\u006c",
+                "description": "ASCII harfler, boşluklar ve Türkçeye özgü karakterler dahil her karakteri Unicode escape gösterimine dönüştürün."
+            }
+        },
+        {
+            "id": 68,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Escape edilmiş API metnini çözme",
+                "key": "",
+                "shift": 0,
+                "input": "Sipariş toplamı: \\u20ac99 \\u2014 durum: \\u2713",
+                "output": "Sipariş toplamı: €99 — durum: ✓",
+                "description": "API yanıtlarında, loglarda, JSON dizelerinde ve yerelleştirme dosyalarında sık görülen escape edilmiş sembolleri çözün."
+            }
+        },
+        {
+            "id": 69,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "HTML varlıklarını çözme",
+                "key": "",
+                "shift": 0,
+                "input": "Tom &#38; Jerry &#169; 2026",
+                "output": "Tom & Jerry © 2026",
+                "description": "Yaygın HTML varlıklarını ve sayısal karakter başvurularını yeniden okunabilir metne çözün."
+            }
+        },
+        {
+            "id": 70,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Emoji içeren metni kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba ☕ 😀",
+                "output": "\\u004d\\u0065\\u0072\\u0068\\u0061\\u0062\\u0061\\u0020\\u2615\\u0020\\ud83d\\ude00",
+                "description": "Metni, sembolleri ve emojileri Unicode escape dizilerine dönüştürün. Basic Multilingual Plane dışındaki karakterler UTF-16 vekil çiftleri olarak görünebilir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Unicode escape dizileri"
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "HTML varlıkları"
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "UTF-8 ve emoji"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "JavaScript ve JSON"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Yerelleştirme hata ayıklama"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
