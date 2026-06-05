@@ -8,6 +8,7 @@ use App\Auth\Auth;
 use App\Cache\CacheInterface;
 use App\Cache\MemcacheCache;
 use App\Database\Database;
+use App\Geo\GeoIpService;
 use App\Http\Request;
 use App\Http\RequestContext;
 use App\Http\Response;
@@ -42,7 +43,8 @@ final readonly class DebugInfo
         private TranslationTracker $translationTracker,
         private Profiler           $profiler,
         private RequestContext     $context,
-        private array              $adminIds
+        private array              $adminIds,
+        private GeoIpService       $geoIpService,
     ) {
     }
 
@@ -85,6 +87,10 @@ final readonly class DebugInfo
 
             // ---- PHP ошибки ----
             'php_errors'     => GlobalErrorHandler::getCollected(),
+
+            // ---- Геолокация ----
+            'geo_country'    => $this->geoIpService->getCountryCode($request->ip()),
+            'geo_ad_network' => $this->resolveAdNetwork($request->ip()),
 
             // ---- HTTP-запрос ----
             'method'         => $request->getMethod(),
@@ -320,6 +326,17 @@ final readonly class DebugInfo
     private function isAdmin(?int $userId): bool
     {
         return $userId !== null && in_array($userId, $this->adminIds, true);
+    }
+
+    /**
+     * Определяет рекламную сеть для переданного IP: RSY (для RU/BY/KZ) или Adsense.
+     */
+    private function resolveAdNetwork(string $ip): string
+    {
+        $country = $this->geoIpService->getCountryCode($ip);
+        $rsyaCountries = (array) config('geoip.rsya_countries', ['RU', 'BY', 'KZ']);
+
+        return ($country !== null && in_array($country, $rsyaCountries, true)) ? 'RSY' : 'Adsense';
     }
 
     /**

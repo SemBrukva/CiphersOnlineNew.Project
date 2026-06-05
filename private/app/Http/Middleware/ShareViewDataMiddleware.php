@@ -7,6 +7,7 @@ namespace App\Http\Middleware;
 use App\Auth\Auth;
 use App\Debug\DebugInfo;
 use App\Debug\TranslationTracker;
+use App\Geo\GeoIpService;
 use App\Http\CspNonce;
 use App\Http\MiddlewareInterface;
 use App\Http\Request;
@@ -43,6 +44,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         private TranslationTracker  $translationTracker,
         private NavigationBuilder   $navigationBuilder,
         private CspNonce            $cspNonce,
+        private GeoIpService        $geoIpService,
     ) {
     }
 
@@ -87,7 +89,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         $this->view->share('registration_enabled', (bool) config('app.user_registration', false));
         $this->view->share('is_admin', $isAdmin);
         $this->view->share('admin_path', config('admin.path', '/admin'));
-        $this->view->share('tracking_config', $this->trackingConfig());
+        $this->view->share('tracking_config', $this->trackingConfig($request->ip()));
         $this->view->share('available_locales', $locales);
         $this->view->share('locale_meta', $this->buildLocaleMeta());
         $this->view->share('locale_urls', $isAuth ? [] : $this->buildLocaleUrls($request->path(), $defaultLocale, $locales));
@@ -155,16 +157,23 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
     /**
      * Возвращает безопасную конфигурацию публичных tracking-тегов для шаблонов.
      *
+     * Реклама выбирается по стране IP: для RU/BY/KZ — РСЯ, для всех остальных — Adsense.
+     * Если геолокация недоступна — по умолчанию показывается Adsense.
+     *
      * @return array<string, mixed>
      */
-    private function trackingConfig(): array
+    private function trackingConfig(string $ip): array
     {
+        $rsyaCountries = (array) config('geoip.rsya_countries', ['RU', 'BY', 'KZ']);
+        $countryCode   = $this->geoIpService->getCountryCode($ip);
+        $isRsyaUser    = $countryCode !== null && in_array($countryCode, $rsyaCountries, true);
+
         return [
-            'ga_measurement_id' => (string) config('tracking.google.analytics_id', ''),
-            'adsense_client_id' => (string) config('tracking.google.adsense_client_id', ''),
-            'yandex_metrica_id' => (string) config('tracking.yandex.metrica_id', ''),
+            'ga_measurement_id'       => (string) config('tracking.google.analytics_id', ''),
+            'adsense_client_id'       => $isRsyaUser ? '' : (string) config('tracking.google.adsense_client_id', ''),
+            'yandex_metrica_id'       => (string) config('tracking.yandex.metrica_id', ''),
             'yandex_metrica_webvisor' => (bool) config('tracking.yandex.metrica_webvisor', false),
-            'yandex_rsya_enabled' => (bool) config('tracking.yandex.rsya_enabled', false),
+            'yandex_rsya_enabled'     => $isRsyaUser && (bool) config('tracking.yandex.rsya_enabled', false),
         ];
     }
 

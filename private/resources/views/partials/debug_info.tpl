@@ -73,6 +73,10 @@
                     {$debug_info.translation_missing|@count} missing i18n
                 </span>
             {/if}
+            <span class="dbg-badge dbg-badge--{if $debug_info.geo_ad_network === 'RSY'}purple{else}blue{/if}">
+                <span class="dbg-badge__dot"></span>
+                {$debug_info.geo_country|default:'?'} · {$debug_info.geo_ad_network}
+            </span>
         </div>
 
         <span class="dbg-toggle__arrow">▲</span>
@@ -206,6 +210,25 @@
                     <div class="dbg-kv-row">
                         <span class="dbg-kv-key">IP</span>
                         <span class="dbg-kv-val dbg-kv-val--mono">{$debug_info.ip|escape}</span>
+                    </div>
+                    <div class="dbg-kv-row">
+                        <span class="dbg-kv-key">Страна</span>
+                        <span class="dbg-kv-val">
+                            {if $debug_info.geo_country !== null}
+                                <span class="dbg-kv-val--mono">{$debug_info.geo_country|escape}</span>
+                            {else}
+                                <span class="dbg-kv-val--dim">не определена</span>
+                            {/if}
+                        </span>
+                    </div>
+                    <div class="dbg-kv-row">
+                        <span class="dbg-kv-key">Реклама</span>
+                        <span class="dbg-kv-val">
+                            <span class="dbg-badge dbg-badge--{if $debug_info.geo_ad_network === 'RSY'}purple{else}blue{/if}">
+                                <span class="dbg-badge__dot"></span>
+                                {$debug_info.geo_ad_network}
+                            </span>
+                        </span>
                     </div>
                     {if $debug_info.referer}
                         <div class="dbg-kv-row">

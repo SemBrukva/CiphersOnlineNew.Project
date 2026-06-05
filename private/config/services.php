@@ -45,6 +45,13 @@ return [
         );
     },
 
+    App\Geo\GeoIpService::class => static function (): App\Geo\GeoIpService {
+        return new App\Geo\GeoIpService(
+            (string) config('geoip.db_path', STORAGE_PATH . '/geo/GeoLite2-Country.mmdb'),
+            (bool)   config('geoip.enabled', true),
+        );
+    },
+
     HttpClient::class => static fn (): HttpClient => new HttpClient(config('http_client', [])),
 
     HttpClientInterface::class => static function (Container $container): HttpClientInterface {
@@ -119,7 +126,8 @@ return [
             $container->get(App\Debug\TranslationTracker::class),
             $container->get(App\Debug\Profiler::class),
             $container->get(RequestContext::class),
-            config('admin.ids', [])
+            config('admin.ids', []),
+            $container->get(App\Geo\GeoIpService::class),
         );
     },
 
