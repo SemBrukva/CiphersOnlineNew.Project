@@ -118,6 +118,16 @@ final readonly class SitemapController
     }
 
     /**
+     * Возвращает XSL-стилизацию для браузерного просмотра XML-карты сайта.
+     */
+    public function xsl(Request $request): Response
+    {
+        return new Response($this->buildXsl(), 200, [
+            'Content-Type' => 'text/xsl; charset=utf-8',
+        ]);
+    }
+
+    /**
      * Форматирует дату lastmod из datetime-строки в формат Y-m-d.
      *
      * @param string|null $datetime Значение поля updated_at из БД.
@@ -155,6 +165,7 @@ final readonly class SitemapController
         $w->setIndent(true);
         $w->setIndentString('    ');
         $w->startDocument('1.0', 'UTF-8');
+        $w->writePi('xml-stylesheet', 'type="text/xsl" href="/sitemap.xsl"');
 
         $w->startElement('urlset');
         $w->writeAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
@@ -195,5 +206,162 @@ final readonly class SitemapController
         $w->endDocument();
 
         return $w->outputMemory();
+    }
+
+    /**
+     * Строит XSL-документ для человекочитаемого просмотра sitemap в браузере.
+     */
+    private function buildXsl(): string
+    {
+        return <<<'XSL'
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <xsl:output method="html" encoding="UTF-8" indent="yes"/>
+    <xsl:template match="/">
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8"/>
+                <title>XML Sitemap</title>
+                <style>
+                    :root {
+                        color-scheme: light;
+                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                        color: #172033;
+                        background: #f6f8fb;
+                    }
+
+                    body {
+                        margin: 0;
+                        padding: 32px;
+                    }
+
+                    main {
+                        max-width: 1180px;
+                        margin: 0 auto;
+                    }
+
+                    h1 {
+                        margin: 0 0 8px;
+                        font-size: 28px;
+                        line-height: 1.2;
+                    }
+
+                    p {
+                        margin: 0 0 24px;
+                        color: #647084;
+                    }
+
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        background: #fff;
+                        border: 1px solid #d9e0ea;
+                    }
+
+                    th,
+                    td {
+                        padding: 10px 12px;
+                        border-bottom: 1px solid #e6ebf2;
+                        text-align: left;
+                        vertical-align: top;
+                    }
+
+                    th {
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        letter-spacing: .04em;
+                        color: #526078;
+                        background: #eef2f7;
+                    }
+
+                    a {
+                        color: #0b63ce;
+                        text-decoration: none;
+                        overflow-wrap: anywhere;
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
+
+                    .meta {
+                        white-space: nowrap;
+                        color: #526078;
+                    }
+
+                    @media (max-width: 760px) {
+                        body {
+                            padding: 18px;
+                        }
+
+                        table,
+                        thead,
+                        tbody,
+                        tr,
+                        th,
+                        td {
+                            display: block;
+                        }
+
+                        thead {
+                            display: none;
+                        }
+
+                        tr {
+                            border-bottom: 1px solid #d9e0ea;
+                        }
+
+                        td {
+                            border-bottom: 0;
+                        }
+                    }
+                </style>
+            </head>
+            <body>
+                <main>
+                    <h1>XML Sitemap</h1>
+                    <p>
+                        <xsl:value-of select="count(sitemap:urlset/sitemap:url)"/>
+                        URLs listed for search engines.
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>URL</th>
+                                <th>Last modified</th>
+                                <th>Change frequency</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <xsl:for-each select="sitemap:urlset/sitemap:url">
+                                <tr>
+                                    <td>
+                                        <a href="{sitemap:loc}">
+                                            <xsl:value-of select="sitemap:loc"/>
+                                        </a>
+                                    </td>
+                                    <td class="meta">
+                                        <xsl:value-of select="sitemap:lastmod"/>
+                                    </td>
+                                    <td class="meta">
+                                        <xsl:value-of select="sitemap:changefreq"/>
+                                    </td>
+                                    <td class="meta">
+                                        <xsl:value-of select="sitemap:priority"/>
+                                    </td>
+                                </tr>
+                            </xsl:for-each>
+                        </tbody>
+                    </table>
+                </main>
+            </body>
+        </html>
+    </xsl:template>
+</xsl:stylesheet>
+XSL;
     }
 }

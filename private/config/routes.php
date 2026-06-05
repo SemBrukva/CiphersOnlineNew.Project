@@ -72,6 +72,12 @@ return [
         'name'       => 'sitemap.xml',
     ],
 
+    'GET /sitemap.xsl' => [
+        'controller' => SitemapController::class,
+        'method'     => 'xsl',
+        'name'       => 'sitemap.xsl',
+    ],
+
     'GET /favorites' => [
         'controller' => FavoritesController::class,
         'method'     => 'index',
