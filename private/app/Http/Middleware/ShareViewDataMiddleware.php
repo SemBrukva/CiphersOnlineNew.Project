@@ -87,6 +87,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         $this->view->share('registration_enabled', (bool) config('app.user_registration', false));
         $this->view->share('is_admin', $isAdmin);
         $this->view->share('admin_path', config('admin.path', '/admin'));
+        $this->view->share('tracking_config', $this->trackingConfig());
         $this->view->share('available_locales', $locales);
         $this->view->share('locale_meta', $this->buildLocaleMeta());
         $this->view->share('locale_urls', $isAuth ? [] : $this->buildLocaleUrls($request->path(), $defaultLocale, $locales));
@@ -149,6 +150,22 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         } catch (\Throwable) {
             return [];
         }
+    }
+
+    /**
+     * Возвращает безопасную конфигурацию публичных tracking-тегов для шаблонов.
+     *
+     * @return array<string, mixed>
+     */
+    private function trackingConfig(): array
+    {
+        return [
+            'ga_measurement_id' => (string) config('tracking.google.analytics_id', ''),
+            'adsense_client_id' => (string) config('tracking.google.adsense_client_id', ''),
+            'yandex_metrica_id' => (string) config('tracking.yandex.metrica_id', ''),
+            'yandex_metrica_webvisor' => (bool) config('tracking.yandex.metrica_webvisor', false),
+            'yandex_rsya_enabled' => (bool) config('tracking.yandex.rsya_enabled', false),
+        ];
     }
 
     /**

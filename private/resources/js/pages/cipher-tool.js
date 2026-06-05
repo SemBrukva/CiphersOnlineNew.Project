@@ -1,5 +1,9 @@
 import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
 
+function canUsePreferenceStorage() {
+  return window.CiphersOnlineConsent?.has('preferences') === true
+}
+
 /**
  * Инициализирует универсальную рабочую область инструмента на странице шифра.
  */
@@ -90,7 +94,7 @@ export function initCipherToolPage() {
   }
 
   const saveState = () => {
-    if (!slug) return
+    if (!slug || !canUsePreferenceStorage()) return
 
     try {
       const state = {
@@ -107,7 +111,7 @@ export function initCipherToolPage() {
   }
 
   const loadState = () => {
-    if (!slug) return null
+    if (!slug || !canUsePreferenceStorage()) return null
 
     try {
       const rawState = window.localStorage.getItem(stateStorageKey)

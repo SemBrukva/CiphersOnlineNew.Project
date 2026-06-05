@@ -1,7 +1,15 @@
 const STORAGE_KEY = 'cipher_favorites'
 
+function canUsePreferenceStorage() {
+    return window.CiphersOnlineConsent?.has('preferences') === true
+}
+
 /** @returns {string[]} */
 function getFavorites() {
+    if (!canUsePreferenceStorage()) {
+        return []
+    }
+
     try {
         const raw = localStorage.getItem(STORAGE_KEY)
         const parsed = JSON.parse(raw || '[]')
@@ -13,6 +21,10 @@ function getFavorites() {
 
 /** @param {string[]} slugs */
 function saveFavorites(slugs) {
+    if (!canUsePreferenceStorage()) {
+        return
+    }
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(slugs))
 }
 
@@ -26,6 +38,11 @@ export function isFavorite(slug) {
  * @returns {boolean} true если добавлено, false если удалено
  */
 export function toggleFavorite(slug) {
+    if (!canUsePreferenceStorage()) {
+        window.CiphersOnlineConsent?.open()
+        return false
+    }
+
     const favorites = getFavorites()
     const idx = favorites.indexOf(slug)
     if (idx === -1) {

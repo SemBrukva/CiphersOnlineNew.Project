@@ -50,10 +50,18 @@
             {foreach $nav_pages as $pg}
                 <li><a href="{$locale_prefix}/{$pg.alias}">{$pg.name}</a></li>
             {/foreach}
+            <li>
+                <button type="button" class="footer-link-button" data-cookie-settings-open>
+                    {$t.COOKIE_CONSENT_SETTINGS_LINK|default:'Cookie settings'}
+                </button>
+            </li>
             <li><a href="{$locale_prefix}/sitemap">{$t.MENU_SITEMAP}</a></li>
         </ul>
     </div>
 </footer>
+
+{include file="partials/cookie_consent.tpl"}
+{include file="partials/tracking_config.tpl"}
 
 {vite entry="private/resources/js/app.js" type="js"}
 

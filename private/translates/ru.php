@@ -136,6 +136,26 @@ return [
     'SITEMAP_MAIN_PAGES'    => 'Основные страницы',
     'SITEMAP_PAGES'         => 'Страницы',
 
+    // Cookie consent
+    'COOKIE_CONSENT_SETTINGS_LINK' => 'Настройки cookie',
+    'COOKIE_CONSENT_EYEBROW' => 'Настройки приватности',
+    'COOKIE_CONSENT_TITLE' => 'Настройки cookie',
+    'COOKIE_CONSENT_DESC' => 'Мы используем обязательные cookie и локальное хранилище для работы сайта. Необязательные категории используются только с вашего согласия.',
+    'COOKIE_CONSENT_POLICY' => 'Политика использования Cookie',
+    'COOKIE_CONSENT_ACCEPT' => 'Принять все',
+    'COOKIE_CONSENT_REJECT' => 'Отклонить все',
+    'COOKIE_CONSENT_SETTINGS' => 'Настроить',
+    'COOKIE_CONSENT_BACK' => 'Назад',
+    'COOKIE_CONSENT_SAVE' => 'Сохранить выбор',
+    'COOKIE_CONSENT_NECESSARY_TITLE' => 'Обязательные',
+    'COOKIE_CONSENT_NECESSARY_DESC' => 'Нужны для безопасности, сессий и базовых функций сайта.',
+    'COOKIE_CONSENT_PREFERENCES_TITLE' => 'Предпочтения',
+    'COOKIE_CONSENT_PREFERENCES_DESC' => 'Запоминают настройки интерфейса, избранные инструменты и параметры инструментов.',
+    'COOKIE_CONSENT_ANALYTICS_TITLE' => 'Аналитика',
+    'COOKIE_CONSENT_ANALYTICS_DESC' => 'Помогает понимать использование сайта и улучшать страницы и инструменты.',
+    'COOKIE_CONSENT_MARKETING_TITLE' => 'Маркетинг',
+    'COOKIE_CONSENT_MARKETING_DESC' => 'Разрешает рекламные или измерительные технологии, если они включены.',
+
     // Множественное число — pipe-разделённые формы (one|few|many)
     'ITEMS_COUNT'   => ':count элемент|:count элемента|:count элементов',
     'USERS_ONLINE'  => ':count пользователь онлайн|:count пользователя онлайн|:count пользователей онлайн',

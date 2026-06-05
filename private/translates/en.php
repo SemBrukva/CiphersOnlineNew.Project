@@ -136,6 +136,26 @@ return [
     'SITEMAP_MAIN_PAGES'    => 'Main pages',
     'SITEMAP_PAGES'         => 'Pages',
 
+    // Cookie consent
+    'COOKIE_CONSENT_SETTINGS_LINK' => 'Cookie settings',
+    'COOKIE_CONSENT_EYEBROW' => 'Privacy choices',
+    'COOKIE_CONSENT_TITLE' => 'Cookie preferences',
+    'COOKIE_CONSENT_DESC' => 'We use necessary cookies and local storage to keep the site working. Optional categories are used only with your consent.',
+    'COOKIE_CONSENT_POLICY' => 'Cookie Policy',
+    'COOKIE_CONSENT_ACCEPT' => 'Accept all',
+    'COOKIE_CONSENT_REJECT' => 'Reject all',
+    'COOKIE_CONSENT_SETTINGS' => 'Settings',
+    'COOKIE_CONSENT_BACK' => 'Back',
+    'COOKIE_CONSENT_SAVE' => 'Save choices',
+    'COOKIE_CONSENT_NECESSARY_TITLE' => 'Necessary',
+    'COOKIE_CONSENT_NECESSARY_DESC' => 'Required for security, sessions and core site features.',
+    'COOKIE_CONSENT_PREFERENCES_TITLE' => 'Preferences',
+    'COOKIE_CONSENT_PREFERENCES_DESC' => 'Remember interface choices such as saved tools and tool settings.',
+    'COOKIE_CONSENT_ANALYTICS_TITLE' => 'Analytics',
+    'COOKIE_CONSENT_ANALYTICS_DESC' => 'Help us understand site usage and improve pages and tools.',
+    'COOKIE_CONSENT_MARKETING_TITLE' => 'Marketing',
+    'COOKIE_CONSENT_MARKETING_DESC' => 'Allow advertising or measurement technologies if they are enabled.',
+
     // Множественное число — pipe-разделённые формы (one|other)
     'ITEMS_COUNT'   => ':count item|:count items',
     'USERS_ONLINE'  => ':count user online|:count users online',
