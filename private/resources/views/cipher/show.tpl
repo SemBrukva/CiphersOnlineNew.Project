@@ -168,6 +168,8 @@
     </div>
 </section>
 
+{include file="partials/ad_block.tpl" position="after_hero"}
+
 {if $examples}
 <section class="panel ciphers-hub-panel">
     <div class="panel-heading">
@@ -218,6 +220,9 @@
             {$block.text nofilter}
         </div>
     </section>
+    {if $block@first}
+        {include file="partials/ad_block.tpl" position="after_first_block"}
+    {/if}
     {/foreach}
 {/if}
 
@@ -243,6 +248,7 @@
         </div>
     </div>
 </section>
+{include file="partials/ad_block.tpl" position="after_faq"}
 {/if}
 
 {if $related}

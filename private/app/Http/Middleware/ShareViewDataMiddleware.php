@@ -168,12 +168,22 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         $countryCode   = $this->geoIpService->getCountryCode($ip);
         $isRsyaUser    = $countryCode !== null && in_array($countryCode, $rsyaCountries, true);
 
+        $slots = $isRsyaUser
+            ? (array) config('tracking.yandex.rsya_slots', [])
+            : (array) config('tracking.google.adsense_slots', []);
+
         return [
             'ga_measurement_id'       => (string) config('tracking.google.analytics_id', ''),
             'adsense_client_id'       => $isRsyaUser ? '' : (string) config('tracking.google.adsense_client_id', ''),
             'yandex_metrica_id'       => (string) config('tracking.yandex.metrica_id', ''),
             'yandex_metrica_webvisor' => (bool) config('tracking.yandex.metrica_webvisor', false),
             'yandex_rsya_enabled'     => $isRsyaUser && (bool) config('tracking.yandex.rsya_enabled', false),
+            'ad_network'              => $isRsyaUser ? 'rsya' : 'adsense',
+            'ad_slots'                => [
+                'after_hero'        => (string) ($slots['after_hero'] ?? ''),
+                'after_first_block' => (string) ($slots['after_first_block'] ?? ''),
+                'after_faq'         => (string) ($slots['after_faq'] ?? ''),
+            ],
         ];
     }
 
