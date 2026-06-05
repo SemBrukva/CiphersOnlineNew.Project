@@ -34,6 +34,8 @@ return [
     'AUTH_REGISTRATION_FAILED' => 'Не удалось создать аккаунт. Попробуйте ещё раз.',
     'AUTH_POLICY_AGREEMENT_TEXT' => 'Я согласен с',
     'AUTH_POLICY_AGREEMENT_LINK' => 'политикой конфиденциальности',
+    'AUTH_POLICY_AGREEMENT_SEPARATOR' => 'и',
+    'AUTH_POLICY_AGREEMENT_TERMS_LINK' => 'условиями использования',
     'AUTH_ERROR_NAME_REQUIRED' => 'Введите имя.',
     'AUTH_ERROR_NAME_LENGTH' => 'Имя должно быть от 2 до 100 символов.',
     'AUTH_ERROR_EMAIL_REQUIRED' => 'Введите email.',
@@ -42,7 +44,7 @@ return [
     'AUTH_ERROR_PASSWORD_LENGTH' => 'Пароль должен быть не короче 8 символов.',
     'AUTH_ERROR_CONFIRMATION_REQUIRED' => 'Подтвердите пароль.',
     'AUTH_ERROR_CONFIRMATION_MISMATCH' => 'Пароли не совпадают.',
-    'AUTH_ERROR_POLICY_REQUIRED' => 'Нужно согласиться с политикой конфиденциальности.',
+    'AUTH_ERROR_POLICY_REQUIRED' => 'Нужно согласиться с политикой конфиденциальности и условиями использования.',
     'AUTH_INVALID'          => 'Неверный email или пароль.',
 
     // Главная

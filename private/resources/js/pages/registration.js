@@ -36,7 +36,7 @@ export function initRegistrationPage() {
         passwordLength: root.dataset.errorPasswordLength ?? 'Password must be at least 8 characters.',
         confirmationRequired: root.dataset.errorConfirmationRequired ?? 'Password confirmation is required.',
         confirmationMismatch: root.dataset.errorConfirmationMismatch ?? 'Passwords do not match.',
-        policyRequired: root.dataset.errorPolicyRequired ?? 'You must agree to the privacy policy.',
+        policyRequired: root.dataset.errorPolicyRequired ?? 'You must agree to the privacy policy and terms of service.',
     }
 
     const showAlert = (message, type) => {
@@ -178,6 +178,7 @@ export function initRegistrationPage() {
                 password: passwordNode.value,
                 password_confirmation: confirmationNode.value,
                 language: text.language,
+                policy_agreement: policyNode.checked,
             })
 
             showAlert(text.success, 'success')

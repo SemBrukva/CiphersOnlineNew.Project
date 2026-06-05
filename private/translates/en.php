@@ -34,6 +34,8 @@ return [
     'AUTH_REGISTRATION_FAILED' => 'Failed to create account. Please try again.',
     'AUTH_POLICY_AGREEMENT_TEXT' => 'I agree to the',
     'AUTH_POLICY_AGREEMENT_LINK' => 'privacy policy',
+    'AUTH_POLICY_AGREEMENT_SEPARATOR' => 'and',
+    'AUTH_POLICY_AGREEMENT_TERMS_LINK' => 'terms of service',
     'AUTH_ERROR_NAME_REQUIRED' => 'Name is required.',
     'AUTH_ERROR_NAME_LENGTH' => 'Name must be between 2 and 100 characters.',
     'AUTH_ERROR_EMAIL_REQUIRED' => 'Email is required.',
@@ -42,7 +44,7 @@ return [
     'AUTH_ERROR_PASSWORD_LENGTH' => 'Password must be at least 8 characters.',
     'AUTH_ERROR_CONFIRMATION_REQUIRED' => 'Password confirmation is required.',
     'AUTH_ERROR_CONFIRMATION_MISMATCH' => 'Passwords do not match.',
-    'AUTH_ERROR_POLICY_REQUIRED' => 'You must agree to the privacy policy.',
+    'AUTH_ERROR_POLICY_REQUIRED' => 'You must agree to the privacy policy and terms of service.',
     'AUTH_INVALID'          => 'Invalid email or password.',
 
     // Главная

@@ -23,6 +23,7 @@ final class RegisterRequest extends FormRequest
             'password' => 'required|string|min:8|max:255',
             'password_confirmation' => 'required|string|min:8|max:255',
             'language' => 'string|min:2|max:10',
+            'policy_agreement' => 'required|boolean',
         ];
     }
 
@@ -36,6 +37,12 @@ final class RegisterRequest extends FormRequest
         if ($instance->password() !== $instance->passwordConfirmation()) {
             throw new ValidationException([
                 'password_confirmation' => ['The password confirmation does not match.'],
+            ]);
+        }
+
+        if (!$instance->policyAgreement()) {
+            throw new ValidationException([
+                'policy_agreement' => ['You must agree to the privacy policy and terms of service.'],
             ]);
         }
 
@@ -82,5 +89,13 @@ final class RegisterRequest extends FormRequest
         $value = trim((string) $this->value('language', ''));
 
         return $value === '' ? null : $value;
+    }
+
+    /**
+     * Возвращает согласие с политикой конфиденциальности и условиями использования.
+     */
+    public function policyAgreement(): bool
+    {
+        return filter_var($this->value('policy_agreement', false), FILTER_VALIDATE_BOOL);
     }
 }

@@ -52,6 +52,10 @@
                             <a href="{$locale_prefix}/privacy-policy" target="_blank" rel="noopener noreferrer">
                                 {$t.AUTH_POLICY_AGREEMENT_LINK}
                             </a>
+                            {$t.AUTH_POLICY_AGREEMENT_SEPARATOR}
+                            <a href="{$locale_prefix}/terms-of-service" target="_blank" rel="noopener noreferrer">
+                                {$t.AUTH_POLICY_AGREEMENT_TERMS_LINK}
+                            </a>
                         </label>
                         <div class="invalid-feedback" id="regPolicyAgreementError"></div>
                     </div>
