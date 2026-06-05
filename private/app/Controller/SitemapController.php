@@ -157,7 +157,7 @@ final readonly class SitemapController
         $w->startDocument('1.0', 'UTF-8');
 
         $w->startElement('urlset');
-        $w->writeAttribute('xmlns', 'https://www.sitemaps.org/schemas/sitemap/0.9');
+        $w->writeAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
         if ($withAlternates) {
             $w->writeAttribute('xmlns:xhtml', 'http://www.w3.org/1999/xhtml');
         }

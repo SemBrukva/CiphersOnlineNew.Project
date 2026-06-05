@@ -13,6 +13,10 @@ if (PHP_SAPI === 'cli-server') {
 use App\Http\AdminRouter;
 use App\Http\ApiRouter;
 use App\Http\ErrorHandler;
+use App\Http\Middleware\DevBasicAuthMiddleware;
+use App\Http\Middleware\EnforceHttpsMiddleware;
+use App\Http\Middleware\TrailingSlashMiddleware;
+use App\Http\Middleware\TrustedProxyMiddleware;
 use App\Http\Pipeline;
 use App\Http\Request;
 use App\Http\RequestContext;
@@ -48,7 +52,12 @@ $adminPath   = config('admin.path', '/admin');
     ],
     $requestPath === '/sitemap.xml' => [
         'router' => app(Router::class),
-        'middleware' => config('middleware', []),
+        'middleware' => [
+            TrustedProxyMiddleware::class,
+            DevBasicAuthMiddleware::class,
+            EnforceHttpsMiddleware::class,
+            TrailingSlashMiddleware::class,
+        ],
         'contentType' => null,
         'isApi' => false,
     ],
