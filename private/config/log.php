@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Если вебхук не задан — ошибки пишутся в файл storage/logs/{env}-YYYY-MM-DD.log.
  * Если вебхук задан, но недоступен — автоматически переключается на файл.
  *
- * Поддерживаемые вебхуки: Slack, Discord и любой сервис с JSON-форматом {"text": "..."}.
+ * Поддерживаемые вебхуки: Slack (Attachments), Discord (Embeds) и generic ({"text": "..."}).
  *
  * Окружения:
  *   local      — локальная разработка,  LOG_WEBHOOK_LOCAL

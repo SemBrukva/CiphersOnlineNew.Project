@@ -7,6 +7,7 @@ namespace App\Http;
 use App\Http\Exception\HttpException;
 use App\Log\LoggerInterface;
 use App\Validation\ValidationException;
+use Psr\Log\LogLevel;
 use Throwable;
 
 /**
@@ -112,7 +113,13 @@ final class ErrorHandler
         }
 
         try {
-            $this->logger->critical(
+            $isClientError = ($exception instanceof HttpException && $exception->statusCode() < 500)
+                || $exception instanceof ValidationException;
+
+            $level = $isClientError ? LogLevel::WARNING : LogLevel::CRITICAL;
+
+            $this->logger->log(
+                $level,
                 'HTTP exception: {class}: {message}',
                 [
                     'class' => $exception::class,

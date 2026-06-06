@@ -160,13 +160,17 @@ final readonly class Logger implements LoggerInterface
         $safeContext['env'] = $env;
 
         $interpolatedMessage = $this->interpolate((string) $message, $safeContext);
+
+        if (is_string($webhook) && $webhook !== '') {
+            $payload = $this->buildWebhookPayload($webhook, $level, $interpolatedMessage, $safeContext);
+            if ($this->sendWebhook($webhook, $payload)) {
+                return;
+            }
+        }
+
         $rendered = $format === 'json'
             ? $this->renderJsonLine($level, $interpolatedMessage, $safeContext)
             : $this->renderTextLine($level, $interpolatedMessage, $safeContext);
-
-        if (is_string($webhook) && $webhook !== '' && $this->sendWebhook($webhook, $rendered)) {
-            return;
-        }
 
         $this->writeToFile($env, $rendered);
     }
@@ -297,14 +301,168 @@ final readonly class Logger implements LoggerInterface
     }
 
     /**
-     * Отправляет сообщение на вебхук через общий HTTP-клиент.
+     * Формирует payload для вебхука: Slack attachments, Discord embeds или fallback.
+     *
+     * @param array<string, bool|int|float|string|null> $context
+     * @return array<string, mixed>
      */
-    private function sendWebhook(string $url, string $message): bool
+    private function buildWebhookPayload(string $url, string $level, string $message, array $context): array
+    {
+        $color    = $this->levelColor($level);
+        $title    = strtoupper($level);
+        $method   = (string) ($context['request_method'] ?? '');
+        $uri      = (string) ($context['request_uri'] ?? '');
+        $ip       = (string) ($context['ip'] ?? 'cli');
+        $file     = (string) ($context['file'] ?? '');
+        $line     = (string) ($context['line'] ?? '');
+        $requestId = (string) ($context['request_id'] ?? '');
+        $env      = (string) ($context['env'] ?? '');
+
+        $endpoint = trim($method . ' ' . $uri);
+        $location = $file !== '' ? basename($file) . ':' . $line : '';
+        $footer   = implode(' | ', array_filter([$requestId ?: null, $env ?: null]));
+
+        $trace = isset($context['trace'])
+            ? $this->truncateTrace((string) $context['trace'])
+            : null;
+
+        $body = $trace !== null ? $message . "\n```\n{$trace}\n```" : $message;
+
+        if (str_contains($url, 'discord')) {
+            return $this->buildDiscordPayload($color, $title, $endpoint, $body, $ip, $location, $footer);
+        }
+
+        if (str_contains($url, 'slack')) {
+            return $this->buildSlackPayload($color, $title, $endpoint, $body, $ip, $location, $footer);
+        }
+
+        return ['text' => sprintf('[%s] %s %s', date('Y-m-d H:i:s'), $title, $message)];
+    }
+
+    /**
+     * Формирует Slack Attachment payload.
+     *
+     * @return array<string, mixed>
+     */
+    private function buildSlackPayload(
+        string $color,
+        string $title,
+        string $endpoint,
+        string $body,
+        string $ip,
+        string $location,
+        string $footer,
+    ): array {
+        $fields = [];
+
+        if ($endpoint !== '') {
+            $fields[] = ['title' => 'Endpoint', 'value' => $endpoint, 'short' => true];
+        }
+
+        if ($ip !== '' && $ip !== 'cli') {
+            $fields[] = ['title' => 'IP', 'value' => $ip, 'short' => true];
+        }
+
+        if ($location !== '') {
+            $fields[] = ['title' => 'File', 'value' => $location, 'short' => true];
+        }
+
+        return [
+            'attachments' => [[
+                'color'      => $color,
+                'title'      => $title,
+                'text'       => $body,
+                'fields'     => $fields,
+                'footer'     => $footer,
+                'ts'         => time(),
+                'mrkdwn_in'  => ['text'],
+            ]],
+        ];
+    }
+
+    /**
+     * Формирует Discord Embed payload.
+     *
+     * @return array<string, mixed>
+     */
+    private function buildDiscordPayload(
+        string $color,
+        string $title,
+        string $endpoint,
+        string $body,
+        string $ip,
+        string $location,
+        string $footer,
+    ): array {
+        $fields = [];
+
+        if ($endpoint !== '') {
+            $fields[] = ['name' => 'Endpoint', 'value' => $endpoint, 'inline' => true];
+        }
+
+        if ($ip !== '' && $ip !== 'cli') {
+            $fields[] = ['name' => 'IP', 'value' => $ip, 'inline' => true];
+        }
+
+        if ($location !== '') {
+            $fields[] = ['name' => 'File', 'value' => $location, 'inline' => true];
+        }
+
+        return [
+            'embeds' => [[
+                'color'       => (int) hexdec(ltrim($color, '#')),
+                'title'       => $title,
+                'description' => $body,
+                'fields'      => $fields,
+                'footer'      => ['text' => $footer],
+                'timestamp'   => date('c'),
+            ]],
+        ];
+    }
+
+    /**
+     * Обрезает трейс до первых нескольких фреймов.
+     */
+    private function truncateTrace(string $trace, int $maxFrames = 5): string
+    {
+        $lines = explode("\n", trim($trace));
+
+        if (count($lines) <= $maxFrames) {
+            return $trace;
+        }
+
+        $kept      = array_slice($lines, 0, $maxFrames);
+        $remaining = count($lines) - $maxFrames;
+        $kept[]    = "... ({$remaining} more frames — see log file)";
+
+        return implode("\n", $kept);
+    }
+
+    /**
+     * Возвращает hex-цвет для уровня лога.
+     */
+    private function levelColor(string $level): string
+    {
+        return match ($level) {
+            LogLevel::DEBUG            => '#9e9e9e',
+            LogLevel::INFO,
+            LogLevel::NOTICE           => '#2196f3',
+            LogLevel::WARNING          => '#f0a500',
+            default                    => '#d00000',
+        };
+    }
+
+    /**
+     * Отправляет payload на вебхук через общий HTTP-клиент.
+     *
+     * @param array<string, mixed> $payload
+     */
+    private function sendWebhook(string $url, array $payload): bool
     {
         try {
             $response = $this->httpClient
                 ->timeout(5)
-                ->post($url, ['text' => $message]);
+                ->post($url, $payload);
 
             return $response->ok();
         } catch (Throwable) {
