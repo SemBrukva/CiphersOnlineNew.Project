@@ -39,6 +39,27 @@ final class RouterTest extends TestCase
     }
 
     /**
+     * Проверяет, что HEAD-запрос использует GET-маршрут и возвращает ответ без тела.
+     */
+    public function testDispatchHandlesHeadAsGetWithoutBody(): void
+    {
+        $container = new Container();
+        $container->instance(RouterTestController::class, new RouterTestController());
+
+        $router = new Router(
+            ['GET /hello' => ['controller' => RouterTestController::class, 'method' => 'hello']],
+            $container,
+            new Pipeline($container)
+        );
+
+        $request = new Request(['REQUEST_METHOD' => 'HEAD', 'REQUEST_URI' => '/hello'], [], [], [], []);
+        $response = $router->dispatch($request);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertSame('', $response->getContent());
+    }
+
+    /**
      * Проверяет извлечение параметров из маршрута с плейсхолдерами.
      */
     public function testDispatchMatchesPatternRouteAndPassesParams(): void

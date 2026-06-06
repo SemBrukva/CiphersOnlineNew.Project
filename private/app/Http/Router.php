@@ -45,7 +45,7 @@ readonly class Router implements RouteMatcherInterface
      */
     public function match(string $method, string $path): ?array
     {
-        [$route] = $this->resolve($method . ' ' . $path);
+        [$route] = $this->resolve($this->routeMethod($method) . ' ' . $path);
 
         return $route;
     }
@@ -56,17 +56,18 @@ readonly class Router implements RouteMatcherInterface
      */
     public function dispatch(Request $request): Response
     {
-        $path     = parse_url($request->getUri(), PHP_URL_PATH) ?: '/';
-        $routeKey = $request->getMethod() . ' ' . $path;
+        $path          = parse_url($request->getUri(), PHP_URL_PATH) ?: '/';
+        $requestMethod = $request->getMethod();
+        $routeKey      = $this->routeMethod($requestMethod) . ' ' . $path;
 
         [$route, $params] = $this->resolve($routeKey);
 
         if ($route === null) {
             if ($this->notFoundHandler !== null) {
-                return ($this->notFoundHandler)($request);
+                return $this->prepareResponse($requestMethod, ($this->notFoundHandler)($request));
             }
 
-            return new Response('404 Not Found', 404);
+            return $this->prepareResponse($requestMethod, new Response('404 Not Found', 404));
         }
 
         $controllerClass  = $route['controller'] ?? null;
@@ -98,7 +99,7 @@ readonly class Router implements RouteMatcherInterface
         $shortController = substr(strrchr($controllerClass, '\\') ?: $controllerClass, 1);
         $spanName        = $shortController . '::' . $controllerMethod;
 
-        return $this->pipeline->run(
+        $response = $this->pipeline->run(
             $resolved,
             $route['middleware'] ?? [],
             function (Request $req) use ($controller, $controllerMethod, $spanName): Response {
@@ -113,6 +114,30 @@ readonly class Router implements RouteMatcherInterface
                 return $response;
             }
         );
+
+        return $this->prepareResponse($requestMethod, $response);
+    }
+
+    /**
+     * Возвращает HTTP-метод для поиска маршрута.
+     */
+    private function routeMethod(string $method): string
+    {
+        $method = strtoupper($method);
+
+        return $method === 'HEAD' ? 'GET' : $method;
+    }
+
+    /**
+     * Подготавливает ответ с учётом особенностей исходного HTTP-метода.
+     */
+    private function prepareResponse(string $method, Response $response): Response
+    {
+        if (strtoupper($method) !== 'HEAD') {
+            return $response;
+        }
+
+        return new Response('', $response->getStatusCode(), $response->getHeaders());
     }
 
     /**
