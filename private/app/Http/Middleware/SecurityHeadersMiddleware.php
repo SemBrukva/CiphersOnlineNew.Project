@@ -30,6 +30,7 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
      *
      * В dev/local добавляет unsafe-inline и unsafe-eval для совместимости
      * с Vite HMR. В prod использует строгий nonce-only для script-src.
+     * Домены внешних трекеров добавляются динамически по конфигурации.
      */
     private function buildCspPolicy(): string
     {
@@ -62,6 +63,26 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
             $connectSrc = array_merge($connectSrc, $viteHosts);
         } else {
             $scriptSrc = ["'self'", $nonceSrc];
+        }
+
+        if ((string) config('tracking.google.analytics_id', '') !== '') {
+            $scriptSrc  = array_merge($scriptSrc, ['https://www.googletagmanager.com']);
+            $connectSrc = array_merge($connectSrc, [
+                'https://www.google-analytics.com',
+                'https://analytics.google.com',
+                'https://www.googletagmanager.com',
+                'https://region1.google-analytics.com',
+            ]);
+        }
+
+        if ((string) config('tracking.google.adsense_client_id', '') !== '') {
+            $scriptSrc  = array_merge($scriptSrc, ['https://pagead2.googlesyndication.com', 'https://partner.googleadservices.com']);
+            $connectSrc = array_merge($connectSrc, ['https://pagead2.googlesyndication.com']);
+        }
+
+        if ((string) config('tracking.yandex.metrica_id', '') !== '') {
+            $scriptSrc  = array_merge($scriptSrc, ['https://mc.yandex.ru', 'https://mc.yandex.com']);
+            $connectSrc = array_merge($connectSrc, ['https://mc.yandex.ru', 'https://mc.yandex.com']);
         }
 
         return sprintf(
