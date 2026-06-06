@@ -42,6 +42,7 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
 
         $fontSrc    = ["'self'", 'data:', 'https://fonts.gstatic.com'];
         $connectSrc = ["'self'", 'ws:', 'wss:'];
+        $frameSrc   = ["'self'"];
 
         // style-src: unsafe-inline нужен Bootstrap JS (inline style=".." атрибуты)
         $styleSrc = ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'];
@@ -76,8 +77,18 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
         }
 
         if ((string) config('tracking.google.adsense_client_id', '') !== '') {
-            $scriptSrc  = array_merge($scriptSrc, ['https://pagead2.googlesyndication.com', 'https://partner.googleadservices.com']);
+            $scriptSrc  = array_merge($scriptSrc, [
+                'https://pagead2.googlesyndication.com',
+                'https://partner.googleadservices.com',
+                'https://www.googletagservices.com',
+            ]);
             $connectSrc = array_merge($connectSrc, ['https://pagead2.googlesyndication.com']);
+            $frameSrc   = array_merge($frameSrc, [
+                'https://googleads.g.doubleclick.net',
+                'https://tpc.googlesyndication.com',
+                'https://ep2.adtrafficquality.google',
+                'https://www.google.com',
+            ]);
         }
 
         if ((string) config('tracking.yandex.metrica_id', '') !== '') {
@@ -86,11 +97,12 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
         }
 
         return sprintf(
-            "default-src 'self'; script-src %s; style-src %s; img-src 'self' data: https:; font-src %s; connect-src %s;",
+            "default-src 'self'; script-src %s; style-src %s; img-src 'self' data: https:; font-src %s; connect-src %s; frame-src %s;",
             implode(' ', array_unique($scriptSrc)),
             implode(' ', array_unique($styleSrc)),
             implode(' ', array_unique($fontSrc)),
-            implode(' ', array_unique($connectSrc))
+            implode(' ', array_unique($connectSrc)),
+            implode(' ', array_unique($frameSrc))
         );
     }
 
