@@ -3,6 +3,7 @@ import '../css/admin.css'
 import { ApiClient } from './api.js'
 import { initAdminCipherCategoryEdit } from './pages/admin-cipher-category-edit.js'
 import { initAdminCipherEdit } from './pages/admin-cipher-edit.js'
+import { initAdminDashboard } from './pages/admin-dashboard.js'
 
 window.api = new ApiClient()
 
@@ -24,3 +25,4 @@ if (sidebar && toggle) {
 
 initAdminCipherCategoryEdit()
 initAdminCipherEdit()
+initAdminDashboard()

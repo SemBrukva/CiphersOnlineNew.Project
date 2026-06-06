@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Api;
 
+use App\Analytics\AnalyticsService;
 use App\Auth\Auth;
 use App\Cipher\ApiCipherToolRegistry;
 use App\Controller\Api\Request\ContactRequest;
@@ -41,6 +42,7 @@ final class GuestController
         private readonly EventDispatcherInterface $dispatcher,
         private readonly ApiCipherToolRegistry $cipherTools,
         private readonly CipherRepository $ciphers,
+        private readonly AnalyticsService $analytics,
     ) {
     }
 
@@ -359,6 +361,13 @@ final class GuestController
             $this->translator->setLocale($locale);
         }
 
-        return Response::json($this->cipherTools->execute($action, $payload));
+        $result = $this->cipherTools->execute($action, $payload);
+
+        $ipHash = hash('sha256', $request->ip());
+        $userId = $this->auth->id() !== null ? (int) $this->auth->id() : null;
+        $mode = ($payload['direction'] ?? '') === 'decrypt' ? 'decode' : 'encode';
+        $this->analytics->recordUse($action, $userId, $ipHash, $mode);
+
+        return Response::json($result);
     }
 }

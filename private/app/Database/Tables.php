@@ -89,4 +89,7 @@ final class Tables
 
     /** @var string Таблица переводов тегов приложений-шифров. */
     public const string CIPHERS_TAGS_TRANSLATIONS = 'ciphers_tags_translations';
+
+    /** @var string Таблица событий использования инструментов (аналитика). */
+    public const string TOOL_USAGE_EVENTS = 'tool_usage_events';
 }

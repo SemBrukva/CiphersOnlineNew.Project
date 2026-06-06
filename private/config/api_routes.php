@@ -5,6 +5,7 @@ declare(strict_types=1);
 // Маршруты API. Пути указываются относительно префикса /api, который добавляется в services.php.
 
 use App\Controller\Api\AdminController;
+use App\Controller\Api\AnalyticsController;
 use App\Controller\Api\FavoritesController as ApiFavoritesController;
 use App\Controller\Api\GuestController;
 use App\Controller\Api\UserController;
@@ -97,6 +98,13 @@ return [
         'method'     => 'a1z26',
         'middleware' => [RateLimitMiddleware::class],
         'name'       => 'api.tools.a1z26',
+    ],
+
+    'POST /analytics/use' => [
+        'controller' => AnalyticsController::class,
+        'method'     => 'record',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.analytics.use',
     ],
 
     'GET /tools/search' => [
