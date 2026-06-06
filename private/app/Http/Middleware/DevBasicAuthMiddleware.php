@@ -18,7 +18,6 @@ final class DevBasicAuthMiddleware implements MiddlewareInterface
      */
     public function process(Request $request, callable $next): Response
     {
-        trigger_error('Dev Basic Auth middleware is active in dev environment: '.config('app.env'), E_USER_NOTICE);
         if ((string) config('app.env', 'production') !== 'dev') {
             return $next($request);
         }
