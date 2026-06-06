@@ -8,15 +8,30 @@ use App\Database\Database;
 use App\Database\Tables;
 
 /**
- * Репозиторий для выборки агрегированных данных аналитики использования инструментов.
+ * Репозиторий аналитики: запись событий и агрегированные выборки.
  */
-final readonly class AnalyticsRepository
+final class AnalyticsRepository extends AbstractRepository
 {
     /**
      * Создаёт экземпляр репозитория.
      */
-    public function __construct(private Database $db)
+    public function __construct(Database $db)
     {
+        parent::__construct($db, Tables::TOOL_USAGE_EVENTS);
+    }
+
+    /**
+     * Записывает событие использования инструмента.
+     */
+    public function record(string $toolSlug, string $mode, ?int $userId, string $ipHash): void
+    {
+        $this->insert([
+            'tool_slug'  => $toolSlug,
+            'mode'       => $mode,
+            'user_id'    => $userId,
+            'ip_hash'    => $ipHash,
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
     }
 
     /**

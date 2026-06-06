@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Analytics;
 
 use App\Cache\CacheInterface;
-use App\Database\Database;
-use App\Database\Tables;
+use App\Repository\AnalyticsRepository;
 
 /**
  * Сервис аналитики использования инструментов.
@@ -21,7 +20,7 @@ final readonly class AnalyticsService
      */
     public function __construct(
         private CacheInterface $cache,
-        private Database $db,
+        private AnalyticsRepository $repo,
     ) {
     }
 
@@ -43,13 +42,12 @@ final readonly class AnalyticsService
             return;
         }
 
-        $this->db->insert(Tables::TOOL_USAGE_EVENTS, [
-            'tool_slug'  => mb_substr($toolSlug, 0, 100),
-            'mode'       => in_array($mode, ['encode', 'decode'], true) ? $mode : 'encode',
-            'user_id'    => $userId,
-            'ip_hash'    => $ipHash,
-            'created_at' => date('Y-m-d H:i:s'),
-        ]);
+        $this->repo->record(
+            mb_substr($toolSlug, 0, 100),
+            in_array($mode, ['encode', 'decode'], true) ? $mode : 'encode',
+            $userId,
+            $ipHash,
+        );
 
         $ttl = (int) config('analytics.cooldown_seconds', 300);
         $this->cache->set($cacheKey, 1, $ttl);
