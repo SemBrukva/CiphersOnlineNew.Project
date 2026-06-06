@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use App\Auth\Auth;
+use App\Cache\CacheInterface;
 use App\Debug\DebugInfo;
 use App\Debug\TranslationTracker;
 use App\Geo\GeoIpService;
@@ -45,6 +46,7 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
         private NavigationBuilder   $navigationBuilder,
         private CspNonce            $cspNonce,
         private GeoIpService        $geoIpService,
+        private CacheInterface      $cache,
     ) {
     }
 
@@ -148,7 +150,9 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
     private function loadPages(string $language): array
     {
         try {
-            return $this->pages->listPublishedForNavigation($language);
+            /** @var array<int, array<string, mixed>> $result */
+            $result = $this->cache->remember("nav_pages:{$language}", 3600, fn () => $this->pages->listPublishedForNavigation($language));
+            return $result;
         } catch (\Throwable) {
             return [];
         }
