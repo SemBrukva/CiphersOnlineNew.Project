@@ -137,7 +137,7 @@
 /* ---- Grid метрик ---- */
 .dbg-metrics {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1px;
     background: var(--dbg-border);
     border-bottom: 1px solid var(--dbg-border);
@@ -630,6 +630,11 @@
     color: #000;
 }
 
+.dbg-tab__count--blue {
+    background: var(--dbg-accent);
+    color: #0f172a;
+}
+
 /* ---- Steps timeline ---- */
 .dbg-steps {
     display: flex;
@@ -659,38 +664,129 @@
     color: var(--dbg-accent);
 }
 
-/* ---- SQL trace ---- */
-.dbg-sql {
-    padding: 10px 14px;
+/* ---- SQL query list ---- */
+.dbg-sq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--dbg-border);
 }
 
-.dbg-pre {
+.dbg-sq {
+    background: var(--dbg-bg);
+    transition: background 0.1s;
+}
+
+.dbg-sq:hover {
+    background: #131d2e;
+}
+
+.dbg-sq__head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.dbg-sq__num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--dbg-text-dim);
+    min-width: 20px;
+    flex-shrink: 0;
+}
+
+.dbg-sq__type {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--dbg-text-dim);
+}
+
+.dbg-sq__type--select { background: rgba(56, 189, 248, 0.12);  color: var(--dbg-accent); }
+.dbg-sq__type--insert { background: rgba(74, 222, 128, 0.12);  color: var(--dbg-green);  }
+.dbg-sq__type--update { background: rgba(251, 191, 36, 0.12);  color: var(--dbg-yellow); }
+.dbg-sq__type--delete { background: rgba(248, 113, 113, 0.12); color: var(--dbg-red);    }
+
+.dbg-sq__track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    overflow: hidden;
+    min-width: 40px;
+}
+
+.dbg-sq__fill {
+    height: 100%;
+    border-radius: 2px;
+    min-width: 2px;
+    opacity: 0.6;
+    background: var(--dbg-accent);
+}
+
+.dbg-sq__fill--green  { background: var(--dbg-green);  }
+.dbg-sq__fill--yellow { background: var(--dbg-yellow); }
+.dbg-sq__fill--red    { background: var(--dbg-red);    }
+
+.dbg-sq__dur {
+    font-size: 11px;
+    font-family: var(--dbg-font);
+    font-weight: 600;
+    flex-shrink: 0;
+    min-width: 60px;
+    text-align: right;
+}
+
+.dbg-sq__dur--green  { color: var(--dbg-green);  }
+.dbg-sq__dur--yellow { color: var(--dbg-yellow); }
+.dbg-sq__dur--red    { color: var(--dbg-red);    }
+
+.dbg-sq__sql {
     margin: 0;
-    padding: 10px 12px;
-    background: var(--dbg-bg-code);
-    border: 1px solid var(--dbg-border);
-    border-radius: var(--dbg-radius);
-    color: var(--dbg-text);
+    padding: 7px 14px;
     font-family: var(--dbg-font);
     font-size: 11px;
-    line-height: 1.6;
+    line-height: 1.65;
+    color: var(--dbg-text);
     white-space: pre-wrap;
     word-break: break-all;
-    overflow-x: auto;
-    max-height: 300px;
-    overflow-y: auto;
+    background: transparent;
+    border: none;
 }
 
-.dbg-pre::-webkit-scrollbar {
-    height: 4px;
-    width: 4px;
-}
-.dbg-pre::-webkit-scrollbar-thumb {
-    background: var(--dbg-border);
-    border-radius: 2px;
+.dbg-sq__bindings {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0 14px 8px;
 }
 
-.dbg-pre--empty {
+.dbg-sq__bindings-label {
+    font-size: 10px;
+    font-weight: 600;
     color: var(--dbg-text-dim);
-    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-right: 4px;
+    flex-shrink: 0;
+}
+
+.dbg-sq__binding {
+    display: inline-block;
+    padding: 1px 7px;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 3px;
+    font-family: var(--dbg-font);
+    font-size: 10px;
+    color: var(--dbg-purple);
 }

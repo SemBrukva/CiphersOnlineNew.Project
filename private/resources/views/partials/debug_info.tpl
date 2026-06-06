@@ -186,7 +186,12 @@
             {if $debug_info.timeline|@count > 0}
                 <button class="dbg-tab" data-tab="timeline">Timeline</button>
             {/if}
-            <button class="dbg-tab" data-tab="sql">SQL</button>
+            <button class="dbg-tab" data-tab="sql">
+                SQL
+                {if $debug_info.sql_queries|@count > 0}
+                    <span class="dbg-tab__count dbg-tab__count--blue">{$debug_info.sql_queries|@count}</span>
+                {/if}
+            </button>
             <button class="dbg-tab" data-tab="env">Env</button>
         </div>
 
@@ -620,14 +625,42 @@
         {* ==================== Tab: SQL ==================== *}
         <div class="dbg-tabpanel dbg-tabpanel--hidden" id="dbgTab-sql">
             <div class="dbg-section">
-                <div class="dbg-section__head">SQL-запросы</div>
-                <div class="dbg-sql">
-                    {if $debug_info.trace}
-                        <pre class="dbg-pre">{$debug_info.trace}</pre>
-                    {else}
-                        <pre class="dbg-pre dbg-pre--empty">(нет SQL-запросов)</pre>
+                <div class="dbg-section__head">
+                    SQL-запросы
+                    {if $debug_info.sql_queries|@count > 0}
+                        <span class="dbg-section__head-count">
+                            {$debug_info.sql_queries|@count} запросов · {$debug_info.sql_total_time} мс
+                        </span>
                     {/if}
                 </div>
+                {if $debug_info.sql_queries|@count > 0}
+                    <div class="dbg-sq-list">
+                        {foreach from=$debug_info.sql_queries item=q}
+                            <div class="dbg-sq">
+                                <div class="dbg-sq__head">
+                                    <span class="dbg-sq__num">#{$q.num}</span>
+                                    <span class="dbg-sq__type dbg-sq__type--{$q.type|lower}">{$q.type|escape}</span>
+                                    <div class="dbg-sq__track">
+                                        <div class="dbg-sq__fill dbg-sq__fill--{$q.time_cls}"
+                                             style="width:{$q.time_pct|string_format:'%.1f'}%"></div>
+                                    </div>
+                                    <span class="dbg-sq__dur dbg-sq__dur--{$q.time_cls}">{$q.execution_time} мс</span>
+                                </div>
+                                <pre class="dbg-sq__sql">{$q.sql|escape}</pre>
+                                {if $q.bindings|@count > 0}
+                                    <div class="dbg-sq__bindings">
+                                        <span class="dbg-sq__bindings-label">bindings</span>
+                                        {foreach from=$q.bindings item=b}
+                                            <span class="dbg-sq__binding">{$b|escape}</span>
+                                        {/foreach}
+                                    </div>
+                                {/if}
+                            </div>
+                        {/foreach}
+                    </div>
+                {else}
+                    <div class="dbg-empty">Нет SQL-запросов</div>
+                {/if}
             </div>
         </div>
 

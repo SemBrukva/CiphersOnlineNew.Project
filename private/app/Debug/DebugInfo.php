@@ -77,8 +77,8 @@ final readonly class DebugInfo
             'memcached_total' => $memcached['limit_mb'],
             'timestamp'       => date('Y-m-d H:i:s'),
 
-            // ---- SQL трейс и timeline ----
-            'trace'          => $this->buildSqlTrace($queryLog),
+            // ---- SQL запросы и timeline ----
+            'sql_queries'    => $this->buildSqlQueries($queryLog),
             'timeline'       => $this->buildTimeline($queryLog, $this->profiler->getSpans(), $execTime),
 
             // ---- Кеш ----
@@ -170,22 +170,35 @@ final readonly class DebugInfo
     }
 
     /**
-     * Строит строковый SQL-трейс для вывода в pre-блоке.
+     * Строит структурированный список SQL-запросов для вывода в шаблоне.
      *
-     * @param array<int, array<string, mixed>> $queryLog
+     * @param  array<int, array<string, mixed>> $queryLog
+     * @return array<int, array<string, mixed>>
      */
-    private function buildSqlTrace(array $queryLog): string
+    private function buildSqlQueries(array $queryLog): array
     {
-        $lines = [];
-        foreach ($queryLog as $index => $query) {
-            $n       = (int) $index + 1;
-            $lines[] = sprintf('#%d [%sms] %s', $n, (string) $query['execution_time'], $query['sql']);
-            if ($query['bindings'] !== []) {
-                $lines[] = 'bindings: ' . json_encode($query['bindings'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-            }
+        $totalMs = $this->db->getTotalQueryTimeMs();
+        $result  = [];
+
+        foreach ($queryLog as $i => $query) {
+            $sql    = (string) $query['sql'];
+            $timeMs = (float)  $query['execution_time'];
+            $parts  = preg_split('/\s+/', ltrim($sql), 2) ?: ['SQL'];
+            $type   = strtoupper($parts[0]);
+
+            $result[] = [
+                'num'            => $i + 1,
+                'sql'            => $sql,
+                'bindings'       => (array) ($query['bindings'] ?? []),
+                'execution_time' => $timeMs,
+                'offset_ms'      => (float) ($query['offset_ms'] ?? 0),
+                'type'           => $type,
+                'time_cls'       => $timeMs < 10 ? 'green' : ($timeMs < 50 ? 'yellow' : 'red'),
+                'time_pct'       => $totalMs > 0 ? round($timeMs / $totalMs * 100, 1) : 0.0,
+            ];
         }
 
-        return implode(PHP_EOL, $lines);
+        return $result;
     }
 
     /**
