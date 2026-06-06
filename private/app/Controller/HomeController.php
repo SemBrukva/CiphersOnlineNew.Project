@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Cache\CacheInterface;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -45,6 +46,9 @@ final readonly class HomeController
         'jwt-decoder',
     ];
 
+    /** @var int TTL кеша данных главной страницы в секундах (30 минут). */
+    private const int CACHE_TTL = 1800;
+
     /**
      * Создаёт экземпляр контроллера.
      */
@@ -52,6 +56,7 @@ final readonly class HomeController
         private View $view,
         private CipherCategoryRepository $categories,
         private CipherRepository $ciphers,
+        private CacheInterface $cache,
     ) {
     }
 
@@ -63,58 +68,64 @@ final readonly class HomeController
         $language = locale();
         $defaultLanguage = (string) config('locale.locale', 'en');
 
-        $publishedCategories = $this->categories->findPublishedCategoriesForHome($language, $defaultLanguage);
+        /** @var array{categories_with_tools: array<mixed>, popular_tools: array<mixed>, recent_tools: array<mixed>, quick_access_tools: array<mixed>} $cached */
+        $cached = $this->cache->remember("home:{$language}", self::CACHE_TTL, function () use ($language, $defaultLanguage): array {
+            $publishedCategories = $this->categories->findPublishedCategoriesForHome($language, $defaultLanguage);
 
-        $categoriesWithTools = [];
-        foreach ($publishedCategories as $category) {
-            $tools = $this->ciphers->findPublishedByCategoryWithTranslation(
-                (int) $category['id'],
+            $categoriesWithTools = [];
+            foreach ($publishedCategories as $category) {
+                $tools = $this->ciphers->findPublishedByCategoryWithTranslation(
+                    (int) $category['id'],
+                    $language,
+                    $defaultLanguage,
+                );
+                $category['tools'] = array_slice($tools, 0, 4);
+                $category['tools_count'] = count($tools);
+                $categoriesWithTools[] = $category;
+            }
+
+            $popularTools = $this->ciphers->findPublishedByAliasesWithTranslation(
+                self::POPULAR_ALIASES,
                 $language,
                 $defaultLanguage,
             );
-            $category['tools'] = array_slice($tools, 0, 4);
-            $category['tools_count'] = count($tools);
-            $categoriesWithTools[] = $category;
-        }
+            $popularIds = array_map(static fn (array $t): int => (int) $t['id'], $popularTools);
+            $popularTags = $this->ciphers->findTagsGroupedByCipherIds($popularIds, $language, $defaultLanguage);
+            foreach ($popularTools as &$tool) {
+                $tool['tags'] = $popularTags[(int) $tool['id']] ?? [];
+            }
+            unset($tool);
 
-        $popularTools = $this->ciphers->findPublishedByAliasesWithTranslation(
-            self::POPULAR_ALIASES,
-            $language,
-            $defaultLanguage,
-        );
-        $popularIds = array_map(static fn (array $t): int => (int) $t['id'], $popularTools);
-        $popularTags = $this->ciphers->findTagsGroupedByCipherIds($popularIds, $language, $defaultLanguage);
-        foreach ($popularTools as &$tool) {
-            $tool['tags'] = $popularTags[(int) $tool['id']] ?? [];
-        }
-        unset($tool);
+            $recentTools = $this->ciphers->findPublishedByAliasesWithTranslation(
+                self::RECENT_ALIASES,
+                $language,
+                $defaultLanguage,
+            );
 
-        $recentTools = $this->ciphers->findPublishedByAliasesWithTranslation(
-            self::RECENT_ALIASES,
-            $language,
-            $defaultLanguage,
-        );
+            $quickAccessTools = $this->ciphers->findPublishedByAliasesWithTranslation(
+                self::QUICK_ACCESS_ALIASES,
+                $language,
+                $defaultLanguage,
+            );
 
-        $quickAccessTools = $this->ciphers->findPublishedByAliasesWithTranslation(
-            self::QUICK_ACCESS_ALIASES,
-            $language,
-            $defaultLanguage,
-        );
+            return [
+                'categories_with_tools' => $categoriesWithTools,
+                'popular_tools'         => $popularTools,
+                'recent_tools'          => $recentTools,
+                'quick_access_tools'    => $quickAccessTools,
+            ];
+        });
 
-        $useCases = $this->buildUseCases($quickAccessTools);
-
+        $useCases = $this->buildUseCases($cached['quick_access_tools']);
         $plannedCategories = $this->buildPlannedCategories();
 
         $this->view
             ->setTitle(trans('HOME_TITLE'))
             ->setMeta(trans('HOME_META_DESCRIPTION'))
             ->setContent($this->view->fetch('home/index.tpl', [
-                'categories_with_tools' => $categoriesWithTools,
+                ...$cached,
                 'planned_categories' => $plannedCategories,
-                'popular_tools' => $popularTools,
-                'recent_tools' => $recentTools,
-                'quick_access_tools' => $quickAccessTools,
-                'use_cases' => $useCases,
+                'use_cases'          => $useCases,
             ]));
 
         return new Response($this->view->render());
