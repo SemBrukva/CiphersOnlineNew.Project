@@ -1,0 +1,237 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T11:25:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "affine",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 21,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 21,
+        "data": {
+            "name": "Affine Chiffre",
+            "name_short": "Affine Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text mit der affinen Chiffre und zwei numerischen Schlüsseln: dem Multiplikator a und der Verschiebung b. Lernen Sie, wie modulare Arithmetik eine klassische Substitutionschiffre erzeugt.",
+            "description_stort": "Klassische Substitutionschiffre auf Basis modularer Arithmetik und zweier numerischer Schlüssel.",
+            "meta_title": "Affine Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die affine Chiffre online mit Multiplikator a, Verschiebung b und auswählbaren Alphabeten. Verschlüsseln, entschlüsseln und verstehen Sie modulare Substitution."
+        }
+    },
+    "blocks": [
+        {
+            "id": 80,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die affine Chiffre funktioniert",
+                "text": "<p>Die affine Chiffre ist eine klassische monoalphabetische Substitutionschiffre, die jeden Buchstaben mit einer mathematischen Formel umwandelt. Jeder Buchstabe wird zuerst in eine Zahl übersetzt und dann mit E(x) = (a × x + b) mod m verschlüsselt, wobei x die Position des Buchstabens und m die Größe des gewählten Alphabets ist.</p><p>Der Schlüssel besteht aus zwei Zahlen. Der Multiplikator a verändert die Skalierung der Buchstabenpositionen, während die Verschiebung b das Ergebnis durch das Alphabet bewegt. Gemeinsam erzeugen sie ein festes Substitutionsalphabet.</p><p>Zum Entschlüsseln muss für a ein modularer Kehrwert existieren. Das ist nur möglich, wenn a teilerfremd zur Alphabetgröße ist. Leerzeichen, Ziffern und Satzzeichen bleiben unverändert.</p>"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Schlüssel der affinen Chiffre",
+                "text": "<p>Die affine Chiffre verwendet zwei numerische Parameter: a und b. Der Wert a ist der Multiplikator, b ist die Verschiebung. Beide Werte beeinflussen das endgültige Substitutionsalphabet.</p><p>Nicht jeder Multiplikator ist gültig. Für das deutsche Alphabet in diesem Werkzeug mit 30 Zeichen muss a teilerfremd zu 30 sein. Gültige Beispiele sind 1, 7, 11, 13, 17, 19, 23 und 29. Wenn a ungültig ist, kann die Entschlüsselung den ursprünglichen Text nicht zuverlässig wiederherstellen.</p>"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Affine Chiffre und Caesar-Chiffre",
+                "text": "<p>Die Caesar-Chiffre nutzt nur eine Operation: eine feste Verschiebung. Die affine Chiffre erweitert diese Idee, indem sie Multiplikation und Addition modulo der Alphabetgröße kombiniert.</p><p>Wenn a = 1 ist, verhält sich die affine Chiffre wie eine Caesar-Chiffre mit der Verschiebung b. Bei einem anderen gültigen Multiplikator wird das Substitutionsmuster weniger offensichtlich, bleibt aber weiterhin eine monoalphabetische Substitutionschiffre.</p>"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Sicherheit der affinen Chiffre",
+                "text": "<p>Die affine Chiffre ist stärker als eine einfache Caesar-Verschiebung, weil sie mehr mögliche Schlüssel besitzt, ist nach modernen kryptografischen Maßstäben aber weiterhin schwach.</p><p>Da jeder Klartextbuchstabe immer demselben Geheimtextbuchstaben zugeordnet wird, bleibt die Chiffre anfällig für Häufigkeitsanalyse und das Durchprobieren möglicher Schlüsselpaare. Heute eignet sie sich vor allem für Unterricht, Rätsel und das Lernen modularer Arithmetik in der Kryptografie.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Warum muss a teilerfremd zur Alphabetgröße sein?",
+                "answer": "Für die Entschlüsselung wird der modulare Kehrwert von a benötigt. Wenn a und die Alphabetgröße einen gemeinsamen Teiler haben, existiert dieser Kehrwert nicht, und mehrere Buchstaben können auf denselben Geheimtextbuchstaben abgebildet werden."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Was bedeuten a und b in der affinen Chiffre?",
+                "answer": "Der Wert a ist der Multiplikator, b ist die Verschiebung. Zusammen definieren sie die mathematische Transformation, mit der jeder Buchstabe ersetzt wird."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was passiert, wenn a ungültig ist?",
+                "answer": "Wenn a nicht teilerfremd zur Alphabetgröße ist, können mehrere Buchstaben zum gleichen verschlüsselten Buchstaben werden. Dann ist die Entschlüsselung mehrdeutig oder unmöglich."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Ist die affine Chiffre dasselbe wie die Caesar-Chiffre?",
+                "answer": "Nein. Caesar verwendet nur eine feste Verschiebung, während die affine Chiffre Multiplikation und Addition nutzt. Die Caesar-Chiffre ist jedoch ein Spezialfall der affinen Chiffre, wenn a = 1 ist."
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist die affine Chiffre heute sicher?",
+                "answer": "Nein. Sie ist eine historische Chiffre und kann mit Häufigkeitsanalyse oder Brute-Force-Tests gebrochen werden. Am besten eignet sie sich zum Lernen, für Rätsel und für Demonstrationen."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Werden Leerzeichen und Satzzeichen verschlüsselt?",
+                "answer": "Nein. In diesem Werkzeug werden nur Buchstaben des gewählten Alphabets umgewandelt. Leerzeichen, Zahlen, Satzzeichen und andere Symbole bleiben unverändert."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 75,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Verschlüsseln mit a=7 und b=8",
+                "key": "7",
+                "shift": 8,
+                "input": "AFFINE CHIFFRE ÄNDERN",
+                "output": "HTTMRN AFMTTWN ORGNWR",
+                "description": "Ein grundlegendes Beispiel für die affine Chiffre mit einem für das deutsche Alphabet gültigen Multiplikator."
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Entschlüsseln mit a=7 und b=8",
+                "key": "7",
+                "shift": 8,
+                "input": "HTTMRN AFMTTWN ORGNWR",
+                "output": "AFFINE CHIFFRE ÄNDERN",
+                "description": "Dieselbe Zahlenkombination stellt den Klartext wieder her."
+            }
+        },
+        {
+            "id": 77,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Anderes Schlüsselpaar",
+                "key": "11",
+                "shift": 3,
+                "input": "HALLO MÄRZ",
+                "output": "DCRRÜ ÄNIT",
+                "description": "Ein anderer Multiplikator a und eine andere Verschiebung b erzeugen ein anderes Substitutionsalphabet."
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Leerzeichen und Satzzeichen beibehalten",
+                "key": "7",
+                "shift": 8,
+                "input": "MÄRZ-TREFFEN UM 10:00!",
+                "output": "LOWÄ-JWNTTNR PL 10:00!",
+                "description": "Nur Buchstaben des Alphabets werden verschlüsselt. Leerzeichen, Zahlen, Satzzeichen und andere Symbole bleiben unverändert."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 119,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Monoalphabetische Substitution"
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Modulare Arithmetik"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Zwei numerische Schlüssel"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Caesar-Familie"
+            }
+        },
+        {
+            "id": 124,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Lernchiffre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

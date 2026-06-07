@@ -1,0 +1,237 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T11:25:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "affine",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 21,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 21,
+        "data": {
+            "name": "Afin şifre",
+            "name_short": "Afin şifre",
+            "description": "Afin şifre ile metni iki sayısal anahtar kullanarak şifreleyin ve çözün: çarpan a ve kaydırma b. Modüler aritmetiğin klasik bir yerine koyma şifresi nasıl oluşturduğunu öğrenin.",
+            "description_stort": "Modüler aritmetiğe ve iki sayısal anahtara dayalı klasik yerine koyma şifresi.",
+            "meta_title": "Afin Şifre Çevrimiçi Kodlayıcı ve Çözücü",
+            "meta_description": "Afin şifreyi çarpan a, kaydırma b ve seçilebilir alfabelerle çevrimiçi kullanın. Şifreleyin, çözün ve modüler yerine koymanın nasıl çalıştığını öğrenin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 80,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Afin şifre nasıl çalışır",
+                "text": "<p>Afin şifre, her harfi matematiksel bir formülle dönüştüren klasik bir tek alfabeli yerine koyma şifresidir. Her harf önce bir sayıya çevrilir, ardından E(x) = (a × x + b) mod m formülüyle şifrelenir; burada x harfin konumu, m ise seçilen alfabenin boyutudur.</p><p>Anahtar iki sayıdan oluşur. Çarpan a harf konumlarının nasıl ölçekleneceğini değiştirirken, kaydırma b sonucu alfabe içinde ilerletir. Birlikte sabit bir yerine koyma alfabesi oluştururlar.</p><p>Bir mesajı çözmek için a değerinin modüler tersinin bulunması gerekir. Bu yalnızca a, alfabe boyutuyla aralarında asal olduğunda mümkündür. Boşluklar, rakamlar ve noktalama işaretleri değiştirilmeden korunur.</p>"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Afin şifre anahtarları",
+                "text": "<p>Afin şifre iki sayısal parametre kullanır: a ve b. a değeri çarpandır, b ise kaydırmadır. İkisi de son yerine koyma alfabesini etkiler.</p><p>Her çarpan geçerli değildir. Bu araçtaki 29 harfli Türk alfabesi için a, 29 ile aralarında asal olmalıdır. 29 asal olduğu için 1 ile 28 arasındaki tüm çarpanlar geçerlidir. a geçerli değilse çözme işlemi özgün mesajı güvenilir biçimde geri getiremez.</p>"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Afin şifre ve Sezar şifresi",
+                "text": "<p>Sezar şifresi yalnızca tek bir işlem kullanır: sabit kaydırma. Afin şifre bu fikri, alfabe boyutuna göre modüler çarpma ve toplamayı birleştirerek genişletir.</p><p>a = 1 olduğunda afin şifre, b kaydırmalı bir Sezar şifresi gibi davranır. a başka bir geçerli çarpan olduğunda yerine koyma deseni daha az belirgin hale gelir, ancak yöntem yine de tek alfabeli bir yerine koyma şifresidir.</p>"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Afin şifrenin güvenliği",
+                "text": "<p>Afin şifre, daha fazla olası anahtara sahip olduğu için basit bir Sezar kaydırmasından güçlüdür; ancak modern kriptografik standartlara göre hâlâ zayıftır.</p><p>Her açık metin harfi her zaman aynı şifreli harfe dönüştüğü için şifre, frekans analizine ve olası anahtar çiftlerinin kaba kuvvetle denenmesine karşı savunmasız kalır. Günümüzde daha çok eğitim, bulmacalar ve kriptografide modüler aritmetiği öğrenmek için kullanışlıdır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "a neden alfabe boyutuyla aralarında asal olmalıdır?",
+                "answer": "Çözme işlemi a değerinin modüler tersine ihtiyaç duyar. a ile alfabe boyutunun ortak böleni varsa bu ters yoktur ve birden fazla harf aynı şifreli harfe dönüşebilir."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Afin şifrede a ve b ne anlama gelir?",
+                "answer": "a değeri çarpan, b değeri ise kaydırmadır. Birlikte her harfi yerine koymak için kullanılan matematiksel dönüşümü tanımlarlar."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "a geçerli değilse ne olur?",
+                "answer": "a, alfabe boyutuyla aralarında asal değilse birden fazla harf aynı şifreli harfe dönüşebilir. Bu durumda çözme işlemi belirsiz ya da imkânsız hale gelir."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Afin şifre Sezar şifresiyle aynı mıdır?",
+                "answer": "Hayır. Sezar yalnızca sabit bir kaydırma kullanırken afin şifre hem çarpma hem de toplama kullanır. Bununla birlikte a = 1 olduğunda Sezar, afin şifrenin özel bir durumudur."
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Afin şifre bugün güvenli midir?",
+                "answer": "Hayır. Tarihsel bir şifredir ve frekans analizi ya da kaba kuvvet denemeleriyle kırılabilir. En çok öğrenme, bulmaca ve gösterimler için uygundur."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Boşluklar ve noktalama işaretleri şifrelenir mi?",
+                "answer": "Hayır. Bu araçta yalnızca seçilen alfabenin karakterleri dönüştürülür. Boşluklar, sayılar, noktalama işaretleri ve diğer semboller değişmeden kalır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 75,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "a=5 ve b=8 ile şifreleme",
+                "key": "5",
+                "shift": 8,
+                "input": "AFİN ŞİFRE GÜVEN",
+                "output": "ĞHİB CİHSD LOŞDB",
+                "description": "Türk alfabesiyle çarpan 5 ve kaydırma 8 kullanan temel afin şifre örneği."
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "a=5 ve b=8 ile çözme",
+                "key": "5",
+                "shift": 8,
+                "input": "ĞHİB CİHSD LOŞDB",
+                "output": "AFİN ŞİFRE GÜVEN",
+                "description": "Aynı sayısal anahtar çifti açık metni geri getirir."
+            }
+        },
+        {
+            "id": 77,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Farklı anahtar çifti",
+                "key": "7",
+                "shift": 3,
+                "input": "MERHABA DÜNYA",
+                "output": "SHYĞÇIÇ CDZÖÇ",
+                "description": "Çarpan a ve kaydırma b değiştiğinde farklı bir yerine koyma alfabesi oluşur."
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Boşlukları ve noktalama işaretlerini koru",
+                "key": "5",
+                "shift": 8,
+                "input": "GÖRÜŞME 10:00!",
+                "output": "LISOCÜD 10:00!",
+                "description": "Yalnızca alfabe karakterleri şifrelenir. Boşluklar, sayılar, noktalama işaretleri ve diğer semboller değişmeden kalır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 119,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Tek alfabeli yerine koyma"
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Modüler aritmetik"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "İki sayısal anahtar"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Sezar ailesi"
+            }
+        },
+        {
+            "id": 124,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Eğitici şifre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

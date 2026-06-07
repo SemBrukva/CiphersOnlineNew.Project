@@ -1,0 +1,237 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T11:25:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "affine",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 21,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 21,
+        "data": {
+            "name": "Cifrario affine",
+            "name_short": "Cifrario affine",
+            "description": "Cifra e decifra testi con il cifrario affine usando due chiavi numeriche: il moltiplicatore a e lo spostamento b. Scopri come l'aritmetica modulare crea un classico cifrario a sostituzione.",
+            "description_stort": "Cifrario classico a sostituzione basato sull'aritmetica modulare e su due chiavi numeriche.",
+            "meta_title": "Cifrario affine online: codifica e decodifica",
+            "meta_description": "Usa il cifrario affine online con moltiplicatore a, spostamento b e alfabeti selezionabili. Cifra, decifra e impara come funziona la sostituzione modulare."
+        }
+    },
+    "blocks": [
+        {
+            "id": 80,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario affine",
+                "text": "<p>Il cifrario affine è un classico cifrario a sostituzione monoalfabetica che trasforma ogni lettera con una formula matematica. Ogni lettera viene prima convertita in un numero, poi cifrata con E(x) = (a × x + b) mod m, dove x è la posizione della lettera e m è la dimensione dell'alfabeto scelto.</p><p>La chiave è composta da due numeri. Il moltiplicatore a modifica la scala delle posizioni delle lettere, mentre lo spostamento b muove il risultato lungo l'alfabeto. Insieme creano un alfabeto di sostituzione fisso.</p><p>Per decifrare un messaggio, il valore di a deve avere un inverso modulare. Questo è possibile solo quando a è coprimo con la dimensione dell'alfabeto. Spazi, cifre e segni di punteggiatura vengono conservati senza modifiche.</p>"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Chiavi del cifrario affine",
+                "text": "<p>Il cifrario affine usa due parametri numerici: a e b. Il valore a è il moltiplicatore, mentre b è lo spostamento. Entrambi influenzano l'alfabeto di sostituzione finale.</p><p>Non ogni moltiplicatore è valido. Per l'alfabeto italiano di questo strumento, con 26 lettere, a deve essere coprimo con 26. Esempi validi includono 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23 e 25. Se a non è valido, la decifratura non può ripristinare in modo affidabile il messaggio originale.</p>"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cifrario affine e cifrario di Cesare",
+                "text": "<p>Il cifrario di Cesare usa una sola operazione: uno spostamento fisso. Il cifrario affine estende questa idea combinando moltiplicazione e addizione modulo la dimensione dell'alfabeto.</p><p>Se a = 1, il cifrario affine si comporta come un cifrario di Cesare con spostamento b. Quando a è un altro moltiplicatore valido, lo schema di sostituzione diventa meno evidente, pur restando un cifrario a sostituzione monoalfabetica.</p>"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Sicurezza del cifrario affine",
+                "text": "<p>Il cifrario affine è più forte di un semplice spostamento di Cesare perché offre più chiavi possibili, ma resta debole secondo gli standard crittografici moderni.</p><p>Poiché ogni lettera del testo in chiaro corrisponde sempre alla stessa lettera cifrata, il metodo rimane vulnerabile all'analisi delle frequenze e alla prova per forza bruta delle possibili coppie di chiavi. Oggi è utile soprattutto per la didattica, gli enigmi e lo studio dell'aritmetica modulare in crittografia.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Perché a deve essere coprimo con la dimensione dell'alfabeto?",
+                "answer": "La decifratura richiede l'inverso modulare di a. Se a e la dimensione dell'alfabeto hanno un divisore comune, quell'inverso non esiste e più lettere possono essere trasformate nella stessa lettera cifrata."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Che cosa significano a e b nel cifrario affine?",
+                "answer": "Il valore a è il moltiplicatore e b è lo spostamento. Insieme definiscono la trasformazione matematica usata per sostituire ogni lettera."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede se a non è valido?",
+                "answer": "Se a non è coprimo con la dimensione dell'alfabeto, più lettere possono essere cifrate nello stesso modo. In quel caso la decifratura diventa ambigua o impossibile."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Il cifrario affine è uguale al cifrario di Cesare?",
+                "answer": "No. Cesare usa solo uno spostamento fisso, mentre il cifrario affine usa sia moltiplicazione sia addizione. Tuttavia, Cesare è un caso particolare del cifrario affine quando a = 1."
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Il cifrario affine è sicuro oggi?",
+                "answer": "No. È un cifrario storico e può essere violato con l'analisi delle frequenze o con prove per forza bruta. È più adatto all'apprendimento, agli enigmi e alle dimostrazioni."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Spazi e punteggiatura vengono cifrati?",
+                "answer": "No. In questo strumento vengono trasformati solo i caratteri dell'alfabeto scelto. Spazi, numeri, segni di punteggiatura e altri simboli restano invariati."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 75,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare con a=5 e b=8",
+                "key": "5",
+                "shift": 8,
+                "input": "CIFRARIO AFFINE",
+                "output": "SWHPIPWA IHHWVC",
+                "description": "Esempio classico del cifrario affine con moltiplicatore 5 e spostamento 8."
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decifrare con a=5 e b=8",
+                "key": "5",
+                "shift": 8,
+                "input": "SWHPIPWA IHHWVC",
+                "output": "CIFRARIO AFFINE",
+                "description": "La stessa coppia di chiavi numeriche ripristina il testo in chiaro."
+            }
+        },
+        {
+            "id": 77,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Un'altra coppia di chiavi",
+                "key": "7",
+                "shift": 3,
+                "input": "CIAO MONDO",
+                "output": "RHDX JXQYX",
+                "description": "Cambiare il moltiplicatore a e lo spostamento b crea un diverso alfabeto di sostituzione."
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Conservare spazi e punteggiatura",
+                "key": "5",
+                "shift": 8,
+                "input": "INCONTRO ALLE 10:00!",
+                "output": "WVSAVZPA ILLC 10:00!",
+                "description": "Vengono cifrate solo le lettere dell'alfabeto. Spazi, numeri, segni di punteggiatura e altri simboli restano invariati."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 119,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Sostituzione monoalfabetica"
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Aritmetica modulare"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Due chiavi numeriche"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Famiglia di Cesare"
+            }
+        },
+        {
+            "id": 124,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cifrario didattico"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

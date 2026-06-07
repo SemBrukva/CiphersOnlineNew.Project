@@ -18,6 +18,7 @@ final class ApiCipherToolRegistry
      * Создаёт экземпляр реестра API-инструментов.
      */
     public function __construct(
+        AffineApiCipherTool $affineTool,
         CaesarApiCipherTool $caesarTool,
         AtbashApiCipherTool $atbashTool,
         PlayfairApiCipherTool $playfairTool,
@@ -29,7 +30,7 @@ final class ApiCipherToolRegistry
         A1z26ApiCipherTool $a1z26Tool,
         RailFenceApiCipherTool $railFenceTool
     ) {
-        foreach ([$caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $a1z26Tool, $railFenceTool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $a1z26Tool, $railFenceTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

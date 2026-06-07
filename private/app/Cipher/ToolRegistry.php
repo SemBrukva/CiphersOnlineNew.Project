@@ -15,6 +15,7 @@ final readonly class ToolRegistry
      * Создаёт экземпляр реестра инструментов.
      */
     public function __construct(
+        private AffineCipherService $affineCipher,
         private AtbashCipherService $atbashCipher,
         private BeaufortCipherService $beaufortCipher,
         private CaesarCipherService $caesarCipher,
@@ -124,6 +125,11 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN',    'shift' => 4],
                 ['label' => 'Decode',   'value' => 'WECRLTEERDSOEEFEAOCAIVDEN', 'shift' => 3, 'direction' => 'decrypt'],
             ],
+            'classical-ciphers/affine' => [
+                ['label' => 'Classic',  'value' => 'AFFINE CIPHER', 'alphabet' => 'en', 'key' => '5', 'shift' => 8],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => '7', 'shift' => 3],
+                ['label' => 'Decode',   'value' => 'IHHWVC SWFRCP', 'alphabet' => 'en', 'key' => '5', 'shift' => 8, 'direction' => 'decrypt'],
+            ],
             default => [],
         };
     }
@@ -136,6 +142,7 @@ final readonly class ToolRegistry
         $canonicalSlug = $this->canonicalSlug($toolSlug);
 
         return match ($canonicalSlug) {
+            'classical-ciphers/affine' => 'affine',
             'classical-ciphers/caesar' => 'caesar',
             'classical-ciphers/atbash' => 'atbash',
             'classical-ciphers/playfair' => 'playfair',
@@ -160,6 +167,7 @@ final readonly class ToolRegistry
         $canonicalSlug = $this->canonicalSlug($toolSlug);
 
         return match ($canonicalSlug) {
+            'classical-ciphers/affine' => $this->affineCipher->getToolSettings(),
             'classical-ciphers/caesar' => $this->caesarCipher->getToolSettings(),
             'classical-ciphers/atbash' => $this->atbashCipher->getToolSettings(),
             'classical-ciphers/playfair' => $this->playfairCipher->getToolSettings(),
@@ -182,6 +190,7 @@ final readonly class ToolRegistry
     public function trustItems(string $toolSlug, string $calculationMode): array
     {
         return match ($this->canonicalSlug($toolSlug)) {
+            'classical-ciphers/affine' => $this->affineCipher->getTrustItems($calculationMode),
             'classical-ciphers/playfair'  => $this->playfairCipher->getTrustItems($calculationMode),
             'classical-ciphers/caesar'    => $this->caesarCipher->getTrustItems($calculationMode),
             'classical-ciphers/atbash'    => $this->atbashCipher->getTrustItems($calculationMode),
@@ -291,6 +300,7 @@ final readonly class ToolRegistry
             'classical-ciphers/shifr-atbash' => 'classical-ciphers/atbash',
             'classical-ciphers/shifr-a1z26' => 'classical-ciphers/a1z26',
             'classical-ciphers/railfence', 'classical-ciphers/shifr-rail-fence' => 'classical-ciphers/rail-fence',
+            'classical-ciphers/affinnyj-shifr', 'classical-ciphers/shifr-affine' => 'classical-ciphers/affine',
             default => $toolSlug,
         };
     }

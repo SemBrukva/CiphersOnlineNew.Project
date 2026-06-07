@@ -44,6 +44,13 @@ return [
         'name'       => 'api.tools.caesar',
     ],
 
+    'POST /tools/affine' => [
+        'controller' => GuestController::class,
+        'method'     => 'affine',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.affine',
+    ],
+
     'POST /tools/atbash' => [
         'controller' => GuestController::class,
         'method'     => 'atbash',

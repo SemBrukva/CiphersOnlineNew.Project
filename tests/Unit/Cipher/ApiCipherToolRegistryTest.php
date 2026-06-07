@@ -6,6 +6,8 @@ namespace Tests\Unit\Cipher;
 
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
+use App\Cipher\AffineApiCipherTool;
+use App\Cipher\AffineCipherService;
 use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\AtbashApiCipherTool;
 use App\Cipher\AtbashCipherService;
@@ -58,6 +60,7 @@ final class ApiCipherToolRegistryTest extends TestCase
     private function makeRegistry(): ApiCipherToolRegistry
     {
         return new ApiCipherToolRegistry(
+            new AffineApiCipherTool(new AffineCipherService()),
             new CaesarApiCipherTool(new CaesarCipherService()),
             new AtbashApiCipherTool(new AtbashCipherService()),
             new PlayfairApiCipherTool(new PlayfairCipherService()),

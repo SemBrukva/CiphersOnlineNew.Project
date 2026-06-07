@@ -1,0 +1,237 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T11:25:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "affine",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 21,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 21,
+        "data": {
+            "name": "Chiffre affine",
+            "name_short": "Chiffre affine",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre affine à l'aide de deux clés numériques : le multiplicateur a et le décalage b. Découvrez comment l'arithmétique modulaire crée un chiffre de substitution classique.",
+            "description_stort": "Chiffre de substitution classique fondé sur l'arithmétique modulaire et deux clés numériques.",
+            "meta_title": "Chiffre affine en ligne : chiffrer et déchiffrer",
+            "meta_description": "Utilisez le chiffre affine en ligne avec le multiplicateur a, le décalage b et des alphabets sélectionnables. Chiffrez, déchiffrez et apprenez le fonctionnement de la substitution modulaire."
+        }
+    },
+    "blocks": [
+        {
+            "id": 80,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre affine",
+                "text": "<p>Le chiffre affine est un chiffre de substitution monoalphabétique classique qui transforme chaque lettre à l'aide d'une formule mathématique. Chaque lettre est d'abord convertie en nombre, puis chiffrée avec E(x) = (a × x + b) mod m, où x est la position de la lettre et m la taille de l'alphabet choisi.</p><p>La clé se compose de deux nombres. Le multiplicateur a modifie l'échelle des positions des lettres, tandis que le décalage b déplace le résultat dans l'alphabet. Ensemble, ils créent un alphabet de substitution fixe.</p><p>Pour déchiffrer un message, la valeur de a doit posséder un inverse modulaire. Cela n'est possible que si a est premier avec la taille de l'alphabet. Les espaces, chiffres et signes de ponctuation sont conservés sans modification.</p>"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Clés du chiffre affine",
+                "text": "<p>Le chiffre affine utilise deux paramètres numériques : a et b. La valeur a est le multiplicateur, et b est le décalage. Ces deux valeurs influencent l'alphabet de substitution final.</p><p>Tous les multiplicateurs ne sont pas valides. Pour l'alphabet français de cet outil, avec 40 caractères, a doit être premier avec 40. Des exemples valides incluent 1, 3, 7, 9, 11, 13, 17, 19, 21, 23, 27, 29, 31, 33, 37 et 39. Si a n'est pas valide, le déchiffrement ne peut pas restaurer le message original de façon fiable.</p>"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Chiffre affine et chiffre de César",
+                "text": "<p>Le chiffre de César utilise une seule opération : un décalage fixe. Le chiffre affine étend cette idée en combinant multiplication et addition modulo la taille de l'alphabet.</p><p>Si a = 1, le chiffre affine se comporte comme un chiffre de César avec le décalage b. Quand a est un autre multiplicateur valide, le schéma de substitution devient moins évident, tout en restant un chiffre de substitution monoalphabétique.</p>"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Sécurité du chiffre affine",
+                "text": "<p>Le chiffre affine est plus fort qu'un simple décalage de César, car il offre davantage de clés possibles, mais il reste faible selon les critères cryptographiques modernes.</p><p>Comme chaque lettre du texte clair correspond toujours à la même lettre du texte chiffré, le chiffre demeure vulnérable à l'analyse fréquentielle et au test exhaustif des paires de clés possibles. Aujourd'hui, il sert surtout à l'apprentissage, aux énigmes et aux démonstrations d'arithmétique modulaire en cryptographie.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Pourquoi a doit-il être premier avec la taille de l'alphabet ?",
+                "answer": "Le déchiffrement a besoin de l'inverse modulaire de a. Si a et la taille de l'alphabet ont un diviseur commun, cet inverse n'existe pas et plusieurs lettres peuvent être transformées en une même lettre chiffrée."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Que signifient a et b dans le chiffre affine ?",
+                "answer": "La valeur a est le multiplicateur et b est le décalage. Ensemble, ils définissent la transformation mathématique utilisée pour remplacer chaque lettre."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Que se passe-t-il si a n'est pas valide ?",
+                "answer": "Si a n'est pas premier avec la taille de l'alphabet, plusieurs lettres peuvent être chiffrées de la même manière. Dans ce cas, le déchiffrement devient ambigu ou impossible."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Le chiffre affine est-il identique au chiffre de César ?",
+                "answer": "Non. César utilise seulement un décalage fixe, tandis que le chiffre affine utilise à la fois la multiplication et l'addition. Cependant, César est un cas particulier du chiffre affine lorsque a = 1."
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Le chiffre affine est-il sûr aujourd'hui ?",
+                "answer": "Non. C'est un chiffre historique qui peut être cassé par analyse fréquentielle ou par force brute. Il est surtout utile pour apprendre, résoudre des énigmes et faire des démonstrations."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Les espaces et la ponctuation sont-ils chiffrés ?",
+                "answer": "Non. Dans cet outil, seuls les caractères de l'alphabet choisi sont transformés. Les espaces, nombres, signes de ponctuation et autres symboles restent inchangés."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 75,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer avec a=7 et b=8",
+                "key": "7",
+                "shift": 8,
+                "input": "CHIFFRE AFFINE ÉTÉ",
+                "output": "XQÜFFYÏ ÉFFÜÂÏ ÔËÔ",
+                "description": "Exemple de base du chiffre affine avec un multiplicateur valide pour l'alphabet français."
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Déchiffrer avec a=7 et b=8",
+                "key": "7",
+                "shift": 8,
+                "input": "XQÜFFYÏ ÉFFÜÂÏ ÔËÔ",
+                "output": "CHIFFRE AFFINE ÉTÉ",
+                "description": "La même paire de clés numériques restaure le texte clair."
+            }
+        },
+        {
+            "id": 77,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Autre paire de clés",
+                "key": "11",
+                "shift": 3,
+                "input": "BONJOUR ÉLÈVE",
+                "output": "XÎÇÀÎGL ËONÏA",
+                "description": "Changer le multiplicateur a et le décalage b crée un autre alphabet de substitution."
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Conserver les espaces et la ponctuation",
+                "key": "7",
+                "shift": 8,
+                "input": "RENDEZ-VOUS À 10:00!",
+                "output": "YÏÂÊÏÀ-DÈJC I 10:00!",
+                "description": "Seules les lettres de l'alphabet sont chiffrées. Les espaces, nombres, signes de ponctuation et autres symboles restent inchangés."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 119,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substitution monoalphabétique"
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Arithmétique modulaire"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Deux clés numériques"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Famille de César"
+            }
+        },
+        {
+            "id": 124,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Chiffre pédagogique"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

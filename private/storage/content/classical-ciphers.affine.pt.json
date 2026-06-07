@@ -1,0 +1,237 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T11:25:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "affine",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 21,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 21,
+        "data": {
+            "name": "Cifra afim",
+            "name_short": "Cifra afim",
+            "description": "Cifre e decifre textos com a cifra afim usando duas chaves numéricas: o multiplicador a e o deslocamento b. Aprenda como a aritmética modular cria uma cifra clássica de substituição.",
+            "description_stort": "Cifra clássica de substituição baseada em aritmética modular e duas chaves numéricas.",
+            "meta_title": "Cifra afim online: cifrar e decifrar",
+            "meta_description": "Use a cifra afim online com multiplicador a, deslocamento b e alfabetos selecionáveis. Cifre, decifre e aprenda como funciona a substituição modular."
+        }
+    },
+    "blocks": [
+        {
+            "id": 80,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra afim funciona",
+                "text": "<p>A cifra afim é uma cifra clássica de substituição monoalfabética que transforma cada letra por meio de uma fórmula matemática. Primeiro, cada letra é convertida em um número; depois é cifrada com E(x) = (a × x + b) mod m, em que x é a posição da letra e m é o tamanho do alfabeto escolhido.</p><p>A chave é composta por dois números. O multiplicador a altera a escala das posições das letras, enquanto o deslocamento b move o resultado pelo alfabeto. Juntos, eles criam um alfabeto fixo de substituição.</p><p>Para decifrar uma mensagem, o valor de a precisa ter inverso modular. Isso só é possível quando a é coprimo com o tamanho do alfabeto. Espaços, dígitos e sinais de pontuação são preservados sem alterações.</p>"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Chaves da cifra afim",
+                "text": "<p>A cifra afim usa dois parâmetros numéricos: a e b. O valor a é o multiplicador, e b é o deslocamento. Ambos influenciam o alfabeto de substituição final.</p><p>Nem todo multiplicador é válido. Para o alfabeto português deste site, com 36 caracteres, a deve ser coprimo com 36. Exemplos válidos incluem 1, 5, 7, 11, 13, 17, 19, 23, 25, 29, 31 e 35. Se a não for válido, a decifragem não conseguirá restaurar a mensagem original de forma confiável.</p>"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cifra afim e cifra de César",
+                "text": "<p>A cifra de César usa apenas uma operação: um deslocamento fixo. A cifra afim amplia essa ideia combinando multiplicação e adição módulo o tamanho do alfabeto.</p><p>Se a = 1, a cifra afim se comporta como uma cifra de César com deslocamento b. Quando a é outro multiplicador válido, o padrão de substituição fica menos óbvio, embora continue sendo uma cifra de substituição monoalfabética.</p>"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Segurança da cifra afim",
+                "text": "<p>A cifra afim é mais forte do que um deslocamento simples de César porque tem mais chaves possíveis, mas ainda é fraca pelos padrões criptográficos modernos.</p><p>Como cada letra do texto claro sempre corresponde à mesma letra do texto cifrado, a cifra continua vulnerável à análise de frequência e ao teste por força bruta de pares de chaves possíveis. Hoje ela é mais útil para aprendizado, desafios e demonstrações de aritmética modular em criptografia.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Por que a deve ser coprimo com o tamanho do alfabeto?",
+                "answer": "A decifragem precisa do inverso modular de a. Se a e o tamanho do alfabeto tiverem um divisor comum, esse inverso não existe e várias letras podem ser mapeadas para a mesma letra cifrada."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "O que significam a e b na cifra afim?",
+                "answer": "O valor a é o multiplicador e b é o deslocamento. Juntos, eles definem a transformação matemática usada para substituir cada letra."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "O que acontece se a não for válido?",
+                "answer": "Se a não for coprimo com o tamanho do alfabeto, várias letras podem ser cifradas como a mesma letra. Nesse caso, a decifragem se torna ambígua ou impossível."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "A cifra afim é igual à cifra de César?",
+                "answer": "Não. César usa apenas um deslocamento fixo, enquanto a cifra afim usa multiplicação e adição. No entanto, César é um caso particular da cifra afim quando a = 1."
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A cifra afim é segura hoje?",
+                "answer": "Não. Ela é uma cifra histórica e pode ser quebrada por análise de frequência ou por testes de força bruta. É mais indicada para aprendizado, desafios e demonstrações."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Espaços e pontuação são cifrados?",
+                "answer": "Não. Nesta ferramenta, apenas os caracteres do alfabeto escolhido são transformados. Espaços, números, sinais de pontuação e outros símbolos permanecem inalterados."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 75,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar com a=5 e b=8",
+                "key": "5",
+                "shift": 8,
+                "input": "CIFRA AFIM AÇÃO",
+                "output": "XÇSÚE ESÇV EÀÔC",
+                "description": "Exemplo básico da cifra afim com o alfabeto português e acentuação."
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decifrar com a=5 e b=8",
+                "key": "5",
+                "shift": 8,
+                "input": "XÇSÚE ESÇV EÀÔC",
+                "output": "CIFRA AFIM AÇÃO",
+                "description": "O mesmo par de chaves numéricas restaura o texto claro."
+            }
+        },
+        {
+            "id": 77,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Outro par de chaves",
+                "key": "7",
+                "shift": 3,
+                "input": "OLÁ MUNDO",
+                "output": "ÇOÊ TRZJÇ",
+                "description": "Alterar o multiplicador a e o deslocamento b cria outro alfabeto de substituição."
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Preservar espaços e pontuação",
+                "key": "5",
+                "shift": 8,
+                "input": "REUNIÃO ÀS 10:00!",
+                "output": "ÚGÉAÇÔC LZ 10:00!",
+                "description": "Apenas as letras do alfabeto são cifradas. Espaços, números, sinais de pontuação e outros símbolos permanecem inalterados."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 119,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substituição monoalfabética"
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Aritmética modular"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Duas chaves numéricas"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Família de César"
+            }
+        },
+        {
+            "id": 124,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cifra educativa"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -208,6 +208,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Affine через API.
+     *
+     * POST /api/tools/affine
+     */
+    #[ApiOperation(summary: 'Affine Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function affine(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'affine');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование Атбаш через API.
      *
      * POST /api/tools/atbash

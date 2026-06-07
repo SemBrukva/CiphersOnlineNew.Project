@@ -1,0 +1,237 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T11:25:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "affine",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 21,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 21,
+        "data": {
+            "name": "Cifrado afín",
+            "name_short": "Cifrado afín",
+            "description": "Cifra y descifra texto con el cifrado afín usando dos claves numéricas: el multiplicador a y el desplazamiento b. Aprende cómo la aritmética modular crea un cifrado clásico de sustitución.",
+            "description_stort": "Cifrado clásico de sustitución basado en aritmética modular y dos claves numéricas.",
+            "meta_title": "Cifrado afín online: cifrar y descifrar",
+            "meta_description": "Usa el cifrado afín online con multiplicador a, desplazamiento b y alfabetos seleccionables. Cifra, descifra y aprende cómo funciona la sustitución modular."
+        }
+    },
+    "blocks": [
+        {
+            "id": 80,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado afín",
+                "text": "<p>El cifrado afín es un cifrado clásico de sustitución monoalfabética que transforma cada letra mediante una fórmula matemática. Primero, cada letra se convierte en un número; después se cifra con E(x) = (a × x + b) mod m, donde x es la posición de la letra y m es el tamaño del alfabeto elegido.</p><p>La clave está formada por dos números. El multiplicador a cambia la escala de las posiciones de las letras, mientras que el desplazamiento b mueve el resultado dentro del alfabeto. Juntos crean un alfabeto fijo de sustitución.</p><p>Para descifrar un mensaje, el valor de a debe tener inverso modular. Esto solo es posible cuando a es coprimo con el tamaño del alfabeto. Los espacios, dígitos y signos de puntuación se conservan sin cambios.</p>"
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Claves del cifrado afín",
+                "text": "<p>El cifrado afín utiliza dos parámetros numéricos: a y b. El valor a es el multiplicador, y b es el desplazamiento. Ambos valores influyen en el alfabeto de sustitución final.</p><p>No todos los multiplicadores son válidos. Para el alfabeto español de este sitio, con 27 letras, a debe ser coprimo con 27. Algunos valores válidos son 1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20, 22, 23, 25 y 26. Si a no es válido, el descifrado no puede recuperar el mensaje original de forma fiable.</p>"
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cifrado afín frente al cifrado César",
+                "text": "<p>El cifrado César usa una sola operación: un desplazamiento fijo. El cifrado afín amplía esta idea al combinar multiplicación y suma módulo el tamaño del alfabeto.</p><p>Si a = 1, el cifrado afín se comporta como un cifrado César con desplazamiento b. Cuando a es otro multiplicador válido, el patrón de sustitución resulta menos evidente, aunque sigue siendo un cifrado de sustitución monoalfabética.</p>"
+            }
+        },
+        {
+            "id": 83,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Seguridad del cifrado afín",
+                "text": "<p>El cifrado afín es más fuerte que un desplazamiento César básico porque tiene más claves posibles, pero sigue siendo débil según los estándares criptográficos modernos.</p><p>Como cada letra del texto claro siempre se convierte en la misma letra del texto cifrado, el método sigue siendo vulnerable al análisis de frecuencias y a la prueba por fuerza bruta de pares de claves posibles. Hoy se usa sobre todo para aprendizaje, acertijos y demostraciones de aritmética modular en criptografía.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Por qué a debe ser coprimo con el tamaño del alfabeto?",
+                "answer": "El descifrado necesita el inverso modular de a. Si a y el tamaño del alfabeto tienen un divisor común, ese inverso no existe y varias letras pueden convertirse en la misma letra cifrada."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Qué significan a y b en el cifrado afín?",
+                "answer": "El valor a es el multiplicador y b es el desplazamiento. Juntos definen la transformación matemática usada para sustituir cada letra."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Qué ocurre si a no es válido?",
+                "answer": "Si a no es coprimo con el tamaño del alfabeto, varias letras pueden cifrarse como la misma letra. En ese caso, el descifrado se vuelve ambiguo o imposible."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿El cifrado afín es igual que el cifrado César?",
+                "answer": "No. César usa solo un desplazamiento fijo, mientras que el cifrado afín utiliza multiplicación y suma. Sin embargo, César es un caso particular del cifrado afín cuando a = 1."
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro el cifrado afín hoy?",
+                "answer": "No. Es un cifrado histórico y puede romperse con análisis de frecuencias o pruebas por fuerza bruta. Es más útil para aprender, resolver acertijos y hacer demostraciones."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Se cifran los espacios y los signos de puntuación?",
+                "answer": "No. En esta herramienta solo se transforman los caracteres del alfabeto elegido. Los espacios, números, signos de puntuación y otros símbolos se conservan sin cambios."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 75,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar con a=5 y b=8",
+                "key": "5",
+                "shift": 8,
+                "input": "MENSAJE ÑANDU",
+                "output": "ÑBSVIZB XISWF",
+                "description": "Ejemplo básico del cifrado afín con el alfabeto español y la letra Ñ."
+            }
+        },
+        {
+            "id": 76,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Descifrar con a=5 y b=8",
+                "key": "5",
+                "shift": 8,
+                "input": "ÑBSVIZB XISWF",
+                "output": "MENSAJE ÑANDU",
+                "description": "La misma pareja de claves numéricas restaura el texto claro."
+            }
+        },
+        {
+            "id": 77,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Otro par de claves",
+                "key": "7",
+                "shift": 3,
+                "input": "HOLA SEÑOR",
+                "output": "YAZD BETAU",
+                "description": "Cambiar el multiplicador a y el desplazamiento b crea un alfabeto de sustitución diferente."
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Conservar espacios y puntuación",
+                "key": "5",
+                "shift": 8,
+                "input": "SEÑAL A 10:00!",
+                "output": "VBXIJ I 10:00!",
+                "description": "Solo se cifran las letras del alfabeto. Los espacios, números, signos de puntuación y otros símbolos permanecen sin cambios."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 119,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Sustitución monoalfabética"
+            }
+        },
+        {
+            "id": 120,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Aritmética modular"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Dos claves numéricas"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Familia César"
+            }
+        },
+        {
+            "id": 124,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cifrado educativo"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
