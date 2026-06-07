@@ -70,15 +70,6 @@ final class ViteAssets
             $tags[] = sprintf('<link rel="preload" href="/build/%s" as="style">', $cssFile);
         }
 
-        foreach ($chunk['assets'] ?? [] as $assetFile) {
-            if (str_ends_with((string) $assetFile, '.woff2')) {
-                $tags[] = sprintf(
-                    '<link rel="preload" href="/build/%s" as="font" type="font/woff2" crossorigin>',
-                    $assetFile
-                );
-            }
-        }
-
         return implode("\n    ", $tags);
     }
 

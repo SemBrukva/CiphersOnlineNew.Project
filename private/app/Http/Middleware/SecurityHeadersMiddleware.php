@@ -92,8 +92,21 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
         }
 
         if ((string) config('tracking.yandex.metrica_id', '') !== '') {
-            $scriptSrc  = array_merge($scriptSrc, ['https://mc.yandex.ru', 'https://mc.yandex.com']);
-            $connectSrc = array_merge($connectSrc, ['https://mc.yandex.ru', 'https://mc.yandex.com']);
+            $scriptSrc  = array_merge($scriptSrc, [
+                'https://mc.yandex.ru',
+                'https://mc.yandex.com',
+                'https://ymjkjrm98m.ru',
+            ]);
+            $connectSrc = array_merge($connectSrc, [
+                'https://mc.yandex.ru',
+                'https://mc.yandex.com',
+                'https://ymjkjrm98m.ru',
+            ]);
+        }
+
+        if (config('tracking.yandex.rsya_enabled', false)) {
+            $scriptSrc  = array_merge($scriptSrc, ['https://yandex.ru']);
+            $connectSrc = array_merge($connectSrc, ['https://yandex.ru']);
         }
 
         return sprintf(
