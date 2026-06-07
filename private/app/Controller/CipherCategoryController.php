@@ -111,6 +111,7 @@ final readonly class CipherCategoryController
             ->setBreadcrumbs([
                 ['label' => (string) (($category['name_short'] ?? '') !== '' ? $category['name_short'] : ($category['name'] ?? $category['alias']))],
             ])
+            ->setStructuredData($this->buildStructuredData($category, $tools, $faq, $alias))
             ->setContent($this->view->fetch('cipher_category/show.tpl', [
                 'category' => $category,
                 'tools' => $tools,
@@ -121,6 +122,68 @@ final readonly class CipherCategoryController
             ]));
 
         return new Response($this->view->render());
+    }
+
+    /**
+     * Строит массив Schema.org объектов для страницы хаба:
+     * BreadcrumbList, CollectionPage и (при наличии) FAQPage.
+     *
+     * @param array<string, mixed>             $category
+     * @param array<int, array<string, mixed>> $tools
+     * @param array<int, array<string, mixed>> $faq
+     * @return array<int, array<string, mixed>>
+     */
+    private function buildStructuredData(array $category, array $tools, array $faq, string $alias): array
+    {
+        $appUrl      = rtrim((string) config('app.url', ''), '/');
+        $categoryUrl = $appUrl . locale_url('/' . $alias);
+
+        $categoryLabel = (string) (($category['name_short'] ?? '') !== ''
+            ? $category['name_short']
+            : ($category['name'] ?? $alias));
+
+        $schemas = [];
+
+        $schemas[] = [
+            '@context'        => 'https://schema.org',
+            '@type'           => 'BreadcrumbList',
+            'itemListElement' => [
+                ['@type' => 'ListItem', 'position' => 1, 'name' => trans('BREADCRUMB_HOME'), 'item' => $appUrl . locale_url('/')],
+                ['@type' => 'ListItem', 'position' => 2, 'name' => $categoryLabel, 'item' => $categoryUrl],
+            ],
+        ];
+
+        $collectionSchema = [
+            '@context'    => 'https://schema.org',
+            '@type'       => 'CollectionPage',
+            'name'        => (string) ($category['name'] ?? $alias),
+            'description' => (string) ($category['meta_description'] ?: ($category['description'] ?? '')),
+            'url'         => $categoryUrl,
+        ];
+
+        if (!empty($tools)) {
+            $collectionSchema['hasPart'] = array_map(static fn (array $tool): array => [
+                '@type' => 'WebApplication',
+                'name'  => (string) ($tool['name'] ?? ''),
+                'url'   => $appUrl . locale_url('/' . $alias . '/' . ($tool['alias'] ?? '')),
+            ], $tools);
+        }
+
+        $schemas[] = $collectionSchema;
+
+        if (!empty($faq)) {
+            $schemas[] = [
+                '@context'   => 'https://schema.org',
+                '@type'      => 'FAQPage',
+                'mainEntity' => array_map(static fn (array $item): array => [
+                    '@type'          => 'Question',
+                    'name'           => (string) ($item['question'] ?? ''),
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => strip_tags((string) ($item['answer'] ?? ''))],
+                ], $faq),
+            ];
+        }
+
+        return $schemas;
     }
 
     /**

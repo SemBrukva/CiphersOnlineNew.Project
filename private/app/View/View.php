@@ -172,4 +172,15 @@ final class View
         $this->smarty->assign('meta_robots', $value);
         return $this;
     }
+
+    /**
+     * Устанавливает массив Schema.org объектов для вывода в виде JSON-LD блоков.
+     *
+     * @param array<int, array<string, mixed>> $schemas
+     */
+    public function setStructuredData(array $schemas): static
+    {
+        $this->smarty->assign('structured_data', $schemas);
+        return $this;
+    }
 }

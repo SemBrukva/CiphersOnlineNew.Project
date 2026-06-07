@@ -89,6 +89,7 @@ final readonly class CipherController
                 ['label' => (string) (($category['name_short'] ?? '') !== '' ? $category['name_short'] : ($category['name'] ?? $categoryAlias)), 'url' => '/'.$categoryAlias],
                 ['label' => (string) ($cipher['name_short'] ?? $cipher['name'])],
             ])
+            ->setStructuredData($this->buildStructuredData($cipher, $category, $faq, $categoryAlias, $cipherAlias))
             ->setContent($this->view->fetch('cipher/show.tpl', [
                 'cipher' => $cipher,
                 'category' => $category,
@@ -165,5 +166,67 @@ final readonly class CipherController
     private function buildToolSettings(string $toolSlug): array
     {
         return $this->toolRegistry->settings($toolSlug);
+    }
+
+    /**
+     * Строит массив Schema.org объектов для страницы инструмента:
+     * BreadcrumbList, WebApplication и (при наличии) FAQPage.
+     *
+     * @param array<string, mixed>      $cipher
+     * @param array<string, mixed>|null $category
+     * @param array<int, array<string, mixed>> $faq
+     * @return array<int, array<string, mixed>>
+     */
+    private function buildStructuredData(
+        array $cipher,
+        ?array $category,
+        array $faq,
+        string $categoryAlias,
+        string $cipherAlias
+    ): array {
+        $appUrl      = rtrim((string) config('app.url', ''), '/');
+        $categoryUrl = $appUrl . locale_url('/' . $categoryAlias);
+        $toolUrl     = $appUrl . locale_url('/' . $categoryAlias . '/' . $cipherAlias);
+
+        $categoryLabel = (string) (($category['name_short'] ?? '') !== ''
+            ? $category['name_short']
+            : ($category['name'] ?? $categoryAlias));
+
+        $schemas = [];
+
+        $schemas[] = [
+            '@context'        => 'https://schema.org',
+            '@type'           => 'BreadcrumbList',
+            'itemListElement' => [
+                ['@type' => 'ListItem', 'position' => 1, 'name' => trans('BREADCRUMB_HOME'), 'item' => $appUrl . locale_url('/')],
+                ['@type' => 'ListItem', 'position' => 2, 'name' => $categoryLabel, 'item' => $categoryUrl],
+                ['@type' => 'ListItem', 'position' => 3, 'name' => (string) ($cipher['name_short'] ?? $cipher['name']), 'item' => $toolUrl],
+            ],
+        ];
+
+        $schemas[] = [
+            '@context'            => 'https://schema.org',
+            '@type'               => 'WebApplication',
+            'name'                => (string) $cipher['name'],
+            'description'         => (string) ($cipher['meta_description'] ?: $cipher['description']),
+            'url'                 => $toolUrl,
+            'applicationCategory' => 'UtilityApplication',
+            'operatingSystem'     => 'Web',
+            'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+        ];
+
+        if (!empty($faq)) {
+            $schemas[] = [
+                '@context'   => 'https://schema.org',
+                '@type'      => 'FAQPage',
+                'mainEntity' => array_map(static fn (array $item): array => [
+                    '@type'          => 'Question',
+                    'name'           => (string) ($item['question'] ?? ''),
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => strip_tags((string) ($item['answer'] ?? ''))],
+                ], $faq),
+            ];
+        }
+
+        return $schemas;
     }
 }

@@ -47,6 +47,11 @@
     {vite entry="private/resources/js/app.js" type="preload"}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     {vite entry="private/resources/js/app.js" type="css"}
+    {if $structured_data}
+        {foreach $structured_data as $schema}
+        <script type="application/ld+json">{$schema|json_encode nofilter}</script>
+        {/foreach}
+    {/if}
 </head>
 <body class="d-flex flex-column min-vh-100" style="font-family:'Inter',system-ui,sans-serif;">
 
