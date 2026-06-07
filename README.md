@@ -101,6 +101,46 @@ php bin/console make:repository PostRepository
 php bin/console make:job ProcessPaymentJob
 ```
 
+### Импорт SQLite в MySQL
+
+Команда `db:import-sqlite` переносит данные из SQLite-файла в активную MySQL-базу. Это удобно для первичного наполнения или синхронизации окружения, когда нужно сохранить реальные `id` сущностей между SQLite и MySQL.
+
+```bash
+# Показать план импорта без записи в MySQL
+php bin/console db:import-sqlite
+
+# Импортировать SQLite-файл из конфига database.connections.sqlite.database
+php bin/console db:import-sqlite --force
+
+# Импортировать конкретный SQLite-файл
+php bin/console db:import-sqlite private/storage/database/database.sqlite --force
+php bin/console db:import-sqlite --source=private/storage/database/database.sqlite --force
+
+# Перед импортом очистить выбранные MySQL-таблицы
+php bin/console db:import-sqlite --force --clear
+
+# Импортировать только указанные таблицы
+php bin/console db:import-sqlite --force --tables=ciphers,ciphers_blocks,ciphers_blocks_translations
+
+# Исключить таблицы из импорта
+php bin/console db:import-sqlite --force --except=users,jobs,failed_jobs
+
+# Изменить размер пачки чтения из SQLite
+php bin/console db:import-sqlite --force --batch=1000
+```
+
+Возможности и ограничения:
+
+- Работает только когда активное подключение приложения — MySQL (`DB_CONNECTION=mysql`).
+- Без `--force` команда выполняет dry-run: показывает источник, целевую БД, режим очистки и список таблиц с количеством строк.
+- По умолчанию источник берётся из `database.connections.sqlite.database`; также можно передать путь первым аргументом или через `--source=...`.
+- Импортируются только таблицы, которые есть и в SQLite, и в текущей MySQL-базе.
+- Для каждой таблицы переносятся только общие колонки источника и цели; таблицы без общих колонок пропускаются.
+- Таблицы импортируются в порядке, учитывающем основные зависимости (`ciphers`, переводы, блоки, примеры, FAQ, теги и т. д.).
+- На время импорта отключаются MySQL foreign key checks, запись выполняется в транзакции.
+- После успешного импорта команда обновляет `AUTO_INCREMENT` по максимальному `id` в каждой импортированной таблице.
+- `--clear` удаляет данные из целевых MySQL-таблиц перед импортом, поэтому используйте его только после dry-run и бэкапа.
+
 ### Контент страниц шифров через JSON
 
 Для задач, где тексты редактируются вне админки (например, через Atlas), используйте экспорт/импорт JSON:
