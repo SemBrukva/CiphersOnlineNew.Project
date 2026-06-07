@@ -312,6 +312,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Rail Fence через API.
+     *
+     * POST /api/tools/rail-fence
+     */
+    #[ApiOperation(summary: 'Шифр Rail Fence', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function railFence(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'rail-fence');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

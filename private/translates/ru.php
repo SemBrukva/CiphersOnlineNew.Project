@@ -318,6 +318,14 @@ return [
     'BACON_COVER_HINT'                 => 'Если заполнено, секрет кодируется регистром букв. Оставьте пустым для стандартного вывода A/B.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Каждая буква — её порядковый номер в алфавите',
+    // Rail Fence
+    'RAIL_FENCE_SETTING_RAILS'         => 'Рельсы',
+    'RAIL_FENCE_TRUST_TRANSPOSITION'   => 'Классический шифр перестановки',
+    'RAIL_FENCE_TRUST_RAILS'           => 'Настраиваемое количество рельсов',
+    'RAIL_FENCE_ERR_DIRECTION'         => 'Направление должно быть encrypt или decrypt.',
+    'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Текст обязателен.',
+    'RAIL_FENCE_ERR_RAILS'             => 'Количество рельсов должно быть в диапазоне :min-:max.',
+    'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Количество рельсов не меньше длины текста — шифрование не имеет эффекта, результат совпадает со входом.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
     'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',

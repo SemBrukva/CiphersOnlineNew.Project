@@ -100,6 +100,13 @@ return [
         'name'       => 'api.tools.a1z26',
     ],
 
+    'POST /tools/rail-fence' => [
+        'controller' => GuestController::class,
+        'method'     => 'railFence',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.rail_fence',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

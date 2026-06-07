@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T10:15:26+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rail-fence",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 20,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 20,
+        "data": {
+            "name": "Cifrario Rail Fence",
+            "name_short": "Rail Fence",
+            "description": "Cifra e decifra testo con il cifrario Rail Fence usando un numero configurabile di binari. Scopri come funziona la trasposizione a zigzag e sperimenta con diverse quantità di binari.",
+            "description_stort": "Cifrario classico di trasposizione a zigzag con binari configurabili.",
+            "meta_title": "Cifrario Rail Fence Online | Ciphers Online",
+            "meta_description": "Cifra e decifra testo con Rail Fence online. Scegli il numero di binari, impara la trasposizione a zigzag ed esplora una tecnica classica di crittografia."
+        }
+    },
+    "blocks": [
+        {
+            "id": 77,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario Rail Fence",
+                "text": "<p>Il cifrario Rail Fence è un cifrario classico di trasposizione: riorganizza le posizioni dei caratteri senza cambiare i caratteri stessi. Il messaggio viene scritto in uno schema a zigzag su un numero scelto di binari e poi letto riga per riga per ottenere il testo cifrato.</p><p>Per esempio, con tre binari il testo scende e risale in diagonale tra le righe. Aumentare o ridurre il numero di binari crea uno schema diverso e quindi un testo cifrato diverso.</p><p>Per decifrare un messaggio bisogna usare lo stesso numero di binari. Prima si ricostruisce la struttura a zigzag, poi i caratteri vengono riportati nelle loro posizioni originali.</p>"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Esempio di zigzag Rail Fence",
+                "text": "<p>Con tre binari, il messaggio viene scritto prima in diagonale verso il basso e verso l’alto, poi le righe vengono lette da sinistra a destra:</p><pre>O . . . N . . . C . . . T .\n. R . I . E . I . E . U . O\n. . D . . . R . . . V . . .</pre><p>I punti indicano le posizioni vuote nello schema a zigzag. Il testo cifrato si crea leggendo prima il primo binario, poi il secondo e infine il terzo.</p>"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Perché Rail Fence è diverso",
+                "text": "<p>A differenza dei cifrari di sostituzione, come Cesare o Vigenere, Rail Fence non sostituisce le lettere con altre lettere. Cambia solo il loro ordine.</p><p>Poiché i caratteri originali restano invariati, l’analisi delle frequenze è meno utile, ma il cifrario è comunque facile da violare provando i possibili numeri di binari. Oggi Rail Fence viene usato soprattutto per la didattica, gli enigmi e l’introduzione ai cifrari di trasposizione.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Rail Fence è un cifrario di sostituzione?",
+                "answer": "No. Rail Fence non sostituisce le lettere. Cambia solo il loro ordine, quindi è un cifrario di trasposizione."
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qual è la chiave in Rail Fence?",
+                "answer": "La chiave è il numero di binari usati per lo schema a zigzag. Per la decifratura serve lo stesso numero."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Rail Fence è sicuro oggi?",
+                "answer": "No. È semplice provare automaticamente i possibili numeri di binari. Oggi è utile soprattutto per imparare, creare enigmi e fare dimostrazioni."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede se uso il numero di binari sbagliato?",
+                "answer": "Usare un numero di binari diverso durante la decifratura produce un testo errato, perché lo schema a zigzag non corrisponde al processo di cifratura originale."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Rail Fence è un cifrario di trasposizione?",
+                "answer": "Sì. Rail Fence è uno dei cifrari di trasposizione più noti. Mantiene i caratteri originali, ma ne riorganizza le posizioni secondo uno schema a zigzag."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 71,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare con 3 binari",
+                "key": "",
+                "shift": 3,
+                "input": "ORDINERICEVUTO",
+                "output": "ONCTRIEIEUODRV",
+                "description": "Un classico esempio di Rail Fence con tre binari."
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decifrare con 3 binari",
+                "key": "",
+                "shift": 3,
+                "input": "ONCTRIEIEUODRV",
+                "output": "ORDINERICEVUTO",
+                "description": "Per ripristinare il testo in chiaro è necessario usare lo stesso numero di binari."
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare con 4 binari",
+                "key": "",
+                "shift": 4,
+                "input": "DIFENDILATORREEST",
+                "output": "DIRIDLREFNAOETETS",
+                "description": "Cambiare il numero di binari modifica lo schema a zigzag e il testo cifrato risultante."
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Messaggio con spazi",
+                "key": "",
+                "shift": 3,
+                "input": "INCONTRO A MEZZOGIORNO",
+                "output": "IN EGNNOTOAMZOIROCR ZO",
+                "description": "Gli spazi vengono conservati e partecipano alla trasposizione a zigzag come gli altri caratteri."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario di trasposizione"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiave basata sui binari"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Schema a zigzag"
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifrario didattico"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

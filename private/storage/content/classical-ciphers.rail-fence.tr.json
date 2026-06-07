@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T10:15:26+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rail-fence",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 20,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 20,
+        "data": {
+            "name": "Rail Fence Şifresi",
+            "name_short": "Rail Fence",
+            "description": "Ayarlanabilir ray sayısı kullanarak Rail Fence şifresiyle metinleri şifreleyin ve çözün. Zikzak yer değiştirme yönteminin nasıl çalıştığını öğrenin ve farklı ray sayılarıyla denemeler yapın.",
+            "description_stort": "Ayarlanabilir raylarla çalışan klasik zikzak yer değiştirme şifresi.",
+            "meta_title": "Rail Fence Şifresi Online | Ciphers Online",
+            "meta_description": "Rail Fence şifresiyle metinleri online olarak şifreleyin ve çözün. Ray sayısını seçin, zikzak yer değiştirmeyi öğrenin ve klasik bir kriptografi tekniğini keşfedin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 77,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Rail Fence şifresi nasıl çalışır",
+                "text": "<p>Rail Fence şifresi klasik bir yer değiştirme şifresidir: karakterlerin kendisini değiştirmez, yalnızca konumlarını yeniden düzenler. Mesaj, seçilen ray sayısı boyunca zikzak düzeninde yazılır ve ardından satır satır okunarak şifreli metin elde edilir.</p><p>Örneğin üç ray kullanıldığında metin satırlar arasında çapraz olarak aşağı iner ve tekrar yukarı çıkar. Ray sayısını değiştirmek farklı bir desen oluşturur ve bu da farklı bir şifreli metin üretir.</p><p>Bir mesajı çözmek için aynı ray sayısı kullanılmalıdır. Önce zikzak yapı yeniden kurulur, sonra şifreli metindeki karakterler özgün konumlarına geri yerleştirilir.</p>"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Rail Fence zikzak örneği",
+                "text": "<p>Üç rayla mesaj, satırlar soldan sağa okunmadan önce çapraz olarak aşağı ve yukarı yazılır:</p><pre>E . . . A . . . D .\n. M . R . L . N . I\n. . I . . . I . . .</pre><p>Noktalar zikzak desendeki boş konumları gösterir. Şifreli metin önce birinci ray, sonra ikinci ray ve en sonunda üçüncü ray okunarak oluşturulur.</p>"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Rail Fence neden farklıdır",
+                "text": "<p>Sezar veya Vigenere gibi yerine koyma şifrelerinden farklı olarak Rail Fence harfleri başka harflerle değiştirmez. Yalnızca karakterlerin sırasını değiştirir.</p><p>Özgün karakterler değişmeden kaldığı için frekans analizi daha az kullanışlıdır, ancak olası ray sayıları denenerek şifre yine de kolayca kırılabilir. Bugün Rail Fence çoğunlukla eğitim, bulmacalar ve yer değiştirme şifrelerine giriş için kullanılır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Rail Fence bir yerine koyma şifresi midir?",
+                "answer": "Hayır. Rail Fence harfleri değiştirmez. Yalnızca sıralarını değiştirir, bu nedenle bir yer değiştirme şifresidir."
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Rail Fence şifresinde anahtar nedir?",
+                "answer": "Anahtar, zikzak desen için kullanılan ray sayısıdır. Çözme işlemi için de aynı sayı gerekir."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Rail Fence bugün güvenli midir?",
+                "answer": "Hayır. Olası ray sayıları otomatik olarak kolayca denenebilir. Bugün bu şifre daha çok öğrenme, bulmaca ve gösterim amaçları için yararlıdır."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Yanlış ray sayısı kullanırsam ne olur?",
+                "answer": "Çözme sırasında farklı bir ray sayısı kullanmak hatalı metin üretir, çünkü zikzak desen özgün şifreleme süreciyle eşleşmez."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Rail Fence bir yer değiştirme şifresi midir?",
+                "answer": "Evet. Rail Fence en bilinen yer değiştirme şifrelerinden biridir. Özgün karakterleri korur, ancak konumlarını zikzak bir desene göre yeniden düzenler."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 71,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "3 rayla şifreleme",
+                "key": "",
+                "shift": 3,
+                "input": "EMIRALINDI",
+                "output": "EADMRLNIII",
+                "description": "Üç rayla klasik bir Rail Fence örneği."
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "3 rayla çözme",
+                "key": "",
+                "shift": 3,
+                "input": "EADMRLNIII",
+                "output": "EMIRALINDI",
+                "description": "Açık metni geri almak için aynı ray sayısı kullanılmalıdır."
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "4 rayla şifreleme",
+                "key": "",
+                "shift": 4,
+                "input": "DOGUKULESINIKORU",
+                "output": "DLKOUEIOGKSNRUIU",
+                "description": "Ray sayısını değiştirmek zikzak deseni ve ortaya çıkan şifreli metni değiştirir."
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Boşluk içeren mesaj",
+                "key": "",
+                "shift": 3,
+                "input": "OGLE VAKTI BULUS",
+                "output": "O TUGEVKIBLSLA U",
+                "description": "Boşluklar korunur ve diğer karakterler gibi zikzak yer değiştirme desenine katılır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Yer değiştirme şifresi"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Ray sayısı anahtarı"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Zikzak desen"
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Eğitici şifre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

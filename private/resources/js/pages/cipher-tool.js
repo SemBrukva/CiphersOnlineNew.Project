@@ -170,10 +170,17 @@ export function initCipherToolPage() {
   }
 
   const getMaxShift = () => {
-    if (!alphabetSelect) return 39
+    const inputMax = Number(shiftInput?.max ?? 39)
+    const fallbackMax = Number.isFinite(inputMax) ? inputMax : 39
+    if (!alphabetSelect) return fallbackMax
     const selected = alphabetSelect.options[alphabetSelect.selectedIndex]
-    const rawValue = Number(selected?.dataset?.maxShift ?? 39)
-    return Number.isFinite(rawValue) && rawValue >= 0 ? rawValue : 39
+    const rawValue = Number(selected?.dataset?.maxShift ?? fallbackMax)
+    return Number.isFinite(rawValue) && rawValue >= 0 ? rawValue : fallbackMax
+  }
+
+  const getMinShift = () => {
+    const rawValue = Number(shiftInput?.min ?? 0)
+    return Number.isFinite(rawValue) ? rawValue : 0
   }
 
   const normalizeShiftInput = () => {
@@ -185,7 +192,8 @@ export function initCipherToolPage() {
   const setShiftValue = (nextValue) => {
     if (!shiftInput) return
     const maxShift = getMaxShift()
-    const clamped = Math.min(Math.max(0, Math.trunc(nextValue)), maxShift)
+    const minShift = getMinShift()
+    const clamped = Math.min(Math.max(minShift, Math.trunc(nextValue)), maxShift)
     shiftInput.max = String(maxShift)
     shiftInput.value = String(clamped)
   }

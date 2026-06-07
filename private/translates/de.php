@@ -295,6 +295,14 @@ return [
     'BACON_COVER_HINT'                 => 'Wenn ausgefüllt, wird das Geheimnis durch Groß-/Kleinschreibung kodiert. Leer lassen für Standard-A/B-Ausgabe.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Jeder Buchstabe wird durch seine Alphabetposition ersetzt',
+    // Rail Fence
+    'RAIL_FENCE_SETTING_RAILS'         => 'Schienen',
+    'RAIL_FENCE_TRUST_TRANSPOSITION'   => 'Klassische Transpositionschiffre',
+    'RAIL_FENCE_TRUST_RAILS'           => 'Anpassbare Anzahl von Schienen',
+    'RAIL_FENCE_ERR_DIRECTION'         => 'Richtung muss encrypt oder decrypt sein.',
+    'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Text ist erforderlich.',
+    'RAIL_FENCE_ERR_RAILS'             => 'Schienen müssen im Bereich :min-:max liegen.',
+    'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Die Schienenanzahl ist mindestens so groß wie die Textlänge — die Verschlüsselung hat keinen Effekt und die Ausgabe ist identisch mit der Eingabe.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binär-zu-Text-Kodierung',
     'BASE64_TRUST_USES'                => 'Weit verbreitet in APIs, E-Mails und im Web',

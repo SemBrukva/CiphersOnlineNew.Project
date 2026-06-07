@@ -295,6 +295,14 @@ return [
     'BACON_COVER_HINT'                 => 'Se preenchido, o segredo é codificado pela capitalização das letras. Deixe vazio para a saída A/B padrão.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Cada letra corresponde à sua posição no alfabeto',
+    // Rail Fence
+    'RAIL_FENCE_SETTING_RAILS'         => 'Trilhos',
+    'RAIL_FENCE_TRUST_TRANSPOSITION'   => 'Cifra clássica de transposição',
+    'RAIL_FENCE_TRUST_RAILS'           => 'Número de trilhos configurável',
+    'RAIL_FENCE_ERR_DIRECTION'         => 'A direção deve ser encrypt ou decrypt.',
+    'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'O texto é obrigatório.',
+    'RAIL_FENCE_ERR_RAILS'             => 'O número de trilhos deve estar no intervalo :min-:max.',
+    'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'O número de trilhos é igual ou superior ao comprimento do texto — a cifra não tem efeito e a saída é idêntica à entrada.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Codificação de binário para texto',
     'BASE64_TRUST_USES'                => 'Amplamente usado em APIs, e-mails e web',

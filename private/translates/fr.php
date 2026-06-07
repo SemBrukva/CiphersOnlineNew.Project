@@ -295,6 +295,14 @@ return [
     'BACON_COVER_HINT'                 => "Si rempli, le secret est encodé par la casse des lettres. Laisser vide pour la sortie A/B standard.",
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Chaque lettre correspond à sa position alphabétique',
+    // Rail Fence
+    'RAIL_FENCE_SETTING_RAILS'         => 'Rails',
+    'RAIL_FENCE_TRUST_TRANSPOSITION'   => 'Chiffre de transposition classique',
+    'RAIL_FENCE_TRUST_RAILS'           => 'Nombre de rails configurable',
+    'RAIL_FENCE_ERR_DIRECTION'         => 'La direction doit être encrypt ou decrypt.',
+    'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Le texte est obligatoire.',
+    'RAIL_FENCE_ERR_RAILS'             => 'Le nombre de rails doit être compris entre :min et :max.',
+    'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Le nombre de rails est supérieur ou égal à la longueur du texte — le chiffrement est sans effet et la sortie est identique à l\'entrée.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Encodage binaire vers texte',
     'BASE64_TRUST_USES'                => 'Largement utilisé dans les API, e-mails et le web',

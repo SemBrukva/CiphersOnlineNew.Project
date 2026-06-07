@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T10:15:26+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rail-fence",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 20,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 20,
+        "data": {
+            "name": "Chiffre Rail Fence",
+            "name_short": "Rail Fence",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre Rail Fence en choisissant un nombre de rails configurable. Découvrez le fonctionnement de la transposition en zigzag et comparez différents nombres de rails.",
+            "description_stort": "Chiffre classique de transposition en zigzag avec rails configurables.",
+            "meta_title": "Chiffre Rail Fence en ligne | Ciphers Online",
+            "meta_description": "Chiffrez et déchiffrez du texte avec Rail Fence en ligne. Choisissez le nombre de rails, apprenez la transposition en zigzag et explorez une technique classique de cryptographie."
+        }
+    },
+    "blocks": [
+        {
+            "id": 77,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre Rail Fence",
+                "text": "<p>Le chiffre Rail Fence est un chiffre classique de transposition : il réorganise la position des caractères sans modifier les caractères eux-mêmes. Le message est écrit en zigzag sur un nombre choisi de rails, puis les lignes sont lues les unes après les autres pour produire le texte chiffré.</p><p>Avec trois rails, par exemple, le texte descend puis remonte en diagonale à travers les lignes. Si le nombre de rails change, le motif change aussi, et le texte chiffré obtenu est différent.</p><p>Pour déchiffrer un message, il faut utiliser le même nombre de rails. On reconstruit d’abord la structure en zigzag, puis les caractères sont replacés à leurs positions d’origine.</p>"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Exemple de zigzag Rail Fence",
+                "text": "<p>Avec trois rails, le message est d’abord écrit en diagonale vers le bas et vers le haut avant que les lignes soient lues de gauche à droite :</p><pre>O . . . E . . . U\n. R . R . R . C .\n. . D . . . E . .</pre><p>Les points indiquent les positions vides dans le motif en zigzag. Le texte chiffré est créé en lisant d’abord le premier rail, puis le deuxième, puis le troisième.</p>"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Pourquoi Rail Fence est différent",
+                "text": "<p>Contrairement aux chiffres de substitution comme César ou Vigenere, Rail Fence ne remplace pas les lettres par d’autres lettres. Il change uniquement leur ordre.</p><p>Comme les caractères d’origine restent inchangés, l’analyse de fréquence est moins utile, mais le chiffre reste facile à casser en testant les nombres de rails possibles. Aujourd’hui, Rail Fence sert surtout à l’apprentissage, aux énigmes et à l’introduction des chiffres de transposition.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Rail Fence est-il un chiffre de substitution ?",
+                "answer": "Non. Rail Fence ne remplace pas les lettres. Il change seulement leur ordre, c’est donc un chiffre de transposition."
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quelle est la clé dans Rail Fence ?",
+                "answer": "La clé est le nombre de rails utilisés pour le motif en zigzag. Le même nombre est nécessaire pour le déchiffrement."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Rail Fence est-il sûr aujourd’hui ?",
+                "answer": "Non. Il est facile de tester automatiquement les nombres de rails possibles. Aujourd’hui, ce chiffre est surtout utile pour l’apprentissage, les énigmes et les démonstrations."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Que se passe-t-il si j’utilise le mauvais nombre de rails ?",
+                "answer": "Un autre nombre de rails lors du déchiffrement produit un texte incorrect, car le motif en zigzag ne correspond plus au processus de chiffrement d’origine."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Rail Fence est-il un chiffre de transposition ?",
+                "answer": "Oui. Rail Fence est l’un des chiffres de transposition les plus connus. Il conserve les caractères d’origine, mais réorganise leurs positions selon un motif en zigzag."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 71,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer avec 3 rails",
+                "key": "",
+                "shift": 3,
+                "input": "ORDRERECU",
+                "output": "OEURRRCDE",
+                "description": "Un exemple classique de Rail Fence avec trois rails."
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Déchiffrer avec 3 rails",
+                "key": "",
+                "shift": 3,
+                "input": "OEURRRCDE",
+                "output": "ORDRERECU",
+                "description": "Le même nombre de rails est nécessaire pour retrouver le texte clair."
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer avec 4 rails",
+                "key": "",
+                "shift": 4,
+                "input": "DEFENDRELATOUREST",
+                "output": "DRUEDEORFNLTETEAS",
+                "description": "Changer le nombre de rails modifie le motif en zigzag et le texte chiffré obtenu."
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Message avec espaces",
+                "key": "",
+                "shift": 3,
+                "input": "RENDEZ VOUS A MIDI",
+                "output": "REOADEDZVU  IIN SM",
+                "description": "Les espaces sont conservés et participent à la transposition en zigzag comme les autres caractères."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de transposition"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Clé par nombre de rails"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Motif en zigzag"
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Chiffre pédagogique"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

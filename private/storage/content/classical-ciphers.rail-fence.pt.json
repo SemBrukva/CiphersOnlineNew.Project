@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T10:15:26+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rail-fence",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 20,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 20,
+        "data": {
+            "name": "Cifra Rail Fence",
+            "name_short": "Rail Fence",
+            "description": "Criptografe e descriptografe texto com a cifra Rail Fence usando um número configurável de trilhos. Aprenda como funciona a transposição em zigue-zague e experimente diferentes quantidades de trilhos.",
+            "description_stort": "Cifra clássica de transposição em zigue-zague com trilhos configuráveis.",
+            "meta_title": "Cifra Rail Fence Online | Ciphers Online",
+            "meta_description": "Criptografe e descriptografe texto com Rail Fence online. Escolha o número de trilhos, aprenda a transposição em zigue-zague e explore uma técnica clássica de criptografia."
+        }
+    },
+    "blocks": [
+        {
+            "id": 77,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra Rail Fence funciona",
+                "text": "<p>A cifra Rail Fence é uma cifra clássica de transposição: ela reorganiza as posições dos caracteres sem alterar os próprios caracteres. A mensagem é escrita em um padrão de zigue-zague sobre um número escolhido de trilhos e depois lida linha por linha para produzir o texto cifrado.</p><p>Por exemplo, com três trilhos, o texto desce e sobe na diagonal pelas linhas. Aumentar ou reduzir o número de trilhos cria um padrão diferente e, portanto, um texto cifrado diferente.</p><p>Para descriptografar uma mensagem, é preciso usar a mesma quantidade de trilhos. Primeiro a estrutura em zigue-zague é reconstruída; depois os caracteres são colocados de volta em suas posições originais.</p>"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Exemplo de zigue-zague Rail Fence",
+                "text": "<p>Com três trilhos, a mensagem é escrita primeiro na diagonal para baixo e para cima antes de as linhas serem lidas da esquerda para a direita:</p><pre>O . . . M . . . E . . . A\n. R . E . R . C . B . D .\n. . D . . . E . . . I . .</pre><p>Os pontos mostram posições vazias no padrão em zigue-zague. O texto cifrado é criado lendo primeiro o primeiro trilho, depois o segundo e, por fim, o terceiro.</p>"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Por que Rail Fence é diferente",
+                "text": "<p>Ao contrário das cifras de substituição, como César ou Vigenere, Rail Fence não troca letras por outras letras. Ela apenas muda a ordem dos caracteres.</p><p>Como os caracteres originais permanecem inalterados, a análise de frequência é menos útil, mas a cifra ainda é fácil de quebrar testando possíveis números de trilhos. Hoje, Rail Fence é usada principalmente para ensino, desafios e introdução ao conceito de cifras de transposição.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Rail Fence é uma cifra de substituição?",
+                "answer": "Não. Rail Fence não substitui letras. Ela muda apenas a ordem dos caracteres, por isso é uma cifra de transposição."
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qual é a chave em Rail Fence?",
+                "answer": "A chave é o número de trilhos usados no padrão em zigue-zague. O mesmo número é necessário para a descriptografia."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Rail Fence é segura hoje?",
+                "answer": "Não. É fácil testar automaticamente as possíveis quantidades de trilhos. Hoje ela é útil principalmente para aprendizado, desafios e demonstrações."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "O que acontece se eu usar o número errado de trilhos?",
+                "answer": "Usar uma quantidade diferente de trilhos durante a descriptografia produz um texto incorreto, porque o padrão em zigue-zague não corresponde ao processo de criptografia original."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Rail Fence é uma cifra de transposição?",
+                "answer": "Sim. Rail Fence é uma das cifras de transposição mais conhecidas. Ela mantém os caracteres originais, mas reorganiza suas posições de acordo com um padrão em zigue-zague."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 71,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Criptografar com 3 trilhos",
+                "key": "",
+                "shift": 3,
+                "input": "ORDEMRECEBIDA",
+                "output": "OMEARERCBDDEI",
+                "description": "Um exemplo clássico de Rail Fence com três trilhos."
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Descriptografar com 3 trilhos",
+                "key": "",
+                "shift": 3,
+                "input": "OMEARERCBDDEI",
+                "output": "ORDEMRECEBIDA",
+                "description": "A mesma quantidade de trilhos é necessária para recuperar o texto claro."
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Criptografar com 4 trilhos",
+                "key": "",
+                "shift": 4,
+                "input": "DEFENDERATORRELESTE",
+                "output": "DEREEDRRETFNAOLSETE",
+                "description": "Mudar o número de trilhos altera o padrão em zigue-zague e o texto cifrado resultante."
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mensagem com espaços",
+                "key": "",
+                "shift": 3,
+                "input": "ENCONTRO AO MEIO DIA",
+                "output": "EN M NOTOA EODACROII",
+                "description": "Os espaços são preservados e participam da transposição em zigue-zague como os outros caracteres."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra de transposição"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chave por número de trilhos"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Padrão em zigue-zague"
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifra educativa"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

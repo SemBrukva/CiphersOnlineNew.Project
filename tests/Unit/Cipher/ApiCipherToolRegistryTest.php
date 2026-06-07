@@ -19,6 +19,8 @@ use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
+use App\Cipher\RailFenceApiCipherTool;
+use App\Cipher\RailFenceCipherService;
 use App\Cipher\VernamApiCipherTool;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereApiCipherTool;
@@ -64,7 +66,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new VigenereApiCipherTool(new VigenereCipherService()),
             new VernamApiCipherTool(new VernamCipherService()),
             new BaconApiCipherTool(new BaconCipherService()),
-            new A1z26ApiCipherTool(new A1z26CipherService())
+            new A1z26ApiCipherTool(new A1z26CipherService()),
+            new RailFenceApiCipherTool(new RailFenceCipherService())
         );
     }
 }

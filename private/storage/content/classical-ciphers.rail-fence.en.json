@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T10:15:26+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rail-fence",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 20,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 20,
+        "data": {
+            "name": "Rail Fence Cipher",
+            "name_short": "Rail Fence Cipher",
+            "description": "Encrypt and decrypt text with the Rail Fence cipher using a configurable number of rails. Learn how zigzag transposition works and experiment with different rail counts.",
+            "description_stort": "Classical zigzag transposition cipher with configurable rails.",
+            "meta_title": "Rail Fence Cipher Online | Ciphers Online",
+            "meta_description": "Encrypt and decrypt text with the Rail Fence cipher online. Choose the number of rails, learn zigzag transposition, and explore a classic cryptography technique."
+        }
+    },
+    "blocks": [
+        {
+            "id": 77,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Rail Fence cipher works",
+                "text": "<p>The Rail Fence cipher is a classical transposition cipher that rearranges the positions of characters without changing the characters themselves. The message is written in a zigzag pattern across a chosen number of rails and then read row by row to produce the ciphertext.</p><p>For example, with three rails, the text moves diagonally down and up across the rows. Increasing the number of rails creates a different pattern and therefore a different ciphertext.</p><p>To decrypt a message, the same rail count must be used. The zigzag structure is reconstructed first, then the characters are placed back into their original positions.</p>"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Rail Fence zigzag example",
+                "text": "<p>With three rails, the message is written diagonally down and up before the rows are read from left to right:</p><pre>W . . . E . . . C\n. E . R . D . S .\n. . A . . . I . .</pre><p>The dots show empty positions in the zigzag pattern. The ciphertext is created by reading the first rail, then the second rail, then the third rail.</p>"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Why Rail Fence is different",
+                "text": "<p>Unlike substitution ciphers such as Caesar or Vigenere, Rail Fence does not replace letters with other letters. It only changes their order.</p><p>Because the original characters remain unchanged, frequency analysis is less useful, but the cipher is still easy to break by testing possible rail counts. Today Rail Fence is mainly used for education, puzzles, and introducing the concept of transposition ciphers.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is Rail Fence a substitution cipher?",
+                "answer": "No. Rail Fence does not replace letters. It changes only their order, so it is a transposition cipher."
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the key in Rail Fence?",
+                "answer": "The key is the number of rails used for the zigzag pattern. The same number is needed for decryption."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is Rail Fence secure today?",
+                "answer": "No. It is easy to test possible rail counts automatically. Today it is mainly useful for learning, puzzles and demonstrations."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What happens if I use the wrong rail count?",
+                "answer": "Using a different rail count during decryption produces incorrect text because the zigzag pattern will not match the original encryption process."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is Rail Fence a transposition cipher?",
+                "answer": "Yes. Rail Fence is one of the best-known transposition ciphers. It keeps the original characters but rearranges their positions according to a zigzag pattern."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 71,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt with 3 rails",
+                "key": "",
+                "shift": 3,
+                "input": "WEAREDISCOVEREDFLEEATONCE",
+                "output": "WECRLTEERDSOEEFEAOCAIVDEN",
+                "description": "A classic Rail Fence example with three rails."
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decrypt with 3 rails",
+                "key": "",
+                "shift": 3,
+                "input": "WECRLTEERDSOEEFEAOCAIVDEN",
+                "output": "WEAREDISCOVEREDFLEEATONCE",
+                "description": "The same rail count is required to restore the plaintext."
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt with 4 rails",
+                "key": "",
+                "shift": 4,
+                "input": "DEFENDTHEEASTWALLOFTHECASTLE",
+                "output": "DNETLHSEEDHESWLFTEATEFATAOLC",
+                "description": "Changing the rail count changes the zigzag pattern and the resulting ciphertext."
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Message with spaces",
+                "key": "",
+                "shift": 3,
+                "input": "MEET AT NOON",
+                "output": "M NETA ONETO",
+                "description": "Spaces are preserved and participate in the zigzag transposition pattern like other characters."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Transposition cipher"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Rail count key"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Zigzag pattern"
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Educational cipher"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

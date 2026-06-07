@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T10:15:26+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rail-fence",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 20,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 20,
+        "data": {
+            "name": "Rail-Fence-Chiffre",
+            "name_short": "Rail Fence",
+            "description": "Verschlüsseln und entschlüsseln Sie Text mit der Rail-Fence-Chiffre und einer frei wählbaren Anzahl von Schienen. Lernen Sie, wie die Zickzack-Transposition funktioniert, und vergleichen Sie verschiedene Schienenzahlen.",
+            "description_stort": "Klassische Zickzack-Transpositionschiffre mit konfigurierbaren Schienen.",
+            "meta_title": "Rail-Fence-Chiffre Online | Ciphers Online",
+            "meta_description": "Verschlüsseln und entschlüsseln Sie Text mit der Rail-Fence-Chiffre online. Wählen Sie die Anzahl der Schienen, lernen Sie die Zickzack-Transposition kennen und erkunden Sie eine klassische kryptografische Technik."
+        }
+    },
+    "blocks": [
+        {
+            "id": 77,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Rail-Fence-Chiffre funktioniert",
+                "text": "<p>Die Rail-Fence-Chiffre ist eine klassische Transpositionschiffre: Sie ordnet die Positionen der Zeichen neu, ohne die Zeichen selbst zu ersetzen. Die Nachricht wird in einem Zickzack-Muster über eine gewählte Anzahl von Schienen geschrieben und anschließend zeilenweise gelesen, um den Geheimtext zu erzeugen.</p><p>Bei drei Schienen läuft der Text zum Beispiel diagonal nach unten und wieder nach oben durch die Zeilen. Eine andere Anzahl von Schienen erzeugt ein anderes Muster und damit auch einen anderen Geheimtext.</p><p>Zum Entschlüsseln muss dieselbe Schienenzahl verwendet werden. Zuerst wird die Zickzack-Struktur rekonstruiert, danach werden die Zeichen wieder an ihre ursprünglichen Positionen gesetzt.</p>"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Zickzack-Beispiel für Rail Fence",
+                "text": "<p>Bei drei Schienen wird die Nachricht zuerst diagonal nach unten und oben geschrieben, bevor die Zeilen von links nach rechts gelesen werden:</p><pre>B . . . H . . . E . . .\n. E . E . L . R . A . T\n. . F . . . E . . . L .</pre><p>Die Punkte markieren leere Positionen im Zickzack-Muster. Der Geheimtext entsteht, indem zuerst die erste Schiene, dann die zweite und danach die dritte Schiene gelesen wird.</p>"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Warum Rail Fence anders ist",
+                "text": "<p>Anders als Substitutionschiffren wie Caesar oder Vigenere ersetzt Rail Fence keine Buchstaben durch andere Buchstaben. Es verändert nur ihre Reihenfolge.</p><p>Da die ursprünglichen Zeichen erhalten bleiben, ist eine reine Häufigkeitsanalyse weniger aussagekräftig. Trotzdem lässt sich die Chiffre leicht brechen, indem mögliche Schienenzahlen ausprobiert werden. Heute wird Rail Fence vor allem für Unterricht, Rätsel und als Einstieg in Transpositionschiffren verwendet.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Ist Rail Fence eine Substitutionschiffre?",
+                "answer": "Nein. Rail Fence ersetzt keine Buchstaben. Es verändert nur ihre Reihenfolge und ist deshalb eine Transpositionschiffre."
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Was ist der Schlüssel bei Rail Fence?",
+                "answer": "Der Schlüssel ist die Anzahl der Schienen, die für das Zickzack-Muster verwendet werden. Zum Entschlüsseln wird dieselbe Zahl benötigt."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Ist Rail Fence heute sicher?",
+                "answer": "Nein. Mögliche Schienenzahlen lassen sich automatisch sehr einfach testen. Heute ist die Chiffre vor allem zum Lernen, für Rätsel und für Demonstrationen nützlich."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was passiert, wenn ich die falsche Schienenzahl verwende?",
+                "answer": "Beim Entschlüsseln mit einer anderen Schienenzahl entsteht falscher Text, weil das Zickzack-Muster nicht zum ursprünglichen Verschlüsselungsvorgang passt."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist Rail Fence eine Transpositionschiffre?",
+                "answer": "Ja. Rail Fence ist eine der bekanntesten Transpositionschiffren. Sie behält die ursprünglichen Zeichen bei, ordnet ihre Positionen aber nach einem Zickzack-Muster neu."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 71,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Verschlüsseln mit 3 Schienen",
+                "key": "",
+                "shift": 3,
+                "input": "BEFEHLERHALTEN",
+                "output": "BHHEEELRATNFEL",
+                "description": "Ein klassisches Rail-Fence-Beispiel mit drei Schienen."
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Entschlüsseln mit 3 Schienen",
+                "key": "",
+                "shift": 3,
+                "input": "BHHEEELRATNFEL",
+                "output": "BEFEHLERHALTEN",
+                "description": "Zum Wiederherstellen des Klartexts muss dieselbe Schienenzahl verwendet werden."
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Verschlüsseln mit 4 Schienen",
+                "key": "",
+                "shift": 4,
+                "input": "OSTMAUERBEWACHEN",
+                "output": "OECSURAHTABWEMEN",
+                "description": "Eine andere Schienenzahl verändert das Zickzack-Muster und damit den entstehenden Geheimtext."
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Nachricht mit Leerzeichen",
+                "key": "",
+                "shift": 3,
+                "input": "TREFFEN UM MITTAG",
+                "output": "TFUIGRFE MMTAEN T",
+                "description": "Leerzeichen bleiben erhalten und nehmen wie andere Zeichen am Zickzack-Transpositionsmuster teil."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Transpositionschiffre"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Schienenzahl als Schlüssel"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Zickzack-Muster"
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Lernchiffre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

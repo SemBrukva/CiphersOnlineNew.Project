@@ -11,6 +11,7 @@ use App\Cipher\BeaufortCipherService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairCipherService;
+use App\Cipher\RailFenceCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereCipherService;
@@ -37,6 +38,8 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('vernam', $registry->apiAction('classical-ciphers/shifr-vernama'));
         self::assertSame('bacon', $registry->apiAction('classical-ciphers/shifr-behkona'));
         self::assertSame('a1z26', $registry->apiAction('classical-ciphers/shifr-a1z26'));
+        self::assertSame('rail-fence', $registry->apiAction('classical-ciphers/rail-fence'));
+        self::assertSame('rail-fence', $registry->apiAction('classical-ciphers/railfence'));
     }
 
     /**
@@ -77,7 +80,8 @@ final class ToolRegistryTest extends TestCase
             new VigenereCipherService(),
             new VernamCipherService(),
             new BaconCipherService(),
-            new A1z26CipherService()
+            new A1z26CipherService(),
+            new RailFenceCipherService()
         );
     }
 }

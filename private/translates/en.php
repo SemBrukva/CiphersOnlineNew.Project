@@ -318,6 +318,14 @@ return [
     'BACON_COVER_HINT'                 => 'When filled, the secret is encoded by letter case. Leave empty for standard A/B output.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Each letter maps to its alphabet position',
+    // Rail Fence
+    'RAIL_FENCE_SETTING_RAILS'         => 'Rails',
+    'RAIL_FENCE_TRUST_TRANSPOSITION'   => 'Classical transposition cipher',
+    'RAIL_FENCE_TRUST_RAILS'           => 'Customizable rail count',
+    'RAIL_FENCE_ERR_DIRECTION'         => 'Direction must be encrypt or decrypt.',
+    'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Text is required.',
+    'RAIL_FENCE_ERR_RAILS'             => 'Rails must be in range :min-:max.',
+    'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Rail count equals or exceeds the text length — the cipher has no effect and the output is identical to the input.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
     'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',

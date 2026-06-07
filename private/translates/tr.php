@@ -295,6 +295,14 @@ return [
     'BACON_COVER_HINT'                 => 'Doldurulduğunda, sır harf büyüklüğüyle kodlanır. Standart A/B çıktısı için boş bırakın.',
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Her harf, alfabedeki konumuyla değiştirilir',
+    // Rail Fence
+    'RAIL_FENCE_SETTING_RAILS'         => 'Raylar',
+    'RAIL_FENCE_TRUST_TRANSPOSITION'   => 'Klasik yer değiştirme şifresi',
+    'RAIL_FENCE_TRUST_RAILS'           => 'Ayarlanabilir ray sayısı',
+    'RAIL_FENCE_ERR_DIRECTION'         => 'Yön encrypt veya decrypt olmalıdır.',
+    'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Metin zorunludur.',
+    'RAIL_FENCE_ERR_RAILS'             => 'Ray sayısı :min-:max aralığında olmalıdır.',
+    'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Ray sayısı metin uzunluğuna eşit veya daha fazla — şifrelemenin etkisi yok ve çıktı girdiyle aynı.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
     'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',

@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T10:15:26+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rail-fence",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 20,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 20,
+        "data": {
+            "name": "Cifrado Rail Fence",
+            "name_short": "Rail Fence",
+            "description": "Cifra y descifra texto con el cifrado Rail Fence usando un número configurable de rieles. Aprende cómo funciona la transposición en zigzag y experimenta con distintas cantidades de rieles.",
+            "description_stort": "Cifrado clásico de transposición en zigzag con rieles configurables.",
+            "meta_title": "Cifrado Rail Fence Online | Ciphers Online",
+            "meta_description": "Cifra y descifra texto con Rail Fence online. Elige el número de rieles, aprende la transposición en zigzag y explora una técnica clásica de criptografía."
+        }
+    },
+    "blocks": [
+        {
+            "id": 77,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado Rail Fence",
+                "text": "<p>El cifrado Rail Fence es un cifrado clásico de transposición: reorganiza las posiciones de los caracteres sin cambiar los caracteres en sí. El mensaje se escribe en un patrón de zigzag sobre un número elegido de rieles y luego se lee fila por fila para producir el texto cifrado.</p><p>Por ejemplo, con tres rieles, el texto baja y sube en diagonal por las filas. Al aumentar o reducir el número de rieles, cambia el patrón y, por tanto, también cambia el texto cifrado.</p><p>Para descifrar un mensaje se debe usar la misma cantidad de rieles. Primero se reconstruye la estructura en zigzag y después los caracteres se colocan de nuevo en sus posiciones originales.</p>"
+            }
+        },
+        {
+            "id": 79,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Ejemplo de zigzag en Rail Fence",
+                "text": "<p>Con tres rieles, el mensaje se escribe primero en diagonal hacia abajo y hacia arriba antes de leer las filas de izquierda a derecha:</p><pre>O . . . N . . . I . . .\n. R . E . R . C . B . D\n. . D . . . E . . . I .</pre><p>Los puntos muestran posiciones vacías dentro del patrón en zigzag. El texto cifrado se crea leyendo primero el primer riel, luego el segundo y finalmente el tercero.</p>"
+            }
+        },
+        {
+            "id": 78,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Por qué Rail Fence es diferente",
+                "text": "<p>A diferencia de los cifrados de sustitución, como César o Vigenere, Rail Fence no reemplaza letras por otras letras. Solo cambia su orden.</p><p>Como los caracteres originales se conservan, el análisis de frecuencias resulta menos útil, pero el cifrado sigue siendo fácil de romper probando posibles cantidades de rieles. Hoy Rail Fence se usa principalmente para aprender, resolver acertijos e introducir el concepto de cifrados de transposición.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Rail Fence es un cifrado de sustitución?",
+                "answer": "No. Rail Fence no reemplaza letras. Solo cambia su orden, por lo que es un cifrado de transposición."
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Cuál es la clave en Rail Fence?",
+                "answer": "La clave es el número de rieles usados para el patrón en zigzag. Para descifrar se necesita el mismo número."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Rail Fence es seguro hoy?",
+                "answer": "No. Es sencillo probar automáticamente las posibles cantidades de rieles. Hoy es útil sobre todo para aprendizaje, acertijos y demostraciones."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Qué ocurre si uso una cantidad incorrecta de rieles?",
+                "answer": "Al descifrar con otra cantidad de rieles se obtiene un texto incorrecto, porque el patrón en zigzag no coincide con el proceso de cifrado original."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Rail Fence es un cifrado de transposición?",
+                "answer": "Sí. Rail Fence es uno de los cifrados de transposición más conocidos. Mantiene los caracteres originales, pero reorganiza sus posiciones según un patrón en zigzag."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 71,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar con 3 rieles",
+                "key": "",
+                "shift": 3,
+                "input": "ORDENRECIBIDA",
+                "output": "ONIARERCBDDEI",
+                "description": "Un ejemplo clásico de Rail Fence con tres rieles."
+            }
+        },
+        {
+            "id": 72,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Descifrar con 3 rieles",
+                "key": "",
+                "shift": 3,
+                "input": "ONIARERCBDDEI",
+                "output": "ORDENRECIBIDA",
+                "description": "Se necesita la misma cantidad de rieles para recuperar el texto claro."
+            }
+        },
+        {
+            "id": 73,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar con 4 rieles",
+                "key": "",
+                "shift": 4,
+                "input": "DEFENDERLATORREESTE",
+                "output": "DEREEDRORTFNLTESEAE",
+                "description": "Cambiar el número de rieles modifica el patrón en zigzag y el texto cifrado resultante."
+            }
+        },
+        {
+            "id": 74,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mensaje con espacios",
+                "key": "",
+                "shift": 3,
+                "input": "REUNION AL MEDIODIA",
+                "output": "RIAEDENO LMDOIUN IA",
+                "description": "Los espacios se conservan y participan en la transposición en zigzag igual que los demás caracteres."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado de transposición"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Clave por número de rieles"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Patrón en zigzag"
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifrado educativo"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

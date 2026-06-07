@@ -113,6 +113,8 @@ export class ApiClient {
         bacon: (data) => this.#request('POST', '/tools/bacon', data),
         /** POST /api/tools/a1z26 */
         a1z26: (data) => this.#request('POST', '/tools/a1z26', data),
+        /** POST /api/tools/rail-fence */
+        'rail-fence': (data) => this.#request('POST', '/tools/rail-fence', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

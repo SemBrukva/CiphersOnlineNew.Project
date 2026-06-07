@@ -295,6 +295,14 @@ return [
     'BACON_COVER_HINT'                 => "Se compilato, il segreto viene codificato tramite maiuscole e minuscole. Lasciare vuoto per l'output A/B standard.",
     // A1Z26
     'A1Z26_TRUST_POSITIONAL'           => 'Ogni lettera corrisponde alla propria posizione alfabetica',
+    // Rail Fence
+    'RAIL_FENCE_SETTING_RAILS'         => 'Binari',
+    'RAIL_FENCE_TRUST_TRANSPOSITION'   => 'Cifrario classico a trasposizione',
+    'RAIL_FENCE_TRUST_RAILS'           => 'Numero di binari personalizzabile',
+    'RAIL_FENCE_ERR_DIRECTION'         => 'La direzione deve essere encrypt o decrypt.',
+    'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Il testo è obbligatorio.',
+    'RAIL_FENCE_ERR_RAILS'             => 'Il numero di binari deve essere compreso tra :min e :max.',
+    'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Il numero di binari è uguale o superiore alla lunghezza del testo — la cifratura non ha effetto e l\'output è identico all\'input.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Codifica da binario a testo',
     'BASE64_TRUST_USES'                => 'Ampiamente usato in API, email e web',
