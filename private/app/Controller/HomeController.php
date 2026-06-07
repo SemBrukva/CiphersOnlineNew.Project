@@ -39,12 +39,8 @@ final readonly class HomeController
         'binary-converter',
     ];
 
-    /** @var string[] Алиасы инструментов в секции «Каталог расширяется». */
-    private const array RECENT_ALIASES = [
-        'unicode-converter',
-        'ascii-converter',
-        'jwt-decoder',
-    ];
+    /** @var int Количество последних инструментов в секции «Каталог расширяется». */
+    private const int RECENT_LIMIT = 3;
 
     /** @var int TTL кеша данных главной страницы в секундах (30 минут). */
     private const int CACHE_TTL = 1800;
@@ -96,8 +92,8 @@ final readonly class HomeController
             }
             unset($tool);
 
-            $recentTools = $this->ciphers->findPublishedByAliasesWithTranslation(
-                self::RECENT_ALIASES,
+            $recentTools = $this->ciphers->findLatestPublishedWithTranslation(
+                self::RECENT_LIMIT,
                 $language,
                 $defaultLanguage,
             );
