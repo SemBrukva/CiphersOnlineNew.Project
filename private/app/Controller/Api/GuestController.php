@@ -338,6 +338,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование столбцовой перестановки через API.
+     *
+     * POST /api/tools/columnar-transposition
+     */
+    #[ApiOperation(summary: 'Шифр столбцовой перестановки', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function columnarTransposition(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'columnar-transposition');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

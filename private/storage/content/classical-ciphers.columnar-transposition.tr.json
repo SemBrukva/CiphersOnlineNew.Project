@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T16:40:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "columnar-transposition",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 22,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 22,
+        "data": {
+            "name": "Sütunsal transpozisyon şifresi",
+            "name_short": "Sütunsal transpozisyon",
+            "description": "Sütun sırasını belirleyen bir anahtar kelime kullanarak sütunsal transpozisyon şifresiyle metni çevrimiçi şifreleyin ve çözün. Bu klasik transpozisyon şifresinde karakterler değiştirilmez, yalnızca yeniden sıralanır.",
+            "description_stort": "Metni sütunlara göre yeniden sıralayan anahtar kelime tabanlı transpozisyon şifresi.",
+            "meta_title": "Sütunsal transpozisyon şifresi çevrimiçi kodlayıcı ve çözücü",
+            "meta_description": "Özel bir anahtar kelimeyle sütunsal transpozisyon şifresini çevrimiçi kullanın. Klasik bir transpozisyon şifresinde sütunları yeniden sıralayarak metni şifreleyin ve çözün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 84,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Sütunsal transpozisyon şifresi nasıl çalışır",
+                "text": "<p>Sütunsal transpozisyon şifresi, mesajı bir anahtar kelimenin altına satırlar halinde yazar. Anahtar kelimenin her harfi bir sütunu etiketler. Daha sonra sütunlar, anahtar harflerinin alfabetik sırasına göre okunur ve şifreli metin elde edilir.</p><p>Caesar veya Vigenere gibi yerine koyma şifrelerinden farklı olarak bu yöntem harfleri yeni sembollerle değiştirmez. Özgün karakterleri korur, ancak konumlarını değiştirir; bu yüzden bir transpozisyon şifresidir.</p><p>Anahtar kelimede tekrarlanan harfler varsa, bu araç ilgili sütunları soldan sağa özgün sıralarında tutar. Böylece hem şifreleme hem de çözme için kararlı ve öngörülebilir sonuçlar oluşur.</p>"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Sütun sırası örneği",
+                "text": "<p>Anahtar kelime, sütunların hangi sırayla okunacağını belirler. Örneğin <strong>ANAHTAR</strong> anahtarıyla mesaj, anahtarın altına satır satır yazılır:</p><div class=\"cipher-visual cipher-visual--columnar\"><div class=\"cipher-visual__row cipher-visual__row--key\"><span>A</span><span>N</span><span>A</span><span>H</span><span>T</span><span>A</span><span>R</span></div><div class=\"cipher-visual__row\"><span>B</span><span>I</span><span>Z</span><span>B</span><span>U</span><span>L</span><span>U</span></div><div class=\"cipher-visual__row\"><span>N</span><span>D</span><span>U</span><span>K</span><span></span><span></span><span></span></div></div><p>Sütunlar anahtarın alfabetik sırasına göre okunur. Tekrarlanan harfler soldan sağa özgün sıralarını korur; bu nedenle <strong>ANAHTAR</strong> şu okuma sırasını verir:</p><p><code>1:A → 3:A → 6:A → 4:H → 2:N → 7:R → 5:T</code></p><p>Sütunları bu sırayla okumak <code>BNZULBKIDUU</code> şifreli metnini üretir.</p>"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Basit sütunsal transpozisyon",
+                "text": "<p>Bu araç, tek anahtarlı basit bir sütunsal transpozisyon şifresi uygular. Metin satır satır yazılır ve sütunlar sıralanmış anahtar kelimeye göre okunur. Mesajı çözmek için aynı anahtar kelime gerekir.</p><p>Bu sürüm doldurma karakteri eklemez. Son satır anahtar uzunluğundan kısaysa eksik kalır. Çözme sırasında araç, özgün sütun uzunluklarını şifreli metnin uzunluğundan ve anahtar kelimeden hesaplar.</p>"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sütunsal transpozisyon ve yerine koyma şifreleri",
+                "text": "<p>Yerine koyma şifreleri bir mesajdaki sembolleri değiştirir. Örneğin Caesar harfleri kaydırır, Vigenere ise anahtar kelimeye bağlı harf kaydırmaları uygular. Sütunsal transpozisyon farklı çalışır: özgün karakterleri korur ve yalnızca sıralarını değiştirir.</p><p>Bu, klasik kriptografideki iki önemli fikri, yani yerine koyma ve transpozisyon arasındaki farkı anlamak için yararlıdır. Ancak tek başına kullanıldığında modern standartlara göre güvenli değildir.</p>"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Tarihçe ve pratik kullanım",
+                "text": "<p>Sütunsal transpozisyon yöntemleri, kağıt ve kalemle uygulanması kolay olduğu halde karışık görünen metinler ürettiği için tarihsel el ile kriptografide kullanılmıştır.</p><p>Daha karmaşık sistemler bazen transpozisyonu birden fazla kez uygular veya başka şifreleme yöntemleriyle birleştirirdi. Bu sayfa öğrenme, bulmacalar ve gösterimler için en uygun olan tek anahtarlı basit sürüme odaklanır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 184,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Sütunsal transpozisyon bir yerine koyma şifresi midir?",
+                "answer": "Hayır. Karakterleri başka karakterlerle değiştirmez. Yalnızca sıralarını değiştirir, bu nedenle bir transpozisyon şifresidir."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Sütunsal transpozisyonda anahtar nedir?",
+                "answer": "Anahtar, sıralanmış karakterleri sütunların hangi sırayla okunacağını belirleyen bir kelime veya ifadedir. Çözme için aynı anahtar gerekir."
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Anahtar kelimede tekrarlanan harfler varsa ne olur?",
+                "answer": "Tekrarlanan anahtar harfleri soldan sağa sıralanır. Bu, sütun sırasını kararlı tutar ve aynı anahtarın mesajı doğru şekilde çözmesini sağlar."
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Bu araç doldurma karakterleri ekler mi?",
+                "answer": "Hayır. Bu uygulama padding eklemez. Kısa son satırlar kısa kalır ve çözme işlemi eşit olmayan sütun uzunluklarını otomatik olarak hesaplar."
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Boşluklar ve noktalama işaretleri şifrelenir mi?",
+                "answer": "Boşluklar, noktalama işaretleri ve sayılar karakter olarak korunur ve mesajın geri kalanıyla birlikte taşınır."
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Sütunsal transpozisyon bugün güvenli midir?",
+                "answer": "Hayır. Basit bir sütunsal transpozisyon şifresi modern kriptanaliz ve bilgisayarlarla saldırıya açıktır. Esas olarak eğitim, bulmacalar ve tarihsel gösterimler için kullanışlıdır."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Çift sütunsal transpozisyon nedir?",
+                "answer": "Çift sütunsal transpozisyon, sütunsal transpozisyon sürecini genellikle iki anahtarla iki kez uygular. Bu araç daha basit olan tek anahtarlı sürüme odaklanır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 79,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "ANAHTAR ile şifrele",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "BIZBULUNDUK",
+                "output": "BNZULBKIDUU",
+                "description": "Anahtar kelime: ANAHTAR. Sütunlar anahtarın alfabetik sırasına göre okunur; tekrarlanan harfler özgün sıralarını korur."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "ANAHTAR ile çöz",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "BNZULBKIDUU",
+                "output": "BIZBULUNDUK",
+                "description": "Anahtar kelime: ANAHTAR. Aynı anahtar kelime, satır satır yazılmış özgün mesajı geri getirir."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Boşluk içeren bir mesajı şifrele",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "SABAH SALDIRI",
+                "output": "HDBAIASRALS I",
+                "description": "Anahtar kelime: ZEBRA. Boşluklar korunur ve transpozisyon deseninin bir parçası olarak taşınır."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Noktalama ve sembolleri şifrele",
+                "key": "SUTUN",
+                "shift": 0,
+                "input": "MERHABA, DUNYA!",
+                "output": "AD!MBUR,YEANH A",
+                "description": "Anahtar kelime: SUTUN. Noktalama işaretleri kaldırılmaz; metnin geri kalanıyla birlikte yeniden sıralanır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 125,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Transpozisyon şifresi"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Anahtar kelime tabanlı"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Sütun sırası"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Kağıt kalem şifresi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

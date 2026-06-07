@@ -10,6 +10,7 @@ use App\Cipher\AtbashCipherService;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\CaesarCipherService;
+use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\RailFenceCipherService;
@@ -43,6 +44,8 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('a1z26', $registry->apiAction('classical-ciphers/shifr-a1z26'));
         self::assertSame('rail-fence', $registry->apiAction('classical-ciphers/rail-fence'));
         self::assertSame('rail-fence', $registry->apiAction('classical-ciphers/railfence'));
+        self::assertSame('columnar-transposition', $registry->apiAction('classical-ciphers/columnar-transposition'));
+        self::assertSame('columnar-transposition', $registry->apiAction('classical-ciphers/stolbcovyj-shifr-perestanovki'));
     }
 
     /**
@@ -85,7 +88,8 @@ final class ToolRegistryTest extends TestCase
             new VernamCipherService(),
             new BaconCipherService(),
             new A1z26CipherService(),
-            new RailFenceCipherService()
+            new RailFenceCipherService(),
+            new ColumnarTranspositionCipherService()
         );
     }
 }

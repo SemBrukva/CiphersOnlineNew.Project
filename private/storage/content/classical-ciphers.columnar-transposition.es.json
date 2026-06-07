@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T16:40:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "columnar-transposition",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 22,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 22,
+        "data": {
+            "name": "Cifrado de transposición columnar",
+            "name_short": "Transposición columnar",
+            "description": "Cifra y descifra texto en línea con el cifrado de transposición columnar usando una palabra clave que controla el orden de las columnas. Es un cifrado clásico de transposición en el que los caracteres se reordenan en lugar de sustituirse.",
+            "description_stort": "Cifrado de transposición basado en palabra clave que reordena el texto por columnas.",
+            "meta_title": "Cifrado de transposición columnar online: codificador y decodificador",
+            "meta_description": "Usa el cifrado de transposición columnar en línea con una palabra clave personalizada. Cifra y descifra texto reordenando columnas en un cifrado clásico de transposición."
+        }
+    },
+    "blocks": [
+        {
+            "id": 84,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado de transposición columnar",
+                "text": "<p>El cifrado de transposición columnar escribe el mensaje en filas bajo una palabra clave. Cada letra de la palabra clave etiqueta una columna. Después, las columnas se leen en el orden alfabético de la clave para producir el texto cifrado.</p><p>A diferencia de los cifrados de sustitución, como Caesar o Vigenere, este método no reemplaza letras por símbolos nuevos. Conserva los caracteres originales, pero cambia sus posiciones; por eso es un cifrado de transposición.</p><p>Cuando la palabra clave contiene letras repetidas, esta herramienta mantiene esas columnas en su orden original de izquierda a derecha. Así se obtienen resultados estables y predecibles tanto al cifrar como al descifrar.</p>"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Ejemplo de orden de columnas",
+                "text": "<p>La palabra clave controla el orden en que se leen las columnas. Por ejemplo, con la palabra clave <strong>SECRETO</strong>, el mensaje se escribe fila por fila bajo la clave:</p><div class=\"cipher-visual cipher-visual--columnar\"><div class=\"cipher-visual__row cipher-visual__row--key\"><span>S</span><span>E</span><span>C</span><span>R</span><span>E</span><span>T</span><span>O</span></div><div class=\"cipher-visual__row\"><span>E</span><span>S</span><span>T</span><span>A</span><span>M</span><span>O</span><span>S</span></div><div class=\"cipher-visual__row\"><span>D</span><span>E</span><span>S</span><span>C</span><span>U</span><span>B</span><span>I</span></div><div class=\"cipher-visual__row\"><span>E</span><span>R</span><span>T</span><span>O</span><span>S</span><span></span><span></span></div></div><p>Las columnas se leen en el orden alfabético de la clave. Las letras repetidas conservan su orden original de izquierda a derecha, por lo que <strong>SECRETO</strong> da este orden de lectura:</p><p><code>3:C → 2:E → 5:E → 7:O → 4:R → 1:S → 6:T</code></p><p>Leer las columnas en este orden produce el texto cifrado <code>TSTSERMUSSIACOEDEOB</code>.</p>"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Transposición columnar simple",
+                "text": "<p>Esta herramienta implementa un cifrado de transposición columnar simple con una sola clave. El texto se escribe fila por fila, y las columnas se leen según la palabra clave ordenada. Para descifrar el mensaje se necesita la misma palabra clave.</p><p>Esta versión no añade caracteres de relleno. Si la última fila es más corta que la longitud de la clave, queda incompleta. Durante el descifrado, la herramienta calcula las longitudes originales de las columnas a partir de la longitud del texto cifrado y de la clave.</p>"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Transposición columnar frente a cifrados de sustitución",
+                "text": "<p>Los cifrados de sustitución cambian los símbolos de un mensaje. Por ejemplo, Caesar desplaza letras y Vigenere aplica desplazamientos basados en una palabra clave. La transposición columnar funciona de otra manera: conserva los caracteres originales y solo cambia su orden.</p><p>Esto la hace útil para entender la diferencia entre sustitución y transposición, dos ideas importantes de la criptografía clásica. Sin embargo, por sí sola no es segura según los estándares modernos.</p>"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Historia y uso práctico",
+                "text": "<p>Los métodos de transposición columnar se usaron en la criptografía manual histórica porque eran sencillos de aplicar con papel y lápiz, pero producían un texto con apariencia mezclada.</p><p>Algunos sistemas más complejos aplicaban la transposición más de una vez o la combinaban con otros métodos de cifrado. Esta página se centra en la versión simple con una sola clave, adecuada para aprender, resolver acertijos y hacer demostraciones.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 184,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿La transposición columnar es un cifrado de sustitución?",
+                "answer": "No. No reemplaza caracteres. Solo cambia su orden, por lo que es un cifrado de transposición."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Cuál es la clave en la transposición columnar?",
+                "answer": "La clave es una palabra o frase cuyos caracteres ordenados determinan el orden en que se leen las columnas. Para descifrar se necesita la misma clave."
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Qué ocurre si la palabra clave tiene letras repetidas?",
+                "answer": "Las letras repetidas de la clave se ordenan de izquierda a derecha. Esto mantiene estable el orden de las columnas y permite que la misma clave descifre correctamente el mensaje."
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Esta herramienta añade caracteres de relleno?",
+                "answer": "No. Esta implementación no añade relleno. Las últimas filas cortas permanecen cortas, y el descifrado calcula automáticamente las longitudes desiguales de las columnas."
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Se cifran los espacios y los signos de puntuación?",
+                "answer": "Los espacios, signos de puntuación y números se conservan como caracteres y se desplazan junto con el resto del mensaje."
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Es segura hoy la transposición columnar?",
+                "answer": "No. Un cifrado de transposición columnar simple puede atacarse con criptoanálisis moderno y computadoras. Es útil sobre todo para educación, acertijos y demostraciones históricas."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Qué es la doble transposición columnar?",
+                "answer": "La doble transposición columnar aplica el proceso de transposición columnar dos veces, a menudo con dos claves. Esta herramienta se centra en la versión más sencilla con una sola clave."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 79,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar con SECRETO",
+                "key": "SECRETO",
+                "shift": 0,
+                "input": "ESTAMOSDESCUBIERTOS",
+                "output": "TSTSERMUSSIACOEDEOB",
+                "description": "Palabra clave: SECRETO. Las columnas se leen en el orden alfabético de la clave, mientras que las letras repetidas conservan su orden original."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Descifrar con SECRETO",
+                "key": "SECRETO",
+                "shift": 0,
+                "input": "TSTSERMUSSIACOEDEOB",
+                "output": "ESTAMOSDESCUBIERTOS",
+                "description": "Palabra clave: SECRETO. La misma palabra clave restaura el mensaje original escrito por filas."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar un mensaje con espacios",
+                "key": "CEBRA",
+                "shift": 0,
+                "input": "ATAQUE AL AMANECER",
+                "output": "U EAAARAEACT MEQLN",
+                "description": "Palabra clave: CEBRA. Los espacios se conservan y se mueven como parte del patrón de transposición."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar puntuación y símbolos",
+                "key": "COLUMNA",
+                "shift": 0,
+                "input": "HOLA, MUNDO!",
+                "output": "MHULD,! ONAO",
+                "description": "Palabra clave: COLUMNA. Los signos de puntuación no se eliminan; se reordenan junto con el resto del texto."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 125,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado de transposición"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Basado en palabra clave"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Orden de columnas"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifrado de papel y lápiz"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T16:40:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "columnar-transposition",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 22,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 22,
+        "data": {
+            "name": "Chiffre de transposition columnar",
+            "name_short": "Transposition columnar",
+            "description": "Chiffrez et déchiffrez du texte en ligne avec le chiffre de transposition columnar, à l'aide d'un mot-clé qui contrôle l'ordre des colonnes. C'est un chiffre de transposition classique dans lequel les caractères sont réorganisés plutôt que remplacés.",
+            "description_stort": "Chiffre de transposition à mot-clé qui réorganise le texte par colonnes.",
+            "meta_title": "Chiffre de transposition columnar en ligne : encodeur et décodeur",
+            "meta_description": "Utilisez le chiffre de transposition columnar en ligne avec un mot-clé personnalisé. Chiffrez et déchiffrez du texte en réorganisant les colonnes dans un chiffre de transposition classique."
+        }
+    },
+    "blocks": [
+        {
+            "id": 84,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de transposition columnar",
+                "text": "<p>Le chiffre de transposition columnar écrit le message en lignes sous un mot-clé. Chaque lettre du mot-clé étiquette une colonne. Les colonnes sont ensuite lues dans l'ordre alphabétique du mot-clé afin de produire le texte chiffré.</p><p>Contrairement aux chiffres de substitution, comme Caesar ou Vigenere, cette méthode ne remplace pas les lettres par de nouveaux symboles. Elle conserve les caractères d'origine, mais modifie leur position : c'est donc un chiffre de transposition.</p><p>Lorsque le mot-clé contient des lettres répétées, cet outil conserve ces colonnes dans leur ordre original de gauche à droite. Cela produit des résultats stables et prévisibles pour le chiffrement comme pour le déchiffrement.</p>"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Exemple d'ordre des colonnes",
+                "text": "<p>Le mot-clé contrôle l'ordre dans lequel les colonnes sont lues. Par exemple, avec le mot-clé <strong>SECRET</strong>, le message est écrit ligne par ligne sous le mot-clé :</p><div class=\"cipher-visual cipher-visual--columnar\"><div class=\"cipher-visual__row cipher-visual__row--key\"><span>S</span><span>E</span><span>C</span><span>R</span><span>E</span><span>T</span></div><div class=\"cipher-visual__row\"><span>N</span><span>O</span><span>U</span><span>S</span><span>S</span><span>O</span></div><div class=\"cipher-visual__row\"><span>M</span><span>M</span><span>E</span><span>S</span><span>D</span><span>E</span></div><div class=\"cipher-visual__row\"><span>C</span><span>O</span><span>U</span><span>V</span><span>E</span><span>R</span></div><div class=\"cipher-visual__row\"><span>T</span><span>S</span><span></span><span></span><span></span><span></span></div></div><p>Les colonnes sont lues dans l'ordre alphabétique du mot-clé. Les lettres répétées conservent leur ordre original de gauche à droite, donc <strong>SECRET</strong> donne cet ordre de lecture :</p><p><code>3:C → 2:E → 5:E → 4:R → 1:S → 6:T</code></p><p>La lecture des colonnes dans cet ordre produit le texte chiffré <code>UEUOMOSSDESSVNMCTOER</code>.</p>"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Transposition columnar simple",
+                "text": "<p>Cet outil implémente un chiffre de transposition columnar simple à clé unique. Le texte est écrit ligne par ligne, puis les colonnes sont lues selon le mot-clé trié. Le même mot-clé est nécessaire pour déchiffrer le message.</p><p>Cette version n'ajoute pas de caractères de remplissage. Si la dernière ligne est plus courte que la longueur du mot-clé, elle reste incomplète. Lors du déchiffrement, l'outil calcule les longueurs originales des colonnes à partir de la longueur du texte chiffré et du mot-clé.</p>"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Transposition columnar et chiffres de substitution",
+                "text": "<p>Les chiffres de substitution modifient les symboles d'un message. Par exemple, Caesar décale les lettres et Vigenere applique des décalages de lettres basés sur un mot-clé. La transposition columnar fonctionne autrement : elle préserve les caractères d'origine et change seulement leur ordre.</p><p>Elle est donc utile pour comprendre la différence entre substitution et transposition, deux idées majeures de la cryptographie classique. Toutefois, utilisée seule, elle n'est pas sûre selon les normes modernes.</p>"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Histoire et usage pratique",
+                "text": "<p>Les méthodes de transposition columnar ont été utilisées dans la cryptographie manuelle historique, car elles étaient simples à appliquer avec papier et crayon tout en produisant un texte visiblement mélangé.</p><p>Des systèmes plus complexes appliquaient parfois la transposition plusieurs fois ou la combinaient avec d'autres méthodes de chiffrement. Cette page se concentre sur la version simple à clé unique, particulièrement adaptée à l'apprentissage, aux énigmes et aux démonstrations.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 184,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "La transposition columnar est-elle un chiffre de substitution ?",
+                "answer": "Non. Elle ne remplace pas les caractères. Elle change seulement leur ordre, c'est donc un chiffre de transposition."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quelle est la clé dans la transposition columnar ?",
+                "answer": "La clé est un mot ou une phrase dont les caractères triés déterminent l'ordre dans lequel les colonnes sont lues. La même clé est nécessaire pour le déchiffrement."
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Que se passe-t-il si le mot-clé contient des lettres répétées ?",
+                "answer": "Les lettres répétées du mot-clé sont ordonnées de gauche à droite. Cela garde l'ordre des colonnes stable et permet à la même clé de déchiffrer correctement le message."
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Cet outil ajoute-t-il des caractères de remplissage ?",
+                "answer": "Non. Cette implémentation n'ajoute pas de remplissage. Les dernières lignes courtes restent courtes, et le déchiffrement calcule automatiquement les longueurs inégales des colonnes."
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Les espaces et la ponctuation sont-ils chiffrés ?",
+                "answer": "Les espaces, les signes de ponctuation et les nombres sont conservés comme caractères et déplacés avec le reste du message."
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "La transposition columnar est-elle sûre aujourd'hui ?",
+                "answer": "Non. Un chiffre de transposition columnar simple peut être attaqué avec la cryptanalyse moderne et des ordinateurs. Il est surtout utile pour l'enseignement, les énigmes et les démonstrations historiques."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Qu'est-ce que la double transposition columnar ?",
+                "answer": "La double transposition columnar applique le processus de transposition columnar deux fois, souvent avec deux clés. Cet outil se concentre sur la version plus simple à clé unique."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 79,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer avec SECRET",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "NOUSSOMMESDECOUVERTS",
+                "output": "UEUOMOSSDESSVNMCTOER",
+                "description": "Mot-clé : SECRET. Les colonnes sont lues dans l'ordre alphabétique de la clé, tandis que les lettres répétées conservent leur ordre d'origine."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Déchiffrer avec SECRET",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "UEUOMOSSDESSVNMCTOER",
+                "output": "NOUSSOMMESDECOUVERTS",
+                "description": "Mot-clé : SECRET. Le même mot-clé restaure le message original écrit ligne par ligne."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer un message avec des espaces",
+                "key": "ZEBRE",
+                "shift": 0,
+                "input": "ATTAQUE A LAUBE",
+                "output": "T UTEAQ EAABAUL",
+                "description": "Mot-clé : ZEBRE. Les espaces sont conservés et déplacés comme partie du motif de transposition."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer la ponctuation et les symboles",
+                "key": "COLONNE",
+                "shift": 0,
+                "input": "SALUT, MONDE!",
+                "output": "SM LNTE,!AOUD",
+                "description": "Mot-clé : COLONNE. Les signes de ponctuation ne sont pas supprimés ; ils sont réorganisés avec le reste du texte."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 125,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de transposition"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Basé sur un mot-clé"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Ordre des colonnes"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Chiffre papier-crayon"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

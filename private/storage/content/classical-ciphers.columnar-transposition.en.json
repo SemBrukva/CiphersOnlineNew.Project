@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T16:40:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "columnar-transposition",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 22,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 22,
+        "data": {
+            "name": "Columnar Transposition Cipher",
+            "name_short": "Columnar Transposition",
+            "description": "Encrypt and decrypt text with the Columnar Transposition cipher online using a keyword that controls column order. A classic transposition cipher where characters are rearranged rather than replaced.",
+            "description_stort": "Keyword-based transposition cipher that rearranges text by columns.",
+            "meta_title": "Columnar Transposition Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Columnar Transposition cipher online with a custom keyword. Encrypt and decrypt text by rearranging columns in a classic transposition cipher."
+        }
+    },
+    "blocks": [
+        {
+            "id": 84,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Columnar Transposition cipher works",
+                "text": "<p>The Columnar Transposition cipher writes the message into rows under a keyword. Each letter of the keyword labels one column. The columns are then read in alphabetical keyword order to produce the ciphertext.</p><p>Unlike substitution ciphers such as Caesar or Vigenere, this method does not replace letters with new symbols. It keeps the original characters but changes their positions, which makes it a transposition cipher.</p><p>When the keyword contains repeated letters, this tool keeps those columns in their original left-to-right order. This creates stable and predictable results for both encryption and decryption.</p>"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Column order example",
+                "text": "<p>The keyword controls the order in which columns are read. For example, with the keyword <strong>SECRET</strong>, the message is written row by row under the keyword:</p><div class=\"cipher-visual cipher-visual--columnar\"><div class=\"cipher-visual__row cipher-visual__row--key\"><span>S</span><span>E</span><span>C</span><span>R</span><span>E</span><span>T</span></div><div class=\"cipher-visual__row\"><span>W</span><span>E</span><span>A</span><span>R</span><span>E</span><span>D</span></div><div class=\"cipher-visual__row\"><span>I</span><span>S</span><span>C</span><span>O</span><span>V</span><span>E</span></div><div class=\"cipher-visual__row\"><span>R</span><span>E</span><span>D</span><span></span><span></span><span></span></div></div><p>The columns are read in alphabetical key order. Repeated letters keep their original left-to-right order, so <strong>SECRET</strong> gives this read order:</p><p><code>3:C → 2:E → 5:E → 4:R → 1:S → 6:T</code></p><p>Reading the columns in this order produces the ciphertext <code>ACDESEEVROWIRDE</code>.</p>"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Simple columnar transposition",
+                "text": "<p>This tool implements a simple single-key columnar transposition cipher. The text is written row by row, and columns are read according to the sorted keyword. The same keyword is required to decrypt the message.</p><p>This version does not add padding characters. If the final row is shorter than the keyword length, it remains incomplete. During decryption, the tool calculates the original column lengths from the ciphertext length and the keyword.</p>"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Columnar Transposition vs substitution ciphers",
+                "text": "<p>Substitution ciphers change the symbols in a message. For example, Caesar shifts letters and Vigenere applies keyword-based letter shifts. Columnar Transposition works differently: it preserves the original characters and only changes their order.</p><p>This makes it useful for understanding the difference between substitution and transposition, two major ideas in classical cryptography. However, by itself it is not secure by modern standards.</p>"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "History and practical use",
+                "text": "<p>Columnar transposition methods were used in historical manual cryptography because they were simple to perform with paper and pencil while still producing text that looked scrambled.</p><p>More complex systems sometimes applied transposition more than once or combined it with other cipher methods. This page focuses on the simple single-key version, which is best suited for learning, puzzles, and demonstrations.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 184,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is Columnar Transposition a substitution cipher?",
+                "answer": "No. It does not replace characters. It changes only their order, so it is a transposition cipher."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the key in Columnar Transposition?",
+                "answer": "The key is a word or phrase whose sorted characters determine the order in which columns are read. The same key is required for decryption."
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What happens if the keyword has repeated letters?",
+                "answer": "Repeated keyword letters are ordered from left to right. This keeps the column order stable and allows the same keyword to decrypt the message correctly."
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool add padding characters?",
+                "answer": "No. This implementation does not add padding. Short final rows stay short, and decryption calculates the uneven column lengths automatically."
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Are spaces and punctuation encrypted?",
+                "answer": "Spaces, punctuation marks, and numbers are preserved as characters and moved together with the rest of the message."
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is Columnar Transposition secure today?",
+                "answer": "No. A simple columnar transposition cipher can be attacked with modern cryptanalysis and computers. It is mainly useful for education, puzzles, and historical demonstrations."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "What is double columnar transposition?",
+                "answer": "Double columnar transposition applies the columnar transposition process twice, often with two keys. This tool focuses on the simpler single-key version."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 79,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt with SECRET",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "WEAREDISCOVERED",
+                "output": "ACDESEEVROWIRDE",
+                "description": "Keyword: SECRET. Columns are read in alphabetical key order while repeated letters keep their original order."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decrypt with SECRET",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "ACDESEEVROWIRDE",
+                "output": "WEAREDISCOVERED",
+                "description": "Keyword: SECRET. The same keyword restores the original row-wise message."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt a message with spaces",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "C TAWT AATNAKD",
+                "description": "Keyword: ZEBRA. Spaces are preserved and moved as part of the transposition pattern."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt punctuation and symbols",
+                "key": "COLUMN",
+                "shift": 0,
+                "input": "HELLO, WORLD!",
+                "output": "H !LOOL,DEWLR",
+                "description": "Keyword: COLUMN. Punctuation marks are not removed; they are rearranged with the rest of the text."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 125,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Transposition cipher"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Keyword-based"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Column order"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Paper-and-pencil cipher"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

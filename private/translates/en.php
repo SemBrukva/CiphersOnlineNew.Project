@@ -338,6 +338,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Text is required.',
     'RAIL_FENCE_ERR_RAILS'             => 'Rails must be in range :min-:max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Rail count equals or exceeds the text length — the cipher has no effect and the output is identical to the input.',
+    // Columnar Transposition
+    'COLUMNAR_SETTING_KEY'             => 'Keyword',
+    'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Enter keyword',
+    'COLUMNAR_TRUST_TRANSPOSITION'     => 'Classical columnar transposition cipher',
+    'COLUMNAR_TRUST_KEYWORD'           => 'Keyword controls column order',
+    'COLUMNAR_ERR_DIRECTION'           => 'Direction must be encrypt or decrypt.',
+    'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Text is required.',
+    'COLUMNAR_ERR_KEY_MIN'             => 'Key must be at least :min characters.',
+    'COLUMNAR_ERR_KEY_MAX'             => 'Key must be at most :max characters.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
     'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',

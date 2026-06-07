@@ -3971,3 +3971,68 @@ a:focus .nav-fav-count {
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── Columnar Transposition visual ─────────────────────────────────────── */
+
+.cipher-visual {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cipher-visual--columnar {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+.cipher-visual__row {
+  display: flex;
+  gap: 2px;
+}
+
+.cipher-visual__row--key {
+  margin-bottom: 4px;
+}
+
+.cipher-visual__row span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-base);
+  line-height: 1;
+  user-select: none;
+}
+
+.cipher-visual__row span:empty {
+  background: var(--surface);
+  border-color: var(--border);
+  border-style: dashed;
+}
+
+.cipher-visual__row--key span {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .cipher-visual__row span {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}

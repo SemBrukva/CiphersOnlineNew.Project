@@ -28,9 +28,10 @@ final class ApiCipherToolRegistry
         VernamApiCipherTool $vernamTool,
         BaconApiCipherTool $baconTool,
         A1z26ApiCipherTool $a1z26Tool,
-        RailFenceApiCipherTool $railFenceTool
+        RailFenceApiCipherTool $railFenceTool,
+        ColumnarTranspositionApiCipherTool $columnarTranspositionTool
     ) {
-        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $a1z26Tool, $railFenceTool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

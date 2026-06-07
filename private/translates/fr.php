@@ -315,6 +315,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Le texte est obligatoire.',
     'RAIL_FENCE_ERR_RAILS'             => 'Le nombre de rails doit être compris entre :min et :max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Le nombre de rails est supérieur ou égal à la longueur du texte — le chiffrement est sans effet et la sortie est identique à l\'entrée.',
+    // Columnar Transposition
+    'COLUMNAR_SETTING_KEY'             => 'Mot-clé',
+    'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Saisir le mot-clé',
+    'COLUMNAR_TRUST_TRANSPOSITION'     => 'Chiffre de transposition par colonnes',
+    'COLUMNAR_TRUST_KEYWORD'           => 'Le mot-clé contrôle l\'ordre des colonnes',
+    'COLUMNAR_ERR_DIRECTION'           => 'La direction doit être encrypt ou decrypt.',
+    'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Le texte est obligatoire.',
+    'COLUMNAR_ERR_KEY_MIN'             => 'La clé doit contenir au moins :min caractères.',
+    'COLUMNAR_ERR_KEY_MAX'             => 'La clé doit contenir au maximum :max caractères.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Encodage binaire vers texte',
     'BASE64_TRUST_USES'                => 'Largement utilisé dans les API, e-mails et le web',

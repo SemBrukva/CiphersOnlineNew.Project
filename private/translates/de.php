@@ -315,6 +315,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Text ist erforderlich.',
     'RAIL_FENCE_ERR_RAILS'             => 'Schienen müssen im Bereich :min-:max liegen.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Die Schienenanzahl ist mindestens so groß wie die Textlänge — die Verschlüsselung hat keinen Effekt und die Ausgabe ist identisch mit der Eingabe.',
+    // Columnar Transposition
+    'COLUMNAR_SETTING_KEY'             => 'Schlüsselwort',
+    'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Schlüsselwort eingeben',
+    'COLUMNAR_TRUST_TRANSPOSITION'     => 'Klassische Spaltentransposition',
+    'COLUMNAR_TRUST_KEYWORD'           => 'Schlüsselwort bestimmt die Spaltenreihenfolge',
+    'COLUMNAR_ERR_DIRECTION'           => 'Richtung muss encrypt oder decrypt sein.',
+    'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Text ist erforderlich.',
+    'COLUMNAR_ERR_KEY_MIN'             => 'Der Schlüssel muss mindestens :min Zeichen lang sein.',
+    'COLUMNAR_ERR_KEY_MAX'             => 'Der Schlüssel darf höchstens :max Zeichen lang sein.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binär-zu-Text-Kodierung',
     'BASE64_TRUST_USES'                => 'Weit verbreitet in APIs, E-Mails und im Web',

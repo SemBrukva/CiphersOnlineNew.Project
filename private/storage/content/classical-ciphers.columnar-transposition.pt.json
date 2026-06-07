@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T16:40:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "columnar-transposition",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 22,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 22,
+        "data": {
+            "name": "Cifra de transposição colunar",
+            "name_short": "Transposição colunar",
+            "description": "Cifre e decifre texto online com a cifra de transposição colunar usando uma palavra-chave que controla a ordem das colunas. É uma cifra clássica de transposição em que os caracteres são reorganizados em vez de substituídos.",
+            "description_stort": "Cifra de transposição baseada em palavra-chave que reorganiza o texto por colunas.",
+            "meta_title": "Cifra de transposição colunar online: codificador e decodificador",
+            "meta_description": "Use a cifra de transposição colunar online com uma palavra-chave personalizada. Cifre e decifre texto reorganizando colunas em uma cifra clássica de transposição."
+        }
+    },
+    "blocks": [
+        {
+            "id": 84,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona a cifra de transposição colunar",
+                "text": "<p>A cifra de transposição colunar escreve a mensagem em linhas sob uma palavra-chave. Cada letra da palavra-chave identifica uma coluna. Em seguida, as colunas são lidas na ordem alfabética da chave para produzir o texto cifrado.</p><p>Ao contrário das cifras de substituição, como Caesar ou Vigenere, este método não substitui letras por novos símbolos. Ele mantém os caracteres originais, mas muda suas posições; por isso é uma cifra de transposição.</p><p>Quando a palavra-chave contém letras repetidas, esta ferramenta mantém essas colunas na ordem original da esquerda para a direita. Isso gera resultados estáveis e previsíveis tanto na cifragem quanto na decifragem.</p>"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Exemplo de ordem das colunas",
+                "text": "<p>A palavra-chave controla a ordem em que as colunas são lidas. Por exemplo, com a palavra-chave <strong>SEGREDO</strong>, a mensagem é escrita linha por linha sob a chave:</p><div class=\"cipher-visual cipher-visual--columnar\"><div class=\"cipher-visual__row cipher-visual__row--key\"><span>S</span><span>E</span><span>G</span><span>R</span><span>E</span><span>D</span><span>O</span></div><div class=\"cipher-visual__row\"><span>E</span><span>S</span><span>T</span><span>A</span><span>M</span><span>O</span><span>S</span></div><div class=\"cipher-visual__row\"><span>D</span><span>E</span><span>S</span><span>C</span><span>O</span><span>B</span><span>E</span></div><div class=\"cipher-visual__row\"><span>R</span><span>T</span><span>O</span><span>S</span><span></span><span></span><span></span></div></div><p>As colunas são lidas na ordem alfabética da chave. Letras repetidas mantêm sua ordem original da esquerda para a direita, portanto <strong>SEGREDO</strong> gera esta ordem de leitura:</p><p><code>6:D → 2:E → 5:E → 3:G → 7:O → 4:R → 1:S</code></p><p>Ler as colunas nessa ordem produz o texto cifrado <code>OBSETMOTSOSEACSEDR</code>.</p>"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Transposição colunar simples",
+                "text": "<p>Esta ferramenta implementa uma cifra de transposição colunar simples com uma única chave. O texto é escrito linha por linha, e as colunas são lidas de acordo com a palavra-chave ordenada. A mesma palavra-chave é necessária para decifrar a mensagem.</p><p>Esta versão não adiciona caracteres de preenchimento. Se a última linha for mais curta que o comprimento da chave, ela permanece incompleta. Durante a decifragem, a ferramenta calcula os comprimentos originais das colunas a partir do tamanho do texto cifrado e da palavra-chave.</p>"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Transposição colunar e cifras de substituição",
+                "text": "<p>Cifras de substituição alteram os símbolos de uma mensagem. Por exemplo, Caesar desloca letras, e Vigenere aplica deslocamentos baseados em uma palavra-chave. A transposição colunar funciona de outra forma: preserva os caracteres originais e muda apenas sua ordem.</p><p>Isso a torna útil para entender a diferença entre substituição e transposição, duas ideias importantes da criptografia clássica. No entanto, sozinha ela não é segura pelos padrões modernos.</p>"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "História e uso prático",
+                "text": "<p>Métodos de transposição colunar foram usados na criptografia manual histórica porque eram simples de executar com papel e lápis, mas ainda produziam um texto com aparência embaralhada.</p><p>Sistemas mais complexos às vezes aplicavam a transposição mais de uma vez ou a combinavam com outros métodos de cifra. Esta página se concentra na versão simples com uma única chave, mais adequada para aprendizado, enigmas e demonstrações.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 184,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "A transposição colunar é uma cifra de substituição?",
+                "answer": "Não. Ela não substitui caracteres. Apenas muda sua ordem, portanto é uma cifra de transposição."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qual é a chave na transposição colunar?",
+                "answer": "A chave é uma palavra ou frase cujos caracteres ordenados determinam a ordem em que as colunas são lidas. A mesma chave é necessária para decifrar."
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "O que acontece se a palavra-chave tiver letras repetidas?",
+                "answer": "Letras repetidas da chave são ordenadas da esquerda para a direita. Isso mantém a ordem das colunas estável e permite que a mesma chave decifre a mensagem corretamente."
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Esta ferramenta adiciona caracteres de preenchimento?",
+                "answer": "Não. Esta implementação não adiciona padding. Linhas finais curtas permanecem curtas, e a decifragem calcula automaticamente os comprimentos desiguais das colunas."
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Espaços e pontuação são cifrados?",
+                "answer": "Espaços, sinais de pontuação e números são preservados como caracteres e movidos junto com o restante da mensagem."
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "A transposição colunar é segura hoje?",
+                "answer": "Não. Uma cifra de transposição colunar simples pode ser atacada com criptoanálise moderna e computadores. Ela é útil principalmente para educação, enigmas e demonstrações históricas."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "O que é transposição colunar dupla?",
+                "answer": "A transposição colunar dupla aplica o processo de transposição colunar duas vezes, muitas vezes com duas chaves. Esta ferramenta se concentra na versão mais simples com uma única chave."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 79,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar com SEGREDO",
+                "key": "SEGREDO",
+                "shift": 0,
+                "input": "ESTAMOSDESCOBERTOS",
+                "output": "OBSETMOTSOSEACSEDR",
+                "description": "Palavra-chave: SEGREDO. As colunas são lidas na ordem alfabética da chave, enquanto letras repetidas mantêm sua ordem original."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decifrar com SEGREDO",
+                "key": "SEGREDO",
+                "shift": 0,
+                "input": "OBSETMOTSOSEACSEDR",
+                "output": "ESTAMOSDESCOBERTOS",
+                "description": "Palavra-chave: SEGREDO. A mesma palavra-chave restaura a mensagem original escrita por linhas."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar uma mensagem com espaços",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "ATAQUE AO AMANHECER",
+                "output": "U HAAAET MCQONRAEAE",
+                "description": "Palavra-chave: ZEBRA. Espaços são preservados e movidos como parte do padrão de transposição."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar pontuação e símbolos",
+                "key": "COLUNA",
+                "shift": 0,
+                "input": "OLA, MUNDO!",
+                "output": "MOUAD !LN,O",
+                "description": "Palavra-chave: COLUNA. Sinais de pontuação não são removidos; eles são reorganizados junto com o restante do texto."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 125,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra de transposição"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Baseada em palavra-chave"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Ordem das colunas"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifra de papel e lápis"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

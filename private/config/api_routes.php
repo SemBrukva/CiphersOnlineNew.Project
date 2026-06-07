@@ -114,6 +114,13 @@ return [
         'name'       => 'api.tools.rail_fence',
     ],
 
+    'POST /tools/columnar-transposition' => [
+        'controller' => GuestController::class,
+        'method'     => 'columnarTransposition',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.columnar_transposition',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

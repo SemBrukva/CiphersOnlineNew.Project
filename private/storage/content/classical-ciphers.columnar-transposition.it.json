@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T16:40:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "columnar-transposition",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 22,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 22,
+        "data": {
+            "name": "Cifrario a trasposizione colonnare",
+            "name_short": "Trasposizione colonnare",
+            "description": "Cifra e decifra testo online con il cifrario a trasposizione colonnare usando una parola chiave che controlla l'ordine delle colonne. È un classico cifrario di trasposizione in cui i caratteri vengono riordinati invece di essere sostituiti.",
+            "description_stort": "Cifrario di trasposizione basato su parola chiave che riordina il testo per colonne.",
+            "meta_title": "Cifrario a trasposizione colonnare online: codifica e decodifica",
+            "meta_description": "Usa il cifrario a trasposizione colonnare online con una parola chiave personalizzata. Cifra e decifra testo riordinando le colonne in un classico cifrario di trasposizione."
+        }
+    },
+    "blocks": [
+        {
+            "id": 84,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario a trasposizione colonnare",
+                "text": "<p>Il cifrario a trasposizione colonnare scrive il messaggio in righe sotto una parola chiave. Ogni lettera della parola chiave etichetta una colonna. Le colonne vengono poi lette nell'ordine alfabetico della chiave per produrre il testo cifrato.</p><p>A differenza dei cifrari a sostituzione, come Caesar o Vigenere, questo metodo non sostituisce le lettere con nuovi simboli. Mantiene i caratteri originali, ma ne cambia la posizione: per questo è un cifrario di trasposizione.</p><p>Quando la parola chiave contiene lettere ripetute, questo strumento mantiene quelle colonne nel loro ordine originale da sinistra a destra. In questo modo i risultati di cifratura e decifratura restano stabili e prevedibili.</p>"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Esempio di ordine delle colonne",
+                "text": "<p>La parola chiave controlla l'ordine in cui vengono lette le colonne. Per esempio, con la parola chiave <strong>SEGRETO</strong>, il messaggio viene scritto riga per riga sotto la chiave:</p><div class=\"cipher-visual cipher-visual--columnar\"><div class=\"cipher-visual__row cipher-visual__row--key\"><span>S</span><span>E</span><span>G</span><span>R</span><span>E</span><span>T</span><span>O</span></div><div class=\"cipher-visual__row\"><span>S</span><span>I</span><span>A</span><span>M</span><span>O</span><span>S</span><span>T</span></div><div class=\"cipher-visual__row\"><span>A</span><span>T</span><span>I</span><span>S</span><span>C</span><span>O</span><span>P</span></div><div class=\"cipher-visual__row\"><span>E</span><span>R</span><span>T</span><span>I</span><span></span><span></span><span></span></div></div><p>Le colonne vengono lette nell'ordine alfabetico della chiave. Le lettere ripetute mantengono il loro ordine originale da sinistra a destra, quindi <strong>SEGRETO</strong> dà questo ordine di lettura:</p><p><code>2:E → 5:E → 3:G → 7:O → 4:R → 1:S → 6:T</code></p><p>Leggendo le colonne in questo ordine si ottiene il testo cifrato <code>ITROCAITTPMSISAESO</code>.</p>"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Trasposizione colonnare semplice",
+                "text": "<p>Questo strumento implementa un semplice cifrario a trasposizione colonnare con una sola chiave. Il testo viene scritto riga per riga, e le colonne vengono lette secondo la parola chiave ordinata. Per decifrare il messaggio è necessaria la stessa parola chiave.</p><p>Questa versione non aggiunge caratteri di riempimento. Se l'ultima riga è più corta della lunghezza della chiave, resta incompleta. Durante la decifratura, lo strumento calcola le lunghezze originali delle colonne dalla lunghezza del testo cifrato e dalla parola chiave.</p>"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Trasposizione colonnare e cifrari a sostituzione",
+                "text": "<p>I cifrari a sostituzione cambiano i simboli di un messaggio. Per esempio, Caesar sposta le lettere e Vigenere applica spostamenti basati su una parola chiave. La trasposizione colonnare funziona diversamente: conserva i caratteri originali e cambia solo il loro ordine.</p><p>Questo la rende utile per capire la differenza tra sostituzione e trasposizione, due idee fondamentali della crittografia classica. Tuttavia, da sola non è sicura secondo gli standard moderni.</p>"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Storia e uso pratico",
+                "text": "<p>I metodi di trasposizione colonnare furono usati nella crittografia manuale storica perché erano semplici da eseguire con carta e matita, ma producevano comunque un testo dall'aspetto mescolato.</p><p>Sistemi più complessi applicavano talvolta la trasposizione più di una volta o la combinavano con altri metodi di cifratura. Questa pagina si concentra sulla versione semplice con una sola chiave, adatta soprattutto all'apprendimento, agli enigmi e alle dimostrazioni.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 184,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "La trasposizione colonnare è un cifrario a sostituzione?",
+                "answer": "No. Non sostituisce i caratteri. Cambia solo il loro ordine, quindi è un cifrario di trasposizione."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qual è la chiave nella trasposizione colonnare?",
+                "answer": "La chiave è una parola o una frase i cui caratteri ordinati determinano l'ordine in cui vengono lette le colonne. Per la decifratura serve la stessa chiave."
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede se la parola chiave ha lettere ripetute?",
+                "answer": "Le lettere ripetute della chiave vengono ordinate da sinistra a destra. Questo mantiene stabile l'ordine delle colonne e permette alla stessa chiave di decifrare correttamente il messaggio."
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Questo strumento aggiunge caratteri di riempimento?",
+                "answer": "No. Questa implementazione non aggiunge padding. Le righe finali corte restano corte, e la decifratura calcola automaticamente le lunghezze disuguali delle colonne."
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Spazi e punteggiatura vengono cifrati?",
+                "answer": "Spazi, segni di punteggiatura e numeri vengono conservati come caratteri e spostati insieme al resto del messaggio."
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "La trasposizione colonnare è sicura oggi?",
+                "answer": "No. Un semplice cifrario a trasposizione colonnare può essere attaccato con la crittoanalisi moderna e i computer. È utile soprattutto per la didattica, gli enigmi e le dimostrazioni storiche."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Che cos'è la doppia trasposizione colonnare?",
+                "answer": "La doppia trasposizione colonnare applica il processo di trasposizione colonnare due volte, spesso con due chiavi. Questo strumento si concentra sulla versione più semplice con una sola chiave."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 79,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare con SEGRETO",
+                "key": "SEGRETO",
+                "shift": 0,
+                "input": "SIAMOSTATISCOPERTI",
+                "output": "ITROCAITTPMSISAESO",
+                "description": "Parola chiave: SEGRETO. Le colonne vengono lette nell'ordine alfabetico della chiave, mentre le lettere ripetute mantengono il loro ordine originale."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decifrare con SEGRETO",
+                "key": "SEGRETO",
+                "shift": 0,
+                "input": "ITROCAITTPMSISAESO",
+                "output": "SIAMOSTATISCOPERTI",
+                "description": "Parola chiave: SEGRETO. La stessa parola chiave ripristina il messaggio originale scritto per righe."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare un messaggio con spazi",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "ATTACCO ALL ALBA",
+                "output": "CLBT ATO AALACLA",
+                "description": "Parola chiave: ZEBRA. Gli spazi vengono conservati e spostati come parte dello schema di trasposizione."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare punteggiatura e simboli",
+                "key": "COLONNA",
+                "shift": 0,
+                "input": "CIAO, MONDO!",
+                "output": "MCOAD,! INOO",
+                "description": "Parola chiave: COLONNA. I segni di punteggiatura non vengono rimossi; vengono riordinati insieme al resto del testo."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 125,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario di trasposizione"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Basato su parola chiave"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Ordine delle colonne"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cifrario carta e matita"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

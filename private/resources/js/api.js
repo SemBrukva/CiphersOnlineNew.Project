@@ -117,6 +117,8 @@ export class ApiClient {
         a1z26: (data) => this.#request('POST', '/tools/a1z26', data),
         /** POST /api/tools/rail-fence */
         'rail-fence': (data) => this.#request('POST', '/tools/rail-fence', data),
+        /** POST /api/tools/columnar-transposition */
+        'columnar-transposition': (data) => this.#request('POST', '/tools/columnar-transposition', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

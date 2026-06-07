@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-07T16:40:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "columnar-transposition",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 22,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 22,
+        "data": {
+            "name": "Spaltentranspositions-Chiffre",
+            "name_short": "Spaltentransposition",
+            "description": "Verschlüsseln und entschlüsseln Sie Text online mit der Spaltentranspositions-Chiffre. Ein Schlüsselwort bestimmt die Reihenfolge der Spalten. Bei dieser klassischen Transpositionschiffre werden Zeichen umgeordnet, nicht ersetzt.",
+            "description_stort": "Schlüsselwortbasierte Transpositionschiffre, die Text spaltenweise umordnet.",
+            "meta_title": "Spaltentranspositions-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die Spaltentranspositions-Chiffre online mit einem eigenen Schlüsselwort. Verschlüsseln und entschlüsseln Sie Text durch Umordnung von Spalten in einer klassischen Transpositionschiffre."
+        }
+    },
+    "blocks": [
+        {
+            "id": 84,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Spaltentranspositions-Chiffre funktioniert",
+                "text": "<p>Die Spaltentranspositions-Chiffre schreibt die Nachricht zeilenweise unter ein Schlüsselwort. Jeder Buchstabe des Schlüsselworts markiert eine Spalte. Anschließend werden die Spalten in alphabetischer Reihenfolge der Schlüsselbuchstaben gelesen, um den Geheimtext zu erzeugen.</p><p>Anders als Substitutionschiffren wie Caesar oder Vigenere ersetzt dieses Verfahren keine Buchstaben durch neue Symbole. Die ursprünglichen Zeichen bleiben erhalten, werden aber an andere Positionen verschoben. Deshalb ist es eine Transpositionschiffre.</p><p>Wenn das Schlüsselwort wiederholte Buchstaben enthält, behält dieses Tool die betreffenden Spalten in ihrer ursprünglichen Reihenfolge von links nach rechts. Dadurch entstehen stabile und vorhersagbare Ergebnisse beim Verschlüsseln und Entschlüsseln.</p>"
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Beispiel für die Spaltenreihenfolge",
+                "text": "<p>Das Schlüsselwort steuert, in welcher Reihenfolge die Spalten gelesen werden. Mit dem Schlüsselwort <strong>GEHEIM</strong> wird die Nachricht zum Beispiel zeilenweise unter den Schlüssel geschrieben:</p><div class=\"cipher-visual cipher-visual--columnar\"><div class=\"cipher-visual__row cipher-visual__row--key\"><span>G</span><span>E</span><span>H</span><span>E</span><span>I</span><span>M</span></div><div class=\"cipher-visual__row\"><span>W</span><span>I</span><span>R</span><span>S</span><span>I</span><span>N</span></div><div class=\"cipher-visual__row\"><span>D</span><span>E</span><span>N</span><span>T</span><span>D</span><span>E</span></div><div class=\"cipher-visual__row\"><span>C</span><span>K</span><span>T</span><span></span><span></span><span></span></div></div><p>Die Spalten werden in alphabetischer Schlüsselreihenfolge gelesen. Wiederholte Buchstaben behalten ihre ursprüngliche Reihenfolge von links nach rechts, daher ergibt <strong>GEHEIM</strong> diese Lesereihenfolge:</p><p><code>2:E → 4:E → 1:G → 3:H → 5:I → 6:M</code></p><p>Das Lesen der Spalten in dieser Reihenfolge erzeugt den Geheimtext <code>IEKSTWDCRNTIDNE</code>.</p>"
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Einfache Spaltentransposition",
+                "text": "<p>Dieses Tool implementiert eine einfache Spaltentranspositions-Chiffre mit einem einzelnen Schlüssel. Der Text wird zeilenweise geschrieben, und die Spalten werden nach dem sortierten Schlüsselwort gelesen. Zum Entschlüsseln wird dasselbe Schlüsselwort benötigt.</p><p>Diese Version fügt keine Füllzeichen hinzu. Wenn die letzte Zeile kürzer als die Schlüssellänge ist, bleibt sie unvollständig. Beim Entschlüsseln berechnet das Tool die ursprünglichen Spaltenlängen aus der Länge des Geheimtexts und dem Schlüsselwort.</p>"
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Spaltentransposition und Substitutionschiffren",
+                "text": "<p>Substitutionschiffren verändern die Symbole einer Nachricht. Caesar verschiebt zum Beispiel Buchstaben, und Vigenere nutzt ein Schlüsselwort für buchstabenweise Verschiebungen. Die Spaltentransposition arbeitet anders: Sie erhält die ursprünglichen Zeichen und ändert nur ihre Reihenfolge.</p><p>Damit eignet sie sich gut, um den Unterschied zwischen Substitution und Transposition zu verstehen, zwei wichtigen Ideen der klassischen Kryptografie. Für sich allein ist sie nach modernen Maßstäben jedoch nicht sicher.</p>"
+            }
+        },
+        {
+            "id": 87,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Geschichte und praktische Verwendung",
+                "text": "<p>Spaltentranspositionsverfahren wurden in der historischen Handkryptografie verwendet, weil sie mit Papier und Bleistift einfach auszuführen waren und dennoch einen deutlich vermischten Text erzeugten.</p><p>Komplexere Systeme wendeten Transposition manchmal mehrmals an oder kombinierten sie mit anderen Chiffrierverfahren. Diese Seite konzentriert sich auf die einfache Version mit einem Schlüssel, die sich besonders für Lernen, Rätsel und Demonstrationen eignet.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 184,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Ist die Spaltentransposition eine Substitutionschiffre?",
+                "answer": "Nein. Sie ersetzt keine Zeichen. Sie ändert nur deren Reihenfolge und ist deshalb eine Transpositionschiffre."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Was ist der Schlüssel bei der Spaltentransposition?",
+                "answer": "Der Schlüssel ist ein Wort oder eine Phrase, deren sortierte Zeichen bestimmen, in welcher Reihenfolge die Spalten gelesen werden. Zum Entschlüsseln wird derselbe Schlüssel benötigt."
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was passiert, wenn das Schlüsselwort wiederholte Buchstaben enthält?",
+                "answer": "Wiederholte Schlüsselbuchstaben werden von links nach rechts geordnet. So bleibt die Spaltenreihenfolge stabil, und derselbe Schlüssel kann die Nachricht korrekt entschlüsseln."
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Fügt dieses Tool Füllzeichen hinzu?",
+                "answer": "Nein. Diese Implementierung fügt kein Padding hinzu. Kurze letzte Zeilen bleiben kurz, und beim Entschlüsseln werden ungleich lange Spalten automatisch berechnet."
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Werden Leerzeichen und Satzzeichen verschlüsselt?",
+                "answer": "Leerzeichen, Satzzeichen und Zahlen bleiben als Zeichen erhalten und werden zusammen mit dem Rest der Nachricht verschoben."
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Ist die Spaltentransposition heute sicher?",
+                "answer": "Nein. Eine einfache Spaltentranspositions-Chiffre kann mit moderner Kryptoanalyse und Computern angegriffen werden. Sie ist vor allem für Unterricht, Rätsel und historische Demonstrationen nützlich."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Was ist eine doppelte Spaltentransposition?",
+                "answer": "Bei der doppelten Spaltentransposition wird der Spaltentranspositionsprozess zweimal angewendet, oft mit zwei Schlüsseln. Dieses Tool konzentriert sich auf die einfachere Version mit einem Schlüssel."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 79,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mit GEHEIM verschlüsseln",
+                "key": "GEHEIM",
+                "shift": 0,
+                "input": "WIRSINDENTDECKT",
+                "output": "IEKSTWDCRNTIDNE",
+                "description": "Schlüsselwort: GEHEIM. Die Spalten werden in alphabetischer Schlüsselreihenfolge gelesen, während wiederholte Buchstaben ihre ursprüngliche Reihenfolge behalten."
+            }
+        },
+        {
+            "id": 80,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mit GEHEIM entschlüsseln",
+                "key": "GEHEIM",
+                "shift": 0,
+                "input": "IEKSTWDCRNTIDNE",
+                "output": "WIRSINDENTDECKT",
+                "description": "Schlüsselwort: GEHEIM. Dasselbe Schlüsselwort stellt die ursprüngliche zeilenweise geschriebene Nachricht wieder her."
+            }
+        },
+        {
+            "id": 81,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Eine Nachricht mit Leerzeichen verschlüsseln",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "ANGRIFF BEI NACHT",
+                "output": "IECG NNF TRBAAFIH",
+                "description": "Schlüsselwort: ZEBRA. Leerzeichen bleiben erhalten und werden als Teil des Transpositionsmusters verschoben."
+            }
+        },
+        {
+            "id": 82,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Satzzeichen und Symbole verschlüsseln",
+                "key": "SPALTE",
+                "shift": 0,
+                "input": "HALLO, WELT!",
+                "output": "LE,!LLAWH OT",
+                "description": "Schlüsselwort: SPALTE. Satzzeichen werden nicht entfernt, sondern zusammen mit dem übrigen Text umgeordnet."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 125,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Transpositionschiffre"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselwortbasiert"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Spaltenreihenfolge"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Papier-und-Bleistift-Chiffre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

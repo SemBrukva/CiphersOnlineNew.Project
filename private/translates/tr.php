@@ -315,6 +315,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Metin zorunludur.',
     'RAIL_FENCE_ERR_RAILS'             => 'Ray sayısı :min-:max aralığında olmalıdır.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Ray sayısı metin uzunluğuna eşit veya daha fazla — şifrelemenin etkisi yok ve çıktı girdiyle aynı.',
+    // Columnar Transposition
+    'COLUMNAR_SETTING_KEY'             => 'Anahtar sözcük',
+    'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Anahtar sözcüğü girin',
+    'COLUMNAR_TRUST_TRANSPOSITION'     => 'Klasik sütunlu yer değiştirme şifresi',
+    'COLUMNAR_TRUST_KEYWORD'           => 'Anahtar sözcük sütun sırasını belirler',
+    'COLUMNAR_ERR_DIRECTION'           => 'Yön encrypt veya decrypt olmalıdır.',
+    'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Metin zorunludur.',
+    'COLUMNAR_ERR_KEY_MIN'             => 'Anahtar en az :min karakter olmalıdır.',
+    'COLUMNAR_ERR_KEY_MAX'             => 'Anahtar en fazla :max karakter olmalıdır.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
     'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',

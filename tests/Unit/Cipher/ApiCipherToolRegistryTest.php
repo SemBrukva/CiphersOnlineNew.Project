@@ -17,6 +17,8 @@ use App\Cipher\BeaufortApiCipherTool;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\CaesarApiCipherTool;
 use App\Cipher\CaesarCipherService;
+use App\Cipher\ColumnarTranspositionApiCipherTool;
+use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairApiCipherTool;
@@ -70,7 +72,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new VernamApiCipherTool(new VernamCipherService()),
             new BaconApiCipherTool(new BaconCipherService()),
             new A1z26ApiCipherTool(new A1z26CipherService()),
-            new RailFenceApiCipherTool(new RailFenceCipherService())
+            new RailFenceApiCipherTool(new RailFenceCipherService()),
+            new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService())
         );
     }
 }

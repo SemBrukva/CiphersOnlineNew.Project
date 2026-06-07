@@ -338,6 +338,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Текст обязателен.',
     'RAIL_FENCE_ERR_RAILS'             => 'Количество рельсов должно быть в диапазоне :min-:max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Количество рельсов не меньше длины текста — шифрование не имеет эффекта, результат совпадает со входом.',
+    // Columnar Transposition
+    'COLUMNAR_SETTING_KEY'             => 'Ключевое слово',
+    'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Введите ключевое слово',
+    'COLUMNAR_TRUST_TRANSPOSITION'     => 'Классический шифр столбцовой перестановки',
+    'COLUMNAR_TRUST_KEYWORD'           => 'Ключ задаёт порядок столбцов',
+    'COLUMNAR_ERR_DIRECTION'           => 'Направление должно быть encrypt или decrypt.',
+    'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Текст обязателен.',
+    'COLUMNAR_ERR_KEY_MIN'             => 'Ключ должен содержать не меньше :min символов.',
+    'COLUMNAR_ERR_KEY_MAX'             => 'Ключ должен содержать не больше :max символов.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
     'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',

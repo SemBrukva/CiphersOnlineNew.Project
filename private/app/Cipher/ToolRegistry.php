@@ -25,7 +25,8 @@ final readonly class ToolRegistry
         private VernamCipherService $vernamCipher,
         private BaconCipherService $baconCipher,
         private A1z26CipherService $a1z26Cipher,
-        private RailFenceCipherService $railFenceCipher
+        private RailFenceCipherService $railFenceCipher,
+        private ColumnarTranspositionCipherService $columnarTranspositionCipher
     ) {
     }
 
@@ -125,6 +126,11 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN',    'shift' => 4],
                 ['label' => 'Decode',   'value' => 'WECRLTEERDSOEEFEAOCAIVDEN', 'shift' => 3, 'direction' => 'decrypt'],
             ],
+            'classical-ciphers/columnar-transposition' => [
+                ['label' => 'Classic',  'value' => 'WE ARE DISCOVERED', 'key' => 'SECRET'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN',    'key' => 'ZEBRA'],
+                ['label' => 'Decode',   'value' => 'ACDESEEVROWIRDE',    'key' => 'SECRET', 'direction' => 'decrypt'],
+            ],
             'classical-ciphers/affine' => [
                 ['label' => 'Classic',  'value' => 'AFFINE CIPHER', 'alphabet' => 'en', 'key' => '5', 'shift' => 8],
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => '7', 'shift' => 3],
@@ -153,6 +159,7 @@ final readonly class ToolRegistry
             'classical-ciphers/bacon' => 'bacon',
             'classical-ciphers/a1z26' => 'a1z26',
             'classical-ciphers/rail-fence' => 'rail-fence',
+            'classical-ciphers/columnar-transposition' => 'columnar-transposition',
             default => null,
         };
     }
@@ -178,6 +185,7 @@ final readonly class ToolRegistry
             'classical-ciphers/bacon' => $this->baconCipher->getToolSettings(),
             'classical-ciphers/a1z26' => $this->a1z26Cipher->getToolSettings(),
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getToolSettings(),
+            'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getToolSettings(),
             default => [],
         };
     }
@@ -201,6 +209,7 @@ final readonly class ToolRegistry
             'classical-ciphers/bacon'     => $this->baconCipher->getTrustItems($calculationMode),
             'classical-ciphers/a1z26'     => $this->a1z26Cipher->getTrustItems($calculationMode),
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getTrustItems($calculationMode),
+            'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),
@@ -300,6 +309,7 @@ final readonly class ToolRegistry
             'classical-ciphers/shifr-atbash' => 'classical-ciphers/atbash',
             'classical-ciphers/shifr-a1z26' => 'classical-ciphers/a1z26',
             'classical-ciphers/railfence', 'classical-ciphers/shifr-rail-fence' => 'classical-ciphers/rail-fence',
+            'classical-ciphers/columnar', 'classical-ciphers/columnar-transposition-cipher', 'classical-ciphers/stolbcovyj-shifr-perestanovki' => 'classical-ciphers/columnar-transposition',
             'classical-ciphers/affinnyj-shifr', 'classical-ciphers/shifr-affine' => 'classical-ciphers/affine',
             default => $toolSlug,
         };
