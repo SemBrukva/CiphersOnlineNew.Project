@@ -16,6 +16,27 @@
         {assign var="x_default_url" value=$locale_urls[$default_locale]|default:$canonical_path}
         <link rel="alternate" hreflang="x-default" href="{$app_url}{$x_default_url}">
     {/if}
+    {assign var="og_locale_code" value=$locale_meta[$current_locale]['og_locale']|default:$current_locale}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{$canonical_url}">
+    <meta property="og:site_name" content="{$app_name}">
+    <meta property="og:locale" content="{$og_locale_code}">
+    {if $multilang && $available_locales}
+        {foreach $available_locales as $alt_locale}
+            {if $alt_locale neq $current_locale}
+                {assign var="alt_og_locale" value=$locale_meta[$alt_locale]['og_locale']|default:$alt_locale}
+                <meta property="og:locale:alternate" content="{$alt_og_locale}">
+            {/if}
+        {/foreach}
+    {/if}
+    <meta property="og:title" content="{$title|default:$app_name}">
+    {if $meta_description}<meta property="og:description" content="{$meta_description}">{/if}
+    {assign var="og_image_url" value=$og_image|default:'/og-image.jpg'}
+    {if $og_image_url|substr:0:4 == 'http'}
+        <meta property="og:image" content="{$og_image_url}">
+    {else}
+        <meta property="og:image" content="{$app_url}{$og_image_url}">
+    {/if}
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />

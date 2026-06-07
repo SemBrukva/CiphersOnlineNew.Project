@@ -192,29 +192,29 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
     }
 
     /**
-     * Возвращает метаданные локалей: флаг + название на родном языке.
+     * Возвращает метаданные локалей: флаг, название на родном языке и og_locale (language_TERRITORY).
      *
-     * @return array<string, array{flag: string, name: string}>
+     * @return array<string, array{flag: string, name: string, og_locale: string}>
      */
     private function buildLocaleMeta(): array
     {
         return [
-            'en' => ['flag' => '🇬🇧', 'name' => 'English'],
-            'ru' => ['flag' => '🇷🇺', 'name' => 'Русский'],
-            'de' => ['flag' => '🇩🇪', 'name' => 'Deutsch'],
-            'es' => ['flag' => '🇪🇸', 'name' => 'Español'],
-            'fr' => ['flag' => '🇫🇷', 'name' => 'Français'],
-            'it' => ['flag' => '🇮🇹', 'name' => 'Italiano'],
-            'pt' => ['flag' => '🇵🇹', 'name' => 'Português'],
-            'tr' => ['flag' => '🇹🇷', 'name' => 'Türkçe'],
-            'pl' => ['flag' => '🇵🇱', 'name' => 'Polski'],
-            'nl' => ['flag' => '🇳🇱', 'name' => 'Nederlands'],
-            'uk' => ['flag' => '🇺🇦', 'name' => 'Українська'],
-            'zh' => ['flag' => '🇨🇳', 'name' => '中文'],
-            'ja' => ['flag' => '🇯🇵', 'name' => '日本語'],
-            'ko' => ['flag' => '🇰🇷', 'name' => '한국어'],
-            'ar' => ['flag' => '🇸🇦', 'name' => 'العربية'],
-            'sv' => ['flag' => '🇸🇪', 'name' => 'Svenska'],
+            'en' => ['flag' => '🇬🇧', 'name' => 'English',    'og_locale' => 'en_US'],
+            'ru' => ['flag' => '🇷🇺', 'name' => 'Русский',    'og_locale' => 'ru_RU'],
+            'de' => ['flag' => '🇩🇪', 'name' => 'Deutsch',    'og_locale' => 'de_DE'],
+            'es' => ['flag' => '🇪🇸', 'name' => 'Español',    'og_locale' => 'es_ES'],
+            'fr' => ['flag' => '🇫🇷', 'name' => 'Français',   'og_locale' => 'fr_FR'],
+            'it' => ['flag' => '🇮🇹', 'name' => 'Italiano',   'og_locale' => 'it_IT'],
+            'pt' => ['flag' => '🇵🇹', 'name' => 'Português',  'og_locale' => 'pt_PT'],
+            'tr' => ['flag' => '🇹🇷', 'name' => 'Türkçe',    'og_locale' => 'tr_TR'],
+            'pl' => ['flag' => '🇵🇱', 'name' => 'Polski',     'og_locale' => 'pl_PL'],
+            'nl' => ['flag' => '🇳🇱', 'name' => 'Nederlands', 'og_locale' => 'nl_NL'],
+            'uk' => ['flag' => '🇺🇦', 'name' => 'Українська', 'og_locale' => 'uk_UA'],
+            'zh' => ['flag' => '🇨🇳', 'name' => '中文',        'og_locale' => 'zh_CN'],
+            'ja' => ['flag' => '🇯🇵', 'name' => '日本語',      'og_locale' => 'ja_JP'],
+            'ko' => ['flag' => '🇰🇷', 'name' => '한국어',      'og_locale' => 'ko_KR'],
+            'ar' => ['flag' => '🇸🇦', 'name' => 'العربية',    'og_locale' => 'ar_SA'],
+            'sv' => ['flag' => '🇸🇪', 'name' => 'Svenska',    'og_locale' => 'sv_SE'],
         ];
     }
 }
