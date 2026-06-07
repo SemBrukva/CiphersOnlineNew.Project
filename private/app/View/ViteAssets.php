@@ -29,6 +29,10 @@ final class ViteAssets
             return self::devTags($entry, $type, $nonce);
         }
 
+        if ($type === 'preload') {
+            return self::prodPreloadTags($entry);
+        }
+
         return self::prodTags($entry, $type, $nonce);
     }
 
@@ -45,6 +49,37 @@ final class ViteAssets
             sprintf('<script type="module"%s src="%s/@vite/client"></script>', $nonceAttr, $url),
             sprintf('<script type="module"%s src="%s/%s"></script>', $nonceAttr, $url, $entry),
         ]);
+    }
+
+    /**
+     * Генерирует теги <link rel="preload"> для CSS и woff2-шрифтов entry-point.
+     * Позволяет браузеру начать загрузку критических ресурсов до их обнаружения в разметке.
+     */
+    private static function prodPreloadTags(string $entry): string
+    {
+        $manifest = self::manifest();
+        $chunk    = $manifest[$entry] ?? null;
+
+        if ($chunk === null) {
+            return '';
+        }
+
+        $tags = [];
+
+        foreach ($chunk['css'] ?? [] as $cssFile) {
+            $tags[] = sprintf('<link rel="preload" href="/build/%s" as="style">', $cssFile);
+        }
+
+        foreach ($chunk['assets'] ?? [] as $assetFile) {
+            if (str_ends_with((string) $assetFile, '.woff2')) {
+                $tags[] = sprintf(
+                    '<link rel="preload" href="/build/%s" as="font" type="font/woff2" crossorigin>',
+                    $assetFile
+                );
+            }
+        }
+
+        return implode("\n    ", $tags);
     }
 
     private static function prodTags(string $entry, string $type, ?string $nonce): string
