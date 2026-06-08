@@ -1,0 +1,229 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-08T11:39:24+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rot13",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 24,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 24,
+        "data": {
+            "name": "Cifrado ROT13",
+            "name_short": "ROT13",
+            "description": "Codifica y decodifica texto con ROT13, una variante fija del cifrado César que rota las letras latinas 13 posiciones. Se usa a menudo para spoilers, mensajes de acertijos y ofuscación ligera.",
+            "description_stort": "Desplazamiento César fijo de 13 letras latinas, sin clave.",
+            "meta_title": "Cifrado ROT13 online para codificar y decodificar",
+            "meta_description": "Usa ROT13 online para codificar o decodificar texto con una rotación fija de 13 letras latinas. Aprende cómo funciona esta variante clásica y auto-inversa del cifrado César."
+        }
+    },
+    "blocks": [
+        {
+            "id": 93,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona ROT13",
+                "text": "<p>ROT13 es una versión especial del cifrado César que siempre desplaza las letras latinas exactamente 13 posiciones. A se convierte en N, B en O, C en P, y así sucesivamente. Después de M, el alfabeto vuelve a empezar desde A.</p><p>Como el alfabeto inglés tiene 26 letras y 13 es exactamente la mitad de ese ciclo, aplicar ROT13 dos veces restaura el mensaje original. Por eso se usa la misma operación tanto para codificar como para decodificar.</p><p>ROT13 solo modifica letras latinas. Los números, espacios, signos de puntuación y la mayoría de los símbolos permanecen sin cambios.</p>"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 11,
+            "published": true,
+            "data": {
+                "title": "Ejemplo de ROT13 para el alfabeto latino",
+                "text": "<p>En una página en español conviene aclarar que el ROT13 clásico se define sobre las 26 letras del alfabeto latino usado por el inglés. La transformación se visualiza como pares de letras separadas por 13 posiciones, y esa sustitución es su propia inversa:</p><div class=\"cipher-visual cipher-visual--rot13\"><div class=\"cipher-visual__row cipher-visual__rot13-row--src\"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span></div><div class=\"cipher-visual__rot13-sep\"><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span></div><div class=\"cipher-visual__row cipher-visual__rot13-row--dst\"><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span></div></div><p>Por ejemplo, <code>HOLA MUNDO</code> se convierte en <code>UBYN ZHAQB</code>. Si se aplica ROT13 otra vez, se recupera el texto original.</p>"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 12,
+            "published": true,
+            "data": {
+                "title": "ROT13 y seguridad",
+                "text": "<p>ROT13 no se considera cifrado seguro según los estándares modernos. No tiene clave secreta, y cualquier persona que conozca el método puede invertirlo al instante.</p><p>Su propósito es la ofuscación ligera, no la protección. A menudo se usa para ocultar spoilers, respuestas de acertijos, bromas o contenido que no debería verse de inmediato sin una acción deliberada.</p>"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 13,
+            "published": true,
+            "data": {
+                "title": "ROT13 y el cifrado César",
+                "text": "<p>ROT13 es, en la práctica, un cifrado César con un desplazamiento fijo de 13. A diferencia de un cifrado César normal, no tiene clave configurable ni valor de desplazamiento ajustable.</p><p>Esa simplicidad hace que ROT13 sea fácil de usar y reconocer, pero también lo vuelve inadecuado para cualquier situación que requiera confidencialidad real.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 197,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿ROT13 es un cifrado seguro?",
+                "answer": "No. ROT13 es una técnica simple de ofuscación, no un cifrado seguro. No usa una clave secreta y puede revertirse inmediatamente con la misma operación."
+            }
+        },
+        {
+            "id": 198,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Por qué ROT13 usa el número 13?",
+                "answer": "El alfabeto latino usado por este método tiene 26 letras. Un desplazamiento de 13 mueve cada letra exactamente hasta la mitad del ciclo alfabético, lo que hace que la transformación sea auto-inversa."
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Por qué aplicar ROT13 dos veces restaura el texto original?",
+                "answer": "Cada letra se desplaza 13 posiciones. Al aplicar el mismo desplazamiento otra vez, avanza otras 13 posiciones y completa un ciclo de 26 letras, regresando a la letra inicial."
+            }
+        },
+        {
+            "id": 200,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿ROT13 funciona con números y signos de puntuación?",
+                "answer": "Los números, espacios, signos de puntuación y la mayoría de los símbolos no se transforman. ROT13 solo rota letras latinas."
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Dónde se usa normalmente ROT13?",
+                "answer": "ROT13 se usa a menudo para textos con spoilers, pistas de acertijos, bromas de internet y situaciones en las que el contenido debe ocultarse de forma casual, sin seguridad real."
+            }
+        },
+        {
+            "id": 202,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿ROT13 es lo mismo que el cifrado César?",
+                "answer": "ROT13 es una variante específica del cifrado César que siempre usa un desplazamiento de 13. Un cifrado César tradicional puede usar muchos valores de desplazamiento diferentes."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 87,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar HOLA",
+                "key": "",
+                "shift": 0,
+                "input": "HOLA MUNDO",
+                "output": "UBYN ZHAQB",
+                "description": "ROT13 desplaza cada letra latina 13 posiciones y conserva espacios y signos de puntuación."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificar texto ROT13",
+                "key": "",
+                "shift": 0,
+                "input": "UBYN ZHAQB",
+                "output": "HOLA MUNDO",
+                "description": "Aplicar de nuevo la misma transformación ROT13 restaura el mensaje original."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar un spoiler",
+                "key": "",
+                "shift": 0,
+                "input": "EL HEROE REGRESA",
+                "output": "RY UREBR ERTERFN",
+                "description": "ROT13 se usa para ocultar spoilers y permitir que los lectores los decodifiquen fácilmente."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Codificar una pista",
+                "key": "",
+                "shift": 0,
+                "input": "MIRA BAJO LA MESA",
+                "output": "ZVEN ONWB YN ZRFN",
+                "description": "Quienes crean acertijos pueden usar ROT13 para ocultar pistas sin necesitar una clave secreta."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 137,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Variante del cifrado César"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifrado auto-inverso"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Ofuscación de texto"
+            }
+        },
+        {
+            "id": 140,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Codificación ROT13"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

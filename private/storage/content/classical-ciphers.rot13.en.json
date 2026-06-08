@@ -1,0 +1,229 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-08T11:39:24+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rot13",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 24,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 24,
+        "data": {
+            "name": "ROT13 Cipher",
+            "name_short": "ROT13 Cipher",
+            "description": "Encode and decode text with ROT13, a fixed Caesar cipher that rotates Latin letters by 13 positions. Commonly used for spoiler text, puzzle messages, and light obfuscation.",
+            "description_stort": "Fixed 13-letter Caesar shift with no key required.",
+            "meta_title": "ROT13 Cipher Online Encoder & Decoder",
+            "meta_description": "Use ROT13 online to encode or decode text with a fixed 13-letter rotation. Learn how the classic self-reversing Caesar variant works."
+        }
+    },
+    "blocks": [
+        {
+            "id": 93,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How ROT13 works",
+                "text": "<p>ROT13 is a special version of the Caesar cipher that always shifts Latin letters by exactly 13 positions. A becomes N, B becomes O, C becomes P, and so on. After M, the alphabet wraps around back to A.</p><p>Because the English alphabet contains 26 letters and 13 is exactly half of that, applying ROT13 twice restores the original message. This means the same operation is used for both encoding and decoding.</p><p>ROT13 changes only Latin letters. Numbers, spaces, punctuation marks, and most symbols remain unchanged.</p>"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 11,
+            "published": true,
+            "data": {
+                "title": "ROT13 example",
+                "text": "<p>The transformation is easy to visualize because every letter maps to the letter exactly 13 positions away — and the mapping is its own inverse:</p><div class=\"cipher-visual cipher-visual--rot13\"><div class=\"cipher-visual__row cipher-visual__rot13-row--src\"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span></div><div class=\"cipher-visual__rot13-sep\"><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span></div><div class=\"cipher-visual__row cipher-visual__rot13-row--dst\"><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span></div></div><p>For example, <code>HELLO WORLD</code> becomes <code>URYYB JBEYQ</code>. Applying ROT13 again restores the original text.</p>"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 12,
+            "published": true,
+            "data": {
+                "title": "ROT13 and security",
+                "text": "<p>ROT13 is not considered encryption by modern standards. There is no secret key, and anyone familiar with the method can reverse it instantly.</p><p>Its purpose is light obfuscation rather than protection. It is often used to hide spoilers, puzzle answers, jokes, or content that should not be immediately visible without a deliberate action.</p>"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 13,
+            "published": true,
+            "data": {
+                "title": "ROT13 vs Caesar cipher",
+                "text": "<p>ROT13 is effectively a Caesar cipher with a fixed shift of 13. Unlike a normal Caesar cipher, there is no configurable key or shift value.</p><p>This simplicity makes ROT13 easy to use and recognize, but also makes it unsuitable for any situation that requires real confidentiality.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 197,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is ROT13 secure encryption?",
+                "answer": "No. ROT13 is a simple obfuscation technique, not secure encryption. It uses no secret key and can be reversed immediately."
+            }
+        },
+        {
+            "id": 198,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why does ROT13 use 13?",
+                "answer": "The Latin alphabet contains 26 letters. A shift of 13 moves each letter exactly halfway around the alphabet, making the transformation self-reversing."
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why does applying ROT13 twice restore the original text?",
+                "answer": "Every letter is shifted 13 positions. Applying the same shift again moves it another 13 positions, completing a full 26-letter cycle and returning to the starting letter."
+            }
+        },
+        {
+            "id": 200,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does ROT13 work with numbers and punctuation?",
+                "answer": "No transformation is applied to numbers, spaces, punctuation marks, or most symbols. Only Latin letters are rotated."
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Where is ROT13 commonly used?",
+                "answer": "ROT13 is often used for spoiler text, puzzle hints, internet jokes, and situations where content should be hidden casually without real security."
+            }
+        },
+        {
+            "id": 202,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is ROT13 the same as Caesar cipher?",
+                "answer": "ROT13 is a specific Caesar cipher variant that always uses a shift of 13. A traditional Caesar cipher may use many different shift values."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 87,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Encode HELLO",
+                "key": "",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "URYYB JBEYQ",
+                "description": "ROT13 rotates every Latin letter by 13 positions while preserving spaces and punctuation."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Decode ROT13 text",
+                "key": "",
+                "shift": 0,
+                "input": "URYYB JBEYQ",
+                "output": "HELLO WORLD",
+                "description": "Applying the same ROT13 transformation restores the original message."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Encode spoiler text",
+                "key": "",
+                "shift": 0,
+                "input": "THE VILLAIN WINS",
+                "output": "GUR IVYYNVA JVAF",
+                "description": "ROT13 is commonly used to hide spoilers while still allowing readers to decode them easily."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Encode a puzzle hint",
+                "key": "",
+                "shift": 0,
+                "input": "LOOK UNDER THE TABLE",
+                "output": "YBBX HAQRE GUR GNOYR",
+                "description": "Puzzle creators sometimes use ROT13 to conceal hints without requiring a secret key."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 137,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Caesar cipher variant"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Self-reversing cipher"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Text obfuscation"
+            }
+        },
+        {
+            "id": 140,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13 encoding"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

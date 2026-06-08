@@ -27,6 +27,8 @@ use App\Cipher\PolybiusSquareApiCipherTool;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
+use App\Cipher\Rot13ApiCipherTool;
+use App\Cipher\Rot13CipherService;
 use App\Cipher\VernamApiCipherTool;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereApiCipherTool;
@@ -73,6 +75,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             new VigenereApiCipherTool(new VigenereCipherService()),
             new VernamApiCipherTool(new VernamCipherService()),
             new BaconApiCipherTool(new BaconCipherService()),
+            new Rot13ApiCipherTool(new Rot13CipherService()),
             new A1z26ApiCipherTool(new A1z26CipherService()),
             new RailFenceApiCipherTool(new RailFenceCipherService()),
             new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),

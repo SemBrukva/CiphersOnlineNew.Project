@@ -75,7 +75,7 @@ final readonly class BaconApiCipherTool implements ApiCipherToolInterface
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('BACON_ERR_INVALID'), ['errors' => $errors]);
         }
 
         if ($direction === 'encrypt') {

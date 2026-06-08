@@ -27,12 +27,13 @@ final class ApiCipherToolRegistry
         VigenereApiCipherTool $vigenereTool,
         VernamApiCipherTool $vernamTool,
         BaconApiCipherTool $baconTool,
+        Rot13ApiCipherTool $rot13Tool,
         A1z26ApiCipherTool $a1z26Tool,
         RailFenceApiCipherTool $railFenceTool,
         ColumnarTranspositionApiCipherTool $columnarTranspositionTool,
         PolybiusSquareApiCipherTool $polybiusSquareTool
     ) {
-        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

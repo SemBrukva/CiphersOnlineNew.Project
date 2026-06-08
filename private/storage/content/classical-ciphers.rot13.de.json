@@ -1,0 +1,229 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-08T11:39:24+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rot13",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 24,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 24,
+        "data": {
+            "name": "ROT13-Chiffre",
+            "name_short": "ROT13",
+            "description": "Kodieren und dekodieren Sie Text mit ROT13, einer festen Caesar-Variante, die lateinische Buchstaben um 13 Positionen verschiebt. ROT13 wird häufig für Spoiler, Rätseltexte und leichte Verschleierung verwendet.",
+            "description_stort": "Fester Caesar-Verschiebung um 13 lateinische Buchstaben ohne Schlüssel.",
+            "meta_title": "ROT13-Chiffre online kodieren und dekodieren",
+            "meta_description": "Nutzen Sie ROT13 online, um Text mit einer festen Rotation um 13 lateinische Buchstaben zu kodieren oder zu dekodieren. Erfahren Sie, wie diese selbstumkehrende Caesar-Variante funktioniert."
+        }
+    },
+    "blocks": [
+        {
+            "id": 93,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie ROT13 funktioniert",
+                "text": "<p>ROT13 ist eine besondere Variante der Caesar-Chiffre, bei der lateinische Buchstaben immer genau um 13 Positionen verschoben werden. Aus A wird N, aus B wird O, aus C wird P und so weiter. Nach M läuft das Alphabet wieder bei A weiter.</p><p>Da das englische Alphabet 26 Buchstaben hat und 13 genau die Hälfte dieses Zyklus ist, stellt eine zweite Anwendung von ROT13 die ursprüngliche Nachricht wieder her. Deshalb wird dieselbe Operation sowohl zum Kodieren als auch zum Dekodieren verwendet.</p><p>ROT13 verändert nur lateinische Buchstaben. Zahlen, Leerzeichen, Satzzeichen und die meisten Symbole bleiben unverändert.</p>"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 11,
+            "published": true,
+            "data": {
+                "title": "ROT13-Beispiel für das lateinische Alphabet",
+                "text": "<p>Auch auf einer deutschen Seite bezieht sich das klassische ROT13 auf die 26 Buchstaben des lateinischen Alphabets. Die Zuordnung lässt sich gut als Buchstabenpaare darstellen, die 13 Positionen voneinander entfernt sind; dadurch ist die Ersetzung ihre eigene Umkehrung:</p><div class=\"cipher-visual cipher-visual--rot13\"><div class=\"cipher-visual__row cipher-visual__rot13-row--src\"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span></div><div class=\"cipher-visual__rot13-sep\"><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span></div><div class=\"cipher-visual__row cipher-visual__rot13-row--dst\"><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span></div></div><p>Zum Beispiel wird <code>HALLO WELT</code> zu <code>UNYYB JRYG</code>. Wird ROT13 erneut angewendet, erscheint wieder der Ausgangstext.</p>"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 12,
+            "published": true,
+            "data": {
+                "title": "ROT13 und Sicherheit",
+                "text": "<p>Nach modernen Maßstäben gilt ROT13 nicht als sichere Verschlüsselung. Es gibt keinen geheimen Schlüssel, und jede Person, die das Verfahren kennt, kann den Text sofort zurückverwandeln.</p><p>Der Zweck von ROT13 ist leichte Verschleierung, nicht Schutz. Es wird oft genutzt, um Spoiler, Rätsellösungen, Witze oder Inhalte zu verbergen, die nicht sofort sichtbar sein sollen.</p>"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 13,
+            "published": true,
+            "data": {
+                "title": "ROT13 und Caesar-Chiffre",
+                "text": "<p>ROT13 ist im Kern eine Caesar-Chiffre mit einer festen Verschiebung um 13. Anders als bei einer normalen Caesar-Chiffre gibt es keinen frei wählbaren Schlüssel und keinen konfigurierbaren Verschiebungswert.</p><p>Diese Einfachheit macht ROT13 leicht nutzbar und gut erkennbar, aber ungeeignet für Situationen, in denen echte Vertraulichkeit erforderlich ist.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 197,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Ist ROT13 sichere Verschlüsselung?",
+                "answer": "Nein. ROT13 ist eine einfache Verschleierungstechnik, keine sichere Verschlüsselung. Es verwendet keinen geheimen Schlüssel und lässt sich sofort mit derselben Operation rückgängig machen."
+            }
+        },
+        {
+            "id": 198,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum verwendet ROT13 die Zahl 13?",
+                "answer": "Das lateinische Alphabet hat 26 Buchstaben. Eine Verschiebung um 13 bewegt jeden Buchstaben genau bis zur Hälfte des Alphabetzyklus und macht die Transformation dadurch selbstumkehrend."
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Warum stellt zweimaliges Anwenden von ROT13 den Ausgangstext wieder her?",
+                "answer": "Jeder Buchstabe wird um 13 Positionen verschoben. Die zweite Anwendung verschiebt ihn um weitere 13 Positionen, zusammen also um einen vollständigen Zyklus von 26 Buchstaben zurück zum Startpunkt."
+            }
+        },
+        {
+            "id": 200,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Funktioniert ROT13 mit Zahlen und Satzzeichen?",
+                "answer": "Zahlen, Leerzeichen, Satzzeichen und die meisten Symbole werden nicht verändert. ROT13 rotiert nur lateinische Buchstaben."
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Wo wird ROT13 häufig verwendet?",
+                "answer": "ROT13 wird oft für Spoilertexte, Rätselhinweise, Internetwitze und Situationen genutzt, in denen Inhalte nur beiläufig verborgen werden sollen."
+            }
+        },
+        {
+            "id": 202,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Ist ROT13 dasselbe wie die Caesar-Chiffre?",
+                "answer": "ROT13 ist eine spezielle Variante der Caesar-Chiffre, die immer eine Verschiebung um 13 verwendet. Eine klassische Caesar-Chiffre kann viele verschiedene Verschiebungswerte nutzen."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 87,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "HALLO kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "HALLO WELT",
+                "output": "UNYYB JRYG",
+                "description": "ROT13 verschiebt jeden lateinischen Buchstaben um 13 Positionen und erhält Leerzeichen sowie Satzzeichen."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "ROT13-Text dekodieren",
+                "key": "",
+                "shift": 0,
+                "input": "UNYYB JRYG",
+                "output": "HALLO WELT",
+                "description": "Die erneute Anwendung derselben ROT13-Transformation stellt die ursprüngliche Nachricht wieder her."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Spoilertext kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "DER HELD KEHRT ZURUECK",
+                "output": "QRE URYQ XRUEG MHEHRPX",
+                "description": "ROT13 eignet sich, um Spoiler zu verstecken und sie trotzdem leicht dekodierbar zu lassen."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Einen Rätselhinweis kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "SIEH UNTER DEN STEIN",
+                "output": "FVRU HAGRE QRA FGRVA",
+                "description": "Rätselautoren verwenden ROT13, um Hinweise ohne geheimen Schlüssel zu verbergen."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 137,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Variante der Caesar-Chiffre"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Selbstumkehrende Chiffre"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Textverschleierung"
+            }
+        },
+        {
+            "id": 140,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13-Kodierung"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -53,7 +53,7 @@ final readonly class ColumnarTranspositionApiCipherTool implements ApiCipherTool
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('COLUMNAR_ERR_INVALID'), ['errors' => $errors]);
         }
 
         return [

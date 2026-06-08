@@ -49,7 +49,7 @@ final readonly class VernamApiCipherTool implements ApiCipherToolInterface
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('VERNAM_ERROR_INVALID'), ['errors' => $errors]);
         }
 
         $warning = null;

@@ -49,7 +49,7 @@ final readonly class RailFenceApiCipherTool implements ApiCipherToolInterface
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('RAIL_FENCE_ERR_INVALID'), ['errors' => $errors]);
         }
 
         $rails = $this->cipher->normalizeRails($rails);

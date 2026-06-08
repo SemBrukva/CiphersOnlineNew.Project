@@ -40,16 +40,16 @@ final readonly class A1z26ApiCipherTool implements ApiCipherToolInterface
 
         $errors = [];
         if (!in_array($direction, ['encrypt', 'decrypt'], true)) {
-            $errors['direction'][] = 'Direction must be encrypt or decrypt.';
+            $errors['direction'][] = trans('A1Z26_ERR_DIRECTION');
         }
         if ($text === '') {
-            $errors['text'][] = 'Text is required.';
+            $errors['text'][] = trans('A1Z26_ERR_TEXT_REQUIRED');
         }
         if (!in_array($alphabet, array_merge(['auto'], $this->cipher->supportedAlphabetCodes()), true)) {
-            $errors['settings.alphabet'][] = 'Unsupported alphabet.';
+            $errors['settings.alphabet'][] = trans('A1Z26_ERR_ALPHABET_UNSUPPORTED');
         }
         if (!in_array($delimiter, ['dash', 'space', 'comma', 'slash', 'dot'], true)) {
-            $errors['settings.delimiter'][] = 'Delimiter must be dash, space, comma, slash or dot.';
+            $errors['settings.delimiter'][] = trans('A1Z26_ERR_DELIMITER');
         }
 
         $detectedAlphabet = null;
@@ -65,11 +65,11 @@ final readonly class A1z26ApiCipherTool implements ApiCipherToolInterface
         }
 
         if ($direction === 'encrypt' && !$this->cipher->hasAlphabetCharacters($text, $alphabet)) {
-            $errors['text'][] = 'Input does not contain symbols from the selected alphabet.';
+            $errors['text'][] = trans('A1Z26_ERR_TEXT_ALPHABET');
         }
 
         if ($errors !== []) {
-            throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
+            throw new ValidationFailedException(trans('A1Z26_ERR_INVALID'), ['errors' => $errors]);
         }
 
         return [

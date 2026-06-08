@@ -100,6 +100,13 @@ return [
         'name'       => 'api.tools.bacon',
     ],
 
+    'POST /tools/rot13' => [
+        'controller' => GuestController::class,
+        'method'     => 'rot13',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.rot13',
+    ],
+
     'POST /tools/a1z26' => [
         'controller' => GuestController::class,
         'method'     => 'a1z26',

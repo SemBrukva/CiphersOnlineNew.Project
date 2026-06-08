@@ -312,6 +312,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет ROT13-преобразование через API.
+     *
+     * POST /api/tools/rot13
+     */
+    #[ApiOperation(summary: 'Шифр ROT13', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function rot13(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'rot13');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование A1Z26 через API.
      *
      * POST /api/tools/a1z26

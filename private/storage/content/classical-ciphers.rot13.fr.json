@@ -1,0 +1,229 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-08T11:39:24+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rot13",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 24,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 24,
+        "data": {
+            "name": "Chiffre ROT13",
+            "name_short": "ROT13",
+            "description": "Encodez et décodez du texte avec ROT13, une variante fixe du chiffre de César qui décale les lettres latines de 13 positions. ROT13 est souvent utilisé pour les spoilers, les messages d'énigmes et l'obfuscation légère.",
+            "description_stort": "Décalage César fixe de 13 lettres latines, sans clé.",
+            "meta_title": "Chiffre ROT13 en ligne pour encoder et décoder",
+            "meta_description": "Utilisez ROT13 en ligne pour encoder ou décoder un texte avec une rotation fixe de 13 lettres latines. Découvrez le fonctionnement de cette variante classique et auto-inverse du chiffre de César."
+        }
+    },
+    "blocks": [
+        {
+            "id": 93,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Comment fonctionne ROT13",
+                "text": "<p>ROT13 est une version particulière du chiffre de César dans laquelle les lettres latines sont toujours décalées exactement de 13 positions. A devient N, B devient O, C devient P, et ainsi de suite. Après M, l'alphabet reprend au début avec A.</p><p>Comme l'alphabet anglais contient 26 lettres et que 13 correspond exactement à la moitié de ce cycle, appliquer ROT13 deux fois restaure le message original. La même opération sert donc à la fois à encoder et à décoder.</p><p>ROT13 ne modifie que les lettres latines. Les chiffres, espaces, signes de ponctuation et la plupart des symboles restent inchangés.</p>"
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 11,
+            "published": true,
+            "data": {
+                "title": "Exemple ROT13 pour l'alphabet latin",
+                "text": "<p>Sur une page en français, il est important de préciser que le ROT13 classique est défini sur les 26 lettres latines utilisées par l'anglais. La transformation se visualise comme des paires de lettres séparées de 13 positions, et cette substitution est sa propre inverse :</p><div class=\"cipher-visual cipher-visual--rot13\"><div class=\"cipher-visual__row cipher-visual__rot13-row--src\"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span></div><div class=\"cipher-visual__rot13-sep\"><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span><span>↕</span></div><div class=\"cipher-visual__row cipher-visual__rot13-row--dst\"><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span></div></div><p>Par exemple, <code>BONJOUR MONDE</code> devient <code>OBAWBHE ZBAQR</code>. En appliquant ROT13 une seconde fois, on retrouve le texte d'origine.</p>"
+            }
+        },
+        {
+            "id": 95,
+            "sort_order": 12,
+            "published": true,
+            "data": {
+                "title": "ROT13 et sécurité",
+                "text": "<p>Selon les standards modernes, ROT13 n'est pas considéré comme un chiffrement sûr. Il n'utilise aucune clé secrète, et toute personne connaissant la méthode peut l'inverser immédiatement.</p><p>Son objectif est l'obfuscation légère, pas la protection. On l'utilise souvent pour masquer des spoilers, des réponses d'énigmes, des blagues ou du contenu qui ne doit pas être visible immédiatement sans action volontaire.</p>"
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 13,
+            "published": true,
+            "data": {
+                "title": "ROT13 et chiffre de César",
+                "text": "<p>ROT13 est en pratique un chiffre de César avec un décalage fixe de 13. Contrairement à un chiffre de César classique, il ne possède ni clé configurable ni valeur de décalage réglable.</p><p>Cette simplicité rend ROT13 facile à utiliser et à reconnaître, mais aussi inadapté à toute situation qui exige une véritable confidentialité.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 197,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "ROT13 est-il un chiffrement sûr ?",
+                "answer": "Non. ROT13 est une technique simple d'obfuscation, pas un chiffrement sécurisé. Il n'utilise aucune clé secrète et peut être inversé immédiatement avec la même opération."
+            }
+        },
+        {
+            "id": 198,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi ROT13 utilise-t-il le nombre 13 ?",
+                "answer": "L'alphabet latin utilisé par cette méthode comporte 26 lettres. Un décalage de 13 déplace chaque lettre exactement à mi-chemin dans le cycle alphabétique, ce qui rend la transformation auto-inverse."
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Pourquoi appliquer ROT13 deux fois restaure-t-il le texte original ?",
+                "answer": "Chaque lettre est décalée de 13 positions. La seconde application ajoute encore 13 positions, complétant ainsi un cycle de 26 lettres et ramenant chaque lettre à son point de départ."
+            }
+        },
+        {
+            "id": 200,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "ROT13 fonctionne-t-il avec les chiffres et la ponctuation ?",
+                "answer": "Les chiffres, espaces, signes de ponctuation et la plupart des symboles ne sont pas transformés. ROT13 ne fait tourner que les lettres latines."
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Où utilise-t-on couramment ROT13 ?",
+                "answer": "ROT13 est souvent utilisé pour les textes contenant des spoilers, les indices d'énigmes, les blagues sur internet et les situations où un contenu doit être masqué sans réelle sécurité."
+            }
+        },
+        {
+            "id": 202,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "ROT13 est-il identique au chiffre de César ?",
+                "answer": "ROT13 est une variante précise du chiffre de César qui utilise toujours un décalage de 13. Un chiffre de César traditionnel peut utiliser de nombreuses valeurs de décalage différentes."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 87,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder BONJOUR",
+                "key": "",
+                "shift": 0,
+                "input": "BONJOUR MONDE",
+                "output": "OBAWBHE ZBAQR",
+                "description": "ROT13 décale chaque lettre latine de 13 positions tout en conservant les espaces et la ponctuation."
+            }
+        },
+        {
+            "id": 88,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Décoder un texte ROT13",
+                "key": "",
+                "shift": 0,
+                "input": "OBAWBHE ZBAQR",
+                "output": "BONJOUR MONDE",
+                "description": "Appliquer de nouveau la même transformation ROT13 restaure le message original."
+            }
+        },
+        {
+            "id": 89,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder un spoiler",
+                "key": "",
+                "shift": 0,
+                "input": "LE HEROS REVIENT",
+                "output": "YR UREBF ERIVRAG",
+                "description": "ROT13 sert souvent à masquer des spoilers tout en permettant aux lecteurs de les décoder facilement."
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "data": {
+                "title": "Encoder un indice d'énigme",
+                "key": "",
+                "shift": 0,
+                "input": "REGARDE SOUS LA TABLE",
+                "output": "ERTNEQR FBHF YN GNOYR",
+                "description": "Les créateurs d'énigmes utilisent parfois ROT13 pour cacher des indices sans clé secrète."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 137,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Variante du chiffre de César"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiffre auto-inverse"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Obfuscation de texte"
+            }
+        },
+        {
+            "id": 140,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Encodage ROT13"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

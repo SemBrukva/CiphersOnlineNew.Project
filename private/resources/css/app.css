@@ -4075,3 +4075,45 @@ a:focus .nav-fav-count {
     font-size: 9px;
   }
 }
+
+/* ─── ROT13 visual ─────────────────────────────────────── */
+
+.cipher-visual--rot13 {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+.cipher-visual--rot13 .cipher-visual__rot13-row--src span {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--accent);
+}
+
+.cipher-visual__rot13-sep {
+  display: flex;
+  gap: 2px;
+}
+
+.cipher-visual__rot13-sep span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 20px;
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--co-text-muted);
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .cipher-visual__rot13-sep span {
+    width: 30px;
+  }
+}
