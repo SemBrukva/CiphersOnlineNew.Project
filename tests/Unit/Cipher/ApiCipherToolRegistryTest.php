@@ -23,6 +23,8 @@ use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
+use App\Cipher\PolybiusSquareApiCipherTool;
+use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\VernamApiCipherTool;
@@ -73,7 +75,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new BaconApiCipherTool(new BaconCipherService()),
             new A1z26ApiCipherTool(new A1z26CipherService()),
             new RailFenceApiCipherTool(new RailFenceCipherService()),
-            new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService())
+            new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),
+            new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService())
         );
     }
 }

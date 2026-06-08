@@ -13,6 +13,7 @@ use App\Cipher\CaesarCipherService;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\PlayfairCipherService;
+use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VernamCipherService;
@@ -46,6 +47,8 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('rail-fence', $registry->apiAction('classical-ciphers/railfence'));
         self::assertSame('columnar-transposition', $registry->apiAction('classical-ciphers/columnar-transposition'));
         self::assertSame('columnar-transposition', $registry->apiAction('classical-ciphers/stolbcovyj-shifr-perestanovki'));
+        self::assertSame('polybius-square', $registry->apiAction('classical-ciphers/polybius-square'));
+        self::assertSame('polybius-square', $registry->apiAction('classical-ciphers/kvadrat-polibiya'));
     }
 
     /**
@@ -89,7 +92,8 @@ final class ToolRegistryTest extends TestCase
             new BaconCipherService(),
             new A1z26CipherService(),
             new RailFenceCipherService(),
-            new ColumnarTranspositionCipherService()
+            new ColumnarTranspositionCipherService(),
+            new PolybiusSquareCipherService()
         );
     }
 }

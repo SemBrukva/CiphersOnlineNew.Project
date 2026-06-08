@@ -4036,3 +4036,42 @@ a:focus .nav-fav-count {
     font-size: 12px;
   }
 }
+
+/* ─── Polybius Square visual ─────────────────────────────────────── */
+
+.cipher-visual--polybius {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+.cipher-visual--polybius .cipher-visual__row:first-child {
+  margin-bottom: 4px;
+}
+
+.cipher-visual--polybius .cipher-visual__coord {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--accent);
+}
+
+.cipher-visual--polybius .cipher-visual__row .cipher-visual__corner {
+  background: transparent;
+  border-color: transparent;
+}
+
+.cipher-visual--polybius .cipher-visual__cell--sm {
+  font-size: 11px;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 480px) {
+  .cipher-visual--polybius .cipher-visual__cell--sm {
+    font-size: 9px;
+  }
+}

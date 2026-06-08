@@ -351,6 +351,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование квадратом Полибия через API.
+     *
+     * POST /api/tools/polybius-square
+     */
+    #[ApiOperation(summary: 'Квадрат Полибия', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function polybiusSquare(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'polybius-square');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

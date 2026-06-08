@@ -324,6 +324,13 @@ return [
     'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Metin zorunludur.',
     'COLUMNAR_ERR_KEY_MIN'             => 'Anahtar en az :min karakter olmalıdır.',
     'COLUMNAR_ERR_KEY_MAX'             => 'Anahtar en fazla :max karakter olmalıdır.',
+    // Polybius Square
+    'POLYBIUS_ERR_INVALID'             => 'Geçersiz giriş verisi.',
+    'POLYBIUS_ERR_DIRECTION'           => 'Yön encrypt veya decrypt olmalıdır.',
+    'POLYBIUS_ERR_TEXT_REQUIRED'       => 'Metin zorunludur.',
+    'POLYBIUS_ERR_ALPHABET_UNSUPPORTED' => 'Desteklenmeyen alfabe.',
+    'POLYBIUS_ERR_DELIMITER'           => 'Sınırlayıcı dash, space, comma, slash veya dot olmalıdır.',
+    'POLYBIUS_ERR_TEXT_ALPHABET'       => 'Metin, seçilen alfabenin karakterlerini içermiyor.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
     'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',

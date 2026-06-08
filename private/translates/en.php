@@ -347,6 +347,13 @@ return [
     'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Text is required.',
     'COLUMNAR_ERR_KEY_MIN'             => 'Key must be at least :min characters.',
     'COLUMNAR_ERR_KEY_MAX'             => 'Key must be at most :max characters.',
+    // Polybius Square
+    'POLYBIUS_ERR_INVALID'             => 'The given data was invalid.',
+    'POLYBIUS_ERR_DIRECTION'           => 'Direction must be encrypt or decrypt.',
+    'POLYBIUS_ERR_TEXT_REQUIRED'       => 'Text is required.',
+    'POLYBIUS_ERR_ALPHABET_UNSUPPORTED' => 'Unsupported alphabet.',
+    'POLYBIUS_ERR_DELIMITER'           => 'Delimiter must be dash, space, comma, slash or dot.',
+    'POLYBIUS_ERR_TEXT_ALPHABET'       => 'Input does not contain characters from the selected alphabet.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
     'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',

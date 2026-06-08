@@ -119,6 +119,8 @@ export class ApiClient {
         'rail-fence': (data) => this.#request('POST', '/tools/rail-fence', data),
         /** POST /api/tools/columnar-transposition */
         'columnar-transposition': (data) => this.#request('POST', '/tools/columnar-transposition', data),
+        /** POST /api/tools/polybius-square */
+        'polybius-square': (data) => this.#request('POST', '/tools/polybius-square', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

@@ -347,6 +347,13 @@ return [
     'COLUMNAR_ERR_TEXT_REQUIRED'       => 'Текст обязателен.',
     'COLUMNAR_ERR_KEY_MIN'             => 'Ключ должен содержать не меньше :min символов.',
     'COLUMNAR_ERR_KEY_MAX'             => 'Ключ должен содержать не больше :max символов.',
+    // Polybius Square
+    'POLYBIUS_ERR_INVALID'             => 'Некорректные входные данные.',
+    'POLYBIUS_ERR_DIRECTION'           => 'Направление должно быть encrypt или decrypt.',
+    'POLYBIUS_ERR_TEXT_REQUIRED'       => 'Текст обязателен.',
+    'POLYBIUS_ERR_ALPHABET_UNSUPPORTED' => 'Выбранный алфавит не поддерживается.',
+    'POLYBIUS_ERR_DELIMITER'           => 'Разделитель должен быть dash, space, comma, slash или dot.',
+    'POLYBIUS_ERR_TEXT_ALPHABET'       => 'Текст не содержит символов выбранного алфавита.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
     'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',

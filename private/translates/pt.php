@@ -324,6 +324,13 @@ return [
     'COLUMNAR_ERR_TEXT_REQUIRED'       => 'O texto é obrigatório.',
     'COLUMNAR_ERR_KEY_MIN'             => 'A chave deve ter pelo menos :min caracteres.',
     'COLUMNAR_ERR_KEY_MAX'             => 'A chave deve ter no máximo :max caracteres.',
+    // Polybius Square
+    'POLYBIUS_ERR_INVALID'             => 'Dados de entrada inválidos.',
+    'POLYBIUS_ERR_DIRECTION'           => 'A direção deve ser encrypt ou decrypt.',
+    'POLYBIUS_ERR_TEXT_REQUIRED'       => 'O texto é obrigatório.',
+    'POLYBIUS_ERR_ALPHABET_UNSUPPORTED' => 'Alfabeto não suportado.',
+    'POLYBIUS_ERR_DELIMITER'           => 'O delimitador deve ser dash, space, comma, slash ou dot.',
+    'POLYBIUS_ERR_TEXT_ALPHABET'       => 'O texto não contém caracteres do alfabeto selecionado.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Codificação de binário para texto',
     'BASE64_TRUST_USES'                => 'Amplamente usado em APIs, e-mails e web',

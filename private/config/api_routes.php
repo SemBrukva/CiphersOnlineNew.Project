@@ -121,6 +121,13 @@ return [
         'name'       => 'api.tools.columnar_transposition',
     ],
 
+    'POST /tools/polybius-square' => [
+        'controller' => GuestController::class,
+        'method'     => 'polybiusSquare',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.polybius_square',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',
