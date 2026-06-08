@@ -330,7 +330,7 @@ return [
     'POLYBIUS_ERR_TEXT_REQUIRED'       => 'Il testo è obbligatorio.',
     'POLYBIUS_ERR_ALPHABET_UNSUPPORTED' => 'Alfabeto non supportato.',
     'POLYBIUS_ERR_DELIMITER'           => 'Il delimitatore deve essere dash, space, comma, slash o dot.',
-    'POLYBIUS_ERR_TEXT_ALPHABET'       => 'Il testo non contiene caratteri dell'alfabeto selezionato.',
+    'POLYBIUS_ERR_TEXT_ALPHABET'       => 'Il testo non contiene caratteri dell\'alfabeto selezionato.',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Codifica da binario a testo',
     'BASE64_TRUST_USES'                => 'Ampiamente usato in API, email e web',
