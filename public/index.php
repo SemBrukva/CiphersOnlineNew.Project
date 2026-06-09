@@ -50,7 +50,7 @@ $adminPath   = config('admin.path', '/admin');
         'contentType' => null,
         'isApi' => true,
     ],
-    in_array($requestPath, ['/sitemap.xml', '/sitemap.xsl'], true) => [
+    in_array($requestPath, ['/sitemap.xml', '/sitemap.xsl', '/llms.txt'], true) => [
         'router' => app(Router::class),
         'middleware' => [
             TrustedProxyMiddleware::class,

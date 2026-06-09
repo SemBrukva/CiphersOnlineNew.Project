@@ -12,6 +12,7 @@ use App\Controller\ContactsController;
 use App\Controller\FavoritesController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
+use App\Controller\LlmsController;
 use App\Controller\SitemapController;
 use App\Http\Middleware\AuthMiddleware;
 
@@ -70,6 +71,12 @@ return [
         'controller' => SitemapController::class,
         'method'     => 'xml',
         'name'       => 'sitemap.xml',
+    ],
+
+    'GET /llms.txt' => [
+        'controller' => LlmsController::class,
+        'method'     => 'index',
+        'name'       => 'llms.txt',
     ],
 
     'GET /sitemap.xsl' => [
