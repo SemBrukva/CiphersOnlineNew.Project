@@ -218,7 +218,7 @@
             {foreach $examples as $example}
                 <article class="b64-example-card">
                     {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
-                    {if $example.matrix_key}
+                    {if $example.matrix_key|default:false}
                     <div class="b64-example-card__matrix-key">
                         <span class="b64-example-card__matrix-key-label">{$tool_ui.exampleKeyLabel|default:'Key'}</span>
                         <div class="b64-example-card__matrix" style="--mc: {$example.matrix_key|count};">
@@ -229,7 +229,7 @@
                             {/foreach}
                         </div>
                     </div>
-                    {elseif $example.key}
+                    {elseif $example.key|default:''}
                     <span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code></span>
                     {/if}
                     {if $example.shift|default:0}<span class="b64-example-card__key-badge">Shift: <code>{$example.shift|escape}</code></span>{/if}
