@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-09T09:42:42+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "hill",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 25,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 25,
+        "data": {
+            "name": "Chiffre de Hill",
+            "name_short": "Chiffre de Hill",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre de Hill à l’aide d’une matrice clé numérique inversible. Découvrez comment fonctionne une substitution polygraphique classique fondée sur les matrices, modulo la taille de l’alphabet.",
+            "description_stort": "Chiffre de substitution polygraphique fondé sur les matrices.",
+            "meta_title": "Chiffre de Hill en ligne : chiffrer et déchiffrer",
+            "meta_description": "Utilisez le chiffre de Hill en ligne avec une matrice clé inversible 2x2 ou 3x3. Chiffrez, déchiffrez et comprenez la cryptographie classique fondée sur les matrices modulo la taille de l’alphabet."
+        }
+    },
+    "blocks": [
+        {
+            "id": 97,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Hill",
+                "text": "<p>Le chiffre de Hill est un chiffre de substitution polygraphique classique fondé sur l’algèbre linéaire. Au lieu de chiffrer une lettre à la fois, il regroupe le texte en blocs de taille fixe et traite chaque bloc comme un vecteur de nombres.</p><p>La clé est une matrice numérique carrée. Lors du chiffrement, chaque vecteur de texte clair est multiplié par la matrice clé, puis le résultat est réduit modulo la taille de l’alphabet choisi. Pour l’alphabet français de cet outil, cela signifie modulo 40.</p><p>Par exemple, une matrice 2x2 chiffre le texte par paires de lettres, tandis qu’une matrice 3x3 le chiffre par groupes de trois. Le déchiffrement utilise la matrice inverse modulo la même taille d’alphabet.</p>"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Exemple de matrice clé",
+                "text": "<p>La matrice clé peut être saisie directement dans l’éditeur de matrices. La taille de la matrice détermine combien de lettres sont traitées ensemble à chaque étape du chiffrement.</p>\n\n<ul>\n<li>Matrice 2x2 → chiffre des paires de lettres</li>\n<li>Matrice 3x3 → chiffre des groupes de trois lettres</li>\n<li>Matrice 4x4 → chiffre des groupes de quatre lettres</li>\n<li>Matrice 5x5 → chiffre des groupes de cinq lettres</li>\n</ul>\n\n<p>L’outil vérifie automatiquement si la matrice est inversible modulo la taille de l’alphabet sélectionné et affiche l’état du déterminant avant le chiffrement.</p>"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Pourquoi la matrice doit être inversible",
+                "text": "<p>Le chiffre de Hill dépend d’une multiplication matricielle réversible. Pour déchiffrer un message, l’outil doit calculer l’inverse de la matrice clé modulo la taille de l’alphabet.</p><p>Une matrice n’est utilisable que lorsque son déterminant est premier avec la taille de l’alphabet. Pour l’alphabet français de cet outil, le module est 40 : le déterminant ne doit donc pas avoir de facteur commun avec 40. Si cette condition échoue, plusieurs blocs de texte clair peuvent produire le même bloc de texte chiffré, ce qui rend le déchiffrement fiable impossible.</p>"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Chiffre de Hill et sécurité moderne",
+                "text": "<p>Le chiffre de Hill a été une étape importante de la cryptographie classique, car il a introduit les opérations matricielles et le chiffrement de plusieurs lettres à la fois. Il résiste donc mieux à une analyse fréquentielle simple que de nombreuses substitutions monoalphabétiques.</p><p>Cependant, le chiffre de Hill n’est pas sûr selon les critères modernes. Si l’on connaît suffisamment de paires texte clair/texte chiffré, la matrice clé peut souvent être retrouvée. Aujourd’hui, il sert surtout à l’apprentissage, aux mathématiques, aux énigmes et aux démonstrations d’algèbre linéaire en cryptographie.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Pourquoi la matrice doit-elle être inversible ?",
+                "answer": "Le déchiffrement nécessite l’inverse de la matrice clé modulo la taille de l’alphabet. Si le déterminant n’est pas premier avec cette taille, l’inverse n’existe pas et le texte chiffré ne peut pas être déchiffré de manière fiable."
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quel format de clé faut-il utiliser ?",
+                "answer": "Saisissez les lignes de nombres en les séparant par des points-virgules, par exemple 3 4; 5 7. Une liste plate comme 3, 4, 5, 7 est également acceptée si elle forme une matrice carrée."
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quelles tailles de matrice utilise-t-on couramment ?",
+                "answer": "Les exemples les plus courants du chiffre de Hill utilisent des matrices 2x2 ou 3x3. Une matrice 2x2 chiffre des paires de lettres, tandis qu’une matrice 3x3 chiffre des groupes de trois lettres."
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Que signifie modulo 40 dans les exemples français ?",
+                "answer": "Modulo 40 signifie que tous les résultats des calculs matriciels sont ramenés dans l’intervalle de l’alphabet français utilisé par cet outil. Chaque valeur numérique correspond ainsi de nouveau à une lettre."
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Que se passe-t-il si la longueur du message ne correspond pas à la taille de la matrice ?",
+                "answer": "Lors du chiffrement, des caractères de remplissage sont généralement ajoutés afin que le texte puisse être découpé en blocs complets. Par exemple, une matrice 2x2 nécessite des paires de lettres."
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Hill est-il sûr aujourd’hui ?",
+                "answer": "Non. Le chiffre de Hill est utile pour apprendre la cryptographie classique et les opérations matricielles, mais il peut être cassé par des méthodes modernes, surtout lorsque des exemples de texte clair et de texte chiffré sont connus."
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Hill est-il un chiffre de substitution ?",
+                "answer": "Oui. C’est un chiffre de substitution polygraphique, car il remplace des groupes de lettres plutôt que des lettres individuelles."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer avec une matrice 2x2",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "NOËL",
+                "output": "ŸÙÜW",
+                "description": "Exemple de base du chiffre de Hill avec une matrice clé 2x2 inversible pour l’alphabet français. Le texte est chiffré par paires de lettres."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Déchiffrer avec la même matrice",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "ŸÙÜW",
+                "output": "NOËL",
+                "description": "La même matrice clé est inversée modulo 40 pour retrouver le texte clair français d’origine."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer un message plus long",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "FORÊT",
+                "output": "ÉMÀÇÙY",
+                "description": "Une matrice 2x2 traite le message par paires de lettres : FO, RÊ et T avec un caractère de remplissage ajouté."
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Chiffrer avec une matrice 3x3",
+                "key": "1 2 3; 0 1 4; 5 6 0",
+                "shift": 0,
+                "input": "AOÛ",
+                "output": "NÙJ",
+                "description": "Exemple du chiffre de Hill avec une matrice 3x3. Le bloc de texte clair AOÛ est multiplié par la matrice clé modulo 40."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 142,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre matriciel"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Substitution polygraphique"
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Algèbre linéaire"
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Arithmétique modulaire"
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

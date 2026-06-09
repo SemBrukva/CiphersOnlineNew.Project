@@ -123,6 +123,8 @@ export class ApiClient {
         'columnar-transposition': (data) => this.#request('POST', '/tools/columnar-transposition', data),
         /** POST /api/tools/polybius-square */
         'polybius-square': (data) => this.#request('POST', '/tools/polybius-square', data),
+        /** POST /api/tools/hill */
+        hill: (data) => this.#request('POST', '/tools/hill', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

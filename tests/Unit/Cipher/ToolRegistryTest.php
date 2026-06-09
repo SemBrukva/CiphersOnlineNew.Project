@@ -12,6 +12,7 @@ use App\Cipher\BeaufortCipherService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldCipherService;
+use App\Cipher\HillCipherService;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceCipherService;
@@ -52,6 +53,8 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('columnar-transposition', $registry->apiAction('classical-ciphers/stolbcovyj-shifr-perestanovki'));
         self::assertSame('polybius-square', $registry->apiAction('classical-ciphers/polybius-square'));
         self::assertSame('polybius-square', $registry->apiAction('classical-ciphers/kvadrat-polibiya'));
+        self::assertSame('hill', $registry->apiAction('classical-ciphers/hill'));
+        self::assertSame('hill', $registry->apiAction('classical-ciphers/shifr-hilla'));
     }
 
     /**
@@ -97,7 +100,8 @@ final class ToolRegistryTest extends TestCase
             new A1z26CipherService(),
             new RailFenceCipherService(),
             new ColumnarTranspositionCipherService(),
-            new PolybiusSquareCipherService()
+            new PolybiusSquareCipherService(),
+            new HillCipherService()
         );
     }
 }

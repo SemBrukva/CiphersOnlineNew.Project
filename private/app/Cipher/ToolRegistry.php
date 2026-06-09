@@ -28,7 +28,8 @@ final readonly class ToolRegistry
         private A1z26CipherService $a1z26Cipher,
         private RailFenceCipherService $railFenceCipher,
         private ColumnarTranspositionCipherService $columnarTranspositionCipher,
-        private PolybiusSquareCipherService $polybiusSquareCipher
+        private PolybiusSquareCipherService $polybiusSquareCipher,
+        private HillCipherService $hillCipher
     ) {
     }
 
@@ -148,6 +149,11 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => '7', 'shift' => 3],
                 ['label' => 'Decode',   'value' => 'IHHWVC SWFRCP', 'alphabet' => 'en', 'key' => '5', 'shift' => 8, 'direction' => 'decrypt'],
             ],
+            'classical-ciphers/hill' => [
+                ['label' => 'Classic',  'value' => 'HELP',          'alphabet' => 'en', 'key' => '3 3; 2 5'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => '3 3; 2 5'],
+                ['label' => 'Decode',   'value' => 'HIAT',          'alphabet' => 'en', 'key' => '3 3; 2 5', 'direction' => 'decrypt'],
+            ],
             default => [],
         };
     }
@@ -174,6 +180,7 @@ final readonly class ToolRegistry
             'classical-ciphers/rail-fence' => 'rail-fence',
             'classical-ciphers/columnar-transposition' => 'columnar-transposition',
             'classical-ciphers/polybius-square' => 'polybius-square',
+            'classical-ciphers/hill' => 'hill',
             default => null,
         };
     }
@@ -202,6 +209,7 @@ final readonly class ToolRegistry
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getToolSettings(),
             'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getToolSettings(),
             'classical-ciphers/polybius-square' => $this->polybiusSquareCipher->getToolSettings(),
+            'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
             default => [],
         };
     }
@@ -228,6 +236,7 @@ final readonly class ToolRegistry
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getTrustItems($calculationMode),
             'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getTrustItems($calculationMode),
             'classical-ciphers/polybius-square' => $this->polybiusSquareCipher->getTrustItems($calculationMode),
+            'classical-ciphers/hill' => $this->hillCipher->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),
@@ -313,6 +322,14 @@ final readonly class ToolRegistry
     }
 
     /**
+     * Возвращает true, если ключ примеров данного инструмента является матрицей.
+     */
+    public function exampleKeyIsMatrix(string $toolSlug): bool
+    {
+        return $this->canonicalSlug($toolSlug) === 'classical-ciphers/hill';
+    }
+
+    /**
      * Нормализует slug с учётом алиасов.
      */
     private function canonicalSlug(string $toolSlug): string
@@ -331,6 +348,7 @@ final readonly class ToolRegistry
             'classical-ciphers/columnar', 'classical-ciphers/columnar-transposition-cipher', 'classical-ciphers/stolbcovyj-shifr-perestanovki' => 'classical-ciphers/columnar-transposition',
             'classical-ciphers/polybius', 'classical-ciphers/polybius-square-cipher', 'classical-ciphers/kvadrat-polibiya' => 'classical-ciphers/polybius-square',
             'classical-ciphers/affinnyj-shifr', 'classical-ciphers/shifr-affine' => 'classical-ciphers/affine',
+            'classical-ciphers/hill-cipher', 'classical-ciphers/shifr-hilla' => 'classical-ciphers/hill',
             default => $toolSlug,
         };
     }

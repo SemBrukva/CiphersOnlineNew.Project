@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-09T09:42:42+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "hill",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 25,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 25,
+        "data": {
+            "name": "Hill-Chiffre",
+            "name_short": "Hill-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text mit der Hill-Chiffre und einer invertierbaren numerischen Schlüsselmatrix. Lernen Sie, wie klassische matrixbasierte polygraphische Substitution modulo der Alphabetgröße funktioniert.",
+            "description_stort": "Matrixbasierte polygraphische Substitutionschiffre.",
+            "meta_title": "Hill-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die Hill-Chiffre online mit einer invertierbaren 2x2- oder 3x3-Schlüsselmatrix. Verschlüsseln, entschlüsseln und verstehen Sie klassische matrixbasierte Kryptografie modulo der Alphabetgröße."
+        }
+    },
+    "blocks": [
+        {
+            "id": 97,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Hill-Chiffre funktioniert",
+                "text": "<p>Die Hill-Chiffre ist eine klassische polygraphische Substitutionschiffre auf Grundlage der linearen Algebra. Statt Buchstaben einzeln zu verschlüsseln, fasst sie den Text zu Blöcken fester Länge zusammen und behandelt jeden Block als Zahlenvektor.</p><p>Der Schlüssel ist eine quadratische numerische Matrix. Bei der Verschlüsselung wird jeder Klartextvektor mit der Schlüsselmatrix multipliziert; das Ergebnis wird modulo der Größe des gewählten Alphabets reduziert. Für das deutsche Alphabet in diesem Werkzeug bedeutet das Modulo 30.</p><p>Eine 2x2-Matrix verschlüsselt beispielsweise Buchstabenpaare, während eine 3x3-Matrix Dreiergruppen verarbeitet. Zum Entschlüsseln wird die inverse Matrix modulo derselben Alphabetgröße verwendet.</p>"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Beispiel für eine Schlüsselmatrix",
+                "text": "<p>Die Schlüsselmatrix kann direkt im Matrix-Editor eingegeben werden. Die Matrixgröße legt fest, wie viele Buchstaben bei jedem Rechenschritt gemeinsam verarbeitet werden.</p>\n\n<ul>\n<li>2x2-Matrix → verschlüsselt Buchstabenpaare</li>\n<li>3x3-Matrix → verschlüsselt Dreiergruppen</li>\n<li>4x4-Matrix → verschlüsselt Vierergruppen</li>\n<li>5x5-Matrix → verschlüsselt Fünfergruppen</li>\n</ul>\n\n<p>Das Werkzeug prüft automatisch, ob die Matrix modulo der ausgewählten Alphabetgröße invertierbar ist, und zeigt vor der Verschlüsselung den Status der Determinante an.</p>"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Warum die Matrix invertierbar sein muss",
+                "text": "<p>Die Hill-Chiffre beruht auf umkehrbarer Matrixmultiplikation. Um eine Nachricht zu entschlüsseln, muss das Werkzeug die inverse Schlüsselmatrix modulo der Alphabetgröße berechnen.</p><p>Eine Matrix ist nur dann verwendbar, wenn ihre Determinante teilerfremd zur Alphabetgröße ist. Beim deutschen Alphabet dieses Werkzeugs ist die Alphabetgröße 30; die Determinante darf also keinen gemeinsamen Teiler mit 30 haben. Ist diese Bedingung nicht erfüllt, können verschiedene Klartextblöcke denselben Geheimtextblock erzeugen, wodurch zuverlässige Entschlüsselung unmöglich wird.</p>"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hill-Chiffre und moderne Sicherheit",
+                "text": "<p>Die Hill-Chiffre war ein wichtiger Schritt in der klassischen Kryptografie, weil sie Matrixoperationen nutzte und mehrere Buchstaben auf einmal verschlüsselte. Dadurch widersteht sie einfacher Häufigkeitsanalyse besser als viele monoalphabetische Substitutionschiffren.</p><p>Nach heutigen Maßstäben ist die Hill-Chiffre jedoch nicht sicher. Wenn genügend Paare aus Klartext und Geheimtext bekannt sind, lässt sich die Schlüsselmatrix oft rekonstruieren. Heute wird sie vor allem für Unterricht, Mathematik, Rätsel und Demonstrationen linearer Algebra in der Kryptografie verwendet.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Warum muss die Matrix invertierbar sein?",
+                "answer": "Für die Entschlüsselung wird die inverse Schlüsselmatrix modulo der Alphabetgröße benötigt. Wenn die Determinante nicht teilerfremd zu dieser Größe ist, existiert keine inverse Matrix und der Geheimtext kann nicht zuverlässig entschlüsselt werden."
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Welches Schlüsselformat soll ich verwenden?",
+                "answer": "Geben Sie Zahlenzeilen ein und trennen Sie die Zeilen mit Semikolons, zum Beispiel 3 4; 5 7. Auch eine flache Liste wie 3, 4, 5, 7 wird akzeptiert, wenn daraus eine quadratische Matrix entsteht."
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Welche Matrixgrößen sind üblich?",
+                "answer": "In Beispielen zur Hill-Chiffre werden meist 2x2- oder 3x3-Matrizen verwendet. Eine 2x2-Matrix verschlüsselt Buchstabenpaare, eine 3x3-Matrix Gruppen aus drei Buchstaben."
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was bedeutet Modulo 30 in den deutschen Beispielen?",
+                "answer": "Modulo 30 bedeutet, dass alle Ergebnisse der Matrixrechnung in den Bereich des deutschen Alphabets dieses Werkzeugs zurückgeführt werden. So entspricht jeder Zahlenwert wieder einem Buchstaben."
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Was passiert, wenn die Nachrichtenlänge nicht zur Matrixgröße passt?",
+                "answer": "Bei der Verschlüsselung werden normalerweise Füllzeichen ergänzt, damit der Text in vollständige Blöcke aufgeteilt werden kann. Eine 2x2-Matrix benötigt zum Beispiel Buchstabenpaare."
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Ist die Hill-Chiffre heute sicher?",
+                "answer": "Nein. Die Hill-Chiffre eignet sich gut zum Lernen klassischer Kryptografie und Matrixoperationen, kann aber mit modernen Methoden gebrochen werden, besonders wenn Klartext- und Geheimtextbeispiele bekannt sind."
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Ist die Hill-Chiffre eine Substitutionschiffre?",
+                "answer": "Ja. Sie ist eine polygraphische Substitutionschiffre, weil sie Gruppen von Buchstaben statt einzelner Buchstaben ersetzt."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mit einer 2x2-Matrix verschlüsseln",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "MÄRZ",
+                "output": "NNVÄ",
+                "description": "Ein grundlegendes Beispiel der Hill-Chiffre mit einer invertierbaren 2x2-Matrix für das deutsche Alphabet. Der Text wird paarweise verschlüsselt."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mit derselben Matrix entschlüsseln",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "NNVÄ",
+                "output": "MÄRZ",
+                "description": "Dieselbe Schlüsselmatrix wird modulo 30 invertiert, um den ursprünglichen deutschen Klartext wiederherzustellen."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Eine längere Nachricht verschlüsseln",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "MÄRZTAG",
+                "output": "NNVÄEQIN",
+                "description": "Eine 2x2-Matrix verarbeitet die Nachricht als Buchstabenpaare: MÄ, RZ, TA und G mit einem ergänzten Füllzeichen."
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mit einer 3x3-Matrix verschlüsseln",
+                "key": "1 2 3; 0 1 4; 5 6 0",
+                "shift": 0,
+                "input": "ÄRA",
+                "output": "JRC",
+                "description": "Ein Beispiel der Hill-Chiffre mit einer 3x3-Matrix. Der Klartextblock ÄRA wird mit der Schlüsselmatrix modulo 30 multipliziert."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 142,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Matrixchiffre"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polygraphische Substitution"
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Lineare Algebra"
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Modulare Arithmetik"
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

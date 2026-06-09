@@ -57,7 +57,10 @@ final readonly class CipherController
 
         $blocks = $this->ciphers->findBlocksByCipherIdWithTranslation((int) $cipher['id'], $language, $defaultLanguage);
         $faq = $this->ciphers->findFaqByCipherIdWithTranslation((int) $cipher['id'], $language, $defaultLanguage);
-        $examples = $this->ciphers->findExamplesByCipherIdWithTranslation((int) $cipher['id'], $language, $defaultLanguage);
+        $examples = $this->enrichExamples(
+            $toolSlug = $categoryAlias.'/'.$cipherAlias,
+            $this->ciphers->findExamplesByCipherIdWithTranslation((int) $cipher['id'], $language, $defaultLanguage)
+        );
 
         $toolsInCategory = $this->ciphers->findPublishedByCategoryWithTranslation(
             (int) $cipher['category_id'],
@@ -71,7 +74,6 @@ final readonly class CipherController
 
         $title = (string) ($cipher['meta_title'] ?: $cipher['name']);
         $metaDescription = (string) ($cipher['meta_description'] ?: $cipher['description']);
-        $toolSlug = $categoryAlias.'/'.$cipherAlias;
         $toolUi = $this->buildToolUi(
             $toolSlug,
             (string) ($cipher['calculation_mode'] ?? 'client')
@@ -166,6 +168,35 @@ final readonly class CipherController
     private function buildToolSettings(string $toolSlug): array
     {
         return $this->toolRegistry->settings($toolSlug);
+    }
+
+    /**
+     * Добавляет поле `matrix_key` к примерам для инструментов с матричным ключом.
+     *
+     * @param  array<int, array<string, mixed>> $examples
+     * @return array<int, array<string, mixed>>
+     */
+    private function enrichExamples(string $toolSlug, array $examples): array
+    {
+        if (!$this->toolRegistry->exampleKeyIsMatrix($toolSlug)) {
+            return $examples;
+        }
+
+        foreach ($examples as &$example) {
+            $key = trim((string) ($example['key'] ?? ''));
+            if ($key === '') {
+                continue;
+            }
+            $rows = array_values(array_filter(array_map('trim', explode(';', $key))));
+            $example['matrix_key'] = array_map(
+                static fn(string $row): array => array_values(
+                    array_map('intval', preg_split('/\s+/u', trim($row)))
+                ),
+                $rows
+            );
+        }
+
+        return $examples;
     }
 
     /**

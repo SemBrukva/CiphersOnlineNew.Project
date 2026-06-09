@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-09T09:42:42+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "hill",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 25,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 25,
+        "data": {
+            "name": "Hill Cipher",
+            "name_short": "Hill Cipher",
+            "description": "Encrypt and decrypt text with the Hill cipher using an invertible numeric key matrix. Learn how classical matrix-based polygraphic substitution works modulo the alphabet size.",
+            "description_stort": "Matrix-based polygraphic substitution cipher.",
+            "meta_title": "Hill Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Hill cipher online with an invertible 2x2 or 3x3 key matrix. Encrypt, decrypt, and learn how matrix-based classical cryptography works modulo the alphabet size."
+        }
+    },
+    "blocks": [
+        {
+            "id": 97,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Hill cipher works",
+                "text": "<p>The Hill cipher is a classical polygraphic substitution cipher based on linear algebra. Instead of encrypting one letter at a time, it groups letters into fixed-size blocks and treats each block as a vector of numbers.</p><p>The key is a square numeric matrix. During encryption, each plaintext vector is multiplied by the key matrix, and the result is reduced modulo the alphabet size. For the English alphabet, this usually means modulo 26.</p><p>For example, a 2x2 key matrix encrypts text in pairs of letters, while a 3x3 matrix encrypts text in groups of three. Decryption uses the inverse of the key matrix modulo the same alphabet size.</p>"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Key matrix example",
+                "text": "<p>The key matrix can be entered directly in the matrix editor. The matrix size determines how many letters are processed together during encryption.</p>\n\n<ul>\n<li>2×2 matrix → encrypts pairs of letters</li>\n<li>3×3 matrix → encrypts groups of three letters</li>\n<li>4×4 matrix → encrypts groups of four letters</li>\n<li>5×5 matrix → encrypts groups of five letters</li>\n</ul>\n\n<p>The tool automatically validates whether the matrix is invertible modulo the selected alphabet size and shows the determinant status before encryption.</p>"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Why the matrix must be invertible",
+                "text": "<p>The Hill cipher depends on reversible matrix multiplication. To decrypt a message, the tool must calculate the inverse of the key matrix modulo the alphabet size.</p><p>A matrix is usable only when its determinant is coprime with the alphabet size. For modulo 26, this means the determinant must not share a common factor with 26. If this condition fails, different plaintext blocks may produce the same ciphertext block, making reliable decryption impossible.</p>"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hill cipher and modern security",
+                "text": "<p>The Hill cipher was an important step in classical cryptography because it introduced matrix operations and encrypted multiple letters at once. This made it more resistant to simple frequency analysis than many monoalphabetic substitution ciphers.</p><p>However, the Hill cipher is not secure by modern standards. If enough plaintext and ciphertext pairs are known, the key matrix can often be recovered. Today it is mainly used for education, mathematics, puzzles, and demonstrations of linear algebra in cryptography.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why must the matrix be invertible?",
+                "answer": "Decryption requires the inverse of the key matrix modulo the alphabet size. If the determinant is not coprime with that size, the inverse does not exist and the ciphertext cannot be reliably decrypted."
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What key format should I use?",
+                "answer": "Enter rows of numbers separated by semicolons, for example 3 3; 2 5. A flat list such as 3, 3, 2, 5 is also accepted when it forms a square matrix."
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What matrix sizes are commonly used?",
+                "answer": "The most common Hill cipher examples use 2x2 or 3x3 matrices. A 2x2 matrix encrypts pairs of letters, while a 3x3 matrix encrypts groups of three letters."
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What does modulo 26 mean in the Hill cipher?",
+                "answer": "Modulo 26 means that all matrix calculation results are wrapped into the range of the 26-letter English alphabet. This keeps every encrypted value mapped to a letter."
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What happens if the message length does not match the matrix size?",
+                "answer": "Hill cipher implementations usually add padding characters so the text can be split into complete blocks. For example, a 2x2 matrix requires pairs of letters."
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is the Hill cipher secure today?",
+                "answer": "No. The Hill cipher is useful for learning classical cryptography and matrix operations, but it can be broken with modern methods, especially when plaintext and ciphertext samples are known."
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is Hill cipher a substitution cipher?",
+                "answer": "Yes. It is a polygraphic substitution cipher because it substitutes groups of letters rather than single letters."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt with a 2x2 matrix",
+                "key": "3 3; 2 5",
+                "shift": 0,
+                "input": "HELP",
+                "output": "HIAT",
+                "description": "Classic Hill cipher example with an invertible 2x2 key matrix. Text is encrypted in pairs of letters."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decrypt with the same matrix",
+                "key": "3 3; 2 5",
+                "shift": 0,
+                "input": "HIAT",
+                "output": "HELP",
+                "description": "The same key matrix is inverted modulo 26 to restore the plaintext."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt a longer message",
+                "key": "3 3; 2 5",
+                "shift": 0,
+                "input": "MATRIX",
+                "output": "KYETPB",
+                "description": "A 2x2 key matrix processes the message as letter pairs: MA, TR, and IX."
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Encrypt with a 3x3 matrix",
+                "key": "6 24 1; 13 16 10; 20 17 15",
+                "shift": 0,
+                "input": "ACT",
+                "output": "POH",
+                "description": "Classic 3x3 Hill cipher example. The plaintext block ACT is multiplied by the key matrix modulo 26."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 142,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Matrix cipher"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polygraphic substitution"
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Linear algebra"
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Modulo arithmetic"
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

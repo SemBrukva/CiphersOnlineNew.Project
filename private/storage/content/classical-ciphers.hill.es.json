@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-09T09:42:42+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "hill",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 25,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 25,
+        "data": {
+            "name": "Cifrado de Hill",
+            "name_short": "Cifrado de Hill",
+            "description": "Cifra y descifra texto con el cifrado de Hill usando una matriz clave numérica invertible. Aprende cómo funciona la sustitución poligráfica clásica basada en matrices módulo el tamaño del alfabeto.",
+            "description_stort": "Cifrado de sustitución poligráfica basado en matrices.",
+            "meta_title": "Cifrado de Hill online: cifrar y descifrar",
+            "meta_description": "Usa el cifrado de Hill online con una matriz clave invertible de 2x2 o 3x3. Cifra, descifra y aprende cómo funciona la criptografía clásica basada en matrices módulo el tamaño del alfabeto."
+        }
+    },
+    "blocks": [
+        {
+            "id": 97,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado de Hill",
+                "text": "<p>El cifrado de Hill es un cifrado clásico de sustitución poligráfica basado en álgebra lineal. En lugar de cifrar una letra cada vez, agrupa el texto en bloques de tamaño fijo y trata cada bloque como un vector de números.</p><p>La clave es una matriz numérica cuadrada. Durante el cifrado, cada vector de texto claro se multiplica por la matriz clave y el resultado se reduce módulo el tamaño del alfabeto elegido. Para el alfabeto español de esta herramienta, esto significa módulo 27.</p><p>Por ejemplo, una matriz 2x2 cifra el texto en pares de letras, mientras que una matriz 3x3 lo cifra en grupos de tres. El descifrado usa la matriz inversa módulo el mismo tamaño de alfabeto.</p>"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Ejemplo de matriz clave",
+                "text": "<p>La matriz clave se puede introducir directamente en el editor de matrices. El tamaño de la matriz determina cuántas letras se procesan juntas en cada paso del cifrado.</p>\n\n<ul>\n<li>Matriz 2x2 → cifra pares de letras</li>\n<li>Matriz 3x3 → cifra grupos de tres letras</li>\n<li>Matriz 4x4 → cifra grupos de cuatro letras</li>\n<li>Matriz 5x5 → cifra grupos de cinco letras</li>\n</ul>\n\n<p>La herramienta valida automáticamente si la matriz es invertible módulo el tamaño del alfabeto seleccionado y muestra el estado del determinante antes de cifrar.</p>"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Por qué la matriz debe ser invertible",
+                "text": "<p>El cifrado de Hill depende de una multiplicación matricial reversible. Para descifrar un mensaje, la herramienta debe calcular la inversa de la matriz clave módulo el tamaño del alfabeto.</p><p>Una matriz solo es utilizable cuando su determinante es coprimo con el tamaño del alfabeto. En el alfabeto español de esta herramienta el módulo es 27, por lo que el determinante no debe compartir factores con 27. Si esta condición falla, distintos bloques de texto claro pueden producir el mismo bloque de texto cifrado, haciendo imposible un descifrado fiable.</p>"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Cifrado de Hill y seguridad moderna",
+                "text": "<p>El cifrado de Hill fue un paso importante en la criptografía clásica porque introdujo operaciones matriciales y cifró varias letras a la vez. Esto lo hace más resistente al análisis de frecuencias simple que muchas sustituciones monoalfabéticas.</p><p>Sin embargo, el cifrado de Hill no es seguro según los estándares modernos. Si se conocen suficientes pares de texto claro y texto cifrado, a menudo se puede recuperar la matriz clave. Hoy se usa sobre todo para educación, matemáticas, acertijos y demostraciones de álgebra lineal en criptografía.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Por qué la matriz debe ser invertible?",
+                "answer": "El descifrado requiere la inversa de la matriz clave módulo el tamaño del alfabeto. Si el determinante no es coprimo con ese tamaño, la inversa no existe y el texto cifrado no puede descifrarse de forma fiable."
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Qué formato de clave debo usar?",
+                "answer": "Introduce filas de números separadas por punto y coma, por ejemplo 3 4; 5 7. También se acepta una lista plana como 3, 4, 5, 7 si forma una matriz cuadrada."
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Qué tamaños de matriz se usan normalmente?",
+                "answer": "Los ejemplos más comunes del cifrado de Hill usan matrices 2x2 o 3x3. Una matriz 2x2 cifra pares de letras, mientras que una matriz 3x3 cifra grupos de tres letras."
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Qué significa módulo 27 en los ejemplos en español?",
+                "answer": "Módulo 27 significa que todos los resultados de los cálculos matriciales se ajustan al rango del alfabeto español de esta herramienta. Así cada valor numérico vuelve a corresponder a una letra."
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Qué ocurre si la longitud del mensaje no coincide con el tamaño de la matriz?",
+                "answer": "Durante el cifrado suelen añadirse caracteres de relleno para que el texto pueda dividirse en bloques completos. Por ejemplo, una matriz 2x2 necesita pares de letras."
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro hoy el cifrado de Hill?",
+                "answer": "No. El cifrado de Hill es útil para aprender criptografía clásica y operaciones matriciales, pero puede romperse con métodos modernos, sobre todo si se conocen muestras de texto claro y texto cifrado."
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿El cifrado de Hill es un cifrado de sustitución?",
+                "answer": "Sí. Es un cifrado de sustitución poligráfica porque sustituye grupos de letras en lugar de letras individuales."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar con una matriz 2x2",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "AÑIL",
+                "output": "CQÑJ",
+                "description": "Ejemplo básico del cifrado de Hill con una matriz clave 2x2 invertible para el alfabeto español. El texto se cifra en pares de letras."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Descifrar con la misma matriz",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "CQÑJ",
+                "output": "AÑIL",
+                "description": "La misma matriz clave se invierte módulo 27 para recuperar el texto claro original en español."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar un mensaje más largo",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "SUEÑO",
+                "output": "GZÑKGA",
+                "description": "Una matriz 2x2 procesa el mensaje como pares de letras: SU, EÑ y O con un carácter de relleno añadido."
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrar con una matriz 3x3",
+                "key": "1 2 3; 0 1 4; 5 6 0",
+                "shift": 0,
+                "input": "UÑA",
+                "output": "VÑA",
+                "description": "Ejemplo del cifrado de Hill con una matriz 3x3. El bloque de texto claro UÑA se multiplica por la matriz clave módulo 27."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 142,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado matricial"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Sustitución poligráfica"
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Álgebra lineal"
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Aritmética modular"
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -135,6 +135,13 @@ return [
         'name'       => 'api.tools.polybius_square',
     ],
 
+    'POST /tools/hill' => [
+        'controller' => GuestController::class,
+        'method'     => 'hill',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.hill',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

@@ -963,6 +963,18 @@
     color: var(--text-secondary);
 }
 
+.ciphers-category-hub-panel .panel-content ul,
+.ciphers-hub-panel .panel-content ul {
+  margin-bottom: 14px;
+}
+
+.ciphers-category-hub-panel .panel-content li,
+.ciphers-hub-panel .panel-content li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
 /* === FAQ Accordion === */
 .accordion {
   display: flex;
@@ -1813,6 +1825,182 @@ a:focus .nav-fav-count {
     background-color: rgba(255, 255, 255, 0.13);
     border-color: rgba(193, 255, 0, 0.45);
     box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.10);
+}
+
+.ciphers-settings-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 300px;
+}
+
+.ciphers-settings-matrix__toolbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.ciphers-settings-matrix__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ciphers-settings-matrix__group--status {
+    min-width: 190px;
+}
+
+.ciphers-settings-matrix__sizes {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ciphers-settings-matrix__size {
+    height: 34px;
+    min-width: 46px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.ciphers-settings-matrix__size:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.ciphers-settings-matrix__size--active {
+    background: var(--co-accent-dim);
+    border-color: rgba(193, 255, 0, 0.45);
+    color: var(--primary);
+}
+
+.ciphers-settings-matrix__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--matrix-size), minmax(44px, 60px));
+    gap: 7px;
+    width: fit-content;
+}
+
+.ciphers-settings-matrix__cell {
+    width: 100%;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.90);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.ciphers-settings-matrix__cell:focus {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(193, 255, 0, 0.45);
+    box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.10);
+}
+
+.ciphers-settings-matrix__cell {
+    -moz-appearance: textfield;
+    padding-right: 22px;
+}
+
+.ciphers-settings-matrix__cell::-webkit-inner-spin-button,
+.ciphers-settings-matrix__cell::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.ciphers-matrix-cell-wrap {
+    position: relative;
+}
+
+.ciphers-matrix-cell-spinners {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+}
+
+.ciphers-matrix-cell-wrap:hover .ciphers-matrix-cell-spinners,
+.ciphers-matrix-cell-wrap:focus-within .ciphers-matrix-cell-spinners {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.ciphers-matrix-cell-spinner {
+    width: 16px;
+    height: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.ciphers-matrix-cell-spinner:hover {
+    background: var(--co-accent-dim);
+    border-color: rgba(193, 255, 0, 0.45);
+    color: var(--primary);
+}
+
+.ciphers-settings-matrix__status {
+    color: rgba(255, 255, 255, 0.50);
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.25;
+}
+
+.ciphers-settings-matrix__status--ok {
+    color: #7ee787;
+}
+
+.ciphers-settings-matrix__status--error {
+    color: #ff8a8a;
+}
+
+.ciphers-unified__matrix-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.ciphers-unified__matrix-area .ciphers-settings-matrix {
+    min-width: 0;
+    width: 100%;
+}
+
+.ciphers-settings-matrix__head-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.ciphers-settings-matrix__head-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
 }
 
 .ciphers-unified__key-area {
@@ -2666,6 +2854,47 @@ a:focus .nav-fav-count {
   outline: none;
 }
 
+.b64-example-card__matrix-key {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+}
+
+.b64-example-card__matrix-key-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(0, 35, 64, 0.40);
+  white-space: nowrap;
+}
+
+.b64-example-card__matrix {
+  display: inline-grid;
+  grid-template-columns: repeat(var(--mc), auto);
+  gap: 3px;
+  padding: 4px 5px;
+  background: #eef4fb;
+  border: 1.5px solid #c8ddf2;
+  border-radius: 6px;
+}
+
+.b64-example-card__matrix > span {
+  min-width: 24px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 3px;
+}
+
 @media (max-width: 767px) {
   .ciphers-unified__header {
     padding: 16px 18px 0;
@@ -2725,6 +2954,33 @@ a:focus .nav-fav-count {
     flex: 1;
     min-width: 0;
     width: 100%;
+  }
+
+  .ciphers-settings-matrix {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .ciphers-settings-matrix__toolbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ciphers-settings-matrix__group--status {
+    min-width: 0;
+  }
+
+  .ciphers-settings-matrix__grid {
+    width: 100%;
+    grid-template-columns: repeat(var(--matrix-size), minmax(0, 1fr));
+  }
+
+  .ciphers-settings-matrix__head-left {
+    gap: 10px;
+  }
+
+  .ciphers-settings-matrix__head-right {
+    align-items: flex-end;
   }
 
   .ciphers-custom-select {

@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-09T09:42:42+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "hill",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 25,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 25,
+        "data": {
+            "name": "Cifrario di Hill",
+            "name_short": "Cifrario di Hill",
+            "description": "Cifra e decifra testi con il cifrario di Hill usando una matrice chiave numerica invertibile. Scopri come funziona una sostituzione poligrafica classica basata sulle matrici, modulo la dimensione dell’alfabeto.",
+            "description_stort": "Cifrario di sostituzione poligrafica basato su matrici.",
+            "meta_title": "Cifrario di Hill online: cifrare e decifrare",
+            "meta_description": "Usa il cifrario di Hill online con una matrice chiave invertibile 2x2 o 3x3. Cifra, decifra e impara come funziona la crittografia classica basata sulle matrici modulo la dimensione dell’alfabeto."
+        }
+    },
+    "blocks": [
+        {
+            "id": 97,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario di Hill",
+                "text": "<p>Il cifrario di Hill è un cifrario classico di sostituzione poligrafica basato sull’algebra lineare. Invece di cifrare una lettera alla volta, raggruppa il testo in blocchi di lunghezza fissa e tratta ogni blocco come un vettore di numeri.</p><p>La chiave è una matrice numerica quadrata. Durante la cifratura, ogni vettore del testo in chiaro viene moltiplicato per la matrice chiave e il risultato viene ridotto modulo la dimensione dell’alfabeto scelto. Per l’alfabeto italiano di questo strumento, ciò significa modulo 26.</p><p>Per esempio, una matrice 2x2 cifra il testo a coppie di lettere, mentre una matrice 3x3 lo cifra in gruppi di tre. La decifratura usa la matrice inversa modulo la stessa dimensione dell’alfabeto.</p>"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Esempio di matrice chiave",
+                "text": "<p>La matrice chiave può essere inserita direttamente nell’editor di matrici. La dimensione della matrice stabilisce quante lettere vengono elaborate insieme durante la cifratura.</p>\n\n<ul>\n<li>Matrice 2x2 → cifra coppie di lettere</li>\n<li>Matrice 3x3 → cifra gruppi di tre lettere</li>\n<li>Matrice 4x4 → cifra gruppi di quattro lettere</li>\n<li>Matrice 5x5 → cifra gruppi di cinque lettere</li>\n</ul>\n\n<p>Lo strumento verifica automaticamente se la matrice è invertibile modulo la dimensione dell’alfabeto selezionato e mostra lo stato del determinante prima della cifratura.</p>"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Perché la matrice deve essere invertibile",
+                "text": "<p>Il cifrario di Hill dipende da una moltiplicazione matriciale reversibile. Per decifrare un messaggio, lo strumento deve calcolare l’inversa della matrice chiave modulo la dimensione dell’alfabeto.</p><p>Una matrice è utilizzabile solo quando il suo determinante è coprimo con la dimensione dell’alfabeto. Per l’alfabeto italiano di questo strumento il modulo è 26, quindi il determinante non deve avere fattori comuni con 26. Se questa condizione non è soddisfatta, blocchi diversi di testo in chiaro possono produrre lo stesso blocco cifrato, rendendo impossibile una decifratura affidabile.</p>"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Cifrario di Hill e sicurezza moderna",
+                "text": "<p>Il cifrario di Hill è stato un passaggio importante nella crittografia classica perché ha introdotto operazioni matriciali e la cifratura di più lettere alla volta. Questo lo rende più resistente alla semplice analisi delle frequenze rispetto a molte sostituzioni monoalfabetiche.</p><p>Tuttavia, il cifrario di Hill non è sicuro secondo gli standard moderni. Se sono note abbastanza coppie di testo in chiaro e testo cifrato, spesso la matrice chiave può essere recuperata. Oggi viene usato soprattutto per didattica, matematica, enigmi e dimostrazioni di algebra lineare in crittografia.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Perché la matrice deve essere invertibile?",
+                "answer": "La decifratura richiede l’inversa della matrice chiave modulo la dimensione dell’alfabeto. Se il determinante non è coprimo con tale dimensione, l’inversa non esiste e il testo cifrato non può essere decifrato in modo affidabile."
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quale formato devo usare per la chiave?",
+                "answer": "Inserisci righe di numeri separate da punto e virgola, per esempio 3 3; 2 5. È accettata anche una lista piatta come 3, 3, 2, 5 quando forma una matrice quadrata."
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quali dimensioni di matrice sono più comuni?",
+                "answer": "Gli esempi più comuni del cifrario di Hill usano matrici 2x2 o 3x3. Una matrice 2x2 cifra coppie di lettere, mentre una matrice 3x3 cifra gruppi di tre lettere."
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cosa significa modulo 26 negli esempi italiani?",
+                "answer": "Modulo 26 significa che tutti i risultati dei calcoli matriciali vengono riportati nell’intervallo dell’alfabeto italiano usato da questo strumento. Così ogni valore numerico corrisponde di nuovo a una lettera."
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede se la lunghezza del messaggio non corrisponde alla dimensione della matrice?",
+                "answer": "Durante la cifratura di solito vengono aggiunti caratteri di riempimento affinché il testo possa essere diviso in blocchi completi. Per esempio, una matrice 2x2 richiede coppie di lettere."
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Hill è sicuro oggi?",
+                "answer": "No. Il cifrario di Hill è utile per imparare la crittografia classica e le operazioni matriciali, ma può essere violato con metodi moderni, soprattutto quando sono noti esempi di testo in chiaro e testo cifrato."
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Hill è un cifrario di sostituzione?",
+                "answer": "Sì. È un cifrario di sostituzione poligrafica perché sostituisce gruppi di lettere invece di singole lettere."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare con una matrice 2x2",
+                "key": "3 3; 2 5",
+                "shift": 0,
+                "input": "ROMA",
+                "output": "PAKY",
+                "description": "Esempio di base del cifrario di Hill con una matrice chiave 2x2 invertibile per l’alfabeto italiano. Il testo viene cifrato a coppie di lettere."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decifrare con la stessa matrice",
+                "key": "3 3; 2 5",
+                "shift": 0,
+                "input": "PAKY",
+                "output": "ROMA",
+                "description": "La stessa matrice chiave viene invertita modulo 26 per recuperare il testo in chiaro italiano."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare un messaggio più lungo",
+                "key": "3 3; 2 5",
+                "shift": 0,
+                "input": "SEGRETO",
+                "output": "OERTRZHN",
+                "description": "Una matrice 2x2 elabora il messaggio come coppie di lettere: SE, GR, ET e O con un carattere di riempimento aggiunto."
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Cifrare con una matrice 3x3",
+                "key": "6 24 1; 13 16 10; 20 17 15",
+                "shift": 0,
+                "input": "ORA",
+                "output": "YMX",
+                "description": "Esempio del cifrario di Hill con una matrice 3x3. Il blocco di testo in chiaro ORA viene moltiplicato per la matrice chiave modulo 26."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 142,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario matriciale"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Sostituzione poligrafica"
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Algebra lineare"
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Aritmetica modulare"
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

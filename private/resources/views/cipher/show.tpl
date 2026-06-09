@@ -26,7 +26,7 @@
 
                 <div class="ciphers-settings">
                     {foreach $tool_ui.settings|default:[] as $setting}
-                        {if $setting.type != 'textarea'}
+                        {if $setting.type != 'textarea' && $setting.type != 'matrix'}
                         <div class="ciphers-settings-item">
                             {if $setting.type == 'select'}
                                 <label class="ciphers-settings-label" for="{$setting.id|escape}">{$setting.label}</label>
@@ -96,6 +96,44 @@
                         {if $setting.hint|default:''}
                             <p class="ciphers-settings-hint">{$setting.hint|escape}</p>
                         {/if}
+                    </div>
+                </div>
+                {/if}
+            {/foreach}
+
+            {foreach $tool_ui.settings|default:[] as $setting}
+                {if $setting.type == 'matrix'}
+                <div class="ciphers-unified__matrix-area">
+                    <div class="ciphers-settings-matrix"
+                         data-matrix-control
+                         data-matrix-input="{$setting.id|escape}"
+                         data-matrix-valid-label="{$setting.validLabel|default:'Valid key matrix'|escape}"
+                         data-matrix-invalid-label="{$setting.invalidLabel|default:'Matrix is not invertible for this alphabet'|escape}"
+                         data-matrix-determinant-label="{$setting.determinantLabel|default:'det'|escape}">
+                        <input id="{$setting.id|escape}"
+                               type="hidden"
+                               value="{$setting.value|default:''|escape}">
+                        <div class="ciphers-unified__field-header">
+                            <div class="ciphers-settings-matrix__head-left">
+                                <span class="ciphers-unified__field-label">{$setting.label|escape}</span>
+                                <div class="ciphers-settings-matrix__sizes" role="group" aria-label="{$setting.sizeLabel|default:'Matrix size'|escape}">
+                                    {foreach $setting.sizes|default:[] as $size}
+                                        <button type="button"
+                                                class="ciphers-settings-matrix__size{if $size == ($setting.size|default:2)} ciphers-settings-matrix__size--active{/if}"
+                                                data-matrix-size="{$size|escape}">
+                                            {$size|escape}×{$size|escape}
+                                        </button>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="ciphers-settings-matrix__head-right">
+                                <span class="ciphers-settings-label">{$setting.statusLabel|default:'Matrix status'|escape}</span>
+                                <span class="ciphers-settings-matrix__status" data-matrix-status></span>
+                            </div>
+                        </div>
+                        <div class="ciphers-settings-matrix__grid"
+                             data-matrix-grid
+                             style="--matrix-size: {$setting.size|default:2};"></div>
                     </div>
                 </div>
                 {/if}
@@ -180,7 +218,20 @@
             {foreach $examples as $example}
                 <article class="b64-example-card">
                     {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
-                    {if $example.key}<span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code></span>{/if}
+                    {if $example.matrix_key}
+                    <div class="b64-example-card__matrix-key">
+                        <span class="b64-example-card__matrix-key-label">{$tool_ui.exampleKeyLabel|default:'Key'}</span>
+                        <div class="b64-example-card__matrix" style="--mc: {$example.matrix_key|count};">
+                            {foreach $example.matrix_key as $row}
+                                {foreach $row as $cell}
+                                    <span>{$cell}</span>
+                                {/foreach}
+                            {/foreach}
+                        </div>
+                    </div>
+                    {elseif $example.key}
+                    <span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code></span>
+                    {/if}
                     {if $example.shift|default:0}<span class="b64-example-card__key-badge">Shift: <code>{$example.shift|escape}</code></span>{/if}
                     <div class="b64-example-card__row">
                         <div class="b64-example-card__slot">

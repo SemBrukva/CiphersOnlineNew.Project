@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-09T09:42:42+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "hill",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 25,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 25,
+        "data": {
+            "name": "Hill Şifresi",
+            "name_short": "Hill Şifresi",
+            "description": "Terslenebilir sayısal bir anahtar matrisi kullanarak Hill şifresiyle metinleri şifreleyin ve çözün. Matris tabanlı klasik poligrafik yer değiştirme yönteminin alfabe boyutuna göre modüler olarak nasıl çalıştığını öğrenin.",
+            "description_stort": "Matris tabanlı poligrafik yer değiştirme şifresi.",
+            "meta_title": "Hill Şifresi Online Şifreleme ve Çözme",
+            "meta_description": "Terslenebilir 2x2 veya 3x3 anahtar matrisiyle Hill şifresini online kullanın. Metinleri şifreleyin, çözün ve matris tabanlı klasik kriptografinin alfabe boyutuna göre modüler olarak nasıl çalıştığını öğrenin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 97,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Hill şifresi nasıl çalışır",
+                "text": "<p>Hill şifresi, doğrusal cebire dayanan klasik bir poligrafik yer değiştirme şifresidir. Metni tek tek harfler halinde şifrelemek yerine sabit uzunlukta bloklara ayırır ve her bloğu sayılardan oluşan bir vektör olarak ele alır.</p><p>Anahtar, kare biçimli sayısal bir matristir. Şifreleme sırasında her açık metin vektörü anahtar matrisiyle çarpılır ve sonuç seçilen alfabenin boyutuna göre mod alınarak indirgenir. Bu araçtaki Türk alfabesi için bu modül 29’dur.</p><p>Örneğin 2x2 bir matris metni harf çiftleri halinde, 3x3 bir matris ise üçlü harf grupları halinde işler. Çözme işleminde aynı alfabe boyutuna göre modüler ters matris kullanılır.</p>"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Anahtar matrisi örneği",
+                "text": "<p>Anahtar matrisi doğrudan matris düzenleyiciye girilebilir. Matrisin boyutu, şifreleme sırasında kaç harfin birlikte işleneceğini belirler.</p>\n\n<ul>\n<li>2x2 matris → harf çiftlerini şifreler</li>\n<li>3x3 matris → üçlü harf gruplarını şifreler</li>\n<li>4x4 matris → dörtlü harf gruplarını şifreler</li>\n<li>5x5 matris → beşli harf gruplarını şifreler</li>\n</ul>\n\n<p>Araç, matrisin seçilen alfabe boyutuna göre terslenebilir olup olmadığını otomatik olarak doğrular ve şifrelemeden önce determinant durumunu gösterir.</p>"
+            }
+        },
+        {
+            "id": 99,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Matris neden terslenebilir olmalıdır",
+                "text": "<p>Hill şifresi, geri döndürülebilir matris çarpımına dayanır. Bir mesajı çözmek için araç, anahtar matrisinin alfabe boyutuna göre modüler tersini hesaplamalıdır.</p><p>Bir matris ancak determinantı alfabe boyutuyla aralarında asal olduğunda kullanılabilir. Bu araçtaki Türk alfabesi için modül 29’dur; bu nedenle determinant 29 ile ortak bölen paylaşmamalıdır. Bu koşul sağlanmazsa farklı açık metin blokları aynı şifreli metin bloğunu üretebilir ve güvenilir çözme mümkün olmaz.</p>"
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Hill şifresi ve modern güvenlik",
+                "text": "<p>Hill şifresi, matris işlemlerini kullanması ve birden çok harfi aynı anda şifrelemesi nedeniyle klasik kriptografide önemli bir adımdı. Bu özellik, onu basit frekans analizine karşı birçok tek alfabeli yer değiştirme şifresinden daha dayanıklı kılar.</p><p>Ancak Hill şifresi modern standartlara göre güvenli değildir. Yeterli sayıda açık metin ve şifreli metin çifti biliniyorsa anahtar matrisi çoğu zaman geri elde edilebilir. Bugün daha çok eğitim, matematik, bulmacalar ve kriptografide doğrusal cebir gösterimleri için kullanılır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Matris neden terslenebilir olmalıdır?",
+                "answer": "Çözme işlemi, anahtar matrisinin alfabe boyutuna göre modüler tersini gerektirir. Determinant bu boyutla aralarında asal değilse ters matris yoktur ve şifreli metin güvenilir biçimde çözülemez."
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Anahtar için hangi biçimi kullanmalıyım?",
+                "answer": "Sayı satırlarını noktalı virgülle ayırarak girin; örneğin 3 4; 5 7. 3, 4, 5, 7 gibi düz bir liste de kare matris oluşturuyorsa kabul edilir."
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Hangi matris boyutları yaygın olarak kullanılır?",
+                "answer": "Hill şifresi örneklerinde en sık 2x2 veya 3x3 matrisler kullanılır. 2x2 matris harf çiftlerini, 3x3 matris ise üç harfli grupları şifreler."
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Türkçe örneklerde mod 29 ne anlama gelir?",
+                "answer": "Mod 29, tüm matris hesaplama sonuçlarının bu araçtaki 29 harfli Türk alfabesinin aralığına geri sarılması anlamına gelir. Böylece her sayısal değer yeniden bir harfe karşılık gelir."
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Mesaj uzunluğu matris boyutuyla eşleşmezse ne olur?",
+                "answer": "Şifreleme sırasında metnin tam bloklara ayrılabilmesi için genellikle dolgu karakterleri eklenir. Örneğin 2x2 matris harf çiftleri gerektirir."
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Hill şifresi bugün güvenli midir?",
+                "answer": "Hayır. Hill şifresi klasik kriptografiyi ve matris işlemlerini öğrenmek için yararlıdır, ancak özellikle açık metin ve şifreli metin örnekleri bilindiğinde modern yöntemlerle kırılabilir."
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Hill şifresi bir yer değiştirme şifresi midir?",
+                "answer": "Evet. Tek tek harfler yerine harf gruplarını değiştirdiği için poligrafik bir yer değiştirme şifresidir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 91,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "2x2 matrisle şifreleme",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "ÖDEV",
+                "output": "JCÇD",
+                "description": "Türk alfabesi için terslenebilir 2x2 anahtar matrisiyle temel Hill şifresi örneği. Metin harf çiftleri halinde şifrelenir."
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Aynı matrisle çözme",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "JCÇD",
+                "output": "ÖDEV",
+                "description": "Aynı anahtar matrisi mod 29’a göre ters çevrilerek özgün Türkçe açık metin geri elde edilir."
+            }
+        },
+        {
+            "id": 93,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Daha uzun bir mesajı şifreleme",
+                "key": "3 4; 5 7",
+                "shift": 0,
+                "input": "YAĞMUR",
+                "output": "TPVAGZ",
+                "description": "2x2 matris mesajı harf çiftleri olarak işler: YA, ĞM ve UR."
+            }
+        },
+        {
+            "id": 94,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "3x3 matrisle şifreleme",
+                "key": "1 2 3; 0 1 4; 5 6 0",
+                "shift": 0,
+                "input": "AÇI",
+                "output": "IÖÖ",
+                "description": "3x3 matrisli Hill şifresi örneği. AÇI açık metin bloğu, mod 29’a göre anahtar matrisiyle çarpılır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 142,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Matris şifresi"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Poligrafik yer değiştirme"
+            }
+        },
+        {
+            "id": 144,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Doğrusal cebir"
+            }
+        },
+        {
+            "id": 145,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Modüler aritmetik"
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

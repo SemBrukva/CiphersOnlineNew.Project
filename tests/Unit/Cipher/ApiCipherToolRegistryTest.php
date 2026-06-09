@@ -21,6 +21,8 @@ use App\Cipher\ColumnarTranspositionApiCipherTool;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
+use App\Cipher\HillApiCipherTool;
+use App\Cipher\HillCipherService;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareApiCipherTool;
@@ -79,7 +81,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new A1z26ApiCipherTool(new A1z26CipherService()),
             new RailFenceApiCipherTool(new RailFenceCipherService()),
             new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),
-            new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService())
+            new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
+            new HillApiCipherTool(new HillCipherService())
         );
     }
 }
