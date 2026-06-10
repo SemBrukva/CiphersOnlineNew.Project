@@ -43,6 +43,12 @@
                 <i class="bi bi-shield-lock me-2"></i>Шифры
             </a>
         </li>
+        <li class="nav-item mt-auto">
+            {assign var="settings_prefix" value=$admin_path|cat:'/settings'}
+            <a href="{$admin_path}/settings" class="nav-link text-white{if $current_path|starts_with:$settings_prefix} active{/if}">
+                <i class="bi bi-gear me-2"></i>Настройки
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">

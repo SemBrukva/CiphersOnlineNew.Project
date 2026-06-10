@@ -6,6 +6,7 @@ use App\Controller\Admin\CipherCategoryController;
 use App\Controller\Admin\CipherController;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\RedirectController;
+use App\Controller\Admin\SettingsController;
 
 /**
  * Маршруты панели администратора.
@@ -19,6 +20,18 @@ return [
         'controller' => DashboardController::class,
         'method'     => 'index',
         'name'       => 'admin.dashboard',
+    ],
+
+    'GET /settings' => [
+        'controller' => SettingsController::class,
+        'method'     => 'index',
+        'name'       => 'admin.settings.index',
+    ],
+
+    'POST /settings/flush-cache' => [
+        'controller' => SettingsController::class,
+        'method'     => 'flushCache',
+        'name'       => 'admin.settings.flush_cache',
     ],
 
     'GET /redirects' => [

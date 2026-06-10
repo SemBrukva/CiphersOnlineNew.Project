@@ -300,6 +300,14 @@ return [
         );
     },
 
+    App\Controller\Admin\SettingsController::class => static function (Container $container): App\Controller\Admin\SettingsController {
+        return new App\Controller\Admin\SettingsController(
+            $container->get(View::class),
+            $container->get(Session::class),
+            $container->get(CacheInterface::class),
+        );
+    },
+
     FavoritesController::class => static function (Container $container): FavoritesController {
         return new FavoritesController($container->get(View::class));
     },
