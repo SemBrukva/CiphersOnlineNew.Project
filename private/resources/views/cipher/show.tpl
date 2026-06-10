@@ -312,7 +312,7 @@
             {foreach $related as $tool}
             <article class="ciphers-category-hub-card">
                 <h2 class="ciphers-category-hub-card__title">
-                    <a href="/{$category.alias}/{$tool.alias}">{$tool.name}</a>
+                    <a href="{$locale_prefix}/{$category.alias}/{$tool.alias}">{$tool.name}</a>
                 </h2>
                 {if $tool.description_short}
                 <p class="ciphers-category-hub-card__desc">{$tool.description_short}</p>
@@ -322,7 +322,7 @@
             {/foreach}
         </div>
         <div class="ciphers-related-all-wrap">
-            <a class="ciphers-related-all-link" href="/{$category.alias}">{$all_in_category_label} →</a>
+            <a class="ciphers-related-all-link" href="{$locale_prefix}/{$category.alias}">{$all_in_category_label} →</a>
         </div>
     </div>
 </section>
