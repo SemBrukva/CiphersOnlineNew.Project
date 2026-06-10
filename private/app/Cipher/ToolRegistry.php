@@ -120,12 +120,12 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en'],
                 ['label' => 'Secret',   'value' => 'HIDE THE GOLD',  'alphabet' => 'en'],
             ],
-            'classical-ciphers/bacon' => [
+            'codes-and-alphabets/bacon' => [
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en'],
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en'],
                 ['label' => 'Stego',    'value' => 'HELLO',          'alphabet' => 'en', 'key' => 'The quick brown fox jumps over the lazy dog'],
             ],
-            'classical-ciphers/a1z26' => [
+            'codes-and-alphabets/a1z26' => [
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',    'alphabet' => 'en', 'direction' => 'encrypt'],
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'direction' => 'encrypt'],
                 ['label' => 'Decode',   'value' => '8-5-12-12-15',   'alphabet' => 'en', 'direction' => 'decrypt', 'delimiter' => 'dash'],
@@ -140,7 +140,7 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN',    'key' => 'ZEBRA'],
                 ['label' => 'Decode',   'value' => 'ACDESEEVROWIRDE',    'key' => 'SECRET', 'direction' => 'decrypt'],
             ],
-            'classical-ciphers/polybius-square' => [
+            'codes-and-alphabets/polybius-square' => [
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',       'alphabet' => 'en', 'direction' => 'encrypt', 'delimiter' => 'space'],
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN',    'alphabet' => 'en', 'direction' => 'encrypt', 'delimiter' => 'space'],
                 ['label' => 'Decode',   'value' => '23 15 31 31 34',    'alphabet' => 'en', 'direction' => 'decrypt', 'delimiter' => 'space'],
@@ -155,7 +155,7 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => '3 3; 2 5'],
                 ['label' => 'Decode',   'value' => 'HIAT',          'alphabet' => 'en', 'key' => '3 3; 2 5', 'direction' => 'decrypt'],
             ],
-            'classical-ciphers/morse-code' => [
+            'codes-and-alphabets/morse-code' => [
                 ['label' => 'SOS',    'value' => 'SOS',       'alphabet' => 'en'],
                 ['label' => 'Hello',  'value' => 'HELLO',     'alphabet' => 'en'],
                 ['label' => 'Decode', 'value' => '... --- ...',    'alphabet' => 'en', 'direction' => 'decrypt'],
@@ -180,14 +180,14 @@ final readonly class ToolRegistry
             'classical-ciphers/gronsfeld' => 'gronsfeld',
             'classical-ciphers/vigenere' => 'vigenere',
             'classical-ciphers/vernam' => 'vernam',
-            'classical-ciphers/bacon' => 'bacon',
+            'codes-and-alphabets/bacon' => 'bacon',
             'classical-ciphers/rot13' => 'rot13',
-            'classical-ciphers/a1z26' => 'a1z26',
+            'codes-and-alphabets/a1z26' => 'a1z26',
             'classical-ciphers/rail-fence' => 'rail-fence',
             'classical-ciphers/columnar-transposition' => 'columnar-transposition',
-            'classical-ciphers/polybius-square' => 'polybius-square',
+            'codes-and-alphabets/polybius-square' => 'polybius-square',
             'classical-ciphers/hill' => 'hill',
-            'classical-ciphers/morse-code' => null,
+            'codes-and-alphabets/morse-code' => null,
             default => null,
         };
     }
@@ -210,14 +210,14 @@ final readonly class ToolRegistry
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getToolSettings(),
             'classical-ciphers/vigenere' => $this->vigenereCipher->getToolSettings(),
             'classical-ciphers/vernam' => $this->vernamCipher->getToolSettings(),
-            'classical-ciphers/bacon' => $this->baconCipher->getToolSettings(),
+            'codes-and-alphabets/bacon' => $this->baconCipher->getToolSettings(),
             'classical-ciphers/rot13' => $this->rot13Cipher->getToolSettings(),
-            'classical-ciphers/a1z26' => $this->a1z26Cipher->getToolSettings(),
+            'codes-and-alphabets/a1z26' => $this->a1z26Cipher->getToolSettings(),
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getToolSettings(),
             'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getToolSettings(),
-            'classical-ciphers/polybius-square' => $this->polybiusSquareCipher->getToolSettings(),
+            'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getToolSettings(),
             'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
-            'classical-ciphers/morse-code' => $this->morseCipher->getToolSettings(),
+            'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
             default => [],
         };
     }
@@ -238,14 +238,14 @@ final readonly class ToolRegistry
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getTrustItems($calculationMode),
             'classical-ciphers/vigenere'  => $this->vigenereCipher->getTrustItems($calculationMode),
             'classical-ciphers/vernam'    => $this->vernamCipher->getTrustItems($calculationMode),
-            'classical-ciphers/bacon'     => $this->baconCipher->getTrustItems($calculationMode),
+            'codes-and-alphabets/bacon'   => $this->baconCipher->getTrustItems($calculationMode),
             'classical-ciphers/rot13'     => $this->rot13Cipher->getTrustItems($calculationMode),
-            'classical-ciphers/a1z26'     => $this->a1z26Cipher->getTrustItems($calculationMode),
+            'codes-and-alphabets/a1z26'   => $this->a1z26Cipher->getTrustItems($calculationMode),
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getTrustItems($calculationMode),
             'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getTrustItems($calculationMode),
-            'classical-ciphers/polybius-square' => $this->polybiusSquareCipher->getTrustItems($calculationMode),
+            'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getTrustItems($calculationMode),
             'classical-ciphers/hill' => $this->hillCipher->getTrustItems($calculationMode),
-            'classical-ciphers/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
+            'codes-and-alphabets/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),
@@ -302,7 +302,7 @@ final readonly class ToolRegistry
     public function exampleKeyLabel(string $toolSlug): string
     {
         return match ($this->canonicalSlug($toolSlug)) {
-            'classical-ciphers/bacon' => trans('BACON_COVER_LABEL_SHORT'),
+            'codes-and-alphabets/bacon' => trans('BACON_COVER_LABEL_SHORT'),
             default => trans('CIPHER_TOOL_EXAMPLE_KEY_LABEL'),
         };
     }
@@ -314,7 +314,7 @@ final readonly class ToolRegistry
     public function exampleKeyInputId(string $toolSlug): string
     {
         return match ($this->canonicalSlug($toolSlug)) {
-            'classical-ciphers/bacon' => 'ciphers-cover',
+            'codes-and-alphabets/bacon' => 'ciphers-cover',
             default => 'ciphers-key',
         };
     }
@@ -349,16 +349,19 @@ final readonly class ToolRegistry
             'classical-ciphers/shifr-gronsfelda' => 'classical-ciphers/gronsfeld',
             'classical-ciphers/shifr-vizhenera' => 'classical-ciphers/vigenere',
             'classical-ciphers/shifr-vernama' => 'classical-ciphers/vernam',
-            'classical-ciphers/shifr-bekona', 'classical-ciphers/shifr-behkona' => 'classical-ciphers/bacon',
+            'classical-ciphers/shifr-bekona', 'classical-ciphers/shifr-behkona',
+            'classical-ciphers/bacon' => 'codes-and-alphabets/bacon',
             'classical-ciphers/rot-13', 'classical-ciphers/shifr-rot13', 'classical-ciphers/shifr-rot-13' => 'classical-ciphers/rot13',
             'classical-ciphers/shifr-atbash' => 'classical-ciphers/atbash',
-            'classical-ciphers/shifr-a1z26' => 'classical-ciphers/a1z26',
+            'classical-ciphers/shifr-a1z26', 'classical-ciphers/a1z26' => 'codes-and-alphabets/a1z26',
             'classical-ciphers/railfence', 'classical-ciphers/shifr-rail-fence' => 'classical-ciphers/rail-fence',
             'classical-ciphers/columnar', 'classical-ciphers/columnar-transposition-cipher', 'classical-ciphers/stolbcovyj-shifr-perestanovki' => 'classical-ciphers/columnar-transposition',
-            'classical-ciphers/polybius', 'classical-ciphers/polybius-square-cipher', 'classical-ciphers/kvadrat-polibiya' => 'classical-ciphers/polybius-square',
+            'classical-ciphers/polybius', 'classical-ciphers/polybius-square-cipher', 'classical-ciphers/kvadrat-polibiya',
+            'classical-ciphers/polybius-square' => 'codes-and-alphabets/polybius-square',
             'classical-ciphers/affinnyj-shifr', 'classical-ciphers/shifr-affine' => 'classical-ciphers/affine',
             'classical-ciphers/hill-cipher', 'classical-ciphers/shifr-hilla' => 'classical-ciphers/hill',
-            'classical-ciphers/morse', 'classical-ciphers/kod-morze', 'classical-ciphers/azbukamorze' => 'classical-ciphers/morse-code',
+            'classical-ciphers/morse', 'classical-ciphers/kod-morze', 'classical-ciphers/azbukamorze',
+            'classical-ciphers/morse-code' => 'codes-and-alphabets/morse-code',
             default => $toolSlug,
         };
     }

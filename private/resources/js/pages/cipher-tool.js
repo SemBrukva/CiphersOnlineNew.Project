@@ -49,7 +49,7 @@ export function initCipherToolPage() {
   const isEncodingTool = slug.startsWith('encoding/')
   const calculationMode = String(ui.calculationMode || 'client').toLowerCase()
   const isApiMode = calculationMode === 'api'
-  const isMorseTool = slug === 'classical-ciphers/morse-code'
+  const isMorseTool = slug === 'codes-and-alphabets/morse-code'
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null

@@ -18,7 +18,7 @@ const DECODER_BY_SLUG = {
   'encoding/ascii-converter': { transform: transformAscii, looksLikeEncoded: looksLikeAscii },
   'encoding/unicode-converter': { transform: transformUnicode, looksLikeEncoded: looksLikeUnicode },
   'encoding/jwt-decoder': { transform: transformJwt, looksLikeEncoded: looksLikeJwt },
-  'classical-ciphers/morse-code': { transform: transformMorse, looksLikeEncoded: looksLikeMorse },
+  'codes-and-alphabets/morse-code': { transform: transformMorse, looksLikeEncoded: looksLikeMorse },
 }
 
 /**
