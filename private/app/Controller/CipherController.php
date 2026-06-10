@@ -202,7 +202,7 @@ final readonly class CipherController
             }
             $rows = array_values(array_filter(array_map('trim', explode(';', $key))));
             $example['matrix_key'] = array_map(
-                static fn(string $row): array => array_values(
+                static fn (string $row): array => array_values(
                     array_map('intval', preg_split('/\s+/u', trim($row)))
                 ),
                 $rows

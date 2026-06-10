@@ -168,7 +168,8 @@ final readonly class PolybiusSquareCipherService
     /**
      * Декодирует набор координатных токенов.
      *
-     * @param  string[] $tokens Координаты вида 11..99.
+     * @param  string[]                    $tokens Координаты вида 11..99.
+     * @param  array<int, array<int, string>> $square Квадрат Полибия.
      */
     private function decryptTokens(array $tokens, array $square): string
     {

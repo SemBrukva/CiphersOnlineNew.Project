@@ -128,7 +128,7 @@ final readonly class HillCipherService
             }
 
             preg_match_all('/-?\d+/u', $row, $matches);
-            $values = array_map('intval', $matches[0] ?? []);
+            $values = array_map('intval', $matches[0]);
             if ($values !== []) {
                 $matrix[] = $values;
             }
