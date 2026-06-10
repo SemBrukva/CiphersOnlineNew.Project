@@ -1,0 +1,245 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-08T09:41:04+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "polybius-square",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 23,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 23,
+        "data": {
+            "name": "Chiffre du carré de Polybe",
+            "name_short": "Carré de Polybe",
+            "description": "Encodez les lettres sous forme de coordonnées ligne-colonne et décodez les paires de coordonnées en texte avec le chiffre du carré de Polybe. Découvrez le fonctionnement d'une substitution classique par coordonnées à l'aide d'une grille simple.",
+            "description_stort": "Substitution par coordonnées basée sur une grille de lignes et de colonnes.",
+            "meta_title": "Chiffre du carré de Polybe en ligne : encoder et décoder",
+            "meta_description": "Utilisez le chiffre du carré de Polybe en ligne pour convertir un texte en coordonnées ligne-colonne ou décoder des coordonnées en lettres. Explorez cette méthode classique de substitution par grille."
+        }
+    },
+    "blocks": [
+        {
+            "id": 89,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Comment fonctionne le chiffre du carré de Polybe",
+                "text": "<p>Le chiffre du carré de Polybe remplace les lettres par des coordonnées prises dans une grille. Chaque symbole est identifié par sa ligne et sa colonne, ce qui transforme un texte lisible en une suite de paires de nombres.</p><p>Dans la version anglaise classique, l'alphabet est placé dans un carré de 5×5. Comme 26 lettres ne tiennent pas dans 25 cases, les lettres I et J partagent traditionnellement la même position.</p><p>En mode alphabet français, cet outil construit la grille à partir du jeu de lettres pris en charge, y compris les lettres accentuées. Contrairement aux chiffres de transposition, le carré de Polybe ne change pas l'ordre du message : chaque caractère est directement remplacé par ses coordonnées.</p>"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 11,
+            "published": true,
+            "data": {
+                "title": "Exemple de carré de Polybe",
+                "text": "<p>Pour l'alphabet français, cet outil remplit la grille de gauche à droite et de haut en bas :</p><div class=\"cipher-visual cipher-visual--polybius\"><div class=\"cipher-visual__row\"><span class=\"cipher-visual__corner\"></span><span class=\"cipher-visual__coord\">1</span><span class=\"cipher-visual__coord\">2</span><span class=\"cipher-visual__coord\">3</span><span class=\"cipher-visual__coord\">4</span><span class=\"cipher-visual__coord\">5</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">1</span><span>A</span><span>À</span><span>Â</span><span>B</span><span>C</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">2</span><span>Ç</span><span>D</span><span>E</span><span>É</span><span>È</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">3</span><span>Ê</span><span>Ë</span><span>F</span><span>G</span><span>H</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">4</span><span>I</span><span>Î</span><span>Ï</span><span>J</span><span>K</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">5</span><span>L</span><span>M</span><span>N</span><span>O</span><span>Ô</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">6</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">7</span><span>U</span><span>Ù</span><span>Û</span><span>Ü</span><span>V</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">8</span><span>W</span><span>X</span><span>Y</span><span>Ÿ</span><span>Z</span></div></div><p>Avec cette grille française, le mot <strong>ÉTÉ</strong> devient <code>24 65 24</code>.</p>"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 12,
+            "published": true,
+            "data": {
+                "title": "Usage historique et intérêt pédagogique",
+                "text": "<p>Le carré de Polybe a été décrit par l'historien grec antique Polybe et fait partie des plus anciens chiffres connus fondés sur des coordonnées. Il servait à transmettre des lettres au moyen de paires de nombres.</p><p>Aujourd'hui, il est surtout utilisé pour l'apprentissage, les énigmes, les escape games et la découverte des bases de la cryptographie classique. De nombreux systèmes de chiffrement ultérieurs ont été influencés par l'idée de représenter les lettres comme des coordonnées.</p>"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 13,
+            "published": true,
+            "data": {
+                "title": "Carré de Polybe et autres chiffres classiques",
+                "text": "<p>Contrairement au chiffre de César, qui décale les lettres, ou au chiffre de Vigenere, qui modifie les lettres à l'aide d'un mot-clé, le carré de Polybe convertit chaque caractère en coordonnées. Il devient ainsi plus facile de transmettre des messages avec des nombres plutôt qu'avec des lettres.</p><p>Ce chiffre est simple à apprendre, mais il offre peu de sécurité réelle, car les motifs de coordonnées peuvent être analysés et inversés.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 191,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Pourquoi I et J partagent-ils une coordonnée dans le carré classique ?",
+                "answer": "Le carré de Polybe anglais classique comporte 25 cases. Fusionner I et J permet de faire tenir 26 lettres anglaises dans une grille de 5×5."
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Le carré de Polybe est-il sûr ?",
+                "answer": "Non. C'est un chiffre de substitution simple, surtout utile pour apprendre, résoudre des énigmes et illustrer l'histoire de la cryptographie."
+            }
+        },
+        {
+            "id": 193,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Qui a inventé le chiffre du carré de Polybe ?",
+                "answer": "La méthode porte le nom de Polybe, un historien grec antique qui a décrit un système de coordonnées permettant de représenter les lettres par des paires de nombres."
+            }
+        },
+        {
+            "id": 194,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Le carré de Polybe peut-il utiliser d'autres alphabets que l'anglais ?",
+                "answer": "Oui. Cet outil peut construire des grilles de coordonnées à partir de différents alphabets. Les coordonnées exactes dépendent de l'alphabet choisi et de la disposition de la grille."
+            }
+        },
+        {
+            "id": 195,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le chiffre utilise-t-il des nombres au lieu de lettres ?",
+                "answer": "Représenter les lettres par des coordonnées facilite la transmission des messages par signaux, codes ou canaux numériques, tout en conservant la structure du texte d'origine."
+            }
+        },
+        {
+            "id": 196,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Le carré de Polybe est-il un chiffre de substitution ou de transposition ?",
+                "answer": "C'est un chiffre de substitution, car chaque lettre est remplacée par des coordonnées. L'ordre des caractères du message ne change pas."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 83,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Chiffrer ÉTÉ",
+                "key": "",
+                "shift": 0,
+                "input": "ÉTÉ",
+                "output": "24 65 24",
+                "description": "Carré de Polybe français. Chaque lettre est remplacée par ses coordonnées de ligne et de colonne."
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Déchiffrer des coordonnées",
+                "key": "",
+                "shift": 0,
+                "input": "24 65 24",
+                "output": "été",
+                "description": "Les coordonnées 24, 65 et 24 se déchiffrent en « été » dans le carré de Polybe français."
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Encoder ÉCOLE",
+                "key": "",
+                "shift": 0,
+                "input": "ÉCOLE",
+                "output": "24 15 54 51 23",
+                "description": "Aucun mot-clé n'est nécessaire : chaque lettre est convertie directement en paire de coordonnées."
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Décoder un message en coordonnées",
+                "key": "",
+                "shift": 0,
+                "input": "53 54 32 51",
+                "output": "noël",
+                "description": "Décodez une suite plus longue de paires de coordonnées pour retrouver un texte lisible."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 130,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substitution"
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de substitution"
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiffre par coordonnées"
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiffre par coordonnées"
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Carré de Polybe"
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Codage numérique"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

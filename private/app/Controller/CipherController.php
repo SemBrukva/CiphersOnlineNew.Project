@@ -74,10 +74,23 @@ final readonly class CipherController
 
         $title = (string) ($cipher['meta_title'] ?: $cipher['name']);
         $metaDescription = (string) ($cipher['meta_description'] ?: $cipher['description']);
-        $toolUi = $this->buildToolUi(
-            $toolSlug,
-            (string) ($cipher['calculation_mode'] ?? 'client')
-        );
+        $calculationMode = (string) ($cipher['calculation_mode'] ?? 'client');
+        $toolUi = $this->buildToolUi($toolSlug, $calculationMode);
+        if ($cipherAlias === 'morse-code') {
+            $toolUi['placeholderEncode']  = trans('MORSE_PLACEHOLDER_ENCODE');
+            $toolUi['placeholderDecode']  = trans('MORSE_PLACEHOLDER_DECODE');
+            $toolUi['morsePlayLabel']     = trans('MORSE_PLAY');
+            $toolUi['morseStopLabel']     = trans('MORSE_STOP');
+            $toolUi['morseDownloadLabel'] = trans('MORSE_DOWNLOAD');
+            $toolUi['morseSpeedLabel']    = trans('MORSE_SPEED_LABEL');
+            $toolUi['morseFreqLabel']     = trans('MORSE_FREQ_LABEL');
+            $toolUi['morseFreqLow']       = trans('MORSE_FREQ_LOW');
+            $toolUi['morseFreqMed']       = trans('MORSE_FREQ_MED');
+            $toolUi['morseFreqHigh']          = trans('MORSE_FREQ_HIGH');
+            $toolUi['morseErrInvalidFormat']  = trans('MORSE_ERR_INVALID_FORMAT');
+            $toolUi['morseWarnUnknownChars']  = trans('MORSE_WARN_UNKNOWN_CHARS');
+            $toolUi['morseInfoDecodedUnknown'] = trans('MORSE_INFO_DECODED_UNKNOWN');
+        }
         $allInCategoryLabel = str_replace(
             ':category',
             (string) ($category['name'] ?? $categoryAlias),

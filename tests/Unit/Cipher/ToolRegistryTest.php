@@ -17,6 +17,7 @@ use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
+use App\Cipher\MorseCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereCipherService;
@@ -101,7 +102,8 @@ final class ToolRegistryTest extends TestCase
             new RailFenceCipherService(),
             new ColumnarTranspositionCipherService(),
             new PolybiusSquareCipherService(),
-            new HillCipherService()
+            new HillCipherService(),
+            new MorseCipherService()
         );
     }
 }

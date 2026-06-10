@@ -12,9 +12,9 @@
         "data": {
             "name": "Klasik Şifreler",
             "name_short": "Klasik Şifreler",
-            "description": "Sezar, Vigenere, Playfair, Beaufort, Vernam, Bacon, Atbash, A1Z26 ve diğer klasik şifreler gibi tarihsel şifreleme yöntemlerini keşfedin. Metinleri çevrim içi şifreleyip çözerek geleneksel kriptografinin nasıl çalıştığını öğrenin.",
+            "description": "Sezar, Vigenere, Playfair, Beaufort, Vernam, Atbash, Gronsfeld, Rail Fence, sütunlu transpozisyon, ROT13, Hill, Affine ve diğer klasik şifreleme yöntemlerini keşfedin. Metinleri çevrimiçi şifreleyin, çözün ve geleneksel kriptografinin nasıl çalıştığını öğrenin.",
             "meta_title": "Klasik Şifreler | Tarihsel Şifreleme Yöntemleri",
-            "meta_description": "Sezar, Vigenere, Playfair, Vernam, Bacon, Atbash, Beaufort, Gronsfeld ve A1Z26 gibi klasik şifreleri çevrim içi öğrenin ve kullanın."
+            "meta_description": "Sezar, Vigenere, Playfair, Vernam, Atbash, Beaufort, Gronsfeld, Rail Fence, sütunlu transpozisyon, ROT13, Hill ve Affine dahil klasik şifreleri çevrimiçi öğrenin ve kullanın."
         }
     },
     "blocks": [
@@ -33,7 +33,7 @@
             "published": true,
             "data": {
                 "title": "Doğru şifre nasıl seçilir?",
-                "text": "<p>Farklı klasik şifreler farklı kavramları öğrenmeye yardımcı olur. Sezar ve Atbash, temel yerine koyma tekniklerini öğrenmek için idealdir. Vigenere, Beaufort ve Gronsfeld anahtar tabanlı ve çok alfabeli şifrelemeyi tanıtır. Playfair harf çiftlerinin yerine koyulmasını gösterirken Vernam XOR tabanlı şifreleme kavramlarını açıklar.</p><p>Bacon steganografiye ve gizli mesajlara odaklanır; A1Z26 ise bulmacalarda, hazine avlarında ve eğitim etkinliklerinde sıkça kullanılır. Keşfetmek istediğiniz kavrama en uygun şifreyi seçin.</p>"
+                "text": "<p>Farklı klasik şifreler farklı öğrenme amaçlarına hizmet eder. Sezar ve Atbash temel yerine koyma tekniklerini öğrenmek için idealdir. Vigenere, Beaufort ve Gronsfeld anahtar sözcük tabanlı ve çok alfabeli şifrelemeyi tanıtır. Playfair harf çiftlerinin yerine koyulmasını gösterirken Vernam XOR tabanlı şifreleme kavramlarını tanıtır.</p><p>Rail Fence ve sütunlu transpozisyon gibi sistemler karakterleri yeniden sıralamaya odaklanır; Hill ve Affine ise klasik şifrelemede cebirsel kuralların nasıl kullanılabileceğini gösterir.</p>"
             }
         },
         {
@@ -42,7 +42,7 @@
             "published": true,
             "data": {
                 "title": "Yerine koyma, çok alfabeli yöntemler ve steganografi",
-                "text": "<p>Klasik şifreler birkaç gruba ayrılabilir. Sezar ve Atbash gibi basit yerine koyma şifreleri, karakterleri sabit kurallara göre değiştirir. Vigenere, Beaufort ve Gronsfeld gibi çok alfabeli şifreler ise bir anahtar tarafından kontrol edilen değişken yerine koymalar kullanır.</p><p>Diğer sistemler farklı fikirleri ele alır. Playfair harf çiftlerini şifreler, Vernam XOR işlemlerini ve tek kullanımlık anahtar kavramını tanıtır, Bacon ise steganografi kullanarak mesajları görünüşte sıradan metinlerin içine saklar.</p>"
+                "text": "<p>Klasik şifreler birkaç gruba ayrılabilir. Sezar, Atbash, ROT13 ve Affine gibi basit yerine koyma şifreleri karakterleri sabit kurallarla değiştirir. Vigenere, Beaufort ve Gronsfeld gibi çok alfabeli şifreler, bir anahtarla kontrol edilen değişken yerine koymalar kullanır.</p><p>Diğer sistemler farklı fikirleri ele alır. Playfair harf çiftlerini şifreler, Vernam XOR işlemlerini ve tek kullanımlık anahtar kavramını tanıtır, Hill matris aritmetiği kullanır ve transpozisyon şifreleri mesaj konumlarını yeniden düzenler.</p>"
             }
         },
         {
@@ -74,16 +74,6 @@
             "data": {
                 "title": "Mesajları anahtar sözcükle korumak",
                 "description": "Metni anahtar sözcüğe dayalı tekrarlanan kaydırmalarla şifrelemek için Vigenere şifresini kullanın."
-            }
-        },
-        {
-            "id": 7,
-            "sort_order": 30,
-            "published": true,
-            "cipher_alias": "bacon",
-            "data": {
-                "title": "Mesajları sıradan metinlerin içine saklamak",
-                "description": "Bilgileri başka bir mesajın içinde gizlemek için Bacon şifresinin steganografi modunu kullanın."
             }
         },
         {
@@ -133,15 +123,6 @@
             "data": {
                 "question": "Çok alfabeli şifre nedir?",
                 "answer": "Çok alfabeli şifre, tek bir sabit eşleme yerine birden fazla yerine koyma alfabesi kullanır. Vigenere, Beaufort ve Gronsfeld yaygın örneklerdir."
-            }
-        },
-        {
-            "id": 12,
-            "sort_order": 50,
-            "published": true,
-            "data": {
-                "question": "Steganografi nedir?",
-                "answer": "Steganografi, bir mesajı yalnızca şifrelemek yerine mesajın varlığını gizler. Bacon şifresi, steganografik yöntemlerin tarihsel bir örneğidir."
             }
         },
         {

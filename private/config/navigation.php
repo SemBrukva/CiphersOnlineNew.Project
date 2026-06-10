@@ -25,6 +25,12 @@ return [
             'category_alias' => 'encoding',
         ],
         [
+            'title_key'      => 'MENU_CODES_AND_ALPHABETS',
+            'url'            => '/codes-and-alphabets',
+            'icon'           => 'bi bi-braces-asterisk',
+            'category_alias' => 'codes-and-alphabets',
+        ],
+        [
             'title_key' => 'MENU_FAVORITES',
             'url'       => '/favorites',
             'icon'      => 'bi-star-fill',

@@ -4373,3 +4373,324 @@ a:focus .nav-fav-count {
     width: 30px;
   }
 }
+
+/* ─── Morse Code Table visual ────────────────────────────────────── */
+
+.cipher-visual--morse-table {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.morse-section__title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 7px;
+}
+
+.morse-section__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.morse-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 8px 5px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: default;
+  user-select: none;
+  transition: border-color var(--transition), background var(--transition);
+  min-width: 36px;
+}
+
+.morse-badge:hover {
+  border-color: var(--primary);
+  background: #eef3f8;
+}
+
+.morse-badge__char {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-base);
+  line-height: 1.2;
+}
+
+.morse-badge__code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 3px;
+  line-height: 1;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+/* ── Morse audio player ──────────────────────────────────────────── */
+/* === Morse Code Audio Player === */
+.morse-player {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  transition: border-top-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.morse-player--playing {
+  border-top-color: rgba(239, 68, 68, 0.45);
+  border-color: rgba(239, 68, 68, 0.12);
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.06);
+}
+
+.morse-player__controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+/* --- Play / Stop button --- */
+.morse-player__play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 17px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--primary);
+  background: var(--accent);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), transform 0.1s ease;
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.morse-player__play-btn:hover:not(:disabled) {
+  background: var(--co-accent-dim);
+  box-shadow: 0 4px 18px rgba(193, 255, 0, 0.28);
+}
+
+.morse-player__play-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(193, 255, 0, 0.18);
+}
+
+.morse-player__play-btn--playing {
+  background: rgba(239, 68, 68, 0.88);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.22);
+}
+
+.morse-player__play-btn--playing:hover:not(:disabled) {
+  background: rgba(220, 38, 38, 0.96);
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.32);
+}
+
+.morse-player__play-btn:disabled,
+.morse-player__download-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Settings row --- */
+.morse-player__settings {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  flex: 1;
+}
+
+.morse-player__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.38);
+  white-space: nowrap;
+}
+
+/* --- WPM spinner — mirrors .ciphers-settings-shift-group --- */
+.morse-player__wpm-group {
+  display: flex;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  height: 32px;
+}
+
+.morse-player__step-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  border: none;
+  padding: 0;
+  font-size: 17px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.morse-player__step-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.morse-player__step-btn:active {
+  background: rgba(193, 255, 0, 0.15);
+  color: var(--accent);
+}
+
+.morse-player__wpm-input {
+  width: 46px;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.11);
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding: 0;
+  height: 100%;
+  outline: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.morse-player__wpm-input::-webkit-inner-spin-button,
+.morse-player__wpm-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* --- Tone frequency select --- */
+.morse-player__freq-select {
+  height: 32px;
+  padding: 0 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.80);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.morse-player__freq-select:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.morse-player__freq-select option {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* --- Visual beat indicator --- */
+.morse-player__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.morse-player__indicator-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+  /* instant on, brief phosphor fade off */
+  transition: background 0.04s ease, box-shadow 0.06s ease, border-color 0.04s ease;
+}
+
+.morse-player__indicator-dot--on {
+  background: var(--accent);
+  border-color: var(--co-accent-dim);
+  box-shadow:
+    0 0 6px  rgba(193, 255, 0, 1.00),
+    0 0 14px rgba(193, 255, 0, 0.70),
+    0 0 28px rgba(193, 255, 0, 0.35);
+  transition: background 0s, box-shadow 0s, border-color 0s;
+}
+
+/* --- Download button — mirrors .ciphers-unified__btn-ghost --- */
+.morse-player__download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 13px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+  margin-left: auto;
+  user-select: none;
+}
+
+.morse-player__download-btn .bi {
+  font-size: 10px;
+  vertical-align: -0.05em;
+}
+
+.morse-player__download-btn:hover:not(:disabled) {
+  background: rgba(193, 255, 0, 0.10);
+  border-color: rgba(193, 255, 0, 0.35);
+  color: rgba(193, 255, 0, 0.90);
+  box-shadow: 0 0 10px rgba(193, 255, 0, 0.08);
+}
+
+.morse-player__download-btn:active:not(:disabled) {
+  background: rgba(193, 255, 0, 0.15);
+}
+
+@media (max-width: 600px) {
+  .morse-player__controls {
+    gap: 8px;
+  }
+
+  .morse-player__download-btn {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,298 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-10T18:22:39+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "morse-code",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 26,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 26,
+        "data": {
+            "name": "Morsecode",
+            "name_short": "Morsecode",
+            "description": "Wandeln Sie Text in internationalen Morsecode um, dekodieren Sie Morsezeichen wieder zu lesbarem Text, spielen Sie das Ergebnis als Audio ab und laden Sie Morse-WAV-Dateien herunter.",
+            "description_stort": "Morsecode-Encoder, Decoder und Audioplayer.",
+            "meta_title": "Morsecode-Übersetzer online | Kodieren, dekodieren & Audio abspielen",
+            "meta_description": "Text in Morsecode umwandeln und Morsezeichen online dekodieren. Hören Sie Morse-Audio, passen Sie Geschwindigkeit und Tonhöhe an und laden Sie WAV-Dateien herunter."
+        }
+    },
+    "blocks": [
+        {
+            "id": 101,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie Morsecode funktioniert",
+                "text": "<p>Morsecode stellt Buchstaben, Zahlen und Satzzeichen mit Kombinationen aus Punkten und Strichen dar. Ein Punkt ist ein kurzes Signal, ein Strich dauert dreimal so lange.</p><p>Die Übertragung folgt festen Zeitregeln. Ein Punkt entspricht einer Zeiteinheit. Ein Strich entspricht drei Zeiteinheiten. Die Pause zwischen Punkten und Strichen innerhalb desselben Zeichens dauert eine Einheit, die Pause zwischen Buchstaben drei Einheiten und die Pause zwischen Wörtern sieben Einheiten.</p><p>In geschriebener Form werden Buchstaben meist durch Leerzeichen getrennt, Wörter durch <code> / </code>. Im Morse-Audio wird dieselbe Struktur durch unterschiedlich lange Stille dargestellt.</p><p>Dieses Werkzeug verwendet den internationalen Morsecode (ITU-R M.1677-1) sowie die im Deutschen üblichen Erweiterungen für Umlaute und CH, während die Zeit- und Signalregeln gleich bleiben.</p>"
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Morsecode-Tabelle",
+                "text": "<p>Die Tabelle zeigt den internationalen Morsecode für das englische Alphabet und die deutsche Erweiterung mit Umlauten und CH. Ziffern und die meisten Satzzeichen werden gleich verwendet.</p><div class=\"cipher-visual cipher-visual--morse-table\"><div class=\"morse-section\"><div class=\"morse-section__title\">Englisches Alphabet</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">A</span><span class=\"morse-badge__code\">.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">B</span><span class=\"morse-badge__code\">-...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">C</span><span class=\"morse-badge__code\">-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">D</span><span class=\"morse-badge__code\">-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">E</span><span class=\"morse-badge__code\">.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">F</span><span class=\"morse-badge__code\">..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">G</span><span class=\"morse-badge__code\">--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">H</span><span class=\"morse-badge__code\">....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">I</span><span class=\"morse-badge__code\">..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">J</span><span class=\"morse-badge__code\">.---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">K</span><span class=\"morse-badge__code\">-.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">L</span><span class=\"morse-badge__code\">.-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">M</span><span class=\"morse-badge__code\">--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">N</span><span class=\"morse-badge__code\">-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">O</span><span class=\"morse-badge__code\">---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">P</span><span class=\"morse-badge__code\">.--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Q</span><span class=\"morse-badge__code\">--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">R</span><span class=\"morse-badge__code\">.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">S</span><span class=\"morse-badge__code\">...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">T</span><span class=\"morse-badge__code\">-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">U</span><span class=\"morse-badge__code\">..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">V</span><span class=\"morse-badge__code\">...-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">W</span><span class=\"morse-badge__code\">.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">X</span><span class=\"morse-badge__code\">-..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Y</span><span class=\"morse-badge__code\">-.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Z</span><span class=\"morse-badge__code\">--..</span></div></div></div><div class=\"morse-section\"><div class=\"morse-section__title\">Deutsches Alphabet</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">A</span><span class=\"morse-badge__code\">.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">B</span><span class=\"morse-badge__code\">-...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">C</span><span class=\"morse-badge__code\">-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">D</span><span class=\"morse-badge__code\">-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">E</span><span class=\"morse-badge__code\">.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">F</span><span class=\"morse-badge__code\">..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">G</span><span class=\"morse-badge__code\">--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">H</span><span class=\"morse-badge__code\">....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">I</span><span class=\"morse-badge__code\">..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">J</span><span class=\"morse-badge__code\">.---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">K</span><span class=\"morse-badge__code\">-.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">L</span><span class=\"morse-badge__code\">.-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">M</span><span class=\"morse-badge__code\">--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">N</span><span class=\"morse-badge__code\">-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">O</span><span class=\"morse-badge__code\">---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">P</span><span class=\"morse-badge__code\">.--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Q</span><span class=\"morse-badge__code\">--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">R</span><span class=\"morse-badge__code\">.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">S</span><span class=\"morse-badge__code\">...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">T</span><span class=\"morse-badge__code\">-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">U</span><span class=\"morse-badge__code\">..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">V</span><span class=\"morse-badge__code\">...-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">W</span><span class=\"morse-badge__code\">.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">X</span><span class=\"morse-badge__code\">-..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Y</span><span class=\"morse-badge__code\">-.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Z</span><span class=\"morse-badge__code\">--..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ä</span><span class=\"morse-badge__code\">.-.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ö</span><span class=\"morse-badge__code\">---.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ü</span><span class=\"morse-badge__code\">..--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">CH</span><span class=\"morse-badge__code\">----</span></div></div></div><div class=\"morse-section\"><div class=\"morse-section__title\">Ziffern</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">0</span><span class=\"morse-badge__code\">-----</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">1</span><span class=\"morse-badge__code\">.----</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">2</span><span class=\"morse-badge__code\">..---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">3</span><span class=\"morse-badge__code\">...--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">4</span><span class=\"morse-badge__code\">....-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">5</span><span class=\"morse-badge__code\">.....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">6</span><span class=\"morse-badge__code\">-....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">7</span><span class=\"morse-badge__code\">--...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">8</span><span class=\"morse-badge__code\">---..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">9</span><span class=\"morse-badge__code\">----.</span></div></div></div><div class=\"morse-section\"><div class=\"morse-section__title\">Satzzeichen</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">.</span><span class=\"morse-badge__code\">.-.-.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">,</span><span class=\"morse-badge__code\">--..--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">?</span><span class=\"morse-badge__code\">..--..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">'</span><span class=\"morse-badge__code\">.----.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">!</span><span class=\"morse-badge__code\">-.-.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">/</span><span class=\"morse-badge__code\">-..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">(</span><span class=\"morse-badge__code\">-.--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">)</span><span class=\"morse-badge__code\">-.--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">&amp;</span><span class=\"morse-badge__code\">.-...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">:</span><span class=\"morse-badge__code\">---...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">;</span><span class=\"morse-badge__code\">-.-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">=</span><span class=\"morse-badge__code\">-...-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">+</span><span class=\"morse-badge__code\">.-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">-</span><span class=\"morse-badge__code\">-....-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">_</span><span class=\"morse-badge__code\">..--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">&quot;</span><span class=\"morse-badge__code\">.-..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">$</span><span class=\"morse-badge__code\">...-..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">@</span><span class=\"morse-badge__code\">.--.-.</span></div></div></div></div>"
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Warum Morsecode heute noch verwendet wird",
+                "text": "<p>Obwohl Morsecode in der kommerziellen Kommunikation kaum noch genutzt wird, bleibt er im Amateurfunk, in der Notfallvorsorge, in der Luftfahrt- und Militärgeschichte, in der Ausbildung, in Rätseln und bei einfachen Signalen im Freien beliebt.</p><p>Da Morse-Nachrichten als Ton, Licht, Vibration oder simples Ein-Aus-Signal übertragen werden können, gehört Morsecode weiterhin zu den widerstandsfähigsten Kommunikationssystemen.</p>"
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 25,
+            "published": true,
+            "data": {
+                "title": "Geschichte des Morsecodes",
+                "text": "<p>Morsecode wurde in den 1830er- und 1840er-Jahren von Samuel Morse und Alfred Vail für den elektrischen Telegrafen entwickelt. Damit konnten Bediener Textnachrichten über große Entfernungen mit kurzen und langen elektrischen Impulsen senden.</p><p>Der ursprüngliche amerikanische Morsecode wurde später in vielen Bereichen durch den internationalen Morsecode ersetzt, der zum Standard für Seefahrt, Luftfahrt, Militär, Amateurfunk und Signalgebung wurde.</p><p>Auch wenn moderne digitale Kommunikation Morsecode in den meisten professionellen Systemen abgelöst hat, bleibt er historisch wichtig und wird weiterhin für Funkkommunikation, Training, Notfallsignale und kulturelles Interesse gepflegt.</p>"
+            }
+        },
+        {
+            "id": 103,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Audio-Wiedergabe und Training",
+                "text": "<p>Der integrierte Audioplayer kann Morse-Töne direkt aus Ihrer kodierten Nachricht erzeugen. Sie können die Sendegeschwindigkeit in WPM (Words Per Minute) anpassen und die Tonfrequenz passend zu Ihrem Training wählen.</p><p>Hörtraining ist eine der wirksamsten Methoden, Morsecode zu lernen. Anfänger beginnen oft mit niedriger Geschwindigkeit und erhöhen die WPM schrittweise, sobald das Erkennen sicherer wird.</p>"
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Internationaler Morsecode",
+                "text": "<p>Der moderne internationale Morsecode unterstützt lateinische Buchstaben, Ziffern und einen Standardsatz von Satzzeichen. Verschiedene Sprachen können den Zeichensatz um zusätzliche Morsezeichen für Akzente, Umlaute oder sprachspezifische Buchstaben erweitern.</p><p>So lässt sich Morsecode an viele Sprachen anpassen, ohne die gemeinsamen Zeitregeln und Signalprinzipien zu verändern.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 210,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wie werden Wörter im Morsecode getrennt?",
+                "answer": "Buchstaben innerhalb eines Wortes werden durch ein einzelnes Leerzeichen getrennt. Wörter werden mit \" / \" getrennt (Leerzeichen, Schrägstrich, Leerzeichen). Diese Schreibweise wird von den meisten Morsecode-Konvertern verwendet."
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Kann ich den Morsecode anhören?",
+                "answer": "Ja. Nach dem Kodieren oder Dekodieren können Sie den Audioplayer unter dem Ergebnis verwenden, um den Morsecode als Ton abzuspielen. Außerdem können Sie Geschwindigkeit (WPM), Tonfrequenz und den Download als WAV-Datei wählen."
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was bedeutet WPM?",
+                "answer": "WPM steht für Words Per Minute, also Wörter pro Minute. Der Wert steuert die Geschwindigkeit des Morse-Audios. Für Anfänger sind 5 WPM ein üblicher Trainingswert; 20 WPM sind typisch für geübte Operatoren. Dieses Werkzeug unterstützt 5 bis 35 WPM."
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Wer hat den Morsecode erfunden?",
+                "answer": "Morsecode wurde in den 1830er- und 1840er-Jahren von Samuel Morse und Alfred Vail als Teil des frühen elektrischen Telegrafensystems entwickelt."
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist Morsecode eine Chiffre?",
+                "answer": "Nicht wirklich. Morsecode ist ein Kodierungssystem, das Zeichen als Signale darstellt. Er versteckt Informationen nicht und bietet keine Geheimhaltung wie ein Verschlüsselungsalgorithmus."
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Kann Morsecode für andere Sprachen als Englisch verwendet werden?",
+                "answer": "Ja. Der internationale Morsecode kann um zusätzliche Zeichen für Akzente, Umlaute und sprachspezifische Buchstaben erweitert werden. Für Deutsch sind unter anderem Ä, Ö, Ü und CH gebräuchlich."
+            }
+        },
+        {
+            "id": 216,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Was ist die bekannteste Morse-Nachricht?",
+                "answer": "SOS (... --- ...) ist die bekannteste Morsefolge. Sie wurde zum internationalen Notsignal, weil sie leicht zu erkennen und zu senden ist."
+            }
+        },
+        {
+            "id": 218,
+            "sort_order": 75,
+            "published": true,
+            "data": {
+                "question": "Warum wurde SOS zum Notsignal?",
+                "answer": "SOS wurde zum internationalen Notsignal, weil sein Morse-Muster (... --- ...) kurz, markant, symmetrisch und auch bei schlechten Signalbedingungen gut erkennbar ist. Es wurde aus praktischen Signalgründen eingeführt, nicht weil es ursprünglich für einen Satz stand."
+            }
+        },
+        {
+            "id": 217,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Wie schwer ist es, Morsecode zu lernen?",
+                "answer": "Die Grundzeichen lernen die meisten Menschen recht schnell. Sicheres Hören und Senden bei höherer Geschwindigkeit erfordert regelmäßige Übung und Audiotraining."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 95,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "SOS kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "SOS",
+                "output": "... --- ...",
+                "description": "SOS ist das universelle Notsignal im Morsecode: drei Punkte, drei Striche, drei Punkte."
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "HALLO WELT kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "HALLO WELT",
+                "output": ".... .- .-.. .-.. --- / .-- . .-.. -",
+                "description": "Buchstaben werden durch Leerzeichen getrennt. Wörter werden mit \" / \" getrennt."
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Morsecode zu Text dekodieren",
+                "key": "",
+                "shift": 0,
+                "input": ".. ---- / -... .. -. / --- -.-",
+                "output": "ICH BIN OK",
+                "description": "Mit dem deutschen Morse-Alphabet kann CH als eigener Morsecode dekodiert werden."
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Zahlen und Satzzeichen kodieren",
+                "key": "",
+                "shift": 0,
+                "input": "RUF 112!",
+                "output": ".-. ..- ..-. / .---- .---- ..--- -.-.--",
+                "description": "Internationaler Morsecode unterstützt neben Buchstaben auch Ziffern und viele Satzzeichen."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 147,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Audio-Wiedergabe"
+            }
+        },
+        {
+            "id": 149,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Morse-Audio"
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Internationaler Standard"
+            }
+        },
+        {
+            "id": 150,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Internationaler Morsecode"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Funkkommunikation"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Signalkodierung"
+            }
+        },
+        {
+            "id": 153,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "CW-Training"
+            }
+        },
+        {
+            "id": 154,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Historische Kommunikation"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

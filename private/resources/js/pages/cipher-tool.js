@@ -1,4 +1,6 @@
 import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
+import { playMorse, stopMorse, isMorsePlaying, downloadMorseWav } from './cipher-tool/morse-audio.js'
+import { detectLanguage, getUnknownChars, isValidMorseFormat } from './cipher-tool/decoders/morse.js'
 
 function canUsePreferenceStorage() {
   return window.CiphersOnlineConsent?.has('preferences') === true
@@ -47,10 +49,12 @@ export function initCipherToolPage() {
   const isEncodingTool = slug.startsWith('encoding/')
   const calculationMode = String(ui.calculationMode || 'client').toLowerCase()
   const isApiMode = calculationMode === 'api'
+  const isMorseTool = slug === 'classical-ciphers/morse-code'
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
   const decoder = getDecoderBySlug(slug)
+  const isClientTool = isEncodingTool || decoder !== null
   let matrixIsSyncing = false
 
   const labels = {
@@ -67,6 +71,9 @@ export function initCipherToolPage() {
     urlCopied: ui.feedbackUrlCopied || 'Page URL copied.',
     urlCopyFailed: ui.feedbackUrlCopyFailed || 'Unable to copy page URL.',
     runFailed: ui.feedbackInvalidInput || 'Unable to process request.',
+    morseErrInvalidFormat: ui.morseErrInvalidFormat || 'Invalid Morse code format.',
+    morseWarnUnknownChars: ui.morseWarnUnknownChars || 'Unknown characters skipped: :chars.',
+    morseInfoDecodedUnknown: ui.morseInfoDecodedUnknown || 'Some codes could not be decoded (shown as ?).',
   }
 
   const setFeedback = (message, isError = false, isInfo = false) => {
@@ -427,7 +434,7 @@ export function initCipherToolPage() {
       return
     }
 
-    if (!isEncodingTool || isApiMode) {
+    if (!isClientTool || isApiMode) {
       if (isApiMode) {
         if (!value.trim()) {
           output.value = ''
@@ -447,9 +454,38 @@ export function initCipherToolPage() {
     }
 
     try {
-      output.value = transform(value, mode, decoder)
+      const rawLang = alphabetSelect?.value || 'en'
+      const effectiveLang = (isMorseTool && rawLang === 'auto')
+        ? detectLanguage(value, mode)
+        : rawLang
+
+      if (isMorseTool && mode === 'decode' && !isValidMorseFormat(value)) {
+        output.value = ''
+        setOutputState(false)
+        setFeedback(labels.morseErrInvalidFormat, true)
+        return
+      }
+
+      output.value = transform(value, mode, decoder, { language: effectiveLang })
       setOutputState(true)
-      setFeedback('')
+
+      if (isMorseTool) {
+        if (mode === 'encode') {
+          const unknown = getUnknownChars(value, effectiveLang)
+          if (unknown.length > 0) {
+            setFeedback(labels.morseWarnUnknownChars.replace(':chars', unknown.join(', ')), false, true)
+          } else {
+            setFeedback('')
+          }
+        } else if (output.value.includes('?')) {
+          setFeedback(labels.morseInfoDecodedUnknown, false, true)
+        } else {
+          setFeedback('')
+        }
+      } else {
+        setFeedback('')
+      }
+
       sendAnalyticsBeacon(slug, mode)
     } catch (error) {
       output.value = ''
@@ -549,7 +585,11 @@ export function initCipherToolPage() {
     syncShiftWithAlphabet()
     updateMatrixStatus()
     saveState()
-    scheduleApiRun()
+    if (isApiMode) {
+      scheduleApiRun()
+    } else if (isClientTool) {
+      process()
+    }
   })
 
   delimiterSelect?.addEventListener('change', () => {
@@ -778,6 +818,10 @@ export function initCipherToolPage() {
   saveState()
   setMode('encode')
   initCustomSelects()
+
+  if (isMorseTool) {
+    initMorsePlayer(output, input, ui, () => mode)
+  }
 }
 
 /**
@@ -888,9 +932,9 @@ function parseJson(raw) {
 /**
  * Выполняет преобразование данных для выбранного инструмента.
  */
-function transform(value, mode, decoder) {
+function transform(value, mode, decoder, opts) {
   if (!decoder) return ''
-  return decoder.transform(value, mode)
+  return decoder.transform(value, mode, opts)
 }
 
 const ANALYTICS_COOLDOWN_MS = 5 * 60 * 1000
@@ -931,4 +975,172 @@ function looksLikeEncoded(text, decoder) {
   if (!value) return false
   if (!decoder) return false
   return decoder.looksLikeEncoded(value)
+}
+
+/**
+ * Инициализирует аудиоплеер азбуки Морзе и внедряет его в DOM после блока результата.
+ *
+ * @param {HTMLTextAreaElement} outputEl
+ * @param {HTMLTextAreaElement} inputEl
+ * @param {Record<string, string>} ui
+ * @param {() => string} getMode
+ */
+function initMorsePlayer(outputEl, inputEl, ui, getMode) {
+  const resultCard = document.getElementById('ciphers-result-card')
+  if (!resultCard) return
+
+  const playLabel     = ui.morsePlayLabel     || 'Play'
+  const stopLabel     = ui.morseStopLabel     || 'Stop'
+  const downloadLabel = ui.morseDownloadLabel || 'Download WAV'
+  const speedLabel    = ui.morseSpeedLabel    || 'Speed (WPM)'
+  const freqLabel     = ui.morseFreqLabel     || 'Tone'
+  const freqLow       = ui.morseFreqLow       || 'Low (400 Hz)'
+  const freqMed       = ui.morseFreqMed       || 'Medium (600 Hz)'
+  const freqHigh      = ui.morseFreqHigh      || 'High (800 Hz)'
+
+  const player = document.createElement('div')
+  player.className = 'morse-player'
+  player.id = 'morse-player'
+  player.innerHTML = `
+    <div class="morse-player__controls">
+      <button class="morse-player__play-btn" id="morse-play" type="button">
+        <i class="bi bi-play-fill"></i><span>${playLabel}</span>
+      </button>
+      <div class="morse-player__settings">
+        <label class="morse-player__label" for="morse-wpm">${speedLabel}</label>
+        <div class="morse-player__wpm-group">
+          <button class="morse-player__step-btn" id="morse-wpm-dec" type="button" aria-label="−">−</button>
+          <input id="morse-wpm" class="morse-player__wpm-input" type="number" min="5" max="60" step="1" value="20">
+          <button class="morse-player__step-btn" id="morse-wpm-inc" type="button" aria-label="+">+</button>
+        </div>
+        <label class="morse-player__label" for="morse-freq">${freqLabel}</label>
+        <select id="morse-freq" class="morse-player__freq-select">
+          <option value="400">${freqLow}</option>
+          <option value="600" selected>${freqMed}</option>
+          <option value="800">${freqHigh}</option>
+        </select>
+        <div class="morse-player__indicator" id="morse-indicator" aria-hidden="true">
+          <span class="morse-player__indicator-dot" id="morse-indicator-dot"></span>
+        </div>
+      </div>
+      <button class="morse-player__download-btn" id="morse-download" type="button">
+        <i class="bi bi-download"></i><span>${downloadLabel}</span>
+      </button>
+    </div>
+  `
+
+  resultCard.after(player)
+
+  const playBtn      = document.getElementById('morse-play')
+  const downloadBtn  = document.getElementById('morse-download')
+  const wpmInput     = document.getElementById('morse-wpm')
+  const wpmDecBtn    = document.getElementById('morse-wpm-dec')
+  const wpmIncBtn    = document.getElementById('morse-wpm-inc')
+  const freqSelect   = document.getElementById('morse-freq')
+  const indicatorDot = document.getElementById('morse-indicator-dot')
+
+  const getMorseText = () => {
+    const isDecodeMode = getMode() === 'decode'
+    return (isDecodeMode ? inputEl?.value?.trim() : outputEl?.value?.trim()) || ''
+  }
+  const getWpm  = () => Math.min(60, Math.max(5, parseInt(wpmInput?.value || '20', 10) || 20))
+  const getFreq = () => parseInt(freqSelect?.value || '600', 10)
+
+  const setWpm = (v) => {
+    if (wpmInput) wpmInput.value = String(Math.min(60, Math.max(5, Math.trunc(v))))
+  }
+
+  const setPlayState = (playing) => {
+    if (!playBtn) return
+    const icon = playBtn.querySelector('.bi')
+    const span = playBtn.querySelector('span')
+    if (playing) {
+      icon && (icon.className = 'bi bi-stop-fill')
+      span && (span.textContent = stopLabel)
+      playBtn.classList.add('morse-player__play-btn--playing')
+      player.classList.add('morse-player--playing')
+    } else {
+      icon && (icon.className = 'bi bi-play-fill')
+      span && (span.textContent = playLabel)
+      playBtn.classList.remove('morse-player__play-btn--playing')
+      player.classList.remove('morse-player--playing')
+      indicatorDot?.classList.remove('morse-player__indicator-dot--on')
+    }
+  }
+
+  const updateAvailability = () => {
+    const hasContent = Boolean(getMorseText())
+    if (playBtn) playBtn.disabled = !hasContent
+    if (downloadBtn) downloadBtn.disabled = !hasContent
+  }
+
+  playBtn?.addEventListener('click', () => {
+    if (isMorsePlaying()) {
+      stopMorse()
+      setPlayState(false)
+      return
+    }
+
+    const text = getMorseText()
+    if (!text) return
+
+    setPlayState(true)
+    playMorse(text, getWpm(), getFreq(), () => {
+      setPlayState(false)
+    }, (isOn) => {
+      if (isOn) {
+        indicatorDot?.classList.add('morse-player__indicator-dot--on')
+      } else {
+        indicatorDot?.classList.remove('morse-player__indicator-dot--on')
+      }
+    })
+  })
+
+  downloadBtn?.addEventListener('click', async () => {
+    const text = getMorseText()
+    if (!text) return
+    if (downloadBtn) downloadBtn.disabled = true
+    try {
+      await downloadMorseWav(text, getWpm(), getFreq(), 'morse.wav')
+    } finally {
+      if (downloadBtn) downloadBtn.disabled = false
+      updateAvailability()
+    }
+  })
+
+  wpmDecBtn?.addEventListener('click', () => setWpm(getWpm() - 1))
+  wpmIncBtn?.addEventListener('click', () => setWpm(getWpm() + 1))
+
+  wpmInput?.addEventListener('input', () => {
+    const v = parseInt(wpmInput.value, 10)
+    if (!isNaN(v) && v > 60) wpmInput.value = '60'
+  })
+  wpmInput?.addEventListener('blur', () => setWpm(parseInt(wpmInput.value || '20', 10) || 20))
+
+  const observer = new MutationObserver(updateAvailability)
+  if (outputEl) {
+    observer.observe(outputEl, { attributes: true, characterData: true, subtree: true })
+    outputEl.addEventListener('input', () => {
+      if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
+      updateAvailability()
+    })
+  }
+  if (inputEl) {
+    inputEl.addEventListener('input', () => {
+      if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
+      updateAvailability()
+    })
+  }
+
+  // Обновляем доступность при смене вкладки encode/decode
+  document.getElementById('tab-encode')?.addEventListener('click', () => {
+    if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
+    window.setTimeout(updateAvailability, 0)
+  })
+  document.getElementById('tab-decode')?.addEventListener('click', () => {
+    if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
+    window.setTimeout(updateAvailability, 0)
+  })
+
+  updateAvailability()
 }

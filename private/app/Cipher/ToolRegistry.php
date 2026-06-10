@@ -29,7 +29,8 @@ final readonly class ToolRegistry
         private RailFenceCipherService $railFenceCipher,
         private ColumnarTranspositionCipherService $columnarTranspositionCipher,
         private PolybiusSquareCipherService $polybiusSquareCipher,
-        private HillCipherService $hillCipher
+        private HillCipherService $hillCipher,
+        private MorseCipherService $morseCipher
     ) {
     }
 
@@ -154,6 +155,11 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => '3 3; 2 5'],
                 ['label' => 'Decode',   'value' => 'HIAT',          'alphabet' => 'en', 'key' => '3 3; 2 5', 'direction' => 'decrypt'],
             ],
+            'classical-ciphers/morse-code' => [
+                ['label' => 'SOS',    'value' => 'SOS',       'alphabet' => 'en'],
+                ['label' => 'Hello',  'value' => 'HELLO',     'alphabet' => 'en'],
+                ['label' => 'Decode', 'value' => '... --- ...',    'alphabet' => 'en', 'direction' => 'decrypt'],
+            ],
             default => [],
         };
     }
@@ -181,6 +187,7 @@ final readonly class ToolRegistry
             'classical-ciphers/columnar-transposition' => 'columnar-transposition',
             'classical-ciphers/polybius-square' => 'polybius-square',
             'classical-ciphers/hill' => 'hill',
+            'classical-ciphers/morse-code' => null,
             default => null,
         };
     }
@@ -210,6 +217,7 @@ final readonly class ToolRegistry
             'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getToolSettings(),
             'classical-ciphers/polybius-square' => $this->polybiusSquareCipher->getToolSettings(),
             'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
+            'classical-ciphers/morse-code' => $this->morseCipher->getToolSettings(),
             default => [],
         };
     }
@@ -237,6 +245,7 @@ final readonly class ToolRegistry
             'classical-ciphers/columnar-transposition' => $this->columnarTranspositionCipher->getTrustItems($calculationMode),
             'classical-ciphers/polybius-square' => $this->polybiusSquareCipher->getTrustItems($calculationMode),
             'classical-ciphers/hill' => $this->hillCipher->getTrustItems($calculationMode),
+            'classical-ciphers/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),
@@ -349,6 +358,7 @@ final readonly class ToolRegistry
             'classical-ciphers/polybius', 'classical-ciphers/polybius-square-cipher', 'classical-ciphers/kvadrat-polibiya' => 'classical-ciphers/polybius-square',
             'classical-ciphers/affinnyj-shifr', 'classical-ciphers/shifr-affine' => 'classical-ciphers/affine',
             'classical-ciphers/hill-cipher', 'classical-ciphers/shifr-hilla' => 'classical-ciphers/hill',
+            'classical-ciphers/morse', 'classical-ciphers/kod-morze', 'classical-ciphers/azbukamorze' => 'classical-ciphers/morse-code',
             default => $toolSlug,
         };
     }

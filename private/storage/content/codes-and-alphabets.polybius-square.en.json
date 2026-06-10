@@ -1,0 +1,245 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-08T09:41:04+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "polybius-square",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 23,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 23,
+        "data": {
+            "name": "Polybius Square Cipher",
+            "name_short": "Polybius Square",
+            "description": "Encode letters as row-column coordinates and decode coordinate pairs back into text with the Polybius Square cipher. Learn how classical coordinate substitution works using a simple grid-based system.",
+            "description_stort": "Grid-based coordinate substitution using row and column numbers.",
+            "meta_title": "Polybius Square Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Polybius Square cipher online to convert text into row-column coordinates and decode coordinates back into letters. Explore the classic grid-based substitution method."
+        }
+    },
+    "blocks": [
+        {
+            "id": 89,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Polybius Square cipher works",
+                "text": "<p>The Polybius Square cipher replaces letters with coordinates taken from a grid. Each symbol is identified by its row and column position, turning readable text into a sequence of number pairs.</p><p>In the classical English version, the alphabet is arranged inside a 5×5 square. Because 26 letters do not fit into 25 cells, the letters I and J traditionally share one position.</p><p>Unlike transposition ciphers that rearrange letters, Polybius Square is a substitution cipher. Each character is replaced with coordinates while the order of the message remains unchanged.</p>"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 11,
+            "published": true,
+            "data": {
+                "title": "Polybius Square example",
+                "text": "<p>A classical 5×5 Polybius Square for the English alphabet looks like this:</p><div class=\"cipher-visual cipher-visual--polybius\"><div class=\"cipher-visual__row\"><span class=\"cipher-visual__corner\"></span><span class=\"cipher-visual__coord\">1</span><span class=\"cipher-visual__coord\">2</span><span class=\"cipher-visual__coord\">3</span><span class=\"cipher-visual__coord\">4</span><span class=\"cipher-visual__coord\">5</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">1</span><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">2</span><span>F</span><span>G</span><span>H</span><span class=\"cipher-visual__cell--sm\">I/J</span><span>K</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">3</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">4</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">5</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span></div></div><p>Using this square, the word <strong>HELLO</strong> becomes <code>23 15 31 31 34</code>.</p>"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 12,
+            "published": true,
+            "data": {
+                "title": "Historical use and learning value",
+                "text": "<p>The Polybius Square was described by the ancient Greek historian Polybius and is one of the earliest known coordinate-based ciphers. It was designed to transmit letters using pairs of numbers.</p><p>Today it is mainly used for education, puzzles, escape rooms, and learning the foundations of classical cryptography. Many later cipher systems were influenced by the idea of representing letters as coordinates.</p>"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 13,
+            "published": true,
+            "data": {
+                "title": "Polybius Square vs other classical ciphers",
+                "text": "<p>Unlike Caesar, which shifts letters, or Vigenere, which changes letters using a keyword, Polybius Square converts each character into coordinates. This makes it easier to transmit messages using numbers rather than letters.</p><p>The cipher is simple to learn but offers little real security because the coordinate patterns can be analyzed and reversed.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 191,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why do I and J share a coordinate?",
+                "answer": "The classical English Polybius square uses 25 cells. Combining I and J lets 26 English letters fit into a 5x5 grid."
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Is Polybius Square secure?",
+                "answer": "No. It is a simple substitution cipher and is best used for learning, puzzles, and historical demonstrations."
+            }
+        },
+        {
+            "id": 193,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Who invented the Polybius Square cipher?",
+                "answer": "The method is named after Polybius, an ancient Greek historian who described a coordinate system for representing letters with pairs of numbers."
+            }
+        },
+        {
+            "id": 194,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can Polybius Square use alphabets other than English?",
+                "answer": "Yes. This tool can build coordinate grids from different alphabets. The exact coordinates depend on the selected alphabet and grid layout."
+            }
+        },
+        {
+            "id": 195,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why does the cipher use numbers instead of letters?",
+                "answer": "Representing letters as coordinates makes messages easier to transmit through signals, codes, or numerical channels while preserving the original text structure."
+            }
+        },
+        {
+            "id": 196,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is Polybius Square a substitution or transposition cipher?",
+                "answer": "It is a substitution cipher because each letter is replaced by coordinates. The order of characters in the message does not change."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 83,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Encrypt HELLO",
+                "key": "",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "23 15 31 31 34",
+                "description": "Classic English Polybius Square. Each letter is replaced by its row and column coordinates."
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Decrypt coordinates",
+                "key": "",
+                "shift": 0,
+                "input": "23 15 31 31 34",
+                "output": "HELLO",
+                "description": "Coordinates 23, 15, 31, 31, and 34 decode to HELLO in the classical English Polybius Square."
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Encode SECRET",
+                "key": "",
+                "shift": 0,
+                "input": "SECRET",
+                "output": "43 15 13 42 15 44",
+                "description": "A keyword is not required. Every letter is converted directly into row-column coordinates."
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Decode a coordinate message",
+                "key": "",
+                "shift": 0,
+                "input": "52 15 31 13 34 42 15",
+                "output": "WELCOME",
+                "description": "Decode a longer sequence of coordinate pairs back into readable text."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 130,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substitution"
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substitution cipher"
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Coordinate cipher"
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Coordinate cipher"
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Polybius square"
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Number-based encoding"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

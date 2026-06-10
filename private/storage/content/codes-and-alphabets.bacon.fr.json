@@ -1,0 +1,233 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-05-31T16:58:02+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "bacon",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 17,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 17,
+        "data": {
+            "name": "Chiffre de Bacon",
+            "name_short": "Chiffre de Bacon",
+            "description": "Cachez des messages dans un texte ordinaire avec le chiffre de Bacon ou convertissez des lettres en groupes classiques de cinq symboles A/B.",
+            "description_stort": "Codage A/B classique et stéganographie textuelle avec le chiffre de Bacon.",
+            "meta_title": "Chiffre de Bacon en ligne : encoder et décoder",
+            "meta_description": "Utilisez le chiffre de Bacon en ligne pour encoder un texte en groupes A/B, décoder des messages baconiens ou cacher un message secret dans un texte support grâce aux majuscules et minuscules."
+        }
+    },
+    "blocks": [
+        {
+            "id": 42,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Bacon",
+                "text": "<p>Le chiffre de Bacon représente chaque lettre par une combinaison fixe de cinq symboles A et B. Par exemple, chaque caractère pris en charge dans l’alphabet sélectionné est converti en un groupe tel que AABBB ou ABBBA. Lors du décodage, ces groupes sont relus par blocs de cinq.</p><p>L’usage le plus intéressant du chiffre de Bacon est la stéganographie : un message secret peut être dissimulé dans un texte support ordinaire. Dans cet outil, le motif A/B est représenté par la casse des lettres : une casse correspond à A et l’autre à B. Le résultat ressemble toujours à un texte normal, mais l’alternance de majuscules et de minuscules porte le message caché.</p><p>Si aucun texte support n’est fourni, l’outil renvoie la suite A/B classique. Si un texte support est indiqué, le message secret y est encodé à l’aide des majuscules et des minuscules.</p>"
+            }
+        },
+        {
+            "id": 59,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Le chiffre de Bacon et la stéganographie",
+                "text": "<p>Francis Bacon a décrit cette méthode au XVIIe siècle comme un moyen de cacher des messages dans un texte apparemment anodin. Le chiffre de Bacon est souvent présenté comme un chiffre classique, mais son idée principale est plus proche de la stéganographie que du chiffrement ordinaire. Il ne se contente pas de transformer un message en symboles illisibles : il peut aussi dissimuler l’existence même du message.</p><p>Historiquement, les deux symboles de Bacon pouvaient être représentés de nombreuses manières : polices, styles, formes ou autres différences visibles. Cet outil propose une démonstration simple et pratique : les minuscules et les majuscules jouent le rôle des deux symboles possibles.</p>"
+            }
+        },
+        {
+            "id": 60,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Limites pratiques",
+                "text": "<p>Le texte support doit contenir suffisamment de lettres pour stocker l’intégralité du message caché. Chaque lettre secrète nécessite généralement cinq lettres utilisables dans le texte support et cet outil ajoute également des données de contrôle. Il est donc préférable de choisir un texte assez long.</p><p>Le chiffre de Bacon n’est pas sécurisé selon les normes cryptographiques modernes. Il convient surtout à l’apprentissage, aux énigmes, aux démonstrations historiques et aux expériences simples de stéganographie.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 102,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce qu’un texte support dans le chiffre de Bacon ?",
+                "answer": "Un texte support est une phrase ou un paragraphe ordinaire utilisé pour cacher le message secret. L’outil modifie la casse des lettres dans ce texte afin de représenter les motifs A/B de Bacon."
+            }
+        },
+        {
+            "id": 103,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi les groupes de Bacon comportent-ils exactement cinq caractères ?",
+                "answer": "Un motif A/B de cinq symboles offre suffisamment de combinaisons pour représenter les lettres de l’alphabet. Le système classique de Bacon utilise ces groupes de longueur fixe pour encoder chaque caractère."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Puis-je utiliser le chiffre de Bacon sans texte support ?",
+                "answer": "Oui. Si le champ du texte support est vide, l’outil renvoie la suite Bacon classique sous forme de groupes A/B. Cette présentation est utile pour apprendre, vérifier les résultats et décoder directement."
+            }
+        },
+        {
+            "id": 140,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Quelle doit être la longueur du texte support ?",
+                "answer": "Le texte support doit contenir suffisamment de lettres pour les données de contrôle et pour l’intégralité du message secret. Chaque lettre secrète nécessite généralement cinq lettres supplémentaires. Un texte plus long offre une marge utile et rend l’emploi des majuscules plus naturel."
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces et les signes de ponctuation ?",
+                "answer": "Les espaces et les signes de ponctuation sont conservés dans la mesure du possible. En mode A/B classique, les symboles non pris en charge sont ignorés ou servent uniquement de séparateurs selon l’opération."
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Bacon est-il sécurisé ?",
+                "answer": "Non. Le chiffre de Bacon est historiquement important et utile pour découvrir la stéganographie, mais il ne doit pas être utilisé pour protéger des informations sensibles."
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Puis-je choisir un autre alphabet ?",
+                "answer": "Oui. L’outil prend en charge plusieurs alphabets et applique le principe de Bacon à l’alphabet sélectionné. Le chiffre de Bacon classique a été conçu à l’origine pour un alphabet limité ; cet outil adapte l’idée à des fins pédagogiques."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Cacher SALUT dans un texte support",
+                "key": "Les phrases ordinaires peuvent transmettre discrètement un message secret aux lecteurs attentifs.",
+                "shift": 0,
+                "input": "SALUT",
+                "output": "les phRAseS ORDinaires PeUveNT TRaNSMeTtre discrètement un message secret aux lecteurs attentifs.",
+                "description": "Sélectionnez l’alphabet français. En mode texte support, le message secret SALUT est encodé en modifiant les majuscules et les minuscules dans une phrase ordinaire."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Extraire un message de Bacon caché",
+                "key": "Les phrases ordinaires peuvent transmettre discrètement un message secret aux lecteurs attentifs.",
+                "shift": 0,
+                "input": "les phRAseS ORDinaires PeUveNT TRaNSMeTtre discrètement un message secret aux lecteurs attentifs.",
+                "output": "salut",
+                "description": "Sélectionnez l’alphabet français. Lors du décodage, l’outil lit le motif formé par les majuscules et les minuscules et restitue le message de Bacon caché."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "data": {
+                "title": "Encodage A/B classique",
+                "key": "",
+                "shift": 0,
+                "input": "SECRET",
+                "output": "BBBAAAABBBAABAABBABBAABBBBBBAB",
+                "description": "Sélectionnez l’alphabet français. Sans texte support, le mode d’encodage renvoie directement les groupes A/B classiques de cinq symboles."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "data": {
+                "title": "Décoder des groupes A/B",
+                "key": "",
+                "shift": 0,
+                "input": "BBBAAAAAAABABAABBBBABBBAB",
+                "output": "salut",
+                "description": "Sélectionnez l’alphabet français. Le mode de décodage classique lit les groupes de Bacon par blocs de cinq symboles et les reconvertit en lettres."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 62,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Stéganographie textuelle"
+            }
+        },
+        {
+            "id": 63,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Encodage A/B"
+            }
+        },
+        {
+            "id": 64,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 65,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Messages cachés"
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Groupes de 5 bits"
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de Bacon"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

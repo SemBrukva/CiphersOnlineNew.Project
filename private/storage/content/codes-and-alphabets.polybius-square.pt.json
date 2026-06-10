@@ -1,0 +1,245 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-08T09:41:04+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "polybius-square",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 23,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 23,
+        "data": {
+            "name": "Cifra do quadrado de Políbio",
+            "name_short": "Quadrado de Políbio",
+            "description": "Codifique letras como coordenadas de linha e coluna e decodifique pares de coordenadas de volta para texto com a cifra do quadrado de Políbio. Aprenda como funciona a substituição clássica por coordenadas usando uma grade simples.",
+            "description_stort": "Substituição por coordenadas baseada em uma grade de linhas e colunas.",
+            "meta_title": "Cifra do quadrado de Políbio online: codificar e decodificar",
+            "meta_description": "Use a cifra do quadrado de Políbio online para converter texto em coordenadas de linha e coluna ou decodificar coordenadas de volta para letras. Explore o método clássico de substituição baseado em grade."
+        }
+    },
+    "blocks": [
+        {
+            "id": 89,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona a cifra do quadrado de Políbio",
+                "text": "<p>A cifra do quadrado de Políbio substitui letras por coordenadas retiradas de uma grade. Cada símbolo é identificado pela sua linha e coluna, transformando texto legível em uma sequência de pares numéricos.</p><p>Na versão clássica em inglês, o alfabeto é organizado em um quadrado 5×5. Como 26 letras não cabem em 25 células, as letras I e J tradicionalmente compartilham uma posição.</p><p>No modo de alfabeto português, esta ferramenta monta a grade a partir do conjunto de letras suportado, incluindo letras acentuadas como Á, Ã, Ç e Ú. Diferente das cifras de transposição, o quadrado de Políbio não muda a ordem da mensagem: cada caractere é substituído diretamente por suas coordenadas.</p>"
+            }
+        },
+        {
+            "id": 90,
+            "sort_order": 11,
+            "published": true,
+            "data": {
+                "title": "Exemplo do quadrado de Políbio",
+                "text": "<p>Para o alfabeto português, esta ferramenta preenche a grade da esquerda para a direita e de cima para baixo:</p><div class=\"cipher-visual cipher-visual--polybius\"><div class=\"cipher-visual__row\"><span class=\"cipher-visual__corner\"></span><span class=\"cipher-visual__coord\">1</span><span class=\"cipher-visual__coord\">2</span><span class=\"cipher-visual__coord\">3</span><span class=\"cipher-visual__coord\">4</span><span class=\"cipher-visual__coord\">5</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">1</span><span>A</span><span>Á</span><span>À</span><span>Ã</span><span>B</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">2</span><span>C</span><span>Ç</span><span>D</span><span>E</span><span>É</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">3</span><span>Ê</span><span>F</span><span>G</span><span>H</span><span>I</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">4</span><span>Í</span><span>J</span><span>K</span><span>L</span><span>M</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">5</span><span>N</span><span>O</span><span>Ó</span><span>Ô</span><span>P</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">6</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">7</span><span>Ú</span><span>V</span><span>W</span><span>X</span><span>Y</span></div><div class=\"cipher-visual__row\"><span class=\"cipher-visual__coord\">8</span><span>Z</span><span></span><span></span><span></span><span></span></div></div><p>Com esta grade portuguesa, a palavra <strong>AÇÃO</strong> vira <code>11 22 14 52</code>.</p>"
+            }
+        },
+        {
+            "id": 91,
+            "sort_order": 12,
+            "published": true,
+            "data": {
+                "title": "Uso histórico e valor didático",
+                "text": "<p>O quadrado de Políbio foi descrito pelo historiador grego antigo Políbio e é uma das cifras baseadas em coordenadas mais antigas conhecidas. Ele foi criado para transmitir letras usando pares de números.</p><p>Hoje, é usado principalmente em educação, enigmas, escape rooms e no aprendizado dos fundamentos da criptografia clássica. Muitos sistemas de cifra posteriores foram influenciados pela ideia de representar letras como coordenadas.</p>"
+            }
+        },
+        {
+            "id": 92,
+            "sort_order": 13,
+            "published": true,
+            "data": {
+                "title": "Quadrado de Políbio versus outras cifras clássicas",
+                "text": "<p>Diferente da cifra de César, que desloca letras, ou da cifra de Vigenere, que altera letras usando uma palavra-chave, o quadrado de Políbio converte cada caractere em coordenadas. Isso facilita transmitir mensagens usando números em vez de letras.</p><p>A cifra é simples de aprender, mas oferece pouca segurança real, porque os padrões de coordenadas podem ser analisados e revertidos.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 191,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Por que I e J compartilham uma coordenada na versão clássica?",
+                "answer": "O quadrado de Políbio inglês clássico usa 25 células. Combinar I e J permite encaixar 26 letras inglesas em uma grade 5×5."
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "O quadrado de Políbio é seguro?",
+                "answer": "Não. Ele é uma cifra de substituição simples e é mais adequado para aprendizado, enigmas e demonstrações históricas."
+            }
+        },
+        {
+            "id": 193,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quem inventou a cifra do quadrado de Políbio?",
+                "answer": "O método recebeu o nome de Políbio, um historiador grego antigo que descreveu um sistema de coordenadas para representar letras com pares de números."
+            }
+        },
+        {
+            "id": 194,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "O quadrado de Políbio pode usar alfabetos além do inglês?",
+                "answer": "Sim. Esta ferramenta pode construir grades de coordenadas a partir de diferentes alfabetos. As coordenadas exatas dependem do alfabeto selecionado e do layout da grade."
+            }
+        },
+        {
+            "id": 195,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Por que a cifra usa números em vez de letras?",
+                "answer": "Representar letras como coordenadas facilita transmitir mensagens por sinais, códigos ou canais numéricos, preservando a estrutura original do texto."
+            }
+        },
+        {
+            "id": 196,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "O quadrado de Políbio é uma cifra de substituição ou transposição?",
+                "answer": "É uma cifra de substituição, porque cada letra é substituída por coordenadas. A ordem dos caracteres na mensagem não muda."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 83,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Cifrar AÇÃO",
+                "key": "",
+                "shift": 0,
+                "input": "AÇÃO",
+                "output": "11 22 14 52",
+                "description": "Quadrado de Políbio português. Cada letra é substituída por suas coordenadas de linha e coluna."
+            }
+        },
+        {
+            "id": 84,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Decifrar coordenadas",
+                "key": "",
+                "shift": 0,
+                "input": "11 22 14 52",
+                "output": "ação",
+                "description": "As coordenadas 11, 22, 14 e 52 são decifradas como «ação» no quadrado de Políbio português."
+            }
+        },
+        {
+            "id": 85,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Codificar PAÍS",
+                "key": "",
+                "shift": 0,
+                "input": "PAÍS",
+                "output": "55 11 41 63",
+                "description": "Não é necessária uma palavra-chave: cada letra é convertida diretamente em um par de coordenadas."
+            }
+        },
+        {
+            "id": 86,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "data": {
+                "title": "Decodificar uma mensagem de coordenadas",
+                "key": "",
+                "shift": 0,
+                "input": "21 52 62 11 22 14 52",
+                "output": "coração",
+                "description": "Decodifique uma sequência mais longa de pares de coordenadas de volta para texto legível."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 130,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Substituição"
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra de substituição"
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifra por coordenadas"
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifra por coordenadas"
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Quadrado de Políbio"
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 136,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Codificação numérica"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -16,6 +16,7 @@ return [
     'MENU_TOOLS'            => 'Tools',
     'MENU_CLASSICAL_CIPHERS' => 'Classical ciphers',
     'MENU_ENCODING'         => 'Data encoding',
+    'MENU_CODES_AND_ALPHABETS' => 'Codes & alphabets',
 
     // Авторизация
     'AUTH_SIGN_IN'          => 'Sign In',
@@ -426,6 +427,22 @@ return [
     'JWT_TRUST_PURPOSE'                => 'Decode token without signature verification',
     'JWT_TRUST_PARTS'                  => 'View header and payload',
     'JWT_TRUST_KEYLESS'                => 'No key required to read the content',
+    // Morse Code
+    'MORSE_TRUST_STANDARD'             => 'International Morse Code (ITU-R M.1677)',
+    'MORSE_TRUST_KEYLESS'              => 'No key required',
+    'MORSE_PLAY'                       => 'Play',
+    'MORSE_STOP'                       => 'Stop',
+    'MORSE_DOWNLOAD'                   => 'Download WAV',
+    'MORSE_SPEED_LABEL'                => 'Speed (WPM)',
+    'MORSE_FREQ_LABEL'                 => 'Tone',
+    'MORSE_FREQ_LOW'                   => 'Low (400 Hz)',
+    'MORSE_FREQ_MED'                   => 'Medium (600 Hz)',
+    'MORSE_FREQ_HIGH'                  => 'High (800 Hz)',
+    'MORSE_PLACEHOLDER_ENCODE'         => 'Enter text to convert to Morse code...',
+    'MORSE_PLACEHOLDER_DECODE'         => 'Enter Morse code (e.g. .... . .-.. .-.. ---)',
+    'MORSE_ERR_INVALID_FORMAT'         => 'Invalid Morse code format. Use dots, dashes, spaces and / to separate words.',
+    'MORSE_WARN_UNKNOWN_CHARS'         => 'Unknown characters skipped: :chars.',
+    'MORSE_INFO_DECODED_UNKNOWN'       => 'Some codes could not be decoded and are shown as ?.',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];

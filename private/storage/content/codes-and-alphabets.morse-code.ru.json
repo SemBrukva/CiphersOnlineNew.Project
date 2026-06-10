@@ -1,0 +1,298 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-10T18:22:39+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "morse-code",
+        "language": "ru",
+        "default_language": "en",
+        "cipher_id": 26,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 26,
+        "data": {
+            "name": "Азбука Морзе",
+            "name_short": "Азбука Морзе",
+            "description": "Преобразуйте текст в международный код Морзе, декодируйте сигналы Морзе обратно в читаемый текст, прослушивайте результат и скачивайте WAV-файлы.",
+            "description_stort": "Кодировщик, декодировщик и аудиоплеер азбуки Морзе.",
+            "meta_title": "Переводчик азбуки Морзе онлайн | Кодирование, декодирование и звук",
+            "meta_description": "Преобразуйте текст в азбуку Морзе и декодируйте сигналы Морзе онлайн. Слушайте звук, настраивайте скорость и тон, скачивайте WAV-файлы."
+        }
+    },
+    "blocks": [
+        {
+            "id": 101,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Как работает азбука Морзе",
+                "text": "<p>Азбука Морзе представляет буквы, цифры и знаки препинания сочетаниями точек и тире. Точка — короткий сигнал, а тире длится в три раза дольше.</p><p>Передача символов строится на строгих правилах времени. Одна точка равна одной единице времени. Одно тире равно трем единицам. Пауза между точками и тире внутри одного символа длится одну единицу, пауза между буквами — три единицы, а пауза между словами — семь единиц.</p><p>В письменной записи Морзе буквы обычно разделяют пробелами, а слова — <code> / </code>. В аудиосигнале та же структура передается паузами разной длины.</p><p>Этот инструмент использует международную азбуку Морзе (ITU-R M.1677-1) и русскую таблицу Морзе для кириллицы, сохраняя общие принципы длительности сигналов и пауз.</p>"
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 15,
+            "published": true,
+            "data": {
+                "title": "Таблица азбуки Морзе",
+                "text": "<p>В таблице ниже показаны базовая международная азбука Морзе для латиницы и русская азбука Морзе для кириллицы. Цифры и большинство знаков препинания используются одинаково.</p><div class=\"cipher-visual cipher-visual--morse-table\"><div class=\"morse-section\"><div class=\"morse-section__title\">Английский алфавит</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">A</span><span class=\"morse-badge__code\">.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">B</span><span class=\"morse-badge__code\">-...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">C</span><span class=\"morse-badge__code\">-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">D</span><span class=\"morse-badge__code\">-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">E</span><span class=\"morse-badge__code\">.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">F</span><span class=\"morse-badge__code\">..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">G</span><span class=\"morse-badge__code\">--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">H</span><span class=\"morse-badge__code\">....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">I</span><span class=\"morse-badge__code\">..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">J</span><span class=\"morse-badge__code\">.---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">K</span><span class=\"morse-badge__code\">-.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">L</span><span class=\"morse-badge__code\">.-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">M</span><span class=\"morse-badge__code\">--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">N</span><span class=\"morse-badge__code\">-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">O</span><span class=\"morse-badge__code\">---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">P</span><span class=\"morse-badge__code\">.--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Q</span><span class=\"morse-badge__code\">--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">R</span><span class=\"morse-badge__code\">.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">S</span><span class=\"morse-badge__code\">...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">T</span><span class=\"morse-badge__code\">-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">U</span><span class=\"morse-badge__code\">..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">V</span><span class=\"morse-badge__code\">...-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">W</span><span class=\"morse-badge__code\">.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">X</span><span class=\"morse-badge__code\">-..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Y</span><span class=\"morse-badge__code\">-.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Z</span><span class=\"morse-badge__code\">--..</span></div></div></div><div class=\"morse-section\"><div class=\"morse-section__title\">Русский алфавит</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">А</span><span class=\"morse-badge__code\">.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Б</span><span class=\"morse-badge__code\">-...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">В</span><span class=\"morse-badge__code\">.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Г</span><span class=\"morse-badge__code\">--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Д</span><span class=\"morse-badge__code\">-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Е</span><span class=\"morse-badge__code\">.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ё</span><span class=\"morse-badge__code\">.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ж</span><span class=\"morse-badge__code\">...-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">З</span><span class=\"morse-badge__code\">--..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">И</span><span class=\"morse-badge__code\">..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Й</span><span class=\"morse-badge__code\">.---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">К</span><span class=\"morse-badge__code\">-.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Л</span><span class=\"morse-badge__code\">.-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">М</span><span class=\"morse-badge__code\">--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Н</span><span class=\"morse-badge__code\">-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">О</span><span class=\"morse-badge__code\">---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">П</span><span class=\"morse-badge__code\">.--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Р</span><span class=\"morse-badge__code\">.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">С</span><span class=\"morse-badge__code\">...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Т</span><span class=\"morse-badge__code\">-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">У</span><span class=\"morse-badge__code\">..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ф</span><span class=\"morse-badge__code\">..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Х</span><span class=\"morse-badge__code\">....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ц</span><span class=\"morse-badge__code\">-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ч</span><span class=\"morse-badge__code\">---.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ш</span><span class=\"morse-badge__code\">----</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Щ</span><span class=\"morse-badge__code\">--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ъ</span><span class=\"morse-badge__code\">..--..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ы</span><span class=\"morse-badge__code\">-.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ь</span><span class=\"morse-badge__code\">-..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Э</span><span class=\"morse-badge__code\">..-..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Ю</span><span class=\"morse-badge__code\">..--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">Я</span><span class=\"morse-badge__code\">.-.-</span></div></div></div><div class=\"morse-section\"><div class=\"morse-section__title\">Цифры</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">0</span><span class=\"morse-badge__code\">-----</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">1</span><span class=\"morse-badge__code\">.----</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">2</span><span class=\"morse-badge__code\">..---</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">3</span><span class=\"morse-badge__code\">...--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">4</span><span class=\"morse-badge__code\">....-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">5</span><span class=\"morse-badge__code\">.....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">6</span><span class=\"morse-badge__code\">-....</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">7</span><span class=\"morse-badge__code\">--...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">8</span><span class=\"morse-badge__code\">---..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">9</span><span class=\"morse-badge__code\">----.</span></div></div></div><div class=\"morse-section\"><div class=\"morse-section__title\">Знаки препинания</div><div class=\"morse-section__badges\"><div class=\"morse-badge\"><span class=\"morse-badge__char\">.</span><span class=\"morse-badge__code\">.-.-.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">,</span><span class=\"morse-badge__code\">--..--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">?</span><span class=\"morse-badge__code\">..--..</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">'</span><span class=\"morse-badge__code\">.----.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">!</span><span class=\"morse-badge__code\">-.-.--</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">/</span><span class=\"morse-badge__code\">-..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">(</span><span class=\"morse-badge__code\">-.--.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">)</span><span class=\"morse-badge__code\">-.--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">&amp;</span><span class=\"morse-badge__code\">.-...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">:</span><span class=\"morse-badge__code\">---...</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">;</span><span class=\"morse-badge__code\">-.-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">=</span><span class=\"morse-badge__code\">-...-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">+</span><span class=\"morse-badge__code\">.-.-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">-</span><span class=\"morse-badge__code\">-....-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">_</span><span class=\"morse-badge__code\">..--.-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">&quot;</span><span class=\"morse-badge__code\">.-..-.</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">$</span><span class=\"morse-badge__code\">...-..-</span></div><div class=\"morse-badge\"><span class=\"morse-badge__char\">@</span><span class=\"morse-badge__code\">.--.-.</span></div></div></div></div>"
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Почему азбуку Морзе используют до сих пор",
+                "text": "<p>Хотя азбука Морзе больше не применяется в большинстве коммерческих каналов связи, она остается популярной в любительской радиосвязи, подготовке к чрезвычайным ситуациям, истории авиации и военного дела, обучении, головоломках и полевой сигнализации.</p><p>Сообщения Морзе можно передавать звуком, светом, вибрацией или простым сигналом «включено/выключено», поэтому эта система остается одним из самых устойчивых способов связи.</p>"
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 25,
+            "published": true,
+            "data": {
+                "title": "История азбуки Морзе",
+                "text": "<p>Азбука Морзе была разработана в 1830-х и 1840-х годах Сэмюэлом Морзе и Альфредом Вейлом для электрического телеграфа. Она позволяла операторам передавать текст на большие расстояния с помощью коротких и длинных электрических импульсов.</p><p>Первоначальный американский код Морзе позднее во многих областях был заменен международной азбукой Морзе, которая стала стандартом для морской связи, авиации, военного дела, любительского радио и сигнализации.</p><p>Хотя современные цифровые системы вытеснили Морзе из большинства профессиональных сценариев, азбука Морзе остается важной исторически и до сих пор используется для радиосвязи, обучения, аварийных сигналов и культурного интереса.</p>"
+            }
+        },
+        {
+            "id": 103,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Воспроизведение звука и тренировка",
+                "text": "<p>Встроенный аудиоплеер может генерировать тоны Морзе прямо из закодированного сообщения. Вы можете менять скорость передачи в WPM (словах в минуту) и выбирать частоту тона под свои тренировочные привычки.</p><p>Практика на слух — один из самых эффективных способов выучить азбуку Морзе. Новички часто начинают с небольшой скорости и постепенно повышают WPM по мере улучшения распознавания.</p>"
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Международная азбука Морзе",
+                "text": "<p>Современная международная азбука Морзе поддерживает латинские буквы, цифры и стандартный набор знаков препинания. Для разных языков таблица может расширяться дополнительными сигналами для букв с диакритикой или национальных алфавитов.</p><p>Русская азбука Морзе использует коды для кириллицы, но сохраняет те же принципы длительности сигналов, пауз и разделения слов.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 210,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Как в азбуке Морзе разделяются слова?",
+                "answer": "Буквы внутри слова разделяются одним пробелом. Слова разделяются записью \" / \" (пробел, косая черта, пробел). Это стандартная форма записи, которую используют большинство переводчиков Морзе."
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Можно ли прослушать азбуку Морзе?",
+                "answer": "Да. После кодирования или декодирования используйте аудиоплеер под результатом, чтобы воспроизвести сообщение Морзе как звук. Также можно выбрать скорость (WPM), частоту тона и скачать WAV-файл."
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Что означает WPM?",
+                "answer": "WPM означает Words Per Minute, то есть «слов в минуту». Этот параметр управляет скоростью звучания Морзе. Для новичков часто используют 5 WPM, а 20 WPM характерны для уверенных операторов. Инструмент поддерживает диапазон от 5 до 35 WPM."
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Кто изобрел азбуку Морзе?",
+                "answer": "Азбука Морзе была разработана в 1830-х и 1840-х годах Сэмюэлом Морзе и Альфредом Вейлом как часть ранней системы электрического телеграфа."
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Азбука Морзе — это шифр?",
+                "answer": "Не совсем. Азбука Морзе — это система кодирования, которая представляет символы сигналами. Она не скрывает информацию и не обеспечивает секретность так, как это делает алгоритм шифрования."
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Можно ли использовать Морзе не только для английского языка?",
+                "answer": "Да. Международная азбука Морзе может расширяться дополнительными символами для букв с диакритикой и знаков, характерных для разных алфавитов. Для русского языка используется отдельная таблица кириллических букв."
+            }
+        },
+        {
+            "id": 216,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Какое сообщение Морзе самое известное?",
+                "answer": "SOS (... --- ...) — самая узнаваемая последовательность Морзе. Она стала международным сигналом бедствия, потому что ее легко распознать и передать."
+            }
+        },
+        {
+            "id": 218,
+            "sort_order": 75,
+            "published": true,
+            "data": {
+                "question": "Почему SOS стал сигналом бедствия?",
+                "answer": "SOS стал международным сигналом бедствия, потому что его рисунок в Морзе (... --- ...) короткий, выразительный, симметричный и хорошо распознается даже при плохом качестве сигнала. Его приняли по практическим причинам связи, а не потому, что он изначально расшифровывался как фраза."
+            }
+        },
+        {
+            "id": 217,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Сложно ли выучить азбуку Морзе?",
+                "answer": "Базовый алфавит большинство людей осваивает довольно быстро. Уверенное восприятие на слух и передача на высокой скорости требуют регулярной практики и аудиотренировок."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 95,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Закодировать СОС",
+                "key": "",
+                "shift": 0,
+                "input": "СОС",
+                "output": "... --- ...",
+                "description": "СОС — универсальный сигнал бедствия в азбуке Морзе: три точки, три тире, три точки."
+            }
+        },
+        {
+            "id": 96,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Закодировать ПРИВЕТ МИР",
+                "key": "",
+                "shift": 0,
+                "input": "ПРИВЕТ МИР",
+                "output": ".--. .-. .. .-- . - / -- .. .-.",
+                "description": "Буквы разделяются пробелами. Слова разделяются записью \" / \"."
+            }
+        },
+        {
+            "id": 97,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Декодировать Морзе в текст",
+                "key": "",
+                "shift": 0,
+                "input": "-- -. . / -. --- .-. --",
+                "output": "МНЕ НОРМ",
+                "description": "Слова, разделенные \" / \", декодируются в отдельные слова с пробелами."
+            }
+        },
+        {
+            "id": 98,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Закодировать цифры и знаки препинания",
+                "key": "",
+                "shift": 0,
+                "input": "СИГНАЛ 911!",
+                "output": "... .. --. -. .- .-.. / ----. .---- .---- -.-.--",
+                "description": "Русская и международная таблицы Морзе поддерживают цифры и многие знаки препинания наряду с буквами."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 147,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Воспроизведение звука"
+            }
+        },
+        {
+            "id": 149,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Звук Морзе"
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Международный стандарт"
+            }
+        },
+        {
+            "id": 150,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Международная азбука Морзе"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Радиосвязь"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Кодирование сигналов"
+            }
+        },
+        {
+            "id": 153,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Тренировка CW"
+            }
+        },
+        {
+            "id": 154,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Историческая связь"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -16,6 +16,7 @@ return [
     'MENU_TOOLS'            => 'Инструменты',
     'MENU_CLASSICAL_CIPHERS' => 'Классические шифры',
     'MENU_ENCODING'         => 'Кодирование данных',
+    'MENU_CODES_AND_ALPHABETS' => 'Коды и алфавиты',
 
     // Авторизация
     'AUTH_SIGN_IN'          => 'Войти',
@@ -426,6 +427,22 @@ return [
     'JWT_TRUST_PURPOSE'                => 'Декодирование токена без проверки подписи',
     'JWT_TRUST_PARTS'                  => 'Просмотр заголовка и полезной нагрузки',
     'JWT_TRUST_KEYLESS'                => 'Ключ не требуется для чтения содержимого',
+    // Азбука Морзе
+    'MORSE_TRUST_STANDARD'             => 'Международная азбука Морзе (ITU-R M.1677)',
+    'MORSE_TRUST_KEYLESS'              => 'Ключ не требуется',
+    'MORSE_PLAY'                       => 'Воспроизвести',
+    'MORSE_STOP'                       => 'Стоп',
+    'MORSE_DOWNLOAD'                   => 'Скачать WAV',
+    'MORSE_SPEED_LABEL'                => 'Скорость (WPM)',
+    'MORSE_FREQ_LABEL'                 => 'Тон',
+    'MORSE_FREQ_LOW'                   => 'Низкий (400 Гц)',
+    'MORSE_FREQ_MED'                   => 'Средний (600 Гц)',
+    'MORSE_FREQ_HIGH'                  => 'Высокий (800 Гц)',
+    'MORSE_PLACEHOLDER_ENCODE'         => 'Введите текст для преобразования в азбуку Морзе...',
+    'MORSE_PLACEHOLDER_DECODE'         => 'Введите азбуку Морзе (например: .... . .-.. .-.. ---)',
+    'MORSE_ERR_INVALID_FORMAT'         => 'Неверный формат азбуки Морзе. Используйте точки, тире, пробелы и / для разделения слов.',
+    'MORSE_WARN_UNKNOWN_CHARS'         => 'Неизвестные символы пропущены: :chars.',
+    'MORSE_INFO_DECODED_UNKNOWN'       => 'Некоторые коды не удалось расшифровать и они отображены как ?.',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
 ];
