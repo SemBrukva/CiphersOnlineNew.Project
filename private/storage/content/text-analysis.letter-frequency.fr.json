@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T21:41:21+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "letter-frequency",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 29,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 29,
+        "data": {
+            "name": "Fréquence des lettres",
+            "name_short": "Fréquence des lettres",
+            "description": "Analysez la fréquence des lettres en ligne et voyez combien de fois chaque lettre de l'alphabet apparaît dans votre texte. La carte thermique, le compteur de lettres et le tableau comparatif révèlent les lettres dominantes, rares ou absentes, ce qui aide à examiner des textes chiffrés, étudier des habitudes d'écriture, vérifier des pangrammes et comparer un texte réel aux fréquences attendues d'une langue.",
+            "description_stort": "Analyseur en ligne de fréquence des lettres avec carte thermique, comptage et comparaison linguistique.",
+            "meta_title": "Analyseur de fréquence des lettres | Carte thermique et compteur",
+            "meta_description": "Analysez la fréquence des lettres en ligne : comptez les lettres, affichez une carte thermique de l'alphabet, comparez un texte aux fréquences d'une langue et inspectez un texte clair ou chiffré."
+        }
+    },
+    "blocks": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Qu'est-ce que la fréquence des lettres ?",
+                "text": "<p>La fréquence des lettres indique combien de fois chaque lettre d'un alphabet apparaît dans un texte, généralement sous forme de pourcentage de toutes les lettres comptées. Les langues naturelles ne sont pas réparties au hasard : en français, des lettres comme <strong>E</strong>, <strong>A</strong>, <strong>S</strong>, <strong>I</strong> et <strong>N</strong> sont très fréquentes, tandis que <strong>K</strong>, <strong>W</strong>, <strong>X</strong> et <strong>Z</strong> apparaissent beaucoup plus rarement.</p><p>Cet analyseur en ligne fonctionne comme un compteur de lettres spécialisé : il compte les lettres du texte saisi, ignore les espaces et la ponctuation dans les totaux alphabétiques, puis affiche le résultat sous forme de carte thermique de l'alphabet. Les cellules plus foncées indiquent les lettres les plus fréquentes, tandis que les cellules claires révèlent les lettres rares ou absentes.</p><p>Le tableau triable ajoute les nombres exacts et les pourcentages, ce qui permet de passer rapidement d'une impression visuelle à une comparaison précise avec le profil linguistique sélectionné. Utilisez-le pour les statistiques de texte, la vérification de fréquence alphabétique, les tests de pangrammes, l'analyse de style et la première inspection de textes chiffrés.</p>"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Comment la fréquence des lettres aide avec les chiffrements",
+                "text": "<p>La fréquence des lettres est l'un des premiers contrôles les plus rapides en cryptanalyse classique. Dans le <a href=\"/fr/classical-ciphers/caesar\">chiffrement de César</a>, chaque lettre est décalée du même nombre de positions ; la lettre la plus fréquente du texte chiffré peut donc correspondre à la forme chiffrée de <strong>E</strong> ou d'une autre lettre très fréquente dans la langue supposée.</p><p>Les chiffrements par substitution simple sont plus difficiles, mais ils conservent eux aussi des indices statistiques. Chaque symbole du texte chiffré représente toujours la même lettre du texte clair, si bien que le profil de fréquence est déformé, mais pas effacé. Les pics, les absences et les lettres fréquentes répétées peuvent suggérer des substitutions probables avant une analyse plus poussée.</p><p>Pour une démarche complète, utilisez d'abord cette carte thermique afin de repérer les motifs évidents de l'alphabet, puis passez à l'<a href=\"/fr/text-analysis/frequency-analysis\">analyse de fréquence</a> plus large pour les mots, bigrammes, trigrammes et l'indice de coïncidence. Sur les textes courts, la distribution peut être instable : considérez donc la carte comme un indice, pas comme une réponse définitive.</p>"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Usages courants d'un analyseur de fréquence des lettres",
+                "text": "<p>Un analyseur de fréquence des lettres est utile chaque fois que la forme de la distribution alphabétique compte. Les rédacteurs et correcteurs peuvent repérer des répétitions ou une distribution inhabituelle dans un extrait. Les enseignants peuvent montrer visuellement pourquoi certaines lettres sont courantes et d'autres rares. Les amateurs d'énigmes peuvent examiner des cryptogrammes, des substitutions et de courts textes chiffrés avant de tenter un déchiffrement manuel.</p><p>Il sert aussi d'outil rapide pour vérifier la couverture de l'alphabet. Collez un pangramme, un slogan, une phrase de mot de passe ou un texte à contrainte pour voir quelles lettres apparaissent, lesquelles dominent et lesquelles manquent. La carte thermique donne la vue d'ensemble, tandis que le tableau fournit les comptages exacts et les pourcentages.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 232,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu'est-ce qu'une carte thermique de fréquence des lettres ?",
+                "answer": "Une carte thermique de fréquence des lettres affiche chaque lettre de l'alphabet comme une cellule colorée. Plus la cellule est sombre ou saturée, plus la lettre apparaît souvent dans le texte. Les cellules claires permettent de repérer rapidement les lettres rares ou absentes, ce qui est utile pour examiner des textes chiffrés, des pangrammes, des écritures à contrainte ou des échantillons inhabituels."
+            }
+        },
+        {
+            "id": 233,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence avec l'outil Frequency Analysis ?",
+                "answer": "Frequency Analysis est un atelier de cryptanalyse plus complet : il peut analyser les lettres, tous les caractères, les mots, les bigrammes et les trigrammes, et calcule aussi l'indice de coïncidence. Fréquence des lettres est plus ciblé et plus visuel. L'outil se concentre sur la carte thermique de l'alphabet et le tableau par lettre, ce qui le rend idéal pour une première inspection rapide avant une analyse de fréquence plus approfondie."
+            }
+        },
+        {
+            "id": 234,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quelles langues sont prises en charge ?",
+                "answer": "L'outil inclut des profils de fréquence pour l'anglais, le russe, l'allemand, l'espagnol, le français, l'italien, le portugais et le turc. Choisissez le profil qui correspond à la langue supposée du texte clair afin que le tableau comparatif utilise le bon alphabet et la bonne distribution attendue."
+            }
+        },
+        {
+            "id": 235,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Est-ce simplement un compteur de lettres ?",
+                "answer": "L'outil inclut le comptage des lettres, mais il va plus loin qu'un simple compteur. En plus des nombres bruts, il calcule les pourcentages, visualise l'alphabet sous forme de carte thermique et compare la distribution observée aux fréquences attendues de la langue choisie."
+            }
+        },
+        {
+            "id": 236,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Les espaces, la ponctuation et les chiffres sont-ils comptés ?",
+                "answer": "Non. La fréquence des lettres est calculée uniquement à partir des lettres de l'alphabet. Les espaces, signes de ponctuation, chiffres et autres caractères non alphabétiques sont ignorés dans les totaux de lettres, de sorte que les pourcentages décrivent la distribution des lettres et non l'ensemble du flux de caractères."
+            }
+        },
+        {
+            "id": 237,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Les majuscules et minuscules changent-elles le résultat ?",
+                "answer": "Non. Les majuscules et les minuscules sont comptées ensemble : A et a contribuent donc au même total. Cela rend le résultat plus facile à comparer avec les profils standard de fréquence linguistique."
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Quelle quantité de texte faut-il pour obtenir des résultats fiables ?",
+                "answer": "Plus le texte est long, plus le résultat est fiable. Quelques mots peuvent déjà fournir des indices utiles, surtout pour les lettres absentes ou répétées, mais la distribution peut être bruitée. Plusieurs centaines de lettres donnent généralement une comparaison beaucoup plus claire avec les fréquences naturelles d'une langue."
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "La fréquence des lettres peut-elle aider à casser un chiffrement ?",
+                "answer": "Oui, surtout pour les chiffrements classiques. La fréquence des lettres peut révéler des décalages dans le chiffrement de César et donner des pistes pour les substitutions simples. C'est un point de départ plutôt qu'un solveur automatique complet, et elle fonctionne mieux avec l'analyse de motifs, les mots fréquents, les bigrammes et le raisonnement manuel."
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Quelles sont les lettres les plus fréquentes en français ?",
+                "answer": "Dans les textes français courants, les lettres les plus fréquentes sont généralement E, A, S, I, N, T, R, U et L. Les pourcentages exacts varient selon le genre et la taille de l'échantillon, mais E est presque toujours en tête, tandis que K, W, X et Z sont beaucoup moins fréquentes."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 108,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Pangramme français",
+                "key": "",
+                "shift": 0,
+                "input": "Portez ce vieux whisky au juge blond qui fume",
+                "output": "",
+                "description": "Un pangramme français compact contenant de nombreuses lettres différentes. Il permet de vérifier comment la carte thermique couvre l'alphabet même avec une phrase courte."
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Texte chiffré César",
+                "key": "",
+                "shift": 0,
+                "input": "ERQMRXU PRQGH",
+                "output": "",
+                "description": "Une courte chaîne ressemblant à BONJOUR MONDE après un décalage de César. Les lettres visibles ne suivent pas la fréquence habituelle du français, ce qui rend l'effet du décalage plus facile à remarquer."
+            }
+        },
+        {
+            "id": 110,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Phrase classique",
+                "key": "",
+                "shift": 0,
+                "input": "Etre ou ne pas etre telle est la question",
+                "output": "",
+                "description": "Une courte phrase naturelle avec plusieurs lettres fréquentes répétées. Observez comment E, T, S et A ressortent même avant d'avoir un long échantillon."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Motif répété",
+                "key": "",
+                "shift": 0,
+                "input": "ATTAQUE A L AUBE ATTAQUE AU CREPUSCULE",
+                "output": "",
+                "description": "Une phrase compacte avec des mots et des lettres répétés. La carte thermique fait ressortir A, T et E, ce qui aide à repérer les répétitions dans un texte proche d'un cryptogramme."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Fréquence des lettres"
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Carte thermique de l'alphabet"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Compteur de lettres"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Statistiques de texte"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Analyse de chiffrements"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

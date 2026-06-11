@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T21:41:21+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "letter-frequency",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 29,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 29,
+        "data": {
+            "name": "Frecuencia de letras",
+            "name_short": "Frecuencia de letras",
+            "description": "Analiza la frecuencia de letras online y descubre cuántas veces aparece cada letra del alfabeto en tu texto. El mapa de calor, el contador de letras y la tabla comparativa muestran letras dominantes, raras y ausentes, lo que ayuda a revisar criptogramas, estudiar patrones de escritura, comprobar pangramas y comparar textos reales con frecuencias esperadas del idioma.",
+            "description_stort": "Analizador online de frecuencia de letras con mapa de calor, conteo y comparación por idioma.",
+            "meta_title": "Analizador de frecuencia de letras | Mapa de calor y contador",
+            "meta_description": "Analiza la frecuencia de letras online: cuenta letras, visualiza un mapa de calor del alfabeto, compara textos con frecuencias del idioma y estudia texto claro o cifrado."
+        }
+    },
+    "blocks": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "¿Qué es la frecuencia de letras?",
+                "text": "<p>La frecuencia de letras indica cuántas veces aparece cada letra de un alfabeto en un texto, normalmente como porcentaje del total de letras contadas. Las lenguas naturales no se distribuyen al azar: en español suelen destacar letras como <strong>E</strong>, <strong>A</strong>, <strong>O</strong>, <strong>S</strong> y <strong>N</strong>, mientras que <strong>K</strong>, <strong>W</strong> y <strong>X</strong> aparecen con mucha menos frecuencia.</p><p>Este analizador online funciona como un contador de letras especializado: cuenta las letras del texto introducido, ignora espacios y signos de puntuación para los totales alfabéticos y muestra el resultado como un mapa de calor del alfabeto. Las celdas más oscuras representan letras más frecuentes, mientras que las celdas claras revelan letras raras o ausentes.</p><p>La tabla ordenable añade conteos exactos y porcentajes, de modo que puedes pasar de una impresión visual rápida a una comparación precisa con el perfil del idioma seleccionado. Úsalo para estadísticas de texto, revisión de frecuencia alfabética, pruebas de pangramas, análisis de estilo y primera inspección de textos cifrados.</p>"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cómo ayuda la frecuencia de letras con los cifrados",
+                "text": "<p>La frecuencia de letras es una de las primeras comprobaciones en el criptoanálisis clásico. En el <a href=\"/es/classical-ciphers/caesar\">cifrado César</a>, cada letra se desplaza siempre la misma cantidad, así que la letra más frecuente del criptograma suele apuntar a la forma cifrada de <strong>E</strong>, <strong>A</strong> u otra letra frecuente del idioma esperado.</p><p>Los cifrados de sustitución simple son más difíciles, pero también dejan pistas estadísticas. Cada símbolo del texto cifrado representa siempre la misma letra del texto claro, por lo que el patrón de frecuencias se distorsiona, pero no desaparece. Picos, huecos y letras frecuentes repetidas pueden sugerir sustituciones probables antes de un análisis más profundo.</p><p>Para un flujo de trabajo completo, usa este mapa de calor primero para detectar patrones evidentes del alfabeto y después pasa al <a href=\"/es/text-analysis/frequency-analysis\">análisis de frecuencia</a> ampliado con palabras, bigramas, trigramas e índice de coincidencia. En textos cortos la distribución puede ser ruidosa, así que conviene tratar el mapa como una pista, no como una respuesta definitiva.</p>"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Usos comunes de un analizador de frecuencia de letras",
+                "text": "<p>Un analizador de frecuencia de letras es útil siempre que importa la forma de la distribución alfabética. Escritores y editores pueden revisar repeticiones o distribuciones inusuales en una muestra. Docentes pueden mostrar de forma visual por qué algunas letras son comunes y otras raras. Quienes resuelven acertijos pueden inspeccionar criptogramas, sustituciones y textos cifrados breves antes de intentar descifrarlos manualmente.</p><p>También funciona como una herramienta rápida para comprobar la cobertura del alfabeto. Pega un pangrama, un eslogan, una frase de contraseña generada o un texto con restricciones y observa qué letras aparecen, cuáles dominan y cuáles faltan. El mapa de calor ofrece la visión general; la tabla aporta conteos exactos y porcentajes.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 232,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué es un mapa de calor de frecuencia de letras?",
+                "answer": "Un mapa de calor de frecuencia de letras muestra cada letra del alfabeto como una celda de color. Cuanto más oscura o saturada es la celda, más veces aparece esa letra en el texto. Las celdas claras ayudan a detectar letras raras o ausentes, algo útil al revisar textos cifrados, pangramas, escritura con restricciones o muestras inusuales."
+            }
+        },
+        {
+            "id": 233,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿En qué se diferencia de la herramienta Frequency Analysis?",
+                "answer": "Frequency Analysis es un entorno de criptoanálisis más amplio: puede analizar letras, todos los caracteres, palabras, bigramas y trigramas, y también calcula el índice de coincidencia. Frecuencia de letras es más específica y visual. Se centra en el mapa de calor del alfabeto y la tabla por letra, por lo que es ideal para una primera revisión rápida antes de un análisis de frecuencia más profundo."
+            }
+        },
+        {
+            "id": 234,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Qué idiomas están disponibles?",
+                "answer": "La herramienta incluye perfiles de frecuencia para inglés, ruso, alemán, español, francés, italiano, portugués y turco. Elige el perfil que corresponda al idioma esperado del texto claro para que la tabla comparativa use el alfabeto y la distribución de letras adecuados."
+            }
+        },
+        {
+            "id": 235,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Es lo mismo que un contador de letras?",
+                "answer": "Incluye conteo de letras, pero va más allá de un contador simple. Además de los conteos absolutos, calcula porcentajes, visualiza el alfabeto como mapa de calor y compara la distribución observada con frecuencias esperadas del idioma."
+            }
+        },
+        {
+            "id": 236,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Cuenta espacios, signos de puntuación y números?",
+                "answer": "No. La frecuencia de letras se calcula solo a partir de letras del alfabeto. Los espacios, signos de puntuación, dígitos y otros caracteres no alfabéticos se ignoran para los totales de letras, de modo que los porcentajes describen la distribución de letras y no todo el flujo de caracteres."
+            }
+        },
+        {
+            "id": 237,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Importan las mayúsculas y minúsculas?",
+                "answer": "No. Las mayúsculas y minúsculas se cuentan juntas, por lo que A y a contribuyen al mismo total. Esto facilita comparar el resultado con perfiles estándar de frecuencia del idioma."
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Cuánto texto necesito para obtener resultados fiables?",
+                "answer": "Cuanto más largo es el texto, más fiable suele ser el resultado. Unas pocas palabras pueden dar pistas útiles, sobre todo sobre letras ausentes o repetidas, pero la distribución puede ser ruidosa. Varios cientos de letras suelen producir una comparación mucho más clara con las frecuencias naturales del idioma."
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "¿Puede la frecuencia de letras ayudar a romper un cifrado?",
+                "answer": "Sí, especialmente en cifrados clásicos. La frecuencia de letras puede revelar desplazamientos en el cifrado César y aportar pistas para cifrados de sustitución simple. Es un punto de partida, no un descifrador automático completo, y funciona mejor junto con análisis de patrones, palabras comunes, bigramas y razonamiento manual."
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "¿Cuáles son las letras más frecuentes en español?",
+                "answer": "En textos españoles típicos, las letras más frecuentes suelen ser E, A, O, S, N, R, I, L y D. Los porcentajes exactos varían según el género y el tamaño de la muestra, pero E y A suelen estar entre las primeras, mientras que K, W y X son mucho menos comunes."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 108,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Pangrama en español",
+                "key": "",
+                "shift": 0,
+                "input": "El veloz murciélago hindú comía feliz cardillo y kiwi",
+                "output": "",
+                "description": "Un pangrama compacto con muchas letras distintas del alfabeto español. Sirve para comprobar cómo el mapa de calor muestra una cobertura amplia incluso en una frase breve."
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Texto cifrado César",
+                "key": "",
+                "shift": 0,
+                "input": "KROD PXQGR",
+                "output": "",
+                "description": "Una cadena breve con el aspecto de HOLA MUNDO desplazado con César. Las letras dominantes no coinciden con el español normal, lo que ayuda a notar el efecto del desplazamiento."
+            }
+        },
+        {
+            "id": 110,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Frase clásica",
+                "key": "",
+                "shift": 0,
+                "input": "Ser o no ser esa es la cuestión",
+                "output": "",
+                "description": "Una frase natural breve con varias letras comunes repetidas. Observa cómo E, S, O y A destacan incluso antes de tener una muestra larga."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Patrón repetido",
+                "key": "",
+                "shift": 0,
+                "input": "ATAQUE AL AMANECER ATAQUE AL ANOCHECER",
+                "output": "",
+                "description": "Una frase compacta con palabras y letras repetidas. El mapa de calor hace destacar A, E y T, algo útil para detectar repeticiones en textos parecidos a criptogramas."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Frecuencia de letras"
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Mapa de calor del alfabeto"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Contador de letras"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Estadísticas de texto"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Análisis de cifrados"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

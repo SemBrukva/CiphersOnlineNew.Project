@@ -5308,3 +5308,165 @@ a:focus .nav-fav-count {
     display: none;
   }
 }
+
+/* Letter Frequency heatmap */
+.lfreq-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bs-secondary);
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+.lfreq-heatmap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.lfreq-cell {
+  width: 46px;
+  min-height: 52px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px 2px;
+  background: hsl(220, 75%, calc(94% - var(--lfreq-heat, 0) * 52%));
+  border: 1px solid hsl(220, 50%, calc(88% - var(--lfreq-heat, 0) * 30%));
+  cursor: default;
+  transition: transform 0.1s;
+}
+
+.lfreq-cell:hover {
+  transform: scale(1.12);
+  z-index: 1;
+}
+
+.lfreq-cell--zero {
+  background: var(--bs-gray-100);
+  border-color: var(--bs-gray-200);
+}
+
+.lfreq-cell__char {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: hsl(220, 40%, calc(25% + var(--lfreq-heat, 0) * -15%));
+}
+
+.lfreq-cell--zero .lfreq-cell__char {
+  color: var(--bs-gray-400);
+}
+
+.lfreq-cell__pct {
+  font-size: 0.6rem;
+  line-height: 1;
+  color: hsl(220, 30%, calc(45% + var(--lfreq-heat, 0) * -20%));
+}
+
+.lfreq-cell--zero .lfreq-cell__pct {
+  color: var(--bs-gray-400);
+}
+
+.lfreq-missing {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+.lfreq-missing__label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.lfreq-missing__chars {
+  letter-spacing: 0.08em;
+}
+
+.lfreq-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.lfreq-detected {
+  font-weight: 600;
+  color: rgba(193, 255, 0, 0.85);
+}
+
+.lfreq-mismatch {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(255, 190, 50, 0.10);
+  color: rgba(255, 210, 80, 0.90);
+  border: 1px solid rgba(255, 190, 50, 0.25);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.lfreq-row {
+  display: grid;
+  grid-template-columns: 26px 1fr 44px 52px 62px;
+  gap: 6px;
+  align-items: center;
+  padding: 3px 4px;
+  border-radius: 4px;
+}
+
+.lfreq-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lfreq-row--header {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--bs-secondary);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--bs-gray-200);
+  margin-bottom: 2px;
+}
+
+.lfreq-row--header:hover {
+  background: transparent;
+}
+
+.lfreq-row--zero {
+  opacity: 0.45;
+}
+
+.lfreq-col-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 480px) {
+  .lfreq-cell {
+    width: 38px;
+    min-height: 44px;
+  }
+
+  .lfreq-cell__char {
+    font-size: 0.88rem;
+  }
+
+  .lfreq-row {
+    grid-template-columns: 24px 1fr 38px 46px 54px;
+    gap: 4px;
+  }
+}

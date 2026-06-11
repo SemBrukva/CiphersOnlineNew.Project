@@ -16,13 +16,20 @@ return [
         'classical-ciphers/caesar',
         'classical-ciphers/rot13',
     ],
+    'text-analysis/letter-frequency' => [
+        'text-analysis/frequency-analysis',
+        'classical-ciphers/caesar',
+        'classical-ciphers/vigenere',
+    ],
     'text-analysis/frequency-analysis' => [
+        'text-analysis/letter-frequency',
         'classical-ciphers/vigenere',
         'classical-ciphers/caesar',
     ],
     'classical-ciphers/caesar' => [
         'classical-ciphers/rot13',
         'text-analysis/caesar-brute-force',
+        'text-analysis/letter-frequency',
         'classical-ciphers/affine',
     ],
     'classical-ciphers/rot13' => [

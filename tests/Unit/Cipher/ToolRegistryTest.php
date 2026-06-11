@@ -13,6 +13,7 @@ use App\Cipher\CaesarBruteForceService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\FrequencyAnalysisService;
+use App\Cipher\LetterFrequencyService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\HillCipherService;
 use App\Cipher\MorseCipherService;
@@ -107,7 +108,8 @@ final class ToolRegistryTest extends TestCase
             new HillCipherService(),
             new MorseCipherService(),
             new FrequencyAnalysisService(),
-            new CaesarBruteForceService()
+            new CaesarBruteForceService(),
+            new LetterFrequencyService()
         );
     }
 }

@@ -45,6 +45,8 @@ export function initCipherToolPage() {
   const freqScopeSelect = document.getElementById('ciphers-freq-scope')
   const freqSortSelect = document.getElementById('ciphers-freq-sort')
   const freqLangSelect = document.getElementById('ciphers-freq-lang')
+  const lfreqLangSelect = document.getElementById('ciphers-lfreq-lang')
+  const lfreqSortSelect = document.getElementById('ciphers-lfreq-sort')
   const visualOutput = document.getElementById('ciphers-visual-output')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
@@ -56,6 +58,7 @@ export function initCipherToolPage() {
   const isMorseTool = slug === 'codes-and-alphabets/morse-code'
   const isAnalysisTool = Boolean(ui.analysisMode)
   const isBruteForceTool = Boolean(ui.bruteForceMode)
+  const isLetterFrequencyTool = Boolean(ui.letterFrequencyMode)
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
@@ -197,6 +200,11 @@ export function initCipherToolPage() {
   const showBruteForceEmpty = () => {
     if (!visualOutput) return
     visualOutput.innerHTML = `<p class="freq-empty">${escapeHtml(ui.bruteEmptyLabel || 'Enter ciphertext to see all possible decryptions')}</p>`
+  }
+
+  const showLetterFreqEmpty = () => {
+    if (!visualOutput) return
+    visualOutput.innerHTML = `<p class="freq-empty">${escapeHtml(ui.lfreqEmptyLabel || 'Enter text to see letter frequencies')}</p>`
   }
 
   const renderBruteForceTable = (results, bestShift, reliable) => {
@@ -417,6 +425,86 @@ export function initCipherToolPage() {
     output.value = plainText
 
     visualOutput.innerHTML = summaryHtml + icHtml + mismatchHtml + chartHtml + tableHtml + langMatchHtml
+  }
+
+  const renderLetterFrequencyGrid = (data) => {
+    if (!visualOutput) return
+    const { stats, heatmapItems, tableItems, missingLetters, requestedLang, detectedLang, mismatch } = data
+    const getLangName = (code) =>
+      lfreqLangSelect?.querySelector(`option[value="${code}"]`)?.textContent?.trim() || code
+    if (!heatmapItems || heatmapItems.length === 0) {
+      showLetterFreqEmpty()
+      return
+    }
+
+    // --- Строка статистики + детекция ---
+    let summaryHtml = `<div class="freq-summary">`
+      + `${stats?.letters ?? 0} ${ui.lfreqStatLetters || 'letters'} · `
+      + `${stats?.unique ?? 0} ${ui.lfreqStatUnique || 'unique'}`
+    if (requestedLang === 'auto' && detectedLang) {
+      const detectedTpl = ui.lfreqLangDetectedLabel || 'Detected: :lang'
+      summaryHtml += ` · <span class="lfreq-detected">${escapeHtml(detectedTpl.replace(':lang', getLangName(detectedLang)))}</span>`
+    }
+    summaryHtml += `</div>`
+
+    // --- Предупреждение о несоответствии языка ---
+    let mismatchHtml = ''
+    if (mismatch) {
+      const tpl = ui.lfreqMismatchWarning || 'Text doesn\'t match selected language. Try: :lang.'
+      mismatchHtml = `<div class="lfreq-mismatch">${escapeHtml(tpl.replace(':lang', getLangName(mismatch.detectedLang || '')))}</div>`
+    }
+
+    // --- Тепловая карта ---
+    const maxPct = heatmapItems.reduce((m, it) => Math.max(m, it.pct), 0.01)
+    const cells = heatmapItems.map(({ char, count, pct }) => {
+      const heat = pct / maxPct
+      const cls = count === 0 ? 'lfreq-cell lfreq-cell--zero' : 'lfreq-cell'
+      const tip = count === 0
+        ? `${char}: 0`
+        : `${char}: ${count} (${pct.toFixed(1)}%)`
+      return `<div class="${cls}" style="--lfreq-heat:${heat.toFixed(3)}" title="${escapeHtml(tip)}">`
+        + `<span class="lfreq-cell__char">${escapeHtml(char)}</span>`
+        + `<span class="lfreq-cell__pct">${count === 0 ? '—' : pct.toFixed(1) + '%'}</span>`
+        + `</div>`
+    }).join('')
+    const heatmapHtml = `<div class="lfreq-section-title">${escapeHtml(ui.lfreqHeatmapTitle || 'Alphabet heatmap')}</div>`
+      + `<div class="lfreq-heatmap">${cells}</div>`
+
+    // --- Отсутствующие буквы ---
+    let missingHtml = ''
+    if (missingLetters && missingLetters.length > 0) {
+      const missingStr = missingLetters.join(', ')
+      missingHtml = `<div class="lfreq-missing">`
+        + `<span class="lfreq-missing__label">${escapeHtml(ui.lfreqMissingTitle || 'Not in text')}:</span> `
+        + `<span class="lfreq-missing__chars">${escapeHtml(missingStr)}</span>`
+        + `</div>`
+    }
+
+    // --- Таблица ---
+    const header = `<div class="lfreq-row lfreq-row--header">`
+      + `<span>${escapeHtml(ui.lfreqColLetter || 'Letter')}</span>`
+      + `<span></span>`
+      + `<span class="lfreq-col-num">${escapeHtml(ui.lfreqColCount || 'Count')}</span>`
+      + `<span class="lfreq-col-num">%</span>`
+      + `<span class="lfreq-col-num">${escapeHtml(ui.lfreqColExpected || 'Exp %')}</span>`
+      + `</div>`
+    const tableMaxPct = tableItems.reduce((m, it) => Math.max(m, it.pct), 0.01)
+    const rows = tableItems.map(({ char, count, pct, expected }) => {
+      const barW = Math.round((pct / tableMaxPct) * 100)
+      const zeroCls = count === 0 ? ' lfreq-row--zero' : ''
+      return `<div class="lfreq-row${zeroCls}">`
+        + `<span class="freq-char">${escapeHtml(char)}</span>`
+        + `<div class="freq-bar-track"><div class="freq-bar-actual" style="width:${barW}%"></div></div>`
+        + `<span class="lfreq-col-num freq-count">${count}</span>`
+        + `<span class="lfreq-col-num freq-pct">${pct.toFixed(1)}%</span>`
+        + `<span class="lfreq-col-num freq-pct freq-pct--exp">${expected.toFixed(1)}%</span>`
+        + `</div>`
+    }).join('')
+    const tableHtml = `<div class="lfreq-table">${header}${rows}</div>`
+
+    output.value = tableItems.map((it) => `${it.char}\t${it.count}\t${it.pct.toFixed(1)}%\t${it.expected.toFixed(1)}%`).join('\n')
+
+    visualOutput.innerHTML = summaryHtml + mismatchHtml + heatmapHtml + missingHtml + tableHtml
   }
 
   const getMaxShift = () => {
@@ -670,8 +758,28 @@ export function initCipherToolPage() {
       output.value = ''
       if (isAnalysisTool) showFreqEmpty()
       if (isBruteForceTool) showBruteForceEmpty()
+      if (isLetterFrequencyTool) showLetterFreqEmpty()
       setOutputState(false)
       setFeedback('')
+      return
+    }
+
+    if (isLetterFrequencyTool) {
+      try {
+        const json = transform(value, 'encode', decoder, {
+          lang: lfreqLangSelect?.value || 'auto',
+          sort: lfreqSortSelect?.value || 'alpha',
+        })
+        const data = JSON.parse(json)
+        renderLetterFrequencyGrid(data)
+        setOutputState(data.tableItems && data.tableItems.length > 0)
+        setFeedback('')
+        sendAnalyticsBeacon(slug, 'analyze')
+      } catch {
+        showLetterFreqEmpty()
+        setOutputState(false)
+        setFeedback(labels.invalid, true)
+      }
       return
     }
 
@@ -938,6 +1046,10 @@ export function initCipherToolPage() {
         freqLangSelect.value = alphabet
         freqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
+      if (alphabet && lfreqLangSelect && lfreqLangSelect.value !== alphabet) {
+        lfreqLangSelect.value = alphabet
+        lfreqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
       if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
         delimiterSelect.value = delimiter
         delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
@@ -987,6 +1099,10 @@ export function initCipherToolPage() {
         freqLangSelect.value = alphabet
         freqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
+      if (alphabet && lfreqLangSelect && lfreqLangSelect.value !== alphabet) {
+        lfreqLangSelect.value = alphabet
+        lfreqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
       if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
         delimiterSelect.value = delimiter
         delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
@@ -1025,6 +1141,7 @@ export function initCipherToolPage() {
     if (coverCapacityEl) { coverCapacityEl.textContent = ''; coverCapacityEl.className = 'ciphers-cover-capacity' }
     output.value = ''
     if (isAnalysisTool) showFreqEmpty()
+    if (isLetterFrequencyTool) showLetterFreqEmpty()
     updateCounter()
     setOutputState(false)
     setFeedback('')
@@ -1125,6 +1242,17 @@ export function initCipherToolPage() {
       visualOutput.style.display = 'block'
       showBruteForceEmpty()
     }
+  }
+
+  if (isLetterFrequencyTool) {
+    tabDecode.style.display = 'none'
+    output.style.display = 'none'
+    if (visualOutput) {
+      visualOutput.style.display = 'block'
+      showLetterFreqEmpty()
+    }
+    lfreqLangSelect?.addEventListener('change', () => process())
+    lfreqSortSelect?.addEventListener('change', () => process())
   }
 }
 

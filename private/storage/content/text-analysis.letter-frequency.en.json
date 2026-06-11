@@ -1,0 +1,247 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T21:41:21+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "letter-frequency",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 29,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 29,
+        "data": {
+            "name": "Letter Frequency",
+            "name_short": "Letter Frequency",
+            "description": "Analyze letter frequency online and see how often each alphabet letter appears in your text. The visual heatmap, letter counter, and comparison table reveal dominant, rare, and missing letters, helping you inspect ciphertexts, study writing patterns, check pangrams, and compare real text against expected language frequencies.",
+            "description_stort": "Online letter frequency analyzer with heatmap, letter counts, and language comparison.",
+            "meta_title": "Letter Frequency Analyzer | Alphabet Heatmap & Letter Counter",
+            "meta_description": "Use this online letter frequency analyzer to count letters, view an alphabet heatmap, compare text with language frequencies, and inspect plaintext or ciphertext patterns."
+        }
+    },
+    "blocks": [
+        {
+            "id": 114,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is letter frequency?",
+                "text": "<p>Letter frequency shows how often each letter of an alphabet appears in a text, usually as a percentage of all counted letters. Natural languages are not random: English strongly favors letters such as <strong>E</strong>, <strong>T</strong>, <strong>A</strong>, and <strong>O</strong>, while <strong>Q</strong>, <strong>X</strong>, and <strong>Z</strong> are usually rare.</p><p>This online letter frequency analyzer works like a focused letter counter: it counts alphabet letters in your input, ignores spaces and punctuation for the letter totals, and displays the result as a color-coded alphabet heatmap. Darker cells indicate letters that appear more often, while pale cells reveal letters that are rare or missing entirely.</p><p>The sortable table adds exact counts and percentages, so you can move from a quick visual impression to a more precise comparison with the selected language profile. Use it for text statistics, alphabet frequency checks, pangram testing, writing analysis, and first-pass cipher inspection.</p>"
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "How letter frequency helps with ciphers",
+                "text": "<p>Letter frequency is one of the fastest first checks in classical cryptanalysis. A <a href=\"/classical-ciphers/caesar\">Caesar cipher</a> shifts every letter by the same amount, so the most common ciphertext letter often points to the encrypted form of <strong>E</strong> or another high-frequency letter in the target language.</p><p>Simple substitution ciphers are harder, but their statistics still leak information. Each ciphertext symbol always represents the same plaintext letter, so the frequency pattern is distorted but not erased. Peaks, gaps, and repeated high-frequency letters can suggest likely substitutions before deeper analysis begins.</p><p>For a fuller cipher workflow, use this heatmap to spot obvious alphabet patterns first, then move to broader <a href=\"/text-analysis/frequency-analysis\">frequency analysis</a> for words, bigrams, trigrams, and the Index of Coincidence. Short texts can be noisy, so treat the heatmap as a clue rather than a final answer. The longer the text, the more closely its distribution tends to resemble the reference language.</p>"
+            }
+        },
+        {
+            "id": 116,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Common uses for a letter frequency analyzer",
+                "text": "<p>A letter frequency analyzer is useful whenever the shape of the alphabet matters. Writers and editors can check repeated letters or unusual distribution in sample text. Teachers can demonstrate why some letters are common and others are rare. Puzzle solvers can inspect substitution puzzles, cryptograms, and short ciphertexts before trying manual decryption.</p><p>It also works as a quick alphabet coverage tool. Paste a pangram, slogan, generated password phrase, or constrained writing sample to see which letters appear, which ones dominate, and which letters are missing. The heatmap gives the overview, while the table provides exact letter counts and percentages.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 232,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is a letter frequency heatmap?",
+                "answer": "A letter frequency heatmap shows every letter of the alphabet as a colored cell. The darker or more saturated the cell, the more often that letter appears in the text. Pale cells make rare or missing letters easy to notice, which is useful when inspecting ciphertexts, pangrams, constrained writing, or unusual text samples."
+            }
+        },
+        {
+            "id": 233,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How does this differ from the Frequency Analysis tool?",
+                "answer": "The Frequency Analysis tool is a broader cryptanalysis workbench: it can analyze letters, all characters, words, bigrams, and trigrams, and it also calculates the Index of Coincidence. Letter Frequency is narrower and more visual. It focuses on the alphabet heatmap and per-letter table, making it ideal for a quick first look before moving into deeper frequency analysis."
+            }
+        },
+        {
+            "id": 234,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Which languages are supported?",
+                "answer": "The tool includes reference frequency profiles for English, Russian, German, Spanish, French, Italian, Portuguese, and Turkish. Choose the profile that matches the expected plaintext language so the comparison table uses the right alphabet and expected letter distribution."
+            }
+        },
+        {
+            "id": 235,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Is this the same as a letter counter?",
+                "answer": "It includes letter counting, but goes further than a simple letter counter. In addition to raw counts, it calculates percentages, visualizes the alphabet as a heatmap, and compares the observed distribution with expected language frequencies."
+            }
+        },
+        {
+            "id": 236,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Does the tool count spaces, punctuation, and numbers?",
+                "answer": "No. Letter frequency is calculated from alphabet letters only. Spaces, punctuation marks, digits, and other non-letter characters are ignored for the letter totals, so the percentages describe the distribution of letters rather than the full character stream."
+            }
+        },
+        {
+            "id": 237,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does uppercase or lowercase matter?",
+                "answer": "No. Uppercase and lowercase forms are counted together, so A and a contribute to the same letter total. This makes the result easier to compare with standard language frequency profiles."
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "How much text do I need for reliable letter frequency results?",
+                "answer": "Longer text gives more reliable results. A few words can show useful clues, especially for missing or repeated letters, but the distribution may be noisy. Several hundred letters usually produce a much clearer comparison with natural language frequencies."
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can letter frequency help break a cipher?",
+                "answer": "Yes, especially for classical ciphers. Letter frequency can reveal shifts in Caesar cipher and provide clues for simple substitution ciphers. It is a starting point rather than a complete automatic solver, so it works best when combined with pattern analysis, common words, bigrams, and manual reasoning."
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "What are the most common letters in English?",
+                "answer": "In typical English text, the most common letters are E, T, A, O, I, N, S, H, and R. Exact percentages vary by genre and sample size, but E is usually the leading letter, while Q, X, Z, and J are among the least common."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 108,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "English pangram",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "",
+                "description": "A compact pangram that contains every English letter at least once. Use it to confirm that the heatmap can show a full alphabet even in a short sentence."
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Caesar ciphertext",
+                "key": "",
+                "shift": 0,
+                "input": "KHOOR ZRUOG",
+                "output": "",
+                "description": "HELLO WORLD shifted by 3. The most visible letters are not the usual English leaders, which makes the Caesar shift easier to notice."
+            }
+        },
+        {
+            "id": 110,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Hamlet quote",
+                "key": "",
+                "shift": 0,
+                "input": "To be or not to be that is the question",
+                "output": "",
+                "description": "A short natural-language phrase with repeated common letters. Notice how T, O, E, and H stand out even before the sample becomes very long."
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Repeated pattern sample",
+                "key": "",
+                "shift": 0,
+                "input": "ATTACK AT DAWN ATTACK AT DUSK",
+                "output": "",
+                "description": "A compact phrase with repeated words and letters. The heatmap makes A, T, and K stand out, which is useful for spotting repetition in ciphertext-like text."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Letter frequency analysis"
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Alphabet heatmap"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Letter counter"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Text statistics"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cipher analysis"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

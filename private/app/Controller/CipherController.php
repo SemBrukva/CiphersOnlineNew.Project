@@ -97,6 +97,21 @@ final readonly class CipherController
             $toolUi['freqMismatchWarning']   = trans('FREQ_MISMATCH_WARNING');
             $toolUi['freqColDiffTooltip']    = trans('FREQ_COL_DIFF_TOOLTIP');
         }
+        if ($cipherAlias === 'letter-frequency') {
+            $toolUi['letterFrequencyMode']    = true;
+            $toolUi['tabEncode']              = trans('LFREQ_TAB_ANALYZE');
+            $toolUi['lfreqEmptyLabel']        = trans('LFREQ_EMPTY');
+            $toolUi['lfreqStatLetters']       = trans('LFREQ_STAT_LETTERS');
+            $toolUi['lfreqStatUnique']        = trans('LFREQ_STAT_UNIQUE');
+            $toolUi['lfreqHeatmapTitle']      = trans('LFREQ_HEATMAP_TITLE');
+            $toolUi['lfreqMissingTitle']      = trans('LFREQ_MISSING_TITLE');
+            $toolUi['lfreqColLetter']         = trans('LFREQ_COL_LETTER');
+            $toolUi['lfreqColCount']          = trans('LFREQ_COL_COUNT');
+            $toolUi['lfreqColPct']            = trans('LFREQ_COL_PCT');
+            $toolUi['lfreqColExpected']       = trans('LFREQ_COL_EXPECTED');
+            $toolUi['lfreqLangDetectedLabel'] = trans('LFREQ_LANG_DETECTED');
+            $toolUi['lfreqMismatchWarning']   = trans('LFREQ_MISMATCH_WARNING');
+        }
         if ($cipherAlias === 'caesar') {
             $toolUi['relatedToolUrl']   = locale_url('/text-analysis/caesar-brute-force');
             $toolUi['relatedToolLabel'] = trans('CAESAR_HINT_BRUTE_FORCE');
