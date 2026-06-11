@@ -17,6 +17,7 @@ return [
     'MENU_CLASSICAL_CIPHERS' => 'Классические шифры',
     'MENU_ENCODING'         => 'Кодирование данных',
     'MENU_CODES_AND_ALPHABETS' => 'Коды и алфавиты',
+    'MENU_TEXT_ANALYSIS'      => 'Анализ текста',
 
     // Авторизация
     'AUTH_SIGN_IN'          => 'Войти',

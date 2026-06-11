@@ -8,11 +8,6 @@ return [
 
     'main' => [
         [
-            'title_key' => 'MENU_HOME',
-            'url' => '/',
-            'icon' => 'bi bi-house-fill',
-        ],
-        [
             'title_key'      => 'MENU_CLASSICAL_CIPHERS',
             'url'            => '/classical-ciphers',
             'icon'           => 'bi bi-unlock2-fill',
@@ -29,6 +24,12 @@ return [
             'url'            => '/codes-and-alphabets',
             'icon'           => 'bi bi-braces-asterisk',
             'category_alias' => 'codes-and-alphabets',
+        ],
+        [
+            'title_key'      => 'MENU_TEXT_ANALYSIS',
+            'url'            => '/text-analysis',
+            'icon'           => 'bi bi-bar-chart-fill',
+            'category_alias' => 'text-analysis',
         ],
         [
             'title_key' => 'MENU_FAVORITES',

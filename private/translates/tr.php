@@ -16,6 +16,7 @@ return [
     'MENU_CLASSICAL_CIPHERS' => 'Klasik şifreler',
     'MENU_ENCODING' => 'Veri kodlama',
     'MENU_CODES_AND_ALPHABETS' => 'Kodlar ve alfabeler',
+    'MENU_TEXT_ANALYSIS' => 'Metin analizi',
     'AUTH_SIGN_IN' => 'Giriş Yap',
     'AUTH_SIGN_OUT' => 'Çıkış Yap',
     'AUTH_CABINET' => 'Hesabım',

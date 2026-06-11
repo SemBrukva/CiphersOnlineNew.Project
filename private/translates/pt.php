@@ -16,6 +16,7 @@ return [
     'MENU_CLASSICAL_CIPHERS' => 'Cifras clássicas',
     'MENU_ENCODING' => 'Codificação de dados',
     'MENU_CODES_AND_ALPHABETS' => 'Códigos e alfabetos',
+    'MENU_TEXT_ANALYSIS' => 'Análise de texto',
     'AUTH_SIGN_IN' => 'Entrar',
     'AUTH_SIGN_OUT' => 'Sair',
     'AUTH_CABINET' => 'Minha conta',
