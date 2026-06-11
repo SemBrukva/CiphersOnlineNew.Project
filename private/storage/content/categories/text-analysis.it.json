@@ -1,0 +1,165 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-11T16:25:25+00:00",
+        "category_alias": "text-analysis",
+        "language": "it",
+        "default_language": "en",
+        "category_id": 4
+    },
+    "category_translation": {
+        "id": 4,
+        "data": {
+            "name": "Analisi del testo e crittoanalisi",
+            "name_short": "Analisi del testo",
+            "description": "Analizza testi con analisi delle frequenze, statistiche linguistiche e strumenti di crittoanalisi classica. Studia distribuzioni delle lettere, schemi ripetuti, n-grammi, indice di coincidenza, entropia e indizi che aiutano a riconoscere o violare cifrari storici.",
+            "meta_title": "Strumenti di analisi del testo e crittoanalisi | Ciphers Online",
+            "meta_description": "Strumenti online per analisi del testo e crittoanalisi: frequenze delle lettere, schemi linguistici, n-grammi, entropia, indice di coincidenza e debolezze dei cifrari classici."
+        }
+    },
+    "blocks": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Che cos'è l'analisi del testo in crittografia?",
+                "text": "<p>L'analisi del testo studia gli schemi misurabili nella lingua scritta: conteggi delle lettere, distribuzione dei caratteri, parole ripetute, coppie e terne frequenti, spazi, varietà dei simboli e altri segnali statistici. In crittografia questi schemi sono particolarmente utili perché molti cifrari classici nascondono le lettere, ma conservano comunque tracce della lingua originale.</p><p>La crittoanalisi usa queste tracce per formulare ipotesi ragionate. Un simbolo molto frequente può indicare una lettera comune del testo in chiaro, gruppi ripetuti possono rivelare una parola chiave o una frase, e un'entropia insolita può suggerire se un frammento assomiglia a lingua naturale, dati codificati o testo cifrato.</p>"
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Dai conteggi di frequenza agli indizi sul cifrario",
+                "text": "<p>L'analisi delle frequenze è un punto di partenza naturale per la crittoanalisi manuale. Mostra quali lettere, simboli, parole, bigrammi e trigrammi compaiono più spesso, poi permette di confrontare quei risultati con profili linguistici attesi. Nei sistemi di sostituzione semplici, questo può rivelare rapidamente corrispondenze probabili tra testo cifrato e testo in chiaro.</p><p>Nei cifrari a scorrimento in stile Cesare, un picco di frequenza marcato può spesso suggerire direttamente la chiave. Nei cifrari di sostituzione e nei cifrari affini, le tabelle di frequenza forniscono candidati per la mappatura delle lettere. Per Vigenere e altri cifrari polialfabetici, l'analisi delle frequenze diventa più utile quando viene combinata con metodi per stimare la lunghezza della chiave, come l'indice di coincidenza e l'analisi degli n-grammi ripetuti.</p>"
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Scegliere il metodo di analisi giusto",
+                "text": "<p>Domande diverse richiedono misurazioni diverse. La frequenza delle lettere aiuta a identificare la lingua e ad attaccare sostituzioni monoalfabetiche. L'analisi degli n-grammi evidenzia frammenti ripetuti e combinazioni frequenti di lettere. L'indice di coincidenza aiuta a distinguere un testo dall'aspetto casuale da un testo simile a una lingua naturale e, in alcuni cifrari polialfabetici, può stimare la lunghezza della chiave.</p><p>L'analisi dell'entropia misura quanto un testo sembri prevedibile o casuale, mentre gli strumenti per i pattern delle parole aiutano a confrontare forme con lettere ripetute, come ATTACK, PEOPLE o LETTER, con possibili parole di dizionario. Insieme, questi metodi trasformano un testo sconosciuto in una serie di indizi pratici.</p>"
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Limiti della crittoanalisi statistica",
+                "text": "<p>I metodi statistici funzionano meglio quando il testo è abbastanza lungo e il cifrario conserva parte della struttura della lingua originale. Messaggi brevi, alfabeti misti, forti modifiche alla punteggiatura, trasposizione, sostituzione omofonica o riempimenti intenzionali possono rendere i risultati molto più difficili da interpretare.</p><p>Gli algoritmi di cifratura moderni sono progettati per eliminare schemi linguistici utili. Per questo questi strumenti sono pensati per l'apprendimento, i cifrari storici, la risoluzione di enigmi, la diagnostica del testo e l'analisi esplorativa, non per attaccare la crittografia moderna sicura.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 12,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "frequency-analysis",
+            "data": {
+                "title": "Preparare indizi per la crittoanalisi",
+                "description": "Usa simboli frequenti, gruppi ripetuti e n-grammi comuni come punti di partenza per violare cifrari classici."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/caesar",
+            "data": {
+                "title": "Usa i picchi di frequenza per stimare uno scorrimento di Cesare prima di decifrare il messaggio."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/affine",
+            "data": {
+                "title": "Confronta le distribuzioni dei simboli prima di provare possibili coppie di chiavi del cifrario affine."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/vigenere",
+            "data": {
+                "title": "Combina indizi di frequenza e schemi ripetuti quando esamini un testo cifrato con Vigenere."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Che cosa può rivelare l'analisi del testo su un testo cifrato?",
+                "answer": "L'analisi del testo può rivelare distribuzioni delle lettere, simboli ripetuti, n-grammi comuni, pattern di parole e segnali di struttura linguistica naturale. Questi indizi aiutano a identificare la lingua probabile, la famiglia del cifrario o possibili valori della chiave in molti problemi con cifrari classici."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "L'analisi delle frequenze basta per rompere qualsiasi cifrario?",
+                "answer": "No. L'analisi delle frequenze funziona meglio contro sostituzioni monoalfabetiche e semplici cifrari storici. I cifrari polialfabetici, i cifrari di trasposizione, i testi brevi e la cifratura moderna richiedono di solito metodi aggiuntivi o non possono essere risolti solo dai conteggi di frequenza."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quanto testo serve per un'analisi affidabile?",
+                "answer": "I testi più lunghi producono statistiche più affidabili. Poche frasi possono mostrare schemi generali, ma l'identificazione della lingua, il confronto degli n-grammi e le ipotesi crittoanalitiche diventano molto più solide con centinaia o migliaia di caratteri."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Qual è la differenza tra frequenza delle lettere e analisi degli n-grammi?",
+                "answer": "La frequenza delle lettere conta i singoli caratteri, mentre l'analisi degli n-grammi conta gruppi di caratteri, come coppie e terne. Gli n-grammi spesso rivelano frammenti ripetuti, combinazioni linguistiche comuni e indizi che i conteggi delle singole lettere possono non mostrare."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "L'analisi del testo può identificare la lingua di un messaggio?",
+                "answer": "Spesso sì. Le lingue naturali hanno distribuzioni caratteristiche di lettere e parole. Confrontare le frequenze osservate con profili linguistici noti può suggerire la lingua più probabile, soprattutto quando il campione è abbastanza lungo."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Questi strumenti sono utili anche fuori dalla crittoanalisi?",
+                "answer": "Sì. L'analisi del testo è utile anche in linguistica, nella progettazione di enigmi, nella diagnostica di testi e scrittura, nell'ispezione di dataset, nei controlli di codifica e nello studio del comportamento statistico di lingue o fonti testuali diverse."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

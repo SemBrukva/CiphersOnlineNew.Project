@@ -378,8 +378,8 @@ final readonly class CipherCategoryContentImportCommand implements CommandInterf
         }
 
         $this->assertCreationAllowed($language, $defaultLanguage, 'used_together');
-        $firstId = $this->findCipherId($categoryId, (string) ($item['first_cipher_alias'] ?? ''));
-        $secondId = $this->findCipherId($categoryId, (string) ($item['second_cipher_alias'] ?? ''));
+        $firstId = $this->findRelatedCipherId($categoryId, (string) ($item['first_cipher_alias'] ?? ''));
+        $secondId = $this->findRelatedCipherId($categoryId, (string) ($item['second_cipher_alias'] ?? ''));
         $existing = $this->db->fetch(
             'SELECT id FROM ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER
             . ' WHERE category_id = ? AND relation_cipher_first_id = ? AND relation_cipher_second_id = ? LIMIT 1',
@@ -432,6 +432,39 @@ final readonly class CipherCategoryContentImportCommand implements CommandInterf
 
         if ($row === false) {
             throw new RuntimeException('Связанный шифр не найден в категории: ' . $cipherAlias);
+        }
+
+        return (int) $row['id'];
+    }
+
+    /**
+     * Возвращает ID связанного шифра по alias или category/cipher alias.
+     */
+    private function findRelatedCipherId(int $currentCategoryId, string $rawAlias): int
+    {
+        $rawAlias = trim($rawAlias);
+        if ($rawAlias === '') {
+            throw new RuntimeException('Связанный шифр не найден в категории: ' . $rawAlias);
+        }
+
+        if (!str_contains($rawAlias, '/')) {
+            return $this->findCipherId($currentCategoryId, $rawAlias);
+        }
+
+        [$categoryAlias, $cipherAlias] = array_map('trim', explode('/', $rawAlias, 2));
+        if ($categoryAlias === '' || $cipherAlias === '') {
+            throw new RuntimeException('Некорректный alias связанного шифра: ' . $rawAlias);
+        }
+
+        $row = $this->db->fetch(
+            'SELECT c.id FROM ' . Tables::CIPHERS . ' c '
+            . 'INNER JOIN ' . Tables::CIPHER_CATEGORIES . ' cat ON cat.id = c.category_id '
+            . 'WHERE cat.alias = ? AND c.alias = ? LIMIT 1',
+            [$categoryAlias, $cipherAlias]
+        );
+
+        if ($row === false) {
+            throw new RuntimeException('Связанный шифр не найден: ' . $rawAlias);
         }
 
         return (int) $row['id'];

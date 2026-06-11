@@ -89,9 +89,9 @@
                 {foreach $used_together as $item}
                     <div class="ciphers-category-hub-combo-card">
                         <div class="ciphers-category-hub-combo-card__tools">
-                            <a class="ciphers-category-hub-combo-tag" href="{$locale_prefix}/{$category.alias}/{$item.first_cipher_alias}">{$item.first_cipher_name_short}</a>
+                            <a class="ciphers-category-hub-combo-tag" href="{$locale_prefix}/{$item.first_cipher_category_alias}/{$item.first_cipher_alias}">{$item.first_cipher_name_short}</a>
                             <span class="ciphers-category-hub-combo-card__connector"><i class="bi bi-arrow-left-right"></i></span>
-                            <a class="ciphers-category-hub-combo-tag" href="{$locale_prefix}/{$category.alias}/{$item.second_cipher_alias}">{$item.second_cipher_name_short}</a>
+                            <a class="ciphers-category-hub-combo-tag" href="{$locale_prefix}/{$item.second_cipher_category_alias}/{$item.second_cipher_alias}">{$item.second_cipher_name_short}</a>
                         </div>
                         <p class="ciphers-category-hub-combo-card__desc">{$item.title}</p>
                     </div>

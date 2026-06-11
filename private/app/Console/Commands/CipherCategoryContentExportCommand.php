@@ -64,7 +64,7 @@ final readonly class CipherCategoryContentExportCommand implements CommandInterf
                 'Менять нужно только текстовые поля в data.',
                 'Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.',
                 'Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.',
-                'Для новых tasks и used_together указывайте alias связанных шифров.',
+                'Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias.',
             ],
         ];
 
@@ -189,7 +189,7 @@ final readonly class CipherCategoryContentExportCommand implements CommandInterf
             [$language, $defaultLanguage, $categoryId]
         );
 
-        return array_map(static fn (array $row): array => [
+        return array_map(fn (array $row): array => [
             'id' => (int) ($row['id'] ?? 0),
             'sort_order' => (int) ($row['sort_order'] ?? 0),
             'published' => ((int) ($row['published'] ?? 0)) === 1,
@@ -209,25 +209,47 @@ final readonly class CipherCategoryContentExportCommand implements CommandInterf
     private function fetchUsedTogether(int $categoryId, string $language, string $defaultLanguage): array
     {
         $rows = $this->db->fetchAll(
-            'SELECT e.id, e.sort_order, e.published, cf.alias AS first_cipher_alias, cs.alias AS second_cipher_alias, '
+            'SELECT e.id, e.sort_order, e.published, '
+            . 'cf.category_id AS first_cipher_category_id, cf.alias AS first_cipher_alias, '
+            . 'cs.category_id AS second_cipher_category_id, cs.alias AS second_cipher_alias, '
+            . 'cfcat.alias AS first_cipher_category_alias, cscat.alias AS second_cipher_category_alias, '
             . 'COALESCE(cur.title, def.title, \'\') AS title '
             . 'FROM ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER . ' e '
             . 'INNER JOIN ' . Tables::CIPHERS . ' cf ON cf.id = e.relation_cipher_first_id '
             . 'INNER JOIN ' . Tables::CIPHERS . ' cs ON cs.id = e.relation_cipher_second_id '
+            . 'INNER JOIN ' . Tables::CIPHER_CATEGORIES . ' cfcat ON cfcat.id = cf.category_id '
+            . 'INNER JOIN ' . Tables::CIPHER_CATEGORIES . ' cscat ON cscat.id = cs.category_id '
             . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS . ' cur ON cur.used_together_id = e.id AND cur.language = ? '
             . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_USED_TOGETHER_TRANSLATIONS . ' def ON def.used_together_id = e.id AND def.language = ? '
             . 'WHERE e.category_id = ? ORDER BY e.sort_order ASC, e.id ASC',
             [$language, $defaultLanguage, $categoryId]
         );
 
-        return array_map(static fn (array $row): array => [
+        return array_map(fn (array $row): array => [
             'id' => (int) ($row['id'] ?? 0),
             'sort_order' => (int) ($row['sort_order'] ?? 0),
             'published' => ((int) ($row['published'] ?? 0)) === 1,
-            'first_cipher_alias' => (string) ($row['first_cipher_alias'] ?? ''),
-            'second_cipher_alias' => (string) ($row['second_cipher_alias'] ?? ''),
+            'first_cipher_alias' => $this->formatRelatedCipherAlias($categoryId, $row, 'first'),
+            'second_cipher_alias' => $this->formatRelatedCipherAlias($categoryId, $row, 'second'),
             'data' => ['title' => (string) ($row['title'] ?? '')],
         ], $rows);
+    }
+
+    /**
+     * Форматирует alias связанного шифра для экспорта.
+     *
+     * @param array<string, mixed> $row    Строка связки.
+     * @param string               $prefix Префикс first или second.
+     */
+    private function formatRelatedCipherAlias(int $currentCategoryId, array $row, string $prefix): string
+    {
+        $cipherAlias = (string) ($row[$prefix . '_cipher_alias'] ?? '');
+        if ((int) ($row[$prefix . '_cipher_category_id'] ?? 0) === $currentCategoryId) {
+            return $cipherAlias;
+        }
+
+        $categoryAlias = (string) ($row[$prefix . '_cipher_category_alias'] ?? '');
+        return $categoryAlias === '' ? $cipherAlias : $categoryAlias . '/' . $cipherAlias;
     }
 
     /**

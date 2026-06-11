@@ -1,0 +1,165 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-11T16:25:25+00:00",
+        "category_alias": "text-analysis",
+        "language": "de",
+        "default_language": "en",
+        "category_id": 4
+    },
+    "category_translation": {
+        "id": 4,
+        "data": {
+            "name": "Textanalyse und Kryptoanalyse",
+            "name_short": "Textanalyse",
+            "description": "Analysiere Texte mit Häufigkeitsanalyse, Sprachstatistik und Werkzeugen der klassischen Kryptoanalyse. Untersuche Buchstabenverteilungen, wiederkehrende Muster, n-Gramme, Koinzidenzindex, Entropie und Hinweise, die beim Erkennen oder Brechen historischer Chiffren helfen.",
+            "meta_title": "Werkzeuge für Textanalyse und Kryptoanalyse | Ciphers Online",
+            "meta_description": "Online-Werkzeuge für Textanalyse und Kryptoanalyse: Buchstabenhäufigkeiten, Sprachmuster, n-Gramme, Entropie, Koinzidenzindex und Schwächen klassischer Chiffren."
+        }
+    },
+    "blocks": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Was bedeutet Textanalyse in der Kryptografie?",
+                "text": "<p>Textanalyse untersucht messbare Muster in geschriebener Sprache: Buchstabenzählungen, Zeichenverteilungen, wiederholte Wörter, häufige Paare und Dreiergruppen, Abstände, Symbolvielfalt und andere statistische Signale. In der Kryptografie sind solche Muster besonders nützlich, weil viele klassische Chiffren zwar die Buchstaben verbergen, aber dennoch Spuren der Ausgangssprache erhalten.</p><p>Die Kryptoanalyse nutzt diese Spuren für begründete Vermutungen. Ein sehr häufiges Symbol kann auf einen häufigen Klartextbuchstaben hinweisen, wiederholte Gruppen können ein Schlüsselwort oder eine Phrase verraten, und eine ungewöhnliche Entropie kann zeigen, ob ein Abschnitt eher natürliche Sprache, codierte Daten oder verschlüsselter Text ist.</p>"
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Von Häufigkeitstabellen zu Chiffren-Hinweisen",
+                "text": "<p>Die Häufigkeitsanalyse ist ein natürlicher Ausgangspunkt für die manuelle Kryptoanalyse. Sie zeigt, welche Buchstaben, Symbole, Wörter, Bigramme und Trigramme am häufigsten vorkommen, und ermöglicht anschließend den Vergleich mit erwarteten Sprachprofilen. Bei einfachen Substitutionssystemen lassen sich daraus schnell wahrscheinliche Zuordnungen zwischen Geheimtext und Klartext ableiten.</p><p>Bei Caesar-ähnlichen Verschiebungen kann ein ausgeprägter Häufigkeitsgipfel oft direkt auf den Schlüssel hinweisen. Bei Substitutions- und affinen Chiffren liefern Häufigkeitstabellen Kandidaten für Buchstabenzuordnungen. Bei Vigenere und anderen polyalphabetischen Chiffren wird die Häufigkeitsanalyse besonders hilfreich, wenn sie mit Verfahren zur Schätzung der Schlüssellänge kombiniert wird, etwa dem Koinzidenzindex und der Analyse wiederholter n-Gramme.</p>"
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Die passende Analysemethode auswählen",
+                "text": "<p>Verschiedene Fragen erfordern verschiedene Messwerte. Buchstabenhäufigkeiten helfen bei der Spracherkennung und beim Angriff auf monoalphabetische Substitutionen. Die n-Gramm-Analyse hebt wiederkehrende Fragmente und häufige Buchstabenkombinationen hervor. Der Koinzidenzindex hilft, zufällig wirkenden Text von sprachähnlichem Text zu unterscheiden, und kann bei einigen polyalphabetischen Chiffren eine Schätzung der Schlüssellänge liefern.</p><p>Die Entropieanalyse misst, wie vorhersagbar oder zufällig ein Text wirkt, während Werkzeuge für Wortmuster wiederholte Buchstabenformen wie ATTACK, PEOPLE oder LETTER mit möglichen Wörterbucheinträgen abgleichen können. Zusammen verwandeln diese Methoden einen unbekannten Text in eine Reihe praktischer Hinweise.</p>"
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Grenzen der statistischen Kryptoanalyse",
+                "text": "<p>Statistische Methoden funktionieren am besten, wenn der Text lang genug ist und die Chiffre einen Teil der Struktur der Ausgangssprache bewahrt. Kurze Nachrichten, gemischte Alphabete, stark veränderte Zeichensetzung, Transposition, homophone Substitution oder absichtlich eingefügte Füllzeichen können die Interpretation der Ergebnisse deutlich erschweren.</p><p>Moderne Verschlüsselungsalgorithmen sind so konstruiert, dass sie nutzbare Sprachmuster entfernen. Diese Werkzeuge sind daher für Lernen, historische Chiffren, Rätsel, Textdiagnose und explorative Analyse gedacht, nicht für Angriffe auf sichere moderne Kryptografie.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 12,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "frequency-analysis",
+            "data": {
+                "title": "Hinweise für die Kryptoanalyse vorbereiten",
+                "description": "Nutze häufige Symbole, wiederholte Gruppen und verbreitete n-Gramme als Ausgangspunkte zum Brechen klassischer Chiffren."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/caesar",
+            "data": {
+                "title": "Nutze Häufigkeitsgipfel, um eine Caesar-Verschiebung vor der Entschlüsselung abzuschätzen."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/affine",
+            "data": {
+                "title": "Vergleiche Symbolverteilungen, bevor du mögliche Schlüsselpaarungen der affinen Chiffre testest."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/vigenere",
+            "data": {
+                "title": "Kombiniere Häufigkeitshinweise mit wiederkehrenden Mustern, wenn du Vigenere-Geheimtext untersuchst."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was kann Textanalyse über einen Geheimtext verraten?",
+                "answer": "Textanalyse kann Buchstabenverteilungen, wiederholte Symbole, häufige n-Gramme, Wortmuster und Anzeichen natürlicher Sprachstruktur sichtbar machen. Diese Hinweise helfen, die wahrscheinliche Sprache, die Chiffrenfamilie oder mögliche Schlüsselwerte in vielen Aufgaben mit klassischen Chiffren zu erkennen."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Reicht Häufigkeitsanalyse aus, um jede Chiffre zu brechen?",
+                "answer": "Nein. Häufigkeitsanalyse funktioniert am besten gegen monoalphabetische Substitutionen und einfache historische Chiffren. Polyalphabetische Chiffren, Transpositionschiffren, kurze Texte und moderne Verschlüsselung erfordern meist zusätzliche Methoden oder lassen sich nicht allein aus Häufigkeiten lösen."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Wie viel Text wird für eine zuverlässige Analyse benötigt?",
+                "answer": "Längere Texte liefern zuverlässigere Statistiken. Einige Sätze können grobe Muster zeigen, aber Spracherkennung, n-Gramm-Vergleich und kryptoanalytische Vermutungen werden mit Hunderten oder Tausenden von Zeichen deutlich aussagekräftiger."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Worin unterscheiden sich Buchstabenhäufigkeit und n-Gramm-Analyse?",
+                "answer": "Buchstabenhäufigkeit zählt einzelne Zeichen, während die n-Gramm-Analyse Zeichengruppen wie Paare und Dreiergruppen zählt. N-Gramme zeigen oft wiederholte Fragmente, häufige Sprachkombinationen und Hinweise, die bei einzelnen Buchstaben verborgen bleiben."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Kann Textanalyse die Sprache einer Nachricht erkennen?",
+                "answer": "Oft ja. Natürliche Sprachen haben charakteristische Verteilungen von Buchstaben und Wörtern. Der Vergleich beobachteter Häufigkeiten mit bekannten Sprachprofilen kann die wahrscheinlichste Sprache nahelegen, besonders wenn die Textprobe lang genug ist."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Sind diese Werkzeuge auch außerhalb der Kryptoanalyse nützlich?",
+                "answer": "Ja. Textanalyse ist auch nützlich für Linguistik, Rätseldesign, Schreib- und Textdiagnose, Datenprüfung, Codierungschecks und die Untersuchung, wie sich verschiedene Sprachen oder Textquellen statistisch verhalten."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

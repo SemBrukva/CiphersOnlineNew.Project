@@ -1,0 +1,165 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-11T16:25:25+00:00",
+        "category_alias": "text-analysis",
+        "language": "en",
+        "default_language": "en",
+        "category_id": 4
+    },
+    "category_translation": {
+        "id": 4,
+        "data": {
+            "name": "Text Analysis & Cryptanalysis",
+            "name_short": "Text Analysis",
+            "description": "Analyze text with frequency analysis, language statistics, and classical cryptanalysis tools. Study letter distributions, repeated patterns, n-grams, coincidence, entropy, and clues that help identify or break historical ciphers.",
+            "meta_title": "Text Analysis & Cryptanalysis Tools | Ciphers Online",
+            "meta_description": "Use online text analysis and cryptanalysis tools to inspect letter frequencies, language patterns, n-grams, entropy, coincidence, and classical cipher weaknesses."
+        }
+    },
+    "blocks": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is text analysis in cryptography?",
+                "text": "<p>Text analysis studies the measurable patterns inside written language: letter counts, character distribution, repeated words, common pairs and triples, spacing, symbol variety, and other statistical signals. In cryptography, these patterns are especially useful because many classical ciphers hide the letters but still preserve traces of the original language.</p><p>Cryptanalysis uses those traces to make educated guesses. A high-frequency symbol may point to a common plaintext letter, repeated groups may reveal a keyword or phrase, and unusual entropy can suggest whether a message is natural language, encoded data, or encrypted text.</p>"
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "From frequency counts to cipher clues",
+                "text": "<p>Frequency analysis is the natural starting point for most manual cryptanalysis. It shows which letters, symbols, words, bigrams, and trigrams appear most often, then compares those results with expected language profiles. For simple substitution systems, this can quickly reveal likely mappings between ciphertext and plaintext.</p><p>For Caesar-style shifts, a strong frequency peak can often suggest the key directly. For substitution and affine ciphers, frequency tables provide candidate letter mappings. For Vigenere and other polyalphabetic ciphers, frequency analysis becomes more useful when combined with key-length methods such as the Index of Coincidence and repeated n-gram analysis.</p>"
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Choosing the right analysis method",
+                "text": "<p>Different questions call for different measurements. Letter frequency helps identify language and attack monoalphabetic substitution. N-gram analysis highlights repeated fragments and common letter combinations. The Index of Coincidence helps distinguish random-looking text from language-like text and can estimate key lengths in some polyalphabetic ciphers.</p><p>Entropy analysis measures how predictable or random a text appears, while word pattern tools help match repeated-letter shapes such as ATTACK, PEOPLE, or LETTER against possible dictionary words. Together, these methods turn an unknown text into a set of practical clues.</p>"
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Limits of statistical cryptanalysis",
+                "text": "<p>Statistical methods work best when the text is long enough and the cipher preserves some structure from the original language. Short messages, mixed alphabets, heavy punctuation changes, transposition, homophonic substitution, or deliberate padding can make the results harder to interpret.</p><p>Modern encryption algorithms are designed to remove useful language patterns, so these tools are intended for learning, historical ciphers, puzzle solving, text diagnostics, and exploratory analysis rather than attacking secure contemporary cryptography.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 12,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "frequency-analysis",
+            "data": {
+                "title": "Prepare clues for cryptanalysis",
+                "description": "Use high-frequency symbols, repeated groups, and common n-grams as starting points for breaking classical ciphers."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/caesar",
+            "data": {
+                "title": "Use frequency peaks to estimate a Caesar shift before decrypting the message."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/affine",
+            "data": {
+                "title": "Compare symbol distributions before testing possible Affine cipher key pairs."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/vigenere",
+            "data": {
+                "title": "Combine frequency clues with repeated patterns when investigating Vigenere ciphertext."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What can text analysis reveal about a ciphertext?",
+                "answer": "Text analysis can reveal letter distribution, repeated symbols, common n-grams, word patterns, and signs of natural language structure. These clues help identify the likely language, cipher family, or possible key values in many classical cipher problems."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Is frequency analysis enough to break every cipher?",
+                "answer": "No. Frequency analysis works best against monoalphabetic substitution and simple historical ciphers. Polyalphabetic ciphers, transposition ciphers, short texts, and modern encryption usually require additional methods or cannot be solved from frequency counts alone."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How much text is needed for reliable analysis?",
+                "answer": "Longer texts produce more reliable statistics. A few sentences can show rough patterns, but language identification, n-gram comparison, and cryptanalytic guesses become much stronger with hundreds or thousands of characters."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What is the difference between letter frequency and n-gram analysis?",
+                "answer": "Letter frequency counts individual characters, while n-gram analysis counts groups of characters such as pairs and triples. N-grams often reveal repeated fragments, common language combinations, and clues that single-letter counts may miss."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can text analysis identify the language of a message?",
+                "answer": "Often, yes. Natural languages have distinctive letter and word distributions. Comparing observed frequencies with known language profiles can suggest the most likely language, especially when the sample is long enough."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Are these tools useful outside cryptanalysis?",
+                "answer": "Yes. Text analysis is also useful for linguistics, puzzle design, writing diagnostics, dataset inspection, encoding checks, and exploring how different languages or text sources behave statistically."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

@@ -1,0 +1,165 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-11T16:25:25+00:00",
+        "category_alias": "text-analysis",
+        "language": "tr",
+        "default_language": "en",
+        "category_id": 4
+    },
+    "category_translation": {
+        "id": 4,
+        "data": {
+            "name": "Metin Analizi ve Kriptanaliz",
+            "name_short": "Metin Analizi",
+            "description": "Metinleri frekans analizi, dil istatistikleri ve klasik kriptanaliz araçlarıyla inceleyin. Harf dağılımlarını, yinelenen örüntüleri, n-gramları, çakışma indeksini, entropiyi ve tarihsel şifreleri tanımaya ya da kırmaya yardımcı olan ipuçlarını araştırın.",
+            "meta_title": "Metin Analizi ve Kriptanaliz Araçları | Ciphers Online",
+            "meta_description": "Metin analizi ve kriptanaliz için çevrimiçi araçlar: harf frekansları, dil örüntüleri, n-gramlar, entropi, çakışma indeksi ve klasik şifrelerin zayıflıkları."
+        }
+    },
+    "blocks": [
+        {
+            "id": 11,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Kriptografide metin analizi nedir?",
+                "text": "<p>Metin analizi, yazılı dildeki ölçülebilir örüntüleri inceler: harf sayımları, karakter dağılımı, yinelenen kelimeler, sık görülen ikili ve üçlü gruplar, boşluklar, sembol çeşitliliği ve diğer istatistiksel sinyaller. Kriptografide bu örüntüler özellikle yararlıdır, çünkü birçok klasik şifre harfleri gizlese de özgün dilin izlerini korur.</p><p>Kriptanaliz bu izleri mantıklı tahminler üretmek için kullanır. Çok sık görülen bir sembol yaygın bir açık metin harfine işaret edebilir, yinelenen gruplar bir anahtar kelimeyi veya ifadeyi gösterebilir, alışılmadık entropi ise bir parçanın doğal dil, kodlanmış veri ya da şifreli metin olup olmadığını düşündürebilir.</p>"
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Frekans sayımlarından şifre ipuçlarına",
+                "text": "<p>Frekans analizi, elle yapılan kriptanaliz için doğal bir başlangıç noktasıdır. Hangi harflerin, sembollerin, kelimelerin, bigramların ve trigramların en sık geçtiğini gösterir; ardından bu sonuçları beklenen dil profilleriyle karşılaştırmayı sağlar. Basit yer değiştirme sistemlerinde bu, şifreli metin ile açık metin arasında olası eşleşmeleri hızlıca ortaya çıkarabilir.</p><p>Sezar tarzı kaydırmalarda belirgin bir frekans zirvesi çoğu zaman anahtarı doğrudan düşündürür. Yer değiştirme ve afin şifrelerinde frekans tabloları harf eşleştirmeleri için adaylar sağlar. Vigenere ve diğer çok alfabeli şifrelerde frekans analizi, çakışma indeksi ve yinelenen n-gram analizi gibi anahtar uzunluğu yöntemleriyle birleştirildiğinde daha yararlı hale gelir.</p>"
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Doğru analiz yöntemini seçmek",
+                "text": "<p>Farklı sorular farklı ölçümler gerektirir. Harf frekansı dili belirlemeye ve tek alfabeli yer değiştirmelere saldırmaya yardımcı olur. N-gram analizi yinelenen parçaları ve yaygın harf birleşimlerini öne çıkarır. Çakışma indeksi, rastgele görünen metni dile benzeyen metinden ayırmaya yardımcı olur ve bazı çok alfabeli şifrelerde anahtar uzunluğunu tahmin edebilir.</p><p>Entropi analizi bir metnin ne kadar öngörülebilir ya da rastgele göründüğünü ölçer; kelime örüntüsü araçları ise ATTACK, PEOPLE veya LETTER gibi yinelenen harf biçimlerini olası sözlük kelimeleriyle eşleştirmeye yardımcı olur. Bu yöntemler birlikte, bilinmeyen bir metni pratik ipuçları kümesine dönüştürür.</p>"
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "İstatistiksel kriptanalizin sınırları",
+                "text": "<p>İstatistiksel yöntemler, metin yeterince uzun olduğunda ve şifre özgün dilin yapısının bir kısmını koruduğunda en iyi sonucu verir. Kısa mesajlar, karışık alfabeler, noktalamanın büyük ölçüde değiştirilmesi, transpozisyon, homofonik yer değiştirme veya bilerek eklenen dolgu karakterleri sonuçları yorumlamayı belirgin biçimde zorlaştırabilir.</p><p>Modern şifreleme algoritmaları, yararlı dil örüntülerini ortadan kaldıracak şekilde tasarlanmıştır. Bu nedenle bu araçlar güvenli modern kriptografiye saldırmak için değil; öğrenme, tarihsel şifreler, bulmaca çözme, metin tanılama ve keşif amaçlı analiz için tasarlanmıştır.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 12,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "frequency-analysis",
+            "data": {
+                "title": "Kriptanaliz için ipuçları hazırlayın",
+                "description": "Klasik şifreleri kırmak için sık görülen sembolleri, yinelenen grupları ve yaygın n-gramları başlangıç noktası olarak kullanın."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 5,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/caesar",
+            "data": {
+                "title": "Mesajı çözmeden önce Sezar kaydırmasını tahmin etmek için frekans zirvelerini kullanın."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/affine",
+            "data": {
+                "title": "Afin şifresi için olası anahtar çiftlerini denemeden önce sembol dağılımlarını karşılaştırın."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "frequency-analysis",
+            "second_cipher_alias": "classical-ciphers/vigenere",
+            "data": {
+                "title": "Vigenere şifreli metnini incelerken frekans ipuçlarını yinelenen örüntülerle birleştirin."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 20,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Metin analizi bir şifreli metin hakkında ne gösterebilir?",
+                "answer": "Metin analizi harf dağılımını, yinelenen sembolleri, yaygın n-gramları, kelime örüntülerini ve doğal dil yapısına ait izleri ortaya çıkarabilir. Bu ipuçları, klasik şifre problemlerinde olası dili, şifre ailesini veya muhtemel anahtar değerlerini belirlemeye yardımcı olur."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Frekans analizi her şifreyi kırmak için yeterli midir?",
+                "answer": "Hayır. Frekans analizi en iyi tek alfabeli yer değiştirme sistemlerine ve basit tarihsel şifrelere karşı çalışır. Çok alfabeli şifreler, transpozisyon şifreleri, kısa metinler ve modern şifreleme genellikle ek yöntemler gerektirir ya da yalnızca frekans sayımlarıyla çözülemez."
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Güvenilir analiz için ne kadar metin gerekir?",
+                "answer": "Daha uzun metinler daha güvenilir istatistikler üretir. Birkaç cümle kaba örüntüler gösterebilir, ancak dil belirleme, n-gram karşılaştırması ve kriptanalitik tahminler yüzlerce veya binlerce karakterle çok daha güçlü hale gelir."
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Harf frekansı ile n-gram analizi arasındaki fark nedir?",
+                "answer": "Harf frekansı tek tek karakterleri sayar; n-gram analizi ise ikili ve üçlü gruplar gibi karakter kümelerini sayar. N-gramlar çoğu zaman yinelenen parçaları, yaygın dil birleşimlerini ve tek harf sayımlarının kaçırabileceği ipuçlarını gösterir."
+            }
+        },
+        {
+            "id": 24,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Metin analizi bir mesajın dilini belirleyebilir mi?",
+                "answer": "Çoğu zaman evet. Doğal dillerin kendine özgü harf ve kelime dağılımları vardır. Gözlenen frekansları bilinen dil profilleriyle karşılaştırmak, özellikle örnek yeterince uzunsa en olası dili gösterebilir."
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bu araçlar kriptanaliz dışında da yararlı mı?",
+                "answer": "Evet. Metin analizi dilbilimde, bulmaca tasarımında, yazı ve metin tanılamada, veri kümelerini incelemede, kodlama kontrollerinde ve farklı dillerin ya da metin kaynaklarının istatistiksel davranışını araştırmada da yararlıdır."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}
