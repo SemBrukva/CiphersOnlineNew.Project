@@ -86,23 +86,6 @@
         </article>
         {/foreach}
 
-        {foreach $planned_categories as $planned}
-        <article class="home-category-card home-category-card--planned">
-            <header class="home-category-card__head">
-                <div class="home-category-card__icon home-category-card__icon--muted" aria-hidden="true">
-                    <i class="bi {$planned.icon}"></i>
-                </div>
-                <div>
-                    <h3 class="home-category-card__title">
-                        <span>{$planned.name}</span>
-                    </h3>
-                    <span class="home-category-card__badge">{$t.HOME_COMING_SOON}</span>
-                </div>
-            </header>
-
-            <p class="home-category-card__desc">{$planned.description}</p>
-        </article>
-        {/foreach}
     </div>
 </section>
 

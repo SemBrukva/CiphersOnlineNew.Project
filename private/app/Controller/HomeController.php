@@ -113,15 +113,13 @@ final readonly class HomeController
         });
 
         $useCases = $this->buildUseCases($cached['quick_access_tools']);
-        $plannedCategories = $this->buildPlannedCategories();
 
         $this->view
             ->setTitle(trans('HOME_TITLE'))
             ->setMeta(trans('HOME_META_DESCRIPTION'))
             ->setContent($this->view->fetch('home/index.tpl', [
                 ...$cached,
-                'planned_categories' => $plannedCategories,
-                'use_cases'          => $useCases,
+                'use_cases' => $useCases,
             ]));
 
         return new Response($this->view->render());
@@ -166,19 +164,4 @@ final readonly class HomeController
         return $cases;
     }
 
-    /**
-     * Возвращает «coming soon» категории, ещё не представленные в БД.
-     *
-     * @return array<int, array{name:string, description:string, icon:string}>
-     */
-    private function buildPlannedCategories(): array
-    {
-        return [
-            [
-                'name' => trans('HOME_CATEGORY_HASHING_NAME'),
-                'description' => trans('HOME_CATEGORY_HASHING_DESC'),
-                'icon' => 'bi-fingerprint',
-            ],
-        ];
-    }
 }

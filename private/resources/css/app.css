@@ -3372,25 +3372,19 @@ a:focus .nav-fav-count {
     transition: transform 0.25s ease;
 }
 
-.home-category-card:not(.home-category-card--planned) {
+.home-category-card {
     background: linear-gradient(140deg, #eef4fc 0%, #f5f9ff 45%, #ffffff 100%);
     border-color: #c6d6ea;
 }
 
-.home-category-card:not(.home-category-card--planned):hover {
+.home-category-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(0, 35, 64, 0.13), 0 2px 8px rgba(0, 35, 64, 0.07);
     border-color: var(--primary);
 }
 
-.home-category-card:not(.home-category-card--planned):hover::before {
+.home-category-card:hover::before {
     transform: scaleX(1);
-}
-
-.home-category-card--planned {
-    background: #f3f5f8;
-    border-color: #c8d0db;
-    border-style: dashed;
 }
 
 .home-category-card__head {
