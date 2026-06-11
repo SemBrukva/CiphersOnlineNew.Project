@@ -130,7 +130,7 @@ final readonly class CipherController
             ->setTitle($title)
             ->setMeta($metaDescription)
             ->setBreadcrumbs([
-                ['label' => (string) (($category['name_short'] ?? '') !== '' ? $category['name_short'] : ($category['name'] ?? $categoryAlias)), 'url' => '/'.$categoryAlias],
+                ['label' => (string) (($category['name_short'] ?? '') !== '' ? $category['name_short'] : ($category['name'] ?? $categoryAlias)), 'url' => locale_url('/'.$categoryAlias)],
                 ['label' => (string) ($cipher['name_short'] ?? $cipher['name'])],
             ])
             ->setStructuredData($this->buildStructuredData($cipher, $category, $faq, $categoryAlias, $cipherAlias))
