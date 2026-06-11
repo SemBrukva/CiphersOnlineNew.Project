@@ -1,0 +1,212 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T15:45:05+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "frequency-analysis",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 27,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 27,
+        "data": {
+            "name": "Analisi di Frequenza",
+            "name_short": "Analisi di Frequenza",
+            "description": "Analizza le frequenze di lettere, caratteri, parole, bigrammi e trigrammi in qualsiasi testo. Confronta le distribuzioni con profili linguistici e usa l’analisi di frequenza per la crittoanalisi dei cifrari classici.",
+            "description_stort": "Analizza le frequenze del testo e confrontale con modelli linguistici noti per la crittoanalisi.",
+            "meta_title": "Strumento di Analisi di Frequenza | Testo e Crittoanalisi",
+            "meta_description": "Analizza online le frequenze di lettere, caratteri, parole, bigrammi e trigrammi. Confronta le distribuzioni con profili linguistici, calcola l’indice di coincidenza ed esegui la crittoanalisi dei cifrari classici."
+        }
+    },
+    "blocks": [
+        {
+            "id": 107,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona l’analisi di frequenza",
+                "text": "<p>L’analisi di frequenza misura quanto spesso lettere, simboli, parole o gruppi di caratteri compaiono in un testo. Le lingue naturali seguono modelli statistici riconoscibili: alcune lettere appaiono molto più spesso di altre. In italiano, per esempio, E, A, I, O, N e L sono tra le lettere più frequenti.</p><p>Questo strumento calcola le frequenze di lettere, parole, bigrammi e trigrammi, permettendoti di confrontare un testo sconosciuto con le distribuzioni attese di una lingua. Forti deviazioni dai modelli normali spesso indicano cifratura, codifica o strutture testuali insolite.</p><p>I risultati possono essere ordinati e confrontati con profili linguistici per aiutare a identificare la lingua probabile di un testo e rilevare anomalie statistiche.</p>"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Usare l’analisi di frequenza per violare i cifrari",
+                "text": "<p>L’analisi di frequenza è una delle tecniche più antiche della crittoanalisi. I cifrari a sostituzione semplice conservano la struttura statistica di una lingua, quindi i simboli più frequenti del testo cifrato corrispondono spesso alle lettere più frequenti del testo in chiaro.</p><p>Per analizzare un testo cifrato, confronta le frequenze osservate con quelle attese della lingua sospetta. Simboli ad alta frequenza, bigrammi comuni e trigrammi comuni possono offrire indizi preziosi quando si ricostruisce il messaggio originale.</p><p>Nel <a href=\"/it/classical-ciphers/caesar\">cifrario di Cesare</a>, i picchi di frequenza spesso rivelano direttamente lo spostamento. Per <a href=\"/it/classical-ciphers/vigenere\">Vigenère</a> e altri cifrari polialfabetici, l’analisi di frequenza viene spesso combinata con l’indice di coincidenza e l’esame di Kasiski per stimare la lunghezza della chiave prima di tentare la decifrazione.</p>"
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Comprendere i profili di frequenza delle lingue",
+                "text": "<p>Ogni lingua ha una propria impronta statistica. In inglese, appena sei lettere rappresentano quasi metà di tutto il testo scritto, e questa distribuzione rimane sorprendentemente stabile tra argomenti, autori e periodi diversi.</p><p><strong>Profilo dell’inglese:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">12.7%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">T</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:72%\"></div></div><span class=\"freq-badge__pct\">9.1%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:65%\"></div></div><span class=\"freq-badge__pct\">8.2%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:59%\"></div></div><span class=\"freq-badge__pct\">7.5%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:55%\"></div></div><span class=\"freq-badge__pct\">7.0%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:53%\"></div></div><span class=\"freq-badge__pct\">6.7%</span></div></div><p>In italiano la parte alta del profilo è diversa: E, A, I, O, N e L compaiono con grande frequenza nel testo naturale. Queste frequenze aiutano a distinguere un testo italiano in chiaro da sequenze casuali e da testi cifrati con sostituzione semplice.</p><p><strong>Profilo dell’italiano:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">11.79%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">11.74%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:96%\"></div></div><span class=\"freq-badge__pct\">11.28%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:83%\"></div></div><span class=\"freq-badge__pct\">9.83%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:58%\"></div></div><span class=\"freq-badge__pct\">6.88%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">L</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:55%\"></div></div><span class=\"freq-badge__pct\">6.51%</span></div></div><p>I crittoanalisti confrontano le frequenze osservate nel testo cifrato con profili come questi per identificare la lingua probabile e associare i simboli frequenti alle lettere più plausibili del testo in chiaro. La classica mnemonica inglese <strong>ETAOIN SHRDLU</strong> resta utile come riferimento storico; per l’italiano è più pratica una sequenza come <strong>EAIONL</strong>.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 219,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Che cos’è l’analisi di frequenza?",
+                "answer": "L’analisi di frequenza studia quanto spesso lettere, simboli, parole o gruppi di caratteri compaiono in un testo. È una tecnica crittoanalitica fondamentale usata per riconoscere modelli linguistici e attaccare molti cifrari classici."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quali cifrari può violare l’analisi di frequenza?",
+                "answer": "L’analisi di frequenza funziona meglio contro sistemi di sostituzione monoalfabetica, come il cifrario di Cesare, il cifrario affine e i cifrari a sostituzione semplice. Può anche aiutare negli attacchi al cifrario di Vigenère quando viene combinata con altre tecniche. Gli algoritmi moderni di cifratura, come AES, non sono vulnerabili all’analisi di frequenza."
+            }
+        },
+        {
+            "id": 221,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quali sono le lettere più comuni in italiano e in inglese?",
+                "answer": "In inglese le lettere più comuni sono in genere E, T, A, O, I, N, S, H, R, D, L e C. In italiano compaiono spesso ai primi posti E, A, I, O, N, L e R. La distribuzione esatta varia in base al tipo di testo, ma le lettere principali restano abbastanza stabili nella scrittura naturale."
+            }
+        },
+        {
+            "id": 222,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cos’è l’indice di coincidenza?",
+                "answer": "L’indice di coincidenza (IC) misura la probabilità che due lettere scelte a caso da un testo siano identiche. I testi in lingua naturale di solito hanno un IC più alto rispetto a un testo casuale. I crittoanalisti usano l’IC per distinguere tra testo in chiaro, sostituzioni monoalfabetiche e alcuni cifrari polialfabetici."
+            }
+        },
+        {
+            "id": 223,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Che cosa sono bigrammi e trigrammi?",
+                "answer": "I bigrammi sono sequenze di due caratteri, come DI, LA o EN. I trigrammi sono sequenze di tre caratteri, come CHE, ERE o ION. Forniscono informazioni statistiche aggiuntive e possono migliorare in modo significativo l’analisi dei cifrari classici."
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "L’analisi di frequenza può identificare la lingua di un testo?",
+                "answer": "Sì. Confrontando le frequenze osservate con profili linguistici noti, l’analisi di frequenza può spesso stimare la lingua più probabile di un testo, soprattutto quando il testo disponibile è abbastanza lungo."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 99,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Analisi di testo italiano",
+                "key": "",
+                "shift": 0,
+                "input": "Ma la volpe col suo balzo ha raggiunto il quieto Fido",
+                "output": "",
+                "description": "Questo pangramma usa le lettere dell’alfabeto italiano di base ed è utile per controllare la distribuzione delle lettere."
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Testo cifrato con Cesare",
+                "key": "",
+                "shift": 0,
+                "input": "FLDR PRQGR",
+                "output": "",
+                "description": "CIAO MONDO cifrato con Cesare e spostamento 3. F, L, D, R, P, Q e G mostrano le lettere spostate dal testo in chiaro."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Citazione letteraria",
+                "key": "",
+                "shift": 0,
+                "input": "Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura",
+                "output": "",
+                "description": "Una frase italiana celebre per testare la distribuzione naturale delle lettere."
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Schema di lettere ripetute",
+                "key": "",
+                "shift": 0,
+                "input": "ATTACCO ALL ALBA ATTACCO AL TRAMONTO",
+                "output": "",
+                "description": "Una breve frase con parole e schemi di lettere ripetuti. Utile per testare frequenze di parole, bigrammi, trigrammi e analisi dei simboli ripetuti."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Analisi della frequenza delle lettere"
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Crittoanalisi classica"
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Indice di coincidenza"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Analisi dei cifrari"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

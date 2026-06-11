@@ -76,6 +76,35 @@ final readonly class CipherController
         $metaDescription = (string) ($cipher['meta_description'] ?: $cipher['description']);
         $calculationMode = (string) ($cipher['calculation_mode'] ?? 'client');
         $toolUi = $this->buildToolUi($toolSlug, $calculationMode);
+        if ($cipherAlias === 'frequency-analysis') {
+            $toolUi['analysisMode']          = true;
+            $toolUi['tabEncode']             = trans('FREQ_TAB_ANALYZE');
+            $toolUi['freqEmptyLabel']        = trans('FREQ_EMPTY');
+            $toolUi['freqStatsCharsLabel']   = trans('FREQ_STATS_CHARS');
+            $toolUi['freqStatsUniqueLabel']  = trans('FREQ_STATS_UNIQUE');
+            $toolUi['freqStatLetters']       = trans('FREQ_STAT_LETTERS');
+            $toolUi['freqStatWords']         = trans('FREQ_STAT_WORDS');
+            $toolUi['freqStatUniqueLetters'] = trans('FREQ_STAT_UNIQUE_LETTERS');
+            $toolUi['freqIcLabel']           = trans('FREQ_IC_LABEL');
+            $toolUi['freqIcNatural']         = trans('FREQ_IC_NATURAL');
+            $toolUi['freqIcPolyalpha']       = trans('FREQ_IC_POLYALPHA');
+            $toolUi['freqIcRandom']          = trans('FREQ_IC_RANDOM');
+            $toolUi['freqIcShort']           = trans('FREQ_IC_SHORT');
+            $toolUi['freqColLetter']         = trans('FREQ_COL_LETTER');
+            $toolUi['freqColCount']          = trans('FREQ_COL_COUNT');
+            $toolUi['freqColActualPct']      = trans('FREQ_COL_ACTUAL_PCT');
+            $toolUi['freqColExpectedPct']    = trans('FREQ_COL_EXPECTED_PCT');
+            $toolUi['freqColDiff']           = trans('FREQ_COL_DIFF');
+            $toolUi['freqColBigram']         = trans('FREQ_COL_BIGRAM');
+            $toolUi['freqColTrigram']        = trans('FREQ_COL_TRIGRAM');
+            $toolUi['freqColWord']           = trans('FREQ_COL_WORD');
+            $toolUi['freqBigramsTitle']      = trans('FREQ_BIGRAMS_TITLE');
+            $toolUi['freqTrigramsTitle']     = trans('FREQ_TRIGRAMS_TITLE');
+            $toolUi['freqWordsTitle']        = trans('FREQ_WORDS_TITLE');
+            $toolUi['freqLangMatchTitle']    = trans('FREQ_LANG_MATCH_TITLE');
+            $toolUi['freqMismatchWarning']   = trans('FREQ_MISMATCH_WARNING');
+            $toolUi['freqColDiffTooltip']    = trans('FREQ_COL_DIFF_TOOLTIP');
+        }
         if ($cipherAlias === 'morse-code') {
             $toolUi['placeholderEncode']  = trans('MORSE_PLACEHOLDER_ENCODE');
             $toolUi['placeholderDecode']  = trans('MORSE_PLACEHOLDER_DECODE');

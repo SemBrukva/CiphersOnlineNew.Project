@@ -6,6 +6,7 @@ import { transformJwt, looksLikeJwt } from './decoders/jwt.js'
 import { transformUnicode, looksLikeUnicode } from './decoders/unicode.js'
 import { transformUrl, looksLikeUrl } from './decoders/url.js'
 import { transformMorse, looksLikeMorse } from './decoders/morse.js'
+import { transformFrequency, looksLikeText } from './decoders/frequency.js'
 
 /**
  * Реестр browser-декодеров по slug инструмента.
@@ -19,6 +20,7 @@ const DECODER_BY_SLUG = {
   'encoding/unicode-converter': { transform: transformUnicode, looksLikeEncoded: looksLikeUnicode },
   'encoding/jwt-decoder': { transform: transformJwt, looksLikeEncoded: looksLikeJwt },
   'codes-and-alphabets/morse-code': { transform: transformMorse, looksLikeEncoded: looksLikeMorse },
+  'text-analysis/frequency-analysis': { transform: transformFrequency, looksLikeEncoded: looksLikeText },
 }
 
 /**

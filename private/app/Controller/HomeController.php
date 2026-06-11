@@ -179,11 +179,6 @@ final readonly class HomeController
                 'description' => trans('HOME_CATEGORY_HASHING_DESC'),
                 'icon' => 'bi-fingerprint',
             ],
-            [
-                'name' => trans('HOME_CATEGORY_CRYPTANALYSIS_NAME'),
-                'description' => trans('HOME_CATEGORY_CRYPTANALYSIS_DESC'),
-                'icon' => 'bi-graph-up',
-            ],
         ];
     }
 }

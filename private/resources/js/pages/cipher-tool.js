@@ -42,6 +42,10 @@ export function initCipherToolPage() {
   const clearBtn = document.getElementById('ciphers-clear')
   const coverInput = document.getElementById('ciphers-cover')
   const coverCapacityEl = document.getElementById('ciphers-cover-capacity')
+  const freqScopeSelect = document.getElementById('ciphers-freq-scope')
+  const freqSortSelect = document.getElementById('ciphers-freq-sort')
+  const freqLangSelect = document.getElementById('ciphers-freq-lang')
+  const visualOutput = document.getElementById('ciphers-visual-output')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -50,6 +54,7 @@ export function initCipherToolPage() {
   const calculationMode = String(ui.calculationMode || 'client').toLowerCase()
   const isApiMode = calculationMode === 'api'
   const isMorseTool = slug === 'codes-and-alphabets/morse-code'
+  const isAnalysisTool = Boolean(ui.analysisMode)
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
@@ -178,6 +183,154 @@ export function initCipherToolPage() {
       resultCard?.classList.remove('ciphers-result-card--live')
       resultLabel?.classList.remove('ciphers-unified__field-label--result-live')
     }
+  }
+
+  const escapeHtml = (str) =>
+    str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+  const showFreqEmpty = () => {
+    if (!visualOutput) return
+    visualOutput.innerHTML = `<p class="freq-empty">${ui.freqEmptyLabel || 'Enter text to analyze'}</p>`
+  }
+
+  const renderFrequencyChart = (data) => {
+    if (!visualOutput) return
+    const { scope, lang: dataLang, stats, items, mismatch, langMatch } = data
+    if (!items || items.length === 0) {
+      showFreqEmpty()
+      return
+    }
+
+    const maxCount = items[0]?.count || 1
+    const maxPct = items.reduce((m, it) => Math.max(m, it.pct, it.expected ?? 0), 0.1)
+
+    // --- Строка статистики ---
+    const charsWord = (ui.freqStatsCharsLabel || ':count chars').replace(':count', '').trim()
+    const summaryHtml = `<div class="freq-summary">`
+      + `${stats?.totalChars ?? 0} ${charsWord} · `
+      + `${stats?.letters ?? 0} ${ui.freqStatLetters || 'letters'} · `
+      + `${stats?.words ?? 0} ${ui.freqStatWords || 'words'}`
+      + `</div>`
+
+    // --- Блок IC ---
+    const icVal = typeof stats?.ic === 'number' ? stats.ic.toFixed(4) : '0.0000'
+    const icInterp = stats?.icInterpretation || 'short'
+    const icMap = { natural: ui.freqIcNatural, polyalpha: ui.freqIcPolyalpha, random: ui.freqIcRandom, short: ui.freqIcShort }
+    const icText = icMap[icInterp] || icInterp
+    const icHtml = `<div class="freq-ic">`
+      + `<span class="freq-ic-meta">${escapeHtml(ui.freqIcLabel || 'IC')} = ${icVal}</span>`
+      + `<span class="freq-ic-badge freq-ic-badge--${escapeHtml(icInterp)}">${escapeHtml(icText)}</span>`
+      + `</div>`
+
+    // --- Предупреждение о несовпадении языкового профиля ---
+    let mismatchHtml = ''
+    if (scope === 'letters' && mismatch && mismatch.outsideLetters?.length > 0) {
+      const template = ui.freqMismatchWarning || 'Characters outside selected language profile: :chars. Consider switching to :lang.'
+      const chars = mismatch.outsideLetters.join(', ')
+      const suggestName = mismatch.suggestions?.[0]?.name || ''
+      const warnText = template.replace(':chars', chars).replace(':lang', suggestName)
+      mismatchHtml = `<div class="freq-mismatch">${escapeHtml(warnText)}</div>`
+    }
+
+    // --- Вертикальный столбчатый график (только для режима Letters) ---
+    let chartHtml = ''
+    if (scope === 'letters') {
+      const CHART_H = 80
+      const chartMaxF = items.reduce((m, it) => Math.max(m, it.pct, it.expected ?? 0), 0.1)
+      const groups = items.map(({ char, pct, expected = 0 }) => {
+        const aH = Math.max(2, Math.round((pct / chartMaxF) * CHART_H))
+        const eH = Math.max(2, Math.round((expected / chartMaxF) * CHART_H))
+        const tip = `${char}: ${pct.toFixed(1)}% vs ${expected.toFixed(1)}%`
+        return `<div class="freq-chart-group" title="${escapeHtml(tip)}">`
+          + `<div class="freq-chart-cols">`
+          + `<div class="freq-chart-col freq-chart-col--actual" style="height:${aH}px"></div>`
+          + `<div class="freq-chart-col freq-chart-col--expected" style="height:${eH}px"></div>`
+          + `</div>`
+          + `<span class="freq-chart-label">${escapeHtml(char)}</span>`
+          + `</div>`
+      }).join('')
+      chartHtml = `<div class="freq-chart-area">${groups}</div>`
+    }
+
+    // --- Таблица ---
+    let tableHtml
+    if (scope === 'letters') {
+      const diffTip = escapeHtml(ui.freqColDiffTooltip || 'Actual %− Expected %')
+      const header = `<div class="freq-row freq-row--header freq-row--letters">`
+        + `<span>${escapeHtml(ui.freqColLetter || 'Letter')}</span>`
+        + `<span class="freq-col-num">${escapeHtml(ui.freqColCount || 'Count')}</span>`
+        + `<span></span>`
+        + `<span class="freq-col-num">${escapeHtml(ui.freqColActualPct || 'Actual%')}</span>`
+        + `<span class="freq-col-num">${escapeHtml(ui.freqColExpectedPct || 'Exp%')}</span>`
+        + `<span class="freq-col-num freq-diff-header" title="${diffTip}">${escapeHtml(ui.freqColDiff || 'Diff')}</span>`
+        + `</div>`
+      const rows = items.map(({ char, count, pct, expected = 0, diff = 0 }) => {
+        const aW = Math.round((pct / maxPct) * 100)
+        const eW = Math.round((expected / maxPct) * 100)
+        const diffStr = diff >= 0 ? `+${diff.toFixed(1)}` : diff.toFixed(1)
+        const diffCls = diff > 0.5 ? 'freq-diff--pos' : diff < -0.5 ? 'freq-diff--neg' : ''
+        return `<div class="freq-row freq-row--letters">`
+          + `<span class="freq-char">${escapeHtml(char)}</span>`
+          + `<span class="freq-col-num freq-count">${count}</span>`
+          + `<div class="freq-bar-track">`
+          + `<div class="freq-bar-actual" style="width:${aW}%"></div>`
+          + `<div class="freq-bar-expected" style="width:${eW}%"></div>`
+          + `</div>`
+          + `<span class="freq-col-num freq-pct">${pct.toFixed(1)}%</span>`
+          + `<span class="freq-col-num freq-pct freq-pct--exp">${expected.toFixed(1)}%</span>`
+          + `<span class="freq-col-num freq-diff ${diffCls}">${escapeHtml(diffStr)}</span>`
+          + `</div>`
+      }).join('')
+      tableHtml = `<div class="freq-table">${header}${rows}</div>`
+    } else {
+      const colLabel = scope === 'words' ? (ui.freqColWord || 'Word')
+        : scope === 'bigrams' ? (ui.freqColBigram || 'Bigram')
+        : scope === 'trigrams' ? (ui.freqColTrigram || 'Trigram')
+        : (ui.freqColLetter || 'Char')
+      const header = `<div class="freq-row freq-row--header freq-row--simple">`
+        + `<span>${escapeHtml(colLabel)}</span>`
+        + `<span></span>`
+        + `<span class="freq-col-num">${escapeHtml(ui.freqColCount || 'Count')}</span>`
+        + `<span class="freq-col-num">%</span>`
+        + `</div>`
+      const rows = items.map(({ char, count, pct }) => {
+        const bW = Math.round((count / maxCount) * 100)
+        return `<div class="freq-row freq-row--simple">`
+          + `<span class="freq-char">${escapeHtml(char)}</span>`
+          + `<div class="freq-bar-track"><div class="freq-bar-actual" style="width:${bW}%"></div></div>`
+          + `<span class="freq-col-num freq-count">${count}</span>`
+          + `<span class="freq-col-num freq-pct">${pct.toFixed(1)}%</span>`
+          + `</div>`
+      }).join('')
+      tableHtml = `<div class="freq-table">${header}${rows}</div>`
+    }
+
+    // --- Соответствие языкам ---
+    let langMatchHtml = ''
+    if (langMatch && langMatch.length > 0) {
+      const title = escapeHtml(ui.freqLangMatchTitle || 'Language Match')
+      const rows = langMatch.map(({ lang: lCode, name, score }) => {
+        const isSel = lCode === dataLang
+        const cls = isSel ? 'freq-lang-match__row freq-lang-match__row--selected' : 'freq-lang-match__row'
+        return `<div class="${cls}">`
+          + `<span class="freq-lang-match__name">${escapeHtml(name)}</span>`
+          + `<div class="freq-lang-match__bar-wrap"><div class="freq-lang-match__bar" style="width:${score}%"></div></div>`
+          + `<span class="freq-lang-match__score">${score}%</span>`
+          + `</div>`
+      }).join('')
+      langMatchHtml = `<div class="freq-lang-match"><div class="freq-lang-match__title">${title}</div>${rows}</div>`
+    }
+
+    // Текст для буфера обмена
+    const plainText = items.map((it) => {
+      if (scope === 'letters') {
+        return `${it.char}\t${it.count}\t${it.pct.toFixed(1)}%\t${(it.expected ?? 0).toFixed(1)}%\t${(it.diff ?? 0).toFixed(1)}`
+      }
+      return `${it.char}\t${it.count}\t${it.pct.toFixed(1)}%`
+    }).join('\n')
+    output.value = plainText
+
+    visualOutput.innerHTML = summaryHtml + icHtml + mismatchHtml + chartHtml + tableHtml + langMatchHtml
   }
 
   const getMaxShift = () => {
@@ -429,8 +582,29 @@ export function initCipherToolPage() {
 
     if (!value.trim()) {
       output.value = ''
+      if (isAnalysisTool) showFreqEmpty()
       setOutputState(false)
       setFeedback('')
+      return
+    }
+
+    if (isAnalysisTool) {
+      try {
+        const json = transform(value, 'encode', decoder, {
+          scope: freqScopeSelect?.value || 'letters',
+          sort: freqSortSelect?.value || 'frequency',
+          lang: freqLangSelect?.value || 'en',
+        })
+        const data = JSON.parse(json)
+        renderFrequencyChart(data)
+        setOutputState(data.items && data.items.length > 0)
+        setFeedback('')
+        sendAnalyticsBeacon(slug, 'analyze')
+      } catch {
+        showFreqEmpty()
+        setOutputState(false)
+        setFeedback(labels.invalid, true)
+      }
       return
     }
 
@@ -660,6 +834,10 @@ export function initCipherToolPage() {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
+      if (alphabet && freqLangSelect && freqLangSelect.value !== alphabet) {
+        freqLangSelect.value = alphabet
+        freqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
       if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
         delimiterSelect.value = delimiter
         delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
@@ -705,6 +883,10 @@ export function initCipherToolPage() {
         alphabetSelect.value = alphabet
         alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
+      if (alphabet && freqLangSelect && freqLangSelect.value !== alphabet) {
+        freqLangSelect.value = alphabet
+        freqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
       if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
         delimiterSelect.value = delimiter
         delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
@@ -742,6 +924,7 @@ export function initCipherToolPage() {
     if (coverInput) coverInput.value = ''
     if (coverCapacityEl) { coverCapacityEl.textContent = ''; coverCapacityEl.className = 'ciphers-cover-capacity' }
     output.value = ''
+    if (isAnalysisTool) showFreqEmpty()
     updateCounter()
     setOutputState(false)
     setFeedback('')
@@ -821,6 +1004,18 @@ export function initCipherToolPage() {
 
   if (isMorseTool) {
     initMorsePlayer(output, input, ui, () => mode)
+  }
+
+  if (isAnalysisTool) {
+    tabDecode.style.display = 'none'
+    output.style.display = 'none'
+    if (visualOutput) {
+      visualOutput.style.display = 'block'
+      showFreqEmpty()
+    }
+    freqScopeSelect?.addEventListener('change', () => process())
+    freqSortSelect?.addEventListener('change', () => process())
+    freqLangSelect?.addEventListener('change', () => process())
   }
 }
 

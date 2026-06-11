@@ -4694,3 +4694,387 @@ a:focus .nav-fav-count {
     margin-left: 0;
   }
 }
+
+/* ──────────────────────────────────────────────
+   Frequency Analysis Chart
+   ────────────────────────────────────────────── */
+
+.ciphers-visual-output {
+  display: none;
+  padding: .375rem .75rem;
+}
+
+.freq-empty {
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 24px 0;
+  margin: 0;
+}
+
+.freq-stats {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 10px;
+  padding: 0 2px;
+}
+
+.freq-table {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.freq-row {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr 3.2rem 2.4rem;
+  align-items: center;
+  gap: 6px;
+  min-height: 20px;
+}
+
+.freq-char {
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.freq-bar-wrap {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.freq-bar {
+  height: 100%;
+  background: var(--co-accent);
+  border-radius: 2px;
+  transition: width 0.2s ease;
+  min-width: 2px;
+}
+
+.freq-pct {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.50);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.freq-count {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.50);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 480px) {
+  .freq-row {
+    grid-template-columns: 1.4rem 1fr 2.8rem 2rem;
+    gap: 4px;
+  }
+}
+
+/* --- Frequency Analysis: extended UI --- */
+
+.freq-summary {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.freq-ic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.8rem;
+}
+
+.freq-ic-meta {
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.80);
+  font-weight: 500;
+}
+
+.freq-ic-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.freq-ic-badge--natural   { background: rgba(193, 255, 0, 0.12);  color: #b8f040; border: 1px solid rgba(193, 255, 0, 0.25); }
+.freq-ic-badge--polyalpha { background: rgba(255, 200, 50, 0.12); color: #ffd060; border: 1px solid rgba(255, 200, 50, 0.25); }
+.freq-ic-badge--random    { background: rgba(255, 80, 80, 0.12);  color: #ff9090; border: 1px solid rgba(255, 80, 80, 0.25); }
+.freq-ic-badge--short     { background: rgba(255, 255, 255, 0.06); color: rgba(255, 255, 255, 0.45); border: 1px solid rgba(255, 255, 255, 0.10); }
+
+.freq-row--header {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.40);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  margin-bottom: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 4px;
+}
+
+.freq-row--header > * {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+}
+
+.freq-row--letters {
+  display: grid;
+  grid-template-columns: 2.2rem 3rem 1fr 3.4rem 3.8rem 3rem;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+}
+
+.freq-row--simple {
+  display: grid;
+  grid-template-columns: minmax(2.5rem, 7rem) 1fr 2.8rem 3rem;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+}
+
+.freq-bar-track {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.freq-bar-actual {
+  height: 7px;
+  background: var(--co-accent);
+  border-radius: 2px;
+  min-width: 2px;
+  transition: width 0.15s ease;
+}
+
+.freq-bar-expected {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 2px;
+  min-width: 2px;
+  transition: width 0.15s ease;
+}
+
+.freq-col-num {
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.freq-pct--exp {
+  color: rgba(255, 255, 255, 0.40);
+}
+
+.freq-diff { font-weight: 500; }
+.freq-diff--pos { color: #7ee8a2; }
+.freq-diff--neg { color: #f87171; }
+
+@media (max-width: 480px) {
+  .freq-row--letters {
+    grid-template-columns: 1.8rem 2.4rem 1fr 2.8rem 3.2rem 2.6rem;
+    gap: 3px;
+  }
+  .freq-row--simple {
+    grid-template-columns: minmax(2rem, 5rem) 1fr 2.4rem 2.6rem;
+    gap: 4px;
+  }
+  .freq-ic { flex-wrap: wrap; }
+}
+
+/* --- Vertical bar chart --- */
+
+.freq-chart-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  padding-bottom: 22px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+  position: relative;
+}
+
+.freq-chart-group {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+}
+
+.freq-chart-cols {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.freq-chart-col {
+  border-radius: 2px 2px 0 0;
+  transition: height 0.2s ease;
+}
+
+.freq-chart-col--actual   { width: 10px; background: var(--co-accent); }
+.freq-chart-col--expected { width: 7px;  background: rgba(255, 255, 255, 0.20); }
+
+.freq-chart-label {
+  font-size: 0.62rem;
+  font-family: monospace;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+/* --- Mismatch warning --- */
+
+.freq-mismatch {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(255, 190, 50, 0.10);
+  color: rgba(255, 210, 80, 0.90);
+  border: 1px solid rgba(255, 190, 50, 0.25);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* --- Language Match --- */
+
+.freq-lang-match {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.freq-lang-match__title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.40);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.freq-lang-match__row {
+  display: grid;
+  grid-template-columns: 6.2rem 1fr 2.8rem;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.freq-lang-match__name {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.70);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.freq-lang-match__row--selected .freq-lang-match__name {
+  font-weight: 600;
+  color: var(--co-accent);
+}
+
+.freq-lang-match__bar-wrap {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.freq-lang-match__bar {
+  height: 100%;
+  background: var(--co-accent);
+  border-radius: 3px;
+  transition: width 0.2s ease;
+}
+
+.freq-lang-match__score {
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Diff header tooltip indicator */
+.freq-diff-header {
+  cursor: help;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+/* === Frequency Profile Badges (block inside cipher info panels) === */
+.freq-badges {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin: 18px 0 22px;
+}
+
+@media (max-width: 576px) {
+  .freq-badges {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.freq-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 8px 10px;
+  gap: 6px;
+}
+
+.freq-badge__letter {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.freq-badge__bar-wrap {
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.freq-badge__bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.freq-badge__pct {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}

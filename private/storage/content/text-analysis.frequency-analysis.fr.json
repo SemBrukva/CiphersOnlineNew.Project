@@ -1,0 +1,212 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T15:45:05+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "frequency-analysis",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 27,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 27,
+        "data": {
+            "name": "Analyse de Fréquence",
+            "name_short": "Analyse de Fréquence",
+            "description": "Analysez les fréquences des lettres, caractères, mots, bigrammes et trigrammes dans n’importe quel texte. Comparez les distributions avec des profils linguistiques et utilisez l’analyse de fréquence pour la cryptanalyse des chiffrements classiques.",
+            "description_stort": "Analysez les fréquences d’un texte et comparez-les à des modèles linguistiques connus pour la cryptanalyse.",
+            "meta_title": "Outil d’Analyse de Fréquence | Texte et Cryptanalyse",
+            "meta_description": "Analysez en ligne les fréquences des lettres, caractères, mots, bigrammes et trigrammes. Comparez les distributions avec des profils linguistiques, calculez l’indice de coïncidence et menez une cryptanalyse de chiffrements classiques."
+        }
+    },
+    "blocks": [
+        {
+            "id": 107,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Comment fonctionne l’analyse de fréquence",
+                "text": "<p>L’analyse de fréquence mesure à quelle fréquence les lettres, symboles, mots ou groupes de caractères apparaissent dans un texte. Les langues naturelles suivent des modèles statistiques reconnaissables : certaines lettres apparaissent beaucoup plus souvent que d’autres. En français, par exemple, E, S, A, I, T et N font partie des lettres les plus fréquentes.</p><p>Cet outil calcule les fréquences des lettres, mots, bigrammes et trigrammes afin de comparer un texte inconnu aux distributions attendues d’une langue. De forts écarts par rapport aux modèles habituels révèlent souvent un chiffrement, un encodage ou une structure de texte inhabituelle.</p><p>Les résultats peuvent être triés et comparés à des profils linguistiques pour aider à identifier la langue probable d’un texte et repérer les anomalies statistiques.</p>"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Utiliser l’analyse de fréquence pour casser des chiffrements",
+                "text": "<p>L’analyse de fréquence est l’une des plus anciennes techniques de cryptanalyse. Les chiffrements par substitution simple conservent la structure statistique d’une langue : les symboles les plus fréquents du texte chiffré correspondent donc souvent aux lettres les plus fréquentes du texte clair.</p><p>Pour analyser un texte chiffré, comparez les fréquences observées aux fréquences attendues de la langue supposée. Les symboles très fréquents, les bigrammes courants et les trigrammes courants fournissent de précieux indices pour reconstruire le message original.</p><p>Pour le <a href=\"/fr/classical-ciphers/caesar\">chiffrement de César</a>, les pics de fréquence révèlent souvent directement le décalage. Pour <a href=\"/fr/classical-ciphers/vigenere\">Vigenère</a> et d’autres chiffrements polyalphabétiques, l’analyse de fréquence est souvent combinée avec l’indice de coïncidence et l’examen de Kasiski afin d’estimer la longueur de la clé avant de tenter le déchiffrement.</p>"
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Comprendre les profils de fréquence des langues",
+                "text": "<p>Chaque langue possède une empreinte statistique particulière. En anglais, six lettres seulement représentent près de la moitié du texte écrit, et cette distribution reste remarquablement stable selon les sujets, les auteurs et les périodes.</p><p><strong>Profil de l’anglais :</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">12.7%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">T</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:72%\"></div></div><span class=\"freq-badge__pct\">9.1%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:65%\"></div></div><span class=\"freq-badge__pct\">8.2%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:59%\"></div></div><span class=\"freq-badge__pct\">7.5%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:55%\"></div></div><span class=\"freq-badge__pct\">7.0%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:53%\"></div></div><span class=\"freq-badge__pct\">6.7%</span></div></div><p>En français, le haut du profil est différent : E domine nettement, puis viennent souvent S, A, I, T et N. Ces fréquences aident à distinguer un texte clair français d’une suite aléatoire de caractères ou d’un texte chiffré par substitution simple.</p><p><strong>Profil du français :</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">14.71%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">S</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:54%\"></div></div><span class=\"freq-badge__pct\">7.95%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:51%\"></div></div><span class=\"freq-badge__pct\">7.53%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:52%\"></div></div><span class=\"freq-badge__pct\">7.64%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">T</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:49%\"></div></div><span class=\"freq-badge__pct\">7.24%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:48%\"></div></div><span class=\"freq-badge__pct\">7.10%</span></div></div><p>Les cryptanalystes comparent les fréquences observées dans le texte chiffré à de tels profils pour identifier la langue probable et associer les symboles fréquents aux lettres plausibles du texte clair. Le moyen mnémotechnique anglais classique <strong>ETAOIN SHRDLU</strong> reste utile comme repère historique ; pour le français, une suite comme <strong>ESAITN</strong> est plus pertinente.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 219,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que l’analyse de fréquence ?",
+                "answer": "L’analyse de fréquence étudie à quelle fréquence les lettres, symboles, mots ou groupes de caractères apparaissent dans un texte. C’est une technique fondamentale de cryptanalyse, utilisée pour reconnaître des modèles linguistiques et attaquer de nombreux chiffrements classiques."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quels chiffrements l’analyse de fréquence peut-elle casser ?",
+                "answer": "L’analyse de fréquence fonctionne surtout contre les systèmes de substitution monoalphabétique, comme le chiffrement de César, le chiffrement affine et les chiffrements par substitution simple. Elle peut aussi aider à attaquer le chiffrement de Vigenère lorsqu’elle est combinée à d’autres techniques. Les algorithmes modernes comme AES ne sont pas vulnérables à l’analyse de fréquence."
+            }
+        },
+        {
+            "id": 221,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quelles sont les lettres les plus fréquentes en français et en anglais ?",
+                "answer": "En anglais, les lettres les plus fréquentes sont généralement E, T, A, O, I, N, S, H, R, D, L et C. En français, E arrive très souvent en tête, suivi notamment de S, A, I, T et N. La distribution exacte varie selon le type de texte, mais les premières lettres restent assez stables dans l’écriture naturelle."
+            }
+        },
+        {
+            "id": 222,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que l’indice de coïncidence ?",
+                "answer": "L’indice de coïncidence (IC) mesure la probabilité que deux lettres choisies au hasard dans un texte soient identiques. Les textes en langue naturelle ont généralement un IC plus élevé qu’un texte aléatoire. Les cryptanalystes utilisent l’IC pour distinguer le texte clair, les substitutions monoalphabétiques et certains chiffrements polyalphabétiques."
+            }
+        },
+        {
+            "id": 223,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Que sont les bigrammes et les trigrammes ?",
+                "answer": "Les bigrammes sont des séquences de deux caractères, comme ES, DE ou EN. Les trigrammes sont des séquences de trois caractères, comme LES, ENT ou QUE. Ils fournissent des informations statistiques supplémentaires et peuvent améliorer fortement l’analyse des chiffrements classiques."
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "L’analyse de fréquence peut-elle identifier la langue d’un texte ?",
+                "answer": "Oui. En comparant les fréquences observées à des profils linguistiques connus, l’analyse de fréquence peut souvent estimer la langue la plus probable d’un texte, surtout lorsque la quantité de texte est suffisante."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 99,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Analyse d’un texte français",
+                "key": "",
+                "shift": 0,
+                "input": "Portez ce vieux whisky au juge blond qui fume",
+                "output": "",
+                "description": "Ce pangramme contient toutes les lettres de l’alphabet français de base et convient pour tester la distribution des lettres."
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Texte chiffré César",
+                "key": "",
+                "shift": 0,
+                "input": "ERQMRXU PRQGH",
+                "output": "",
+                "description": "BONJOUR MONDE chiffré avec César et un décalage de 3. E, R, Q, M, X, U, P, G et H dominent comme lettres décalées du texte clair."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Phrase littéraire",
+                "key": "",
+                "shift": 0,
+                "input": "Longtemps je me suis couche de bonne heure",
+                "output": "",
+                "description": "Une phrase française célèbre pour tester la distribution naturelle des lettres."
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Motif de lettres répétées",
+                "key": "",
+                "shift": 0,
+                "input": "ATTAQUE A LAUBE ATTAQUE AU CREPUSCULE",
+                "output": "",
+                "description": "Une courte phrase avec des mots et des motifs de lettres répétés. Utile pour tester la fréquence des mots, les bigrammes, les trigrammes et l’analyse des symboles répétés."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Analyse de fréquence des lettres"
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cryptanalyse classique"
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Indice de coïncidence"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Analyse de chiffrements"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T15:45:05+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "frequency-analysis",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 27,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 27,
+        "data": {
+            "name": "Häufigkeitsanalyse",
+            "name_short": "Häufigkeitsanalyse",
+            "description": "Analysiere Buchstaben-, Zeichen-, Wort-, Bigramm- und Trigramm-Häufigkeiten in beliebigen Texten. Vergleiche Verteilungen mit Sprachprofilen und nutze die Häufigkeitsanalyse für die Kryptoanalyse klassischer Chiffren.",
+            "description_stort": "Analysiere Texthäufigkeiten und vergleiche sie mit bekannten Sprachmustern für die Kryptoanalyse.",
+            "meta_title": "Häufigkeitsanalyse-Tool | Textanalyse und Kryptoanalyse",
+            "meta_description": "Analysiere Buchstaben-, Zeichen-, Wort-, Bigramm- und Trigramm-Häufigkeiten online. Vergleiche Verteilungen mit Sprachprofilen, berechne den Koinzidenzindex und untersuche klassische Chiffren."
+        }
+    },
+    "blocks": [
+        {
+            "id": 107,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Häufigkeitsanalyse funktioniert",
+                "text": "<p>Die Häufigkeitsanalyse misst, wie oft Buchstaben, Symbole, Wörter oder Zeichengruppen in einem Text vorkommen. Natürliche Sprachen folgen erkennbaren statistischen Mustern: Einige Buchstaben treten deutlich häufiger auf als andere. Im Deutschen gehören zum Beispiel E, N, I, R, A und S zu den häufigsten Buchstaben.</p><p>Dieses Tool berechnet Häufigkeiten für Buchstaben, Wörter, Bigramme und Trigramme. So kannst du einen unbekannten Text mit erwarteten Sprachverteilungen vergleichen. Starke Abweichungen von normalen Sprachmustern weisen oft auf Verschlüsselung, Kodierung oder ungewöhnliche Textstrukturen hin.</p><p>Die Ergebnisse lassen sich sortieren und mit Sprachprofilen vergleichen, um die wahrscheinliche Sprache eines Textes zu bestimmen und statistische Auffälligkeiten zu erkennen.</p>"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Häufigkeitsanalyse zum Brechen von Chiffren verwenden",
+                "text": "<p>Die Häufigkeitsanalyse gehört zu den ältesten Techniken der Kryptoanalyse. Einfache Substitutionschiffren erhalten die statistische Struktur einer Sprache, sodass die häufigsten Symbole im Geheimtext meist den häufigsten Buchstaben im Klartext entsprechen.</p><p>Um einen Geheimtext zu untersuchen, vergleiche die beobachteten Häufigkeiten mit den erwarteten Häufigkeiten der vermuteten Sprache. Häufige Symbole, typische Bigramme und typische Trigramme liefern wertvolle Hinweise beim Rekonstruieren der ursprünglichen Nachricht.</p><p>Bei der <a href=\"/de/classical-ciphers/caesar\">Caesar-Chiffre</a> zeigen Häufigkeitsspitzen den Schub oft direkt. Bei <a href=\"/de/classical-ciphers/vigenere\">Vigenère</a> und anderen polyalphabetischen Chiffren wird die Häufigkeitsanalyse häufig mit dem Koinzidenzindex und dem Kasiski-Test kombiniert, um vor dem Entschlüsseln die Schlüssellänge abzuschätzen.</p>"
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sprachliche Häufigkeitsprofile verstehen",
+                "text": "<p>Jede Sprache hat einen eigenen statistischen Fingerabdruck. Im Englischen machen bereits sechs Buchstaben fast die Hälfte des geschriebenen Textes aus, und diese Verteilung bleibt über Themen, Autoren und Zeiträume hinweg erstaunlich stabil.</p><p><strong>Englisches Profil:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">12.7%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">T</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:72%\"></div></div><span class=\"freq-badge__pct\">9.1%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:65%\"></div></div><span class=\"freq-badge__pct\">8.2%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:59%\"></div></div><span class=\"freq-badge__pct\">7.5%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:55%\"></div></div><span class=\"freq-badge__pct\">7.0%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:53%\"></div></div><span class=\"freq-badge__pct\">6.7%</span></div></div><p>Im Deutschen sieht die Spitze des Profils anders aus: Besonders häufig sind E, N, I, R, A und S. Solche Häufigkeiten helfen, deutschen Klartext von zufälligen Zeichenfolgen und von Geheimtexten nach einfacher Substitution zu unterscheiden.</p><p><strong>Deutsches Profil:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">16.93%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:58%\"></div></div><span class=\"freq-badge__pct\">9.78%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:45%\"></div></div><span class=\"freq-badge__pct\">7.55%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">R</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:41%\"></div></div><span class=\"freq-badge__pct\">7.00%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:38%\"></div></div><span class=\"freq-badge__pct\">6.51%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">S</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:38%\"></div></div><span class=\"freq-badge__pct\">6.42%</span></div></div><p>Kryptoanalytiker vergleichen beobachtete Geheimtext-Häufigkeiten mit solchen Profilen, um die wahrscheinliche Sprache zu erkennen und häufige Symbole möglichen Klartextbuchstaben zuzuordnen. Die klassische englische Merkhilfe <strong>ETAOIN SHRDLU</strong> bleibt als historischer Bezug nützlich; für deutsche Texte ist eine Reihenfolge wie <strong>ENIRAS</strong> praktischer.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 219,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist Häufigkeitsanalyse?",
+                "answer": "Häufigkeitsanalyse untersucht, wie oft Buchstaben, Symbole, Wörter oder Zeichengruppen in einem Text vorkommen. Sie ist eine grundlegende kryptoanalytische Methode, um Sprachmuster zu erkennen und viele klassische Chiffren anzugreifen."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Welche Chiffren lassen sich mit Häufigkeitsanalyse brechen?",
+                "answer": "Häufigkeitsanalyse funktioniert am besten gegen monoalphabetische Substitutionen wie die Caesar-Chiffre, affine Chiffren und einfache Ersetzungschiffren. In Kombination mit anderen Verfahren hilft sie auch bei Angriffen auf die Vigenère-Chiffre. Moderne Verschlüsselungsalgorithmen wie AES sind nicht anfällig für Häufigkeitsanalyse."
+            }
+        },
+        {
+            "id": 221,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Welche Buchstaben sind im Deutschen und Englischen am häufigsten?",
+                "answer": "Im Englischen gehören E, T, A, O, I, N, S, H, R, D, L und C zu den häufigsten Buchstaben. Im Deutschen stehen meist E, N, I, R, A, S und T weit oben. Die genaue Verteilung hängt von Textsorte und Thema ab, bleibt in natürlicher Schriftsprache aber relativ stabil."
+            }
+        },
+        {
+            "id": 222,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was ist der Koinzidenzindex?",
+                "answer": "Der Koinzidenzindex (IC) misst, wie wahrscheinlich es ist, dass zwei zufällig ausgewählte Buchstaben aus einem Text identisch sind. Natürliche Sprachtexte haben meist einen höheren IC als Zufallstext. Kryptoanalytiker nutzen den IC, um Klartext, monoalphabetische Substitutionen und bestimmte polyalphabetische Chiffren zu unterscheiden."
+            }
+        },
+        {
+            "id": 223,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Was sind Bigramme und Trigramme?",
+                "answer": "Bigramme sind Folgen aus zwei Zeichen, zum Beispiel EN, ER oder CH. Trigramme sind Folgen aus drei Zeichen, zum Beispiel DER, ICH oder SCH. Sie liefern zusätzliche statistische Informationen und können die Analyse klassischer Chiffren deutlich verbessern."
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Kann die Häufigkeitsanalyse die Sprache eines Textes erkennen?",
+                "answer": "Ja. Durch den Vergleich beobachteter Häufigkeiten mit bekannten Sprachprofilen kann die Häufigkeitsanalyse oft die wahrscheinlichste Sprache eines Textes abschätzen, besonders wenn genügend Text vorhanden ist."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 99,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Deutsche Textanalyse",
+                "key": "",
+                "shift": 0,
+                "input": "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich",
+                "output": "",
+                "description": "Dieses Pangram enthält alle Buchstaben des deutschen Alphabets und eignet sich gut zum Prüfen der Buchstabenverteilung."
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Caesar-Geheimtext",
+                "key": "",
+                "shift": 0,
+                "input": "KDOOR ZHOW",
+                "output": "",
+                "description": "HALLO WELT, mit der Caesar-Chiffre und einem Schub von 3 verschlüsselt. K, D, O, R, Z, H und W zeigen die verschobenen Buchstaben des Klartexts."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Goethe-Zitat",
+                "key": "",
+                "shift": 0,
+                "input": "Habe nun ach die Philosophie durchaus studiert",
+                "output": "",
+                "description": "Ein bekannter deutscher Satzanfang zum Testen natürlicher Buchstabenverteilungen."
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Wiederholtes Buchstabenmuster",
+                "key": "",
+                "shift": 0,
+                "input": "ANGRIFF BEI DAEMMERUNG ANGRIFF BEI NACHT",
+                "output": "",
+                "description": "Eine kurze Phrase mit wiederholten Wörtern und Buchstabenmustern. Nützlich zum Testen von Worthäufigkeiten, Bigrammen, Trigrammen und wiederholten Symbolen."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Buchstabenhäufigkeitsanalyse"
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptoanalyse"
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Koinzidenzindex"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Chiffrenanalyse"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

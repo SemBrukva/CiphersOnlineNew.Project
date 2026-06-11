@@ -1,0 +1,212 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T15:45:05+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "frequency-analysis",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 27,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 27,
+        "data": {
+            "name": "Análise de Frequência",
+            "name_short": "Análise de Frequência",
+            "description": "Analise frequências de letras, caracteres, palavras, bigramas e trigramas em qualquer texto. Compare distribuições com perfis linguísticos e use a análise de frequência para criptoanálise de cifras clássicas.",
+            "description_stort": "Analise frequências de texto e compare-as com padrões linguísticos conhecidos para criptoanálise.",
+            "meta_title": "Ferramenta de Análise de Frequência | Texto e Criptoanálise",
+            "meta_description": "Analise online frequências de letras, caracteres, palavras, bigramas e trigramas. Compare distribuições com perfis linguísticos, calcule o índice de coincidência e realize criptoanálise de cifras clássicas."
+        }
+    },
+    "blocks": [
+        {
+            "id": 107,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona a análise de frequência",
+                "text": "<p>A análise de frequência mede com que frequência letras, símbolos, palavras ou grupos de caracteres aparecem em um texto. As línguas naturais seguem padrões estatísticos reconhecíveis: algumas letras ocorrem muito mais vezes do que outras. Em português, por exemplo, A, E, O, S, R e I estão entre as letras mais frequentes.</p><p>Esta ferramenta calcula frequências de letras, palavras, bigramas e trigramas, permitindo comparar um texto desconhecido com distribuições linguísticas esperadas. Grandes desvios em relação aos padrões normais muitas vezes revelam criptografia, codificação ou estruturas textuais incomuns.</p><p>Os resultados podem ser ordenados e comparados com perfis linguísticos para ajudar a identificar o idioma provável de um texto e detectar anomalias estatísticas.</p>"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Usando análise de frequência para quebrar cifras",
+                "text": "<p>A análise de frequência é uma das técnicas mais antigas da criptoanálise. Cifras de substituição simples preservam a estrutura estatística de uma língua, o que significa que os símbolos mais frequentes do texto cifrado geralmente correspondem às letras mais frequentes do texto claro.</p><p>Para analisar um texto cifrado, compare as frequências observadas com as frequências esperadas do idioma suspeito. Símbolos de alta frequência, bigramas comuns e trigramas comuns podem oferecer pistas valiosas ao reconstruir a mensagem original.</p><p>Na <a href=\"/pt/classical-ciphers/caesar\">cifra de César</a>, os picos de frequência muitas vezes revelam diretamente o deslocamento. Em <a href=\"/pt/classical-ciphers/vigenere\">Vigenère</a> e outras cifras polialfabéticas, a análise de frequência costuma ser combinada com o índice de coincidência e o exame de Kasiski para estimar o tamanho da chave antes de tentar a decifração.</p>"
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Entendendo perfis de frequência das línguas",
+                "text": "<p>Cada língua tem uma impressão estatística própria. Em inglês, apenas seis letras representam quase metade de todo o texto escrito, e essa distribuição permanece notavelmente estável entre temas, autores e períodos.</p><p><strong>Perfil do inglês:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">12.7%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">T</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:72%\"></div></div><span class=\"freq-badge__pct\">9.1%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:65%\"></div></div><span class=\"freq-badge__pct\">8.2%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:59%\"></div></div><span class=\"freq-badge__pct\">7.5%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:55%\"></div></div><span class=\"freq-badge__pct\">7.0%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:53%\"></div></div><span class=\"freq-badge__pct\">6.7%</span></div></div><p>Em português, o topo do perfil é diferente: A, E, O, S, R e I aparecem com muita frequência em textos naturais. Essas frequências ajudam a distinguir texto claro em português de sequências aleatórias e de textos cifrados por substituição simples.</p><p><strong>Perfil do português:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">14.63%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:86%\"></div></div><span class=\"freq-badge__pct\">12.57%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:73%\"></div></div><span class=\"freq-badge__pct\">10.73%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">S</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:53%\"></div></div><span class=\"freq-badge__pct\">7.81%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">R</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:45%\"></div></div><span class=\"freq-badge__pct\">6.53%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:42%\"></div></div><span class=\"freq-badge__pct\">6.18%</span></div></div><p>Criptoanalistas comparam as frequências observadas no texto cifrado com perfis como estes para identificar o idioma provável e associar símbolos frequentes a letras plausíveis do texto claro. A mnemônica inglesa clássica <strong>ETAOIN SHRDLU</strong> continua útil como referência histórica; para português, uma sequência como <strong>AEOSRI</strong> é mais prática.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 219,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "O que é análise de frequência?",
+                "answer": "A análise de frequência estuda com que frequência letras, símbolos, palavras ou grupos de caracteres aparecem em um texto. É uma técnica criptoanalítica fundamental usada para identificar padrões linguísticos e atacar muitas cifras clássicas."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quais cifras a análise de frequência consegue quebrar?",
+                "answer": "A análise de frequência funciona melhor contra sistemas de substituição monoalfabética, como a cifra de César, a cifra afim e cifras de substituição simples. Ela também pode ajudar em ataques à cifra de Vigenère quando combinada com outras técnicas. Algoritmos modernos de criptografia, como AES, não são vulneráveis à análise de frequência."
+            }
+        },
+        {
+            "id": 221,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quais são as letras mais comuns em português e em inglês?",
+                "answer": "Em inglês, as letras mais comuns costumam ser E, T, A, O, I, N, S, H, R, D, L e C. Em português, normalmente aparecem no topo A, E, O, S, R, I e N. A distribuição exata varia conforme o tipo de texto, mas as letras principais permanecem relativamente estáveis na escrita natural."
+            }
+        },
+        {
+            "id": 222,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "O que é o índice de coincidência?",
+                "answer": "O índice de coincidência (IC) mede a probabilidade de duas letras escolhidas aleatoriamente em um texto serem idênticas. Textos em língua natural geralmente têm IC mais alto do que texto aleatório. Criptoanalistas usam o IC para distinguir texto claro, substituições monoalfabéticas e algumas cifras polialfabéticas."
+            }
+        },
+        {
+            "id": 223,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "O que são bigramas e trigramas?",
+                "answer": "Bigramas são sequências de dois caracteres, como DE, ES ou AO. Trigramas são sequências de três caracteres, como QUE, ENT ou ARA. Eles fornecem informações estatísticas adicionais e podem melhorar bastante a análise de cifras clássicas."
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "A análise de frequência pode identificar o idioma de um texto?",
+                "answer": "Sim. Ao comparar frequências observadas com perfis linguísticos conhecidos, a análise de frequência muitas vezes consegue estimar o idioma mais provável de um texto, especialmente quando há texto suficiente."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 99,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Análise de texto em português",
+                "key": "",
+                "shift": 0,
+                "input": "Luís arguiu à Júlia que brações fé chá óxido põe zângão no texto",
+                "output": "",
+                "description": "Este pangrama usa letras e acentos comuns do português e é útil para testar a distribuição de letras."
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Texto cifrado de César",
+                "key": "",
+                "shift": 0,
+                "input": "ROD PXQGR",
+                "output": "",
+                "description": "OLA MUNDO cifrado com César e deslocamento 3. R, O, D, P, X, Q, G aparecem como letras deslocadas do texto claro."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Frase literária",
+                "key": "",
+                "shift": 0,
+                "input": "No meio do caminho tinha uma pedra tinha uma pedra no meio do caminho",
+                "output": "",
+                "description": "Uma frase conhecida em português para testar a distribuição natural das letras."
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Padrão de letras repetidas",
+                "key": "",
+                "shift": 0,
+                "input": "ATAQUE AO AMANHECER ATAQUE AO ANOITECER",
+                "output": "",
+                "description": "Uma frase curta com palavras e padrões de letras repetidos. Útil para testar frequência de palavras, bigramas, trigramas e análise de símbolos repetidos."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Análise de frequência de letras"
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Criptoanálise clássica"
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Índice de coincidência"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Análise de cifras"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

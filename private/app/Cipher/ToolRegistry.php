@@ -30,7 +30,8 @@ final readonly class ToolRegistry
         private ColumnarTranspositionCipherService $columnarTranspositionCipher,
         private PolybiusSquareCipherService $polybiusSquareCipher,
         private HillCipherService $hillCipher,
-        private MorseCipherService $morseCipher
+        private MorseCipherService $morseCipher,
+        private FrequencyAnalysisService $frequencyAnalysis
     ) {
     }
 
@@ -160,6 +161,11 @@ final readonly class ToolRegistry
                 ['label' => 'Hello',  'value' => 'HELLO',     'alphabet' => 'en'],
                 ['label' => 'Decode', 'value' => '... --- ...',    'alphabet' => 'en', 'direction' => 'decrypt'],
             ],
+            'text-analysis/frequency-analysis' => [
+                ['label' => 'English', 'value' => 'The quick brown fox jumps over the lazy dog', 'alphabet' => 'en'],
+                ['label' => 'Caesar',  'value' => 'KHOOR ZRUOG',                                 'alphabet' => 'en'],
+                ['label' => 'Hamlet',  'value' => 'To be or not to be that is the question',     'alphabet' => 'en'],
+            ],
             default => [],
         };
     }
@@ -188,6 +194,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => 'polybius-square',
             'classical-ciphers/hill' => 'hill',
             'codes-and-alphabets/morse-code' => null,
+            'text-analysis/frequency-analysis' => null,
             default => null,
         };
     }
@@ -218,6 +225,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getToolSettings(),
             'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
+            'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             default => [],
         };
     }
@@ -246,6 +254,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getTrustItems($calculationMode),
             'classical-ciphers/hill' => $this->hillCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
+            'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),

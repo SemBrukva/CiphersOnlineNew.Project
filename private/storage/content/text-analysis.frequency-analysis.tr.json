@@ -1,0 +1,212 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T15:45:05+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "frequency-analysis",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 27,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 27,
+        "data": {
+            "name": "Frekans Analizi",
+            "name_short": "Frekans Analizi",
+            "description": "Herhangi bir metindeki harf, karakter, kelime, bigram ve trigram frekanslarını analiz edin. Dağılımları dil profilleriyle karşılaştırın ve klasik şifrelerin kriptoanalizi için frekans analizini kullanın.",
+            "description_stort": "Metin frekanslarını analiz edin ve kriptoanaliz için bilinen dil örüntüleriyle karşılaştırın.",
+            "meta_title": "Frekans Analizi Aracı | Metin ve Şifre Kriptoanalizi",
+            "meta_description": "Harf, karakter, kelime, bigram ve trigram frekanslarını çevrimiçi analiz edin. Dağılımları dil profilleriyle karşılaştırın, çakışma indeksini hesaplayın ve klasik şifre kriptoanalizi yapın."
+        }
+    },
+    "blocks": [
+        {
+            "id": 107,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Frekans analizi nasıl çalışır",
+                "text": "<p>Frekans analizi, bir metinde harflerin, sembollerin, kelimelerin veya karakter gruplarının ne kadar sık geçtiğini ölçer. Doğal diller tanınabilir istatistiksel örüntüler izler: bazı harfler diğerlerinden çok daha sık görünür. Türkçede örneğin A, E, I, N, R ve L en sık rastlanan harfler arasındadır.</p><p>Bu araç harf, kelime, bigram ve trigram frekanslarını hesaplar; böylece bilinmeyen bir metni beklenen dil dağılımlarıyla karşılaştırabilirsiniz. Normal dil örüntülerinden büyük sapmalar çoğu zaman şifreleme, kodlama veya alışılmadık metin yapıları hakkında ipucu verir.</p><p>Sonuçlar sıralanabilir ve dil profilleriyle karşılaştırılabilir; bu da bir metnin olası dilini belirlemeye ve istatistiksel anomalileri yakalamaya yardımcı olur.</p>"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Şifreleri kırmak için frekans analizi kullanmak",
+                "text": "<p>Frekans analizi, kriptoanalizin en eski tekniklerinden biridir. Basit yerine koyma şifreleri bir dilin istatistiksel yapısını korur; bu yüzden şifreli metindeki en sık semboller genellikle açık metindeki en sık harflere karşılık gelir.</p><p>Bir şifreli metni analiz etmek için gözlenen frekansları şüphelenilen dilin beklenen frekanslarıyla karşılaştırın. Yüksek frekanslı semboller, yaygın bigramlar ve yaygın trigramlar özgün mesajı yeniden kurarken değerli ipuçları sağlayabilir.</p><p><a href=\"/tr/classical-ciphers/caesar\">Sezar şifresinde</a> frekans tepe noktaları çoğu zaman kaydırmayı doğrudan gösterir. <a href=\"/tr/classical-ciphers/vigenere\">Vigenère</a> ve diğer çok alfabeli şifrelerde frekans analizi, şifre çözmeyi denemeden önce anahtar uzunluğunu tahmin etmek için genellikle çakışma indeksi ve Kasiski incelemesiyle birlikte kullanılır.</p>"
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Dil frekans profillerini anlamak",
+                "text": "<p>Her dilin kendine özgü istatistiksel bir izi vardır. İngilizcede yalnızca altı harf yazılı metnin neredeyse yarısını oluşturur ve bu dağılım konu, yazar ve dönemler arasında şaşırtıcı biçimde kararlı kalır.</p><p><strong>İngilizce profili:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">12.7%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">T</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:72%\"></div></div><span class=\"freq-badge__pct\">9.1%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:65%\"></div></div><span class=\"freq-badge__pct\">8.2%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:59%\"></div></div><span class=\"freq-badge__pct\">7.5%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:55%\"></div></div><span class=\"freq-badge__pct\">7.0%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:53%\"></div></div><span class=\"freq-badge__pct\">6.7%</span></div></div><p>Türkçede profilin üst sırası farklıdır: doğal metinlerde A, E, I, N, R ve L sıkça öne çıkar. Bu frekanslar Türkçe açık metni rastgele karakter dizilerinden ve basit yerine koyma ile şifrelenmiş metinlerden ayırmaya yardımcı olur.</p><p><strong>Türkçe profili:</strong></p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">11.92%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:76%\"></div></div><span class=\"freq-badge__pct\">9.10%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:72%\"></div></div><span class=\"freq-badge__pct\">8.60%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:67%\"></div></div><span class=\"freq-badge__pct\">7.99%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">R</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:62%\"></div></div><span class=\"freq-badge__pct\">7.34%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">L</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:50%\"></div></div><span class=\"freq-badge__pct\">5.92%</span></div></div><p>Kriptoanalistler, olası dili belirlemek ve sık sembolleri muhtemel açık metin harfleriyle eşleştirmek için gözlenen şifreli metin frekanslarını bu tür profillerle karşılaştırır. Klasik İngilizce mnemonik <strong>ETAOIN SHRDLU</strong> tarihsel bir referans olarak yararlıdır; Türkçe için <strong>AEINRL</strong> gibi bir sıra daha pratiktir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 219,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Frekans analizi nedir?",
+                "answer": "Frekans analizi, bir metinde harflerin, sembollerin, kelimelerin veya karakter gruplarının ne kadar sık geçtiğini inceleyen yöntemdir. Dil örüntülerini tanımak ve birçok klasik şifreye saldırmak için kullanılan temel bir kriptoanaliz tekniğidir."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Frekans analizi hangi şifreleri kırabilir?",
+                "answer": "Frekans analizi en iyi Sezar şifresi, afin şifre ve basit yerine koyma şifreleri gibi tek alfabeli yerine koyma sistemlerine karşı çalışır. Diğer tekniklerle birlikte kullanıldığında Vigenère şifresine yönelik saldırılara da yardımcı olabilir. AES gibi modern şifreleme algoritmaları frekans analizine karşı savunmasız değildir."
+            }
+        },
+        {
+            "id": 221,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Türkçede ve İngilizcede en yaygın harfler hangileridir?",
+                "answer": "İngilizcede en yaygın harfler genellikle E, T, A, O, I, N, S, H, R, D, L ve C olarak sıralanır. Türkçede ise A, E, I, N, R, L ve K çoğu zaman üst sıralarda yer alır. Kesin dağılım metin türüne göre değişir, ancak doğal yazıda önde gelen harfler oldukça kararlı kalır."
+            }
+        },
+        {
+            "id": 222,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Çakışma indeksi nedir?",
+                "answer": "Çakışma indeksi (IC), bir metinden rastgele seçilen iki harfin aynı olma olasılığını ölçer. Doğal dil metinleri genellikle rastgele metinlerden daha yüksek IC değerine sahiptir. Kriptoanalistler IC değerini açık metni, tek alfabeli yerine koymaları ve bazı çok alfabeli şifreleri ayırt etmek için kullanır."
+            }
+        },
+        {
+            "id": 223,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Bigramlar ve trigramlar nedir?",
+                "answer": "Bigramlar iki karakterlik dizilerdir; örneğin AR, LA veya ER. Trigramlar üç karakterlik dizilerdir; örneğin LAR, BIR veya ILE. Bunlar ek istatistiksel bilgi sağlar ve klasik şifre analizini önemli ölçüde iyileştirebilir."
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Frekans analizi bir metnin dilini belirleyebilir mi?",
+                "answer": "Evet. Gözlenen frekansları bilinen dil profilleriyle karşılaştırarak frekans analizi, özellikle yeterli metin olduğunda, metnin en olası dilini çoğu zaman tahmin edebilir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 99,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Türkçe metin analizi",
+                "key": "",
+                "shift": 0,
+                "input": "Pijamalı hasta yağız şoföre çabucak güvendi",
+                "output": "",
+                "description": "Bu pangram Türk alfabesindeki karakterleri içerir ve harf dağılımını test etmek için uygundur."
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Sezar şifreli metni",
+                "key": "",
+                "shift": 0,
+                "input": "PHUKDED GXQBD",
+                "output": "",
+                "description": "MERHABA DUNYA, Sezar şifresiyle 3 kaydırma kullanılarak şifrelenmiştir. P, H, U, K, D, G, X, Q ve B açık metindeki harflerin kaydırılmış biçimleridir."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Edebi cümle",
+                "key": "",
+                "shift": 0,
+                "input": "Bütün çocuklar büyükler gibi olmaya çalışır",
+                "output": "",
+                "description": "Doğal Türkçe harf dağılımını test etmek için kısa ve akıcı bir cümle."
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Tekrarlanan harf örüntüsü",
+                "key": "",
+                "shift": 0,
+                "input": "SABAH SALDIRI AKSAM SALDIRI",
+                "output": "",
+                "description": "Tekrarlanan kelimeler ve harf örüntüleri içeren kısa bir ifade. Kelime frekansı, bigram, trigram ve tekrarlanan sembol analizi için yararlıdır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Harf frekansı analizi"
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptoanaliz"
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Çakışma indeksi"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Şifre analizi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

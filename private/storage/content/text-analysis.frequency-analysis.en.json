@@ -1,0 +1,212 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T15:45:05+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "frequency-analysis",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 27,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 27,
+        "data": {
+            "name": "Frequency Analysis",
+            "name_short": "Frequency Analysis",
+            "description": "Analyze letter, character, word, bigram, and trigram frequencies in any text. Compare distributions against language profiles and use frequency analysis for classical cipher cryptanalysis.",
+            "description_stort": "Analyze text frequencies and compare them with known language patterns for cryptanalysis.",
+            "meta_title": "Frequency Analysis Tool | Text & Cipher Cryptanalysis",
+            "meta_description": "Analyze letter, character, word, bigram, and trigram frequencies online. Compare distributions with language profiles, calculate the Index of Coincidence, and perform classical cipher cryptanalysis."
+        }
+    },
+    "blocks": [
+        {
+            "id": 107,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How frequency analysis works",
+                "text": "<p>Frequency analysis measures how often letters, symbols, words, or character groups appear in a text. Natural languages follow predictable statistical patterns, which means some letters occur far more frequently than others. In English, for example, E, T, A, O, I, N, S, H, and R are among the most common letters.</p><p>This tool calculates frequencies for letters, words, bigrams, and trigrams, allowing you to compare an unknown text against expected language distributions. Large deviations from normal language patterns often reveal encryption, encoding, or unusual text structures.</p><p>The results can be sorted and compared against language profiles to help identify the probable language of a text and detect statistical anomalies.</p>"
+            }
+        },
+        {
+            "id": 108,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Using frequency analysis to break ciphers",
+                "text": "<p>Frequency analysis is one of the oldest techniques in cryptanalysis. Simple substitution ciphers preserve the statistical structure of a language, meaning the most common ciphertext symbols usually correspond to the most common plaintext letters.</p><p>To analyze a ciphertext, compare the observed frequencies with the expected frequencies of the suspected language. High-frequency symbols, common bigrams, and common trigrams can provide valuable clues when reconstructing the original message.</p><p>For <a href=\"/classical-ciphers/caesar\">Caesar cipher</a>, frequency peaks often reveal the shift directly. For <a href=\"/classical-ciphers/vigenere\">Vigenère</a> and other polyalphabetic ciphers, frequency analysis is commonly combined with the Index of Coincidence and the Kasiski examination to estimate key length before attempting decryption.</p>"
+            }
+        },
+        {
+            "id": 109,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Understanding language frequency profiles",
+                "text": "<p>Every language has a unique statistical fingerprint. In English, just six letters account for nearly half of all written text — and this distribution stays remarkably stable across topics, authors, and time periods.</p><div class=\"freq-badges\"><div class=\"freq-badge\"><span class=\"freq-badge__letter\">E</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:100%\"></div></div><span class=\"freq-badge__pct\">12.7%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">T</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:72%\"></div></div><span class=\"freq-badge__pct\">9.1%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">A</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:65%\"></div></div><span class=\"freq-badge__pct\">8.2%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">O</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:59%\"></div></div><span class=\"freq-badge__pct\">7.5%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">I</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:55%\"></div></div><span class=\"freq-badge__pct\">7.0%</span></div><div class=\"freq-badge\"><span class=\"freq-badge__letter\">N</span><div class=\"freq-badge__bar-wrap\"><div class=\"freq-badge__bar\" style=\"width:53%\"></div></div><span class=\"freq-badge__pct\">6.7%</span></div></div><p>Cryptanalysts compare observed ciphertext frequencies against profiles like these to identify the probable language and map high-frequency symbols to likely plaintext letters. The classic mnemonic <strong>ETAOIN SHRDLU</strong> captures the twelve most common English letters in order — a shorthand every classical cryptanalyst knows by heart.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 219,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is frequency analysis?",
+                "answer": "Frequency analysis is the study of how often letters, symbols, words, or character groups appear in a text. It is a fundamental cryptanalytic technique used to identify language patterns and attack many classical ciphers."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Which ciphers can frequency analysis break?",
+                "answer": "Frequency analysis works best against monoalphabetic substitution systems such as Caesar cipher, affine cipher, and simple substitution ciphers. It can also assist with attacks on Vigenère cipher when combined with other techniques. Modern encryption algorithms such as AES are not vulnerable to frequency analysis."
+            }
+        },
+        {
+            "id": 221,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What are the most common letters in English?",
+                "answer": "The most common English letters are approximately E, T, A, O, I, N, S, H, R, D, L, and C. The exact distribution varies by text type, but E typically represents around 12–13% of all letters in natural English writing."
+            }
+        },
+        {
+            "id": 222,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What is the index of coincidence?",
+                "answer": "The Index of Coincidence (IC) measures how likely it is that two randomly selected letters from a text are identical. Natural language texts usually have a higher IC than random text. Cryptanalysts use IC to distinguish between plaintext, monoalphabetic substitutions, and some polyalphabetic ciphers."
+            }
+        },
+        {
+            "id": 223,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What are bigrams and trigrams?",
+                "answer": "Bigrams are two-character sequences such as TH, HE, or ER. Trigrams are three-character sequences such as THE, ING, or AND. They provide additional statistical information that can significantly improve classical cipher analysis."
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can frequency analysis identify the language of a text?",
+                "answer": "Yes. By comparing observed frequencies against known language profiles, frequency analysis can often estimate the most likely language of a text, especially when sufficient text is available."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 99,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "English text analysis",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "",
+                "description": "This pangram contains every letter of the English alphabet at least once."
+            }
+        },
+        {
+            "id": 100,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Caesar ciphertext",
+                "key": "",
+                "shift": 0,
+                "input": "KHOOR ZRUOG",
+                "output": "",
+                "description": "HELLO WORLD encoded with Caesar cipher (shift 3). K, H, U, O, Z, G dominate — shifted from H, E, L, W, O, D."
+            }
+        },
+        {
+            "id": 101,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Hamlet quote",
+                "key": "",
+                "shift": 0,
+                "input": "To be or not to be that is the question",
+                "output": "",
+                "description": "A famous English sentence for testing natural language letter distribution."
+            }
+        },
+        {
+            "id": 102,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Repeated letter pattern",
+                "key": "",
+                "shift": 0,
+                "input": "ATTACK AT DAWN ATTACK AT DUSK",
+                "output": "",
+                "description": "A short phrase with repeated words and letter patterns. Useful for testing word frequency, bigrams, trigrams, and repeated-symbol analysis."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Letter frequency analysis"
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptanalysis"
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Index of Coincidence"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cipher analysis"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
