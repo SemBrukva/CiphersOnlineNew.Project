@@ -305,11 +305,13 @@ final class CipherRepository extends AbstractRepository
     {
         return $this->db->fetchAll(
             'SELECT c.id, c.alias, c.category_id, c.sort_order, c.calculation_mode, '
+            .'cat.alias AS category_alias, '
             .'COALESCE(t_cur.name, t_def.name, c.alias) AS name, '
             .'COALESCE(t_cur.name_short, t_def.name_short, c.alias) AS name_short, '
             .'COALESCE(t_cur.description, t_def.description, \'\') AS description, '
             .'COALESCE(t_cur.description_stort, t_def.description_stort, \'\') AS description_short '
             .'FROM '.$this->table.' c '
+            .'INNER JOIN '.Tables::CIPHER_CATEGORIES.' cat ON cat.id = c.category_id '
             .'LEFT JOIN '.Tables::CIPHERS_TRANSLATIONS.' t_cur ON t_cur.app_id = c.id AND t_cur.language = ? '
             .'LEFT JOIN '.Tables::CIPHERS_TRANSLATIONS.' t_def ON t_def.app_id = c.id AND t_def.language = ? '
             .'WHERE c.category_id = ? AND c.published = 1 '

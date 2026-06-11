@@ -1,0 +1,254 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T18:04:30+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "caesar-brute-force",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 28,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 28,
+        "data": {
+            "name": "Fuerza Bruta César",
+            "name_short": "Solucionador César",
+            "description": "Rompe un cifrado César probando automáticamente todos los desplazamientos posibles. Pega el texto cifrado, compara todas las descifraciones César a la vez y encuentra el texto claro más probable aunque no conozcas la clave.",
+            "description_stort": "Solucionador del cifrado César que prueba todos los desplazamientos y marca el texto claro más probable.",
+            "meta_title": "Solucionador de Cifrado César | Decoder por Fuerza Bruta",
+            "meta_description": "Descifra textos César sin conocer el desplazamiento. Este solucionador online prueba todos los desplazamientos, clasifica texto claro y rompe ROT13, CTF y acertijos."
+        }
+    },
+    "blocks": [
+        {
+            "id": 110,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el solucionador del cifrado César",
+                "text": "<p>El <a href=\"/es/classical-ciphers/caesar\">cifrado César</a> usa un desplazamiento fijo de letras para todo el mensaje. Eso lo hace fácil de aplicar, pero también fácil de romper: solo hay tantas claves posibles como letras tenga el alfabeto elegido.</p><p>Este solucionador realiza fuerza bruta sobre el texto cifrado descifrándolo con todos los desplazamientos posibles. Para inglés prueba los desplazamientos del 0 al 25; para español usa el alfabeto español con Ñ y recorre todos sus desplazamientos.</p><p>La herramienta también puntúa cada resultado con una comprobación de frecuencias del idioma y marca el desplazamiento más probable. En frases normales, la línea mejor clasificada suele ser el texto claro original; en mensajes muy cortos, nombres, abreviaturas o pistas de acertijo, conviene revisar todos los desplazamientos manualmente.</p>"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cuándo usar fuerza bruta César",
+                "text": "<p>Usa fuerza bruta César cuando tengas un mensaje que parece un cifrado por desplazamiento, pero no conozcas la clave. Es una forma rápida de descifrar textos César en ejercicios de clase, escape rooms, retos CTF, geocaching, ARG y ejemplos históricos de criptografía.</p><p>Pega el texto cifrado, elige el alfabeto correcto y busca la fila que se lea como lenguaje natural. En español, palabras y patrones como EL, LA, DE, QUE, EN, LOS o terminaciones comunes suelen hacer que el desplazamiento correcto destaque enseguida.</p><p>Este método también resuelve ROT13, un caso especial del cifrado César con desplazamiento 13 en el alfabeto inglés. Si el texto cifrado se creó con otro cifrado, la tabla de desplazamientos puede mostrar patrones interesantes, pero no recuperará un texto claro completo.</p>"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Fuerza bruta César vs. análisis de frecuencias",
+                "text": "<p>La fuerza bruta y el análisis de frecuencias están relacionados, pero no son el mismo flujo de trabajo. La fuerza bruta César es exhaustiva: prueba cada clave, de modo que la respuesta correcta aparece en la lista si el texto realmente usa el cifrado César y se ha elegido el alfabeto adecuado.</p><p>El análisis de frecuencias es más amplio. Estudia distribuciones de letras y ayuda a atacar muchos cifrados de sustitución, estimar el idioma o comparar patrones estadísticos. Este solucionador usa una puntuación de frecuencia ligera solo para ordenar los resultados César; la decisión final sigue saliendo de leer el texto claro candidato.</p>"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Consejos para descifrar textos César desconocidos",
+                "text": "<ul><li><strong>Elige el alfabeto correcto.</strong> Un texto español debe probarse con el alfabeto español; ROT13 en inglés necesita el alfabeto inglés.</li><li><strong>Conserva espacios y puntuación.</strong> Las separaciones entre palabras hacen que la descifrado correcto sea mucho más fácil de reconocer.</li><li><strong>Revisa todos los desplazamientos en textos cortos.</strong> Una pista de dos palabras puede ser demasiado breve para una puntuación automática fiable.</li><li><strong>Ten presente ROT13.</strong> Si el desplazamiento 13 produce inglés legible, probablemente estás ante la variante César más conocida.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Cuántas claves posibles tiene un cifrado César?",
+                "answer": "El número de claves posibles equivale al tamaño del alfabeto usado. El inglés tiene 26 desplazamientos, del 0 al 25; el alfabeto español usado por la herramienta tiene 27 letras, incluida la Ñ. El desplazamiento 0 deja el texto sin cambios. Este espacio de claves tan pequeño es la razón por la que el cifrado César se rompe al instante por fuerza bruta."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Puede esta herramienta decodificar ROT13?",
+                "answer": "Sí. ROT13 es un cifrado César con desplazamiento 13 en el alfabeto inglés. Pega texto ROT13 en el solucionador, elige el alfabeto inglés y la fila con desplazamiento 13 mostrará el mensaje decodificado. Aplicar ROT13 dos veces devuelve el texto original."
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro el cifrado César?",
+                "answer": "No. El cifrado César es uno de los métodos de cifrado más débiles. Hay muy pocos desplazamientos útiles, así que cualquiera puede probar todas las opciones y leer el texto claro correcto. Úsalo para aprender, juegos y acertijos, nunca para proteger datos sensibles."
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Qué significa el mejor desplazamiento?",
+                "answer": "El mejor desplazamiento es el candidato de descifrado que más se parece al idioma natural según una puntuación de frecuencia. Es una pista útil, no una prueba criptográfica. Un texto cifrado corto, vocabulario raro, nombres o escritura deliberadamente extraña pueden hacer que otra fila sea la respuesta real."
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Cuál es la diferencia entre un decoder César y la fuerza bruta César?",
+                "answer": "Un decoder César normal necesita que conozcas el desplazamiento antes de descifrar. La fuerza bruta César es un solucionador: prueba todos los desplazamientos automáticamente, por lo que puedes descifrar el mensaje incluso cuando la clave es desconocida."
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Por qué el solucionador muestra un resultado legible con un desplazamiento incorrecto?",
+                "answer": "Los textos cifrados muy cortos pueden producir varias salidas parcialmente legibles, sobre todo con nombres, siglas o palabras sueltas. Usa el contexto, el vocabulario esperado y la tabla completa de desplazamientos para elegir el descifrado César correcto."
+            }
+        },
+        {
+            "id": 231,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Puede la fuerza bruta César romper cifrado moderno?",
+                "answer": "No. Este método funciona porque el cifrado César tiene un espacio de claves diminuto y una estructura simple de desplazamiento de letras. Los sistemas modernos de cifrado usan diseños completamente distintos y no se rompen probando desplazamientos César."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 103,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificar texto ROT13",
+                "key": "",
+                "shift": 0,
+                "input": "PBQVTB FRPERGB",
+                "output": "Desplazamiento 13: CODIGO SECRETO",
+                "description": "ROT13 usa el alfabeto inglés y desplazamiento 13. En la tabla de todos los desplazamientos, la fila 13 recupera el texto legible."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Desplazamiento español 3",
+                "key": "",
+                "shift": 0,
+                "input": "PRV YHORV HP HÑ SXHPWH YLHMR",
+                "output": "Desplazamiento 3: NOS VEMOS EN EL PUENTE VIEJO",
+                "description": "Un acertijo típico con el alfabeto español. La fuerza bruta prueba todos los desplazamientos y hace visible el texto claro con desplazamiento 3."
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Mensaje corto con desplazamiento 7",
+                "key": "",
+                "shift": 0,
+                "input": "HAHXBL HR HSHTLJLY",
+                "output": "Desplazamiento 7: ATAQUE AL AMANECER",
+                "description": "Un texto cifrado corto puede ser más difícil de puntuar automáticamente. Revisa todos los candidatos y elige la fila que encaje mejor con el contexto."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Texto largo para la puntuación",
+                "key": "",
+                "shift": 0,
+                "input": "MTD UWTGFQTX ZR YJCYT JXUFSTP UFWF JAFPZFW JP IJXUPFEFQNJRYT",
+                "output": "Desplazamiento 5: HOY PROBAMOS UN TEXTO ESPAÑOL PARA EVALUAR EL DESPLAZAMIENTO",
+                "description": "Un texto natural más largo da más datos a la puntuación de frecuencias, por lo que el desplazamiento probable se identifica con mayor facilidad."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 159,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Solucionador cifrado César"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Fuerza bruta César"
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Descifrar cifrado César"
+            }
+        },
+        {
+            "id": 162,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Romper cifrado por desplazamiento"
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Decoder ROT13"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Criptoanálisis clásico"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Resolver acertijos cifrados"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

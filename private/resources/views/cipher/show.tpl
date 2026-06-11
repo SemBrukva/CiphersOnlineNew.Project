@@ -68,6 +68,12 @@
                     {/foreach}
                 </div>
 
+                {if $tool_ui.relatedToolUrl|default:''}
+                <a class="ciphers-hint-chip" href="{$tool_ui.relatedToolUrl|escape}">
+                    <i class="bi bi-search"></i>{$tool_ui.relatedToolLabel|default:''|escape}
+                </a>
+                {/if}
+
             </div>
 
         </div>
@@ -312,7 +318,7 @@
             {foreach $related as $tool}
             <article class="ciphers-category-hub-card">
                 <h2 class="ciphers-category-hub-card__title">
-                    <a href="{$locale_prefix}/{$category.alias}/{$tool.alias}">{$tool.name}</a>
+                    <a href="{$locale_prefix}/{$tool.category_alias|default:$category.alias}/{$tool.alias}">{$tool.name}</a>
                 </h2>
                 {if $tool.description_short}
                 <p class="ciphers-category-hub-card__desc">{$tool.description_short}</p>

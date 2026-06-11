@@ -318,6 +318,18 @@ return [
     'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Customizable delimiters',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Letter-shift substitution cipher',
+    // Caesar Brute Force
+    'CAESAR_BRUTE_TRUST_TYPE'   => 'Tries all possible Caesar shifts automatically',
+    'CAESAR_BRUTE_EMPTY'        => 'Enter ciphertext to see all possible decryptions',
+    'CAESAR_BRUTE_COL_SHIFT'    => 'Shift',
+    'CAESAR_BRUTE_COL_TEXT'     => 'Decrypted text',
+    'CAESAR_BRUTE_USE_LABEL'    => 'Use',
+    'CAESAR_BRUTE_TITLE'        => 'All possible decryptions',
+    'CAESAR_BRUTE_LIKELY_KEY'    => 'Most likely key: Shift :shift',
+    'CAESAR_BRUTE_FITNESS_LABEL' => 'Confidence',
+    'CAESAR_BRUTE_BEST_BADGE'    => 'Best',
+    'CAESAR_BRUTE_SHORT_TEXT'    => 'Short text — add more characters for a reliable prediction',
+    'CAESAR_HINT_BRUTE_FORCE'   => 'Try Brute Force',
     // Atbash
     'ATBASH_TRUST_RECIPROCAL'          => 'Self-reciprocal: encrypting again decrypts',
     'ATBASH_TRUST_KEYLESS'             => 'No key required',

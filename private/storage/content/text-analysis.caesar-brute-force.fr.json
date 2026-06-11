@@ -1,0 +1,254 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T18:04:30+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "caesar-brute-force",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 28,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 28,
+        "data": {
+            "name": "Force Brute César",
+            "name_short": "Solveur César",
+            "description": "Cassez un chiffrement de César en essayant automatiquement tous les décalages possibles. Collez le texte chiffré, comparez toutes les tentatives de déchiffrement César en une fois et trouvez le texte clair le plus probable même sans connaître la clé.",
+            "description_stort": "Solveur du chiffrement de César qui teste tous les décalages et marque le texte clair probable.",
+            "meta_title": "Solveur Chiffrement César | Décodeur par Force Brute",
+            "meta_description": "Déchiffrez un texte César sans connaître le décalage. Ce solveur en ligne teste tous les décalages, classe les textes clairs et casse ROT13, CTF et énigmes."
+        }
+    },
+    "blocks": [
+        {
+            "id": 110,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Comment fonctionne le solveur du chiffrement de César",
+                "text": "<p>Le <a href=\"/fr/classical-ciphers/caesar\">chiffrement de César</a> applique un seul décalage de lettres à tout le message. Cela le rend simple à utiliser, mais aussi simple à casser : il n’existe qu’autant de clés possibles que de caractères dans l’alphabet choisi.</p><p>Ce solveur effectue une attaque par force brute sur le texte chiffré en le déchiffrant avec tous les décalages possibles. Pour l’anglais, il teste les décalages 0 à 25 ; pour le français, il utilise l’alphabet français pris en charge par l’outil, avec lettres accentuées, et parcourt tous les décalages correspondants.</p><p>L’outil attribue aussi un score linguistique à chaque résultat et marque le décalage le plus probable. Pour des phrases ordinaires, la ligne la mieux classée est souvent le texte clair d’origine ; pour des messages très courts, des noms, des abréviations ou des indices d’énigme, il reste utile de lire tous les candidats.</p>"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser la force brute César",
+                "text": "<p>Utilisez la force brute César lorsque vous avez un message qui ressemble à un chiffrement par décalage, mais dont la clé est inconnue. C’est une méthode rapide pour déchiffrer un texte César dans des exercices, escape rooms, défis CTF, pistes de géocaching, ARG et exemples historiques de cryptographie.</p><p>Collez le texte chiffré, choisissez le bon alphabet et cherchez la ligne qui ressemble à du langage naturel. En français, des mots et motifs comme LE, LA, DE, QUE, LES, ENT ou TION font souvent ressortir le bon décalage.</p><p>Cette méthode résout aussi ROT13, un cas particulier du chiffrement de César avec un décalage de 13 dans l’alphabet anglais. Si le texte chiffré vient d’un autre chiffrement, la table des décalages peut montrer des motifs intéressants, mais ne restituera pas un texte clair complet.</p>"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Force brute César et analyse de fréquence",
+                "text": "<p>La force brute et l’analyse de fréquence sont liées, mais ce ne sont pas le même flux de travail. La force brute César est exhaustive : elle essaie chaque clé, donc la bonne réponse apparaît dans la liste si le texte utilise vraiment le chiffrement de César et si le bon alphabet est sélectionné.</p><p>L’analyse de fréquence est plus générale. Elle étudie les distributions de lettres et aide à attaquer de nombreux chiffrements par substitution, à estimer la langue ou à comparer des profils statistiques. Ce solveur utilise seulement un score de fréquence léger pour classer les résultats César ; la décision finale vient toujours de la lecture du texte clair candidat.</p>"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Conseils pour déchiffrer un texte César inconnu",
+                "text": "<ul><li><strong>Choisissez le bon alphabet.</strong> Un texte français doit être testé avec l’alphabet français ; ROT13 en anglais nécessite l’alphabet anglais.</li><li><strong>Conservez les espaces et la ponctuation.</strong> Les séparations entre mots rendent le bon déchiffrement beaucoup plus facile à reconnaître.</li><li><strong>Vérifiez tous les décalages pour les textes courts.</strong> Un indice de deux mots peut être trop court pour un score automatique fiable.</li><li><strong>Pensez à ROT13.</strong> Si le décalage 13 produit un anglais lisible, il s’agit probablement de la variante César la plus connue.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Combien de clés possibles possède un chiffrement de César ?",
+                "answer": "Le nombre de clés possibles correspond à la taille de l’alphabet utilisé. L’anglais possède 26 décalages, de 0 à 25 ; l’alphabet français pris en charge par l’outil contient 40 caractères, dont plusieurs lettres accentuées. Le décalage 0 laisse le texte inchangé. Ce petit espace de clés explique pourquoi le chiffrement de César se casse immédiatement par force brute."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Cet outil peut-il décoder ROT13 ?",
+                "answer": "Oui. ROT13 est un chiffrement de César avec un décalage de 13 dans l’alphabet anglais. Collez un texte ROT13 dans le solveur, choisissez l’alphabet anglais, et la ligne du décalage 13 affichera le message décodé. Appliquer ROT13 deux fois redonne le texte d’origine."
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Le chiffrement de César est-il sûr ?",
+                "answer": "Non. Le chiffrement de César est l’une des méthodes de chiffrement les plus faibles. Il n’existe que peu de décalages utiles, donc n’importe qui peut essayer toutes les options et lire le bon texte clair. Utilisez-le pour apprendre, jouer ou résoudre des énigmes, jamais pour protéger des données sensibles."
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Que signifie le meilleur décalage ?",
+                "answer": "Le meilleur décalage est le candidat de déchiffrement qui ressemble le plus à une langue naturelle selon un score de fréquence. C’est un indice utile, pas une preuve cryptographique. Un texte chiffré court, un vocabulaire inhabituel, des noms ou une orthographe volontairement étrange peuvent faire d’une autre ligne la vraie solution."
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre un décodeur César et la force brute César ?",
+                "answer": "Un décodeur César classique exige de connaître le décalage avant de déchiffrer. La force brute César est un solveur : elle teste automatiquement tous les décalages, ce qui permet de déchiffrer le message même lorsque la clé est inconnue."
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le solveur affiche-t-il parfois un résultat lisible au mauvais décalage ?",
+                "answer": "Les textes chiffrés très courts peuvent produire plusieurs sorties partiellement lisibles, surtout avec des noms, sigles ou mots isolés. Utilisez le contexte, le vocabulaire attendu et toute la table des décalages pour choisir le bon déchiffrement César."
+            }
+        },
+        {
+            "id": 231,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "La force brute César peut-elle casser le chiffrement moderne ?",
+                "answer": "Non. Cette méthode fonctionne uniquement parce que le chiffrement de César possède un espace de clés minuscule et une structure de décalage très simple. Les systèmes de chiffrement modernes reposent sur des conceptions complètement différentes et ne se cassent pas en essayant des décalages César."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 103,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Décoder un texte ROT13",
+                "key": "",
+                "shift": 0,
+                "input": "PBQR FRPERG",
+                "output": "Décalage 13: CODE SECRET",
+                "description": "ROT13 utilise l’alphabet anglais et le décalage 13. Dans la table de tous les décalages, la ligne 13 retrouve le texte lisible."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Décalage français 3",
+                "key": "",
+                "shift": 0,
+                "input": "UÊPÈÊÂ YQÜÙ BÜ YJÊÜZ SQPÛ",
+                "output": "Décalage 3: RENDEZ VOUS AU VIEUX PONT",
+                "description": "Un exemple typique d’énigme César avec l’alphabet français. La force brute teste tous les décalages et rend visible le texte clair au décalage 3."
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Message court avec décalage 7",
+                "key": "",
+                "shift": 0,
+                "input": "EXXEÜYH E REYÊH",
+                "output": "Décalage 7: ATTAQUE A LAUBE",
+                "description": "Un texte chiffré court est plus difficile à évaluer automatiquement. Parcourez tous les candidats et choisissez la ligne qui correspond le mieux au contexte."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Texte plus long pour le score",
+                "key": "",
+                "shift": 0,
+                "input": "RSWÜ VFÜVSRÜ WR VFÀVF ÏÛÇRÈÇLÜ USWÛ FZÇPWFÛ PF ËFÈÇPÇJF",
+                "output": "Décalage 5: NOUS TESTONS UN TEXTE FRANCAIS POUR EVALUER LE DECALAGE",
+                "description": "Un texte naturel plus long donne davantage d’indices au score de fréquence, ce qui rend le décalage probable plus facile à repérer."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 159,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Solveur chiffrement César"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Force brute César"
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Déchiffrer César"
+            }
+        },
+        {
+            "id": 162,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Casser un chiffrement par décalage"
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Décodeur ROT13"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cryptanalyse classique"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Résoudre des énigmes chiffrées"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

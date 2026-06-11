@@ -82,14 +82,25 @@ final readonly class CipherContentImportCommand implements CommandInterface
             'blocks_created' => 0,
             'faq' => 0,
             'faq_created' => 0,
+            'faq_deleted' => 0,
             'examples' => 0,
             'examples_created' => 0,
+            'examples_deleted' => 0,
             'tags' => 0,
             'tags_created' => 0,
+            'tags_deleted' => 0,
+            'blocks_deleted' => 0,
         ];
 
         try {
             $this->db->transaction(function () use ($payload, $language, $defaultLanguage, $cipherId, $now, $dryRun, &$summary): void {
+                $seenIds = [
+                    'blocks' => [],
+                    'faq' => [],
+                    'examples' => [],
+                    'tags' => [],
+                ];
+
                 $cipherTranslation = is_array($payload['cipher_translation'] ?? null) ? $payload['cipher_translation'] : null;
                 if ($cipherTranslation !== null) {
                     $data = is_array($cipherTranslation['data'] ?? null) ? $cipherTranslation['data'] : [];
@@ -111,6 +122,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
                         $this->assertOwnership(Tables::CIPHERS_BLOCKS, 'app_id', $cipherId, $blockId, 'block');
                     }
                     $this->upsertBlockTranslation($blockId, $language, $data, $now);
+                    $seenIds['blocks'][] = $blockId;
                     $summary['blocks']++;
                 }
 
@@ -128,6 +140,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
                         $this->assertOwnership(Tables::CIPHERS_FAQ, 'app_id', $cipherId, $faqId, 'faq');
                     }
                     $this->upsertFaqTranslation($faqId, $language, $data, $now);
+                    $seenIds['faq'][] = $faqId;
                     $summary['faq']++;
                 }
 
@@ -153,6 +166,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
                         }
                     }
                     $this->upsertExampleTranslation($exampleId, $language, $data, $now);
+                    $seenIds['examples'][] = $exampleId;
                     $summary['examples']++;
                 }
 
@@ -170,7 +184,47 @@ final readonly class CipherContentImportCommand implements CommandInterface
                         $this->assertOwnership(Tables::CIPHERS_TAGS, 'app_id', $cipherId, $tagId, 'tag');
                     }
                     $this->upsertTagTranslation($tagId, $language, $data, $now);
+                    $seenIds['tags'][] = $tagId;
                     $summary['tags']++;
+                }
+
+                if ($language === $defaultLanguage) {
+                    $summary['blocks_deleted'] = $this->deleteMissingDefaultLanguageEntities(
+                        $payload,
+                        'blocks',
+                        Tables::CIPHERS_BLOCKS,
+                        Tables::CIPHERS_BLOCKS_TRANSLATIONS,
+                        'block_id',
+                        $cipherId,
+                        $seenIds['blocks']
+                    );
+                    $summary['faq_deleted'] = $this->deleteMissingDefaultLanguageEntities(
+                        $payload,
+                        'faq',
+                        Tables::CIPHERS_FAQ,
+                        Tables::CIPHERS_FAQ_TRANSLATIONS,
+                        'faq_id',
+                        $cipherId,
+                        $seenIds['faq']
+                    );
+                    $summary['examples_deleted'] = $this->deleteMissingDefaultLanguageEntities(
+                        $payload,
+                        'examples',
+                        Tables::CIPHERS_EXAMPLES,
+                        Tables::CIPHERS_EXAMPLES_TRANSLATIONS,
+                        'example_id',
+                        $cipherId,
+                        $seenIds['examples']
+                    );
+                    $summary['tags_deleted'] = $this->deleteMissingDefaultLanguageEntities(
+                        $payload,
+                        'tags',
+                        Tables::CIPHERS_TAGS,
+                        Tables::CIPHERS_TAGS_TRANSLATIONS,
+                        'tag_id',
+                        $cipherId,
+                        $seenIds['tags']
+                    );
                 }
 
                 if ($dryRun) {
@@ -191,10 +245,14 @@ final readonly class CipherContentImportCommand implements CommandInterface
         echo 'cipher_alias=' . $cipherAlias . ', language=' . $language . PHP_EOL;
         echo 'Обновлено: cipher_translation=' . $summary['cipher_translation']
             . ', blocks=' . $summary['blocks'] . ' (создано: ' . $summary['blocks_created'] . ')'
+            . ', удалено: ' . $summary['blocks_deleted']
             . ', faq=' . $summary['faq']
             . ' (создано: ' . $summary['faq_created'] . ')'
+            . ', удалено: ' . $summary['faq_deleted']
             . ', examples=' . $summary['examples'] . ' (создано: ' . $summary['examples_created'] . ')'
-            . ', tags=' . $summary['tags'] . ' (создано: ' . $summary['tags_created'] . ')' . PHP_EOL;
+            . ', удалено: ' . $summary['examples_deleted']
+            . ', tags=' . $summary['tags'] . ' (создано: ' . $summary['tags_created'] . ')'
+            . ', удалено: ' . $summary['tags_deleted'] . PHP_EOL;
 
         return 0;
     }
@@ -241,6 +299,50 @@ final readonly class CipherContentImportCommand implements CommandInterface
         }
 
         return array_values(array_filter($items, static fn (mixed $item): bool => is_array($item)));
+    }
+
+    /**
+     * Удаляет сущности default-языка, отсутствующие в импортируемой секции.
+     *
+     * @param array<string, mixed> $payload Данные импортируемого JSON.
+     * @param int[]                $seenIds ID сущностей, оставшихся в JSON.
+     */
+    private function deleteMissingDefaultLanguageEntities(
+        array $payload,
+        string $section,
+        string $entityTable,
+        string $translationTable,
+        string $translationForeignKey,
+        int $cipherId,
+        array $seenIds
+    ): int {
+        if (!array_key_exists($section, $payload) || !is_array($payload[$section])) {
+            return 0;
+        }
+
+        $existingRows = $this->db->fetchAll(
+            'SELECT id FROM ' . $entityTable . ' WHERE app_id = ?',
+            [$cipherId]
+        );
+        $existingIds = array_map(static fn (array $row): int => (int) ($row['id'] ?? 0), $existingRows);
+        $normalizedSeenIds = array_values(array_unique(array_filter($seenIds, static fn (int $id): bool => $id > 0)));
+        $deleteIds = array_values(array_diff($existingIds, $normalizedSeenIds));
+
+        if ($deleteIds === []) {
+            return 0;
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($deleteIds), '?'));
+        $this->db->execute(
+            'DELETE FROM ' . $translationTable . ' WHERE ' . $translationForeignKey . ' IN (' . $placeholders . ')',
+            $deleteIds
+        );
+        $this->db->execute(
+            'DELETE FROM ' . $entityTable . ' WHERE app_id = ? AND id IN (' . $placeholders . ')',
+            array_merge([$cipherId], $deleteIds)
+        );
+
+        return count($deleteIds);
     }
 
     /**

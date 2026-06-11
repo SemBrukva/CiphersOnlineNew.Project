@@ -390,6 +390,19 @@ final class GuestController
     }
 
     /**
+     * Перебирает все возможные сдвиги шифра Цезаря (brute force) через API.
+     *
+     * POST /api/tools/caesar-brute-force
+     */
+    #[ApiOperation(summary: 'Caesar Brute Force', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Список всех возможных дешифровок')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function caesarBruteForce(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'caesar-brute-force');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

@@ -295,6 +295,17 @@ return [
     'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Özelleştirilebilir ayırıcılar',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Harf kaydırma ikame şifresi',
+    // Caesar Brute Force
+    'CAESAR_BRUTE_TRUST_TYPE'    => 'Tüm olası César kaydırmalarını otomatik dener',
+    'CAESAR_BRUTE_EMPTY'         => 'Tüm olası çözümleri görmek için şifreli metni girin',
+    'CAESAR_BRUTE_COL_SHIFT'     => 'Kaydırma',
+    'CAESAR_BRUTE_COL_TEXT'      => 'Çözülen metin',
+    'CAESAR_BRUTE_USE_LABEL'     => 'Kullan',
+    'CAESAR_BRUTE_TITLE'         => 'Tüm olası çözümler',
+    'CAESAR_BRUTE_LIKELY_KEY'    => 'En muhtemel anahtar: Kaydırma :shift',
+    'CAESAR_BRUTE_FITNESS_LABEL' => 'Güven',
+    'CAESAR_BRUTE_BEST_BADGE'    => 'En iyi',
+    'CAESAR_HINT_BRUTE_FORCE'   => 'Kaba kuvvet dene',
     // Atbash
     'ATBASH_TRUST_RECIPROCAL'          => 'Öz-karşılıklı: tekrar şifreleme çözer',
     'ATBASH_TRUST_KEYLESS'             => 'Anahtar gerekmez',

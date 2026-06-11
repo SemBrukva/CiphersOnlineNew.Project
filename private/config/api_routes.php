@@ -142,6 +142,13 @@ return [
         'name'       => 'api.tools.hill',
     ],
 
+    'POST /tools/caesar-brute-force' => [
+        'controller' => GuestController::class,
+        'method'     => 'caesarBruteForce',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.caesar_brute_force',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

@@ -295,6 +295,17 @@ return [
     'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Delimitadores personalizáveis',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Cifra de substituição por deslocamento',
+    // Caesar Brute Force
+    'CAESAR_BRUTE_TRUST_TYPE'    => 'Testa automaticamente todos os deslocamentos César possíveis',
+    'CAESAR_BRUTE_EMPTY'         => 'Insira o texto cifrado para ver todas as decifrações possíveis',
+    'CAESAR_BRUTE_COL_SHIFT'     => 'Deslocamento',
+    'CAESAR_BRUTE_COL_TEXT'      => 'Texto decifrado',
+    'CAESAR_BRUTE_USE_LABEL'     => 'Usar',
+    'CAESAR_BRUTE_TITLE'         => 'Todas as decifrações possíveis',
+    'CAESAR_BRUTE_LIKELY_KEY'    => 'Chave mais provável: Deslocamento :shift',
+    'CAESAR_BRUTE_FITNESS_LABEL' => 'Confiança',
+    'CAESAR_BRUTE_BEST_BADGE'    => 'Melhor',
+    'CAESAR_HINT_BRUTE_FORCE'   => 'Tentar força bruta',
     // Atbash
     'ATBASH_TRUST_RECIPROCAL'          => 'Auto-recíproco: cifrar novamente decifra',
     'ATBASH_TRUST_KEYLESS'             => 'Nenhuma chave necessária',

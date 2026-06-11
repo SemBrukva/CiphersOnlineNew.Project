@@ -295,6 +295,18 @@ return [
     'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Délimiteurs personnalisables',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Chiffre de décalage alphabétique',
+    // Caesar Brute Force
+    'CAESAR_BRUTE_TRUST_TYPE'    => 'Teste automatiquement tous les décalages César possibles',
+    'CAESAR_BRUTE_EMPTY'         => 'Entrez le texte chiffré pour voir tous les déchiffrements possibles',
+    'CAESAR_BRUTE_COL_SHIFT'     => 'Décalage',
+    'CAESAR_BRUTE_COL_TEXT'      => 'Texte déchiffré',
+    'CAESAR_BRUTE_USE_LABEL'     => 'Utiliser',
+    'CAESAR_BRUTE_TITLE'         => 'Tous les déchiffrements possibles',
+    'CAESAR_BRUTE_LIKELY_KEY'    => 'Clé la plus probable : Décalage :shift',
+    'CAESAR_BRUTE_FITNESS_LABEL' => 'Confiance',
+    'CAESAR_BRUTE_BEST_BADGE'    => 'Meilleur',
+    'CAESAR_BRUTE_SHORT_TEXT'    => 'Texte court — ajoutez plus de caractères pour une prédiction fiable',
+    'CAESAR_HINT_BRUTE_FORCE'   => 'Essayer la force brute',
     // Atbash
     'ATBASH_TRUST_RECIPROCAL'          => 'Auto-réciproque : chiffrer deux fois déchiffre',
     'ATBASH_TRUST_KEYLESS'             => 'Aucune clé requise',

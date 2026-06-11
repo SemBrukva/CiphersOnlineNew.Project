@@ -62,15 +62,7 @@ final readonly class CipherController
             $this->ciphers->findExamplesByCipherIdWithTranslation((int) $cipher['id'], $language, $defaultLanguage)
         );
 
-        $toolsInCategory = $this->ciphers->findPublishedByCategoryWithTranslation(
-            (int) $cipher['category_id'],
-            $language,
-            $defaultLanguage
-        );
-        $related = array_slice(array_filter(
-            $toolsInCategory,
-            static fn (array $tool): bool => (string) ($tool['alias'] ?? '') !== $cipherAlias
-        ), 0, 6);
+        $related = $this->buildRelatedTools($toolSlug, $cipherAlias, (int) $cipher['category_id'], $language, $defaultLanguage);
 
         $title = (string) ($cipher['meta_title'] ?: $cipher['name']);
         $metaDescription = (string) ($cipher['meta_description'] ?: $cipher['description']);
@@ -104,6 +96,22 @@ final readonly class CipherController
             $toolUi['freqLangMatchTitle']    = trans('FREQ_LANG_MATCH_TITLE');
             $toolUi['freqMismatchWarning']   = trans('FREQ_MISMATCH_WARNING');
             $toolUi['freqColDiffTooltip']    = trans('FREQ_COL_DIFF_TOOLTIP');
+        }
+        if ($cipherAlias === 'caesar') {
+            $toolUi['relatedToolUrl']   = locale_url('/text-analysis/caesar-brute-force');
+            $toolUi['relatedToolLabel'] = trans('CAESAR_HINT_BRUTE_FORCE');
+        }
+        if ($cipherAlias === 'caesar-brute-force') {
+            $toolUi['bruteForceMode']      = true;
+            $toolUi['bruteEmptyLabel']     = trans('CAESAR_BRUTE_EMPTY');
+            $toolUi['bruteColShift']       = trans('CAESAR_BRUTE_COL_SHIFT');
+            $toolUi['bruteColText']        = trans('CAESAR_BRUTE_COL_TEXT');
+            $toolUi['bruteUseLabel']       = trans('CAESAR_BRUTE_USE_LABEL');
+            $toolUi['bruteTitle']          = trans('CAESAR_BRUTE_TITLE');
+            $toolUi['bruteLikelyKey']      = trans('CAESAR_BRUTE_LIKELY_KEY');
+            $toolUi['bruteFitnessLabel']   = trans('CAESAR_BRUTE_FITNESS_LABEL');
+            $toolUi['bruteBestBadge']      = trans('CAESAR_BRUTE_BEST_BADGE');
+            $toolUi['bruteShortText']      = trans('CAESAR_BRUTE_SHORT_TEXT');
         }
         if ($cipherAlias === 'morse-code') {
             $toolUi['placeholderEncode']  = trans('MORSE_PLACEHOLDER_ENCODE');
@@ -301,5 +309,42 @@ final readonly class CipherController
         }
 
         return $schemas;
+    }
+
+    /**
+     * Формирует список связанных инструментов: сначала ручные привязки из конфига,
+     * затем добирает до 6 из той же категории (исключая текущий и уже добавленные).
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    private function buildRelatedTools(
+        string $currentSlug,
+        string $currentAlias,
+        int $categoryId,
+        string $language,
+        string $defaultLanguage
+    ): array {
+        $manualSlugs = (array) (config('cipher_related.' . $currentSlug) ?? []);
+
+        $pinned = $manualSlugs !== []
+            ? $this->ciphers->findPublishedBySlugsWithTranslation($manualSlugs, $language, $defaultLanguage)
+            : [];
+
+        $remaining = 6 - count($pinned);
+        if ($remaining <= 0) {
+            return array_slice($pinned, 0, 6);
+        }
+
+        $excludeAliases = array_merge(
+            [$currentAlias],
+            array_map(static fn (array $t): string => (string) ($t['alias'] ?? ''), $pinned)
+        );
+
+        $fromCategory = array_values(array_filter(
+            $this->ciphers->findPublishedByCategoryWithTranslation($categoryId, $language, $defaultLanguage),
+            static fn (array $t): bool => !in_array((string) ($t['alias'] ?? ''), $excludeAliases, true)
+        ));
+
+        return array_merge($pinned, array_slice($fromCategory, 0, $remaining));
     }
 }

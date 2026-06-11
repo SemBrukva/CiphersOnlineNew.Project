@@ -1,0 +1,254 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T18:04:30+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "caesar-brute-force",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 28,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 28,
+        "data": {
+            "name": "Forza Bruta Cesare",
+            "name_short": "Solver Cesare",
+            "description": "Rompi un cifrario di Cesare provando automaticamente tutti gli spostamenti possibili. Incolla il testo cifrato, confronta tutte le decifrazioni di Cesare in una sola volta e trova il testo in chiaro più probabile anche senza conoscere la chiave.",
+            "description_stort": "Solver del cifrario di Cesare che prova tutti gli spostamenti e segnala il testo in chiaro più probabile.",
+            "meta_title": "Solver Cifrario di Cesare | Decoder a Forza Bruta",
+            "meta_description": "Decifra testi Cesare senza conoscere lo spostamento. Il solver online prova tutti gli spostamenti, classifica il testo in chiaro e rompe ROT13, CTF ed enigmi."
+        }
+    },
+    "blocks": [
+        {
+            "id": 110,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il solver del cifrario di Cesare",
+                "text": "<p>Il <a href=\"/it/classical-ciphers/caesar\">cifrario di Cesare</a> usa un unico spostamento fisso delle lettere per tutto il messaggio. Questo lo rende semplice da applicare, ma anche semplice da rompere: le chiavi possibili sono tante quante le lettere dell’alfabeto selezionato.</p><p>Questo solver esegue un attacco a forza bruta sul testo cifrato decifrandolo con ogni spostamento possibile. Per l’inglese controlla gli spostamenti da 0 a 25; per l’italiano usa l’alfabeto italiano supportato dallo strumento e mostra tutti i candidati.</p><p>Lo strumento assegna anche un punteggio linguistico a ogni risultato e marca lo spostamento più probabile. Nelle frasi normali, la riga con il punteggio migliore è spesso il testo in chiaro originale; con messaggi molto brevi, nomi, abbreviazioni o indizi di enigmi, conviene comunque leggere tutti gli spostamenti.</p>"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usare la forza bruta su Cesare",
+                "text": "<p>Usa la forza bruta quando un messaggio sembra un cifrario a spostamento, ma non conosci la chiave. È un modo rapido per decifrare testi Cesare in esercizi, escape room, sfide CTF, geocaching, ARG ed esempi storici di crittografia.</p><p>Incolla il testo cifrato, scegli l’alfabeto corretto e cerca la riga che sembra linguaggio naturale. In italiano, parole e sequenze come IL, LA, DI, CHE, NON, ERE o ZIONE spesso fanno emergere subito lo spostamento corretto.</p><p>Questo metodo risolve anche ROT13, un caso speciale del cifrario di Cesare con spostamento 13 nell’alfabeto inglese. Se il testo cifrato è stato creato con un altro cifrario, la tabella degli spostamenti può mostrare pattern interessanti, ma non recupererà un testo in chiaro completo.</p>"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Forza bruta Cesare e analisi di frequenza",
+                "text": "<p>Forza bruta e analisi di frequenza sono collegate, ma non sono lo stesso flusso di lavoro. La forza bruta su Cesare è esaustiva: prova ogni chiave, quindi la risposta corretta compare nella lista se il testo usa davvero il cifrario di Cesare e se è stato scelto l’alfabeto giusto.</p><p>L’analisi di frequenza è più ampia. Studia le distribuzioni delle lettere e aiuta ad attaccare molti cifrari a sostituzione, stimare la lingua o confrontare pattern statistici. Questo solver usa un punteggio di frequenza leggero solo per ordinare i risultati di Cesare; la decisione finale viene comunque dalla lettura del testo in chiaro candidato.</p>"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Consigli per decifrare un testo Cesare sconosciuto",
+                "text": "<ul><li><strong>Scegli l’alfabeto corretto.</strong> Un testo italiano va provato con l’alfabeto italiano; ROT13 in inglese richiede l’alfabeto inglese.</li><li><strong>Mantieni spazi e punteggiatura.</strong> Le separazioni tra parole rendono molto più facile riconoscere la decifrazione giusta.</li><li><strong>Controlla tutti gli spostamenti nei testi brevi.</strong> Un indizio di due parole può essere troppo corto per un punteggio automatico affidabile.</li><li><strong>Ricorda ROT13.</strong> Se lo spostamento 13 produce inglese leggibile, probabilmente stai guardando la variante Cesare più nota.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quante chiavi possibili ha un cifrario di Cesare?",
+                "answer": "Il numero di chiavi possibili corrisponde alla dimensione dell’alfabeto usato. L’inglese e l’italiano supportato dallo strumento hanno 26 spostamenti, da 0 a 25. Lo spostamento 0 lascia il testo invariato. Questo spazio di chiavi così piccolo è il motivo per cui il cifrario di Cesare si rompe immediatamente con la forza bruta."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Questo strumento può decodificare ROT13?",
+                "answer": "Sì. ROT13 è un cifrario di Cesare con spostamento 13 nell’alfabeto inglese. Incolla un testo ROT13 nel solver, scegli l’alfabeto inglese e la riga con spostamento 13 mostrerà il messaggio decodificato. Applicare ROT13 due volte restituisce il testo originale."
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Il cifrario di Cesare è sicuro?",
+                "answer": "No. Il cifrario di Cesare è uno dei metodi di cifratura più deboli. Esistono pochi spostamenti utili, quindi chiunque può provare tutte le opzioni e leggere il testo in chiaro corretto. Usalo per imparare, giocare e risolvere enigmi, non per proteggere dati sensibili."
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cosa significa lo spostamento migliore?",
+                "answer": "Lo spostamento migliore è il candidato di decifrazione che assomiglia di più a una lingua naturale secondo un punteggio di frequenza. È un indizio utile, non una prova crittografica. Un testo cifrato breve, parole insolite, nomi o grafie intenzionalmente strane possono rendere corretta un’altra riga."
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Qual è la differenza tra un decoder Cesare e la forza bruta Cesare?",
+                "answer": "Un decoder Cesare normale richiede di conoscere lo spostamento prima di decifrare. La forza bruta Cesare è un solver: prova automaticamente tutti gli spostamenti, quindi permette di decifrare il messaggio anche quando la chiave è sconosciuta."
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Perché il solver mostra a volte un risultato leggibile con lo spostamento sbagliato?",
+                "answer": "I testi cifrati molto brevi possono produrre più uscite parzialmente leggibili, soprattutto con nomi, sigle o parole singole. Usa il contesto, il vocabolario atteso e tutta la tabella degli spostamenti per scegliere la decifrazione Cesare corretta."
+            }
+        },
+        {
+            "id": 231,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "La forza bruta Cesare può rompere la cifratura moderna?",
+                "answer": "No. Questo metodo funziona solo perché il cifrario di Cesare ha uno spazio di chiavi minuscolo e una semplice struttura di spostamento delle lettere. I sistemi moderni di cifratura sono progettati in modo completamente diverso e non si rompono provando spostamenti Cesare."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 103,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decodificare testo ROT13",
+                "key": "",
+                "shift": 0,
+                "input": "PBQVPR FRTERGB",
+                "output": "Spostamento 13: CODICE SEGRETO",
+                "description": "ROT13 usa l’alfabeto inglese e lo spostamento 13. Nella tabella di tutti gli spostamenti, la riga 13 recupera il testo leggibile."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Spostamento italiano 3",
+                "key": "",
+                "shift": 0,
+                "input": "FL YHGLDPR DO YHFFKLR SRQWH",
+                "output": "Spostamento 3: CI VEDIAMO AL VECCHIO PONTE",
+                "description": "Un tipico enigma con il cifrario di Cesare e alfabeto italiano. La forza bruta prova tutti gli spostamenti e rende visibile il testo in chiaro con spostamento 3."
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Messaggio breve con spostamento 7",
+                "key": "",
+                "shift": 0,
+                "input": "HAAHJJV HSS HSIH",
+                "output": "Spostamento 7: ATTACCO ALL ALBA",
+                "description": "Un testo cifrato breve è più difficile da valutare automaticamente. Controlla tutti i candidati e scegli la riga che si adatta meglio al contesto."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Testo più lungo per il punteggio",
+                "key": "",
+                "shift": 0,
+                "input": "TLLN UWTANFRT ZS YJXYT NYFQNFST UJW AFQZYFWJ QT XUTXYFRJSYT",
+                "output": "Spostamento 5: OGGI PROVIAMO UN TESTO ITALIANO PER VALUTARE LO SPOSTAMENTO",
+                "description": "Un testo naturale più lungo fornisce più dati al punteggio di frequenza, quindi lo spostamento probabile è più facile da riconoscere."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 159,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Solver cifrario di Cesare"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Forza bruta Cesare"
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Decifrare cifrario di Cesare"
+            }
+        },
+        {
+            "id": 162,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Rompere cifrario a spostamento"
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Decoder ROT13"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Crittoanalisi classica"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Risolvere enigmi cifrati"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

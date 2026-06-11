@@ -1,0 +1,254 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T18:04:30+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "caesar-brute-force",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 28,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 28,
+        "data": {
+            "name": "Caesar Brute Force",
+            "name_short": "Caesar Solver",
+            "description": "Crack a Caesar cipher by trying every possible shift automatically. Paste ciphertext, run all Caesar decryptions at once, compare the results, and find the most likely plaintext even when the shift key is unknown.",
+            "description_stort": "Caesar cipher solver that tries every shift and highlights the most likely plaintext.",
+            "meta_title": "Caesar Cipher Solver | Brute Force Decoder Online",
+            "meta_description": "Decode Caesar cipher text without the shift. This online Caesar brute force solver tries all shifts, ranks likely plaintext, and cracks ROT13, puzzles, and CTF clues."
+        }
+    },
+    "blocks": [
+        {
+            "id": 110,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Caesar cipher solver works",
+                "text": "<p>A <a href=\"/classical-ciphers/caesar\">Caesar cipher</a> uses one fixed letter shift for the whole message. That makes it easy to encrypt, but also easy to crack: there are only as many possible keys as there are letters in the selected alphabet.</p><p>This Caesar cipher solver brute-forces the ciphertext by decrypting it with every possible shift. For English, it checks shifts 0 through 25; for other supported alphabets, it uses the full alphabet size. The results are shown together so you can scan every candidate plaintext instead of guessing the key manually.</p><p>The tool also scores each result with a language-frequency check and marks the most likely shift. For normal sentences, the best-ranked line is often the original plaintext; for very short messages, names, abbreviations, or puzzle fragments, it is still worth reviewing all shifts by eye.</p>"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "When to use Caesar brute force",
+                "text": "<p>Use Caesar brute force when you have a suspicious message that looks like a shift cipher but you do not know the key. It is a fast way to decode Caesar cipher text in classroom exercises, escape-room clues, CTF challenges, geocaching hints, ARG puzzles, and historical cryptography examples.</p><p>Paste the encrypted text, choose the matching alphabet, and look for the row that reads like natural language. If the message is in English, common words such as THE, AND, YOU, THAT, or SECRET usually make the correct shift stand out immediately.</p><p>This method also solves ROT13, which is simply Caesar cipher with shift 13 in the English alphabet. If the ciphertext was produced by a different cipher, the all-shifts table may still show interesting patterns, but it will not recover a complete plaintext.</p>"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Caesar brute force vs. frequency analysis",
+                "text": "<p>Brute force and frequency analysis are related, but they are not the same workflow. Caesar brute force is exhaustive: it tries every key, so the correct answer is guaranteed to appear somewhere in the list when the text really is a Caesar cipher and the right alphabet is selected.</p><p>Frequency analysis is broader. It studies letter distributions and can help attack many substitution ciphers, estimate language, or compare statistical patterns. This solver uses a lightweight frequency score only to rank Caesar outputs; the final decision still comes from reading the candidate plaintext.</p>"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Tips for decoding unknown Caesar text",
+                "text": "<ul><li><strong>Choose the right alphabet.</strong> English Caesar text should use the English alphabet; accented or multilingual text may need another language setting.</li><li><strong>Keep punctuation and spacing.</strong> Word breaks make the correct decryption much easier to recognize.</li><li><strong>Check all shifts for short text.</strong> A two-word clue may be too short for automatic scoring, even when one row is obviously readable.</li><li><strong>Watch for ROT13.</strong> If shift 13 produces readable English, you are looking at the most common Caesar variant.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How many possible keys does a Caesar cipher have?",
+                "answer": "The number of possible Caesar keys equals the size of the alphabet. English has 26 possible shifts, numbered 0 to 25, although shift 0 leaves the text unchanged. This tiny key space is why a Caesar cipher can be cracked instantly with brute force."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Can this tool decode ROT13?",
+                "answer": "Yes. ROT13 is a Caesar cipher with shift 13 in the English alphabet. Paste ROT13 text into the solver and the shift 13 row will show the decoded message. Applying ROT13 twice returns the original text."
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is Caesar cipher secure?",
+                "answer": "No. The Caesar cipher is one of the weakest encryption methods. In English, there are only 25 meaningful non-zero shifts, so anyone can try every option and read the correct plaintext. Use it for learning, games, and puzzles only, never for sensitive data."
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What does the best shift mean?",
+                "answer": "The best shift is the candidate decryption that most closely resembles normal language according to a frequency score. It is a helpful hint, not a cryptographic proof. Short ciphertext, unusual vocabulary, names, or deliberate misspellings can make another row the true answer."
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What is the difference between Caesar decoder and Caesar brute force?",
+                "answer": "A Caesar decoder needs you to know the shift key before decrypting. Caesar brute force is a solver: it tries every shift automatically, so you can decode the message even when the key is unknown."
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does the solver show a readable result at the wrong shift?",
+                "answer": "Very short ciphertext can produce several outputs that look partly readable, especially with names, acronyms, or single words. Use context, expected vocabulary, and the full all-shifts table to choose the correct Caesar decryption."
+            }
+        },
+        {
+            "id": 231,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can Caesar brute force break modern encryption?",
+                "answer": "No. This method works because Caesar cipher has a tiny key space and a simple letter-shift structure. Modern encryption systems use completely different designs and cannot be cracked by trying Caesar shifts."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 103,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Decode ROT13 text",
+                "key": "",
+                "shift": 0,
+                "input": "GUR FRPERG VF UVQQRA VA CYNVA FVTUG",
+                "output": "Shift 13: THE SECRET IS HIDDEN IN PLAIN SIGHT",
+                "description": "ROT13 is Caesar shift 13. In the all-shifts table, shift 13 reveals the readable plaintext."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Classic Caesar shift 3",
+                "key": "",
+                "shift": 0,
+                "input": "PHHW PH DW WKH ROG EULGJH",
+                "output": "Shift 3: MEET ME AT THE OLD BRIDGE",
+                "description": "A typical Caesar cipher puzzle. Brute force tries every shift and makes the shift 3 plaintext easy to spot."
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Short message with shift 7",
+                "key": "",
+                "shift": 0,
+                "input": "HAAHJR HA KHDU",
+                "output": "Shift 7: ATTACK AT DAWN",
+                "description": "Short ciphertext can be harder to rank automatically. Review all candidates and use the readable row as the answer."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Longer ciphertext for scoring",
+                "key": "",
+                "shift": 0,
+                "input": "WKH TXLFN EURZQ IRA MXPSV RYHU WKH ODCB GRJ",
+                "output": "Shift 3: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG",
+                "description": "Longer natural-language text gives the frequency scorer more evidence, so the likely shift is easier to identify."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 159,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Caesar cipher solver"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Caesar brute force"
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Decode Caesar cipher"
+            }
+        },
+        {
+            "id": 162,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Shift cipher cracker"
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13 decoder"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptanalysis"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Cipher puzzle solver"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

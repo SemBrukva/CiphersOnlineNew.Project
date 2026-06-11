@@ -16,6 +16,8 @@ use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortApiCipherTool;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\CaesarApiCipherTool;
+use App\Cipher\CaesarBruteForceApiCipherTool;
+use App\Cipher\LetterFrequencyScorer;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\ColumnarTranspositionApiCipherTool;
 use App\Cipher\ColumnarTranspositionCipherService;
@@ -82,7 +84,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new RailFenceApiCipherTool(new RailFenceCipherService()),
             new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),
             new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
-            new HillApiCipherTool(new HillCipherService())
+            new HillApiCipherTool(new HillCipherService()),
+            new CaesarBruteForceApiCipherTool(new CaesarCipherService(), new LetterFrequencyScorer())
         );
     }
 }

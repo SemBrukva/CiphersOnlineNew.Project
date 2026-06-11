@@ -13,6 +13,7 @@ use App\Cipher\CaesarCipherService;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\HillCipherService;
+use App\Cipher\CaesarBruteForceService;
 use App\Cipher\FrequencyAnalysisService;
 use App\Cipher\MorseCipherService;
 use App\Cipher\PlayfairCipherService;
@@ -105,7 +106,8 @@ final class ToolRegistryTest extends TestCase
             new PolybiusSquareCipherService(),
             new HillCipherService(),
             new MorseCipherService(),
-            new FrequencyAnalysisService()
+            new FrequencyAnalysisService(),
+            new CaesarBruteForceService()
         );
     }
 }

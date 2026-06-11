@@ -295,6 +295,18 @@ return [
     'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Anpassbare Trennzeichen',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Buchstabenverschiebungs-Chiffre',
+    // Caesar Brute Force
+    'CAESAR_BRUTE_TRUST_TYPE'    => 'Testet automatisch alle möglichen Caesar-Verschiebungen',
+    'CAESAR_BRUTE_EMPTY'         => 'Chiffretext eingeben, um alle möglichen Entschlüsselungen anzuzeigen',
+    'CAESAR_BRUTE_COL_SHIFT'     => 'Verschiebung',
+    'CAESAR_BRUTE_COL_TEXT'      => 'Entschlüsselter Text',
+    'CAESAR_BRUTE_USE_LABEL'     => 'Verwenden',
+    'CAESAR_BRUTE_TITLE'         => 'Alle möglichen Entschlüsselungen',
+    'CAESAR_BRUTE_LIKELY_KEY'    => 'Wahrscheinlichster Schlüssel: Verschiebung :shift',
+    'CAESAR_BRUTE_FITNESS_LABEL' => 'Konfidenz',
+    'CAESAR_BRUTE_BEST_BADGE'    => 'Bester',
+    'CAESAR_BRUTE_SHORT_TEXT'    => 'Kurzer Text — fügen Sie mehr Zeichen für eine zuverlässige Vorhersage hinzu',
+    'CAESAR_HINT_BRUTE_FORCE'   => 'Brute-Force versuchen',
     // Atbash
     'ATBASH_TRUST_RECIPROCAL'          => 'Selbstreziprok: erneutes Verschlüsseln entschlüsselt',
     'ATBASH_TRUST_KEYLESS'             => 'Kein Schlüssel erforderlich',

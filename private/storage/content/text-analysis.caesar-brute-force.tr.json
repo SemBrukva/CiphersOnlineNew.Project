@@ -1,0 +1,254 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T18:04:30+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "caesar-brute-force",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 28,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 28,
+        "data": {
+            "name": "Sezar Brute Force",
+            "name_short": "Sezar Çözücü",
+            "description": "Tüm olası kaydırmaları otomatik olarak deneyerek Sezar şifresini kırın. Şifreli metni yapıştırın, tüm Sezar çözümlemelerini tek seferde karşılaştırın ve anahtarı bilmeden en olası açık metni bulun.",
+            "description_stort": "Tüm kaydırmaları deneyen ve en olası açık metni işaretleyen Sezar şifresi çözücü.",
+            "meta_title": "Sezar Şifresi Çözücü | Brute Force Decoder",
+            "meta_description": "Kaydırmayı bilmeden Sezar metnini çözün. Bu çevrimiçi brute force çözücü tüm kaydırmaları dener, açık metni sıralar ve ROT13, CTF ve bulmacaları kırar."
+        }
+    },
+    "blocks": [
+        {
+            "id": 110,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Sezar şifresi çözücü nasıl çalışır",
+                "text": "<p><a href=\"/pt/classical-ciphers/caesar\">Sezar şifresi</a>, tüm mesaj için tek bir sabit harf kaydırması kullanır. Bu yöntem uygulamayı kolaylaştırır, ama kırmayı da kolaylaştırır: olası anahtar sayısı seçilen alfabedeki karakter sayısı kadardır.</p><p>Bu çözücü, şifreli metni tüm olası kaydırmalarla çözerek Sezar brute force işlemi yapar. İngilizce için 0 ile 25 arasındaki kaydırmaları dener; Türkçe için ise araçta desteklenen Türk alfabesindeki tüm kaydırmaları listeler.</p><p>Araç ayrıca her sonucu dil frekansı puanıyla değerlendirir ve en olası kaydırmayı işaretler. Normal cümlelerde en yüksek puanlı satır çoğu zaman özgün açık metindir; çok kısa ipuçlarında, adlarda, kısaltmalarda veya bulmaca parçalarında yine de tüm kaydırmaları gözle okumak gerekir.</p>"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Sezar brute force ne zaman kullanılır",
+                "text": "<p>Bir mesaj kaydırmalı şifre gibi görünüyorsa ama anahtar bilinmiyorsa Sezar brute force kullanın. Bu yöntem ders alıştırmalarında, escape room ipuçlarında, CTF görevlerinde, geocaching, ARG ve tarihsel kriptografi örneklerinde Sezar metnini çözmenin hızlı bir yoludur.</p><p>Şifreli metni yapıştırın, doğru alfabeyi seçin ve doğal dil gibi okunan satırı bulun. Türkçe metinlerde BIR, VE, DE, LAR, ILE, KAY, MEK gibi sözcük ve ek örüntüleri doğru kaydırmayı hızlıca görünür kılabilir.</p><p>Bu yöntem, İngiliz alfabesinde 13 kaydırmalı özel bir Sezar çeşidi olan ROT13 için de çalışır. Şifreli metin başka bir şifreyle üretilmişse tüm kaydırmalar tablosu bazı ilginç örüntüler gösterebilir, ancak tam bir açık metin geri getirmez.</p>"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sezar brute force ve frekans analizi",
+                "text": "<p>Brute force ve frekans analizi ilişkilidir, ancak aynı iş akışı değildir. Sezar brute force kapsamlıdır: her anahtarı dener, bu yüzden metin gerçekten Sezar şifresiyse ve doğru alfabe seçildiyse doğru yanıt listede mutlaka görünür.</p><p>Frekans analizi daha geniştir. Harf dağılımlarını inceler; birçok yerine koyma şifresine saldırmak, dili tahmin etmek veya istatistiksel örüntüleri karşılaştırmak için kullanılır. Bu çözücü frekans puanını yalnızca Sezar sonuçlarını sıralamak için hafif bir yardımcı olarak kullanır; son karar yine aday açık metni okuyarak verilir.</p>"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Bilinmeyen Sezar metinlerini çözme ipuçları",
+                "text": "<ul><li><strong>Doğru alfabeyi seçin.</strong> Türkçe metin Türk alfabesiyle, İngilizce ROT13 ise İngiliz alfabesiyle denenmelidir.</li><li><strong>Boşlukları ve noktalama işaretlerini koruyun.</strong> Kelime sınırları doğru çözümü tanımayı çok kolaylaştırır.</li><li><strong>Kısa metinlerde tüm kaydırmaları kontrol edin.</strong> İki kelimelik bir ipucu otomatik puanlama için fazla kısa olabilir.</li><li><strong>ROT13’ü unutmayın.</strong> Kaydırma 13 okunabilir İngilizce veriyorsa, büyük olasılıkla en bilinen Sezar varyantıyla karşı karşıyasınız.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Sezar şifresinde kaç olası anahtar vardır?",
+                "answer": "Olası anahtar sayısı kullanılan alfabenin boyutuna eşittir. İngilizcede 0 ile 25 arasında 26 kaydırma vardır; araçtaki Türk alfabesinde 29 karakter ve 0 ile 28 arasında kaydırma bulunur. Kaydırma 0 metni değiştirmez. Bu küçük anahtar alanı, Sezar şifresinin brute force ile anında kırılmasının nedenidir."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Bu araç ROT13 çözebilir mi?",
+                "answer": "Evet. ROT13, İngiliz alfabesinde 13 kaydırmalı özel bir Sezar şifresidir. ROT13 metnini çözücüye yapıştırın, İngiliz alfabesini seçin ve kaydırma 13 satırı çözülmüş mesajı gösterecektir. ROT13 iki kez uygulanınca özgün metin geri gelir."
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Sezar şifresi güvenli midir?",
+                "answer": "Hayır. Sezar şifresi en zayıf şifreleme yöntemlerinden biridir. Çok az anlamlı kaydırma vardır, bu yüzden herkes tüm seçenekleri deneyip doğru açık metni okuyabilir. Bunu öğrenme, oyunlar ve bulmacalar için kullanın; hassas verileri korumak için kullanmayın."
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "En iyi kaydırma ne anlama gelir?",
+                "answer": "En iyi kaydırma, frekans puanına göre doğal dile en çok benzeyen çözüm adayıdır. Bu yararlı bir ipucudur, kriptografik kanıt değildir. Kısa şifreli metinler, alışılmadık kelimeler, adlar veya kasıtlı yazım biçimleri başka bir satırı gerçek cevap yapabilir."
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Sezar decoder ile Sezar brute force arasındaki fark nedir?",
+                "answer": "Normal bir Sezar decoder, çözmeden önce kaydırmayı bilmenizi ister. Sezar brute force ise bir çözücüdür: tüm kaydırmaları otomatik olarak dener, böylece anahtar bilinmese bile mesajı çözebilirsiniz."
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Çözücü neden bazen yanlış kaydırmada okunabilir sonuç gösterir?",
+                "answer": "Çok kısa şifreli metinler, özellikle adlar, kısaltmalar veya tek kelimeler içeriyorsa, kısmen anlamlı görünen birkaç çıktı üretebilir. Doğru Sezar çözümünü seçmek için bağlamı, beklenen kelimeleri ve tüm kaydırmalar tablosunu kullanın."
+            }
+        },
+        {
+            "id": 231,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Sezar brute force modern şifrelemeyi kırabilir mi?",
+                "answer": "Hayır. Bu yöntem yalnızca Sezar şifresinin çok küçük bir anahtar alanı ve basit bir harf kaydırma yapısı olduğu için çalışır. Modern şifreleme sistemleri tamamen farklı tasarımlar kullanır ve Sezar kaydırmaları denenerek kırılamaz."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 103,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "ROT13 metnini çöz",
+                "key": "",
+                "shift": 0,
+                "input": "TVMYV XBQ",
+                "output": "Kaydırma 13: GIZLI KOD",
+                "description": "ROT13 İngiliz alfabesini ve 13 kaydırmayı kullanır. Tüm kaydırmalar tablosunda 13. satır okunabilir metni geri getirir."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Türkçe kaydırma 3",
+                "key": "",
+                "shift": 0,
+                "input": "ğunl nsştzgğ dyoyüçokö",
+                "output": "Kaydırma 3: eski köprüde buluşalım",
+                "description": "Türk alfabesiyle tipik bir Sezar bulmacası. Brute force tüm kaydırmaları dener ve kaydırma 3 ile açık metni görünür hale getirir."
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Kaydırma 7 ile kısa mesaj",
+                "key": "",
+                "shift": 0,
+                "input": "zgğgn zgsioyo",
+                "output": "Kaydırma 7: sabah saldırı",
+                "description": "Kısa şifreli metni otomatik olarak puanlamak daha zordur. Tüm adayları gözden geçirin ve bağlama en uygun satırı seçin."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Puanlama için daha uzun metin",
+                "key": "",
+                "shift": 0,
+                "input": "fajbs zbüöğı fnü rıznspı öeçhmüreçm hısnçşüad",
+                "output": "Kaydırma 5: bugün türkçe bir metinle kaydırmayı deniyoruz",
+                "description": "Daha uzun doğal metin, frekans puanına daha fazla veri sağlar; bu yüzden olası kaydırmayı tanımak kolaylaşır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 159,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Sezar şifresi çözücü"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Sezar brute force"
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Sezar şifresini çöz"
+            }
+        },
+        {
+            "id": 162,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Kaydırmalı şifre kırma"
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13 decoder"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptoanaliz"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Şifreli bulmaca çözme"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

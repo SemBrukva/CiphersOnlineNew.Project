@@ -1,0 +1,254 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-11T18:04:30+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "caesar-brute-force",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 28,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 28,
+        "data": {
+            "name": "Caesar-Brute-Force",
+            "name_short": "Caesar-Solver",
+            "description": "Knacke eine Caesar-Chiffre, indem automatisch alle möglichen Schübe ausprobiert werden. Füge den Geheimtext ein, vergleiche alle Caesar-Entschlüsselungen auf einmal und finde den wahrscheinlichsten Klartext, auch wenn der Schlüssel unbekannt ist.",
+            "description_stort": "Caesar-Chiffren-Solver, der alle Schübe testet und den wahrscheinlichsten Klartext markiert.",
+            "meta_title": "Caesar-Chiffre Solver | Brute-Force Decoder online",
+            "meta_description": "Entschlüssle Caesar-Chiffren ohne bekannten Schub. Der Online-Brute-Force-Solver testet alle Schübe, bewertet Klartext und knackt ROT13, Rätsel und CTF-Hinweise."
+        }
+    },
+    "blocks": [
+        {
+            "id": 110,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie der Caesar-Chiffren-Solver funktioniert",
+                "text": "<p>Die <a href=\"/de/classical-ciphers/caesar\">Caesar-Chiffre</a> verwendet für die gesamte Nachricht einen festen Buchstabenschub. Das macht sie leicht anzuwenden, aber auch leicht zu knacken: Es gibt nur so viele mögliche Schlüssel, wie das gewählte Alphabet Zeichen hat.</p><p>Dieser Caesar-Chiffren-Solver führt einen Brute-Force-Angriff auf den Geheimtext aus, indem er ihn mit jedem möglichen Schub entschlüsselt. Für Englisch werden die Schübe 0 bis 25 geprüft; für Deutsch nutzt das Tool das deutsche Alphabet mit Umlauten und testet alle passenden Schübe.</p><p>Zusätzlich bewertet das Tool jedes Ergebnis mit einem Sprachhäufigkeits-Score und markiert den wahrscheinlichsten Schub. Bei normalen Sätzen ist die bestbewertete Zeile oft der ursprüngliche Klartext; bei sehr kurzen Hinweisen, Namen, Abkürzungen oder Rätseltexten lohnt sich trotzdem ein Blick auf alle Schübe.</p>"
+            }
+        },
+        {
+            "id": 111,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Wann Caesar-Brute-Force sinnvoll ist",
+                "text": "<p>Nutze Caesar-Brute-Force, wenn eine Nachricht wie eine Schubchiffre aussieht, der Schub aber unbekannt ist. Das ist ein schneller Weg, Caesar-Geheimtext in Unterrichtsaufgaben, Escape-Room-Hinweisen, CTF-Challenges, Geocaching-Rätseln, ARGs und historischen Kryptografiebeispielen zu entschlüsseln.</p><p>Füge den verschlüsselten Text ein, wähle das passende Alphabet und suche nach der Zeile, die wie natürliche Sprache klingt. In deutschen Texten fallen oft typische Wörter, Endungen und Buchstabengruppen wie DER, DIE, UND, ICH, EN oder SCH auf.</p><p>Die Methode löst auch ROT13, einen Sonderfall der Caesar-Chiffre mit Schub 13 im englischen Alphabet. Wenn der Geheimtext mit einer anderen Chiffre erzeugt wurde, kann die Tabelle aller Schübe interessante Muster zeigen, aber keinen vollständigen Klartext wiederherstellen.</p>"
+            }
+        },
+        {
+            "id": 112,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Caesar-Brute-Force vs. Häufigkeitsanalyse",
+                "text": "<p>Brute Force und Häufigkeitsanalyse hängen zusammen, sind aber nicht derselbe Arbeitsablauf. Caesar-Brute-Force ist vollständig: Jeder Schlüssel wird ausprobiert, sodass die richtige Lösung in der Liste auftaucht, wenn es wirklich eine Caesar-Chiffre ist und das richtige Alphabet gewählt wurde.</p><p>Die Häufigkeitsanalyse ist breiter. Sie untersucht Buchstabenverteilungen und hilft beim Angriff auf viele Substitutionschiffren, beim Erkennen der Sprache oder beim Vergleichen statistischer Muster. Dieser Solver nutzt einen leichten Häufigkeits-Score nur zum Sortieren der Caesar-Ergebnisse; die endgültige Entscheidung entsteht weiterhin durch das Lesen des Kandidaten-Klartexts.</p>"
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Tipps zum Entschlüsseln unbekannter Caesar-Texte",
+                "text": "<ul><li><strong>Wähle das richtige Alphabet.</strong> Deutscher Geheimtext sollte mit dem deutschen Alphabet geprüft werden; englisches ROT13 braucht das englische Alphabet.</li><li><strong>Erhalte Leerzeichen und Satzzeichen.</strong> Wortgrenzen machen die richtige Entschlüsselung viel leichter erkennbar.</li><li><strong>Prüfe bei kurzen Texten alle Schübe.</strong> Ein Hinweis aus zwei Wörtern kann für eine zuverlässige automatische Bewertung zu kurz sein.</li><li><strong>Achte auf ROT13.</strong> Wenn Schub 13 lesbares Englisch ergibt, handelt es sich wahrscheinlich um die bekannteste Caesar-Variante.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wie viele mögliche Schlüssel hat eine Caesar-Chiffre?",
+                "answer": "Die Zahl der möglichen Caesar-Schlüssel entspricht der Größe des verwendeten Alphabets. Englisch hat 26 Schübe von 0 bis 25; das im Tool verwendete deutsche Alphabet hat 29 Zeichen inklusive Ä, Ö und Ü. Schub 0 lässt den Text unverändert. Dieser kleine Schlüsselraum macht die Caesar-Chiffre sofort per Brute Force knackbar."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Kann dieses Tool ROT13 decodieren?",
+                "answer": "Ja. ROT13 ist eine Caesar-Chiffre mit Schub 13 im englischen Alphabet. Füge ROT13-Text in den Solver ein, wähle das englische Alphabet, und die Zeile mit Schub 13 zeigt die decodierte Nachricht. Zweimal angewendet ergibt ROT13 wieder den ursprünglichen Text."
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Ist die Caesar-Chiffre sicher?",
+                "answer": "Nein. Die Caesar-Chiffre gehört zu den schwächsten Verschlüsselungsverfahren. Es gibt nur wenige sinnvolle Schübe, daher kann jeder alle Optionen ausprobieren und den lesbaren Klartext finden. Verwende sie nur zum Lernen, für Spiele und Rätsel, nicht zum Schutz sensibler Daten."
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was bedeutet der beste Schub?",
+                "answer": "Der beste Schub ist der Entschlüsselungskandidat, der laut Häufigkeitsbewertung am ehesten wie natürliche Sprache aussieht. Das ist ein hilfreicher Hinweis, kein kryptografischer Beweis. Kurze Geheimtexte, ungewöhnliche Wörter, Namen oder absichtliche Schreibweisen können dazu führen, dass eine andere Zeile die echte Lösung ist."
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen Caesar-Decoder und Caesar-Brute-Force?",
+                "answer": "Ein normaler Caesar-Decoder braucht den bekannten Schub, bevor er entschlüsseln kann. Caesar-Brute-Force ist ein Solver: Er testet alle Schübe automatisch, sodass du eine Nachricht auch ohne bekannten Schlüssel entschlüsseln kannst."
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Warum zeigt der Solver manchmal bei einem falschen Schub lesbaren Text?",
+                "answer": "Sehr kurze Geheimtexte können mehrere Ergebnisse erzeugen, die teilweise sinnvoll aussehen, besonders bei Namen, Abkürzungen oder Einzelwörtern. Nutze Kontext, erwartete Wörter und die vollständige Tabelle aller Schübe, um die richtige Caesar-Entschlüsselung auszuwählen."
+            }
+        },
+        {
+            "id": 231,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Kann Caesar-Brute-Force moderne Verschlüsselung brechen?",
+                "answer": "Nein. Diese Methode funktioniert nur, weil die Caesar-Chiffre einen winzigen Schlüsselraum und eine einfache Buchstabenverschiebung hat. Moderne Verschlüsselungssysteme sind völlig anders aufgebaut und lassen sich nicht durch das Ausprobieren von Caesar-Schüben knacken."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 103,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "ROT13-Text decodieren",
+                "key": "",
+                "shift": 0,
+                "input": "TRURVZRE PBQR",
+                "output": "Schub 13: GEHEIMER CODE",
+                "description": "ROT13 ist Caesar-Schub 13 im englischen Alphabet. In der Tabelle aller Schübe zeigt Zeile 13 den lesbaren Klartext."
+            }
+        },
+        {
+            "id": 104,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Deutscher Caesar-Schub 3",
+                "key": "",
+                "shift": 0,
+                "input": "VUHIIHP CÖ COVHP VWUÖ",
+                "output": "Schub 3: TREFFEN AM ALTEN TURM",
+                "description": "Ein typisches Caesar-Rätsel mit deutschem Alphabet. Brute Force testet alle Schübe und macht den Klartext mit Schub 3 schnell sichtbar."
+            }
+        },
+        {
+            "id": 105,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Kurze Nachricht mit Schub 7",
+                "key": "",
+                "shift": 0,
+                "input": "GTNXÖMM ILÖ KGLSSLXATN",
+                "output": "Schub 7: ANGRIFF BEI DAEMMERUNG",
+                "description": "Kurzer Geheimtext ist für automatische Bewertung schwieriger. Prüfe alle Kandidaten und wähle die Zeile, die inhaltlich am besten passt."
+            }
+        },
+        {
+            "id": 106,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "data": {
+                "title": "Längerer Text für die Bewertung",
+                "key": "",
+                "shift": 0,
+                "input": "MJYXJ UVYJKJR ÄNV JNRJR IJYXWHMJR XJBX KYJV INJ WHMYGWYHMJ",
+                "output": "Schub 5: HEUTE PRUEFEN WIR EINEN DEUTSCHEN TEXT FUER DIE SCHUBSUCHE",
+                "description": "Längerer natürlicher Text liefert dem Häufigkeits-Score mehr Daten, sodass der wahrscheinliche Schub leichter erkannt wird."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 159,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Caesar-Chiffre Solver"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Caesar Brute Force"
+            }
+        },
+        {
+            "id": 161,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Caesar-Chiffre entschlüsseln"
+            }
+        },
+        {
+            "id": 162,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Schubchiffre knacken"
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "ROT13 Decoder"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptoanalyse"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Chiffrenrätsel lösen"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

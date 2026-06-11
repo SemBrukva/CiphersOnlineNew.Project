@@ -55,6 +55,7 @@ export function initCipherToolPage() {
   const isApiMode = calculationMode === 'api'
   const isMorseTool = slug === 'codes-and-alphabets/morse-code'
   const isAnalysisTool = Boolean(ui.analysisMode)
+  const isBruteForceTool = Boolean(ui.bruteForceMode)
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
@@ -191,6 +192,91 @@ export function initCipherToolPage() {
   const showFreqEmpty = () => {
     if (!visualOutput) return
     visualOutput.innerHTML = `<p class="freq-empty">${ui.freqEmptyLabel || 'Enter text to analyze'}</p>`
+  }
+
+  const showBruteForceEmpty = () => {
+    if (!visualOutput) return
+    visualOutput.innerHTML = `<p class="freq-empty">${escapeHtml(ui.bruteEmptyLabel || 'Enter ciphertext to see all possible decryptions')}</p>`
+  }
+
+  const renderBruteForceTable = (results, bestShift, reliable) => {
+    if (!visualOutput) return
+    if (!results || results.length === 0) {
+      showBruteForceEmpty()
+      return
+    }
+
+    const title        = escapeHtml(ui.bruteTitle || 'All possible decryptions')
+    const colShift     = escapeHtml(ui.bruteColShift || 'Shift')
+    const colText      = escapeHtml(ui.bruteColText || 'Decrypted text')
+    const useLabel     = escapeHtml(ui.bruteUseLabel || 'Use')
+    const bestBadge    = escapeHtml(ui.bruteBestBadge || 'Best')
+    const fitLabel     = escapeHtml(ui.bruteFitnessLabel || 'Confidence')
+    const likelyKeyTpl = String(ui.bruteLikelyKey || 'Most likely key: Shift :shift')
+
+    const likelyKeyText = escapeHtml(likelyKeyTpl.replace(':shift', String(bestShift ?? '')))
+
+    const shortTextWarning = reliable === false
+      ? `<div class="brute-short-text-warn">${escapeHtml(ui.bruteShortText || 'Short text — add more characters for a reliable prediction')}</div>`
+      : ''
+    const summaryHtml = bestShift !== undefined
+      ? `<div class="brute-summary"><span class="brute-summary-icon">★</span>${likelyKeyText}</div>${shortTextWarning}`
+      : shortTextWarning
+
+    const headerHtml = `<div class="brute-header">`
+      + `<span class="brute-title">${title}</span>`
+      + `<span class="brute-fitness-col-label">${fitLabel}</span>`
+      + `</div>`
+
+    const rowsHtml = results.map(({ shift, text, fitness }) => {
+      const isBest  = shift === bestShift
+      const pct     = typeof fitness === 'number' ? fitness : 0
+      const rowCls  = isBest ? 'brute-row brute-row--best' : 'brute-row'
+      const badge   = isBest ? `<span class="brute-best-badge">${bestBadge}</span>` : ''
+      const barHtml = `<div class="brute-fitness-wrap">`
+        + `<div class="brute-fitness-bar" style="width:${pct}%"></div>`
+        + `<span class="brute-fitness-pct">${pct}%</span>`
+        + `</div>`
+
+      return `<div class="${rowCls}">`
+        + `<span class="brute-shift">${shift}</span>`
+        + `<span class="brute-text">${escapeHtml(text)}${badge}</span>`
+        + `${barHtml}`
+        + `<button class="brute-use-btn" data-brute-text="${escapeHtml(text)}">${useLabel}</button>`
+        + `</div>`
+    }).join('')
+
+    const tableHtml = `<div class="brute-table-header">`
+      + `<span>${colShift}</span>`
+      + `<span>${colText}</span>`
+      + `<span>${fitLabel}</span>`
+      + `<span></span>`
+      + `</div>`
+      + `<div class="brute-rows">${rowsHtml}</div>`
+
+    visualOutput.innerHTML = summaryHtml + headerHtml + tableHtml
+
+    if (bestShift !== undefined) {
+      const bestRow = visualOutput.querySelector('.brute-row--best')
+      bestRow?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    }
+
+    visualOutput.querySelectorAll('.brute-use-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const text = btn.getAttribute('data-brute-text') || ''
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(() => setFeedback(labels.copied)).catch(() => setFeedback(labels.copyFailed, true))
+        } else {
+          const ta = document.createElement('textarea')
+          ta.value = text
+          document.body.appendChild(ta)
+          ta.select()
+          document.execCommand('copy')
+          document.body.removeChild(ta)
+          setFeedback(labels.copied)
+        }
+      })
+    })
   }
 
   const renderFrequencyChart = (data) => {
@@ -583,6 +669,7 @@ export function initCipherToolPage() {
     if (!value.trim()) {
       output.value = ''
       if (isAnalysisTool) showFreqEmpty()
+      if (isBruteForceTool) showBruteForceEmpty()
       setOutputState(false)
       setFeedback('')
       return
@@ -714,14 +801,24 @@ export function initCipherToolPage() {
         ),
       })
 
-      output.value = String(response?.result ?? '')
-      setOutputState(Boolean(output.value))
-      if (output.value && response?.warning) {
-        setFeedback(String(response.warning), false, true)
-      } else if (output.value && mode === 'decode' && ui.decodeNote) {
-        setFeedback(ui.decodeNote, false, true)
-      } else {
+      if (isBruteForceTool) {
+        const detectedAlpha = response?.detected_alphabet
+        if (detectedAlpha && alphabetSelect && alphabetSelect.value !== detectedAlpha) {
+          alphabetSelect.value = detectedAlpha
+        }
+        renderBruteForceTable(response?.results ?? [], response?.best_shift, response?.reliable)
+        setOutputState(Boolean(response?.results?.length))
         setFeedback('')
+      } else {
+        output.value = String(response?.result ?? '')
+        setOutputState(Boolean(output.value))
+        if (output.value && response?.warning) {
+          setFeedback(String(response.warning), false, true)
+        } else if (output.value && mode === 'decode' && ui.decodeNote) {
+          setFeedback(ui.decodeNote, false, true)
+        } else {
+          setFeedback('')
+        }
       }
     } catch (error) {
       const fieldErrors = error?.response?.error?.details?.errors
@@ -729,6 +826,9 @@ export function initCipherToolPage() {
         ? Object.values(fieldErrors).flat()[0]
         : null
       const message = String(firstFieldError ?? error?.message ?? error?.response?.error?.message ?? labels.runFailed)
+      if (isBruteForceTool) {
+        showBruteForceEmpty()
+      }
       output.value = ''
       setOutputState(false)
       setFeedback(message, true)
@@ -1016,6 +1116,15 @@ export function initCipherToolPage() {
     freqScopeSelect?.addEventListener('change', () => process())
     freqSortSelect?.addEventListener('change', () => process())
     freqLangSelect?.addEventListener('change', () => process())
+  }
+
+  if (isBruteForceTool) {
+    tabDecode.style.display = 'none'
+    output.style.display = 'none'
+    if (visualOutput) {
+      visualOutput.style.display = 'block'
+      showBruteForceEmpty()
+    }
   }
 }
 

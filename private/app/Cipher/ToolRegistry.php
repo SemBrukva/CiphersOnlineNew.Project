@@ -31,7 +31,8 @@ final readonly class ToolRegistry
         private PolybiusSquareCipherService $polybiusSquareCipher,
         private HillCipherService $hillCipher,
         private MorseCipherService $morseCipher,
-        private FrequencyAnalysisService $frequencyAnalysis
+        private FrequencyAnalysisService $frequencyAnalysis,
+        private CaesarBruteForceService $caesarBruteForce
     ) {
     }
 
@@ -166,6 +167,11 @@ final readonly class ToolRegistry
                 ['label' => 'Caesar',  'value' => 'KHOOR ZRUOG',                                 'alphabet' => 'en'],
                 ['label' => 'Hamlet',  'value' => 'To be or not to be that is the question',     'alphabet' => 'en'],
             ],
+            'text-analysis/caesar-brute-force' => [
+                ['label' => 'ROT-13',   'value' => 'URYYB JBEYQ',       'alphabet' => 'en'],
+                ['label' => 'Shift 3',  'value' => 'KHOOR ZRUOG',       'alphabet' => 'en'],
+                ['label' => 'Shift 7',  'value' => 'HAAHJR HA KHDU',    'alphabet' => 'en'],
+            ],
             default => [],
         };
     }
@@ -195,6 +201,7 @@ final readonly class ToolRegistry
             'classical-ciphers/hill' => 'hill',
             'codes-and-alphabets/morse-code' => null,
             'text-analysis/frequency-analysis' => null,
+            'text-analysis/caesar-brute-force' => 'caesar-brute-force',
             default => null,
         };
     }
@@ -226,6 +233,7 @@ final readonly class ToolRegistry
             'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
+            'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getToolSettings(),
             default => [],
         };
     }
@@ -255,6 +263,7 @@ final readonly class ToolRegistry
             'classical-ciphers/hill' => $this->hillCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
+            'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),

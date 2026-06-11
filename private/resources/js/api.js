@@ -125,6 +125,8 @@ export class ApiClient {
         'polybius-square': (data) => this.#request('POST', '/tools/polybius-square', data),
         /** POST /api/tools/hill */
         hill: (data) => this.#request('POST', '/tools/hill', data),
+        /** POST /api/tools/caesar-brute-force */
+        'caesar-brute-force': (data) => this.#request('POST', '/tools/caesar-brute-force', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

@@ -32,9 +32,10 @@ final class ApiCipherToolRegistry
         RailFenceApiCipherTool $railFenceTool,
         ColumnarTranspositionApiCipherTool $columnarTranspositionTool,
         PolybiusSquareApiCipherTool $polybiusSquareTool,
-        HillApiCipherTool $hillTool
+        HillApiCipherTool $hillTool,
+        CaesarBruteForceApiCipherTool $caesarBruteForceTool
     ) {
-        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

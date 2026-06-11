@@ -318,6 +318,18 @@ return [
     'CIPHER_TOOL_TRUST_CUSTOM_DELIMITER' => 'Настраиваемые разделители',
     // Caesar
     'CAESAR_TRUST_TYPE'                => 'Шифр простой замены со сдвигом',
+    // Caesar Brute Force
+    'CAESAR_BRUTE_TRUST_TYPE'    => 'Автоматический перебор всех сдвигов Цезаря',
+    'CAESAR_BRUTE_EMPTY'         => 'Введите зашифрованный текст для перебора всех вариантов',
+    'CAESAR_BRUTE_COL_SHIFT'     => 'Сдвиг',
+    'CAESAR_BRUTE_COL_TEXT'      => 'Расшифрованный текст',
+    'CAESAR_BRUTE_USE_LABEL'     => 'Взять',
+    'CAESAR_BRUTE_TITLE'         => 'Все возможные дешифровки',
+    'CAESAR_BRUTE_LIKELY_KEY'    => 'Наиболее вероятный ключ: Сдвиг :shift',
+    'CAESAR_BRUTE_FITNESS_LABEL' => 'Достоверность',
+    'CAESAR_BRUTE_BEST_BADGE'    => 'Лучший',
+    'CAESAR_BRUTE_SHORT_TEXT'    => 'Текст слишком короткий — добавьте больше символов для надёжного прогноза',
+    'CAESAR_HINT_BRUTE_FORCE'   => 'Попробовать перебор',
     // Atbash
     'ATBASH_TRUST_RECIPROCAL'          => 'Самообратный: шифрование равно дешифрованию',
     'ATBASH_TRUST_KEYLESS'             => 'Ключ не требуется',
