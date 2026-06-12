@@ -512,6 +512,9 @@ return [
     'NUM2LET_TYPE_BINARY'             => 'ASCII binaire',
     'NUM2LET_TRUST_MODES'             => '5 modes d\'encodage : positionnel, ASCII, hex, binaire',
     'NUM2LET_TRUST_MULTILANG'         => 'Alphabets multilingues avec détection automatique',
+    // HTML Encode / Decode
+    'HTML_TRUST_PURPOSE'              => 'Encode les caractères spéciaux HTML en entités',
+    'HTML_TRUST_ENTITIES'             => 'Compatible avec les entités HTML nommées et numériques',
     // Footer
     'FOOTER_DESC'                      => 'catalogue des systèmes de chiffrement populaires avec la possibilité de chiffrer et déchiffrer du texte en ligne',
 ];

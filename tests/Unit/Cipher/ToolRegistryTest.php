@@ -21,6 +21,8 @@ use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
+use App\Cipher\HtmlEncodeCipherService;
+use App\Cipher\NumbersToLettersService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereCipherService;
@@ -109,7 +111,9 @@ final class ToolRegistryTest extends TestCase
             new MorseCipherService(),
             new FrequencyAnalysisService(),
             new CaesarBruteForceService(),
-            new LetterFrequencyService()
+            new LetterFrequencyService(),
+            new NumbersToLettersService(),
+            new HtmlEncodeCipherService()
         );
     }
 }

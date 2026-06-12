@@ -9,6 +9,7 @@ import { transformMorse, looksLikeMorse } from './decoders/morse.js'
 import { transformFrequency, looksLikeText } from './decoders/frequency.js'
 import { transformLetterFrequency, looksLikeLetterFreqText } from './decoders/letter-frequency.js'
 import { transformNumbersToLetters, looksLikeNumbersToLetters } from './decoders/numbers-to-letters.js'
+import { transformHtml, looksLikeHtml } from './decoders/html.js'
 
 /**
  * Реестр browser-декодеров по slug инструмента.
@@ -25,6 +26,7 @@ const DECODER_BY_SLUG = {
   'text-analysis/frequency-analysis': { transform: transformFrequency, looksLikeEncoded: looksLikeText },
   'text-analysis/letter-frequency': { transform: transformLetterFrequency, looksLikeEncoded: looksLikeLetterFreqText },
   'codes-and-alphabets/numbers-to-letters': { transform: transformNumbersToLetters, looksLikeEncoded: looksLikeNumbersToLetters },
+  'encoding/html-encode': { transform: transformHtml, looksLikeEncoded: looksLikeHtml },
 }
 
 /**

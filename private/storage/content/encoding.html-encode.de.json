@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:51:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "html-encode",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 31,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 31,
+        "data": {
+            "name": "HTML Encode / Decode",
+            "name_short": "HTML Encode",
+            "description": "Wandeln Sie spezielle HTML-Zeichen in Entities um und dekodieren Sie maskiertes HTML zurück in lesbaren Text. Kodieren Sie &, <, >, \" und ' für sichere HTML-Ausgabe, Templates, Kommentare und nutzergenerierte Inhalte; dekodieren Sie benannte, dezimale und hexadezimale HTML-Entities zurück in Unicode-Zeichen.",
+            "description_stort": "HTML-Sonderzeichen als Entities kodieren und benannte, dezimale oder hexadezimale Entities zurück in Text dekodieren.",
+            "meta_title": "HTML Encode / Decode online | HTML-Entity-Konverter",
+            "meta_description": "Kostenloses HTML Encode/Decode Tool für Entwicklung, Redaktion und SEO. Maskieren Sie &, <, >, Anführungszeichen und Apostrophe als HTML-Entities oder dekodieren Sie benannte, dezimale und Hex-Entities direkt im Browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Was ist HTML-Kodierung?",
+                "text": "<p>HTML-Kodierung wandelt Sonderzeichen in HTML-Entities um, damit Browser sie als Text anzeigen und nicht als Markup interpretieren. Zum Beispiel wird das Kleiner-als-Zeichen <code>&lt;</code> zu <code>&amp;lt;</code>, und das kaufmännische Und <code>&amp;</code> zu <code>&amp;amp;</code>.</p><p>Das ist wichtig, wenn nutzergenerierter Text, Codebeispiele, Produktnamen, Kommentare, CMS-Inhalte oder Übersetzungen in eine HTML-Seite eingefügt werden. Richtiges Escaping hilft, Cross-Site-Scripting-Schwachstellen (XSS) zu vermeiden und verhindert kaputte Layouts durch versehentliche Tags oder Attribute.</p>"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "HTML-Entities kodieren und dekodieren",
+                "text": "<p>Beim Kodieren werden die fünf HTML-Sonderzeichen durch ihre Entity-Form ersetzt: <code>&amp;</code> → <code>&amp;amp;</code>, <code>&lt;</code> → <code>&amp;lt;</code>, <code>&gt;</code> → <code>&amp;gt;</code>, <code>\"</code> → <code>&amp;quot;</code> und <code>'</code> → <code>&amp;#39;</code>.</p><p>Dekodieren ist der umgekehrte Vorgang: HTML-Entities — benannte Entities wie <code>&amp;eacute;</code>, dezimale Entities wie <code>&amp;#233;</code> oder hexadezimale Entities wie <code>&amp;#xE9;</code> — werden zurück in Unicode-Zeichen umgewandelt. Das ist praktisch, um maskierten HTML-Quelltext zu lesen, kopierte Snippets zu bereinigen, CMS-Ausgaben zu prüfen oder API-Antworten mit entity-kodiertem Text zu debuggen.</p>"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Wann dieser HTML-Entity-Konverter hilfreich ist",
+                "text": "<p>Verwenden Sie den Encoder, wenn Text in einem HTML-Dokument genau so sichtbar sein soll, wie er geschrieben wurde: in Dokumentationsbeispielen, sichtbaren Codefragmenten, Kundenbewertungen, Artikeltiteln, Formularvorschauen oder Feldern, die spitze Klammern, Ampersands oder Anführungszeichen enthalten können.</p><p>Verwenden Sie den Decoder, wenn maskierter Inhalt wieder lesbar werden soll, etwa <code>&amp;lt;div&amp;gt;</code>, <code>&amp;copy;</code>, <code>&amp;#169;</code> oder <code>&amp;#x1F600;</code>. Das Tool ist nützlich für Webentwicklung, QA, SEO-Audits, Content-Migration, E-Mail-Templates und Support-Tickets, in denen kodiertes Markup schwer direkt zu prüfen ist.</p>"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "HTML-Kodierung ist kontextabhängig",
+                "text": "<p>HTML-Kodierung ist keine Verschlüsselung und verbirgt keine Daten. Sie ist eine Technik zum Escapen von Ausgaben im HTML-Kontext. Sie sorgt dafür, dass der Browser Sonderzeichen als Text behandelt, sollte in produktiven Anwendungen aber mit Validierung, Sanitization und dem Escaping des verwendeten Frameworks kombiniert werden.</p><p>Verschiedene Kontexte benötigen verschiedene Escaping-Regeln. Text in HTML, Werte in URLs, JavaScript-Strings, CSS und SQL-Abfragen sind nicht austauschbar. Für HTML-Ausgabe kodieren Sie die speziellen HTML-Zeichen; für Links und Query-Strings verwenden Sie URL-Encoding.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 249,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Warum sollte ich Benutzereingaben in HTML kodieren?",
+                "answer": "Nicht kodierte Benutzereingaben, die direkt in HTML eingefügt werden, können vom Browser als Markup oder Script interpretiert werden. Dadurch kann Cross-Site Scripting (XSS) entstehen. HTML-Kodierung neutralisiert Sonderzeichen, sodass der Browser sie als normalen Text behandelt."
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Welche Zeichen ersetzt HTML-Kodierung?",
+                "answer": "Die fünf Zeichen, die immer kodiert werden sollten, sind: & (Ampersand) → &amp;amp;, < (kleiner als) → &amp;lt;, > (größer als) → &amp;gt;, \" (doppeltes Anführungszeichen) → &amp;quot; und ' (Apostroph) → &amp;#39;. Andere Zeichen wie Umlaute oder Akzente sind meist unkritisch, können aber ebenfalls als benannte oder numerische Entities vorkommen."
+            }
+        },
+        {
+            "id": 251,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen HTML-Kodierung und URL-Encoding?",
+                "answer": "HTML-Kodierung escapt Zeichen, die in HTML-Markup eine besondere Bedeutung haben: &, <, >, \" und '. URL-Encoding, auch Percent-Encoding genannt, escapt Zeichen, die in URLs nicht erlaubt oder reserviert sind, etwa Leerzeichen (%20). Verwenden Sie HTML-Kodierung für Text innerhalb eines HTML-Dokuments und URL-Encoding für Query-Strings oder Pfadsegmente."
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Kann ich HTML-Decoding nutzen, um maskierten HTML-Quelltext zu lesen?",
+                "answer": "Ja. Wenn Sie HTML-Quelltext mit maskierten Entities erhalten, zum Beispiel aus einer API-Antwort oder einem Datenbankfeld, können Sie ihn in den Decoder einfügen, um die ursprünglichen Zeichen zu sehen. Der Decoder verarbeitet benannte Entities (&amp;eacute;), dezimale Entities (&amp;#233;) und hexadezimale Entities (&amp;#xE9;)."
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist HTML-Kodierung dasselbe wie Verschlüsselung?",
+                "answer": "Nein. HTML-Kodierung ist eine umkehrbare Textumwandlung für die sichere Anzeige in HTML. Jede Person kann Entities wieder in die ursprünglichen Zeichen dekodieren, daher eignet sich diese Methode nicht zum Schutz von Geheimnissen, Passwörtern, Tokens oder privaten Daten."
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Kodiert dieses Tool alle Unicode-Zeichen?",
+                "answer": "Der Encoder konzentriert sich auf die HTML-Sonderzeichen, die Markup beschädigen oder Sicherheitsprobleme verursachen können: &, <, >, doppelte Anführungszeichen und Apostrophe. Umlaute, Emoji und Zeichen mit Akzenten bleiben als lesbarer Text erhalten. Der Decoder kann dennoch benannte und numerische Entities zurück in Unicode-Zeichen umwandeln."
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Wann sollte ich HTML-Entities dekodieren?",
+                "answer": "Dekodieren Sie HTML-Entities, wenn Sie Text prüfen oder weiterverarbeiten müssen, der zuvor escaped wurde, etwa CMS-Exporte, E-Mail-Templates, API-Antworten, Datenbankwerte oder kopierten HTML-Quelltext. Fügen Sie dekodierte, nicht vertrauenswürdige Inhalte nicht als rohes HTML in eine Seite ein, solange sie nicht sanitisiert wurden."
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Werden meine Eingaben an einen Server gesendet?",
+                "answer": "Nein. Das HTML Encode / Decode Tool läuft in Ihrem Browser. Ihr Text wird lokal umgewandelt, was es für schnelle Prüfungen von Snippets, Templates und Entwicklungsinhalten geeignet macht."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 116,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "HTML-Tags",
+                "key": "",
+                "shift": 0,
+                "input": "<h1>Hallo & \"Welt\"</h1>",
+                "output": "&lt;h1&gt;Hallo &amp; &quot;Welt&quot;&lt;/h1&gt;",
+                "description": "Die Zeichen <, >, \" und & werden als HTML-Entities kodiert."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "XSS-Prävention",
+                "key": "",
+                "shift": 0,
+                "input": "<script>alert('xss')</script>",
+                "output": "&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;",
+                "description": "Das Kodieren von Script-Tags macht Injektionscode bei HTML-Ausgabe als Text ungefährlich."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Entities dekodieren",
+                "key": "",
+                "shift": 0,
+                "input": "&lt;p&gt;Caf&eacute; &amp; M&uuml;nchen &copy; 2026&lt;/p&gt;",
+                "output": "<p>Café & München © 2026</p>",
+                "description": "Benannte Entities wie &eacute;, &uuml; und &copy; werden zurück in Unicode-Zeichen umgewandelt."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Text mit HTML-Attribut",
+                "key": "",
+                "shift": 0,
+                "input": "<a href=\"/search?q=tee&sort=asc\">Der \"beste\" Tee</a>",
+                "output": "&lt;a href=&quot;/search?q=tee&amp;sort=asc&quot;&gt;Der &quot;beste&quot; Tee&lt;/a&gt;",
+                "description": "Spitze Klammern, Ampersands und Anführungszeichen werden escaped, damit das Snippet als normaler Text angezeigt werden kann."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 181,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "HTML-Kodierung"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "XSS-Prävention"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "HTML-Entities"
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "HTML Decode"
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Entity-Konverter"
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Webentwicklung"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

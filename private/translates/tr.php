@@ -511,6 +511,9 @@ return [
     'NUM2LET_TYPE_BINARY'             => 'ASCII ikili',
     'NUM2LET_TRUST_MODES'             => '5 kodlama modu: konumsal, ASCII, hex, ikili',
     'NUM2LET_TRUST_MULTILANG'         => 'Otomatik algılamalı çok dilli alfabe desteği',
+    // HTML Encode / Decode
+    'HTML_TRUST_PURPOSE'              => 'HTML özel karakterlerini varlık olarak kodlar',
+    'HTML_TRUST_ENTITIES'             => 'Adlandırılmış ve sayısal HTML varlıklarını destekler',
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
 ];

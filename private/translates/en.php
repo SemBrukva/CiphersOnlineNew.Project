@@ -535,6 +535,9 @@ return [
     'NUM2LET_TYPE_BINARY'             => 'ASCII binary',
     'NUM2LET_TRUST_MODES'             => '5 encoding modes: positional, ASCII, hex, binary',
     'NUM2LET_TRUST_MULTILANG'         => 'Multilingual alphabets with auto-detection',
+    // HTML Encode / Decode
+    'HTML_TRUST_PURPOSE'              => 'Encodes HTML special characters as entities',
+    'HTML_TRUST_ENTITIES'             => 'Supports named and numeric HTML entities',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];

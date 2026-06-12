@@ -535,6 +535,9 @@ return [
     'NUM2LET_TYPE_BINARY'             => 'ASCII двоичный',
     'NUM2LET_TRUST_MODES'             => '5 режимов кодирования: позиционный, ASCII, hex, двоичный',
     'NUM2LET_TRUST_MULTILANG'         => 'Поддержка многоязычных алфавитов с автоопределением',
+    // HTML Encode / Decode
+    'HTML_TRUST_PURPOSE'              => 'Кодирует спецсимволы HTML в безопасные entities',
+    'HTML_TRUST_ENTITIES'             => 'Поддержка именованных и числовых HTML-entities',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
 ];

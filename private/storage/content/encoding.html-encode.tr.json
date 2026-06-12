@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:51:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "html-encode",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 31,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 31,
+        "data": {
+            "name": "HTML Encode / Decode",
+            "name_short": "HTML Encode",
+            "description": "HTML özel karakterlerini entity'lere dönüştürün ve escape edilmiş HTML'i tekrar okunabilir metne çevirin. HTML çıktısı, şablonlar, yorumlar ve kullanıcı tarafından oluşturulan içerikler için &, <, >, \" ve ' karakterlerini güvenli biçimde kodlayın; adlandırılmış, ondalık ve onaltılık HTML entity'lerini tekrar Unicode karakterlerine dönüştürün.",
+            "description_stort": "HTML özel karakterlerini entity olarak kodlayın; adlandırılmış, ondalık veya onaltılık entity'leri tekrar metne dönüştürün.",
+            "meta_title": "HTML Encode / Decode çevrimiçi | HTML Entity Dönüştürücü",
+            "meta_description": "Geliştirme, editörlük ve SEO işleri için ücretsiz HTML Encode/Decode aracı. &, <, >, tırnak ve kesme işaretlerini HTML entity olarak escape edin ya da adlandırılmış, ondalık ve hex entity'leri tarayıcınızda çözün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "HTML kodlama nedir?",
+                "text": "<p>HTML kodlama, özel karakterleri HTML entity'lerine dönüştürür; böylece tarayıcı bu karakterleri işaretleme olarak yorumlamak yerine metin olarak gösterir. Örneğin küçüktür işareti <code>&lt;</code>, <code>&amp;lt;</code> olur; ampersand <code>&amp;</code> ise <code>&amp;amp;</code> olur.</p><p>Bu işlem, kullanıcıdan gelen metinleri, kod örneklerini, ürün adlarını, yorumları, CMS içeriklerini veya çeviri metinlerini bir HTML sayfasına yerleştirirken önemlidir. Doğru karakterleri escape etmek Cross-Site Scripting (XSS) açıklarını önlemeye yardımcı olur ve yanlışlıkla yazılmış etiket ya da özniteliklerin sayfa düzenini bozmasını engeller.</p>"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "HTML entity'lerini kodlama ve çözme",
+                "text": "<p>Kodlama, HTML açısından özel anlam taşıyan beş karakteri entity karşılıklarıyla değiştirir: <code>&amp;</code> → <code>&amp;amp;</code>, <code>&lt;</code> → <code>&amp;lt;</code>, <code>&gt;</code> → <code>&amp;gt;</code>, <code>\"</code> → <code>&amp;quot;</code> ve <code>'</code> → <code>&amp;#39;</code>.</p><p>Çözme işlemi bunun tersidir: adlandırılmış entity'ler (<code>&amp;eacute;</code> gibi), ondalık entity'ler (<code>&amp;#233;</code>) veya onaltılık entity'ler (<code>&amp;#xE9;</code>) tekrar Unicode karakterlerine dönüştürülür. Bu, escape edilmiş HTML kaynak kodunu okumak, kopyalanmış parçaları temizlemek, CMS çıktısını kontrol etmek veya entity kodlu metin içeren API yanıtlarını hata ayıklamak için kullanışlıdır.</p>"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Bu HTML entity dönüştürücü ne zaman kullanılır?",
+                "text": "<p>Metnin bir HTML belgesi içinde yazıldığı gibi görünmesi gerektiğinde kodlayıcıyı kullanın: dokümantasyon örnekleri, görünür kod parçaları, müşteri yorumları, makale başlıkları, form önizlemeleri veya açılı parantezler, ampersand ya da tırnak işaretleri içerebilecek herhangi bir alan.</p><p>Escape edilmiş içeriği tekrar okunabilir metne çevirmek istediğinizde çözücüyü kullanın: <code>&amp;lt;div&amp;gt;</code>, <code>&amp;copy;</code>, <code>&amp;#169;</code> veya <code>&amp;#x1F600;</code> gibi. Araç web geliştirme, QA, SEO denetimleri, içerik taşıma, e-posta şablonları ve kodlanmış işaretlemenin gözle incelenmesinin zor olduğu destek kayıtları için pratiktir.</p>"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "HTML kodlama bağlama bağlıdır",
+                "text": "<p>HTML kodlama şifreleme değildir ve veriyi gizlemez. HTML bağlamı için bir çıktı escape etme tekniğidir. Tarayıcının özel karakterleri metin olarak işlemesini sağlar; ancak üretim uygulamalarında doğrulama, sanitizasyon ve framework düzeyindeki escape mekanizmalarıyla birlikte kullanılmalıdır.</p><p>Farklı bağlamlar farklı escape kuralları gerektirir. HTML içindeki metin, URL değerleri, JavaScript string'leri, CSS ve SQL sorguları birbirinin yerine kullanılamaz. HTML çıktısı için özel HTML karakterlerini kodlayın; bağlantılar ve query string'ler için URL kodlama kullanın.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 249,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Kullanıcı girdisini neden HTML olarak kodlamalıyım?",
+                "answer": "Kodlanmamış kullanıcı girdisi doğrudan HTML içine yerleştirildiğinde tarayıcı tarafından işaretleme veya script olarak yorumlanabilir. Bu durum saldırganların kötü amaçlı kod enjekte etmesine yol açabilir ve Cross-Site Scripting (XSS) açığı olarak bilinir. HTML kodlama özel karakterleri etkisizleştirir, böylece tarayıcı onları düz metin olarak işler."
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "HTML kodlama hangi karakterleri değiştirir?",
+                "answer": "Her zaman kodlanması gereken beş karakter şunlardır: & (ampersand) → &amp;amp;, < (küçüktür) → &amp;lt;, > (büyüktür) → &amp;gt;, \" (çift tırnak) → &amp;quot; ve ' (kesme işareti) → &amp;#39;. Türkçe karakterler, emoji veya aksanlı harfler genellikle güvenlidir; ancak uyumluluk için adlandırılmış ya da sayısal entity olarak da görülebilir."
+            }
+        },
+        {
+            "id": 251,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "HTML kodlama ile URL kodlama arasındaki fark nedir?",
+                "answer": "HTML kodlama, HTML işaretlemesinde özel anlamı olan karakterleri escape eder: &, <, >, \" ve '. URL kodlama, yani percent-encoding, URL içinde izin verilmeyen veya ayrılmış karakterleri escape eder; örneğin boşluklar %20 olur. HTML belgesi içinde metin gösterirken HTML kodlama, query string veya path segmentleri oluştururken URL kodlama kullanın."
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Escape edilmiş HTML kaynağını okumak için HTML decode kullanabilir miyim?",
+                "answer": "Evet. API yanıtı veya veritabanı alanı gibi bir kaynaktan escape edilmiş entity'ler içeren HTML kodu alırsanız, özgün karakterleri görmek için bunu çözücüye yapıştırabilirsiniz. Çözücü adlandırılmış entity'leri (&amp;eacute;), ondalık entity'leri (&amp;#233;) ve onaltılık entity'leri (&amp;#xE9;) işler."
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "HTML kodlama şifreleme ile aynı şey midir?",
+                "answer": "Hayır. HTML kodlama, metni HTML içinde güvenli göstermek için kullanılan geri döndürülebilir bir metin dönüşümüdür. Herkes entity'leri çözerek özgün karakterlere ulaşabilir; bu yüzden sırları, parolaları, token'ları veya özel verileri korumak için kullanılmamalıdır."
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bu araç tüm Unicode karakterlerini kodlar mı?",
+                "answer": "Kodlayıcı, işaretlemeyi en sık bozan veya güvenlik riski oluşturan HTML özel karakterlerine odaklanır: &, <, >, çift tırnak ve kesme işareti. Türkçe harfler, emoji ve diğer Unicode karakterleri okunabilir metin olarak korunur. Çözücü yine de adlandırılmış ve sayısal entity'leri tekrar Unicode karakterlerine dönüştürebilir."
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "HTML entity'lerini ne zaman çözmeliyim?",
+                "answer": "Daha önce escape edilmiş metni incelemeniz veya işlemeniz gerektiğinde HTML entity'lerini çözün: CMS dışa aktarımları, e-posta şablonları, API yanıtları, veritabanı değerleri veya kopyalanmış HTML kaynak kodu gibi. Güvenilmeyen içeriği decode ettikten sonra sanitizasyon yapmadan sayfaya ham HTML olarak eklemeyin."
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Girdilerim sunucuya gönderiliyor mu?",
+                "answer": "Hayır. HTML Encode / Decode aracı tarayıcınızda çalışır. Metin yerel olarak dönüştürülür; bu da aracı snippet'ler, şablonlar ve geliştirme içerikleri üzerinde hızlı kontroller için uygun hale getirir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 116,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "HTML etiketleri",
+                "key": "",
+                "shift": 0,
+                "input": "<h1>Merhaba & \"dünya\"</h1>",
+                "output": "&lt;h1&gt;Merhaba &amp; &quot;dünya&quot;&lt;/h1&gt;",
+                "description": "<, >, \" ve & karakterleri HTML entity olarak kodlanır."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "XSS önleme",
+                "key": "",
+                "shift": 0,
+                "input": "<script>alert('xss')</script>",
+                "output": "&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;",
+                "description": "Script etiketlerini kodlamak, enjeksiyon kodunu HTML çıktısında metin olarak gösterildiğinde zararsız hale getirir."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Entity çözme",
+                "key": "",
+                "shift": 0,
+                "input": "&lt;p&gt;Kahve &amp; T&uuml;rk&ccedil;e &copy; 2026&lt;/p&gt;",
+                "output": "<p>Kahve & Türkçe © 2026</p>",
+                "description": "&uuml;, &ccedil; ve &copy; gibi adlandırılmış entity'ler tekrar Unicode karakterlerine dönüştürülür."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "HTML öznitelikli metin",
+                "key": "",
+                "shift": 0,
+                "input": "<a href=\"/search?q=çay&sort=asc\">En \"iyi\" çay</a>",
+                "output": "&lt;a href=&quot;/search?q=çay&amp;sort=asc&quot;&gt;En &quot;iyi&quot; çay&lt;/a&gt;",
+                "description": "Açılı parantezler, ampersand ve tırnak işaretleri escape edilir; böylece parça düz metin olarak gösterilebilir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 181,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "HTML kodlama"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "XSS önleme"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "HTML entity"
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "HTML decode"
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Entity dönüştürücü"
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Web geliştirme"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

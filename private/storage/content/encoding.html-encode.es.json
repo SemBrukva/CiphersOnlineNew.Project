@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:51:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "html-encode",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 31,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 31,
+        "data": {
+            "name": "HTML Encode / Decode",
+            "name_short": "HTML Encode",
+            "description": "Convierte caracteres especiales de HTML en entidades y decodifica HTML escapado para recuperar texto legible. Codifica &, <, >, \" y ' para una salida HTML segura en plantillas, comentarios y contenido generado por usuarios; decodifica entidades HTML con nombre, decimales y hexadecimales de vuelta a caracteres Unicode.",
+            "description_stort": "Codifica caracteres especiales de HTML como entidades y decodifica entidades con nombre, decimales o hexadecimales de vuelta a texto.",
+            "meta_title": "HTML Encode / Decode online | Conversor de entidades HTML",
+            "meta_description": "Herramienta gratuita de HTML Encode/Decode para desarrollo, edición y SEO. Escapa &, <, >, comillas y apóstrofos como entidades HTML o decodifica entidades con nombre, decimales y hexadecimales en tu navegador."
+        }
+    },
+    "blocks": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "¿Qué es la codificación HTML?",
+                "text": "<p>La codificación HTML convierte caracteres especiales en entidades HTML para que el navegador los muestre como texto en lugar de interpretarlos como marcado. Por ejemplo, el signo menor que <code>&lt;</code> se convierte en <code>&amp;lt;</code>, y el ampersand <code>&amp;</code> se convierte en <code>&amp;amp;</code>.</p><p>Esto es esencial al insertar en una página HTML texto proporcionado por usuarios, fragmentos de código, nombres de productos, comentarios, contenido de CMS o cadenas traducidas. Escapar los caracteres adecuados ayuda a prevenir vulnerabilidades de Cross-Site Scripting (XSS) y evita diseños rotos causados por etiquetas o atributos accidentales.</p>"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Codificar y decodificar entidades HTML",
+                "text": "<p>La codificación reemplaza los cinco caracteres especiales de HTML por sus entidades equivalentes: <code>&amp;</code> → <code>&amp;amp;</code>, <code>&lt;</code> → <code>&amp;lt;</code>, <code>&gt;</code> → <code>&amp;gt;</code>, <code>\"</code> → <code>&amp;quot;</code> y <code>'</code> → <code>&amp;#39;</code>.</p><p>La decodificación es el proceso inverso: convierte entidades HTML — con nombre, como <code>&amp;eacute;</code>, decimales como <code>&amp;#233;</code> o hexadecimales como <code>&amp;#xE9;</code> — de vuelta a sus caracteres Unicode. Es útil para leer código HTML escapado, limpiar fragmentos copiados, revisar salidas de CMS o depurar respuestas de API que contienen texto codificado como entidades.</p>"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cuándo usar este conversor de entidades HTML",
+                "text": "<p>Usa el codificador cuando el texto deba aparecer dentro de un documento HTML exactamente como fue escrito: ejemplos de documentación, fragmentos de código visibles, reseñas de clientes, títulos de artículos, vistas previas de formularios o cualquier campo que pueda contener corchetes angulares, ampersands o comillas.</p><p>Usa el decodificador cuando necesites convertir contenido escapado de vuelta a texto legible, como <code>&amp;lt;div&amp;gt;</code>, <code>&amp;copy;</code>, <code>&amp;#169;</code> o <code>&amp;#x1F600;</code>. La herramienta es práctica para desarrollo web, QA, auditorías SEO, migración de contenido, plantillas de email y tickets de soporte donde el marcado codificado es difícil de inspeccionar a simple vista.</p>"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "La codificación HTML depende del contexto",
+                "text": "<p>La codificación HTML no es cifrado y no oculta datos. Es una técnica de escape de salida para el contexto HTML. Ayuda a que el navegador trate los caracteres especiales como texto, pero en aplicaciones de producción debe combinarse con validación, sanitización y el escape propio del framework utilizado.</p><p>Cada contexto necesita reglas de escape distintas. El texto dentro de HTML, los valores dentro de URLs, las cadenas JavaScript, CSS y las consultas SQL no son intercambiables. Para salida HTML, codifica los caracteres especiales de HTML; para enlaces y query strings, usa codificación URL.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 249,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Por qué debo codificar entradas de usuario en HTML?",
+                "answer": "Una entrada de usuario sin codificar insertada directamente en HTML puede ser interpretada como marcado o script, permitiendo que un atacante inyecte código malicioso. Esta vulnerabilidad se conoce como Cross-Site Scripting (XSS). La codificación HTML neutraliza los caracteres especiales para que el navegador los trate como texto plano."
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Qué caracteres reemplaza la codificación HTML?",
+                "answer": "Los cinco caracteres que siempre deben codificarse son: & (ampersand) → &amp;amp;, < (menor que) → &amp;lt;, > (mayor que) → &amp;gt;, \" (comillas dobles) → &amp;quot; y ' (apóstrofo) → &amp;#39;. Otros caracteres, como letras acentuadas, suelen ser seguros, aunque también pueden aparecer como entidades con nombre o numéricas por compatibilidad."
+            }
+        },
+        {
+            "id": 251,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Cuál es la diferencia entre codificación HTML y codificación URL?",
+                "answer": "La codificación HTML escapa caracteres que tienen significado especial en el marcado HTML: &, <, >, \" y '. La codificación URL, o percent-encoding, escapa caracteres no permitidos o reservados en URLs, como espacios (%20). Usa codificación HTML al mostrar texto dentro de un documento HTML y codificación URL al construir query strings o segmentos de ruta."
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Puedo usar la decodificación HTML para leer código HTML escapado?",
+                "answer": "Sí. Si recibes código HTML que contiene entidades escapadas, por ejemplo desde una respuesta de API o un campo de base de datos, puedes pegarlo en el decodificador para ver los caracteres originales. El decodificador maneja entidades con nombre (&amp;eacute;), entidades decimales (&amp;#233;) y entidades hexadecimales (&amp;#xE9;)."
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿La codificación HTML es lo mismo que el cifrado?",
+                "answer": "No. La codificación HTML es una transformación reversible de texto para mostrarlo de forma segura en HTML. Cualquiera puede decodificar las entidades y recuperar los caracteres originales, por lo que no debe usarse para proteger secretos, contraseñas, tokens o datos privados."
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Esta herramienta codifica todos los caracteres Unicode?",
+                "answer": "El codificador se centra en los caracteres especiales de HTML que suelen romper el marcado o crear riesgos de seguridad: &, <, >, comillas dobles y apóstrofos. Letras acentuadas, emoji y otros caracteres Unicode se conservan como texto legible. El decodificador, aun así, puede convertir entidades con nombre y numéricas de vuelta a caracteres Unicode."
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Cuándo debo decodificar entidades HTML?",
+                "answer": "Decodifica entidades HTML cuando necesites inspeccionar o procesar texto que ya fue escapado, como exportaciones de CMS, plantillas de email, respuestas de API, valores de base de datos o código HTML copiado. No decodifiques contenido no confiable para insertarlo después como HTML sin procesar, a menos que también haya sido sanitizado."
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "¿Mis entradas se envían a un servidor?",
+                "answer": "No. La herramienta HTML Encode / Decode se ejecuta en tu navegador. El texto se transforma localmente, por lo que es adecuada para comprobaciones rápidas de fragmentos, plantillas y contenido de desarrollo."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 116,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Etiquetas HTML",
+                "key": "",
+                "shift": 0,
+                "input": "<h1>Hola & \"mundo\"</h1>",
+                "output": "&lt;h1&gt;Hola &amp; &quot;mundo&quot;&lt;/h1&gt;",
+                "description": "Los caracteres <, >, \" y & se codifican como entidades HTML."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Prevención de XSS",
+                "key": "",
+                "shift": 0,
+                "input": "<script>alert('xss')</script>",
+                "output": "&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;",
+                "description": "Codificar etiquetas script hace que el código de inyección sea inofensivo cuando se muestra como texto en HTML."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Decodificar entidades",
+                "key": "",
+                "shift": 0,
+                "input": "&lt;p&gt;Caf&eacute; &amp; ni&ntilde;o &copy; 2026&lt;/p&gt;",
+                "output": "<p>Café & niño © 2026</p>",
+                "description": "Entidades con nombre como &eacute;, &ntilde; y &copy; se convierten de nuevo en caracteres Unicode."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Texto con atributo HTML",
+                "key": "",
+                "shift": 0,
+                "input": "<a href=\"/search?q=té&sort=asc\">El \"mejor\" té</a>",
+                "output": "&lt;a href=&quot;/search?q=té&amp;sort=asc&quot;&gt;El &quot;mejor&quot; té&lt;/a&gt;",
+                "description": "Los corchetes angulares, ampersands y comillas se escapan para que el fragmento pueda mostrarse como texto normal."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 181,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Codificación HTML"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Prevención de XSS"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Entidades HTML"
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "HTML decode"
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Conversor de entidades"
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Desarrollo web"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

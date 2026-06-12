@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:51:54+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "html-encode",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 31,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 31,
+        "data": {
+            "name": "HTML Encode / Decode",
+            "name_short": "HTML Encode",
+            "description": "Convertissez les caractères spéciaux HTML en entités et décodez du HTML échappé pour retrouver un texte lisible. Encodez &, <, >, \" et ' pour une sortie HTML sûre dans les modèles, commentaires et contenus générés par les utilisateurs ; décodez les entités HTML nommées, décimales et hexadécimales en caractères Unicode.",
+            "description_stort": "Encodez les caractères spéciaux HTML en entités et décodez les entités nommées, décimales ou hexadécimales en texte.",
+            "meta_title": "HTML Encode / Decode en ligne | Convertisseur d'entités HTML",
+            "meta_description": "Outil HTML Encode/Decode gratuit pour le développement, l'édition et le SEO. Échappez &, <, >, guillemets et apostrophes en entités HTML ou décodez des entités nommées, décimales et hexadécimales dans votre navigateur."
+        }
+    },
+    "blocks": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Qu'est-ce que l'encodage HTML ?",
+                "text": "<p>L'encodage HTML convertit les caractères spéciaux en entités HTML afin que le navigateur les affiche comme du texte au lieu de les interpréter comme du balisage. Par exemple, le signe inférieur à <code>&lt;</code> devient <code>&amp;lt;</code>, et l'esperluette <code>&amp;</code> devient <code>&amp;amp;</code>.</p><p>C'est essentiel lorsque vous insérez dans une page HTML du texte fourni par des utilisateurs, des extraits de code, des noms de produits, des commentaires, du contenu CMS ou des chaînes traduites. Échapper les bons caractères aide à prévenir les failles Cross-Site Scripting (XSS) et évite les mises en page cassées par des balises ou attributs accidentels.</p>"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Encoder et décoder les entités HTML",
+                "text": "<p>L'encodage remplace les cinq caractères spéciaux HTML par leurs entités équivalentes : <code>&amp;</code> → <code>&amp;amp;</code>, <code>&lt;</code> → <code>&amp;lt;</code>, <code>&gt;</code> → <code>&amp;gt;</code>, <code>\"</code> → <code>&amp;quot;</code> et <code>'</code> → <code>&amp;#39;</code>.</p><p>Le décodage est l'opération inverse : il convertit les entités HTML — nommées, comme <code>&amp;eacute;</code>, décimales comme <code>&amp;#233;</code> ou hexadécimales comme <code>&amp;#xE9;</code> — en caractères Unicode. C'est utile pour lire du code HTML échappé, nettoyer des extraits copiés, vérifier une sortie CMS ou déboguer des réponses d'API contenant du texte encodé sous forme d'entités.</p>"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser ce convertisseur d'entités HTML",
+                "text": "<p>Utilisez l'encodeur lorsque le texte doit apparaître dans un document HTML exactement comme il a été écrit : exemples de documentation, fragments de code visibles, avis clients, titres d'articles, aperçus de formulaires ou tout champ pouvant contenir des chevrons, esperluettes ou guillemets.</p><p>Utilisez le décodeur lorsque vous devez rendre lisible un contenu échappé, comme <code>&amp;lt;div&amp;gt;</code>, <code>&amp;copy;</code>, <code>&amp;#169;</code> ou <code>&amp;#x1F600;</code>. L'outil est pratique pour le développement web, la QA, les audits SEO, la migration de contenu, les modèles d'e-mail et les tickets de support où le balisage encodé est difficile à inspecter à l'œil nu.</p>"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "L'encodage HTML dépend du contexte",
+                "text": "<p>L'encodage HTML n'est pas du chiffrement et ne masque pas les données. C'est une technique d'échappement de sortie pour le contexte HTML. Elle aide le navigateur à traiter les caractères spéciaux comme du texte, mais dans une application de production elle doit être combinée avec la validation, la sanitisation et l'échappement fourni par le framework.</p><p>Chaque contexte nécessite ses propres règles d'échappement. Le texte dans HTML, les valeurs dans les URL, les chaînes JavaScript, le CSS et les requêtes SQL ne sont pas interchangeables. Pour une sortie HTML, encodez les caractères spéciaux HTML ; pour les liens et les query strings, utilisez l'encodage URL.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 249,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Pourquoi encoder les entrées utilisateur en HTML ?",
+                "answer": "Une entrée utilisateur non encodée insérée directement dans du HTML peut être interprétée comme du balisage ou du script, ce qui permet à un attaquant d'injecter du code malveillant. Cette faille s'appelle Cross-Site Scripting (XSS). L'encodage HTML neutralise les caractères spéciaux afin que le navigateur les traite comme du texte brut."
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quels caractères l'encodage HTML remplace-t-il ?",
+                "answer": "Les cinq caractères à toujours encoder sont : & (esperluette) → &amp;amp;, < (inférieur à) → &amp;lt;, > (supérieur à) → &amp;gt;, \" (guillemet double) → &amp;quot; et ' (apostrophe) → &amp;#39;. D'autres caractères, comme les lettres accentuées, sont généralement sûrs, mais peuvent aussi apparaître sous forme d'entités nommées ou numériques pour des raisons de compatibilité."
+            }
+        },
+        {
+            "id": 251,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre encodage HTML et encodage URL ?",
+                "answer": "L'encodage HTML échappe les caractères qui ont une signification spéciale dans le balisage HTML : &, <, >, \" et '. L'encodage URL, ou percent-encoding, échappe les caractères interdits ou réservés dans les URL, comme les espaces (%20). Utilisez l'encodage HTML pour afficher du texte dans un document HTML et l'encodage URL pour construire des query strings ou des segments de chemin."
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Puis-je utiliser le décodage HTML pour lire du code HTML échappé ?",
+                "answer": "Oui. Lorsque vous recevez du code HTML contenant des entités échappées, par exemple depuis une réponse d'API ou un champ de base de données, vous pouvez le coller dans le décodeur pour voir les caractères d'origine. Le décodeur gère les entités nommées (&amp;eacute;), décimales (&amp;#233;) et hexadécimales (&amp;#xE9;)."
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "L'encodage HTML est-il la même chose que le chiffrement ?",
+                "answer": "Non. L'encodage HTML est une transformation réversible du texte pour l'afficher en sécurité dans du HTML. Toute personne peut décoder les entités et retrouver les caractères d'origine ; il ne faut donc pas l'utiliser pour protéger des secrets, mots de passe, jetons ou données privées."
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Cet outil encode-t-il tous les caractères Unicode ?",
+                "answer": "L'encodeur se concentre sur les caractères spéciaux HTML qui cassent le plus souvent le balisage ou créent des risques de sécurité : &, <, >, guillemets doubles et apostrophes. Les lettres accentuées, emoji et autres caractères Unicode restent en texte lisible. Le décodeur peut toutefois convertir les entités nommées et numériques en caractères Unicode."
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Quand faut-il décoder des entités HTML ?",
+                "answer": "Décodez les entités HTML lorsque vous devez inspecter ou traiter un texte qui a déjà été échappé, comme des exports CMS, modèles d'e-mail, réponses d'API, valeurs de base de données ou du code HTML copié. N'insérez pas du contenu non fiable décodé comme HTML brut dans une page, sauf s'il a aussi été sanitisé."
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Mes données sont-elles envoyées à un serveur ?",
+                "answer": "Non. L'outil HTML Encode / Decode fonctionne dans votre navigateur. Votre texte est transformé localement, ce qui convient aux vérifications rapides de snippets, modèles et contenus de développement."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 116,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Balises HTML",
+                "key": "",
+                "shift": 0,
+                "input": "<h1>Bonjour & \"monde\"</h1>",
+                "output": "&lt;h1&gt;Bonjour &amp; &quot;monde&quot;&lt;/h1&gt;",
+                "description": "Les caractères <, >, \" et & sont encodés sous forme d'entités HTML."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Prévention XSS",
+                "key": "",
+                "shift": 0,
+                "input": "<script>alert('xss')</script>",
+                "output": "&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;",
+                "description": "Encoder les balises script rend le code d'injection inoffensif lorsqu'il est affiché comme texte en HTML."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Décoder des entités",
+                "key": "",
+                "shift": 0,
+                "input": "&lt;p&gt;Caf&eacute; &amp; na&iuml;f &copy; 2026&lt;/p&gt;",
+                "output": "<p>Café & naïf © 2026</p>",
+                "description": "Les entités nommées comme &eacute;, &iuml; et &copy; sont reconverties en caractères Unicode."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Texte avec attribut HTML",
+                "key": "",
+                "shift": 0,
+                "input": "<a href=\"/search?q=thé&sort=asc\">Le \"meilleur\" thé</a>",
+                "output": "&lt;a href=&quot;/search?q=thé&amp;sort=asc&quot;&gt;Le &quot;meilleur&quot; thé&lt;/a&gt;",
+                "description": "Les chevrons, esperluettes et guillemets sont échappés afin que le fragment puisse être affiché comme du texte."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 181,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Encodage HTML"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Prévention XSS"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Entités HTML"
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "HTML decode"
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Convertisseur d'entités"
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Développement web"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

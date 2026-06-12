@@ -34,7 +34,8 @@ final readonly class ToolRegistry
         private FrequencyAnalysisService $frequencyAnalysis,
         private CaesarBruteForceService $caesarBruteForce,
         private LetterFrequencyService $letterFrequency,
-        private NumbersToLettersService $numbersToLetters
+        private NumbersToLettersService $numbersToLetters,
+        private HtmlEncodeCipherService $htmlEncode
     ) {
     }
 
@@ -83,6 +84,11 @@ final readonly class ToolRegistry
                 ['label' => 'JWT', 'value' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obiIsImFkbWluIjp0cnVlfQ.signature'],
                 ['label' => 'Demo', 'value' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiZWRpdG9yIiwiaWF0IjoxNzAwMDAwMDAwfQ.demo'],
                 ['label' => 'ID', 'value' => 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTIzLCJuYW1lIjoiQWxpY2UifQ.test'],
+            ],
+            'encoding/html-encode' => [
+                ['label' => 'Tags',    'value' => '<h1>Hello & "World"</h1>'],
+                ['label' => 'Script',  'value' => '<script>alert(\'xss\')</script>'],
+                ['label' => 'Encoded', 'value' => '&lt;p&gt;Caf&eacute; &amp; na&iuml;ve&lt;/p&gt;', 'direction' => 'decrypt'],
             ],
             'classical-ciphers/playfair' => [
                 ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'MONARCHY'],
@@ -214,6 +220,7 @@ final readonly class ToolRegistry
             'classical-ciphers/hill' => 'hill',
             'codes-and-alphabets/morse-code' => null,
             'codes-and-alphabets/numbers-to-letters' => null,
+            'encoding/html-encode' => null,
             'text-analysis/frequency-analysis' => null,
             'text-analysis/caesar-brute-force' => 'caesar-brute-force',
             'text-analysis/letter-frequency' => null,
@@ -248,6 +255,7 @@ final readonly class ToolRegistry
             'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
+            'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getToolSettings(),
             'text-analysis/letter-frequency'   => $this->letterFrequency->getToolSettings(),
@@ -283,6 +291,7 @@ final readonly class ToolRegistry
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),
             'text-analysis/letter-frequency'   => $this->letterFrequency->getTrustItems($calculationMode),
+            'encoding/html-encode' => $this->htmlEncode->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),

@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T14:02:37+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "html-encode",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 31,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 31,
+        "data": {
+            "name": "HTML Encode / Decode",
+            "name_short": "HTML Encode",
+            "description": "Convert HTML special characters to entities and decode escaped HTML back to readable text. Encode &, <, >, \", and ' for safe HTML output, templates, comments, and user-generated content; decode named, decimal, and hexadecimal HTML entities back to Unicode characters.",
+            "description_stort": "Encode HTML special characters as entities and decode named, decimal, or hexadecimal entities back to text.",
+            "meta_title": "HTML Encode / Decode Online | HTML Entity Converter",
+            "meta_description": "Free HTML Encode/Decode tool for developers, editors, and SEO work. Escape &, <, >, quotes, and apostrophes to HTML entities or decode named, decimal, and hex entities in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is HTML encoding?",
+                "text": "<p>HTML encoding converts special characters into HTML entities so browsers display them as text rather than interpreting them as markup. For example, the less-than sign <code>&lt;</code> becomes <code>&amp;lt;</code>, and the ampersand <code>&amp;</code> becomes <code>&amp;amp;</code>.</p><p>This is essential when placing user-supplied text, code snippets, product names, comments, CMS content, or translated strings inside an HTML page. Escaping the right characters helps prevent cross-site scripting (XSS) vulnerabilities and avoids broken layouts caused by accidental tags or attributes.</p>"
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Encoding vs decoding HTML entities",
+                "text": "<p>Encoding replaces the five HTML-special characters with their entity equivalents: <code>&amp;</code> → <code>&amp;amp;</code>, <code>&lt;</code> → <code>&amp;lt;</code>, <code>&gt;</code> → <code>&amp;gt;</code>, <code>\"</code> → <code>&amp;quot;</code>, and <code>'</code> → <code>&amp;#39;</code>.</p><p>Decoding is the reverse process: it converts HTML entities — named (for example <code>&amp;eacute;</code>), decimal (<code>&amp;#233;</code>), or hexadecimal (<code>&amp;#xE9;</code>) — back to their Unicode characters. This is useful for reading escaped HTML source, cleaning copied snippets, checking CMS output, or debugging API responses that contain entity-encoded text.</p>"
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "When to use this HTML entity converter",
+                "text": "<p>Use the encoder when text must appear inside an HTML document exactly as written: documentation examples, visible code fragments, customer reviews, article titles, form previews, or any field that may contain angle brackets, ampersands, or quotes.</p><p>Use the decoder when you need to turn escaped content back into readable text, such as <code>&amp;lt;div&amp;gt;</code>, <code>&amp;copy;</code>, <code>&amp;#169;</code>, or <code>&amp;#x1F600;</code>. The tool is practical for web development, QA, SEO audits, content migration, email templates, and support tickets where encoded markup is difficult to inspect by eye.</p>"
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "HTML encoding is context-specific",
+                "text": "<p>HTML encoding is not encryption and does not hide data. It is an output-escaping technique for the HTML context. It helps the browser treat special characters as text, but it should be used together with proper validation, sanitization, and framework-level escaping in production applications.</p><p>Different contexts need different escaping rules. Text inside HTML, values inside URLs, JavaScript strings, CSS, and SQL queries are not interchangeable. For HTML output, encode the special HTML characters; for links and query strings, use URL encoding instead.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 249,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why should I HTML-encode user input?",
+                "answer": "Unencoded user input embedded directly in HTML can be interpreted as markup or script, allowing attackers to inject malicious code — a vulnerability known as Cross-Site Scripting (XSS). HTML encoding neutralises special characters so the browser treats them as plain text."
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Which characters does HTML encoding replace?",
+                "answer": "The five characters that must always be encoded are: & (ampersand) → &amp;amp;, < (less-than) → &amp;lt;, > (greater-than) → &amp;gt;, \" (double quote) → &amp;quot;, and ' (single quote/apostrophe) → &amp;#39;. Other characters such as accented letters are safe but may also be encoded as named or numeric entities for compatibility."
+            }
+        },
+        {
+            "id": 251,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What is the difference between HTML encoding and URL encoding?",
+                "answer": "HTML encoding escapes characters that have special meaning in HTML markup (&, <, >, \", '). URL encoding (percent-encoding) escapes characters not allowed in URLs, such as spaces (%20) and reserved characters. Both are context-specific: use HTML encoding when outputting text inside an HTML document, and URL encoding when building query strings or path segments."
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can HTML decoding be used to read escaped HTML source?",
+                "answer": "Yes. When you receive HTML source code that contains escaped entities — for example from an API response or a database field — you can paste it into the decoder to see the original characters. The decoder handles named entities (&amp;eacute;), decimal entities (&amp;#233;), and hexadecimal entities (&amp;#xE9;)."
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is HTML encoding the same as encryption?",
+                "answer": "No. HTML encoding is a reversible text transformation for safe display in HTML. Anyone can decode entities back to the original characters, so it should not be used to protect secrets, passwords, tokens, or private data."
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does this tool encode all Unicode characters?",
+                "answer": "The encoder focuses on the HTML-special characters that commonly break markup or create security issues: &, <, >, double quotes, and apostrophes. Unicode letters, emoji, and accented characters are preserved as readable text. The decoder can still convert named and numeric entities back to Unicode characters."
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "When should I decode HTML entities?",
+                "answer": "Decode HTML entities when you need to inspect or process text that was previously escaped, such as CMS exports, email templates, API responses, database values, or copied HTML source. Do not decode untrusted content and then insert it into a page as raw HTML unless it has also been sanitized."
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Are my inputs sent to a server?",
+                "answer": "No. The HTML Encode / Decode tool runs in your browser. Your text is transformed locally, which makes it suitable for quick checks with snippets, templates, and development content."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 116,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "HTML tags",
+                "key": "",
+                "shift": 0,
+                "input": "<h1>Hello & \"World\"</h1>",
+                "output": "&lt;h1&gt;Hello &amp; &quot;World&quot;&lt;/h1&gt;",
+                "description": "The < > \" and & characters are all encoded as HTML entities."
+            }
+        },
+        {
+            "id": 117,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "XSS prevention",
+                "key": "",
+                "shift": 0,
+                "input": "<script>alert('xss')</script>",
+                "output": "&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;",
+                "description": "Encoding script tags makes injection code harmless in HTML output."
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Decode entities",
+                "key": "",
+                "shift": 0,
+                "input": "&lt;p&gt;Caf&eacute; &amp; na&iuml;ve&lt;/p&gt;",
+                "output": "<p>Café & naïve</p>",
+                "description": "Named entities like &eacute; and &iuml; are converted back to their Unicode characters."
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "HTML attribute text",
+                "key": "",
+                "shift": 0,
+                "input": "<a href=\"/search?q=tea&sort=asc\">Tea's \"best\"</a>",
+                "output": "&lt;a href=&quot;/search?q=tea&amp;sort=asc&quot;&gt;Tea&#39;s &quot;best&quot;&lt;/a&gt;",
+                "description": "Angle brackets, ampersands, quotes, and apostrophes are escaped so the snippet can be displayed as text."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 181,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "HTML encoding"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "XSS prevention"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "HTML entities"
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "HTML decode"
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Entity converter"
+            }
+        },
+        {
+            "id": 186,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Web development"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
