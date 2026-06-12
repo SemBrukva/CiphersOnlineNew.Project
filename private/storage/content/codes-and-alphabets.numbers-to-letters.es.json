@@ -1,0 +1,282 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:00:12+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "numbers-to-letters",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 30,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 30,
+        "data": {
+            "name": "Convertidor de números a letras",
+            "name_short": "Números ↔ Letras",
+            "description": "Convierte números en letras y letras en números online. Usa posiciones del alfabeto al estilo A1Z26, indexación A=0, puntos de código Unicode decimales, hexadecimal o binario con delimitadores personalizados y alfabetos multilingües.",
+            "description_stort": "Convierte posiciones alfabéticas, códigos ASCII/Unicode, hex y binary en texto legible y viceversa.",
+            "meta_title": "Convertidor de números a letras online | Letras a números",
+            "meta_description": "Convertidor gratuito de números a letras para A1Z26, A=0, ASCII/Unicode decimal, hex y binary. Convierte letras a números, decodifica secuencias numéricas y elige delimitadores."
+        }
+    },
+    "blocks": [
+        {
+            "id": 117,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el convertidor de números a letras",
+                "text": "<p>El convertidor de números a letras transforma secuencias numéricas en texto legible y también puede convertir texto de vuelta a números. Es útil para acertijos con posiciones alfabéticas, mensajes de estilo A1Z26, ejercicios educativos, códigos simples y comprobaciones rápidas de códigos de caracteres decimales, hexadecimales o binarios.</p><p><strong>Modo posicional (A=1):</strong> cada letra se asigna a su posición en el alfabeto seleccionado, empezando por 1. En el alfabeto español de esta herramienta, A=1, B=2, C=3, Ñ=15 y Z=27. En inglés, A=1, B=2 y Z=26.</p><p><strong>Modo posicional (A=0):</strong> usa la misma idea de posición alfabética, pero la cuenta empieza en cero. En español, A=0, B=1, C=2, Ñ=14 y Z=26. Este formato suele ser más cómodo cuando se compara el resultado con índices usados en programación.</p><p><strong>Puntos de código decimales:</strong> cada carácter se representa por su Unicode code point numérico. Para caracteres ASCII comunes, produce valores conocidos como A=65, a=97 y espacio=32.</p><p><strong>Hexadecimal:</strong> los códigos de caracteres se escriben en hexadecimal en mayúsculas, sin prefijo. Por ejemplo, A se convierte en 41 y a en 61.</p><p><strong>Binario:</strong> los códigos de caracteres se escriben como valores binarios con ceros iniciales, por ejemplo A=01000001. Los caracteres Unicode fuera del ASCII básico pueden generar más de 8 bits porque el convertidor trabaja con code points de caracteres.</p>"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Alfabetos, delimitadores y formatos de entrada",
+                "text": "<p>En los modos posicionales, elige el alfabeto que corresponde al mensaje. El convertidor admite inglés (26 letras), ruso (33 letras), alemán (29 letras con Ä, Ö, Ü), español (27 letras con Ñ), francés (40 letras con acentos), italiano (26 letras), portugués (35 letras con acentos) y turco (29 letras con Ç, Ğ, İ, Ö, Ş, Ü).</p><p>La opción de delimitador controla cómo se separan los números dentro de cada palabra. Puedes usar espacios, guiones, comas, barras o puntos. Con guiones, <code>8-16-12-1</code> se convierte en <code>hola</code>. Con espacios, <code>8 16 12 1</code> da el mismo resultado.</p><p>Cuando usas guion, coma, barra o punto, los espacios entre grupos se tratan como límites de palabra. En el modo delimitado por espacios, cada número se lee en secuencia, así que el convertidor no puede saber dónde terminaba cada palabra original si el texto no usa otro separador.</p><p>La detección automática del alfabeto se usa al convertir letras a números en los modos posicionales. Al convertir números de vuelta a letras, conviene elegir explícitamente el alfabeto correcto si el mensaje no está en inglés. Los modos decimal, hex y binario ignoran la opción de alfabeto porque cada carácter se procesa directamente por su code point.</p>"
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cuándo usar cada modo",
+                "text": "<p>Usa el <strong>modo posicional A=1</strong> para códigos clásicos de letra a número, pistas de acertijos, geocaching, escape rooms, ejercicios de clase y códigos tipo A1Z26 donde 1 representa la primera letra del alfabeto.</p><p>Usa el <strong>modo posicional A=0</strong> cuando una tarea espera índices alfabéticos basados en cero, por ejemplo ejercicios de programación, ejemplos con arrays o cifrados personalizados que empiezan a contar desde 0.</p><p>Usa los <strong>modos de code point decimal, hex o binario</strong> cuando la entrada representa códigos de caracteres y no posiciones del alfabeto. Estos modos son mejores para decodificar secuencias como <code>78 105 241 111</code>, <code>48 65 6C 6C 6F</code> o <code>01001000 01101001</code>.</p><p>Si un número no existe en el alfabeto seleccionado en modo posicional, o si un token no es válido para el formato elegido, el convertidor lo conserva sin cambios. Así puedes detectar errores de formato sin perder la entrada original.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 241,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Cuál es la diferencia entre los modos A=1 y A=0?",
+                "answer": "En el modo A=1, la primera letra del alfabeto vale 1, como en la notación clásica A1Z26. En el modo A=0, la primera letra vale 0, lo que resulta más cómodo en contextos de programación y comparación de índices."
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Qué delimitador debería usar?",
+                "answer": "Usa el delimitador que coincida con tu entrada: espacio, guion, coma, barra o punto. En modos posicionales, los guiones son útiles si quieres conservar límites de palabra, por ejemplo 8-16-12-1 13-22-14-4-16. La entrada separada por espacios es sencilla, pero no conserva la agrupación original de palabras."
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Funciona con español y otros alfabetos?",
+                "answer": "Sí. En los modos posicionales puedes elegir español, inglés, ruso, alemán, francés, italiano, portugués o turco. La opción Auto detecta el alfabeto más probable al convertir letras a números. Los modos decimal, hex y binario codifican Unicode code points y no se limitan a un alfabeto concreto."
+            }
+        },
+        {
+            "id": 244,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿En qué se diferencia de un cifrado A1Z26?",
+                "answer": "A1Z26 es el sistema específico de posiciones alfabéticas con A=1. Este convertidor incluye ese modo, pero también admite A=0, puntos de código decimales, hexadecimal, binario, alfabetos multilingües y delimitadores configurables. Si solo necesitas A=1 en inglés, ambos dan el mismo resultado."
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Puedo convertir letras a números además de números a letras?",
+                "answer": "Sí. La herramienta tiene dos pestañas: Numbers to Letters para decodificar una entrada numérica en texto, y Letters to Numbers para convertir texto en salida numérica. Los mismos ajustes de modo, alfabeto y delimitador se usan en ambas direcciones."
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Por qué un número quedó sin cambios en el resultado?",
+                "answer": "En los modos posicionales, el número debe existir en el alfabeto seleccionado. Por ejemplo, 27 es válido para español, pero está fuera del rango del alfabeto inglés. En los modos decimal, hex o binario, el token debe ser válido para ese formato numérico. Los valores inválidos o fuera de rango se conservan para que puedas corregir la entrada."
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Es un convertidor ASCII o Unicode?",
+                "answer": "Para letras inglesas comunes, dígitos y signos de puntuación, los modos decimal, hex y binario coinciden con los valores ASCII conocidos. Técnicamente, el convertidor usa Unicode code points, por lo que también puede procesar muchos caracteres no ASCII, como Ñ o letras acentuadas."
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "¿Es segura esta codificación de números a letras?",
+                "answer": "No. Las posiciones alfabéticas y los códigos de caracteres son representaciones simples, no cifrado seguro. Son adecuados para aprendizaje, acertijos, formato, depuración y retos ligeros de codificación."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 112,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Números a letras (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "8 16 12 1",
+                "output": "hola",
+                "description": "Modo posicional con base 1, alfabeto español, delimitador de espacio."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Letras a números (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "Hola mundo",
+                "output": "8 16 12 1 13 22 14 4 16",
+                "description": "Modo posicional con base 1, alfabeto español, delimitador de espacio."
+            }
+        },
+        {
+            "id": 114,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "ascii",
+            "data": {
+                "title": "Puntos de código Unicode decimales",
+                "key": "",
+                "shift": 0,
+                "input": "78 105 241 111",
+                "output": "Niño",
+                "description": "Modo decimal: cada número es el Unicode code point de un carácter."
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "binary",
+            "data": {
+                "title": "Modo binario",
+                "key": "",
+                "shift": 0,
+                "input": "01010011 01101001",
+                "output": "Si",
+                "description": "Modo binario: cada token es el code point binario de un carácter."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Convertidor de números a letras"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Convertidor de letras a números"
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Convertidor A1Z26"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Convertidor ASCII Unicode"
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Posiciones del alfabeto"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Texto a números"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Números a texto"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Hex a letras"
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "tag": "Binary a letras"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "tag": "Convertidor de code points"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -498,6 +498,19 @@ return [
     'LANG_NAME_IT'                  => 'İtalyanca',
     'LANG_NAME_PT'                  => 'Portekizce',
     'LANG_NAME_TR'                  => 'Türkçe',
+    // Numbers to Letters
+    'NUM2LET_TAB_NUMBERS_TO_LETTERS'  => 'Sayılar → Harfler',
+    'NUM2LET_TAB_LETTERS_TO_NUMBERS'  => 'Harfler → Sayılar',
+    'NUM2LET_PLACEHOLDER_NUMBERS'     => 'Sayıları girin (örn. 8 5 12 12 15)...',
+    'NUM2LET_PLACEHOLDER_LETTERS'     => 'Sayılara dönüştürülecek metni girin...',
+    'NUM2LET_SETTING_TYPE_LABEL'      => 'Kodlama',
+    'NUM2LET_TYPE_POSITIONAL_1'       => 'A–Z (1 tabanlı, A=1)',
+    'NUM2LET_TYPE_POSITIONAL_0'       => 'A–Z (0 tabanlı, A=0)',
+    'NUM2LET_TYPE_ASCII'              => 'ASCII ondalık',
+    'NUM2LET_TYPE_HEX'                => 'ASCII onaltılık',
+    'NUM2LET_TYPE_BINARY'             => 'ASCII ikili',
+    'NUM2LET_TRUST_MODES'             => '5 kodlama modu: konumsal, ASCII, hex, ikili',
+    'NUM2LET_TRUST_MULTILANG'         => 'Otomatik algılamalı çok dilli alfabe desteği',
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
 ];

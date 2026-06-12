@@ -48,6 +48,7 @@ export function initCipherToolPage() {
   const lfreqLangSelect = document.getElementById('ciphers-lfreq-lang')
   const lfreqSortSelect = document.getElementById('ciphers-lfreq-sort')
   const visualOutput = document.getElementById('ciphers-visual-output')
+  const n2lTypeSelect = document.getElementById('ciphers-n2l-type')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -59,6 +60,7 @@ export function initCipherToolPage() {
   const isAnalysisTool = Boolean(ui.analysisMode)
   const isBruteForceTool = Boolean(ui.bruteForceMode)
   const isLetterFrequencyTool = Boolean(ui.letterFrequencyMode)
+  const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
@@ -835,7 +837,12 @@ export function initCipherToolPage() {
         return
       }
 
-      output.value = transform(value, mode, decoder, { language: effectiveLang })
+      const transformOpts = { language: effectiveLang }
+      if (isNumbersToLettersTool) {
+        transformOpts.encoding = n2lTypeSelect?.value || 'positional-1'
+        transformOpts.delimiter = delimiterSelect?.value || 'space'
+      }
+      output.value = transform(value, mode, decoder, transformOpts)
       setOutputState(true)
 
       if (isMorseTool) {
@@ -1035,6 +1042,7 @@ export function initCipherToolPage() {
       const text = chip.getAttribute('data-example') || ''
       const alphabet = chip.getAttribute('data-alphabet') || ''
       const delimiter = chip.getAttribute('data-delimiter') || ''
+      const encoding = chip.getAttribute('data-encoding') || ''
       const key = chip.getAttribute('data-key')
       const keyInputId = chip.getAttribute('data-key-input') || 'ciphers-key'
       const shift = chip.getAttribute('data-shift')
@@ -1053,6 +1061,10 @@ export function initCipherToolPage() {
       if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
         delimiterSelect.value = delimiter
         delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      if (encoding && n2lTypeSelect && n2lTypeSelect.value !== encoding) {
+        n2lTypeSelect.value = encoding
+        n2lTypeSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
       const targetKeyInput = document.getElementById(keyInputId)
       if (targetKeyInput) {
@@ -1087,6 +1099,7 @@ export function initCipherToolPage() {
       const text = btn.getAttribute('data-example-text') || ''
       const alphabet = btn.getAttribute('data-alphabet') || ''
       const delimiter = btn.getAttribute('data-delimiter') || ''
+      const encoding = btn.getAttribute('data-encoding') || ''
       const key = btn.getAttribute('data-key')
       const keyInputId = btn.getAttribute('data-key-input') || 'ciphers-key'
       const shift = btn.getAttribute('data-shift')
@@ -1106,6 +1119,10 @@ export function initCipherToolPage() {
       if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
         delimiterSelect.value = delimiter
         delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      if (encoding && n2lTypeSelect && n2lTypeSelect.value !== encoding) {
+        n2lTypeSelect.value = encoding
+        n2lTypeSelect.dispatchEvent(new Event('change', { bubbles: true }))
       }
       const targetKeyInput = document.getElementById(keyInputId)
       if (targetKeyInput) {
@@ -1253,6 +1270,20 @@ export function initCipherToolPage() {
     }
     lfreqLangSelect?.addEventListener('change', () => process())
     lfreqSortSelect?.addEventListener('change', () => process())
+  }
+
+  if (isNumbersToLettersTool) {
+    n2lTypeSelect?.addEventListener('change', () => {
+      const isPositional = (n2lTypeSelect.value || '').startsWith('positional')
+      const alphabetWrap = alphabetSelect?.closest('.ciphers-settings-item')
+      if (alphabetWrap) alphabetWrap.style.display = isPositional ? '' : 'none'
+      process()
+    })
+    // Скрываем выбор алфавита при старте, если выбран ASCII-режим.
+    const isPositionalOnLoad = (n2lTypeSelect?.value || 'positional-1').startsWith('positional')
+    const alphabetWrap = alphabetSelect?.closest('.ciphers-settings-item')
+    if (alphabetWrap && !isPositionalOnLoad) alphabetWrap.style.display = 'none'
+    delimiterSelect?.addEventListener('change', () => process())
   }
 }
 

@@ -499,6 +499,19 @@ return [
     'LANG_NAME_IT'                  => 'Italienisch',
     'LANG_NAME_PT'                  => 'Portugiesisch',
     'LANG_NAME_TR'                  => 'Türkisch',
+    // Numbers to Letters
+    'NUM2LET_TAB_NUMBERS_TO_LETTERS'  => 'Zahlen → Buchstaben',
+    'NUM2LET_TAB_LETTERS_TO_NUMBERS'  => 'Buchstaben → Zahlen',
+    'NUM2LET_PLACEHOLDER_NUMBERS'     => 'Zahlen eingeben (z. B. 8 5 12 12 15)...',
+    'NUM2LET_PLACEHOLDER_LETTERS'     => 'Text für die Zahlenkonvertierung eingeben...',
+    'NUM2LET_SETTING_TYPE_LABEL'      => 'Kodierung',
+    'NUM2LET_TYPE_POSITIONAL_1'       => 'A–Z (ab 1, A=1)',
+    'NUM2LET_TYPE_POSITIONAL_0'       => 'A–Z (ab 0, A=0)',
+    'NUM2LET_TYPE_ASCII'              => 'ASCII dezimal',
+    'NUM2LET_TYPE_HEX'                => 'ASCII hexadezimal',
+    'NUM2LET_TYPE_BINARY'             => 'ASCII binär',
+    'NUM2LET_TRUST_MODES'             => '5 Kodierungsmodi: Positions-, ASCII-, Hex-, Binär-',
+    'NUM2LET_TRUST_MULTILANG'         => 'Mehrsprachige Alphabete mit automatischer Erkennung',
     // Footer
     'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',
 ];

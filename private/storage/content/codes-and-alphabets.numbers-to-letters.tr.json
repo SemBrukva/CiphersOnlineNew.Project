@@ -1,0 +1,282 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:00:12+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "numbers-to-letters",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 30,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 30,
+        "data": {
+            "name": "Sayıları harflere çevirme aracı",
+            "name_short": "Sayılar ↔ Harfler",
+            "description": "Sayıları harflere ve harfleri sayılara çevrimiçi dönüştürün. A1Z26 tarzı alfabe konumlarını, A=0 indekslemeyi, ondalık Unicode code point değerlerini, hexadecimal veya binary biçimini özel ayırıcılar ve çok dilli alfabelerle kullanın.",
+            "description_stort": "Alfabe konumlarını, ASCII/Unicode kodlarını, hex ve binary değerleri okunabilir metne ve tersine dönüştürün.",
+            "meta_title": "Sayıları Harflere Çevirme Aracı | Harfleri Sayılara Çevir",
+            "meta_description": "A1Z26, A=0, ASCII/Unicode decimal, hex ve binary için ücretsiz sayıları harflere çevirme aracı. Harfleri sayılara çevirin, sayı dizilerini çözün ve ayırıcı seçin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 117,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Sayıları harflere çevirme aracı nasıl çalışır",
+                "text": "<p>Sayıları harflere çevirme aracı, sayısal dizileri okunabilir metne dönüştürür ve metni tekrar sayılara çevirebilir. Alfabe konumu bulmacaları, A1Z26 tarzı mesajlar, eğitim alıştırmaları, basit kod sistemleri ve ondalık, hexadecimal veya binary karakter kodlarını hızlıca kontrol etmek için kullanışlıdır.</p><p><strong>Konumsal mod (A=1):</strong> her harf, seçilen alfabedeki konumuna eşlenir ve sayma 1'den başlar. Bu aracın Türkçe alfabesinde A=1, B=2, C=3, Ç=4, I=11, İ=12 ve Z=29 olur. İngilizce alfabede A=1, B=2 ve Z=26'dır.</p><p><strong>Konumsal mod (A=0):</strong> aynı alfabe konumu mantığını kullanır, ancak sayma sıfırdan başlar. Türkçe için A=0, B=1, C=2, Ç=3 ve Z=28 olur. Bu biçim, sonuçları programlamadaki indekslerle karşılaştırırken kullanışlıdır.</p><p><strong>Ondalık code point değerleri:</strong> her karakter sayısal Unicode code point değeriyle temsil edilir. Yaygın ASCII karakterleri için A=65, a=97 ve boşluk=32 gibi bilinen değerleri verir.</p><p><strong>Hexadecimal:</strong> karakter kodları önek olmadan büyük harfli hexadecimal biçimde yazılır. Örneğin A, 41; a ise 61 olur.</p><p><strong>Binary:</strong> karakter kodları başında sıfırlar bulunan binary değerler olarak yazılır; örneğin A=01000001. Basit ASCII dışındaki Unicode karakterleri 8 bitten uzun sonuçlar üretebilir, çünkü dönüştürücü karakter code point değerleriyle çalışır.</p>"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Alfabeler, ayırıcılar ve giriş biçimleri",
+                "text": "<p>Konumsal modlarda, mesajla eşleşen alfabeyi seçin. Dönüştürücü İngilizce (26 harf), Rusça (33 harf), Almanca (Ä, Ö, Ü dahil 29 harf), İspanyolca (Ñ dahil 27 harf), Fransızca (aksanlı 40 harf), İtalyanca (26 harf), Portekizce (aksanlı 35 harf) ve Türkçe (Ç, Ğ, İ, Ö, Ş, Ü dahil 29 harf) destekler.</p><p>Ayırıcı ayarı, bir kelime içindeki sayıların nasıl ayrılacağını belirler. Boşluk, tire, virgül, eğik çizgi veya nokta kullanabilirsiniz. Tireyle <code>16-6-21-10-1-2-1</code>, <code>merhaba</code> olur. Boşlukla <code>16 6 21 10 1 2 1</code> aynı sonucu verir.</p><p>Tire, virgül, eğik çizgi veya nokta seçildiğinde gruplar arasındaki boşluklar kelime sınırı olarak kabul edilir. Boşluk ayırıcı modunda her sayı sırayla okunur; bu yüzden metinde başka bir ayırıcı yoksa dönüştürücü özgün kelime sınırlarını bilemez.</p><p>Alfabe otomatik algılama, konumsal modlarda harfleri sayılara çevirirken kullanılır. Sayıları tekrar harflere çevirirken mesaj İngilizce değilse hedef alfabeyi açıkça seçmek daha doğrudur. Ondalık, hex ve binary modları alfabe ayarını dikkate almaz, çünkü her karakter doğrudan code point değeriyle işlenir.</p>"
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Hangi mod ne zaman kullanılır",
+                "text": "<p><strong>A=1 konumsal modu</strong>, klasik harf-sayı kodları, bulmaca ipuçları, geocaching, kaçış odası mesajları, sınıf etkinlikleri ve 1'in alfabedeki ilk harfi temsil ettiği A1Z26 benzeri kodlar için kullanın.</p><p><strong>A=0 konumsal modu</strong>, görev sıfır tabanlı alfabe indeksleri beklediğinde kullanın: programlama alıştırmaları, dizi indeksleriyle ilgili örnekler veya 0'dan saymaya başlayan özel kodlar gibi.</p><p><strong>Ondalık, hex veya binary code point modlarını</strong>, giriş alfabe konumları yerine karakter kodlarını temsil ediyorsa kullanın. Bu modlar <code>77 101 114 104 97 98 97</code>, <code>48 65 6C 6C 6F</code> veya <code>01001000 01101001</code> gibi dizileri çözmek için daha uygundur.</p><p>Bir sayı konumsal modda seçilen alfabede yoksa veya bir token seçilen sayı biçimi için geçerli değilse, dönüştürücü onu değiştirmeden bırakır. Böylece özgün girişi kaybetmeden biçimlendirme hatalarını fark edebilirsiniz.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 241,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "A=1 ve A=0 modları arasındaki fark nedir?",
+                "answer": "A=1 modunda alfabedeki ilk harf 1 değerini alır; bu klasik A1Z26 gösterimiyle uyumludur. A=0 modunda ilk harf 0 değerini alır, bu da programlama ve indeks karşılaştırmaları için daha kullanışlıdır."
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Hangi ayırıcıyı kullanmalıyım?",
+                "answer": "Giriş biçiminize uyan ayırıcıyı kullanın: boşluk, tire, virgül, eğik çizgi veya nokta. Konumsal modlarda kelime sınırlarını korumak istiyorsanız tire kullanmak pratik olur; örneğin 16-6-21-10-1-2-1 5-26-17-28-1. Boşlukla ayrılmış giriş basittir, ancak özgün kelime gruplamasını korumaz."
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Araç Türkçe ve diğer alfabelerle çalışır mı?",
+                "answer": "Evet. Konumsal modlarda Türkçe, İngilizce, Rusça, Almanca, İspanyolca, Fransızca, İtalyanca veya Portekizce seçebilirsiniz. Auto seçeneği, harfleri sayılara çevirirken en olası alfabeyi algılar. Ondalık, hex ve binary modları Unicode code point değerlerini kodlar ve belirli bir alfabeyle sınırlı değildir."
+            }
+        },
+        {
+            "id": 244,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Bu araç A1Z26 şifresinden nasıl farklıdır?",
+                "answer": "A1Z26, alfabe konumlarının A=1 ile sayıldığı belirli bir sistemdir. Bu dönüştürücü o modu içerir, ancak ayrıca A=0, ondalık code point değerleri, hexadecimal, binary, çok dilli alfabeler ve ayarlanabilir ayırıcılar sunar. Yalnızca İngilizce A=1 gerekiyorsa iki araç aynı sonucu verir."
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Harfleri sayılara da çevirebilir miyim?",
+                "answer": "Evet. Araçta iki sekme vardır: Numbers to Letters sayısal girişi metne dönüştürür, Letters to Numbers ise metni sayısal çıktıya çevirir. Her iki yönde de aynı mod, alfabe ve ayırıcı ayarları kullanılır."
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bir sayı sonuçta neden değişmeden kaldı?",
+                "answer": "Konumsal modlarda sayı, seçilen alfabede bulunmalıdır. Örneğin 29 Türkçe A=1 alfabesinde geçerlidir, ancak İngilizce alfabenin dışındadır. Ondalık, hex veya binary modlarında token, seçilen sayı biçimi için geçerli olmalıdır. Geçersiz veya aralık dışı değerler, girişi düzeltebilmeniz için korunur."
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Bu bir ASCII dönüştürücü mü yoksa Unicode dönüştürücü mü?",
+                "answer": "Yaygın İngilizce harfler, rakamlar ve noktalama için ondalık, hex ve binary modları bilinen ASCII değerleriyle eşleşir. Teknik olarak dönüştürücü Unicode code point değerlerini kullanır; bu nedenle Ç, Ğ, İ, Ö, Ş, Ü gibi birçok ASCII dışı karakteri de işleyebilir."
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Sayı-harf kodlaması güvenli midir?",
+                "answer": "Hayır. Alfabe konumları ve karakter kodları basit gösterimlerdir, güvenli şifreleme değildir. Öğrenme, bulmacalar, biçimlendirme, hata ayıklama ve hafif kodlama görevleri için uygundur."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 112,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Sayıları harflere çevirme (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "16 6 21 10 1 2 1",
+                "output": "merhaba",
+                "description": "1 tabanlı konumsal mod, Türkçe alfabe, boşluk ayırıcı."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Harfleri sayılara çevirme (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "Selam dünya",
+                "output": "22 6 15 1 16 5 26 17 28 1",
+                "description": "1 tabanlı konumsal mod, Türkçe alfabe, boşluk ayırıcı."
+            }
+        },
+        {
+            "id": 114,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "ascii",
+            "data": {
+                "title": "Ondalık Unicode code point değerleri",
+                "key": "",
+                "shift": 0,
+                "input": "77 101 114 104 97 98 97",
+                "output": "Merhaba",
+                "description": "Ondalık mod: her sayı bir karakterin Unicode code point değeridir."
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "binary",
+            "data": {
+                "title": "Binary modu",
+                "key": "",
+                "shift": 0,
+                "input": "01000101 01110110 01100101 01110100",
+                "output": "Evet",
+                "description": "Binary modu: her token bir karakterin binary code point değeridir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Sayıları harflere çevirme"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Harfleri sayılara çevirme"
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "A1Z26 dönüştürücü"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "ASCII Unicode dönüştürücü"
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Alfabe konumları"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Metni sayılara çevir"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Sayıları metne çevir"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Hex harflere"
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "tag": "Binary harflere"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "tag": "Code point dönüştürücü"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

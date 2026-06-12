@@ -522,6 +522,19 @@ return [
     'LANG_NAME_IT'                  => 'Italian',
     'LANG_NAME_PT'                  => 'Portuguese',
     'LANG_NAME_TR'                  => 'Turkish',
+    // Numbers to Letters
+    'NUM2LET_TAB_NUMBERS_TO_LETTERS'  => 'Numbers to Letters',
+    'NUM2LET_TAB_LETTERS_TO_NUMBERS'  => 'Letters to Numbers',
+    'NUM2LET_PLACEHOLDER_NUMBERS'     => 'Enter numbers (e.g. 8 5 12 12 15)...',
+    'NUM2LET_PLACEHOLDER_LETTERS'     => 'Enter text to convert to numbers...',
+    'NUM2LET_SETTING_TYPE_LABEL'      => 'Encoding',
+    'NUM2LET_TYPE_POSITIONAL_1'       => 'A–Z (1-based, A=1)',
+    'NUM2LET_TYPE_POSITIONAL_0'       => 'A–Z (0-based, A=0)',
+    'NUM2LET_TYPE_ASCII'              => 'ASCII decimal',
+    'NUM2LET_TYPE_HEX'                => 'ASCII hex',
+    'NUM2LET_TYPE_BINARY'             => 'ASCII binary',
+    'NUM2LET_TRUST_MODES'             => '5 encoding modes: positional, ASCII, hex, binary',
+    'NUM2LET_TRUST_MULTILANG'         => 'Multilingual alphabets with auto-detection',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];

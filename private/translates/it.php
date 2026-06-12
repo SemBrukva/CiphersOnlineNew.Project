@@ -498,6 +498,19 @@ return [
     'LANG_NAME_IT'                  => 'Italiano',
     'LANG_NAME_PT'                  => 'Portoghese',
     'LANG_NAME_TR'                  => 'Turco',
+    // Numbers to Letters
+    'NUM2LET_TAB_NUMBERS_TO_LETTERS'  => 'Numeri → Lettere',
+    'NUM2LET_TAB_LETTERS_TO_NUMBERS'  => 'Lettere → Numeri',
+    'NUM2LET_PLACEHOLDER_NUMBERS'     => 'Inserisci numeri (es. 8 5 12 12 15)...',
+    'NUM2LET_PLACEHOLDER_LETTERS'     => 'Inserisci testo da convertire in numeri...',
+    'NUM2LET_SETTING_TYPE_LABEL'      => 'Codifica',
+    'NUM2LET_TYPE_POSITIONAL_1'       => 'A–Z (base 1, A=1)',
+    'NUM2LET_TYPE_POSITIONAL_0'       => 'A–Z (base 0, A=0)',
+    'NUM2LET_TYPE_ASCII'              => 'ASCII decimale',
+    'NUM2LET_TYPE_HEX'                => 'ASCII esadecimale',
+    'NUM2LET_TYPE_BINARY'             => 'ASCII binario',
+    'NUM2LET_TRUST_MODES'             => '5 modalità: posizionale, ASCII, hex, binario',
+    'NUM2LET_TRUST_MULTILANG'         => 'Alfabeti multilingua con rilevamento automatico',
     // Footer
     'FOOTER_DESC'                      => 'catalogo dei sistemi di crittografia più diffusi con la possibilità di cifrare e decifrare testo online',
 ];

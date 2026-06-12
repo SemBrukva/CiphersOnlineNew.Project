@@ -1,0 +1,282 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:00:12+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "numbers-to-letters",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 30,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 30,
+        "data": {
+            "name": "Zahlen-zu-Buchstaben-Konverter",
+            "name_short": "Zahlen ↔ Buchstaben",
+            "description": "Konvertieren Sie Zahlen online in Buchstaben und Buchstaben in Zahlen. Unterstützt Alphabetpositionen im A1Z26-Stil, A=0-Indizierung, dezimale Unicode-Codepoints, Hexadezimal- und Binärformat mit eigenen Trennzeichen und mehrsprachigen Alphabeten.",
+            "description_stort": "Wandeln Sie Alphabetpositionen, ASCII/Unicode-Codes, Hex und Binary in lesbaren Text um und zurück.",
+            "meta_title": "Zahlen in Buchstaben umwandeln online | Buchstaben in Zahlen",
+            "meta_description": "Kostenloser Zahlen-zu-Buchstaben-Konverter für A1Z26, A=0, ASCII/Unicode decimal, hex und binary. Buchstaben in Zahlen umwandeln, Zahlencodes dekodieren und Trennzeichen wählen."
+        }
+    },
+    "blocks": [
+        {
+            "id": 117,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert der Zahlen-zu-Buchstaben-Konverter",
+                "text": "<p>Der Zahlen-zu-Buchstaben-Konverter wandelt Zahlenfolgen in lesbaren Text um und kann Text auch wieder als Zahlen ausgeben. Er eignet sich für Rätsel mit Alphabetpositionen, A1Z26-ähnliche Nachrichten, Unterrichtsaufgaben, einfache Codes und schnelle Prüfungen von dezimalen, hexadezimalen oder binären Zeichencodes.</p><p><strong>Positionsmodus (A=1):</strong> Jeder Buchstabe wird seiner Position im ausgewählten Alphabet zugeordnet, beginnend bei 1. Im deutschen Alphabet dieser Anwendung gilt A=1, Ä=2, B=3, C=4 und Z=29. Im englischen Alphabet gilt A=1, B=2 und Z=26.</p><p><strong>Positionsmodus (A=0):</strong> Das gleiche Prinzip, aber die Zählung beginnt bei null. Im deutschen Alphabet gilt A=0, Ä=1, B=2 und Z=28. Dieses Format ist praktisch, wenn Ergebnisse mit Programmieraufgaben oder Array-Indizes verglichen werden.</p><p><strong>Dezimale Codepoints:</strong> Jedes Zeichen wird durch seinen numerischen Unicode-Codepoint dargestellt. Für gängige ASCII-Zeichen entstehen bekannte Werte wie A=65, a=97 und Leerzeichen=32.</p><p><strong>Hexadezimal:</strong> Zeichencodes werden in Großbuchstaben als Hex-Werte ohne Präfix geschrieben. Zum Beispiel wird A zu 41 und a zu 61.</p><p><strong>Binär:</strong> Zeichencodes werden als binäre Werte mit führenden Nullen ausgegeben, etwa A=01000001. Unicode-Zeichen außerhalb des einfachen ASCII-Bereichs können mehr als 8 Bit ergeben, weil der Konverter mit Zeichen-Codepoints arbeitet.</p>"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Alphabete, Trennzeichen und Eingabeformate",
+                "text": "<p>Wählen Sie im Positionsmodus das Alphabet, das zur Nachricht passt. Der Konverter unterstützt Englisch (26 Buchstaben), Russisch (33 Buchstaben), Deutsch (29 Buchstaben einschließlich Ä, Ö, Ü), Spanisch (27 Buchstaben einschließlich Ñ), Französisch (40 Buchstaben mit Akzenten), Italienisch (26 Buchstaben), Portugiesisch (35 Buchstaben mit Akzenten) und Türkisch (29 Buchstaben einschließlich Ç, Ğ, İ, Ö, Ş, Ü).</p><p>Die Einstellung für das Trennzeichen legt fest, wie Zahlen innerhalb eines Wortes getrennt werden. Sie können Leerzeichen, Bindestriche, Kommas, Schrägstriche oder Punkte verwenden. Mit Bindestrichen wird <code>9-1-13-13-16</code> zu <code>hallo</code>. Mit Leerzeichen liefert <code>9 1 13 13 16</code> dasselbe Ergebnis.</p><p>Wenn Bindestrich, Komma, Schrägstrich oder Punkt ausgewählt ist, gelten Leerzeichen zwischen Gruppen als Wortgrenzen. Im Modus mit Leerzeichen als Trennzeichen wird jede Zahl der Reihe nach gelesen; ursprüngliche Wortgrenzen können dann nicht zuverlässig rekonstruiert werden, wenn kein anderes Trennzeichen verwendet wurde.</p><p>Die automatische Alphabet-Erkennung wird beim Umwandeln von Buchstaben in Zahlen in den Positionsmodi verwendet. Beim Zurückwandeln von Zahlen in Buchstaben sollten Sie das gewünschte Alphabet ausdrücklich wählen, wenn die Nachricht nicht englisch ist. Dezimal-, Hex- und Binärmodus ignorieren die Alphabet-Einstellung, weil jedes Zeichen direkt über seinen Codepoint verarbeitet wird.</p>"
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Wann welcher Modus sinnvoll ist",
+                "text": "<p>Verwenden Sie den <strong>Positionsmodus A=1</strong> für klassische Buchstaben-Zahlen-Codes, Rätselhinweise, Geocaching, Escape-Room-Aufgaben, Unterrichtsmaterial und A1Z26-ähnliche Codes, bei denen 1 für den ersten Buchstaben des Alphabets steht.</p><p>Verwenden Sie den <strong>Positionsmodus A=0</strong>, wenn eine Aufgabe nullbasierte Alphabetindizes erwartet, zum Beispiel Programmierübungen, Array-Index-Beispiele oder eigene Codes, die ab 0 zählen.</p><p>Verwenden Sie <strong>dezimale, hexadezimale oder binäre Codepoint-Modi</strong>, wenn Ihre Eingabe Zeichencodes und keine Alphabetpositionen enthält. Diese Modi sind passend für Folgen wie <code>71 114 252 223 101</code>, <code>48 65 6C 6C 6F</code> oder <code>01001000 01101001</code>.</p><p>Wenn eine Zahl im Positionsmodus nicht in das ausgewählte Alphabet passt oder ein Token nicht zum gewählten Zahlenformat gehört, bleibt es unverändert. So lassen sich Formatfehler leichter erkennen, ohne die ursprüngliche Eingabe zu verlieren.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 241,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen A=1 und A=0?",
+                "answer": "Im Modus A=1 erhält der erste Buchstabe des Alphabets die Nummer 1. Das entspricht der klassischen A1Z26-Schreibweise. Im Modus A=0 erhält der erste Buchstabe die Nummer 0, was vor allem bei Programmieraufgaben und Indexvergleichen praktisch ist."
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Welches Trennzeichen sollte ich verwenden?",
+                "answer": "Wählen Sie das Trennzeichen passend zu Ihrer Eingabe: Leerzeichen, Bindestrich, Komma, Schrägstrich oder Punkt. In Positionsmodi sind Bindestriche nützlich, wenn Wortgrenzen erhalten bleiben sollen, zum Beispiel 9-1-13-13-16 26-6-13-22. Eine Eingabe mit Leerzeichen ist einfach, bewahrt aber die ursprüngliche Wortgruppierung nicht."
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Funktioniert das Tool mit deutschen Umlauten und anderen Alphabeten?",
+                "answer": "Ja. In Positionsmodi können Sie Deutsch, Englisch, Russisch, Spanisch, Französisch, Italienisch, Portugiesisch oder Türkisch wählen. Die Option Auto erkennt beim Umwandeln von Buchstaben in Zahlen das wahrscheinlich passende Alphabet. Dezimal-, Hex- und Binärmodus verwenden Unicode-Codepoints und sind nicht auf ein bestimmtes Alphabet beschränkt."
+            }
+        },
+        {
+            "id": 244,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Worin unterscheidet sich dieses Tool vom A1Z26-Code?",
+                "answer": "A1Z26 ist das konkrete System, bei dem Alphabetpositionen ab 1 gezählt werden. Dieser Konverter enthält diesen Modus, unterstützt aber zusätzlich A=0, dezimale Codepoints, Hexadezimal- und Binärformat, mehrere Alphabete und frei wählbare Trennzeichen. Wenn Sie nur englisches A=1 benötigen, ist das Ergebnis identisch mit A1Z26."
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Kann ich auch Buchstaben in Zahlen umwandeln?",
+                "answer": "Ja. Das Tool hat zwei Tabs: Numbers to Letters zum Dekodieren einer Zahleneingabe in Text und Letters to Numbers zum Umwandeln von Text in Zahlen. In beiden Richtungen werden derselbe Modus, dasselbe Alphabet und dasselbe Trennzeichen verwendet."
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Warum bleibt eine Zahl im Ergebnis unverändert?",
+                "answer": "In Positionsmodi muss die Zahl im ausgewählten Alphabet vorkommen. Zum Beispiel ist 29 im deutschen A=1-Alphabet gültig, liegt aber außerhalb des englischen Alphabets. In Dezimal-, Hex- oder Binärmodus muss ein Token zum gewählten Zahlenformat passen. Ungültige oder außerhalb des Bereichs liegende Werte bleiben erhalten, damit Sie die Eingabe korrigieren können."
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Ist das ein ASCII-Konverter oder ein Unicode-Konverter?",
+                "answer": "Für englische Buchstaben, Ziffern und Satzzeichen entsprechen Dezimal-, Hex- und Binärmodus den bekannten ASCII-Werten. Technisch verwendet der Konverter Unicode-Codepoints, daher kann er auch viele Nicht-ASCII-Zeichen wie Ä, Ö, Ü oder ß verarbeiten."
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Ist diese Zahlen-zu-Buchstaben-Codierung sicher?",
+                "answer": "Nein. Alphabetpositionen und Zeichencodes sind einfache Darstellungen, keine sichere Verschlüsselung. Sie eignen sich für Lernen, Rätsel, Formatierung, Debugging und leichte Code-Aufgaben."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 112,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Zahlen in Buchstaben (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "9 1 13 13 16",
+                "output": "hallo",
+                "description": "Positionsmodus mit Zählung ab 1, deutsches Alphabet, Leerzeichen als Trennzeichen."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Buchstaben in Zahlen (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "Hallo Welt",
+                "output": "9 1 13 13 16 26 6 13 22",
+                "description": "Positionsmodus mit Zählung ab 1, deutsches Alphabet, Leerzeichen als Trennzeichen."
+            }
+        },
+        {
+            "id": 114,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "ascii",
+            "data": {
+                "title": "Dezimale Unicode-Codepoints",
+                "key": "",
+                "shift": 0,
+                "input": "71 114 252 223 101",
+                "output": "Grüße",
+                "description": "Dezimalmodus: Jede Zahl ist der Unicode-Codepoint eines Zeichens."
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "binary",
+            "data": {
+                "title": "Binärmodus",
+                "key": "",
+                "shift": 0,
+                "input": "01001010 01100001",
+                "output": "Ja",
+                "description": "Binärmodus: Jeder Token ist der binäre Codepoint eines Zeichens."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Zahlen in Buchstaben umwandeln"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Buchstaben in Zahlen umwandeln"
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "A1Z26 Konverter"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "ASCII Unicode Konverter"
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Alphabetpositionen"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Text in Zahlen"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Zahlen in Text"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Hex in Buchstaben"
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "tag": "Binary in Buchstaben"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "tag": "Codepoint Konverter"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

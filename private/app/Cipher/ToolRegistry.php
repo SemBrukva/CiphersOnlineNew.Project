@@ -33,7 +33,8 @@ final readonly class ToolRegistry
         private MorseCipherService $morseCipher,
         private FrequencyAnalysisService $frequencyAnalysis,
         private CaesarBruteForceService $caesarBruteForce,
-        private LetterFrequencyService $letterFrequency
+        private LetterFrequencyService $letterFrequency,
+        private NumbersToLettersService $numbersToLetters
     ) {
     }
 
@@ -178,6 +179,12 @@ final readonly class ToolRegistry
                 ['label' => 'Caesar',  'value' => 'KHOOR ZRUOG',                                 'alphabet' => 'en'],
                 ['label' => 'Hamlet',  'value' => 'To be or not to be that is the question',     'alphabet' => 'en'],
             ],
+            'codes-and-alphabets/numbers-to-letters' => [
+                ['label' => 'A1Z26',    'value' => '8 5 12 12 15',      'direction' => 'encrypt', 'encoding' => 'positional-1', 'delimiter' => 'space', 'alphabet' => 'en'],
+                ['label' => 'ASCII',    'value' => '72 101 108 108 111', 'direction' => 'encrypt', 'encoding' => 'ascii',        'delimiter' => 'space'],
+                ['label' => 'Binary',   'value' => '01001000 01101001',  'direction' => 'encrypt', 'encoding' => 'binary',       'delimiter' => 'space'],
+                ['label' => 'Letters→', 'value' => 'Hello World',        'direction' => 'decrypt', 'encoding' => 'positional-1', 'delimiter' => 'space', 'alphabet' => 'en'],
+            ],
             default => [],
         };
     }
@@ -206,6 +213,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => 'polybius-square',
             'classical-ciphers/hill' => 'hill',
             'codes-and-alphabets/morse-code' => null,
+            'codes-and-alphabets/numbers-to-letters' => null,
             'text-analysis/frequency-analysis' => null,
             'text-analysis/caesar-brute-force' => 'caesar-brute-force',
             'text-analysis/letter-frequency' => null,
@@ -239,6 +247,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getToolSettings(),
             'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
+            'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getToolSettings(),
             'text-analysis/letter-frequency'   => $this->letterFrequency->getToolSettings(),
@@ -270,6 +279,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getTrustItems($calculationMode),
             'classical-ciphers/hill' => $this->hillCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
+            'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),
             'text-analysis/letter-frequency'   => $this->letterFrequency->getTrustItems($calculationMode),

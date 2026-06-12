@@ -128,6 +128,13 @@ final readonly class CipherController
             $toolUi['bruteBestBadge']      = trans('CAESAR_BRUTE_BEST_BADGE');
             $toolUi['bruteShortText']      = trans('CAESAR_BRUTE_SHORT_TEXT');
         }
+        if ($cipherAlias === 'numbers-to-letters') {
+            $toolUi['numbersToLettersMode']   = true;
+            $toolUi['tabEncode']              = trans('NUM2LET_TAB_NUMBERS_TO_LETTERS');
+            $toolUi['tabDecode']              = trans('NUM2LET_TAB_LETTERS_TO_NUMBERS');
+            $toolUi['placeholderEncode']      = trans('NUM2LET_PLACEHOLDER_NUMBERS');
+            $toolUi['placeholderDecode']      = trans('NUM2LET_PLACEHOLDER_LETTERS');
+        }
         if ($cipherAlias === 'morse-code') {
             $toolUi['placeholderEncode']  = trans('MORSE_PLACEHOLDER_ENCODE');
             $toolUi['placeholderDecode']  = trans('MORSE_PLACEHOLDER_DECODE');

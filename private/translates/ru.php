@@ -522,6 +522,19 @@ return [
     'LANG_NAME_IT'                  => 'Итальянский',
     'LANG_NAME_PT'                  => 'Португальский',
     'LANG_NAME_TR'                  => 'Турецкий',
+    // Numbers to Letters
+    'NUM2LET_TAB_NUMBERS_TO_LETTERS'  => 'Числа → Буквы',
+    'NUM2LET_TAB_LETTERS_TO_NUMBERS'  => 'Буквы → Числа',
+    'NUM2LET_PLACEHOLDER_NUMBERS'     => 'Введите числа (например, 8 5 12 12 15)...',
+    'NUM2LET_PLACEHOLDER_LETTERS'     => 'Введите текст для перевода в числа...',
+    'NUM2LET_SETTING_TYPE_LABEL'      => 'Кодировка',
+    'NUM2LET_TYPE_POSITIONAL_1'       => 'А–Я / A–Z (с 1, А=1)',
+    'NUM2LET_TYPE_POSITIONAL_0'       => 'А–Я / A–Z (с 0, А=0)',
+    'NUM2LET_TYPE_ASCII'              => 'ASCII десятичный',
+    'NUM2LET_TYPE_HEX'                => 'ASCII шестнадцатеричный',
+    'NUM2LET_TYPE_BINARY'             => 'ASCII двоичный',
+    'NUM2LET_TRUST_MODES'             => '5 режимов кодирования: позиционный, ASCII, hex, двоичный',
+    'NUM2LET_TRUST_MULTILANG'         => 'Поддержка многоязычных алфавитов с автоопределением',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
 ];

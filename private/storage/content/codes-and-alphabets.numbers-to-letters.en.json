@@ -1,0 +1,282 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-12T13:00:12+00:00",
+        "category_alias": "codes-and-alphabets",
+        "cipher_alias": "numbers-to-letters",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 30,
+        "category_id": 3
+    },
+    "cipher_translation": {
+        "id": 30,
+        "data": {
+            "name": "Numbers to Letters Converter",
+            "name_short": "Numbers ↔ Letters",
+            "description": "Convert numbers to letters and letters to numbers online. Use A1Z26-style alphabet positions, A=0 indexing, decimal code points, hexadecimal, or binary with custom delimiters and multilingual alphabets.",
+            "description_stort": "Convert alphabet positions, ASCII/Unicode codes, hex, and binary into readable text and back.",
+            "meta_title": "Numbers to Letters Converter Online | Letters to Numbers",
+            "meta_description": "Free numbers to letters converter for A1Z26, A=0, ASCII/Unicode decimal, hex and binary. Convert letters to numbers, decode number sequences, and choose custom delimiters."
+        }
+    },
+    "blocks": [
+        {
+            "id": 117,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the numbers to letters converter works",
+                "text": "<p>The Numbers to Letters Converter turns numeric sequences into readable text and can also convert text back into numbers. It is useful for alphabet-position puzzles, A1Z26-style messages, classroom exercises, simple code systems, and quick checks of decimal, hexadecimal, or binary character codes.</p><p><strong>Positional (A=1):</strong> each letter is mapped to its position in the selected alphabet, starting from 1. In English, A=1, B=2, C=3, and Z=26.</p><p><strong>Positional (A=0):</strong> the same alphabet-position idea, but indexing starts at zero. In English, A=0, B=1, C=2, and Z=25. This is often easier when comparing output with programming-style indexes.</p><p><strong>Decimal code points:</strong> each character is represented by its numeric Unicode code point. For common ASCII characters this gives familiar values such as A=65, a=97, and space=32.</p><p><strong>Hexadecimal:</strong> character codes are written in uppercase hex without a prefix. For example, A becomes 41 and a becomes 61.</p><p><strong>Binary:</strong> character codes are written as zero-padded binary values, such as A=01000001. Longer Unicode characters may produce more than 8 bits because the converter works with character code points.</p>"
+            }
+        },
+        {
+            "id": 118,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Alphabets, delimiters, and input formats",
+                "text": "<p>For positional modes, choose the alphabet that matches the message. The converter supports English (26 letters), Russian (33 letters), German (29 letters including Ä, Ö, Ü), Spanish (27 letters including Ñ), French (40 letters with accents), Italian (26 letters), Portuguese (35 letters with accents), and Turkish (29 letters including Ç, Ğ, İ, Ö, Ş, Ü).</p><p>The delimiter setting controls how numbers are separated inside each word. You can use spaces, dashes, commas, slashes, or dots. With a dash delimiter, <code>8-5-12-12-15</code> becomes <code>hello</code>. With a space delimiter, <code>8 5 12 12 15</code> gives the same result.</p><p>Spaces between groups are treated as word boundaries when you use dash, comma, slash, or dot delimiters. In space-delimited mode, every number is simply read in sequence, so the converter cannot know where one original word ended unless the text itself uses another separator.</p><p>Alphabet auto-detection is used when converting letters to numbers in positional modes. When converting numbers back to letters, choose the intended alphabet explicitly if the message is not English. Decimal, hex, and binary modes ignore the alphabet setting because every character is handled by its code point.</p>"
+            }
+        },
+        {
+            "id": 119,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "When to use each mode",
+                "text": "<p>Use <strong>A=1 positional mode</strong> for classic letter-number ciphers, puzzle clues, geocaching hints, escape-room messages, and A1Z26-style codes where 1 means A and 26 means Z.</p><p>Use <strong>A=0 positional mode</strong> when a task expects zero-based alphabet indexes, such as programming exercises, array-index examples, or custom ciphers that count from 0 instead of 1.</p><p>Use <strong>decimal, hex, or binary code point modes</strong> when your input represents character codes rather than alphabet positions. These modes are better for decoding sequences like <code>72 101 108 108 111</code>, <code>48 65 6C 6C 6F</code>, or <code>01001000 01101001</code>.</p><p>If a number does not fit the selected alphabet in positional mode, or a token is not valid for the selected code format, the converter keeps that token unchanged so you can spot formatting mistakes without losing the original input.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 241,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the difference between A=1 and A=0 modes?",
+                "answer": "In A=1 (1-based) mode the first letter of the alphabet maps to 1, which matches the classic A1Z26 notation. In A=0 (0-based) mode the first letter maps to 0, which is more convenient in programming contexts."
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Which delimiter should I use?",
+                "answer": "Use the delimiter that matches your input: space, dash, comma, slash, or dot. For positional modes, dashes are convenient when you want to preserve word boundaries, for example 8-5-12-12-15 23-15-18-12-4. Space-delimited input is simple, but it does not preserve original word grouping."
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Does this tool work with non-English alphabets?",
+                "answer": "Yes. For positional modes you can switch to Russian, German, Spanish, French, Italian, Portuguese, or Turkish. The Auto option detects the likely alphabet when converting letters to numbers. Decimal, hex, and binary modes encode Unicode code points and are not limited to a particular alphabet."
+            }
+        },
+        {
+            "id": 244,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What is the difference between this and the A1Z26 cipher?",
+                "answer": "The A1Z26 cipher is the specific A=1 alphabet-position system. This converter includes that mode, but also supports A=0 indexing, decimal code points, hexadecimal, binary, multilingual alphabets, and configurable delimiters. If you only need English A=1 conversion, both tools give the same result."
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can I convert letters to numbers as well as numbers to letters?",
+                "answer": "Yes. The tool has two tabs: Numbers to Letters for decoding numeric input into text, and Letters to Numbers for encoding text into numeric output. The same mode, alphabet, and delimiter settings are used in both directions."
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why did a number stay unchanged in the output?",
+                "answer": "In positional modes, a number must exist in the selected alphabet. For example, 27 is valid for Russian but outside the English A=1 range. In decimal, hex, or binary modes, a token must be valid for that numeric format. Invalid or out-of-range tokens are preserved so you can correct the input."
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is this an ASCII converter or a Unicode converter?",
+                "answer": "For common English letters, digits, and punctuation, the decimal, hex, and binary modes match familiar ASCII values. Technically, the converter uses Unicode code points, so it can also process many non-ASCII characters."
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Is numbers-to-letters encoding secure?",
+                "answer": "No. Alphabet positions and character codes are simple representations, not secure encryption. They are best used for learning, puzzles, formatting, debugging, and lightweight code challenges."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 112,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Numbers to letters (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "8 5 12 12 15",
+                "output": "hello",
+                "description": "Positional 1-based, English alphabet, space delimiter."
+            }
+        },
+        {
+            "id": 113,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "space",
+            "encoding": "positional-1",
+            "data": {
+                "title": "Letters to numbers (A=1)",
+                "key": "",
+                "shift": 0,
+                "input": "Hello World",
+                "output": "8 5 12 12 15 23 15 18 12 4",
+                "description": "Positional 1-based, English alphabet, space delimiter."
+            }
+        },
+        {
+            "id": 114,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "ascii",
+            "data": {
+                "title": "ASCII decimal mode",
+                "key": "",
+                "shift": 0,
+                "input": "72 101 108 108 111",
+                "output": "Hello",
+                "description": "ASCII decimal encoding: each number is a Unicode code point."
+            }
+        },
+        {
+            "id": 115,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "space",
+            "encoding": "binary",
+            "data": {
+                "title": "ASCII binary mode",
+                "key": "",
+                "shift": 0,
+                "input": "01001000 01101001",
+                "output": "Hi",
+                "description": "ASCII binary: 8-bit zero-padded binary code for each character."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Numbers to letters converter"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Letters to numbers converter"
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "A1Z26 converter"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "ASCII Unicode converter"
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Alphabet positions"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Text to numbers"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Numbers to text"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "Hex to letters"
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "tag": "Binary to letters"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "tag": "Code point converter"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
