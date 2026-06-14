@@ -538,6 +538,28 @@ return [
     // HTML Encode / Decode
     'HTML_TRUST_PURPOSE'              => 'Кодирует спецсимволы HTML в безопасные entities',
     'HTML_TRUST_ENTITIES'             => 'Поддержка именованных и числовых HTML-entities',
+    // JSON Formatter / Validator
+    'JSON_FORMATTER_SETTING_INDENT'     => 'Отступ',
+    'JSON_FORMATTER_INDENT_2'           => '2 пробела',
+    'JSON_FORMATTER_INDENT_4'           => '4 пробела',
+    'JSON_FORMATTER_INDENT_TAB'         => 'Табуляция',
+    'JSON_FORMATTER_TAB_FORMAT'         => 'Форматировать',
+    'JSON_FORMATTER_TAB_MINIFY'         => 'Минифицировать',
+    'JSON_FORMATTER_PLACEHOLDER_FORMAT' => 'Вставьте JSON для форматирования...',
+    'JSON_FORMATTER_PLACEHOLDER_MINIFY' => 'Вставьте JSON для минификации...',
+    'JSON_FORMATTER_TRUST_VALIDATES'    => 'Валидирует синтаксис JSON и сообщает об ошибках',
+    'JSON_FORMATTER_TRUST_FORMATS'      => 'Форматирование и минификация в браузере',
+    'JSON_FORMATTER_ERR_INVALID'        => 'Неверный JSON: :error',
+    'JSON_FORMATTER_ERR_AT'             => 'Ошибка в строке :line, столбец :col',
+    'JSON_FORMATTER_VIEW_TEXT'          => 'Текст',
+    'JSON_FORMATTER_VIEW_TREE'          => 'Дерево',
+    'JSON_FORMATTER_WARN_DUPLICATE'     => 'Дублирующийся ключ «:key»',
+    'JSON_FORMATTER_STAT_OBJECTS'       => 'Объекты',
+    'JSON_FORMATTER_STAT_ARRAYS'        => 'Массивы',
+    'JSON_FORMATTER_STAT_KEYS'          => 'Ключи',
+    'JSON_FORMATTER_STAT_DEPTH'         => 'Глубина',
+    'JSON_FORMATTER_SORT_KEYS'          => 'Сортировать ключи',
+    'JSON_FORMATTER_DOWNLOAD'           => 'Скачать',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
 ];

@@ -135,6 +135,24 @@ final readonly class CipherController
             $toolUi['placeholderEncode']      = trans('NUM2LET_PLACEHOLDER_NUMBERS');
             $toolUi['placeholderDecode']      = trans('NUM2LET_PLACEHOLDER_LETTERS');
         }
+        if ($cipherAlias === 'json-formatter') {
+            $toolUi['jsonFormatterMode']          = true;
+            $toolUi['tabEncode']                  = trans('JSON_FORMATTER_TAB_FORMAT');
+            $toolUi['tabDecode']                  = trans('JSON_FORMATTER_TAB_MINIFY');
+            $toolUi['placeholderEncode']          = trans('JSON_FORMATTER_PLACEHOLDER_FORMAT');
+            $toolUi['placeholderDecode']          = trans('JSON_FORMATTER_PLACEHOLDER_MINIFY');
+            $toolUi['jsonFormatterErrInvalid']    = trans('JSON_FORMATTER_ERR_INVALID');
+            $toolUi['jsonFormatterErrAt']         = trans('JSON_FORMATTER_ERR_AT');
+            $toolUi['jsonFormatterViewText']      = trans('JSON_FORMATTER_VIEW_TEXT');
+            $toolUi['jsonFormatterViewTree']      = trans('JSON_FORMATTER_VIEW_TREE');
+            $toolUi['jsonFormatterWarnDuplicate'] = trans('JSON_FORMATTER_WARN_DUPLICATE');
+            $toolUi['jsonFormatterStatObjects']   = trans('JSON_FORMATTER_STAT_OBJECTS');
+            $toolUi['jsonFormatterStatArrays']    = trans('JSON_FORMATTER_STAT_ARRAYS');
+            $toolUi['jsonFormatterStatKeys']      = trans('JSON_FORMATTER_STAT_KEYS');
+            $toolUi['jsonFormatterStatDepth']     = trans('JSON_FORMATTER_STAT_DEPTH');
+            $toolUi['jsonFormatterSortLabel']     = trans('JSON_FORMATTER_SORT_KEYS');
+            $toolUi['jsonFormatterDownloadLabel'] = trans('JSON_FORMATTER_DOWNLOAD');
+        }
         if ($cipherAlias === 'morse-code') {
             $toolUi['placeholderEncode']  = trans('MORSE_PLACEHOLDER_ENCODE');
             $toolUi['placeholderDecode']  = trans('MORSE_PLACEHOLDER_DECODE');

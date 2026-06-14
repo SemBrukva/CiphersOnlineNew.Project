@@ -188,6 +188,10 @@
                     <span class="ciphers-unified__field-label ciphers-unified__field-label--result">{$tool_ui.resultLabel}</span>
                     <div class="ciphers-unified__output-actions">
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy"><i class="bi bi-clipboard"></i>{$tool_ui.copyLabel}</button>
+                        {if isset($tool_ui.jsonFormatterMode) && $tool_ui.jsonFormatterMode}
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-json-sort" data-encode-only><i class="bi bi-sort-alpha-down"></i>{$tool_ui.jsonFormatterSortLabel}</button>
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-json-download"><i class="bi bi-download"></i>{$tool_ui.jsonFormatterDownloadLabel}</button>
+                        {/if}
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-share"><i class="bi bi-share"></i>{$tool_ui.shareLabel}</button>
                     </div>
                 </div>

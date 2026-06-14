@@ -10,6 +10,7 @@ import { transformFrequency, looksLikeText } from './decoders/frequency.js'
 import { transformLetterFrequency, looksLikeLetterFreqText } from './decoders/letter-frequency.js'
 import { transformNumbersToLetters, looksLikeNumbersToLetters } from './decoders/numbers-to-letters.js'
 import { transformHtml, looksLikeHtml } from './decoders/html.js'
+import { transformJson, looksLikeJson } from './decoders/json.js'
 
 /**
  * Реестр browser-декодеров по slug инструмента.
@@ -27,6 +28,7 @@ const DECODER_BY_SLUG = {
   'text-analysis/letter-frequency': { transform: transformLetterFrequency, looksLikeEncoded: looksLikeLetterFreqText },
   'codes-and-alphabets/numbers-to-letters': { transform: transformNumbersToLetters, looksLikeEncoded: looksLikeNumbersToLetters },
   'encoding/html-encode': { transform: transformHtml, looksLikeEncoded: looksLikeHtml },
+  'encoding/json-formatter': { transform: transformJson, looksLikeEncoded: looksLikeJson },
 }
 
 /**

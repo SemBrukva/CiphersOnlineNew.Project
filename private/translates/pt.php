@@ -514,6 +514,28 @@ return [
     // HTML Encode / Decode
     'HTML_TRUST_PURPOSE'              => 'Codifica caracteres especiais HTML como entidades',
     'HTML_TRUST_ENTITIES'             => 'Suporte a entidades HTML nomeadas e numéricas',
+    // JSON Formatter / Validator
+    'JSON_FORMATTER_SETTING_INDENT'     => 'Recuo',
+    'JSON_FORMATTER_INDENT_2'           => '2 espaços',
+    'JSON_FORMATTER_INDENT_4'           => '4 espaços',
+    'JSON_FORMATTER_INDENT_TAB'         => 'Tabulação',
+    'JSON_FORMATTER_TAB_FORMAT'         => 'Formatar',
+    'JSON_FORMATTER_TAB_MINIFY'         => 'Minificar',
+    'JSON_FORMATTER_PLACEHOLDER_FORMAT' => 'Cole o JSON para formatar...',
+    'JSON_FORMATTER_PLACEHOLDER_MINIFY' => 'Cole o JSON para minificar...',
+    'JSON_FORMATTER_TRUST_VALIDATES'    => 'Valida a sintaxe JSON e reporta erros',
+    'JSON_FORMATTER_TRUST_FORMATS'      => 'Formata e minifica no navegador',
+    'JSON_FORMATTER_ERR_INVALID'        => 'JSON inválido: :error',
+    'JSON_FORMATTER_ERR_AT'             => 'Erro na linha :line, coluna :col',
+    'JSON_FORMATTER_VIEW_TEXT'          => 'Texto',
+    'JSON_FORMATTER_VIEW_TREE'          => 'Árvore',
+    'JSON_FORMATTER_WARN_DUPLICATE'     => 'Chave duplicada «:key»',
+    'JSON_FORMATTER_STAT_OBJECTS'       => 'Objetos',
+    'JSON_FORMATTER_STAT_ARRAYS'        => 'Arrays',
+    'JSON_FORMATTER_STAT_KEYS'          => 'Chaves',
+    'JSON_FORMATTER_STAT_DEPTH'         => 'Profundidade',
+    'JSON_FORMATTER_SORT_KEYS'          => 'Ordenar chaves',
+    'JSON_FORMATTER_DOWNLOAD'           => 'Baixar',
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de criptografia populares com a possibilidade de criptografar e descriptografar texto online',
 ];

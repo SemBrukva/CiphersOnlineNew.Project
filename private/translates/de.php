@@ -515,6 +515,28 @@ return [
     // HTML Encode / Decode
     'HTML_TRUST_PURPOSE'              => 'Kodiert HTML-Sonderzeichen als Entitäten',
     'HTML_TRUST_ENTITIES'             => 'Unterstützt benannte und numerische HTML-Entitäten',
+    // JSON Formatter / Validator
+    'JSON_FORMATTER_SETTING_INDENT'     => 'Einzug',
+    'JSON_FORMATTER_INDENT_2'           => '2 Leerzeichen',
+    'JSON_FORMATTER_INDENT_4'           => '4 Leerzeichen',
+    'JSON_FORMATTER_INDENT_TAB'         => 'Tabulator',
+    'JSON_FORMATTER_TAB_FORMAT'         => 'Formatieren',
+    'JSON_FORMATTER_TAB_MINIFY'         => 'Minifizieren',
+    'JSON_FORMATTER_PLACEHOLDER_FORMAT' => 'JSON zum Formatieren einfügen...',
+    'JSON_FORMATTER_PLACEHOLDER_MINIFY' => 'JSON zum Minifizieren einfügen...',
+    'JSON_FORMATTER_TRUST_VALIDATES'    => 'Prüft JSON-Syntax und meldet Fehler',
+    'JSON_FORMATTER_TRUST_FORMATS'      => 'Formatiert und minifiziert im Browser',
+    'JSON_FORMATTER_ERR_INVALID'        => 'Ungültiges JSON: :error',
+    'JSON_FORMATTER_ERR_AT'             => 'Fehler in Zeile :line, Spalte :col',
+    'JSON_FORMATTER_VIEW_TEXT'          => 'Text',
+    'JSON_FORMATTER_VIEW_TREE'          => 'Baum',
+    'JSON_FORMATTER_WARN_DUPLICATE'     => 'Doppelter Schlüssel „:key"',
+    'JSON_FORMATTER_STAT_OBJECTS'       => 'Objekte',
+    'JSON_FORMATTER_STAT_ARRAYS'        => 'Arrays',
+    'JSON_FORMATTER_STAT_KEYS'          => 'Schlüssel',
+    'JSON_FORMATTER_STAT_DEPTH'         => 'Tiefe',
+    'JSON_FORMATTER_SORT_KEYS'          => 'Schlüssel sortieren',
+    'JSON_FORMATTER_DOWNLOAD'           => 'Herunterladen',
     // Footer
     'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',
 ];

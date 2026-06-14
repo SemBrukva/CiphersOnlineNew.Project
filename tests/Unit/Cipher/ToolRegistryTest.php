@@ -22,6 +22,7 @@ use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
 use App\Cipher\HtmlEncodeCipherService;
+use App\Cipher\JsonFormatterCipherService;
 use App\Cipher\NumbersToLettersService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VernamCipherService;
@@ -113,7 +114,8 @@ final class ToolRegistryTest extends TestCase
             new CaesarBruteForceService(),
             new LetterFrequencyService(),
             new NumbersToLettersService(),
-            new HtmlEncodeCipherService()
+            new HtmlEncodeCipherService(),
+            new JsonFormatterCipherService()
         );
     }
 }

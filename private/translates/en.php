@@ -538,6 +538,28 @@ return [
     // HTML Encode / Decode
     'HTML_TRUST_PURPOSE'              => 'Encodes HTML special characters as entities',
     'HTML_TRUST_ENTITIES'             => 'Supports named and numeric HTML entities',
+    // JSON Formatter / Validator
+    'JSON_FORMATTER_SETTING_INDENT'     => 'Indent',
+    'JSON_FORMATTER_INDENT_2'           => '2 spaces',
+    'JSON_FORMATTER_INDENT_4'           => '4 spaces',
+    'JSON_FORMATTER_INDENT_TAB'         => 'Tab',
+    'JSON_FORMATTER_TAB_FORMAT'         => 'Format',
+    'JSON_FORMATTER_TAB_MINIFY'         => 'Minify',
+    'JSON_FORMATTER_PLACEHOLDER_FORMAT' => 'Paste JSON to format...',
+    'JSON_FORMATTER_PLACEHOLDER_MINIFY' => 'Paste JSON to minify...',
+    'JSON_FORMATTER_TRUST_VALIDATES'    => 'Validates JSON syntax and reports errors',
+    'JSON_FORMATTER_TRUST_FORMATS'      => 'Pretty-prints and minifies in the browser',
+    'JSON_FORMATTER_ERR_INVALID'        => 'Invalid JSON: :error',
+    'JSON_FORMATTER_ERR_AT'             => 'Error at line :line, column :col',
+    'JSON_FORMATTER_VIEW_TEXT'          => 'Text',
+    'JSON_FORMATTER_VIEW_TREE'          => 'Tree',
+    'JSON_FORMATTER_WARN_DUPLICATE'     => 'Duplicate key ":key"',
+    'JSON_FORMATTER_STAT_OBJECTS'       => 'Objects',
+    'JSON_FORMATTER_STAT_ARRAYS'        => 'Arrays',
+    'JSON_FORMATTER_STAT_KEYS'          => 'Keys',
+    'JSON_FORMATTER_STAT_DEPTH'         => 'Depth',
+    'JSON_FORMATTER_SORT_KEYS'          => 'Sort Keys',
+    'JSON_FORMATTER_DOWNLOAD'           => 'Download',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];

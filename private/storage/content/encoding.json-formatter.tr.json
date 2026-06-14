@@ -1,0 +1,303 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-14T21:57:34+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "json-formatter",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 32,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 32,
+        "data": {
+            "name": "JSON Formatter / Validator",
+            "name_short": "JSON Formatter",
+            "description": "JSON’u çevrim içi biçimlendirin, doğrulayın, inceleyin, sıralayın ve küçültün. Ham, sıkıştırılmış veya hatalı JSON’u yapıştırarak 2 boşluk, 4 boşluk ya da tab girintisiyle okunabilir hale getirin, renklendirilmiş metin ile katlanabilir ağaç görünümü arasında geçiş yapın, yinelenen anahtarları tespit edin, yapı istatistiklerini görün, nesne anahtarlarını alfabetik sıralayın, sonucu indirin ya da production kullanımı için JSON’u sıkıştırın. Tüm işlem tarayıcınızda yerel olarak çalışır.",
+            "description_stort": "JSON’u tarayıcıda biçimlendirin, doğrulayın, inceleyin ve küçültün.",
+            "meta_title": "JSON Formatter / Validator online | JSON biçimlendir, küçült ve doğrula",
+            "meta_description": "Ücretsiz JSON formatter ve validator online. JSON biçimlendirin, küçültün, anahtarları sıralayın, JSON ağacını inceleyin, yinelenen anahtarları, sözdizimi hatalarını, karakterleri, baytları ve derinliği görün. Tarayıcıda çalışır."
+        }
+    },
+    "blocks": [
+        {
+            "id": 124,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "JSON biçimlendirme nedir?",
+                "text": "<p>JSON (JavaScript Object Notation), API’ler, yapılandırma dosyaları, loglar, web uygulamaları, build araçları ve veri dışa aktarımlarında kullanılan hafif bir veri değişim formatıdır. Makineler için ayrıştırması kolaydır, ancak küçültülmüş JSON veya derin iç içe geçmiş API yanıtları insanlar için zor okunabilir.</p><p>JSON beautifier veya pretty printer olarak da bilinen bu çevrim içi JSON formatter, ham JSON metnini ayrıştırır, sözdizimini doğrular ve seçilen girintiyle yeniden serileştirir. 2 boşluk, 4 boşluk veya tab seçebilir, ardından sonucu renklendirilmiş metin ya da katlanabilir ağaç olarak inceleyebilirsiniz.</p>"
+            }
+        },
+        {
+            "id": 125,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "JSON biçimlendirme ve küçültme",
+                "text": "<p>Biçimlendirme (<em>Format</em> sekmesi), nesne ve dizileri ayrı satırlara açıp girinti ekleyerek JSON’u okunabilir yapar. API yanıtlarını debug ederken, webhook payload incelerken, frontend state kontrol ederken, yapılandırma dosyalarını karşılaştırırken veya iç içe verileri koda kopyalamadan önce anlamak için kullanın.</p><p>Küçültme (<em>Minify</em> sekmesi), gereksiz boşlukları ve satır sonlarını kaldırarak kompakt tek satırlık JSON üretir. JSON’u kaynak koda, ortam değişkenlerine, test isteklerine koyarken veya aktarım boyutunu azaltmak istediğinizde kullanın. Değerler aynı kalır; sadece whitespace değişir.</p>"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "JSON veri tipleri",
+                "text": "<p>JSON tam olarak altı değer tipini destekler:</p><ul><li><strong>String</strong> — çift tırnak içinde Unicode karakter dizisi. Özel karakterler ters eğik çizgiyle kaçırılmalıdır: <code>\\\"</code>, <code>\\</code>, <code>\\/</code>, <code>\\n</code>, <code>\\r</code>, <code>\\t</code>, <code>\\uXXXX</code>. Örnek: <code>\"Merhaba dünya!\"</code></li><li><strong>Number</strong> — tam sayı veya ondalık sayı. Baştaki sıfırlar, <code>Infinity</code> ve <code>NaN</code> geçerli değildir. Örnek: <code>42</code>, <code>-3.14</code>, <code>1.5e10</code></li><li><strong>Boolean</strong> — yalnızca küçük harfle <code>true</code> veya <code>false</code>.</li><li><strong>Null</strong> — yalnızca küçük harfle <code>null</code>, değer yokluğunu temsil eder.</li><li><strong>Object</strong> — <code>{}</code> içinde sırasız anahtar-değer çiftleri. Anahtarlar string olmalıdır. Örnek: <code>{\"ad\": \"Ayşe\", \"yaş\": 30}</code></li><li><strong>Array</strong> — <code>[]</code> içinde sıralı değer listesi. Değerler herhangi bir JSON tipi olabilir ve karışık kullanılabilir. Örnek: <code>[1, \"iki\", true, null]</code></li></ul>"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "JSON sözdizimi kuralları",
+                "text": "<p>JSON doğrulama hatalarına sık neden olan bazı kurallar:</p><ul><li><strong>Sonda virgül yok.</strong> <code>{\"a\": 1,}</code> ve <code>[1, 2,]</code> geçersizdir. Nesne veya dizideki son elemandan sonra virgül olmamalıdır.</li><li><strong>Yorum yok.</strong> JSON <code>// line</code> veya <code>/* block */</code> yorumlarını desteklemez. Ayrıştırmadan önce kaldırın.</li><li><strong>Sadece çift tırnak.</strong> String anahtarlar ve değerler <code>\"double quotes\"</code> kullanmalıdır. Tek tırnak (<code>'</code>) ve backtick geçerli değildir.</li><li><strong>undefined veya fonksiyon yok.</strong> Yalnızca yukarıdaki altı tip geçerlidir. <code>undefined</code>, <code>NaN</code>, <code>Infinity</code> ve fonksiyonlar JSON’da temsil edilemez.</li><li><strong>Yinelenen anahtarlar risklidir.</strong> JSON parser’ları genellikle son değeri tutar ve önceki değerleri sessizce atar. Bu araç, belirsiz payload’ları API veya uygulamaya gitmeden önce düzeltmeniz için yinelenen anahtarları uyarır.</li><li><strong>Üst seviye değer herhangi bir tip olabilir.</strong> Geçerli bir JSON belgesi string, number, boolean, null, object veya array olabilir; yalnızca object olmak zorunda değildir.</li></ul>"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "JSON doğrulama ve hata ayrıntıları",
+                "text": "<p>Validator herhangi bir çıktı üretmeden önce çalışır. Girdi geçerli JSON değilse araç parser hatasını gösterir ve tarayıcı yeterli bilgi sağladığında kaynak metindeki yaklaşık satır ve sütunu vurgular. Bu, eksik virgülleri, hatalı tırnakları, kaçırılmamış kontrol karakterlerini, kesilmiş dizileri veya bozuk sayıları hızlı bulmaya yardımcı olur.</p><p>Formatter tarayıcının yerel JSON parser’ını kullandığı için JavaScript object literal sözdizimini değil, katı JSON sözdizimini izler. <code>{name: 'Alice'}</code> JavaScript’te tanıdık görünebilir, ancak anahtar ve string değer çift tırnak gerektirdiği için geçerli JSON değildir.</p>"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "JSON yapısını inceleme",
+                "text": "<p>Başarılı biçimlendirmeden sonra çıktı, renklendirilmiş metin görünümü ve katlanabilir ağaç görünümü sunar. Ağaç görünümü, bağlamı kaybetmeden derin iç içe nesne ve dizileri keşfetmek için yararlıdır; metin görünümü ise biçimlendirilmiş JSON’u editöre, ticket’a, dokümantasyona veya API client’a kopyalamak için daha uygundur.</p><p>Araç ayrıca yapı istatistikleri hesaplar: nesne, dizi ve anahtar sayısı, maksimum derinlik, karakter ve bayt. Bu hızlı metrikler payload boyutunu tahmin etmeye, beklenmedik derinliği fark etmeye ve yanıtın çoğunlukla metadata, liste veya karma yapı olup olmadığını anlamaya yardımcı olur.</p>"
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Anahtarları sıralama ve JSON indirme",
+                "text": "<p><em>Sort Keys</em> işlemi, dizi sırasını değiştirmeden nesne anahtarlarını her seviyede alfabetik olarak sıralar. Bu, yapılandırma dosyalarını okumayı kolaylaştırır, code review sırasında görsel gürültüyü azaltır ve biçimlendirmeden sonra iki JSON belgesini karşılaştırmayı kolaylaştırır.</p><p><em>Download</em> işlemi mevcut JSON sonucunu dosya olarak kaydeder; böylece temizlenmiş payload saklayabilir, yeniden üretilebilir örnek paylaşabilir veya küçültülmüş yapılandırmayı tarayıcıdan elle kopyalamadan arşivleyebilirsiniz.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 257,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Hangi girinti boyutunu kullanmalıyım?",
+                "answer": "İki boşluk JavaScript ve web projelerinde en yaygın stildir. Dört boşluk birçok başka dilde standarttır ve derin iç içe yapılarda daha rahat okunabilir. Tab girintisi, her editörün tercih edilen genişliği göstermesine izin verir. Projenizin stiline uygun olanı seçin."
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Araç JSON doğruluyor mu?",
+                "answer": "Evet. Formatter önce girdiyi tarayıcının yerleşik JSON parser’ı ile ayrıştırır. Girdi geçerli değilse problem açıklamasıyla birlikte hemen hata gösterilir. Tarayıcı konum bilgisi verirse araç satır ve sütunu da gösterir ve girdide yaklaşık hata yerini seçer."
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "JSON verim sunucuya gönderiliyor mu?",
+                "answer": "Hayır. Tüm işlem JavaScript ile tarayıcınızda gerçekleşir. JSON’unuz hiçbir sunucuya aktarılmaz. Bu, hassas yapılandırma dosyaları, API anahtarları veya özel veri yapılarıyla çalışırken kullanışlıdır."
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Küçültme JSON verimi değiştirir mi?",
+                "answer": "Hayır. Küçültme JSON’u ayrıştırır ve aynı veriyi gereksiz boşluklar veya satır sonları olmadan serileştirir. String, sayı, boolean, null, array ve object değerleri korunur. Görünür fark, çıktının kompakt ve genellikle tek satır olmasıdır."
+            }
+        },
+        {
+            "id": 261,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "JSON nesne anahtarlarını sıralayabilir miyim?",
+                "answer": "Evet. Format modunda Sort Keys düğmesiyle nesne anahtarlarını tüm iç içe seviyelerde alfabetik sıralayabilirsiniz. Diziler orijinal sırasını korur, çünkü dizi konumu anlamlı veridir."
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "JSON ağaç görünümü ne gösterir?",
+                "answer": "Ağaç görünümü nesne ve dizileri katlanabilir düğümler olarak gösterir; anahtarlar, indeksler ve ilkel değerler tipe göre vurgulanır. Uzun bir metin bloğunda kaydırmadan iç içe payload keşfetmek için tasarlanmıştır."
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Formatter yinelenen anahtarları tespit eder mi?",
+                "answer": "Evet. Araç ham JSON’u tarar ve aynı nesne içinde aynı anahtar birden fazla kez görünürse uyarır. Standart JSON parsing çoğu zaman son yinelenen değeri tutar, bu da API payload veya yapılandırma dosyalarındaki hataları gizleyebilir."
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Biçimlendirilmiş veya küçültülmüş JSON’u indirebilir miyim?",
+                "answer": "Evet. Geçerli bir JSON belgesini biçimlendirdikten veya küçülttükten sonra Download düğmesiyle mevcut çıktıyı JSON dosyası olarak kaydedebilirsiniz. Dışa aktarılan verileri, API örneklerini veya yapılandırma parçalarını temizlerken kullanışlıdır."
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Üst seviyede hangi JSON değerleri geçerlidir?",
+                "answer": "Geçerli bir JSON belgesi object, array, string, number, boolean veya null ile başlayabilir. Birçok API object veya array kullanır, ancak JSON standardı \"merhaba\", 42, true veya null gibi üst seviye primitive değerlere de izin verir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Nesne biçimlendirme",
+                "key": "",
+                "shift": 0,
+                "input": "{\"ad\":\"Ayşe\",\"yaş\":30,\"aktif\":true}",
+                "output": "{\n  \"ad\": \"Ayşe\",\n  \"yaş\": 30,\n  \"aktif\": true\n}",
+                "description": "Düz bir JSON nesnesi 2 boşluk girintisiyle açılır ve okumayı kolaylaştırır."
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Dizi biçimlendirme",
+                "key": "",
+                "shift": 0,
+                "input": "[{\"id\":1,\"rol\":\"admin\"},{\"id\":2,\"rol\":\"kullanıcı\"}]",
+                "output": "[\n  {\n    \"id\": 1,\n    \"rol\": \"admin\"\n  },\n  {\n    \"id\": 2,\n    \"rol\": \"kullanıcı\"\n  }\n]",
+                "description": "Nesnelerden oluşan JSON dizisi iç içe girintiyle biçimlendirilir."
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Küçültme",
+                "key": "",
+                "shift": 0,
+                "input": "{\n  \"anahtar\": \"değer\",\n  \"sayı\": 42\n}",
+                "output": "{\"anahtar\":\"değer\",\"sayı\":42}",
+                "description": "Biçimlendirilmiş JSON, whitespace kaldırılarak tek satıra sıkıştırılır."
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "İç içe API yanıtını biçimlendirme",
+                "key": "",
+                "shift": 0,
+                "input": "{\"durum\":\"ok\",\"veri\":{\"öğeler\":[{\"id\":101,\"etiketler\":[\"json\",\"api\"]},{\"id\":102,\"etiketler\":[]}],\"sonraki\":null}}",
+                "output": "{\n  \"durum\": \"ok\",\n  \"veri\": {\n    \"öğeler\": [\n      {\n        \"id\": 101,\n        \"etiketler\": [\n          \"json\",\n          \"api\"\n        ]\n      },\n      {\n        \"id\": 102,\n        \"etiketler\": []\n      }\n    ],\n    \"sonraki\": null\n  }\n}",
+                "description": "API tarzı iç içe payload, nesneleri, dizileri ve null değerlerini daha kolay incelemek için okunabilir biçimlendirilir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 187,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "JSON formatter"
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "JSON validator"
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "JSON beautifier"
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "JSON minifier"
+            }
+        },
+        {
+            "id": 191,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "JSON biçimlendirme"
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "JSON ağaç görünümü"
+            }
+        },
+        {
+            "id": 193,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "JSON anahtarlarını sıralama"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

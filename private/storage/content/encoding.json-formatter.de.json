@@ -1,0 +1,303 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-14T21:57:34+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "json-formatter",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 32,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 32,
+        "data": {
+            "name": "JSON Formatter / Validator",
+            "name_short": "JSON Formatter",
+            "description": "JSON online formatieren, validieren, prüfen, sortieren und minifizieren. Füge rohes, kompaktes oder fehlerhaftes JSON ein, um es mit 2 Leerzeichen, 4 Leerzeichen oder Tab-Einrückung lesbar auszugeben, zwischen hervorgehobenem Text und einklappbarer Baumansicht zu wechseln, doppelte Schlüssel zu erkennen, Strukturstatistiken zu sehen, Objektschlüssel alphabetisch zu sortieren, das Ergebnis herunterzuladen oder JSON für den Produktionseinsatz zu komprimieren. Alles läuft lokal in deinem Browser.",
+            "description_stort": "JSON im Browser formatieren, validieren, prüfen und minifizieren.",
+            "meta_title": "JSON Formatter / Validator online | JSON formatieren, minifizieren & prüfen",
+            "meta_description": "Kostenloser JSON Formatter und Validator online. JSON formatieren, minifizieren, Schlüssel sortieren, Baumansicht nutzen, doppelte Schlüssel, Syntaxfehler, Zeichen, Bytes und Tiefe prüfen. Läuft im Browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 124,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Was ist JSON-Formatierung?",
+                "text": "<p>JSON (JavaScript Object Notation) ist ein leichtgewichtiges Datenaustauschformat, das in APIs, Konfigurationsdateien, Logs, Web-Apps, Build-Tools und Datenexporten verwendet wird. Maschinen können JSON sehr gut parsen, aber minifiziertes JSON oder tief verschachtelte API-Antworten sind für Menschen oft schwer zu lesen.</p><p>Dieser Online JSON Formatter, auch JSON Beautifier oder Pretty Printer genannt, parst den rohen JSON-Text, validiert ihn syntaktisch und serialisiert ihn mit einheitlicher Einrückung zurück. Du kannst 2 Leerzeichen, 4 Leerzeichen oder Tabs wählen und das Ergebnis anschließend als hervorgehobenen Text oder als einklappbaren Baum ansehen.</p>"
+            }
+        },
+        {
+            "id": 125,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "JSON formatieren oder minifizieren",
+                "text": "<p>Formatieren (Tab <em>Format</em>) macht JSON lesbar: Objekte und Arrays werden auf mehrere Zeilen verteilt, und Einrückungen zeigen die Verschachtelung. Nutze diesen Modus beim Debuggen von API-Antworten, Prüfen von Webhook-Payloads, Lesen von Frontend-State, Vergleichen von Konfigurationen oder Verstehen verschachtelter Daten vor dem Kopieren in Code.</p><p>Minifizieren (Tab <em>Minify</em>) entfernt unnötige Leerzeichen und Zeilenumbrüche und erzeugt eine kompakte JSON-Zeile. Das ist nützlich, wenn du JSON in Quellcode, Umgebungsvariablen oder Testanfragen einfügst oder die übertragene Datenmenge reduzieren möchtest. Die Werte bleiben gleich; nur die Darstellung mit Whitespace ändert sich.</p>"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "JSON-Datentypen",
+                "text": "<p>JSON unterstützt genau sechs Werttypen:</p><ul><li><strong>String</strong> — eine Folge von Unicode-Zeichen in doppelten Anführungszeichen. Sonderzeichen müssen mit Backslash escaped werden: <code>\\\"</code>, <code>\\</code>, <code>\\/</code>, <code>\\n</code>, <code>\\r</code>, <code>\\t</code>, <code>\\uXXXX</code>. Beispiel: <code>\"Hallo, Welt!\"</code></li><li><strong>Number</strong> — eine Ganzzahl oder Gleitkommazahl. Führende Nullen, <code>Infinity</code> und <code>NaN</code> sind nicht erlaubt. Beispiel: <code>42</code>, <code>-3.14</code>, <code>1.5e10</code></li><li><strong>Boolean</strong> — exakt <code>true</code> oder <code>false</code> in Kleinbuchstaben.</li><li><strong>Null</strong> — exakt <code>null</code> in Kleinbuchstaben, steht für einen fehlenden Wert.</li><li><strong>Object</strong> — eine ungeordnete Sammlung von Schlüssel-Wert-Paaren in <code>{}</code>. Schlüssel müssen Strings sein. Beispiel: <code>{\"name\": \"Anna\", \"alter\": 30}</code></li><li><strong>Array</strong> — eine geordnete Liste von Werten in <code>[]</code>. Werte können jeden JSON-Typ haben und gemischt werden. Beispiel: <code>[1, \"zwei\", true, null]</code></li></ul>"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "JSON-Syntaxregeln",
+                "text": "<p>Einige Regeln verursachen besonders häufig JSON-Validierungsfehler:</p><ul><li><strong>Keine nachgestellten Kommas.</strong> <code>{\"a\": 1,}</code> und <code>[1, 2,]</code> sind ungültig. Nach dem letzten Element eines Objekts oder Arrays darf kein Komma stehen.</li><li><strong>Keine Kommentare.</strong> JSON unterstützt weder <code>// line</code> noch <code>/* block */</code>. Entferne Kommentare vor dem Parsen.</li><li><strong>Nur doppelte Anführungszeichen.</strong> String-Schlüssel und String-Werte müssen <code>\"double quotes\"</code> verwenden. Einfache Anführungszeichen (<code>'</code>) und Backticks sind nicht erlaubt.</li><li><strong>Kein undefined und keine Funktionen.</strong> Nur die sechs oben genannten Typen sind gültig. JavaScript-Werte wie <code>undefined</code>, <code>NaN</code>, <code>Infinity</code> und Funktionen können in JSON nicht dargestellt werden.</li><li><strong>Doppelte Objektschlüssel sind riskant.</strong> JSON-Parser behalten meist den letzten Wert und verwerfen frühere Werte stillschweigend. Dieses Tool warnt vor doppelten Schlüsseln, damit du mehrdeutige Payloads vor der Übergabe an API oder Anwendung korrigieren kannst.</li><li><strong>Der Top-Level-Wert kann jeden Typ haben.</strong> Ein gültiges JSON-Dokument kann String, Number, Boolean, Null, Object oder Array sein — nicht nur ein Objekt.</li></ul>"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "JSON-Validierung und Fehlerdetails",
+                "text": "<p>Der Validator läuft, bevor eine Ausgabe erzeugt wird. Ist die Eingabe kein gültiges JSON, zeigt das Tool den Parserfehler und, wenn der Browser genug Informationen liefert, die ungefähre Zeile und Spalte im Quelltext. So findest du fehlende Kommas, falsche Anführungszeichen, nicht escapte Steuerzeichen, abgeschnittene Arrays oder fehlerhafte Zahlen schneller.</p><p>Da der Formatter den nativen JSON-Parser des Browsers verwendet, folgt er der strikten JSON-Syntax und nicht der Syntax von JavaScript-Objektliteralen. Ein Wert wie <code>{name: 'Alice'}</code> sieht in JavaScript vertraut aus, ist aber kein gültiges JSON, weil Schlüssel und String-Wert doppelte Anführungszeichen benötigen.</p>"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "JSON-Struktur untersuchen",
+                "text": "<p>Nach erfolgreicher Formatierung bietet die Ausgabe eine hervorgehobene Textansicht und eine einklappbare Baumansicht. Die Baumansicht hilft beim Erkunden tief verschachtelter Objekte und Arrays, ohne die Orientierung zu verlieren. Die Textansicht eignet sich besser zum Kopieren von formatiertem JSON in Editor, Ticket, Dokumentation oder API-Client.</p><p>Das Tool berechnet außerdem Strukturstatistiken: Anzahl der Objekte, Arrays und Schlüssel, maximale Tiefe, Zeichen und Bytes. Diese schnellen Metriken helfen, die Payload-Größe einzuschätzen, unerwartet tiefe Verschachtelung zu erkennen und zu verstehen, ob eine Antwort hauptsächlich Metadaten, Listen oder gemischte Strukturen enthält.</p>"
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Schlüssel sortieren und JSON herunterladen",
+                "text": "<p>Die Aktion <em>Sort Keys</em> sortiert Objektschlüssel rekursiv alphabetisch, lässt aber die Reihenfolge von Arrays unverändert. Das macht Konfigurationsdateien leichter lesbar, reduziert visuelles Rauschen in Code-Reviews und erleichtert den Vergleich zweier JSON-Dokumente nach dem Formatieren.</p><p>Mit <em>Download</em> speicherst du das aktuelle JSON-Ergebnis als Datei. So kannst du einen bereinigten Payload aufbewahren, ein reproduzierbares Beispiel teilen oder eine minifizierte Konfiguration archivieren, ohne manuell aus dem Browser zu kopieren.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 257,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Welche Einrückung sollte ich verwenden?",
+                "answer": "Zwei Leerzeichen sind in JavaScript- und Webprojekten die häufigste Konvention. Vier Leerzeichen sind in vielen anderen Sprachen üblich und bei tief verschachtelten Strukturen leichter zu lesen. Tabs bewahren die Absicht, mit Tabulatoren einzurücken, während jeder Editor die Breite selbst anzeigen kann. Wähle den Stil, der zu deinem Projekt passt."
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Validiert das Tool JSON?",
+                "answer": "Ja. Der Formatter parst die Eingabe zuerst mit dem eingebauten JSON-Parser des Browsers. Wenn das JSON ungültig ist, erscheint sofort eine Fehlermeldung mit Beschreibung des Problems. Wenn der Browser eine Position liefert, zeigt das Tool zusätzlich Zeile und Spalte und markiert die ungefähre Fehlerstelle in der Eingabe."
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Wird mein JSON an einen Server gesendet?",
+                "answer": "Nein. Die gesamte Verarbeitung läuft im Browser mit JavaScript. Dein JSON wird nicht an einen Server übertragen. Das ist praktisch für sensible Konfigurationsdateien, API-Schlüssel oder private Datenstrukturen."
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Verändert Minifizierung meine JSON-Daten?",
+                "answer": "Nein. Minifizierung parst das JSON und serialisiert dieselben Daten ohne unnötige Leerzeichen oder Zeilenumbrüche. Strings, Zahlen, Booleans, Null-Werte, Arrays und Objekte behalten ihre Werte. Sichtbar ändert sich nur, dass die Ausgabe kompakt wird und meist in eine Zeile passt."
+            }
+        },
+        {
+            "id": 261,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Kann ich JSON-Objektschlüssel sortieren?",
+                "answer": "Ja. Im Format-Modus kannst du mit Sort Keys die Schlüssel von Objekten auf jeder Verschachtelungsebene alphabetisch sortieren. Arrays behalten ihre ursprüngliche Reihenfolge, weil die Position im Array bedeutungsvolle Daten ist. Sortierung ist nützlich für Konfigurationen, deterministische Beispiele und einfachere Vergleiche."
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Was zeigt die JSON-Baumansicht?",
+                "answer": "Die Baumansicht rendert Objekte und Arrays als einklappbare Knoten und hebt Schlüssel, Indizes und primitive Werte nach Typ hervor. Sie ist dafür gedacht, verschachtelte Payloads zu erkunden, ohne durch einen langen Textblock scrollen zu müssen."
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Erkennt der Formatter doppelte Schlüssel?",
+                "answer": "Ja. Das Tool scannt das rohe JSON und warnt, wenn derselbe Schlüssel mehr als einmal innerhalb desselben Objekts vorkommt. Standardmäßiges JSON-Parsing behält häufig den letzten doppelten Wert, wodurch Fehler in API-Payloads oder Konfigurationsdateien verborgen bleiben können."
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Kann ich formatiertes oder minifiziertes JSON herunterladen?",
+                "answer": "Ja. Nach dem Formatieren oder Minifizieren eines gültigen JSON-Dokuments kannst du mit Download die aktuelle Ausgabe als JSON-Datei speichern. Das ist praktisch beim Bereinigen exportierter Daten, API-Beispiele oder Konfigurationsausschnitte."
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Welche JSON-Werte sind auf oberster Ebene gültig?",
+                "answer": "Ein gültiges JSON-Dokument kann mit Objekt, Array, String, Zahl, Boolean oder null beginnen. Viele APIs verwenden Objekte oder Arrays, aber der JSON-Standard erlaubt auch primitive Top-Level-Werte wie \"hallo\", 42, true oder null."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Objekt formatieren",
+                "key": "",
+                "shift": 0,
+                "input": "{\"name\":\"Anna\",\"alter\":30,\"aktiv\":true}",
+                "output": "{\n  \"name\": \"Anna\",\n  \"alter\": 30,\n  \"aktiv\": true\n}",
+                "description": "Ein flaches JSON-Objekt wird mit 2-Leerzeichen-Einrückung erweitert und dadurch leichter lesbar."
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Array formatieren",
+                "key": "",
+                "shift": 0,
+                "input": "[{\"id\":1,\"rolle\":\"admin\"},{\"id\":2,\"rolle\":\"benutzer\"}]",
+                "output": "[\n  {\n    \"id\": 1,\n    \"rolle\": \"admin\"\n  },\n  {\n    \"id\": 2,\n    \"rolle\": \"benutzer\"\n  }\n]",
+                "description": "Ein JSON-Array mit Objekten wird mit verschachtelter Einrückung formatiert."
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Minifizieren",
+                "key": "",
+                "shift": 0,
+                "input": "{\n  \"schlüssel\": \"wert\",\n  \"anzahl\": 42\n}",
+                "output": "{\"schlüssel\":\"wert\",\"anzahl\":42}",
+                "description": "Formatiertes JSON wird durch Entfernen von Whitespace in eine einzelne Zeile komprimiert."
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Verschachtelte API-Antwort formatieren",
+                "key": "",
+                "shift": 0,
+                "input": "{\"status\":\"ok\",\"daten\":{\"einträge\":[{\"id\":101,\"tags\":[\"json\",\"api\"]},{\"id\":102,\"tags\":[]}],\"weiter\":null}}",
+                "output": "{\n  \"status\": \"ok\",\n  \"daten\": {\n    \"einträge\": [\n      {\n        \"id\": 101,\n        \"tags\": [\n          \"json\",\n          \"api\"\n        ]\n      },\n      {\n        \"id\": 102,\n        \"tags\": []\n      }\n    ],\n    \"weiter\": null\n  }\n}",
+                "description": "Ein verschachtelter API-ähnlicher Payload wird lesbar formatiert, damit Objekte, Arrays und Null-Werte einfacher zu prüfen sind."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 187,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "JSON formatter"
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "JSON validator"
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "JSON beautifier"
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "JSON minifier"
+            }
+        },
+        {
+            "id": 191,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "JSON pretty print"
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "JSON tree viewer"
+            }
+        },
+        {
+            "id": 193,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "JSON-Schlüssel sortieren"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

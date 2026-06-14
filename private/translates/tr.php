@@ -514,6 +514,28 @@ return [
     // HTML Encode / Decode
     'HTML_TRUST_PURPOSE'              => 'HTML özel karakterlerini varlık olarak kodlar',
     'HTML_TRUST_ENTITIES'             => 'Adlandırılmış ve sayısal HTML varlıklarını destekler',
+    // JSON Formatter / Validator
+    'JSON_FORMATTER_SETTING_INDENT'     => 'Girinti',
+    'JSON_FORMATTER_INDENT_2'           => '2 boşluk',
+    'JSON_FORMATTER_INDENT_4'           => '4 boşluk',
+    'JSON_FORMATTER_INDENT_TAB'         => 'Sekme',
+    'JSON_FORMATTER_TAB_FORMAT'         => 'Biçimle',
+    'JSON_FORMATTER_TAB_MINIFY'         => 'Küçült',
+    'JSON_FORMATTER_PLACEHOLDER_FORMAT' => 'Biçimlendirmek için JSON yapıştırın...',
+    'JSON_FORMATTER_PLACEHOLDER_MINIFY' => 'Küçültmek için JSON yapıştırın...',
+    'JSON_FORMATTER_TRUST_VALIDATES'    => 'JSON sözdizimini doğrular ve hataları raporlar',
+    'JSON_FORMATTER_TRUST_FORMATS'      => 'Tarayıcıda biçimlendirir ve küçültür',
+    'JSON_FORMATTER_ERR_INVALID'        => 'Geçersiz JSON: :error',
+    'JSON_FORMATTER_ERR_AT'             => ':line. satır, :col. sütunda hata',
+    'JSON_FORMATTER_VIEW_TEXT'          => 'Metin',
+    'JSON_FORMATTER_VIEW_TREE'          => 'Ağaç',
+    'JSON_FORMATTER_WARN_DUPLICATE'     => 'Yinelenen anahtar «:key»',
+    'JSON_FORMATTER_STAT_OBJECTS'       => 'Nesne',
+    'JSON_FORMATTER_STAT_ARRAYS'        => 'Dizi',
+    'JSON_FORMATTER_STAT_KEYS'          => 'Anahtar',
+    'JSON_FORMATTER_STAT_DEPTH'         => 'Derinlik',
+    'JSON_FORMATTER_SORT_KEYS'          => 'Anahtarları sırala',
+    'JSON_FORMATTER_DOWNLOAD'           => 'İndir',
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
 ];

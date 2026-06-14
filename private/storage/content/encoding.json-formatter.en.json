@@ -1,0 +1,303 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-14T21:57:34+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "json-formatter",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 32,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 32,
+        "data": {
+            "name": "JSON Formatter / Validator",
+            "name_short": "JSON Formatter",
+            "description": "Format, validate, inspect, sort and minify JSON online. Paste raw, compact or broken JSON to pretty-print it with 2 spaces, 4 spaces, or tab indentation, switch between highlighted text and collapsible tree view, detect duplicate keys, view structure stats, sort object keys alphabetically, download the result, or compact JSON for production use. Everything runs locally in your browser.",
+            "description_stort": "Format, validate, inspect and minify JSON in the browser.",
+            "meta_title": "JSON Formatter / Validator Online | Beautify, Minify & Inspect JSON",
+            "meta_description": "Free JSON formatter and validator online. Beautify, minify, sort keys, inspect JSON tree, detect duplicate keys, see syntax errors, chars, bytes and depth. Runs in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 124,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is JSON formatting?",
+                "text": "<p>JSON (JavaScript Object Notation) is a lightweight data-interchange format used by APIs, configuration files, logs, web apps, build tools and data exports. It is easy for machines to parse, but minified JSON or deeply nested API responses can be difficult for people to read.</p><p>This online JSON formatter, also called a JSON beautifier or pretty printer, parses the raw JSON text, validates it for syntax correctness, and serialises it back with consistent indentation. You can choose 2 spaces, 4 spaces, or tab indentation, then inspect the result as highlighted text or as a collapsible tree.</p>"
+            }
+        },
+        {
+            "id": 125,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Format vs minify JSON",
+                "text": "<p>Formatting (the <em>Format</em> tab) makes JSON human-readable by expanding objects and arrays onto separate lines and adding indentation. Use it when debugging API responses, reviewing webhook payloads, checking frontend state, comparing configuration files, or understanding nested data before copying it into code.</p><p>Minification (the <em>Minify</em> tab) removes unnecessary whitespace and line breaks, producing a compact one-line JSON string. Use it when embedding JSON in source code, storing payloads in environment variables, sending test requests, or reducing transfer size. The values remain the same; only the whitespace changes.</p>"
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "JSON data types",
+                "text": "<p>JSON supports exactly six value types:</p><ul><li><strong>String</strong> — a sequence of Unicode characters in double quotes. Special characters must be escaped with a backslash: <code>\\\"</code>, <code>\\</code>, <code>\\/</code>, <code>\\n</code>, <code>\\r</code>, <code>\\t</code>, <code>\\uXXXX</code>. Example: <code>\"Hello, world!\"</code></li><li><strong>Number</strong> — an integer or floating-point value. Leading zeros, <code>Infinity</code>, and <code>NaN</code> are not allowed. Example: <code>42</code>, <code>-3.14</code>, <code>1.5e10</code></li><li><strong>Boolean</strong> — exactly <code>true</code> or <code>false</code> (lowercase only).</li><li><strong>Null</strong> — exactly <code>null</code> (lowercase only), representing the absence of a value.</li><li><strong>Object</strong> — an unordered collection of key-value pairs wrapped in <code>{}</code>. Keys must be strings. Example: <code>{\"name\": \"Alice\", \"age\": 30}</code></li><li><strong>Array</strong> — an ordered list of values wrapped in <code>[]</code>. Values may be of any JSON type and may be mixed. Example: <code>[1, \"two\", true, null]</code></li></ul>"
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "JSON syntax rules",
+                "text": "<p>A few rules that frequently cause JSON validation errors:</p><ul><li><strong>No trailing commas.</strong> <code>{\"a\": 1,}</code> and <code>[1, 2,]</code> are invalid. The last element in an object or array must not be followed by a comma.</li><li><strong>No comments.</strong> JSON does not support <code>// line</code> or <code>/* block */</code> comments. Strip them before parsing.</li><li><strong>Double quotes only.</strong> String keys and values must use <code>\"double quotes\"</code>. Single quotes (<code>'</code>) and backticks are not allowed.</li><li><strong>No undefined or functions.</strong> Only the six types listed above are valid. JavaScript values like <code>undefined</code>, <code>NaN</code>, <code>Infinity</code>, and functions cannot be represented in JSON.</li><li><strong>Duplicate object keys are risky.</strong> JSON parsers usually keep the last value and silently discard earlier values. This tool warns about duplicate keys so you can fix ambiguous payloads before they reach an API or application.</li><li><strong>Top-level value can be any type.</strong> A valid JSON document may be a string, number, boolean, null, object, or array — not just an object.</li></ul>"
+            }
+        },
+        {
+            "id": 128,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "JSON validation and error details",
+                "text": "<p>The validator runs before any output is produced. If the input is not valid JSON, the tool shows the parser error and, when the browser provides enough information, highlights the approximate line and column in the source text. This is useful for quickly finding missing commas, invalid quotes, unescaped control characters, truncated arrays, or malformed numbers.</p><p>Because the formatter uses the browser's native JSON parser, it follows strict JSON syntax rather than JavaScript object literal syntax. A value such as <code>{name: 'Alice'}</code> may look familiar in JavaScript, but it is not valid JSON because the key and string value must use double quotes.</p>"
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "Inspect JSON structure",
+                "text": "<p>After a successful format operation, the output includes a highlighted text view and a collapsible tree view. The tree view is helpful for exploring deeply nested objects and arrays without losing your place, while the text view is better for copying formatted JSON into an editor, issue tracker, documentation page, or API client.</p><p>The tool also calculates structure statistics: number of objects, arrays, keys, maximum depth, characters and bytes. These quick metrics help estimate payload size, spot unexpectedly deep nesting, and understand whether a response is mostly object metadata, list data, or a mixed structure.</p>"
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Sort keys and download JSON",
+                "text": "<p>The <em>Sort Keys</em> action alphabetically sorts object keys recursively while keeping array order unchanged. This can make configuration files easier to scan, reduce visual noise in code reviews, and make two JSON documents easier to compare after formatting.</p><p>The <em>Download</em> action saves the current JSON result as a file, so you can keep a cleaned payload, share a reproducible example, or archive a minified configuration without copying from the browser manually.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 257,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What indent size should I use?",
+                "answer": "Two spaces is the most common convention in JavaScript and web projects. Four spaces is standard in many other languages and is easier to read in deeply nested structures. Tab indentation preserves the original formatting intent while allowing each viewer's editor to display the preferred width. Choose the one that matches your project's coding style."
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Does the tool validate JSON?",
+                "answer": "Yes. The formatter first parses the input using the browser's built-in JSON parser. If the input is not valid JSON, an error message is shown immediately with a description of the problem. When the browser exposes a position, the tool also shows the line and column and selects the approximate error location in the input."
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is my JSON data sent to a server?",
+                "answer": "No. All processing happens entirely in your browser using JavaScript. Your JSON is never transmitted to any server. This makes the tool safe to use with sensitive configuration files, API keys, or private data structures."
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does minification change my JSON data?",
+                "answer": "No. Minification parses the JSON and serialises the same data without unnecessary spaces or line breaks. Strings, numbers, booleans, null values, arrays and objects keep their values. The visible difference is that the output becomes compact and usually fits on a single line."
+            }
+        },
+        {
+            "id": 261,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can I sort JSON object keys?",
+                "answer": "Yes. In Format mode, use the Sort Keys button to sort object keys alphabetically at every nesting level. Arrays keep their original order because array position is meaningful data. Sorting is useful for configuration files, deterministic examples and easier visual comparison."
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What does the JSON tree view show?",
+                "answer": "The tree view renders objects and arrays as collapsible nodes, with keys, indexes and primitive values highlighted by type. It is designed for exploring nested payloads without scrolling through a long block of text."
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Does the formatter detect duplicate keys?",
+                "answer": "Yes. The tool scans the raw JSON and warns when the same key appears more than once inside the same object. Standard JSON parsing usually keeps the last duplicate value, which can hide mistakes in API payloads or configuration files."
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can I download the formatted or minified JSON?",
+                "answer": "Yes. After formatting or minifying a valid JSON document, use the Download button to save the current output as a JSON file. This is convenient when cleaning up exported data, API examples or configuration snippets."
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Which JSON values are valid at the top level?",
+                "answer": "A valid JSON document may start with an object, array, string, number, boolean or null. Many APIs use objects or arrays, but the JSON standard also allows top-level primitive values such as \"hello\", 42, true or null."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 120,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Format object",
+                "key": "",
+                "shift": 0,
+                "input": "{\"name\":\"Alice\",\"age\":30,\"active\":true}",
+                "output": "{\n  \"name\": \"Alice\",\n  \"age\": 30,\n  \"active\": true\n}",
+                "description": "A flat JSON object is expanded with 2-space indentation for easy reading."
+            }
+        },
+        {
+            "id": 121,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Format array",
+                "key": "",
+                "shift": 0,
+                "input": "[{\"id\":1,\"role\":\"admin\"},{\"id\":2,\"role\":\"user\"}]",
+                "output": "[\n  {\n    \"id\": 1,\n    \"role\": \"admin\"\n  },\n  {\n    \"id\": 2,\n    \"role\": \"user\"\n  }\n]",
+                "description": "A JSON array of objects is formatted with nested indentation."
+            }
+        },
+        {
+            "id": 122,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Minify",
+                "key": "",
+                "shift": 0,
+                "input": "{\n  \"key\": \"value\",\n  \"count\": 42\n}",
+                "output": "{\"key\":\"value\",\"count\":42}",
+                "description": "Formatted JSON is compacted into a single line by removing all whitespace."
+            }
+        },
+        {
+            "id": 123,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Format nested API response",
+                "key": "",
+                "shift": 0,
+                "input": "{\"status\":\"ok\",\"data\":{\"items\":[{\"id\":101,\"tags\":[\"json\",\"api\"]},{\"id\":102,\"tags\":[]}],\"next\":null}}",
+                "output": "{\n  \"status\": \"ok\",\n  \"data\": {\n    \"items\": [\n      {\n        \"id\": 101,\n        \"tags\": [\n          \"json\",\n          \"api\"\n        ]\n      },\n      {\n        \"id\": 102,\n        \"tags\": []\n      }\n    ],\n    \"next\": null\n  }\n}",
+                "description": "A nested API-style payload is pretty-printed so objects, arrays and null values are easier to inspect."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 187,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "JSON formatter"
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "JSON validator"
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "JSON beautifier"
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "JSON minifier"
+            }
+        },
+        {
+            "id": 191,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "JSON pretty print"
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "JSON tree viewer"
+            }
+        },
+        {
+            "id": 193,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Sort JSON keys"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
