@@ -135,6 +135,25 @@ final readonly class CipherController
             $toolUi['placeholderEncode']      = trans('NUM2LET_PLACEHOLDER_NUMBERS');
             $toolUi['placeholderDecode']      = trans('NUM2LET_PLACEHOLDER_LETTERS');
         }
+        if ($cipherAlias === 'timestamp-converter') {
+            $toolUi['timestampConverterMode']         = true;
+            $toolUi['tabEncode']                      = trans('TIMESTAMP_CONVERTER_TAB_TO_DATE');
+            $toolUi['tabDecode']                      = trans('TIMESTAMP_CONVERTER_TAB_TO_TS');
+            $toolUi['placeholderEncode']              = trans('TIMESTAMP_CONVERTER_PLACEHOLDER_TS');
+            $toolUi['placeholderDecode']              = trans('TIMESTAMP_CONVERTER_PLACEHOLDER_DATE');
+            $toolUi['tsErrInvalidTs']                 = trans('TIMESTAMP_CONVERTER_ERR_INVALID_TS');
+            $toolUi['tsErrInvalidDate']               = trans('TIMESTAMP_CONVERTER_ERR_INVALID_DATE');
+            $toolUi['tsNowLabel']                     = trans('TIMESTAMP_CONVERTER_NOW_LABEL');
+            $toolUi['tsLabelUtc']                     = trans('TIMESTAMP_CONVERTER_LABEL_UTC');
+            $toolUi['tsLabelLocal']                   = trans('TIMESTAMP_CONVERTER_LABEL_LOCAL');
+            $toolUi['tsLabelIso']                     = trans('TIMESTAMP_CONVERTER_LABEL_ISO');
+            $toolUi['tsLabelRelative']                = trans('TIMESTAMP_CONVERTER_LABEL_RELATIVE');
+            $toolUi['tsLabelDay']                     = trans('TIMESTAMP_CONVERTER_LABEL_DAY');
+            $toolUi['tsLabelUnixSec']                 = trans('TIMESTAMP_CONVERTER_LABEL_UNIX_SEC');
+            $toolUi['tsLabelUnixMs']                  = trans('TIMESTAMP_CONVERTER_LABEL_UNIX_MS');
+            $toolUi['tsResultSeconds']                = trans('TIMESTAMP_CONVERTER_RESULT_SECONDS');
+            $toolUi['tsResultMs']                     = trans('TIMESTAMP_CONVERTER_RESULT_MS');
+        }
         if ($cipherAlias === 'json-formatter') {
             $toolUi['jsonFormatterMode']          = true;
             $toolUi['tabEncode']                  = trans('JSON_FORMATTER_TAB_FORMAT');

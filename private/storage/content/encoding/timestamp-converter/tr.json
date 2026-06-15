@@ -1,0 +1,292 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T17:32:13+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "timestamp-converter",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 33,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 33,
+        "data": {
+            "name": "Timestamp Converter",
+            "name_short": "Timestamp",
+            "description": "Unix timestamps değerlerini okunabilir tarihlere, tarihleri de yeniden Unix time değerine dönüştürün. Saniye veya milisaniye cinsinden bir timestamp yapıştırarak UTC, yerel saat, ISO 8601, göreli zaman, haftanın günü, Unix seconds ve Unix milliseconds değerlerini görün. API'ler, veritabanları, loglar ve debug işlemleri için timestamp üretmek üzere Tarih → Timestamp moduna geçin.",
+            "description_stort": "Unix timestamps değerlerini tarihe, tarihleri de saniye veya milisaniye cinsinden timestamp değerlerine dönüştürün.",
+            "meta_title": "Timestamp Converter Online | Unix Time Tarihe & Tarih Timestamp'e",
+            "meta_description": "Ücretsiz online Unix timestamp converter. Epoch time değerini UTC, yerel saat, ISO 8601, göreli zaman ve haftanın gününe dönüştürün veya tarihleri tarayıcıda Unix seconds ve milliseconds değerlerine çevirin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 131,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Unix timestamp nedir?",
+                "text": "<p>Unix timestamp; Unix time, POSIX time veya epoch time olarak da adlandırılır ve 1 Ocak 1970 00:00:00 UTC anından bu yana geçen saniye sayısını ifade eder. Tek bir kesin zamanı temsil eder ve saat dilimi saklamaz; bu yüzden veritabanları, API'ler, loglar, zamanlayıcılar, tokenlar ve sistemler arası entegrasyonlarda kullanışlıdır.</p><p>Milisaniye timestamp değerleri aynı Unix epoch noktasını kullanır, ancak saniye yerine milisaniye sayar; bu nedenle değer 1000 kat daha büyüktür. JavaScript <code>Date.now()</code>, Java <code>System.currentTimeMillis()</code> ve birçok event stream varsayılan olarak milisaniye timestamp döndürür.</p>"
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Saniye ve milisaniye",
+                "text": "<p>Dönüştürücü, girilen timestamp değerinin saniye mi milisaniye mi olduğunu otomatik algılayabilir. Mutlak değeri 100 milyardan (10¹¹) büyük sayılar milisaniye, daha küçük değerler saniye olarak ele alınır. Kaynak formatı biliyorsanız <strong>Giriş birimi</strong> ayarıyla saniye veya milisaniyeyi zorunlu seçebilirsiniz.</p><p>Pratik kural: 10 basamaklı bir değer genellikle saniye cinsinden Unix time, 13 basamaklı bir değer ise genellikle milisaniye cinsinden Unix time değeridir. Sonuç tablosu her zaman Unix seconds ve Unix milliseconds değerlerini birlikte gösterir; böylece kodun veya veritabanının beklediği birimi doğrudan kopyalayabilirsiniz.</p>"
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Dönüştürücü neleri gösterir?",
+                "text": "<p><strong>Timestamp → Tarih</strong> modunda sonuç; UTC zamanı, tarayıcınızın yerel saatini, ISO 8601 formatını, göreli zamanı, haftanın gününü, Unix seconds ve Unix milliseconds değerlerini içerir. Her satırın kendi kopyalama düğmesi vardır; bu, log kayıtlarını, API payload değerlerini, JWT claims alanlarını, cron zamanlamalarını veya veritabanı kayıtlarını karşılaştırırken işe yarar.</p><p><strong>Tarih → Timestamp</strong> modunda dönüştürücü tarih metnini tarayıcıda ayrıştırır ve saniye ile milisaniye cinsinden Unix time değerlerini, ayrıca doğrulama için normalize edilmiş ISO, UTC ve yerel zaman gösterimlerini döndürür.</p>"
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "UTC, yerel saat ve ISO 8601",
+                "text": "<p>Unix timestamps UTC'ye dayanır, ancak insanlar tarihleri çoğunlukla yerel saatle okur. Bu araç ikisini de gösterir: sunucu tarafı tutarlılığı için UTC, tarayıcınızda yapılandırılmış saat dilimi için yerel saat. Böylece bir olayın kullanıcı, sunucu veya entegrasyon ortağı açısından beklenen anda gerçekleşip gerçekleşmediğini kontrol etmek kolaylaşır.</p><p><code>2024-01-15T12:00:00.000Z</code> gibi ISO 8601 çıktısı, JSON API'ler, loglar ve yapılandırma dosyalarında yaygın kullanılan taşınabilir bir tarih-saat formatıdır. Doğruluk önemliyse, tarihi yeniden timestamp'e dönüştürürken açık saat dilimi içeren ISO 8601 kullanın.</p>"
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Yaygın kullanım alanları",
+                "text": "<p>Bu timestamp converter aracını uygulama loglarını debug etmek, API yanıtlarındaki zamanları kontrol etmek, veritabanı alanlarını okumak, <code>exp</code>, <code>iat</code> ve <code>nbf</code> gibi JWT claims değerlerini doğrulamak, test verisi hazırlamak, webhook olay zamanlarını dönüştürmek veya farklı programlama dillerinden gelen timestamp değerlerini karşılaştırmak için kullanın.</p><p>Dönüştürme işlemi tarayıcıda çalışır; bu yüzden yapıştırılan değerler dönüştürücü mantığı tarafından sunucuya gönderilmez. Günlük geliştirme, sorun giderme ve hızlı timestamp kontrolleri için pratiktir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 266,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Geçerli Unix timestamp değerini nasıl alırım?",
+                "answer": "<strong>Şimdi</strong> düğmesine tıklayarak girişi anında geçerli zamanla doldurabilirsiniz. Timestamp → Tarih modunda geçerli Unix timestamp değerini saniye cinsinden ekler; Tarih → Timestamp modunda geçerli tarih-saat metnini ekler. Linux/macOS üzerinde <code>date +%s</code>, PowerShell'de <code>Get-Date -UFormat %s</code>, JavaScript saniyeleri için <code>Math.floor(Date.now() / 1000)</code> veya JavaScript milisaniyeleri için <code>Date.now()</code> kullanabilirsiniz."
+            }
+        },
+        {
+            "id": 267,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Hangi tarih formatlarını timestamp'e dönüştürebilirim?",
+                "answer": "Dönüştürücü, tarayıcının JavaScript motorunun ayrıştırabildiği tarih metinlerini kabul eder: ISO 8601 (<code>2024-01-15T12:00:00Z</code>), basit tarihler (<code>2024-01-15</code>), saat dilimi olmayan tarih-saat (<code>2024-01-15 12:00:00</code>) ve bazı yerel formatlar. Tarayıcılar arasında güvenilir sonuç için <code>2024-01-15T12:00:00+03:00</code> veya <code>2024-01-15T09:00:00Z</code> gibi açık saat dilimi içeren ISO 8601 kullanın."
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "2038 yılı problemi nedir?",
+                "answer": "2038 yılı problemi (Y2K38), Unix timestamps değerlerini 32 bit işaretli tamsayı olarak saklayan sistemleri etkiler. Bu sistemler yalnızca 19 Ocak 2038 03:14:07 UTC anına kadar olan zamanları temsil edebilir (timestamp 2147483647). Sonrasında değer taşar ve 1901 yılındaki bir tarihi temsil eden büyük bir negatif sayıya dönüşür. Modern 64 bit sistemler bu sorundan etkilenmez; çünkü geleceğe doğru milyarlarca yıllık tarihleri temsil edebilirler."
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Unix timestamp UTC'de mi yoksa yerel saatte mi saklanır?",
+                "answer": "Unix timestamp, Unix epoch başlangıcından UTC'ye göre sayılan bir anı temsil eder. Saat dilimi veya locale içermez. Yerel saat yalnızca bir gösterim tercihidir: Aynı timestamp farklı saat dilimlerinde farklı saatler olarak görünebilir, ancak yine de aynı ana işaret eder."
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Bir timestamp değerinin saniye mi milisaniye mi olduğunu nasıl anlarım?",
+                "answer": "Güncel Unix timestamps değerleri saniye cinsindeyse genellikle 10 basamaklı, milisaniye cinsindeyse genellikle 13 basamaklıdır. Bu araç 100 milyardan (10¹¹) büyük değerleri otomatik olarak milisaniye kabul eder. Eski veriler, gelecekteki tarihler, negatif timestamps veya bilinen bir API formatıyla çalışıyorsanız <strong>Giriş birimi</strong> ayarından saniye ya da milisaniyeyi manuel seçin."
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Yerel saatim neden UTC'den farklı?",
+                "answer": "UTC, Unix timestamps tarafından kullanılan küresel referans zamandır. Yerel saat; tarayıcınızdaki veya işletim sisteminizdeki saat dilimi ayarlarından, geçerliyse yaz saati kuralları dahil edilerek hesaplanır. Bu nedenle UTC ve yerel saat satırları aynı timestamp için farklı saatler gösterebilir."
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "1970 öncesi tarihleri dönüştürebilir miyim?",
+                "answer": "Evet. 1 Ocak 1970 00:00:00 UTC öncesindeki tarihler negatif Unix timestamps ile temsil edilir. Çok eski veya çok uzak gelecekteki tarih desteği tarayıcının JavaScript Date aralığına bağlıdır, ancak modern tarayıcılarda sıradan 1970 öncesi tarihler çalışır."
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Dönüştürücü timestamp değerimi sunucuya gönderir mi?",
+                "answer": "Timestamp dönüştürme mantığı tarayıcıda çalışır. Yapıştırılan timestamp ve tarih değerleri JavaScript tarafından yerel olarak işlenir; bu da geliştirme loglarını, API payload değerlerini veya token claims alanlarını kontrol ederken yararlıdır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 124,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Unix Epoch",
+                "key": "",
+                "shift": 0,
+                "input": "0",
+                "output": "1970-01-01T00:00:00.000Z",
+                "description": "Her Unix timestamp bu andan itibaren saniye sayar: 1 Ocak 1970 UTC gece yarısı."
+            }
+        },
+        {
+            "id": 125,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "JavaScript milisaniyeleri",
+                "key": "",
+                "shift": 0,
+                "input": "1700000000000",
+                "output": "2023-11-14T22:13:20.000Z",
+                "description": "JavaScript Date.now() milisaniye döndürür. Araç 13 basamaklı timestamps değerlerini otomatik olarak milisaniye kabul eder."
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Tarihten timestamp'e",
+                "key": "",
+                "shift": 0,
+                "input": "2024-01-01T00:00:00Z",
+                "output": "1704067200",
+                "description": "Unix timestamp değerini saniye cinsinden almak için ISO 8601 tarih yapıştırın; API çağrıları veya veritabanı sorguları hazırlarken kullanışlıdır."
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "2038 yılı sınırı",
+                "key": "",
+                "shift": 0,
+                "input": "2147483647",
+                "output": "2038-01-19T03:14:07.000Z",
+                "description": "32 bit işaretli tamsayının maksimum değeri. Bu andan sonra timestamp değerlerini 32 bit tamsayı olarak saklayan sistemler taşma yaşar (Y2K38 problemi)."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 194,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Unix timestamp"
+            }
+        },
+        {
+            "id": 195,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "epoch converter"
+            }
+        },
+        {
+            "id": 196,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "tarihten timestamp'e"
+            }
+        },
+        {
+            "id": 197,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Unix time converter"
+            }
+        },
+        {
+            "id": 198,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "epoch time"
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "timestamp tarihe"
+            }
+        },
+        {
+            "id": 200,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "milisaniye timestamp"
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "UTC time"
+            }
+        },
+        {
+            "id": 202,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "tag": "ISO 8601"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

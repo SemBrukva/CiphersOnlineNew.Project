@@ -18,6 +18,7 @@ use App\Cipher\HillCipherService;
 use App\Cipher\HtmlEncodeCipherService;
 use App\Cipher\JsonFormatterCipherService;
 use App\Cipher\LetterFrequencyService;
+use App\Cipher\TimestampConverterCipherService;
 use App\Cipher\MorseCipherService;
 use App\Cipher\NumbersToLettersService;
 use App\Cipher\PlayfairCipherService;
@@ -115,7 +116,8 @@ final class ToolRegistryTest extends TestCase
             new LetterFrequencyService(),
             new NumbersToLettersService(),
             new HtmlEncodeCipherService(),
-            new JsonFormatterCipherService()
+            new JsonFormatterCipherService(),
+            new TimestampConverterCipherService()
         );
     }
 }

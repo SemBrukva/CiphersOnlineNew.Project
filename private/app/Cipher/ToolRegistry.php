@@ -36,7 +36,8 @@ final readonly class ToolRegistry
         private LetterFrequencyService $letterFrequency,
         private NumbersToLettersService $numbersToLetters,
         private HtmlEncodeCipherService $htmlEncode,
-        private JsonFormatterCipherService $jsonFormatter
+        private JsonFormatterCipherService $jsonFormatter,
+        private TimestampConverterCipherService $timestampConverter
     ) {
     }
 
@@ -95,6 +96,12 @@ final readonly class ToolRegistry
                 ['label' => 'Object',  'value' => '{"name":"Alice","age":30,"active":true}'],
                 ['label' => 'Array',   'value' => '[{"id":1,"role":"admin"},{"id":2,"role":"user"}]'],
                 ['label' => 'Minify',  'value' => "{\n  \"key\": \"value\",\n  \"count\": 42\n}", 'direction' => 'decrypt'],
+            ],
+            'encoding/timestamp-converter' => [
+                ['label' => 'Epoch',    'value' => '0'],
+                ['label' => 'Y2K',      'value' => '946684800'],
+                ['label' => '2001-9-11','value' => '1000166400'],
+                ['label' => 'ISO date', 'value' => '2024-01-15T12:00:00Z', 'direction' => 'decrypt'],
             ],
             'classical-ciphers/playfair' => [
                 ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'MONARCHY'],
@@ -228,6 +235,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => null,
             'encoding/html-encode' => null,
             'encoding/json-formatter' => null,
+            'encoding/timestamp-converter' => null,
             'text-analysis/frequency-analysis' => null,
             'text-analysis/caesar-brute-force' => 'caesar-brute-force',
             'text-analysis/letter-frequency' => null,
@@ -264,6 +272,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
             'encoding/json-formatter' => $this->jsonFormatter->getToolSettings(),
+            'encoding/timestamp-converter' => $this->timestampConverter->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getToolSettings(),
             'text-analysis/letter-frequency'   => $this->letterFrequency->getToolSettings(),
@@ -301,6 +310,7 @@ final readonly class ToolRegistry
             'text-analysis/letter-frequency'   => $this->letterFrequency->getTrustItems($calculationMode),
             'encoding/html-encode' => $this->htmlEncode->getTrustItems($calculationMode),
             'encoding/json-formatter' => $this->jsonFormatter->getTrustItems($calculationMode),
+            'encoding/timestamp-converter' => $this->timestampConverter->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),

@@ -1,6 +1,7 @@
 import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
 import { detectLanguage, getUnknownChars, isValidMorseFormat } from './cipher-tool/decoders/morse.js'
 import { initJsonFormatter } from './cipher-tool/json-formatter.js'
+import { initTimestampConverter } from './cipher-tool/timestamp-converter.js'
 import { initFrequencyAnalysis } from './cipher-tool/frequency-analysis.js'
 import { initLetterFrequency } from './cipher-tool/letter-frequency.js'
 import { initBruteForce } from './cipher-tool/brute-force.js'
@@ -59,6 +60,8 @@ export function initCipherToolPage() {
   const jsonIndentSelect = document.getElementById('ciphers-json-indent')
   const jsonSortKeysBtn  = document.getElementById('ciphers-json-sort')
   const jsonDownloadBtn  = document.getElementById('ciphers-json-download')
+  const tsUnitSelect     = document.getElementById('ciphers-ts-unit')
+  const tsNowBtn         = document.getElementById('ciphers-ts-now')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -72,12 +75,14 @@ export function initCipherToolPage() {
   const isLetterFrequencyTool = Boolean(ui.letterFrequencyMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
+  const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
   const decoder = getDecoderBySlug(slug)
   const isClientTool = isEncodingTool || decoder !== null
   let jsonFormatter = null
+  let timestampConverter = null
   let frequencyAnalysis = null
   let letterFrequency = null
   let bruteForce = null
@@ -109,6 +114,17 @@ export function initCipherToolPage() {
     morseErrInvalidFormat: ui.morseErrInvalidFormat || 'Invalid Morse code format.',
     morseWarnUnknownChars: ui.morseWarnUnknownChars || 'Unknown characters skipped: :chars.',
     morseInfoDecodedUnknown: ui.morseInfoDecodedUnknown || 'Some codes could not be decoded (shown as ?).',
+    tsErrInvalidTs: ui.tsErrInvalidTs || 'Invalid timestamp — enter a number.',
+    tsErrInvalidDate: ui.tsErrInvalidDate || 'Invalid date — try ISO 8601 format.',
+    tsLabelUtc: ui.tsLabelUtc || 'UTC',
+    tsLabelLocal: ui.tsLabelLocal || 'Local time',
+    tsLabelIso: ui.tsLabelIso || 'ISO 8601',
+    tsLabelRelative: ui.tsLabelRelative || 'Relative',
+    tsLabelDay: ui.tsLabelDay || 'Day of week',
+    tsLabelUnixSec: ui.tsLabelUnixSec || 'Unix (seconds)',
+    tsLabelUnixMs: ui.tsLabelUnixMs || 'Unix (milliseconds)',
+    tsResultSeconds: ui.tsResultSeconds || 'Unix (seconds)',
+    tsResultMs: ui.tsResultMs || 'Unix (milliseconds)',
   }
 
   const setFeedback = (message, isError = false, isInfo = false) => {
@@ -150,6 +166,7 @@ export function initCipherToolPage() {
         key: String(keyInput?.value ?? ''),
         liveMode: Boolean(liveModeInput?.checked),
         jsonIndent: String(jsonIndentSelect?.value ?? ''),
+        tsUnit: String(tsUnitSelect?.value ?? ''),
       }
       window.localStorage.setItem(stateStorageKey, JSON.stringify(state))
     } catch {
@@ -310,6 +327,13 @@ export function initCipherToolPage() {
         if (hasIndent) jsonIndentSelect.value = savedState.jsonIndent
       }
     }
+
+    if (isTimestampConverterTool) {
+      if (tsUnitSelect && typeof savedState.tsUnit === 'string' && savedState.tsUnit !== '') {
+        const hasUnit = Array.from(tsUnitSelect.options).some((o) => o.value === savedState.tsUnit)
+        if (hasUnit) tsUnitSelect.value = savedState.tsUnit
+      }
+    }
   }
 
   const process = () => {
@@ -323,6 +347,7 @@ export function initCipherToolPage() {
       if (isBruteForceTool) bruteForce.showEmpty()
       if (isLetterFrequencyTool) letterFrequency.showEmpty()
       if (isJsonFormatterTool) jsonFormatter.showEmpty()
+      if (isTimestampConverterTool) timestampConverter.showEmpty()
       setOutputState(false)
       setFeedback('')
       return
@@ -359,6 +384,11 @@ export function initCipherToolPage() {
 
     if (isJsonFormatterTool) {
       jsonFormatter.run(value)
+      return
+    }
+
+    if (isTimestampConverterTool) {
+      timestampConverter.run(value)
       return
     }
 
@@ -631,6 +661,7 @@ export function initCipherToolPage() {
     if (isAnalysisTool) frequencyAnalysis.showEmpty()
     if (isLetterFrequencyTool) letterFrequency.showEmpty()
     if (isJsonFormatterTool) jsonFormatter.showEmpty()
+    if (isTimestampConverterTool) timestampConverter.showEmpty()
     updateCounter()
     setOutputState(false)
     setFeedback('')
@@ -720,6 +751,17 @@ export function initCipherToolPage() {
       labels, jsonIndentSelect, jsonSortKeysBtn, jsonDownloadBtn,
       setFeedback, setOutputState, highlightErrorInInput,
       sendAnalyticsBeacon, slug, getMode: () => mode, onProcess: () => process(),
+    })
+  }
+
+  if (isTimestampConverterTool) {
+    timestampConverter = initTimestampConverter({
+      input, output, visualOutput,
+      labels, setFeedback, setOutputState,
+      sendAnalyticsBeacon, slug,
+      locale: String(ui.locale || 'en'),
+      getMode: () => mode, onProcess: () => process(),
+      tsUnitSelect, tsNowBtn,
     })
   }
 

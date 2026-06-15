@@ -167,6 +167,9 @@
                     {foreach $tool_ui.exampleChips as $chip}
                     <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}{if isset($chip.direction)} data-direction="{$chip.direction|escape:'html'}"{/if}{if isset($chip.delimiter)} data-delimiter="{$chip.delimiter|escape:'html'}"{/if}{if isset($chip.encoding)} data-encoding="{$chip.encoding|escape:'html'}"{/if}>{$chip.label}</button>
                     {/foreach}
+                    {if isset($tool_ui.timestampConverterMode) && $tool_ui.timestampConverterMode}
+                    <button class="ciphers-example-chip" type="button" id="ciphers-ts-now"><i class="bi bi-clock"></i> {$tool_ui.tsNowLabel|default:'Now'}</button>
+                    {/if}
                 </div>
             </div>
 

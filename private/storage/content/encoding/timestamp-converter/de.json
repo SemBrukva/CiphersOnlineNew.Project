@@ -1,0 +1,292 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T17:32:13+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "timestamp-converter",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 33,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 33,
+        "data": {
+            "name": "Timestamp Converter",
+            "name_short": "Timestamp",
+            "description": "Konvertiere Unix timestamps in lesbare Datumswerte und Datumsangaben zurück in Unix time. Füge einen timestamp in Sekunden oder Millisekunden ein, um UTC-Zeit, lokale Zeit, ISO 8601, relative Zeit, Wochentag, Unix seconds und Unix milliseconds zu sehen. Wechsle in den Modus Datum → Zeitstempel, um einen Datumsstring zu parsen und timestamp-Werte für APIs, Datenbanken, Logs und Debugging zu erzeugen.",
+            "description_stort": "Konvertiere Unix timestamps in Datumswerte und Datumswerte in timestamps in Sekunden oder Millisekunden.",
+            "meta_title": "Timestamp Converter online | Unix Time in Datum & Datum in Timestamp",
+            "meta_description": "Kostenloser Unix timestamp converter online. Konvertiere epoch time in UTC, lokale Zeit, ISO 8601, relative Zeit und Wochentag oder wandle Datumswerte im Browser in Unix seconds und milliseconds um."
+        }
+    },
+    "blocks": [
+        {
+            "id": 131,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Was ist ein Unix timestamp?",
+                "text": "<p>Ein Unix timestamp, auch Unix time, POSIX time oder epoch time genannt, ist die Anzahl der Sekunden seit 00:00:00 UTC am 1. Januar 1970. Er beschreibt einen exakten Zeitpunkt und speichert keine Zeitzone, was ihn praktisch für Datenbanken, APIs, Logs, Scheduler, Tokens und Integrationen zwischen Systemen macht.</p><p>Millisecond timestamps verwenden dieselbe Unix epoch, zählen aber Millisekunden statt Sekunden und sind daher 1000-mal größer. JavaScript <code>Date.now()</code>, Java <code>System.currentTimeMillis()</code> und viele Event-Streams liefern standardmäßig timestamps in Millisekunden.</p>"
+            }
+        },
+        {
+            "id": 132,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Sekunden vs. Millisekunden",
+                "text": "<p>Der Converter kann automatisch erkennen, ob ein eingegebener timestamp in Sekunden oder Millisekunden vorliegt. Zahlen mit einem absoluten Wert über 100 Milliarden (10¹¹) werden als Millisekunden behandelt; kleinere Werte als Sekunden. Nutze die Einstellung <strong>Eingabeeinheit</strong>, um Sekunden oder Millisekunden fest vorzugeben, wenn du das Quellformat bereits kennst.</p><p>Als Faustregel gilt: Ein 10-stelliger Wert ist meist Unix time in Sekunden, ein 13-stelliger Wert meist Unix time in Millisekunden. Die Ergebnistabelle zeigt immer sowohl Unix seconds als auch Unix milliseconds, damit du genau die Einheit kopieren kannst, die dein Code oder deine Datenbank erwartet.</p>"
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Was der Converter anzeigt",
+                "text": "<p>Im Modus <strong>Zeitstempel → Datum</strong> enthält das Ergebnis UTC-Zeit, die lokale Zeit deines Browsers, ISO 8601, relative Zeit, Wochentag, Unix seconds und Unix milliseconds. Jede Zeile hat eine eigene Kopieren-Schaltfläche, was beim Vergleichen von Logeinträgen, API payloads, JWT claims, Cron-Zeitplänen oder Datenbankeinträgen hilfreich ist.</p><p>Im Modus <strong>Datum → Zeitstempel</strong> parst der Converter den Datumsstring im Browser und gibt Unix time in Sekunden und Millisekunden sowie normalisierte ISO-, UTC- und lokale Darstellungen zur Kontrolle zurück.</p>"
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "UTC, lokale Zeit und ISO 8601",
+                "text": "<p>Unix timestamps basieren auf UTC, aber Menschen lesen Datumswerte häufig in lokaler Zeit. Dieses Tool zeigt beides: UTC für serverseitige Konsistenz und lokale Zeit für die im Browser konfigurierte Zeitzone. So lässt sich leichter prüfen, ob ein Ereignis für einen Nutzer, Server oder Integrationspartner zum erwarteten Zeitpunkt passiert ist.</p><p>ISO-8601-Ausgaben wie <code>2024-01-15T12:00:00.000Z</code> sind ein portables Datums- und Zeitformat, das oft in JSON APIs, Logs und Konfigurationsdateien verwendet wird. Wenn Genauigkeit wichtig ist, nutze beim Konvertieren eines Datums zurück in einen timestamp am besten ISO 8601 mit expliziter Zeitzone.</p>"
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Typische Anwendungsfälle",
+                "text": "<p>Nutze diesen timestamp converter zum Debuggen von Anwendungslogs, Prüfen von API-Antwortzeiten, Lesen von Datenbankfeldern, Validieren von JWT claims wie <code>exp</code>, <code>iat</code> und <code>nbf</code>, Vorbereiten von Testdaten, Konvertieren von Webhook-Zeiten oder Vergleichen von timestamps aus verschiedenen Programmiersprachen.</p><p>Die Konvertierung läuft im Browser, daher werden eingefügte Werte von der Converter-Logik nicht an den Server gesendet. Das ist praktisch für Entwicklungsarbeit, Fehlersuche und schnelle timestamp-Lookups.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 266,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wie bekomme ich den aktuellen Unix timestamp?",
+                "answer": "Klicke auf <strong>Jetzt</strong>, um sofort die aktuelle Zeit einzufügen. Im Modus Zeitstempel → Datum wird der aktuelle Unix timestamp in Sekunden eingefügt; im Modus Datum → Zeitstempel ein aktueller Datums- und Zeitstring. Du kannst auch <code>date +%s</code> unter Linux/macOS, <code>Get-Date -UFormat %s</code> in PowerShell, <code>Math.floor(Date.now() / 1000)</code> für JavaScript-Sekunden oder <code>Date.now()</code> für JavaScript-Millisekunden verwenden."
+            }
+        },
+        {
+            "id": 267,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Welche Datumsformate kann ich in einen timestamp umwandeln?",
+                "answer": "Der Converter akzeptiert Datumsstrings, die die JavaScript-Engine des Browsers parsen kann, darunter ISO 8601 (<code>2024-01-15T12:00:00Z</code>), einfache Datumswerte (<code>2024-01-15</code>), Datum mit Uhrzeit ohne Zeitzone (<code>2024-01-15 12:00:00</code>) und einige lokale Formate. Für zuverlässige Ergebnisse in verschiedenen Browsern nutze ISO 8601 mit expliziter Zeitzone, zum Beispiel <code>2024-01-15T12:00:00+03:00</code> oder <code>2024-01-15T09:00:00Z</code>."
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was ist das Jahr-2038-Problem?",
+                "answer": "Das Jahr-2038-Problem (Y2K38) betrifft Systeme, die Unix timestamps als 32-Bit signed integer speichern. Solche Systeme können Zeiten nur bis 03:14:07 UTC am 19. Januar 2038 darstellen (timestamp 2147483647). Danach läuft der Wert über und wird zu einer großen negativen Zahl, die ein Datum im Jahr 1901 repräsentiert. Moderne 64-Bit-Systeme sind davon nicht betroffen, da sie Datumswerte Milliarden Jahre in die Zukunft darstellen können."
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Wird ein Unix timestamp in UTC oder lokaler Zeit gespeichert?",
+                "answer": "Ein Unix timestamp stellt einen Zeitpunkt dar, der ab der Unix epoch in UTC gezählt wird. Er enthält keine Zeitzone und keine Locale. Lokale Zeit ist nur eine Darstellung: Derselbe timestamp kann in verschiedenen Zeitzonen unterschiedliche Uhrzeiten anzeigen, zeigt aber immer auf denselben Moment."
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Wie erkenne ich, ob ein timestamp Sekunden oder Millisekunden nutzt?",
+                "answer": "Aktuelle Unix timestamps in Sekunden sind meist 10-stellig, timestamps in Millisekunden meist 13-stellig. Dieses Tool erkennt Werte über 100 Milliarden (10¹¹) automatisch als Millisekunden. Wenn du mit Legacy-Daten, Zukunftsdaten, negativen timestamps oder einem bekannten API-Format arbeitest, wähle Sekunden oder Millisekunden manuell über die Einstellung <strong>Eingabeeinheit</strong>."
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Warum unterscheidet sich meine lokale Zeit von UTC?",
+                "answer": "UTC ist die globale Referenzzeit, die Unix timestamps verwenden. Lokale Zeit wird aus den Zeitzoneneinstellungen deines Browsers oder Betriebssystems berechnet, einschließlich Sommerzeitregeln, wo sie gelten. Deshalb können UTC- und Lokalzeit-Zeilen für denselben timestamp unterschiedliche Uhrzeiten zeigen."
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Kann ich Datumswerte vor 1970 konvertieren?",
+                "answer": "Ja. Datumswerte vor 00:00:00 UTC am 1. Januar 1970 werden durch negative Unix timestamps dargestellt. Die Unterstützung für sehr alte oder sehr weit in der Zukunft liegende Datumswerte hängt vom JavaScript-Date-Bereich des Browsers ab, aber normale Vor-1970-Daten funktionieren in modernen Browsern."
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Sendet der Converter meinen timestamp an einen Server?",
+                "answer": "Die timestamp-Konvertierung läuft im Browser. Eingefügte timestamp- und Datumswerte werden lokal von JavaScript verarbeitet, was beim Prüfen von Entwicklungslogs, API payloads oder Token claims hilfreich ist."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 124,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Unix Epoch",
+                "key": "",
+                "shift": 0,
+                "input": "0",
+                "output": "1970-01-01T00:00:00.000Z",
+                "description": "Jeder Unix timestamp zählt Sekunden ab diesem Moment: Mitternacht UTC am 1. Januar 1970."
+            }
+        },
+        {
+            "id": 125,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "JavaScript-Millisekunden",
+                "key": "",
+                "shift": 0,
+                "input": "1700000000000",
+                "output": "2023-11-14T22:13:20.000Z",
+                "description": "JavaScript Date.now() gibt Millisekunden zurück. Das Tool erkennt 13-stellige timestamps automatisch als Millisekunden."
+            }
+        },
+        {
+            "id": 126,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Datum in timestamp",
+                "key": "",
+                "shift": 0,
+                "input": "2024-01-01T00:00:00Z",
+                "output": "1704067200",
+                "description": "Füge ein ISO-8601-Datum ein, um den Unix timestamp in Sekunden zu erhalten — nützlich beim Erstellen von API-Aufrufen oder Datenbankabfragen."
+            }
+        },
+        {
+            "id": 127,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Grenze des Jahres 2038",
+                "key": "",
+                "shift": 0,
+                "input": "2147483647",
+                "output": "2038-01-19T03:14:07.000Z",
+                "description": "Der Maximalwert eines 32-Bit signed integer. Nach diesem Moment laufen Systeme über, die timestamps als 32-Bit-Ganzzahlen speichern (Y2K38-Problem)."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 194,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Unix timestamp"
+            }
+        },
+        {
+            "id": 195,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "epoch converter"
+            }
+        },
+        {
+            "id": 196,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Datum in timestamp"
+            }
+        },
+        {
+            "id": 197,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Unix time converter"
+            }
+        },
+        {
+            "id": 198,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "epoch time"
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "timestamp in Datum"
+            }
+        },
+        {
+            "id": 200,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "timestamp in Millisekunden"
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "UTC time"
+            }
+        },
+        {
+            "id": 202,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "tag": "ISO 8601"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

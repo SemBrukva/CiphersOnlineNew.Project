@@ -5575,3 +5575,46 @@ a:focus .nav-fav-count {
   font-size: 0.8em;
   margin-top: 2px;
 }
+
+/* Timestamp Converter */
+.ts-result-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0.25rem 0;
+}
+.ts-result-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.ts-result-row:last-child { border-bottom: none; }
+.ts-result-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ts-result-value {
+  font-family: var(--bs-font-monospace, monospace);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  word-break: break-all;
+  background: transparent;
+  padding: 0;
+}
+.ts-result-copy {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+.ts-result-copy:hover { color: rgba(255, 255, 255, 0.8); }
