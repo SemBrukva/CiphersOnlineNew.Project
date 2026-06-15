@@ -583,6 +583,20 @@ return [
     'TIMESTAMP_CONVERTER_LABEL_UNIX_MS'    => 'Unix (миллисекунды)',
     'TIMESTAMP_CONVERTER_RESULT_SECONDS'   => 'Unix (секунды)',
     'TIMESTAMP_CONVERTER_RESULT_MS'        => 'Unix (миллисекунды)',
+    // Simple Substitution
+    'SIMPLE_SUBSTITUTION_SETTING_KEY'             => 'Шифровой алфавит',
+    'SIMPLE_SUBSTITUTION_SETTING_KEY_PLACEHOLDER' => 'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'SIMPLE_SUBSTITUTION_TRUST_TYPE'              => 'Классический моноалфавитный шифр замены',
+    'SIMPLE_SUBSTITUTION_TRUST_KEY'               => 'Ключ: произвольная перестановка алфавита',
+    'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Некорректные входные данные.',
+    'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Направление должно быть encrypt или decrypt.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Текст обязателен.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Выбранный алфавит не поддерживается.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Текст не содержит символов выбранного алфавита.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Шифровой алфавит (ключ) обязателен.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Шифровой алфавит должен содержать ровно :size символов.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Шифровой алфавит должен быть корректной перестановкой выбранного алфавита без повторяющихся букв.',
+    'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Перемешать',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
 ];

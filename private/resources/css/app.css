@@ -1854,6 +1854,69 @@ a:focus .nav-fav-count {
     box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.10);
 }
 
+.ciphers-settings-key-group {
+    display: flex;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    overflow: hidden;
+    height: 34px;
+}
+
+.ciphers-settings-key-group .ciphers-settings-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    height: 100%;
+    box-shadow: none;
+}
+
+.ciphers-settings-key-group .ciphers-settings-input:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: transparent;
+}
+
+.ciphers-settings-key-group .ciphers-settings-input:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.ciphers-settings-key-group:has(.ciphers-settings-input:focus) {
+    border-color: rgba(193, 255, 0, 0.45);
+    box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.10);
+}
+
+.ciphers-settings-shuffle-btn {
+    width: 32px;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.11);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.ciphers-settings-shuffle-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+.ciphers-settings-shuffle-btn:active {
+    background: rgba(193, 255, 0, 0.15);
+    color: var(--accent);
+}
+
 .ciphers-settings-matrix {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T18:59:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "simple-substitution",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 34,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 34,
+        "data": {
+            "name": "Cifrado de sustitución simple",
+            "name_short": "Sustitución simple",
+            "description": "Cifra y descifra texto con un cifrado clásico de sustitución simple. Usa un alfabeto mezclado como clave, conserva espacios y signos de puntuación, y aprende cómo funciona la sustitución monoalfabética.",
+            "description_stort": "Herramienta online de sustitución monoalfabética con una clave de alfabeto personalizada.",
+            "meta_title": "Cifrado de sustitución simple online para cifrar y descifrar",
+            "meta_description": "Usa el cifrado de sustitución simple online para cifrar o descifrar texto con una clave de alfabeto personalizada. Varios alfabetos, puntuación conservada y resultados instantáneos."
+        }
+    },
+    "blocks": [
+        {
+            "id": 136,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado de sustitución simple",
+                "text": "<p>El cifrado de sustitución simple es un cifrado clásico de sustitución monoalfabética. Cada letra del texto claro se sustituye por la letra que ocupa la misma posición en un alfabeto cifrado mezclado. Para español, el alfabeto incluye la Ñ, y la clave debe ser una permutación completa de ese alfabeto.</p><p>Para cifrar, busca cada letra del texto claro en el alfabeto normal y toma la letra correspondiente de la clave. Para descifrar, se invierte el proceso: se busca la letra cifrada en la clave y se reemplaza por la letra correspondiente del alfabeto normal.</p><p>La misma tabla de sustitución se usa en todo el mensaje, por eso el método es monoalfabético. Los espacios, signos de puntuación, dígitos y otros caracteres fuera del alfabeto detectado se conservan sin cambios, y también se mantiene el uso de mayúsculas y minúsculas.</p>"
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Codificador y decodificador online de sustitución simple",
+                "text": "<p>Esta herramienta puede convertir texto claro en texto cifrado por sustitución o descifrarlo de nuevo cuando se conoce la misma clave de alfabeto. Escribe el mensaje, elige cifrar o descifrar y proporciona un alfabeto mezclado completo como clave.</p><p>El servicio valida la clave antes de procesar el texto. Una clave válida debe contener cada letra de un alfabeto compatible exactamente una vez, sin letras faltantes ni repetidas. El alfabeto se detecta a partir de la clave: una clave española procesa letras españolas, una clave inglesa procesa letras inglesas, etc.</p>"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Claves, alfabetos y caracteres conservados",
+                "text": "<p>La clave es la parte esencial del cifrado de sustitución simple. No es una palabra clave ni un desplazamiento numérico; es el alfabeto cifrado completo escrito en el orden de sustitución. Para español, la clave debe incluir todas las letras admitidas, incluida la Ñ.</p><p>La herramienta admite varios alfabetos de idioma, incluidos español, inglés, ruso, alemán, francés, italiano, portugués y turco. Los caracteres que no pertenecen al alfabeto detectado se dejan intactos, por lo que es fácil conservar espacios, comas, puntos, números y formato mientras solo se cifran las letras.</p>"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Seguridad y análisis de frecuencia",
+                "text": "<p>Un cifrado de sustitución simple tiene una enorme cantidad de claves posibles. Para un alfabeto de n letras existen n! permutaciones. Sin embargo, no es seguro para proteger información real.</p><p>Como cada letra del texto claro siempre se convierte en la misma letra cifrada, el patrón estadístico del idioma sigue visible. Las letras frecuentes, palabras repetidas, letras dobles y combinaciones comunes pueden revelar la tabla de sustitución. Por eso el cifrado es útil para aprender, resolver acertijos y hacer demostraciones históricas, pero no para datos sensibles.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 274,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué es la clave en un cifrado de sustitución simple?",
+                "answer": "La clave es una permutación del alfabeto completo: cada letra aparece exactamente una vez, pero en un orden mezclado. La misma clave se usa para sustituir todas las letras del mensaje."
+            }
+        },
+        {
+            "id": 275,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Cuántas claves posibles tiene?",
+                "answer": "Para un alfabeto de n letras existen n! claves posibles. Aunque el número es enorme, el cifrado se rompe con análisis de frecuencia porque cada letra cifrada representa siempre la misma letra original."
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿En qué se diferencia del cifrado César?",
+                "answer": "El cifrado César es un caso especial de sustitución simple donde el alfabeto cifrado solo está desplazado un número fijo de posiciones. La sustitución simple permite cualquier permutación del alfabeto."
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Puedo descifrarlo sin la clave?",
+                "answer": "A veces sí, sobre todo si el texto cifrado es largo. Las frecuencias de letras, patrones de palabras, letras repetidas y frases probables ayudan a reconstruir la clave."
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Qué hace válida una clave de sustitución?",
+                "answer": "Una clave válida debe ser una permutación completa de un alfabeto compatible. Cada letra debe aparecer exactamente una vez, sin duplicados ni omisiones."
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Se cifran espacios, números y signos de puntuación?",
+                "answer": "No. La herramienta transforma solo letras del alfabeto detectado. Espacios, cifras, signos de puntuación y otros símbolos se copian sin cambios, y las mayúsculas se conservan."
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro hoy el cifrado de sustitución simple?",
+                "answer": "No. Es un cifrado histórico y educativo, no un método moderno de seguridad. La sustitución monoalfabética conserva patrones de frecuencia del idioma."
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "¿Qué alfabetos admite la herramienta?",
+                "answer": "El servicio admite varios alfabetos, incluidos español, inglés, ruso, alemán, francés, italiano, portugués y turco. El alfabeto se determina por los caracteres de la clave."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 128,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Cifrar HOLA MUNDO",
+                "key": "zyxwvutsrqpoñnmlkjihgfedcba",
+                "shift": 0,
+                "input": "HOLA MUNDO",
+                "output": "SLOZ ÑFNWL",
+                "description": "Con la clave de alfabeto invertido, las letras se reemplazan por posición: H→S, O→L, L→O y A→Z."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Cifrar ATAQUE AL AMANECER",
+                "key": "zyxwvutsrqpoñnmlkjihgfedcba",
+                "shift": 0,
+                "input": "ATAQUE AL AMANECER",
+                "output": "ZGZJFV ZO ZÑZNVXVI",
+                "description": "Ejemplo de mensaje breve: la misma letra siempre produce el mismo símbolo cifrado."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Descifrar texto cifrado",
+                "key": "zyxwvutsrqpoñnmlkjihgfedcba",
+                "shift": 0,
+                "input": "SLOZ ÑFNWL",
+                "output": "HOLA MUNDO",
+                "description": "La búsqueda inversa en la clave restaura el mensaje original."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Conservar mayúsculas y puntuación",
+                "key": "zyxwvutsrqpoñnmlkjihgfedcba",
+                "shift": 0,
+                "input": "Reunion a las 10:00!",
+                "output": "Ivfnrln z ozh 10:00!",
+                "description": "Solo se sustituyen letras del alfabeto detectado. Los espacios, números, signos y mayúsculas se conservan."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Monoalfabético"
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Sustitución"
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Análisis de frecuencia"
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Permutación del alfabeto"
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Decodificador de sustitución"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

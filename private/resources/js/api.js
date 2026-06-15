@@ -127,6 +127,8 @@ export class ApiClient {
         hill: (data) => this.#request('POST', '/tools/hill', data),
         /** POST /api/tools/caesar-brute-force */
         'caesar-brute-force': (data) => this.#request('POST', '/tools/caesar-brute-force', data),
+        /** POST /api/tools/simple-substitution */
+        'simple-substitution': (data) => this.#request('POST', '/tools/simple-substitution', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

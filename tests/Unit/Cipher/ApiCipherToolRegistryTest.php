@@ -28,6 +28,8 @@ use App\Cipher\LetterFrequencyScorer;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareApiCipherTool;
+use App\Cipher\SimpleSubstitutionApiCipherTool;
+use App\Cipher\SimpleSubstitutionCipherService;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
@@ -85,7 +87,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),
             new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
             new HillApiCipherTool(new HillCipherService()),
-            new CaesarBruteForceApiCipherTool(new CaesarCipherService(), new LetterFrequencyScorer())
+            new CaesarBruteForceApiCipherTool(new CaesarCipherService(), new LetterFrequencyScorer()),
+            new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService())
         );
     }
 }

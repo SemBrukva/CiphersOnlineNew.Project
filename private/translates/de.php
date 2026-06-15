@@ -560,6 +560,20 @@ return [
     'TIMESTAMP_CONVERTER_LABEL_UNIX_MS'    => 'Unix (Millisekunden)',
     'TIMESTAMP_CONVERTER_RESULT_SECONDS'   => 'Unix (Sekunden)',
     'TIMESTAMP_CONVERTER_RESULT_MS'        => 'Unix (Millisekunden)',
+    // Simple Substitution
+    'SIMPLE_SUBSTITUTION_SETTING_KEY'             => 'Chiffre-Alphabet',
+    'SIMPLE_SUBSTITUTION_SETTING_KEY_PLACEHOLDER' => 'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'SIMPLE_SUBSTITUTION_TRUST_TYPE'              => 'Klassische monoalphabetische Substitutionschiffre',
+    'SIMPLE_SUBSTITUTION_TRUST_KEY'               => 'Schlüssel: beliebige Permutation des Alphabets',
+    'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Ungültige Eingabedaten.',
+    'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Richtung muss encrypt oder decrypt sein.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Text ist erforderlich.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Nicht unterstütztes Alphabet.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Der Text enthält keine Zeichen des gewählten Alphabets.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Das Chiffre-Alphabet (Schlüssel) ist erforderlich.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Das Chiffre-Alphabet muss genau :size Zeichen enthalten.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Das Chiffre-Alphabet muss eine gültige Permutation des gewählten Alphabets ohne Wiederholungen sein.',
+    'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mischen',
     // Footer
     'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',
 ];

@@ -560,6 +560,20 @@ return [
     'TIMESTAMP_CONVERTER_LABEL_UNIX_MS'    => 'Unix (milisegundos)',
     'TIMESTAMP_CONVERTER_RESULT_SECONDS'   => 'Unix (segundos)',
     'TIMESTAMP_CONVERTER_RESULT_MS'        => 'Unix (milisegundos)',
+    // Simple Substitution
+    'SIMPLE_SUBSTITUTION_SETTING_KEY'             => 'Alfabeto cifrado',
+    'SIMPLE_SUBSTITUTION_SETTING_KEY_PLACEHOLDER' => 'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'SIMPLE_SUBSTITUTION_TRUST_TYPE'              => 'Cifrado clásico de sustitución monoalfabética',
+    'SIMPLE_SUBSTITUTION_TRUST_KEY'               => 'Clave: cualquier permutación del alfabeto',
+    'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Datos de entrada inválidos.',
+    'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'La dirección debe ser encrypt o decrypt.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'El texto es obligatorio.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Alfabeto no soportado.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'La entrada no contiene caracteres del alfabeto seleccionado.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'El alfabeto cifrado (clave) es obligatorio.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'El alfabeto cifrado debe contener exactamente :size caracteres.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'El alfabeto cifrado debe ser una permutación válida del alfabeto seleccionado sin letras repetidas.',
+    'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mezclar',
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de cifrado populares con la posibilidad de cifrar y descifrar texto en línea',
 ];

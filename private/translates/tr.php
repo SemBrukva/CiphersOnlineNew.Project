@@ -559,6 +559,20 @@ return [
     'TIMESTAMP_CONVERTER_LABEL_UNIX_MS'    => 'Unix (milisaniye)',
     'TIMESTAMP_CONVERTER_RESULT_SECONDS'   => 'Unix (saniye)',
     'TIMESTAMP_CONVERTER_RESULT_MS'        => 'Unix (milisaniye)',
+    // Simple Substitution
+    'SIMPLE_SUBSTITUTION_SETTING_KEY'             => 'Şifre Alfabesi',
+    'SIMPLE_SUBSTITUTION_SETTING_KEY_PLACEHOLDER' => 'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'SIMPLE_SUBSTITUTION_TRUST_TYPE'              => 'Klasik monoalfabetik ikame şifresi',
+    'SIMPLE_SUBSTITUTION_TRUST_KEY'               => 'Anahtar: alfabenin herhangi bir permütasyonu',
+    'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Geçersiz giriş verisi.',
+    'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Yön encrypt veya decrypt olmalıdır.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Metin zorunludur.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Desteklenmeyen alfabe.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Giriş, seçilen alfabenin karakterlerini içermiyor.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Şifre alfabesi (anahtar) zorunludur.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Şifre alfabesi tam olarak :size karakter içermelidir.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Şifre alfabesi, seçilen alfabenin geçerli bir permütasyonu olmalı ve tekrar eden harf içermemelidir.',
+    'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Karıştır',
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
 ];

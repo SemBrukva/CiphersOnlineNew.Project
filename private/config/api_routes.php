@@ -149,6 +149,13 @@ return [
         'name'       => 'api.tools.caesar_brute_force',
     ],
 
+    'POST /tools/simple-substitution' => [
+        'controller' => GuestController::class,
+        'method'     => 'simpleSubstitution',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.simple_substitution',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

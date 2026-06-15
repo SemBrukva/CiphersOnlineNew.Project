@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T18:59:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "simple-substitution",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 34,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 34,
+        "data": {
+            "name": "Basit Yerine Koyma Şifresi",
+            "name_short": "Basit yerine koyma",
+            "description": "Klasik basit yerine koyma şifresiyle metinleri şifreleyin ve çözün. Karıştırılmış bir alfabe anahtarı kullanın, boşlukları ve noktalama işaretlerini koruyun, monoalfabetik yerine koymanın nasıl çalıştığını öğrenin.",
+            "description_stort": "Özel karıştırılmış alfabe anahtarıyla çevrimiçi monoalfabetik yerine koyma aracı.",
+            "meta_title": "Basit yerine koyma şifresi çevrimiçi şifreleme ve çözme",
+            "meta_description": "Basit yerine koyma şifresini çevrimiçi kullanarak özel alfabe anahtarıyla metin şifreleyin veya çözün. Birden çok alfabe, korunan noktalama ve anında sonuç."
+        }
+    },
+    "blocks": [
+        {
+            "id": 136,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Basit yerine koyma şifresi nasıl çalışır?",
+                "text": "<p>Basit yerine koyma şifresi, klasik bir monoalfabetik yerine koyma şifresidir. Açık metindeki her harf, karıştırılmış şifre alfabesinde aynı konumda bulunan harfle değiştirilir. Türkçe için anahtar, araç tarafından desteklenen Türk alfabesinin tüm harflerini içeren eksiksiz bir permütasyon olmalıdır.</p><p>Şifreleme sırasında açık metin harfi normal alfabede bulunur ve anahtardaki karşılık gelen harf alınır. Çözme sırasında işlem tersine çevrilir: şifreli harf anahtarda bulunur ve normal alfabedeki karşılığıyla değiştirilir.</p><p>Aynı yerine koyma tablosu tüm mesaj boyunca kullanılır; bu yüzden yöntem monoalfabetik olarak adlandırılır. Algılanan alfabenin dışındaki boşluklar, noktalama işaretleri, rakamlar ve diğer karakterler değişmeden kalır; büyük/küçük harf biçimi de korunur.</p>"
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Çevrimiçi basit yerine koyma kodlayıcı ve çözücü",
+                "text": "<p>Bu araç, açık metni yerine koyma yöntemiyle şifreli metne dönüştürebilir veya aynı alfabe anahtarı bilindiğinde şifreli metni tekrar okunabilir hâle getirebilir. Mesajınızı girin, şifreleme ya da çözme modunu seçin ve anahtar olarak eksiksiz bir karıştırılmış alfabe yazın.</p><p>Servis işlemden önce anahtarı doğrular. Geçerli bir anahtar, desteklenen bir alfabedeki her harfi eksiksiz ve yalnızca bir kez içermelidir; eksik veya tekrar eden harf bulunmamalıdır. Alfabe anahtardan algılanır: Türkçe bir anahtar Türkçe harfleri, İngilizce bir anahtar İngilizce harfleri işler.</p>"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Anahtarlar, alfabeler ve korunan karakterler",
+                "text": "<p>Anahtar, basit yerine koyma şifresinin en önemli parçasıdır. Bu bir parola ya da sayısal kaydırma değildir; yerine koyma sırasına göre yazılmış eksiksiz şifre alfabesidir. Türkçe için anahtar, aracın desteklediği Türk alfabesindeki tüm harfleri içermelidir.</p><p>Araç Türkçe, İngilizce, Rusça, İspanyolca, Almanca, Fransızca, İtalyanca ve Portekizce dahil olmak üzere birden çok dil alfabesini destekler. Algılanan alfabeye ait olmayan karakterler değiştirilmez; böylece boşluklar, virgüller, noktalar, sayılar ve biçimlendirme korunurken yalnızca harfler şifrelenir.</p>"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Güvenlik ve frekans analizi",
+                "text": "<p>Basit yerine koyma şifresinin çok sayıda olası anahtarı vardır. n harfli bir alfabe için n! farklı permütasyon mümkündür. Buna rağmen gerçek bilgileri korumak için güvenli değildir.</p><p>Çünkü açık metindeki her harf her zaman aynı şifreli harfe dönüştürülür; dilin istatistiksel yapısı görünür kalır. Sık kullanılan harfler, tekrar eden kelimeler, çift harfler ve yaygın harf birleşimleri yerine koyma tablosunu ele verebilir. Bu nedenle şifre öğrenme, bulmacalar ve tarihsel gösterimler için yararlıdır, ancak hassas verileri korumak için uygun değildir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 274,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Basit yerine koyma şifresinde anahtar nedir?",
+                "answer": "Anahtar, tam alfabenin bir permütasyonudur: her harf tam olarak bir kez görünür, ancak karıştırılmış bir sıradadır. Mesajdaki tüm harfleri değiştirmek için aynı anahtar kullanılır."
+            }
+        },
+        {
+            "id": 275,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Kaç olası anahtar vardır?",
+                "answer": "n harfli bir alfabe için n! olası anahtar vardır. Bu sayı çok büyük olsa da şifre frekans analiziyle kırılabilir, çünkü her şifreli harf her zaman aynı özgün harfi temsil eder."
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Sezar şifresinden farkı nedir?",
+                "answer": "Sezar şifresi, şifre alfabesinin yalnızca sabit sayıda konum kaydırıldığı özel bir basit yerine koyma örneğidir. Basit yerine koyma ise alfabedeki herhangi bir permütasyonu anahtar olarak kullanabilir."
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Anahtar olmadan çözülebilir mi?",
+                "answer": "Bazen evet, özellikle şifreli metin yeterince uzunsa. Harf frekansları, kelime kalıpları, tekrar eden harfler ve olası ifadeler anahtarı yeniden oluşturmaya yardımcı olabilir."
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Geçerli bir yerine koyma anahtarı nasıl olmalıdır?",
+                "answer": "Geçerli bir anahtar, desteklenen bir alfabenin eksiksiz permütasyonu olmalıdır. Her harf tam olarak bir kez görünmeli, tekrar veya eksik karakter bulunmamalıdır."
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Boşluklar, sayılar ve noktalama işaretleri şifrelenir mi?",
+                "answer": "Hayır. Araç yalnızca algılanan alfabedeki harfleri dönüştürür. Boşluklar, rakamlar, noktalama işaretleri ve diğer semboller değişmeden kopyalanır; büyük harfler de büyük kalır."
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Basit yerine koyma şifresi bugün güvenli mi?",
+                "answer": "Hayır. Bu tarihsel ve eğitsel bir şifredir, modern bir güvenlik yöntemi değildir. Monoalfabetik yerine koyma, dilin frekans kalıplarını korur."
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Araç hangi alfabeleri destekler?",
+                "answer": "Servis Türkçe, İngilizce, Rusça, İspanyolca, Almanca, Fransızca, İtalyanca ve Portekizce dahil olmak üzere birkaç alfabeyi destekler. Kullanılacak alfabe, anahtardaki karakterlere göre belirlenir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 128,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "MERHABA DÜNYA şifrele",
+                "key": "zyvüutşsrpöonmlkjiıhğgfedçcba",
+                "shift": 0,
+                "input": "MERHABA DÜNYA",
+                "output": "KTĞPZYZ UÇJBZ",
+                "description": "Ters alfabe anahtarıyla harfler desteklenen Türk alfabesindeki konumlarına göre değiştirilir."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "ŞAFAKTA SALDIR şifrele",
+                "key": "zyvüutşsrpöonmlkjiıhğgfedçcba",
+                "shift": 0,
+                "input": "ŞAFAKTA SALDIR",
+                "output": "FZŞZMEZ GZLUOĞ",
+                "description": "Kısa eğitim örneği: aynı harf metin boyunca aynı şifreli harfe dönüşür."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Şifreli metni çöz",
+                "key": "zyvüutşsrpöonmlkjiıhğgfedçcba",
+                "shift": 0,
+                "input": "KTĞPZYZ UÇJBZ",
+                "output": "MERHABA DÜNYA",
+                "description": "Anahtarda ters arama yapılarak özgün metin geri elde edilir."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Büyük/küçük harf ve noktalama korunsun",
+                "key": "zyvüutşsrpöonmlkjiıhğgfedçcba",
+                "shift": 0,
+                "input": "Toplantı 10:00!",
+                "output": "Eihlzjeö 10:00!",
+                "description": "Yalnızca algılanan alfabedeki harfler değiştirilir. Boşluklar, sayılar, işaretler ve harf biçimi korunur."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Monoalfabetik"
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Yerine koyma"
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Frekans analizi"
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Alfabe permütasyonu"
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Yerine koyma çözücü"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -559,6 +559,20 @@ return [
     'TIMESTAMP_CONVERTER_LABEL_UNIX_MS'    => 'Unix (millisecondi)',
     'TIMESTAMP_CONVERTER_RESULT_SECONDS'   => 'Unix (secondi)',
     'TIMESTAMP_CONVERTER_RESULT_MS'        => 'Unix (millisecondi)',
+    // Simple Substitution
+    'SIMPLE_SUBSTITUTION_SETTING_KEY'             => 'Alfabeto cifrato',
+    'SIMPLE_SUBSTITUTION_SETTING_KEY_PLACEHOLDER' => 'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'SIMPLE_SUBSTITUTION_TRUST_TYPE'              => 'Cifrario classico di sostituzione monoalfabetico',
+    'SIMPLE_SUBSTITUTION_TRUST_KEY'               => 'Chiave: qualsiasi permutazione dell\'alfabeto',
+    'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Dati di input non validi.',
+    'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'La direzione deve essere encrypt o decrypt.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Il testo è obbligatorio.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Alfabeto non supportato.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'L\'input non contiene caratteri dell\'alfabeto selezionato.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'L\'alfabeto cifrato (chiave) è obbligatorio.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'L\'alfabeto cifrato deve contenere esattamente :size caratteri.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'L\'alfabeto cifrato deve essere una permutazione valida dell\'alfabeto selezionato senza lettere ripetute.',
+    'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mescola',
     // Footer
     'FOOTER_DESC'                      => 'catalogo dei sistemi di crittografia più diffusi con la possibilità di cifrare e decifrare testo online',
 ];

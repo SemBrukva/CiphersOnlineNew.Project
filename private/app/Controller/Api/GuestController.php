@@ -403,6 +403,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование шифром простой замены через API.
+     *
+     * POST /api/tools/simple-substitution
+     */
+    #[ApiOperation(summary: 'Simple Substitution Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function simpleSubstitution(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'simple-substitution');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

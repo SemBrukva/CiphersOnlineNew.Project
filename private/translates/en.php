@@ -583,6 +583,20 @@ return [
     'TIMESTAMP_CONVERTER_LABEL_UNIX_MS'    => 'Unix (milliseconds)',
     'TIMESTAMP_CONVERTER_RESULT_SECONDS'   => 'Unix (seconds)',
     'TIMESTAMP_CONVERTER_RESULT_MS'        => 'Unix (milliseconds)',
+    // Simple Substitution
+    'SIMPLE_SUBSTITUTION_SETTING_KEY'             => 'Cipher Alphabet',
+    'SIMPLE_SUBSTITUTION_SETTING_KEY_PLACEHOLDER' => 'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'SIMPLE_SUBSTITUTION_TRUST_TYPE'              => 'Classic monoalphabetic substitution cipher',
+    'SIMPLE_SUBSTITUTION_TRUST_KEY'               => 'Key: any permutation of the alphabet',
+    'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Invalid input data.',
+    'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Direction must be encrypt or decrypt.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Text is required.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Unsupported alphabet.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Input does not contain characters from the selected alphabet.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Cipher alphabet (key) is required.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Cipher alphabet must contain exactly :size characters.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Cipher alphabet must be a valid permutation of the selected alphabet with no repeated letters.',
+    'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Shuffle',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];

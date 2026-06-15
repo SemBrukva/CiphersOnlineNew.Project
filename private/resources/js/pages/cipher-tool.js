@@ -47,6 +47,7 @@ export function initCipherToolPage() {
   const matrixGrid = matrixControl?.querySelector('[data-matrix-grid]') ?? null
   const matrixStatus = matrixControl?.querySelector('[data-matrix-status]') ?? null
   const generateKeyBtn = document.getElementById('ciphers-generate-key')
+  const keyShuffleBtn  = document.getElementById('ciphers-key-shuffle')
   const clearBtn = document.getElementById('ciphers-clear')
   const coverInput = document.getElementById('ciphers-cover')
   const coverCapacityEl = document.getElementById('ciphers-cover-capacity')
@@ -532,9 +533,24 @@ export function initCipherToolPage() {
 
   input.addEventListener('input', process)
 
+  const fisherYatesShuffle = (str) => {
+    const chars = [...str]
+    for (let i = chars.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [chars[i], chars[j]] = [chars[j], chars[i]]
+    }
+    return chars.join('')
+  }
+
   alphabetSelect?.addEventListener('change', () => {
     syncShiftWithAlphabet()
     matrixCtrl?.updateMatrixStatus()
+    const selectedOption = alphabetSelect.options[alphabetSelect.selectedIndex]
+    const letters = selectedOption?.dataset?.letters
+    if (letters && keyInput) {
+      keyInput.value = fisherYatesShuffle(letters)
+      keyInput.dispatchEvent(new Event('input', { bubbles: true }))
+    }
     saveState()
     if (isApiMode) {
       scheduleApiRun()
@@ -585,6 +601,13 @@ export function initCipherToolPage() {
     }).join('')
     keyInput.value = randomKey
     keyInput.dispatchEvent(new Event('input', { bubbles: true }))
+  })
+
+  keyShuffleBtn?.addEventListener('click', () => {
+    if (!keyInput) return
+    keyInput.value = fisherYatesShuffle(keyInput.value)
+    keyInput.dispatchEvent(new Event('input', { bubbles: true }))
+    scheduleApiRun()
   })
 
   const applyExample = (text, el, { scrollToTool = false } = {}) => {

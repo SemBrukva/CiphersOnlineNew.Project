@@ -57,11 +57,24 @@
                                 </div>
                             {elseif $setting.type == 'text'}
                                 <label class="ciphers-settings-label" for="{$setting.id|escape}">{$setting.label}</label>
+                                {if $setting.shuffleKey|default:false}
+                                <div class="ciphers-settings-key-group">
+                                    <input id="{$setting.id|escape}"
+                                           type="text"
+                                           class="{$setting.class|default:'ciphers-settings-input'|escape}"
+                                           placeholder="{$setting.placeholder|default:''|escape}"
+                                           value="{$setting.value|default:''|escape}">
+                                    <button class="ciphers-settings-shuffle-btn" id="ciphers-key-shuffle" type="button" title="{$setting.shuffleLabel|default:'Shuffle'|escape}">
+                                        <i class="bi bi-shuffle"></i>
+                                    </button>
+                                </div>
+                                {else}
                                 <input id="{$setting.id|escape}"
                                        type="text"
                                        class="{$setting.class|default:'ciphers-settings-input'|escape}"
                                        placeholder="{$setting.placeholder|default:''|escape}"
                                        value="{$setting.value|default:''|escape}">
+                                {/if}
                             {/if}
                         </div>
                         {/if}

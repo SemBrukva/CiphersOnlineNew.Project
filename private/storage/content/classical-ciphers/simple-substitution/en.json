@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T18:59:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "simple-substitution",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 34,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 34,
+        "data": {
+            "name": "Simple Substitution Cipher",
+            "name_short": "Substitution Cipher",
+            "description": "Encrypt and decrypt text with a classic Simple Substitution Cipher. Use a shuffled alphabet key, preserve spaces and punctuation, and learn how monoalphabetic substitution works.",
+            "description_stort": "Online monoalphabetic substitution cipher with a custom shuffled alphabet key.",
+            "meta_title": "Simple Substitution Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Simple Substitution Cipher online to encrypt or decrypt text with a custom alphabet key. Supports multiple alphabets, preserved punctuation, and instant results."
+        }
+    },
+    "blocks": [
+        {
+            "id": 136,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Simple Substitution Cipher works",
+                "text": "<p>The Simple Substitution Cipher is a classical monoalphabetic substitution cipher. It replaces each plaintext letter with the letter in the same position of a shuffled cipher alphabet. For English, the normal alphabet is ABCDEFGHIJKLMNOPQRSTUVWXYZ, while the key might be QWERTYUIOPASDFGHJKLZXCVBNM.</p><p>To encrypt, find a plaintext letter in the normal alphabet and take the matching letter from the key. With the QWERTY key, A becomes Q, B becomes W, C becomes E, and so on. To decrypt, reverse the lookup: find the ciphertext letter in the key and convert it back to the letter in the normal alphabet.</p><p>The same substitution table is used for the whole message, which is why this method is called monoalphabetic. Spaces, punctuation, digits, and other non-alphabet characters are preserved unchanged, and letter case is kept in the output.</p>"
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Online Simple Substitution encoder and decoder",
+                "text": "<p>This tool can encode plaintext into a substitution ciphertext or decode a ciphertext back into readable text when you know the same alphabet key. Enter your message, choose encrypt or decrypt, and provide a full shuffled alphabet as the key.</p><p>The service validates the key before processing. A valid key must contain every letter of one supported alphabet exactly once, with no missing or repeated letters. The alphabet is detected from the key, so an English key processes English letters, a Russian key processes Russian letters, and so on.</p>"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Keys, alphabets, and preserved characters",
+                "text": "<p>The key is the most important part of a simple substitution cipher. It is not a keyword or a numeric shift; it is the complete cipher alphabet written in substitution order. For a 26-letter English alphabet, the key must also contain 26 unique letters.</p><p>The tool supports multiple language alphabets, including English, Russian, Spanish, German, French, Italian, Portuguese, and Turkish. Characters that do not belong to the detected alphabet are left untouched, which makes it easy to keep word spacing, commas, periods, numbers, and formatting while encrypting only the letters.</p>"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Security and frequency analysis",
+                "text": "<p>A simple substitution cipher has a huge number of possible keys. For the English alphabet there are 26! possible alphabet permutations, far more than a person could test manually. However, the cipher is still not secure for real privacy.</p><p>Because each plaintext letter always becomes the same ciphertext letter, the statistical pattern of the language remains visible. Common letters, repeated words, double letters, and frequent bigrams can reveal the substitution table. This makes the cipher useful for learning, puzzles, escape rooms, and historical demonstrations, but not for protecting sensitive data.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 274,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the key in a simple substitution cipher?",
+                "answer": "The key is a permutation of the full alphabet — every letter of the alphabet appears exactly once, but in a scrambled order. For example, if the standard English alphabet is ABCDEFGHIJKLMNOPQRSTUVWXYZ and the key is QWERTYUIOPASDFGHJKLZXCVBNM, then A is always replaced by Q, B by W, and so on. The same key is used for all letters throughout the message."
+            }
+        },
+        {
+            "id": 275,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How many possible keys does a simple substitution cipher have?",
+                "answer": "For the 26-letter English alphabet there are 26! (about 4×10²⁶) possible keys — far more than a brute-force attack can try. Despite this enormous key space, the cipher is broken easily by frequency analysis, because each ciphertext letter always maps to the same plaintext letter."
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What is the difference between a simple substitution cipher and a Caesar cipher?",
+                "answer": "The Caesar cipher is a special case of simple substitution where the cipher alphabet is just the standard alphabet shifted by a fixed number of positions. Simple substitution allows any permutation of the alphabet as the key, giving far more possible keys, though both ciphers share the same weakness to frequency analysis."
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can I decrypt a simple substitution cipher without the key?",
+                "answer": "Sometimes, especially if the ciphertext is long enough. Because the same substitution is used throughout the whole message, frequency analysis, common word patterns, repeated letters, and likely phrases can help reconstruct the key. Short messages are much harder to solve because they contain fewer statistical clues."
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What makes a valid substitution key?",
+                "answer": "A valid key must be a complete permutation of one supported alphabet. Every letter must appear exactly once, with no duplicates and no missing letters. For English, a valid key contains 26 unique letters; for other supported languages, the key length and characters must match that language alphabet."
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Are spaces, numbers, and punctuation encrypted?",
+                "answer": "No. This tool transforms only letters from the detected alphabet. Spaces, digits, punctuation marks, and other symbols are copied to the output unchanged, and uppercase letters remain uppercase."
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is the Simple Substitution Cipher secure today?",
+                "answer": "No. It is a historical and educational cipher, not a modern security method. Even though the key space is enormous, monoalphabetic substitution preserves language frequency patterns, so it can be broken with classical cryptanalysis."
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Which alphabets does this tool support?",
+                "answer": "The service supports several language alphabets, including English, Russian, Spanish, German, French, Italian, Portuguese, and Turkish. The selected alphabet is determined by the characters in the substitution key."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 128,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Encrypt HELLO WORLD",
+                "key": "QWERTYUIOPASDFGHJKLZXCVBNM",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "ITSSG VGKSR",
+                "description": "With the QWERTY key: H→I, E→T, L→S, O→G, W→V, R→K, D→R."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Encrypt ATTACK AT DAWN",
+                "key": "QWERTYUIOPASDFGHJKLZXCVBNM",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "QZZQEA QZ RQVF",
+                "description": "With the QWERTY key: A→Q, T→Z, C→E, K→A, D→R, W→V, N→F."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Decrypt ciphertext",
+                "key": "QWERTYUIOPASDFGHJKLZXCVBNM",
+                "shift": 0,
+                "input": "ITSSG VGKSR",
+                "output": "HELLO WORLD",
+                "description": "Reverse lookup: I→H, T→E, S→L, G→O, V→W, K→R, R→D."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Preserve case and punctuation",
+                "key": "QWERTYUIOPASDFGHJKLZXCVBNM",
+                "shift": 0,
+                "input": "Meet at 10:00!",
+                "output": "Dttz qz 10:00!",
+                "description": "Only alphabet letters are substituted. Spaces, numbers, punctuation, and letter case are preserved."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Monoalphabetic"
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Substitution"
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Frequency analysis"
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Alphabet permutation"
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Substitution cipher decoder"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

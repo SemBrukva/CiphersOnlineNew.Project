@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T18:59:31+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "simple-substitution",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 34,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 34,
+        "data": {
+            "name": "Einfache Substitutionschiffre",
+            "name_short": "Substitution",
+            "description": "Verschlüsseln und entschlüsseln Sie Text mit einer klassischen einfachen Substitutionschiffre. Verwenden Sie ein gemischtes Alphabet als Schlüssel, behalten Sie Leerzeichen und Satzzeichen bei und lernen Sie, wie monoalphabetische Substitution funktioniert.",
+            "description_stort": "Online-Tool für monoalphabetische Substitution mit frei gemischtem Alphabet-Schlüssel.",
+            "meta_title": "Einfache Substitutionschiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die einfache Substitutionschiffre online zum Verschlüsseln und Entschlüsseln von Text. Mit eigenem Alphabet-Schlüssel, mehreren Alphabeten, erhaltener Zeichensetzung und sofortigem Ergebnis."
+        }
+    },
+    "blocks": [
+        {
+            "id": 136,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die einfache Substitutionschiffre funktioniert",
+                "text": "<p>Die einfache Substitutionschiffre ist eine klassische monoalphabetische Substitutionschiffre. Jeder Buchstabe des Klartexts wird durch den Buchstaben ersetzt, der an derselben Position in einem gemischten Chiffrealphabet steht. Für Deutsch beginnt das normale Alphabet mit A, Ä, B, C ..., und ein Schlüssel kann jede vollständige Permutation dieser Buchstaben sein, zum Beispiel ein umgekehrtes Alphabet.</p><p>Beim Verschlüsseln suchen Sie den Klartextbuchstaben im normalen Alphabet und nehmen den passenden Buchstaben aus dem Schlüssel. Beim Entschlüsseln geschieht der umgekehrte Vorgang: Der Chiffretextbuchstabe wird im Schlüssel gesucht und in den entsprechenden Buchstaben des normalen Alphabets zurückverwandelt.</p><p>Dieselbe Substitutionstabelle gilt für die gesamte Nachricht, deshalb heißt das Verfahren monoalphabetisch. Leerzeichen, Satzzeichen, Ziffern und andere Zeichen außerhalb des erkannten Alphabets bleiben unverändert, und die Groß- und Kleinschreibung wird beibehalten.</p>"
+            }
+        },
+        {
+            "id": 137,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Online-Encoder und Decoder für einfache Substitution",
+                "text": "<p>Dieses Tool kann Klartext in Substitutions-Chiffretext umwandeln oder Chiffretext wieder lesbar machen, wenn derselbe Alphabet-Schlüssel bekannt ist. Geben Sie Ihre Nachricht ein, wählen Sie Verschlüsseln oder Entschlüsseln und tragen Sie ein vollständiges gemischtes Alphabet als Schlüssel ein.</p><p>Der Dienst prüft den Schlüssel vor der Verarbeitung. Ein gültiger Schlüssel muss jeden Buchstaben eines unterstützten Alphabets genau einmal enthalten, ohne fehlende oder doppelte Zeichen. Das Alphabet wird aus dem Schlüssel erkannt: Ein deutscher Schlüssel verarbeitet deutsche Buchstaben, ein englischer Schlüssel englische Buchstaben und so weiter.</p>"
+            }
+        },
+        {
+            "id": 138,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Schlüssel, Alphabete und erhaltene Zeichen",
+                "text": "<p>Der Schlüssel ist der wichtigste Teil der einfachen Substitutionschiffre. Er ist kein Kennwort und keine numerische Verschiebung, sondern das vollständige Chiffrealphabet in Substitutionsreihenfolge. Für das deutsche Alphabet muss der Schlüssel alle unterstützten deutschen Buchstaben genau einmal enthalten, einschließlich Ä, Ö und Ü.</p><p>Das Tool unterstützt mehrere Sprachalphabete, darunter Deutsch, Englisch, Russisch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Zeichen, die nicht zum erkannten Alphabet gehören, werden unverändert übernommen. So bleiben Leerzeichen, Kommas, Punkte, Zahlen und Formatierung erhalten, während nur die Buchstaben verschlüsselt werden.</p>"
+            }
+        },
+        {
+            "id": 139,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Sicherheit und Häufigkeitsanalyse",
+                "text": "<p>Die einfache Substitutionschiffre hat sehr viele mögliche Schlüssel. Für jedes unterstützte Alphabet entspricht die Anzahl der Schlüssel der Fakultät seiner Buchstabenanzahl. Ein vollständiges Durchprobieren ist für Menschen unrealistisch, trotzdem ist das Verfahren nicht sicher für echte Vertraulichkeit.</p><p>Da jeder Klartextbuchstabe immer zum selben Chiffretextbuchstaben wird, bleibt das statistische Muster der Sprache sichtbar. Häufige Buchstaben, wiederholte Wörter, Doppelbuchstaben und typische Buchstabenpaare können die Substitutionstabelle verraten. Die Chiffre eignet sich daher für Lernen, Rätsel, Escape-Rooms und historische Demonstrationen, aber nicht zum Schutz sensibler Daten.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 274,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist der Schlüssel bei einer einfachen Substitutionschiffre?",
+                "answer": "Der Schlüssel ist eine Permutation des vollständigen Alphabets: Jeder Buchstabe kommt genau einmal vor, aber in einer anderen Reihenfolge. Wird das normale Alphabet einem gemischten Schlüssel zugeordnet, ersetzt derselbe Schlüssel jeden Buchstaben der Nachricht immer auf dieselbe Weise."
+            }
+        },
+        {
+            "id": 275,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Wie viele mögliche Schlüssel gibt es?",
+                "answer": "Die Anzahl der möglichen Schlüssel entspricht n!, wobei n die Anzahl der Buchstaben im gewählten Alphabet ist. Das ist extrem viel, macht die Chiffre aber nicht modern sicher, weil sie durch Häufigkeitsanalyse angegriffen werden kann."
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Worin unterscheidet sie sich von der Caesar-Chiffre?",
+                "answer": "Die Caesar-Chiffre ist ein Sonderfall der einfachen Substitution: Das Chiffrealphabet ist nur um eine feste Anzahl von Positionen verschoben. Die einfache Substitution erlaubt jede Alphabet-Permutation als Schlüssel, hat aber dieselbe Schwäche gegenüber Häufigkeitsanalyse."
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Kann man sie ohne Schlüssel entschlüsseln?",
+                "answer": "Manchmal ja, besonders bei längeren Chiffretexten. Da die Substitution in der ganzen Nachricht gleich bleibt, helfen Häufigkeiten, häufige Wörter, Doppelbuchstaben und vermutete Textstellen beim Rekonstruieren des Schlüssels."
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Was macht einen gültigen Substitutionsschlüssel aus?",
+                "answer": "Ein gültiger Schlüssel ist eine vollständige Permutation eines unterstützten Alphabets. Jeder Buchstabe muss genau einmal vorkommen, ohne Duplikate und ohne fehlende Zeichen."
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Werden Leerzeichen, Zahlen und Satzzeichen verschlüsselt?",
+                "answer": "Nein. Dieses Tool verändert nur Buchstaben aus dem erkannten Alphabet. Leerzeichen, Ziffern, Satzzeichen und andere Symbole werden unverändert kopiert, und Großbuchstaben bleiben groß."
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Ist die einfache Substitutionschiffre heute sicher?",
+                "answer": "Nein. Sie ist eine historische und didaktische Chiffre, kein modernes Sicherheitsverfahren. Monoalphabetische Substitution bewahrt Sprachhäufigkeiten und kann mit klassischer Kryptoanalyse gebrochen werden."
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Welche Alphabete unterstützt das Tool?",
+                "answer": "Der Dienst unterstützt mehrere Sprachalphabete, darunter Deutsch, Englisch, Russisch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Das konkrete Alphabet wird aus den Zeichen des Schlüssels bestimmt."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 128,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "HALLO WELT verschlüsseln",
+                "key": "zyxwvüutsrqpöonmlkjihgfedcbäa",
+                "shift": 0,
+                "input": "HALLO WELT",
+                "output": "SZÖÖM CÜÖG",
+                "description": "Mit dem umgekehrten deutschen Alphabet-Schlüssel werden die Buchstaben positionsweise ersetzt, zum Beispiel H→S, A→Z, L→Ö und W→C."
+            }
+        },
+        {
+            "id": 129,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "ANGRIFF IM MORGENGRAUEN verschlüsseln",
+                "key": "zyxwvüutsrqpöonmlkjihgfedcbäa",
+                "shift": 0,
+                "input": "ANGRIFF IM MORGENGRAUEN",
+                "output": "ZNTIRUU RO OMITÜNTIZFÜN",
+                "description": "Ein längerer Übungssatz zeigt, dass derselbe Buchstabe im ganzen Text immer gleich ersetzt wird."
+            }
+        },
+        {
+            "id": 130,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Chiffretext entschlüsseln",
+                "key": "zyxwvüutsrqpöonmlkjihgfedcbäa",
+                "shift": 0,
+                "input": "SZÖÖM CÜÖG",
+                "output": "HALLO WELT",
+                "description": "Die Rückwärtssuche im Schlüssel stellt den ursprünglichen Klartext wieder her."
+            }
+        },
+        {
+            "id": 131,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "data": {
+                "title": "Großschreibung und Satzzeichen beibehalten",
+                "key": "zyxwvüutsrqpöonmlkjihgfedcbäa",
+                "shift": 0,
+                "input": "Treffen um 10:00!",
+                "output": "Giüuuün fo 10:00!",
+                "description": "Nur Buchstaben des erkannten Alphabets werden ersetzt. Leerzeichen, Zahlen, Satzzeichen und Großschreibung bleiben erhalten."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Monoalphabetisch"
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Substitution"
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Häufigkeitsanalyse"
+            }
+        },
+        {
+            "id": 206,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Alphabet-Permutation"
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Substitutionschiffre-Decoder"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -560,6 +560,20 @@ return [
     'TIMESTAMP_CONVERTER_LABEL_UNIX_MS'    => 'Unix (millisecondes)',
     'TIMESTAMP_CONVERTER_RESULT_SECONDS'   => 'Unix (secondes)',
     'TIMESTAMP_CONVERTER_RESULT_MS'        => 'Unix (millisecondes)',
+    // Simple Substitution
+    'SIMPLE_SUBSTITUTION_SETTING_KEY'             => 'Alphabet chiffré',
+    'SIMPLE_SUBSTITUTION_SETTING_KEY_PLACEHOLDER' => 'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'SIMPLE_SUBSTITUTION_TRUST_TYPE'              => 'Chiffre classique de substitution monoalphabétique',
+    'SIMPLE_SUBSTITUTION_TRUST_KEY'               => 'Clé : toute permutation de l\'alphabet',
+    'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Données d\'entrée invalides.',
+    'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'La direction doit être encrypt ou decrypt.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Le texte est requis.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Alphabet non pris en charge.',
+    'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'L\'entrée ne contient pas de caractères de l\'alphabet sélectionné.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'L\'alphabet chiffré (clé) est requis.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'L\'alphabet chiffré doit contenir exactement :size caractères.',
+    'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'L\'alphabet chiffré doit être une permutation valide de l\'alphabet sélectionné sans lettres répétées.',
+    'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mélanger',
     // Footer
     'FOOTER_DESC'                      => 'catalogue des systèmes de chiffrement populaires avec la possibilité de chiffrer et déchiffrer du texte en ligne',
 ];
