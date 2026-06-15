@@ -1,0 +1,280 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T20:50:45+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "xor-cipher",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 35,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 35,
+        "data": {
+            "name": "Cifrado XOR",
+            "name_short": "Cifrado XOR",
+            "description": "Cifra y descifra texto con el cifrado XOR en línea. La herramienta aplica la operación bit a bit OR exclusivo byte por byte, admite claves de texto y claves hexadecimales, repite cíclicamente las claves cortas y devuelve el resultado cifrado como una cadena hexadecimal.",
+            "description_stort": "Cifrado y descifrado XOR en línea con claves de texto o hexadecimales.",
+            "meta_title": "Cifrado XOR online para cifrar y descifrar texto",
+            "meta_description": "Usa el cifrado XOR online para cifrar texto a hex y descifrar hex de vuelta a texto. Admite claves de texto repetidas, claves hex, XOR por bytes y cifrado por gamma."
+        }
+    },
+    "blocks": [
+        {
+            "id": 140,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado XOR",
+                "text": "<p>El cifrado XOR es un método simétrico de cifrado por bytes basado en la operación bit a bit OR exclusivo. Cada byte del mensaje de entrada se combina con un byte de la clave. Si la clave es más corta que el mensaje, se repite cíclicamente hasta procesar todos los bytes.</p><p>XOR tiene una propiedad reversible útil: aplicar la misma clave por segunda vez recupera los datos originales. Por eso esta herramienta puede usar el mismo algoritmo para cifrar y descifrar. En modo Encrypt toma texto normal y devuelve texto cifrado hexadecimal. En modo Decrypt espera una cadena hex válida, la convierte de nuevo en bytes, aplica XOR con la misma clave y devuelve el texto plano.</p><p>Este enfoque suele describirse como cifrado por gamma porque los bytes de la clave actúan como un flujo de clave, o gamma, que se combina con el mensaje. La calidad de ese flujo determina la fortaleza del resultado.</p>"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Claves de texto, claves hex y salida hex",
+                "text": "<p>El servicio admite dos formatos de clave. En modo Text, la clave se trata como texto UTF-8 normal. En modo Hex, la clave se interpreta como bytes sin procesar escritos en forma hexadecimal, por lo que valores como DEADBEEF o DE AD BE EF pueden usarse directamente.</p><p>La salida cifrada se muestra en hex en mayúsculas porque XOR puede producir bytes binarios arbitrarios, incluidos bytes que no son texto imprimible. La codificación hex hace que el resultado sea seguro para copiar, guardar, pegar en el decodificador o usar en pruebas y ejemplos.</p><p>Al descifrar, la entrada debe ser texto cifrado hexadecimal. Los espacios y separadores no hex se ignoran, pero los datos hex restantes deben contener pares completos de bytes.</p>"
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cifrado XOR, cifrado Vernam y libreta de un solo uso",
+                "text": "<p>El cifrado XOR y el cifrado Vernam usan la misma operación central: los bytes del mensaje se combinan con los bytes de la clave mediante XOR. La diferencia práctica está en cómo se elige y reutiliza la clave.</p><p>Una verdadera libreta de un solo uso requiere una clave aleatoria, al menos tan larga como el mensaje y nunca reutilizada. En esas condiciones, el cifrado basado en XOR puede ofrecer secreto teórico perfecto. Una herramienta XOR típica, sin embargo, usa una clave reutilizable y la repite cuando hace falta. Es cómodo para aprender, depurar y experimentar, pero no ofrece seguridad criptográfica moderna.</p>"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Cuándo usar esta herramienta XOR",
+                "text": "<p>Usa este codificador y decodificador XOR online para estudiar cifrado bit a bit, probar cómo funciona XOR con clave repetida, inspeccionar texto cifrado hex o reproducir transformaciones XOR simples en materiales educativos y tareas de programación.</p><p>Para proteger contraseñas, mensajes privados, tokens de API o datos de producción, usa un algoritmo moderno de cifrado autenticado en lugar de un cifrado XOR clásico con clave repetida.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Por qué el cifrado XOR devuelve hex?",
+                "answer": "XOR trabaja con bytes sin procesar, y el resultado puede contener cualquier valor de byte, incluidos caracteres no imprimibles y bytes nulos. La codificación hexadecimal ofrece una representación segura y legible de datos binarios arbitrarios. Al descifrar, pega el texto cifrado hex: la herramienta lo convierte de nuevo en bytes, aplica XOR y devuelve el texto original."
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Cuál es la diferencia entre cifrado XOR y cifrado Vernam?",
+                "answer": "Ambos aplican XOR byte por byte con una clave. La diferencia está en la gestión de la clave: el cifrado Vernam, o libreta de un solo uso, requiere una clave verdaderamente aleatoria, al menos tan larga como el mensaje y nunca reutilizada. Un cifrado XOR típico usa una clave repetida más corta por comodidad, lo que lo hace vulnerable a ataques estadísticos."
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Cómo descifro un mensaje cifrado con XOR?",
+                "answer": "Como XOR es autoinverso (A XOR B XOR B = A), el descifrado usa la misma clave que el cifrado. Selecciona Decode, pega el texto cifrado hex, introduce la misma clave y ejecuta la herramienta. Decodifica los bytes hex, aplica XOR y devuelve el texto plano original."
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Qué formatos de clave admite la herramienta XOR?",
+                "answer": "La herramienta admite claves de texto y claves hex. Las claves de texto se usan como bytes UTF-8. Las claves hex se interpretan como valores de bytes sin procesar, por lo que puedes introducir material de clave como 42, DEADBEEF o DE AD BE EF."
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Puedo usar espacios en una clave hex o en un texto cifrado hex?",
+                "answer": "Sí. La herramienta ignora separadores no hex al leer datos hex. Después de eliminar separadores, el valor restante debe contener un número par de caracteres hexadecimales para poder decodificarse en bytes completos."
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Qué pasa si la clave es más corta que el mensaje?",
+                "answer": "La clave se repite cíclicamente hasta alcanzar la longitud del mensaje. Esto es común en XOR con clave repetida, pero también crea patrones que pueden facilitar el análisis del texto cifrado."
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro el cifrado XOR?",
+                "answer": "XOR con clave repetida es útil para educación y experimentos simples por bytes, pero no es seguro para proteger datos modernos. La seguridad aparece solo cuando la clave es aleatoria, al menos tan larga como el mensaje y nunca se reutiliza; entonces el método se convierte en una libreta de un solo uso."
+            }
+        },
+        {
+            "id": 289,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "¿El cifrado XOR admite texto Unicode?",
+                "answer": "Sí. La herramienta trabaja con bytes, por lo que el texto Unicode se procesa como datos UTF-8. El resultado cifrado se muestra igualmente en hex porque los bytes de salida pueden no ser caracteres imprimibles."
+            }
+        },
+        {
+            "id": 290,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "¿Por qué XOR se llama cifrado por gamma?",
+                "answer": "En el cifrado por gamma, el mensaje se combina con una secuencia de bytes de clave llamada gamma o flujo de clave. XOR es la operación que combina ese flujo con el mensaje y después lo revierte usando el mismo flujo."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrar HOLA",
+                "key": "CLAVE",
+                "shift": 0,
+                "input": "HOLA",
+                "output": "0B030D17",
+                "description": "Clave: CLAVE. La herramienta aplica XOR a los bytes UTF-8 del texto y repite la clave cíclicamente hasta la longitud del mensaje."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrar ATAQUE AL AMANECER",
+                "key": "SECRETO",
+                "shift": 0,
+                "input": "ATAQUE AL AMANECER",
+                "output": "1211020310116F1209631308150116060600",
+                "description": "Cada byte UTF-8 del texto se combina con la clave cíclica SECRETO mediante XOR. Los espacios también participan en la operación."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Descifrar texto cifrado hex",
+                "key": "CLAVE",
+                "shift": 0,
+                "input": "0B030D17",
+                "output": "HOLA",
+                "description": "Pega la cadena hex y usa la misma clave: XOR restaura el texto original."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "hex",
+            "data": {
+                "title": "Cifrar con clave hex",
+                "key": "42",
+                "shift": 0,
+                "input": "HOLA",
+                "output": "0A0D0E03",
+                "description": "Formato de clave: Hex. La clave de un byte 0x42 se aplica a cada byte de la representación UTF-8 del texto."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 209,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado simétrico"
+            }
+        },
+        {
+            "id": 210,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Operaciones bit a bit"
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Salida hex"
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Clave repetida"
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Clave hex"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Cifrado por gamma"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,280 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T20:50:45+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "xor-cipher",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 35,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 35,
+        "data": {
+            "name": "XOR Şifresi",
+            "name_short": "XOR Şifresi",
+            "description": "XOR şifresiyle çevrimiçi metin şifreleyin ve çözün. Araç, bit düzeyinde özel VEYA işlemini bayt bayt uygular, metin anahtarlarını ve hex anahtarlarını destekler, kısa anahtarları döngüsel olarak tekrarlar ve şifreli sonucu onaltılık bir dize olarak döndürür.",
+            "description_stort": "Metin veya hex anahtarlarla çevrimiçi XOR şifreleme ve çözme.",
+            "meta_title": "XOR Şifresi Online Metin Şifreleme ve Çözme",
+            "meta_description": "XOR şifresini çevrimiçi kullanarak metni hex biçiminde şifreleyin ve hex veriyi tekrar metne çözün. Tekrarlanan metin anahtarları, hex anahtarlar, bayt düzeyinde XOR ve gamma şifreleme desteklenir."
+        }
+    },
+    "blocks": [
+        {
+            "id": 140,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "XOR şifresi nasıl çalışır",
+                "text": "<p>XOR şifresi, bit düzeyinde özel VEYA işlemine dayanan simetrik, bayt düzeyinde bir şifreleme yöntemidir. Giriş mesajının her baytı anahtarın bir baytıyla birleştirilir. Anahtar mesajdan kısaysa, tüm baytlar işlenene kadar döngüsel olarak tekrarlanır.</p><p>XOR’un kullanışlı bir tersine çevrilebilirlik özelliği vardır: aynı anahtarı ikinci kez uygulamak özgün verileri geri getirir. Bu nedenle araç aynı algoritmayı hem şifreleme hem de çözme için kullanabilir. Encrypt modunda normal metni alır ve onaltılık şifreli metin döndürür. Decrypt modunda geçerli bir hex dizesi bekler, bunu tekrar baytlara dönüştürür, aynı anahtarla XOR uygular ve açık metni döndürür.</p><p>Bu yaklaşım çoğu zaman gamma şifreleme olarak açıklanır; çünkü anahtar baytları, mesajla birleştirilen bir anahtar akışı ya da gamma gibi davranır. Bu akışın kalitesi sonucun gücünü belirler.</p>"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Metin anahtarları, hex anahtarları ve hex çıktı",
+                "text": "<p>Servis iki anahtar formatını destekler. Text modunda anahtar sıradan UTF-8 metni olarak ele alınır. Hex modunda anahtar, onaltılık biçimde yazılmış ham baytlar olarak yorumlanır; bu nedenle DEADBEEF veya DE AD BE EF gibi değerler doğrudan kullanılabilir.</p><p>Şifreli çıktı büyük harfli hex olarak gösterilir; çünkü XOR, yazdırılabilir metin olmayan baytlar da dahil olmak üzere herhangi bir ikili bayt üretebilir. Hex kodlama sonucu kopyalamak, saklamak, çözücüye yapıştırmak veya testlerde ve örneklerde kullanmak için güvenli hale getirir.</p><p>Çözme sırasında giriş onaltılık şifreli metin olmalıdır. Boşluklar ve hex olmayan ayırıcılar yok sayılır, ancak kalan hex verisi tam bayt çiftlerinden oluşmalıdır.</p>"
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "XOR şifresi, Vernam şifresi ve tek kullanımlık anahtar",
+                "text": "<p>XOR şifresi ve Vernam şifresi aynı temel işlemi kullanır: mesaj baytları anahtar baytlarıyla XOR kullanılarak birleştirilir. Pratik fark, anahtarın nasıl seçildiği ve tekrar kullanılıp kullanılmadığıdır.</p><p>Gerçek bir tek kullanımlık anahtar, mesaj kadar uzun veya daha uzun olan ve asla tekrar kullanılmayan rastgele bir anahtar gerektirir. Bu koşullarda XOR tabanlı şifreleme kuramsal olarak kusursuz gizlilik sağlayabilir. Tipik bir XOR aracı ise yeniden kullanılabilir bir anahtar kullanır ve gerektiğinde bunu tekrarlar. Bu öğrenme, hata ayıklama ve deneme için kullanışlıdır, ancak modern kriptografik güvenlik sağlamaz.</p>"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Bu XOR aracını ne zaman kullanmalı",
+                "text": "<p>Bu çevrimiçi XOR kodlayıcı ve çözücüyü bit düzeyinde şifrelemeyi incelemek, tekrarlanan anahtarlı XOR’un nasıl çalıştığını test etmek, hex şifreli metni incelemek veya eğitim materyallerinde ve programlama görevlerinde basit XOR dönüşümlerini yeniden üretmek için kullanın.</p><p>Parolaları, özel mesajları, API belirteçlerini veya üretim verilerini gerçekten korumak için tekrarlanan anahtarlı klasik XOR şifresi yerine modern kimlik doğrulamalı şifreleme algoritmaları kullanın.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "XOR şifresi neden hex çıktı verir?",
+                "answer": "XOR ham baytlarla çalışır ve sonuç yazdırılamayan karakterler ile boş baytlar dahil herhangi bir bayt değerini içerebilir. Onaltılık kodlama, rastgele ikili veriler için güvenli ve okunabilir bir temsil sağlar. Çözme sırasında hex şifreli metni yapıştırın: araç bunu tekrar baytlara dönüştürür, XOR uygular ve özgün metni döndürür."
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "XOR şifresi ile Vernam şifresi arasındaki fark nedir?",
+                "answer": "Her ikisi de anahtarla bayt bayt XOR uygular. Fark anahtar yönetimindedir: Vernam şifresi, yani tek kullanımlık anahtar, gerçekten rastgele, mesaj kadar uzun veya daha uzun ve asla tekrar kullanılmayan bir anahtar gerektirir. Tipik XOR şifresi ise kolaylık için daha kısa, tekrarlanan bir anahtar kullanır ve bu da onu istatistiksel saldırılara açık hale getirir."
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "XOR ile şifrelenmiş bir mesajı nasıl çözerim?",
+                "answer": "XOR kendi tersidir (A XOR B XOR B = A), bu nedenle çözme işlemi şifrelemede kullanılan aynı anahtarı kullanır. Decode sekmesini seçin, hex şifreli metni yapıştırın, aynı anahtarı girin ve aracı çalıştırın. Hex baytları çözer, XOR uygular ve özgün açık metni döndürür."
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "XOR aracı hangi anahtar formatlarını destekler?",
+                "answer": "Araç metin anahtarlarını ve hex anahtarlarını destekler. Metin anahtarları UTF-8 baytları olarak kullanılır. Hex anahtarları ham bayt değerleri olarak yorumlanır; bu nedenle 42, DEADBEEF veya DE AD BE EF gibi anahtar verileri girebilirsiniz."
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Hex anahtarda veya hex şifreli metinde boşluk kullanabilir miyim?",
+                "answer": "Evet. Araç hex verilerini okurken hex olmayan ayırıcıları yok sayar. Ayırıcılar kaldırıldıktan sonra kalan değer, tam baytlara çözülebilmesi için çift sayıda onaltılık karakter içermelidir."
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Anahtar mesajdan kısaysa ne olur?",
+                "answer": "Anahtar mesaj uzunluğuna ulaşana kadar döngüsel olarak tekrarlanır. Bu, tekrarlanan anahtarlı XOR’da yaygındır, ancak şifreli metnin analizini kolaylaştırabilecek örüntüler de oluşturur."
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "XOR şifreleme güvenli midir?",
+                "answer": "Tekrarlanan anahtarlı XOR eğitim ve basit bayt düzeyinde deneyler için yararlıdır, ancak modern veri koruması için güvenli değildir. Güvenlik yalnızca anahtar verisi rastgele, mesaj kadar uzun veya daha uzun ve asla tekrar kullanılmıyorsa ortaya çıkar; bu durumda yöntem tek kullanımlık anahtara dönüşür."
+            }
+        },
+        {
+            "id": 289,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "XOR şifresi Unicode metni destekler mi?",
+                "answer": "Evet. Araç baytlarla çalışır, bu nedenle Unicode metin UTF-8 verisi olarak işlenir. Şifreli sonuç yine hex olarak gösterilir, çünkü çıktı baytları yazdırılabilir karakterler olmayabilir."
+            }
+        },
+        {
+            "id": 290,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "XOR neden gamma şifreleme olarak adlandırılır?",
+                "answer": "Gamma tarzı şifrelemede mesaj, gamma veya anahtar akışı adı verilen bir anahtar bayt dizisiyle birleştirilir. XOR, bu akışı mesajla birleştiren ve daha sonra aynı akışla işlemi tersine çeviren operasyondur."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "MERHABA metnini şifrele",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "MERHABA",
+                "output": "0C0B1300150313",
+                "description": "Anahtar: ANAHTAR. Araç metnin UTF-8 baytlarına XOR uygular ve anahtarı mesaj uzunluğuna kadar döngüsel olarak tekrarlar."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "SAFAKTA SALDIR metnini şifrele",
+                "key": "GIZLI",
+                "shift": 0,
+                "input": "SAFAKTA SALDIR",
+                "output": "14081C0D0213087A1F080B0D131E",
+                "description": "Metnin her UTF-8 baytı, döngüsel olarak tekrarlanan GIZLI anahtarıyla XOR işlemine sokulur. Boşluk karakterleri de işleme dahildir."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Hex şifreli metni çöz",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "0C0B1300150313",
+                "output": "MERHABA",
+                "description": "Hex dizesini yapıştırın ve aynı anahtarı kullanın: XOR özgün metni geri getirir."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "hex",
+            "data": {
+                "title": "Hex anahtarla şifrele",
+                "key": "42",
+                "shift": 0,
+                "input": "MERHABA",
+                "output": "0F07100A030003",
+                "description": "Anahtar formatı: Hex. Tek baytlık 0x42 anahtarı, metnin UTF-8 gösterimindeki her bayta uygulanır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 209,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Simetrik şifre"
+            }
+        },
+        {
+            "id": 210,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Bit düzeyi işlemler"
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Hex çıktı"
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Tekrarlanan anahtar"
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Hex anahtar"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Gamma şifreleme"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

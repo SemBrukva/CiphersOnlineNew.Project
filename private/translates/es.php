@@ -574,6 +574,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'El alfabeto cifrado debe contener exactamente :size caracteres.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'El alfabeto cifrado debe ser una permutación válida del alfabeto seleccionado sin letras repetidas.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mezclar',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Cifrado simétrico — la misma clave para cifrar y descifrar',
+    'XOR_TRUST_KEY_CYCLING'    => 'La clave corta se repite cíclicamente hasta la longitud del mensaje',
+    'XOR_KEY_HINT'             => 'XOR es autoinversa: para descifrar, pega el texto cifrado en hex y usa la misma clave. En modo clave Hex introduce pares como DEADBEEF o DE AD BE EF.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Formato de clave',
+    'XOR_KEY_FORMAT_TEXT'      => 'Texto',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'La dirección debe ser encrypt o decrypt.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'El texto es obligatorio.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'La clave es obligatoria.',
+    'XOR_ERROR_INVALID_HEX'    => 'El texto cifrado debe ser una cadena hexadecimal válida.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'La clave debe ser una cadena hexadecimal válida con un número par de caracteres.',
+    'XOR_ERROR_INVALID'        => 'Datos de entrada inválidos.',
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de cifrado populares con la posibilidad de cifrar y descifrar texto en línea',
 ];

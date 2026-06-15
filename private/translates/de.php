@@ -574,6 +574,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Das Chiffre-Alphabet muss genau :size Zeichen enthalten.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Das Chiffre-Alphabet muss eine gültige Permutation des gewählten Alphabets ohne Wiederholungen sein.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mischen',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Symmetrische Chiffre — gleicher Schlüssel zum Ver- und Entschlüsseln',
+    'XOR_TRUST_KEY_CYCLING'    => 'Kurzer Schlüssel wiederholt sich zyklisch bis zur Nachrichtenlänge',
+    'XOR_KEY_HINT'             => 'XOR ist selbstinvers: Zum Entschlüsseln den Hex-Geheimtext einfügen und denselben Schlüssel verwenden. Im Hex-Schlüssel-Modus Paare wie DEADBEEF oder DE AD BE EF eingeben.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Schlüsselformat',
+    'XOR_KEY_FORMAT_TEXT'      => 'Text',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'Richtung muss encrypt oder decrypt sein.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'Text ist erforderlich.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'Schlüssel ist erforderlich.',
+    'XOR_ERROR_INVALID_HEX'    => 'Der Geheimtext muss eine gültige Hex-Zeichenfolge sein.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'Der Schlüssel muss eine gültige Hex-Zeichenfolge mit gerader Zeichenanzahl sein.',
+    'XOR_ERROR_INVALID'        => 'Ungültige Eingabedaten.',
     // Footer
     'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',
 ];

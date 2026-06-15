@@ -20,6 +20,7 @@ use App\Cipher\JsonFormatterCipherService;
 use App\Cipher\LetterFrequencyService;
 use App\Cipher\TimestampConverterCipherService;
 use App\Cipher\SimpleSubstitutionCipherService;
+use App\Cipher\XorCipherService;
 use App\Cipher\MorseCipherService;
 use App\Cipher\NumbersToLettersService;
 use App\Cipher\PlayfairCipherService;
@@ -64,6 +65,7 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('polybius-square', $registry->apiAction('classical-ciphers/kvadrat-polibiya'));
         self::assertSame('hill', $registry->apiAction('classical-ciphers/hill'));
         self::assertSame('hill', $registry->apiAction('classical-ciphers/shifr-hilla'));
+        self::assertSame('xor', $registry->apiAction('classical-ciphers/xor-cipher'));
     }
 
     /**
@@ -119,7 +121,8 @@ final class ToolRegistryTest extends TestCase
             new HtmlEncodeCipherService(),
             new JsonFormatterCipherService(),
             new TimestampConverterCipherService(),
-            new SimpleSubstitutionCipherService()
+            new SimpleSubstitutionCipherService(),
+            new XorCipherService()
         );
     }
 }

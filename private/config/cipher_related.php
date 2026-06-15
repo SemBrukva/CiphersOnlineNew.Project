@@ -26,6 +26,19 @@ return [
         'classical-ciphers/vigenere',
         'classical-ciphers/caesar',
     ],
+    'classical-ciphers/xor-cipher' => [
+        'classical-ciphers/vernam',
+        'encoding/hex',
+        'classical-ciphers/vigenere',
+    ],
+    'classical-ciphers/vernam' => [
+        'classical-ciphers/xor-cipher',
+        'classical-ciphers/vigenere',
+        'text-analysis/frequency-analysis',
+    ],
+    'encoding/hex' => [
+        'classical-ciphers/xor-cipher',
+    ],
     'classical-ciphers/caesar' => [
         'classical-ciphers/rot13',
         'text-analysis/caesar-brute-force',

@@ -573,6 +573,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'L\'alfabeto cifrato deve contenere esattamente :size caratteri.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'L\'alfabeto cifrato deve essere una permutazione valida dell\'alfabeto selezionato senza lettere ripetute.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mescola',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Cifrario simmetrico — stessa chiave per cifrare e decifrare',
+    'XOR_TRUST_KEY_CYCLING'    => 'La chiave corta si ripete ciclicamente fino alla lunghezza del messaggio',
+    'XOR_KEY_HINT'             => 'XOR è autoreciproco: per decifrare, incolla il testo cifrato in hex e usa la stessa chiave. In modalità chiave Hex inserisci coppie come DEADBEEF o DE AD BE EF.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Formato chiave',
+    'XOR_KEY_FORMAT_TEXT'      => 'Testo',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'La direzione deve essere encrypt o decrypt.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'Il testo è obbligatorio.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'La chiave è obbligatoria.',
+    'XOR_ERROR_INVALID_HEX'    => 'Il testo cifrato deve essere una stringa esadecimale valida.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'La chiave deve essere una stringa esadecimale valida con un numero pari di caratteri.',
+    'XOR_ERROR_INVALID'        => 'Dati di input non validi.',
     // Footer
     'FOOTER_DESC'                      => 'catalogo dei sistemi di crittografia più diffusi con la possibilità di cifrare e decifrare testo online',
 ];

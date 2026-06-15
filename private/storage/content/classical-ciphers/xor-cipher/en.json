@@ -1,0 +1,280 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T20:50:45+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "xor-cipher",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 35,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 35,
+        "data": {
+            "name": "XOR Cipher",
+            "name_short": "XOR Cipher",
+            "description": "Encrypt and decrypt text with the XOR cipher online. The tool applies the bitwise exclusive OR operation byte-by-byte, supports text keys and hex keys, repeats short keys cyclically, and returns encrypted output as a hexadecimal string.",
+            "description_stort": "Online XOR encryption and decryption with text or hex keys.",
+            "meta_title": "XOR Cipher Online Encoder & Decoder",
+            "meta_description": "Use the XOR cipher online to encrypt text to hex and decrypt hex back to text. Supports repeating text keys, hex keys, byte-level XOR, and gamma-style encryption."
+        }
+    },
+    "blocks": [
+        {
+            "id": 140,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the XOR cipher works",
+                "text": "<p>The XOR cipher is a symmetric byte-level encryption method based on the bitwise exclusive OR operation. Each byte of the input message is combined with one byte of the key. If the key is shorter than the message, the key is repeated cyclically until every byte has been processed.</p><p>XOR has a useful reversible property: applying the same key a second time restores the original data. That is why this tool can use the same algorithm for encryption and decryption. In Encrypt mode it takes normal text and returns hexadecimal ciphertext. In Decrypt mode it expects a valid hex string, converts it back to bytes, applies XOR with the same key, and returns the plaintext.</p><p>This approach is often described as gamma encryption because the key bytes act like a keystream, or gamma, that is combined with the message. The quality of that keystream determines the strength of the result.</p>"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Text keys, hex keys, and hex output",
+                "text": "<p>The service supports two key formats. In Text mode, the key is treated as ordinary UTF-8 text. In Hex mode, the key is interpreted as raw bytes written in hexadecimal form, so values such as DEADBEEF or DE AD BE EF can be used directly.</p><p>Encrypted output is shown in uppercase hex because XOR can produce arbitrary binary bytes, including bytes that are not printable text. Hex encoding makes the result safe to copy, store, paste into the decoder, or use in tests and examples.</p><p>When decrypting, the input must be hexadecimal ciphertext. Spaces and non-hex separators are ignored, but the remaining hex data must contain complete byte pairs.</p>"
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "XOR cipher, Vernam cipher, and one-time pad",
+                "text": "<p>The XOR cipher and the Vernam cipher use the same core operation: message bytes are combined with key bytes using XOR. The practical difference is how the key is chosen and reused.</p><p>A true one-time pad requires a random key that is at least as long as the message and never used again. Under those conditions, XOR-based encryption can provide perfect theoretical secrecy. A typical XOR cipher tool, however, uses a reusable key and repeats it when necessary. This is convenient for learning, debugging, and experimentation, but it does not provide modern cryptographic security.</p>"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "When to use this XOR cipher tool",
+                "text": "<p>Use this online XOR encoder and decoder to study bitwise encryption, test how repeating-key XOR works, inspect hex ciphertext, or reproduce simple XOR transformations in educational materials and programming tasks.</p><p>For real protection of passwords, private messages, API tokens, or production data, use a modern authenticated encryption algorithm instead of a classical repeating-key XOR cipher.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why does the XOR cipher output hex?",
+                "answer": "XOR operates on raw bytes, and the result can contain any byte value including non-printable characters and null bytes. Hexadecimal encoding provides a safe, readable representation of arbitrary binary data. When decrypting, paste the hex ciphertext: the tool converts it back to bytes, applies XOR, and returns the original text."
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the difference between XOR cipher and Vernam cipher?",
+                "answer": "Both ciphers apply XOR byte-by-byte with a key. The key difference is in key management: the Vernam cipher, or one-time pad, requires a truly random key that is at least as long as the message and never reused, which makes it theoretically unbreakable. A typical XOR cipher uses a shorter repeating key for convenience, which makes it vulnerable to statistical attacks when the key is short or reused."
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do I decrypt a message encrypted with the XOR cipher?",
+                "answer": "Because XOR is self-inverse (A XOR B XOR B = A), decryption uses the same key as encryption. Select the Decode tab, paste the hex ciphertext into the input field, enter the same key, and run the tool. It decodes the hex bytes, applies XOR, and returns the original plaintext."
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What key formats does the XOR cipher tool support?",
+                "answer": "The tool supports text keys and hex keys. Text keys are used as UTF-8 bytes. Hex keys are interpreted as raw byte values, so you can enter key material such as 42, DEADBEEF, or DE AD BE EF."
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can I use spaces in a hex key or hex ciphertext?",
+                "answer": "Yes. The tool ignores non-hex separators when reading hex data. After separators are removed, the remaining value must contain an even number of hexadecimal characters so it can be decoded into complete bytes."
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What happens when the key is shorter than the message?",
+                "answer": "The key repeats cyclically until it reaches the length of the message. This is common in repeating-key XOR, but it also creates patterns that can make the ciphertext easier to analyze."
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is XOR encryption secure?",
+                "answer": "Repeating-key XOR is useful for education and simple byte-level experiments, but it is not secure for modern data protection. Security improves only when the key material is random, at least as long as the message, and never reused, which turns the method into a one-time pad."
+            }
+        },
+        {
+            "id": 289,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Does the XOR cipher support Unicode text?",
+                "answer": "Yes. The tool works on bytes, so Unicode text is processed as UTF-8 data. The encrypted result is still shown as hex because the output bytes may not be printable characters."
+            }
+        },
+        {
+            "id": 290,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Why is XOR called gamma encryption?",
+                "answer": "In gamma-style encryption, the message is combined with a sequence of key bytes called a gamma or keystream. XOR is the operation that combines that keystream with the message and later reverses it with the same keystream."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt HELLO",
+                "key": "KEY",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "030015070A",
+                "description": "H(72)^K(75)=03, E(69)^E(69)=00, L(76)^Y(89)=15, L(76)^K(75)=07, O(79)^E(69)=0A."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt ATTACK AT DAWN",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "12111713061F730417720115040B",
+                "description": "Each letter XOR-ed with the cycling key SECRET. The space character is included in the XOR operation."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decrypt hex ciphertext",
+                "key": "KEY",
+                "shift": 0,
+                "input": "030015070A",
+                "output": "HELLO",
+                "description": "Paste the hex string and use the same key — XOR restores the original text."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "hex",
+            "data": {
+                "title": "Encrypt with hex key",
+                "key": "42",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "0A070E0E0D",
+                "description": "Key format: Hex. Single-byte key 0x42: H(0x48)^0x42=0x0A, E(0x45)^0x42=0x07, L(0x4C)^0x42=0x0E, O(0x4F)^0x42=0x0D."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 209,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Symmetric"
+            }
+        },
+        {
+            "id": 210,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Bitwise"
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Hex output"
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Repeating key"
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Hex key"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Gamma encryption"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

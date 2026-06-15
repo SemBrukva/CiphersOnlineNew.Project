@@ -573,6 +573,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Şifre alfabesi tam olarak :size karakter içermelidir.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Şifre alfabesi, seçilen alfabenin geçerli bir permütasyonu olmalı ve tekrar eden harf içermemelidir.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Karıştır',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Simetrik şifre — şifreleme ve çözme için aynı anahtar kullanılır',
+    'XOR_TRUST_KEY_CYCLING'    => 'Kısa anahtar, mesaj uzunluğuna kadar döngüsel olarak tekrarlanır',
+    'XOR_KEY_HINT'             => 'XOR kendi tersidir: şifre çözmek için hex şifreli metni yapıştırın ve aynı anahtarı kullanın. Hex anahtar modunda DEADBEEF veya DE AD BE EF gibi çiftler girin.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Anahtar formatı',
+    'XOR_KEY_FORMAT_TEXT'      => 'Metin',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'Yön encrypt veya decrypt olmalıdır.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'Metin zorunludur.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'Anahtar zorunludur.',
+    'XOR_ERROR_INVALID_HEX'    => 'Şifreli metin geçerli bir hex dizesi olmalıdır.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'Anahtar, çift sayıda karaktere sahip geçerli bir hex dizesi olmalıdır.',
+    'XOR_ERROR_INVALID'        => 'Geçersiz giriş verisi.',
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
 ];

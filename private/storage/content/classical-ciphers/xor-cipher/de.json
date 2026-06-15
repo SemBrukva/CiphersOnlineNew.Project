@@ -1,0 +1,280 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T20:50:45+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "xor-cipher",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 35,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 35,
+        "data": {
+            "name": "XOR-Chiffre",
+            "name_short": "XOR-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text online mit der XOR-Chiffre. Das Tool wendet die bitweise Exklusiv-Oder-Operation byteweise an, unterstützt Text- und Hex-Schlüssel, wiederholt kurze Schlüssel zyklisch und gibt das verschlüsselte Ergebnis als Hexadezimalzeichenfolge aus.",
+            "description_stort": "Online-XOR-Verschlüsselung und -Entschlüsselung mit Text- oder Hex-Schlüsseln.",
+            "meta_title": "XOR-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die XOR-Chiffre online: Text in Hex verschlüsseln und Hex wieder zu Text entschlüsseln. Mit wiederholten Textschlüsseln, Hex-Schlüsseln, byteweisem XOR und Gamma-Verschlüsselung."
+        }
+    },
+    "blocks": [
+        {
+            "id": 140,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die XOR-Chiffre funktioniert",
+                "text": "<p>Die XOR-Chiffre ist ein symmetrisches byteweises Verschlüsselungsverfahren auf Basis der bitweisen Exklusiv-Oder-Operation. Jedes Byte der Eingabenachricht wird mit einem Byte des Schlüssels kombiniert. Ist der Schlüssel kürzer als die Nachricht, wird er zyklisch wiederholt, bis alle Bytes verarbeitet sind.</p><p>XOR besitzt eine nützliche Umkehreigenschaft: Wird derselbe Schlüssel ein zweites Mal angewendet, entstehen wieder die ursprünglichen Daten. Deshalb kann dieses Tool denselben Algorithmus zum Verschlüsseln und Entschlüsseln verwenden. Im Verschlüsselungsmodus nimmt es normalen Text entgegen und gibt Hex-Chiffretext aus. Im Entschlüsselungsmodus erwartet es eine gültige Hex-Zeichenfolge, wandelt sie zurück in Bytes, wendet XOR mit demselben Schlüssel an und gibt den Klartext zurück.</p><p>Dieser Ansatz wird oft als Gamma-Verschlüsselung beschrieben, weil die Schlüsselbytes wie ein Schlüsselstrom, also ein Gamma, mit der Nachricht kombiniert werden. Die Qualität dieses Schlüsselstroms bestimmt die Stärke des Ergebnisses.</p>"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Textschlüssel, Hex-Schlüssel und Hex-Ausgabe",
+                "text": "<p>Der Service unterstützt zwei Schlüsselformate. Im Textmodus wird der Schlüssel als gewöhnlicher UTF-8-Text behandelt. Im Hex-Modus wird der Schlüssel als Rohbytes in hexadezimaler Schreibweise interpretiert, sodass Werte wie DEADBEEF oder DE AD BE EF direkt verwendet werden können.</p><p>Die verschlüsselte Ausgabe wird in Großbuchstaben als Hex angezeigt, weil XOR beliebige Binärbytes erzeugen kann, darunter Bytes, die kein druckbarer Text sind. Hex-Codierung macht das Ergebnis sicher kopierbar und eignet sich zum Speichern, Einfügen in den Decoder sowie für Tests und Beispiele.</p><p>Beim Entschlüsseln muss die Eingabe Hex-Chiffretext sein. Leerzeichen und Nicht-Hex-Trennzeichen werden ignoriert, aber die verbleibenden Hex-Daten müssen vollständige Bytepaare enthalten.</p>"
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "XOR-Chiffre, Vernam-Chiffre und One-Time Pad",
+                "text": "<p>Die XOR-Chiffre und die Vernam-Chiffre verwenden dieselbe Kernoperation: Nachrichtenbytes werden mit Schlüsselbytes per XOR kombiniert. Der praktische Unterschied liegt darin, wie der Schlüssel gewählt und wiederverwendet wird.</p><p>Ein echtes One-Time Pad benötigt einen zufälligen Schlüssel, der mindestens so lang wie die Nachricht ist und nie wieder verwendet wird. Unter diesen Bedingungen kann XOR-basierte Verschlüsselung theoretisch perfekte Geheimhaltung bieten. Ein typisches XOR-Tool verwendet jedoch einen wiederverwendbaren Schlüssel und wiederholt ihn bei Bedarf. Das ist praktisch zum Lernen, Debuggen und Experimentieren, bietet aber keine moderne kryptografische Sicherheit.</p>"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Wann dieses XOR-Tool sinnvoll ist",
+                "text": "<p>Verwenden Sie diesen Online-XOR-Encoder und -Decoder, um bitweise Verschlüsselung zu lernen, wiederholtes XOR mit Schlüssel zu testen, Hex-Chiffretext zu untersuchen oder einfache XOR-Transformationen in Lernmaterialien und Programmieraufgaben nachzuvollziehen.</p><p>Für echten Schutz von Passwörtern, privaten Nachrichten, API-Tokens oder Produktionsdaten sollten Sie moderne authentifizierte Verschlüsselung statt einer klassischen XOR-Chiffre mit wiederholtem Schlüssel einsetzen.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Warum gibt die XOR-Chiffre Hex aus?",
+                "answer": "XOR arbeitet mit Rohbytes, und das Ergebnis kann jeden Bytewert enthalten, einschließlich nicht druckbarer Zeichen und Nullbytes. Hexadezimale Codierung bietet eine sichere, lesbare Darstellung beliebiger Binärdaten. Beim Entschlüsseln fügen Sie den Hex-Chiffretext ein: Das Tool wandelt ihn zurück in Bytes, wendet XOR an und gibt den ursprünglichen Text aus."
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen XOR-Chiffre und Vernam-Chiffre?",
+                "answer": "Beide Chiffren wenden XOR byteweise mit einem Schlüssel an. Der Unterschied liegt im Schlüsselmanagement: Die Vernam-Chiffre, also das One-Time Pad, verlangt einen wirklich zufälligen Schlüssel, der mindestens so lang wie die Nachricht ist und nie wiederverwendet wird. Eine typische XOR-Chiffre nutzt der Bequemlichkeit halber einen kürzeren wiederholten Schlüssel und ist dadurch anfällig für statistische Angriffe."
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Wie entschlüssele ich eine mit XOR verschlüsselte Nachricht?",
+                "answer": "Da XOR selbstinvers ist (A XOR B XOR B = A), wird zum Entschlüsseln derselbe Schlüssel wie beim Verschlüsseln verwendet. Wählen Sie Decode, fügen Sie den Hex-Chiffretext ein, geben Sie denselben Schlüssel ein und starten Sie das Tool. Es decodiert die Hex-Bytes, wendet XOR an und gibt den Klartext zurück."
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Welche Schlüsselformate unterstützt das XOR-Tool?",
+                "answer": "Das Tool unterstützt Textschlüssel und Hex-Schlüssel. Textschlüssel werden als UTF-8-Bytes verwendet. Hex-Schlüssel werden als rohe Bytewerte interpretiert, sodass Sie Schlüsselmaterial wie 42, DEADBEEF oder DE AD BE EF eingeben können."
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Kann ich Leerzeichen in einem Hex-Schlüssel oder Hex-Chiffretext verwenden?",
+                "answer": "Ja. Das Tool ignoriert Nicht-Hex-Trennzeichen beim Lesen von Hex-Daten. Nach dem Entfernen der Trennzeichen muss der verbleibende Wert eine gerade Anzahl hexadezimaler Zeichen enthalten, damit er in vollständige Bytes decodiert werden kann."
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Was passiert, wenn der Schlüssel kürzer als die Nachricht ist?",
+                "answer": "Der Schlüssel wird zyklisch wiederholt, bis er die Länge der Nachricht erreicht. Das ist bei wiederholtem XOR üblich, erzeugt aber Muster, die den Chiffretext leichter analysierbar machen können."
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Ist XOR-Verschlüsselung sicher?",
+                "answer": "Wiederholtes XOR ist nützlich für Unterricht und einfache byteweise Experimente, aber nicht sicher für modernen Datenschutz. Sicherheit entsteht nur, wenn das Schlüsselmaterial zufällig, mindestens so lang wie die Nachricht und nie wiederverwendet ist; dann wird das Verfahren zu einem One-Time Pad."
+            }
+        },
+        {
+            "id": 289,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Unterstützt die XOR-Chiffre Unicode-Text?",
+                "answer": "Ja. Das Tool arbeitet byteweise, daher wird Unicode-Text als UTF-8-Daten verarbeitet. Das verschlüsselte Ergebnis wird weiterhin als Hex angezeigt, weil die Ausgabebytes möglicherweise keine druckbaren Zeichen sind."
+            }
+        },
+        {
+            "id": 290,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Warum wird XOR als Gamma-Verschlüsselung bezeichnet?",
+                "answer": "Bei der Gamma-Verschlüsselung wird die Nachricht mit einer Folge von Schlüsselbytes kombiniert, die Gamma oder Schlüsselstrom genannt wird. XOR ist die Operation, die diesen Schlüsselstrom mit der Nachricht kombiniert und später mit demselben Schlüsselstrom wieder umkehrt."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Verschlüssle HALLO",
+                "key": "SCHLUESSEL",
+                "shift": 0,
+                "input": "HALLO",
+                "output": "1B0204001A",
+                "description": "Schlüssel: SCHLUESSEL. Das Tool wendet XOR auf die UTF-8-Bytes des Textes an und wiederholt den Schlüssel zyklisch bis zur Nachrichtenlänge."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Verschlüssle ANGRIFF BEI DAEMMERUNG",
+                "key": "GEHEIM",
+                "shift": 0,
+                "input": "ANGRIFF BEI DAEMMERUNG",
+                "output": "060B0F17000B01650A00006D03040D08040815100602",
+                "description": "Jedes UTF-8-Byte des Textes wird mit dem zyklisch wiederholten Schlüssel GEHEIM per XOR verknüpft. Leerzeichen werden ebenfalls verarbeitet."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Hex-Chiffretext entschlüsseln",
+                "key": "SCHLUESSEL",
+                "shift": 0,
+                "input": "1B0204001A",
+                "output": "HALLO",
+                "description": "Fügen Sie die Hex-Zeichenfolge ein und verwenden Sie denselben Schlüssel: XOR stellt den ursprünglichen Text wieder her."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "hex",
+            "data": {
+                "title": "Mit Hex-Schlüssel verschlüsseln",
+                "key": "42",
+                "shift": 0,
+                "input": "HALLO",
+                "output": "0A030E0E0D",
+                "description": "Schlüsselformat: Hex. Der Ein-Byte-Schlüssel 0x42 wird auf jedes Byte der UTF-8-Darstellung des Textes angewendet."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 209,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Symmetrische Chiffre"
+            }
+        },
+        {
+            "id": 210,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Bitweise Operationen"
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Hex-Ausgabe"
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Wiederholter Schlüssel"
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Hex-Schlüssel"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Gamma-Verschlüsselung"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

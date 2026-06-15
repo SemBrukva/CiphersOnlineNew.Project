@@ -573,6 +573,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'O alfabeto cifrado deve conter exatamente :size caracteres.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'O alfabeto cifrado deve ser uma permutação válida do alfabeto selecionado sem letras repetidas.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Misturar',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Cifra simétrica — mesma chave para cifrar e decifrar',
+    'XOR_TRUST_KEY_CYCLING'    => 'A chave curta se repete ciclicamente até o comprimento da mensagem',
+    'XOR_KEY_HINT'             => 'XOR é autoinverso: para decifrar, cole o texto cifrado em hex e use a mesma chave. No modo chave Hex, insira pares como DEADBEEF ou DE AD BE EF.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Formato da chave',
+    'XOR_KEY_FORMAT_TEXT'      => 'Texto',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'A direção deve ser encrypt ou decrypt.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'O texto é obrigatório.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'A chave é obrigatória.',
+    'XOR_ERROR_INVALID_HEX'    => 'O texto cifrado deve ser uma string hexadecimal válida.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'A chave deve ser uma string hexadecimal válida com número par de caracteres.',
+    'XOR_ERROR_INVALID'        => 'Dados de entrada inválidos.',
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de criptografia populares com a possibilidade de criptografar e descriptografar texto online',
 ];

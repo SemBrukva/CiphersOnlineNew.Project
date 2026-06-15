@@ -178,7 +178,7 @@
                 <span class="ciphers-unified__examples-label">{$tool_ui.tryLabel}</span>
                 <div class="ciphers-example-chips">
                     {foreach $tool_ui.exampleChips as $chip}
-                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}{if isset($chip.direction)} data-direction="{$chip.direction|escape:'html'}"{/if}{if isset($chip.delimiter)} data-delimiter="{$chip.delimiter|escape:'html'}"{/if}{if isset($chip.encoding)} data-encoding="{$chip.encoding|escape:'html'}"{/if}>{$chip.label}</button>
+                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}{if isset($chip.direction)} data-direction="{$chip.direction|escape:'html'}"{/if}{if isset($chip.delimiter)} data-delimiter="{$chip.delimiter|escape:'html'}"{/if}{if isset($chip.encoding)} data-encoding="{$chip.encoding|escape:'html'}"{/if}{if isset($chip.key_format)} data-key-format="{$chip.key_format|escape:'html'}"{/if}>{$chip.label}</button>
                     {/foreach}
                     {if isset($tool_ui.timestampConverterMode) && $tool_ui.timestampConverterMode}
                     <button class="ciphers-example-chip" type="button" id="ciphers-ts-now"><i class="bi bi-clock"></i> {$tool_ui.tsNowLabel|default:'Now'}</button>
@@ -256,7 +256,7 @@
                         </div>
                     </div>
                     {elseif $example.key|default:''}
-                    <span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code></span>
+                    <span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code>{if isset($example.key_format) && $example.key_format} ({$example.key_format|upper|escape}){/if}</span>
                     {/if}
                     {if $example.shift|default:0}<span class="b64-example-card__key-badge">Shift: <code>{$example.shift|escape}</code></span>{/if}
                     <div class="b64-example-card__row">
@@ -280,7 +280,8 @@
                             data-alphabet="{$example.language|escape:'html'}"
                             {if $example.delimiter}data-delimiter="{$example.delimiter|escape:'html'}"{/if}
                             {if $example.direction}data-direction="{$example.direction|escape:'html'}"{/if}
-                            {if $example.encoding}data-encoding="{$example.encoding|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
+                            {if $example.encoding}data-encoding="{$example.encoding|escape:'html'}"{/if}
+                            {if isset($example.key_format) && $example.key_format}data-key-format="{$example.key_format|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
                 </article>
             {/foreach}
         </div>

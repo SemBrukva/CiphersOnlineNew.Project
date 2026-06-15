@@ -1,0 +1,280 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T20:50:45+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "xor-cipher",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 35,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 35,
+        "data": {
+            "name": "Cifra XOR",
+            "name_short": "Cifra XOR",
+            "description": "Criptografe e descriptografe texto com a cifra XOR online. A ferramenta aplica a operação bit a bit OU exclusivo byte por byte, aceita chaves de texto e chaves hex, repete chaves curtas ciclicamente e retorna o resultado criptografado como uma string hexadecimal.",
+            "description_stort": "Criptografia e descriptografia XOR online com chaves de texto ou hex.",
+            "meta_title": "Cifra XOR online para criptografar e descriptografar texto",
+            "meta_description": "Use a cifra XOR online para criptografar texto em hex e descriptografar hex de volta para texto. Suporta chaves de texto repetidas, chaves hex, XOR por byte e criptografia por gama."
+        }
+    },
+    "blocks": [
+        {
+            "id": 140,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra XOR funciona",
+                "text": "<p>A cifra XOR é um método simétrico de criptografia em nível de byte baseado na operação bit a bit OU exclusivo. Cada byte da mensagem de entrada é combinado com um byte da chave. Se a chave for menor que a mensagem, ela se repete ciclicamente até que todos os bytes sejam processados.</p><p>O XOR tem uma propriedade reversível útil: aplicar a mesma chave pela segunda vez restaura os dados originais. Por isso esta ferramenta pode usar o mesmo algoritmo para criptografar e descriptografar. No modo Encrypt, ela recebe texto normal e retorna texto cifrado hexadecimal. No modo Decrypt, espera uma string hex válida, converte-a de volta em bytes, aplica XOR com a mesma chave e retorna o texto claro.</p><p>Essa abordagem é frequentemente descrita como criptografia por gama, porque os bytes da chave agem como um fluxo de chave, ou gama, combinado com a mensagem. A qualidade desse fluxo determina a força do resultado.</p>"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Chaves de texto, chaves hex e saída hex",
+                "text": "<p>O serviço aceita dois formatos de chave. No modo Text, a chave é tratada como texto UTF-8 comum. No modo Hex, a chave é interpretada como bytes brutos escritos em hexadecimal, então valores como DEADBEEF ou DE AD BE EF podem ser usados diretamente.</p><p>A saída criptografada é exibida em hex maiúsculo porque XOR pode produzir bytes binários arbitrários, incluindo bytes que não são texto imprimível. A codificação hex torna o resultado seguro para copiar, armazenar, colar no decodificador ou usar em testes e exemplos.</p><p>Ao descriptografar, a entrada deve ser texto cifrado hexadecimal. Espaços e separadores não hex são ignorados, mas os dados hex restantes devem conter pares completos de bytes.</p>"
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cifra XOR, cifra Vernam e one-time pad",
+                "text": "<p>A cifra XOR e a cifra Vernam usam a mesma operação central: bytes da mensagem são combinados com bytes da chave usando XOR. A diferença prática está em como a chave é escolhida e reutilizada.</p><p>Um verdadeiro one-time pad exige uma chave aleatória, pelo menos tão longa quanto a mensagem e nunca reutilizada. Nessas condições, a criptografia baseada em XOR pode oferecer sigilo teórico perfeito. Uma ferramenta XOR típica, porém, usa uma chave reutilizável e a repete quando necessário. Isso é conveniente para aprender, depurar e experimentar, mas não oferece segurança criptográfica moderna.</p>"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Quando usar esta ferramenta XOR",
+                "text": "<p>Use este codificador e decodificador XOR online para estudar criptografia bit a bit, testar como o XOR com chave repetida funciona, inspecionar texto cifrado hex ou reproduzir transformações XOR simples em materiais educacionais e tarefas de programação.</p><p>Para proteger senhas, mensagens privadas, tokens de API ou dados de produção, use um algoritmo moderno de criptografia autenticada em vez de uma cifra XOR clássica com chave repetida.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Por que a cifra XOR gera saída hex?",
+                "answer": "XOR opera sobre bytes brutos, e o resultado pode conter qualquer valor de byte, incluindo caracteres não imprimíveis e bytes nulos. A codificação hexadecimal oferece uma representação segura e legível de dados binários arbitrários. Para descriptografar, cole o texto cifrado hex: a ferramenta o converte de volta em bytes, aplica XOR e retorna o texto original."
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qual é a diferença entre cifra XOR e cifra Vernam?",
+                "answer": "Ambas aplicam XOR byte por byte com uma chave. A diferença está no gerenciamento da chave: a cifra Vernam, ou one-time pad, exige uma chave verdadeiramente aleatória, pelo menos tão longa quanto a mensagem e nunca reutilizada. Uma cifra XOR típica usa uma chave repetida mais curta por conveniência, tornando-se vulnerável a ataques estatísticos."
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Como descriptografar uma mensagem cifrada com XOR?",
+                "answer": "Como XOR é auto-inverso (A XOR B XOR B = A), a descriptografia usa a mesma chave da criptografia. Selecione Decode, cole o texto cifrado hex, informe a mesma chave e execute a ferramenta. Ela decodifica os bytes hex, aplica XOR e retorna o texto claro original."
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Quais formatos de chave a ferramenta XOR aceita?",
+                "answer": "A ferramenta aceita chaves de texto e chaves hex. Chaves de texto são usadas como bytes UTF-8. Chaves hex são interpretadas como valores de bytes brutos, então você pode inserir material de chave como 42, DEADBEEF ou DE AD BE EF."
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Posso usar espaços em uma chave hex ou em texto cifrado hex?",
+                "answer": "Sim. A ferramenta ignora separadores não hex ao ler dados hex. Depois que os separadores são removidos, o valor restante deve conter um número par de caracteres hexadecimais para ser decodificado em bytes completos."
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "O que acontece quando a chave é menor que a mensagem?",
+                "answer": "A chave se repete ciclicamente até alcançar o comprimento da mensagem. Isso é comum em XOR com chave repetida, mas também cria padrões que podem facilitar a análise do texto cifrado."
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "A criptografia XOR é segura?",
+                "answer": "XOR com chave repetida é útil para ensino e experimentos simples em nível de byte, mas não é seguro para proteção moderna de dados. A segurança só aparece quando o material da chave é aleatório, pelo menos tão longo quanto a mensagem e nunca reutilizado; nesse caso, o método vira um one-time pad."
+            }
+        },
+        {
+            "id": 289,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "A cifra XOR suporta texto Unicode?",
+                "answer": "Sim. A ferramenta trabalha com bytes, então texto Unicode é processado como dados UTF-8. O resultado criptografado ainda é mostrado em hex porque os bytes de saída podem não ser caracteres imprimíveis."
+            }
+        },
+        {
+            "id": 290,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Por que XOR é chamado de criptografia por gama?",
+                "answer": "Na criptografia por gama, a mensagem é combinada com uma sequência de bytes de chave chamada gama ou fluxo de chave. XOR é a operação que combina esse fluxo com a mensagem e depois reverte o processo usando o mesmo fluxo."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Criptografar OLA",
+                "key": "CHAVE",
+                "shift": 0,
+                "input": "OLA",
+                "output": "0C0400",
+                "description": "Chave: CHAVE. A ferramenta aplica XOR aos bytes UTF-8 do texto e repete a chave ciclicamente até o comprimento da mensagem."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Criptografar ATAQUE AO AMANHECER",
+                "key": "SEGREDO",
+                "shift": 0,
+                "input": "ATAQUE AO AMANHECER",
+                "output": "1211060310016F120A67130805011B00041717",
+                "description": "Cada byte UTF-8 do texto é combinado por XOR com a chave cíclica SEGREDO. Os espaços também participam da operação."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Descriptografar texto cifrado hex",
+                "key": "CHAVE",
+                "shift": 0,
+                "input": "0C0400",
+                "output": "OLA",
+                "description": "Cole a string hex e use a mesma chave: XOR restaura o texto original."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "hex",
+            "data": {
+                "title": "Criptografar com chave hex",
+                "key": "42",
+                "shift": 0,
+                "input": "OLA",
+                "output": "0D0E03",
+                "description": "Formato da chave: Hex. A chave de um byte 0x42 é aplicada a cada byte da representação UTF-8 do texto."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 209,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra simétrica"
+            }
+        },
+        {
+            "id": 210,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Operações bit a bit"
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Saída hex"
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Chave repetida"
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Chave hex"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Criptografia por gama"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

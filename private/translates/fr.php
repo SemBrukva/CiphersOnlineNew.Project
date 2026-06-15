@@ -574,6 +574,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'L\'alphabet chiffré doit contenir exactement :size caractères.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'L\'alphabet chiffré doit être une permutation valide de l\'alphabet sélectionné sans lettres répétées.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Mélanger',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Chiffre symétrique — même clé pour chiffrer et déchiffrer',
+    'XOR_TRUST_KEY_CYCLING'    => 'La clé courte se répète cycliquement jusqu\'à la longueur du message',
+    'XOR_KEY_HINT'             => 'XOR est auto-inverse : pour déchiffrer, collez le texte chiffré en hex et utilisez la même clé. En mode clé Hex, saisissez des paires comme DEADBEEF ou DE AD BE EF.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Format de clé',
+    'XOR_KEY_FORMAT_TEXT'      => 'Texte',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'La direction doit être encrypt ou decrypt.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'Le texte est obligatoire.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'La clé est obligatoire.',
+    'XOR_ERROR_INVALID_HEX'    => 'Le texte chiffré doit être une chaîne hexadécimale valide.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'La clé doit être une chaîne hexadécimale valide avec un nombre pair de caractères.',
+    'XOR_ERROR_INVALID'        => 'Données d\'entrée invalides.',
     // Footer
     'FOOTER_DESC'                      => 'catalogue des systèmes de chiffrement populaires avec la possibilité de chiffrer et déchiffrer du texte en ligne',
 ];

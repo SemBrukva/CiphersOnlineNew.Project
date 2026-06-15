@@ -30,6 +30,8 @@ use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareApiCipherTool;
 use App\Cipher\SimpleSubstitutionApiCipherTool;
 use App\Cipher\SimpleSubstitutionCipherService;
+use App\Cipher\XorApiCipherTool;
+use App\Cipher\XorCipherService;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
@@ -88,7 +90,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
             new HillApiCipherTool(new HillCipherService()),
             new CaesarBruteForceApiCipherTool(new CaesarCipherService(), new LetterFrequencyScorer()),
-            new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService())
+            new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService()),
+            new XorApiCipherTool(new XorCipherService())
         );
     }
 }

@@ -1,0 +1,280 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-15T20:50:45+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "xor-cipher",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 35,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 35,
+        "data": {
+            "name": "Chiffrement XOR",
+            "name_short": "Chiffrement XOR",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffrement XOR en ligne. L’outil applique l’opération OU exclusif bit à bit, octet par octet, prend en charge les clés texte et hexadécimales, répète cycliquement les clés courtes et renvoie le résultat chiffré sous forme de chaîne hexadécimale.",
+            "description_stort": "Chiffrement et déchiffrement XOR en ligne avec clés texte ou hex.",
+            "meta_title": "Chiffrement XOR en ligne pour chiffrer et déchiffrer",
+            "meta_description": "Utilisez le chiffrement XOR en ligne pour chiffrer du texte en hex et déchiffrer du hex en texte. Clés texte répétées, clés hex, XOR par octets et chiffrement par gamma."
+        }
+    },
+    "blocks": [
+        {
+            "id": 140,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Comment fonctionne le chiffrement XOR",
+                "text": "<p>Le chiffrement XOR est une méthode symétrique de chiffrement au niveau des octets fondée sur l’opération bit à bit OU exclusif. Chaque octet du message d’entrée est combiné avec un octet de la clé. Si la clé est plus courte que le message, elle est répétée cycliquement jusqu’à ce que tous les octets soient traités.</p><p>XOR possède une propriété réversible utile : appliquer la même clé une seconde fois restaure les données d’origine. C’est pourquoi cet outil peut utiliser le même algorithme pour chiffrer et déchiffrer. En mode Encrypt, il prend du texte normal et renvoie un texte chiffré hexadécimal. En mode Decrypt, il attend une chaîne hex valide, la reconvertit en octets, applique XOR avec la même clé et renvoie le texte clair.</p><p>Cette approche est souvent décrite comme un chiffrement par gamma, car les octets de la clé agissent comme un flot de clé, ou gamma, combiné au message. La qualité de ce flot détermine la robustesse du résultat.</p>"
+            }
+        },
+        {
+            "id": 141,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Clés texte, clés hex et sortie hex",
+                "text": "<p>Le service prend en charge deux formats de clé. En mode Text, la clé est traitée comme du texte UTF-8 ordinaire. En mode Hex, la clé est interprétée comme des octets bruts écrits en hexadécimal, ce qui permet d’utiliser directement des valeurs comme DEADBEEF ou DE AD BE EF.</p><p>La sortie chiffrée est affichée en hex majuscule, car XOR peut produire n’importe quels octets binaires, y compris des octets qui ne sont pas du texte imprimable. L’encodage hex rend le résultat sûr à copier, stocker, coller dans le décodeur ou utiliser dans des tests et exemples.</p><p>Lors du déchiffrement, l’entrée doit être un texte chiffré hexadécimal. Les espaces et séparateurs non hex sont ignorés, mais les données hex restantes doivent former des paires d’octets complètes.</p>"
+            }
+        },
+        {
+            "id": 142,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Chiffrement XOR, chiffrement Vernam et masque jetable",
+                "text": "<p>Le chiffrement XOR et le chiffrement Vernam utilisent la même opération centrale : les octets du message sont combinés avec les octets de la clé par XOR. La différence pratique tient à la façon dont la clé est choisie et réutilisée.</p><p>Un véritable masque jetable exige une clé aléatoire au moins aussi longue que le message et jamais réutilisée. Dans ces conditions, le chiffrement fondé sur XOR peut offrir une confidentialité théorique parfaite. Un outil XOR classique utilise toutefois une clé réutilisable et la répète si nécessaire. C’est pratique pour apprendre, déboguer et expérimenter, mais cela ne fournit pas une sécurité cryptographique moderne.</p>"
+            }
+        },
+        {
+            "id": 143,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser cet outil XOR",
+                "text": "<p>Utilisez cet encodeur et décodeur XOR en ligne pour étudier le chiffrement bit à bit, tester le XOR à clé répétée, inspecter un texte chiffré hex ou reproduire des transformations XOR simples dans des supports pédagogiques et des exercices de programmation.</p><p>Pour protéger réellement des mots de passe, messages privés, jetons d’API ou données de production, utilisez un algorithme moderne de chiffrement authentifié plutôt qu’un chiffrement XOR classique à clé répétée.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le chiffrement XOR produit-il du hex ?",
+                "answer": "XOR travaille sur des octets bruts, et le résultat peut contenir n’importe quelle valeur d’octet, y compris des caractères non imprimables et des octets nuls. L’encodage hexadécimal fournit une représentation sûre et lisible de données binaires arbitraires. Pour déchiffrer, collez le texte chiffré hex : l’outil le reconvertit en octets, applique XOR et renvoie le texte d’origine."
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quelle est la différence entre le chiffrement XOR et le chiffrement Vernam ?",
+                "answer": "Les deux appliquent XOR octet par octet avec une clé. La différence vient de la gestion de la clé : le chiffrement Vernam, ou masque jetable, exige une clé vraiment aléatoire, au moins aussi longue que le message et jamais réutilisée. Un chiffrement XOR typique utilise une clé répétée plus courte par commodité, ce qui le rend vulnérable aux attaques statistiques."
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Comment déchiffrer un message chiffré avec XOR ?",
+                "answer": "Comme XOR est auto-inverse (A XOR B XOR B = A), le déchiffrement utilise la même clé que le chiffrement. Sélectionnez Decode, collez le texte chiffré hex, saisissez la même clé et lancez l’outil. Il décode les octets hex, applique XOR et renvoie le texte clair original."
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Quels formats de clé l’outil XOR prend-il en charge ?",
+                "answer": "L’outil prend en charge les clés texte et les clés hex. Les clés texte sont utilisées comme octets UTF-8. Les clés hex sont interprétées comme des valeurs d’octets bruts, ce qui permet de saisir du matériel de clé comme 42, DEADBEEF ou DE AD BE EF."
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Puis-je utiliser des espaces dans une clé hex ou un texte chiffré hex ?",
+                "answer": "Oui. L’outil ignore les séparateurs non hex lors de la lecture de données hex. Une fois les séparateurs supprimés, la valeur restante doit contenir un nombre pair de caractères hexadécimaux pour être décodée en octets complets."
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Que se passe-t-il si la clé est plus courte que le message ?",
+                "answer": "La clé est répétée cycliquement jusqu’à atteindre la longueur du message. C’est courant avec XOR à clé répétée, mais cela crée aussi des motifs qui peuvent faciliter l’analyse du texte chiffré."
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Le chiffrement XOR est-il sûr ?",
+                "answer": "XOR à clé répétée est utile pour l’apprentissage et les expériences simples au niveau des octets, mais il n’est pas sûr pour protéger des données modernes. La sécurité n’apparaît que lorsque la clé est aléatoire, au moins aussi longue que le message et jamais réutilisée ; le procédé devient alors un masque jetable."
+            }
+        },
+        {
+            "id": 289,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Le chiffrement XOR prend-il en charge le texte Unicode ?",
+                "answer": "Oui. L’outil travaille sur des octets, donc le texte Unicode est traité comme des données UTF-8. Le résultat chiffré reste affiché en hex, car les octets de sortie peuvent ne pas être imprimables."
+            }
+        },
+        {
+            "id": 290,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Pourquoi parle-t-on de chiffrement par gamma avec XOR ?",
+                "answer": "Dans un chiffrement par gamma, le message est combiné avec une suite d’octets de clé appelée gamma ou flot de clé. XOR est l’opération qui combine ce flot avec le message puis inverse l’opération avec le même flot."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 132,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer SALUT",
+                "key": "CLE",
+                "shift": 0,
+                "input": "SALUT",
+                "output": "100D091618",
+                "description": "Clé : CLE. L’outil applique XOR aux octets UTF-8 du texte et répète la clé cycliquement jusqu’à la longueur du message."
+            }
+        },
+        {
+            "id": 133,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer ATTAQUE A L AUBE",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "ATTAQUE A L AUBE",
+                "output": "12111713140116650272097412100117",
+                "description": "Chaque octet UTF-8 du texte est combiné par XOR avec la clé répétée SECRET. Les espaces participent aussi à l’opération."
+            }
+        },
+        {
+            "id": 134,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Déchiffrer un texte chiffré hex",
+                "key": "CLE",
+                "shift": 0,
+                "input": "100D091618",
+                "output": "SALUT",
+                "description": "Collez la chaîne hex et utilisez la même clé : XOR restaure le texte d’origine."
+            }
+        },
+        {
+            "id": 135,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "hex",
+            "data": {
+                "title": "Chiffrer avec une clé hex",
+                "key": "42",
+                "shift": 0,
+                "input": "SALUT",
+                "output": "11030E1716",
+                "description": "Format de clé : Hex. La clé sur un octet 0x42 est appliquée à chaque octet de la représentation UTF-8 du texte."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 209,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement symétrique"
+            }
+        },
+        {
+            "id": 210,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Opérations bit à bit"
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "XOR"
+            }
+        },
+        {
+            "id": 212,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Sortie hex"
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Clé répétée"
+            }
+        },
+        {
+            "id": 214,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Clé hex"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Chiffrement par gamma"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

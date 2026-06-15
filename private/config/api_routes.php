@@ -156,6 +156,13 @@ return [
         'name'       => 'api.tools.simple_substitution',
     ],
 
+    'POST /tools/xor' => [
+        'controller' => GuestController::class,
+        'method'     => 'xorCipher',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.xor',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

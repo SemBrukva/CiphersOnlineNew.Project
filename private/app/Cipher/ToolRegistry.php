@@ -38,7 +38,8 @@ final readonly class ToolRegistry
         private HtmlEncodeCipherService $htmlEncode,
         private JsonFormatterCipherService $jsonFormatter,
         private TimestampConverterCipherService $timestampConverter,
-        private SimpleSubstitutionCipherService $simpleSubstitution
+        private SimpleSubstitutionCipherService $simpleSubstitution,
+        private XorCipherService $xorCipher
     ) {
     }
 
@@ -184,6 +185,12 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => 'QWERTYUIOPASDFGHJKLZXCVBNM'],
                 ['label' => 'Decode',   'value' => 'ITSSG VGKSR',    'alphabet' => 'en', 'key' => 'QWERTYUIOPASDFGHJKLZXCVBNM', 'direction' => 'decrypt'],
             ],
+            'classical-ciphers/xor-cipher' => [
+                ['label' => 'Classic',  'value' => 'HELLO',          'key' => 'KEY'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'key' => 'SECRET'],
+                ['label' => 'Decode',   'value' => '030015070A',     'key' => 'KEY', 'direction' => 'decrypt'],
+                ['label' => 'Hex Key',  'value' => 'HELLO',          'key' => '42',  'key_format' => 'hex'],
+            ],
             'codes-and-alphabets/morse-code' => [
                 ['label' => 'SOS',    'value' => 'SOS',       'alphabet' => 'en'],
                 ['label' => 'Hello',  'value' => 'HELLO',     'alphabet' => 'en'],
@@ -238,6 +245,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => 'polybius-square',
             'classical-ciphers/hill' => 'hill',
             'classical-ciphers/simple-substitution' => 'simple-substitution',
+            'classical-ciphers/xor-cipher' => 'xor',
             'codes-and-alphabets/morse-code' => null,
             'codes-and-alphabets/numbers-to-letters' => null,
             'encoding/html-encode' => null,
@@ -276,6 +284,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getToolSettings(),
             'classical-ciphers/hill' => $this->hillCipher->getToolSettings(),
             'classical-ciphers/simple-substitution' => $this->simpleSubstitution->getToolSettings(),
+            'classical-ciphers/xor-cipher' => $this->xorCipher->getToolSettings(),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
@@ -312,6 +321,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/polybius-square' => $this->polybiusSquareCipher->getTrustItems($calculationMode),
             'classical-ciphers/hill' => $this->hillCipher->getTrustItems($calculationMode),
             'classical-ciphers/simple-substitution' => $this->simpleSubstitution->getTrustItems($calculationMode),
+            'classical-ciphers/xor-cipher' => $this->xorCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),

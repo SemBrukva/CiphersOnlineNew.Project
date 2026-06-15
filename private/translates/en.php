@@ -597,6 +597,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Cipher alphabet must contain exactly :size characters.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Cipher alphabet must be a valid permutation of the selected alphabet with no repeated letters.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Shuffle',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Symmetric cipher — same key used to encrypt and decrypt',
+    'XOR_TRUST_KEY_CYCLING'    => 'Short key cycles automatically to match message length',
+    'XOR_KEY_HINT'             => 'XOR is self-inverse: to decrypt, paste the hex ciphertext and use the same key. In Hex key mode enter pairs like DEADBEEF or DE AD BE EF.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Key format',
+    'XOR_KEY_FORMAT_TEXT'      => 'Text',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'Direction must be encrypt or decrypt.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'Text is required.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'Key is required.',
+    'XOR_ERROR_INVALID_HEX'    => 'Ciphertext must be a valid hex string.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'Key must be a valid hex string with an even number of characters.',
+    'XOR_ERROR_INVALID'        => 'Invalid input data.',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];

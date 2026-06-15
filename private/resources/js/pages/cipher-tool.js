@@ -61,8 +61,9 @@ export function initCipherToolPage() {
   const jsonIndentSelect = document.getElementById('ciphers-json-indent')
   const jsonSortKeysBtn  = document.getElementById('ciphers-json-sort')
   const jsonDownloadBtn  = document.getElementById('ciphers-json-download')
-  const tsUnitSelect     = document.getElementById('ciphers-ts-unit')
-  const tsNowBtn         = document.getElementById('ciphers-ts-now')
+  const tsUnitSelect        = document.getElementById('ciphers-ts-unit')
+  const tsNowBtn            = document.getElementById('ciphers-ts-now')
+  const xorKeyFormatSelect  = document.getElementById('ciphers-xor-key-format')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -168,6 +169,7 @@ export function initCipherToolPage() {
         liveMode: Boolean(liveModeInput?.checked),
         jsonIndent: String(jsonIndentSelect?.value ?? ''),
         tsUnit: String(tsUnitSelect?.value ?? ''),
+        xorKeyFormat: String(xorKeyFormatSelect?.value ?? ''),
       }
       window.localStorage.setItem(stateStorageKey, JSON.stringify(state))
     } catch {
@@ -335,6 +337,11 @@ export function initCipherToolPage() {
         if (hasUnit) tsUnitSelect.value = savedState.tsUnit
       }
     }
+
+    if (xorKeyFormatSelect && typeof savedState.xorKeyFormat === 'string' && savedState.xorKeyFormat !== '') {
+      const hasFormat = Array.from(xorKeyFormatSelect.options).some((o) => o.value === savedState.xorKeyFormat)
+      if (hasFormat) xorKeyFormatSelect.value = savedState.xorKeyFormat
+    }
   }
 
   const process = () => {
@@ -453,12 +460,13 @@ export function initCipherToolPage() {
       return
     }
 
-    const shift = Number(shiftInput?.value ?? 3)
-    const alphabet = String(alphabetSelect?.value ?? 'auto')
-    const delimiter = String(delimiterSelect?.value ?? 'dash')
-    const key = String(keyInput?.value ?? '')
-    const coverText = String(coverInput?.value ?? '')
-    const direction = mode === 'decode' ? 'decrypt' : 'encrypt'
+    const shift        = Number(shiftInput?.value ?? 3)
+    const alphabet     = String(alphabetSelect?.value ?? 'auto')
+    const delimiter    = String(delimiterSelect?.value ?? 'dash')
+    const key          = String(keyInput?.value ?? '')
+    const coverText    = String(coverInput?.value ?? '')
+    const xorKeyFormat = String(xorKeyFormatSelect?.value ?? '')
+    const direction    = mode === 'decode' ? 'decrypt' : 'encrypt'
 
     if (runBtn) {
       runBtn.disabled = true
@@ -481,6 +489,7 @@ export function initCipherToolPage() {
             delimiter,
             key,
             cover_text: coverText,
+            xor_key_format: xorKeyFormat,
           }).filter(([, value]) => value !== '')
         ),
       })
@@ -564,6 +573,11 @@ export function initCipherToolPage() {
     scheduleApiRun()
   })
 
+  xorKeyFormatSelect?.addEventListener('change', () => {
+    saveState()
+    scheduleApiRun()
+  })
+
   shiftInput?.addEventListener('input', () => {
     setShiftValue(normalizeShiftInput())
     saveState()
@@ -611,9 +625,10 @@ export function initCipherToolPage() {
   })
 
   const applyExample = (text, el, { scrollToTool = false } = {}) => {
-    const alphabet   = el.getAttribute('data-alphabet')  || ''
-    const delimiter  = el.getAttribute('data-delimiter') || ''
-    const encoding   = el.getAttribute('data-encoding')  || ''
+    const alphabet   = el.getAttribute('data-alphabet')    || ''
+    const delimiter  = el.getAttribute('data-delimiter')   || ''
+    const encoding   = el.getAttribute('data-encoding')    || ''
+    const keyFormat  = el.getAttribute('data-key-format')  || ''
     const key        = el.getAttribute('data-key')
     const keyInputId = el.getAttribute('data-key-input') || 'ciphers-key'
     const shift      = el.getAttribute('data-shift')
@@ -634,6 +649,13 @@ export function initCipherToolPage() {
     if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
       delimiterSelect.value = delimiter
       delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+    if (xorKeyFormatSelect) {
+      const targetFormat = keyFormat || 'text'
+      if (xorKeyFormatSelect.value !== targetFormat) {
+        xorKeyFormatSelect.value = targetFormat
+        xorKeyFormatSelect.dispatchEvent(new Event('change', { bubbles: true }))
+      }
     }
     if (encoding && n2lTypeSelect && n2lTypeSelect.value !== encoding) {
       n2lTypeSelect.value = encoding

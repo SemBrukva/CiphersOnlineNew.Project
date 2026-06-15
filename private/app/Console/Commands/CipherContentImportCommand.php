@@ -160,9 +160,10 @@ final readonly class CipherContentImportCommand implements CommandInterface
                             $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
                             $delimiter = $this->sanitizeDelimiter((string) ($item['delimiter'] ?? ''));
                             $encoding  = $this->sanitizeEncoding((string) ($item['encoding'] ?? ''));
+                            $keyFormat = $this->sanitizeKeyFormat((string) ($item['key_format'] ?? ''));
                             $this->db->execute(
-                                'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, delimiter = ?, encoding = ?, updated_at = ? WHERE id = ?',
-                                [$direction, $delimiter, $encoding, $now, $exampleId]
+                                'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, delimiter = ?, encoding = ?, key_format = ?, updated_at = ? WHERE id = ?',
+                                [$direction, $delimiter, $encoding, $keyFormat, $now, $exampleId]
                             );
                         }
                     }
@@ -427,10 +428,11 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
         $delimiter = $this->sanitizeDelimiter((string) ($item['delimiter'] ?? ''));
         $encoding  = $this->sanitizeEncoding((string) ($item['encoding'] ?? ''));
+        $keyFormat = $this->sanitizeKeyFormat((string) ($item['key_format'] ?? ''));
 
         $id = $this->db->insert(
-            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, delimiter, encoding, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            [$cipherId, $sortOrder, $published, $direction, $delimiter, $encoding, $now, $now]
+            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, delimiter, encoding, key_format, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [$cipherId, $sortOrder, $published, $direction, $delimiter, $encoding, $keyFormat, $now, $now]
         );
 
         return (int) $id;
@@ -818,5 +820,13 @@ final readonly class CipherContentImportCommand implements CommandInterface
     private function sanitizeEncoding(string $value): string
     {
         return in_array($value, ['positional-1', 'positional-0', 'ascii', 'hex', 'binary'], true) ? $value : '';
+    }
+
+    /**
+     * Нормализует значение key_format: допустимы text, hex или '' (не задан).
+     */
+    private function sanitizeKeyFormat(string $value): string
+    {
+        return in_array($value, ['text', 'hex'], true) ? $value : '';
     }
 }

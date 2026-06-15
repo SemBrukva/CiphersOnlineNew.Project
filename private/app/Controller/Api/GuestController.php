@@ -416,6 +416,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование XOR-шифром через API.
+     *
+     * POST /api/tools/xor
+     */
+    #[ApiOperation(summary: 'XOR Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function xorCipher(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'xor');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

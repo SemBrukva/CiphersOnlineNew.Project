@@ -597,6 +597,19 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Шифровой алфавит должен содержать ровно :size символов.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_INVALID'         => 'Шифровой алфавит должен быть корректной перестановкой выбранного алфавита без повторяющихся букв.',
     'SIMPLE_SUBSTITUTION_SHUFFLE'                 => 'Перемешать',
+    // XOR Cipher
+    'XOR_TRUST_SYMMETRIC'      => 'Симметричный шифр — один ключ для шифрования и дешифрования',
+    'XOR_TRUST_KEY_CYCLING'    => 'Короткий ключ циклически повторяется до длины сообщения',
+    'XOR_KEY_HINT'             => 'XOR является инволюцией: для дешифрования вставьте hex-шифртекст и используйте тот же ключ. В режиме Hex-ключа вводите пары вида DEADBEEF или DE AD BE EF.',
+    'XOR_KEY_FORMAT_LABEL'     => 'Формат ключа',
+    'XOR_KEY_FORMAT_TEXT'      => 'Текст',
+    'XOR_KEY_FORMAT_HEX'       => 'Hex',
+    'XOR_ERROR_DIRECTION'      => 'Направление должно быть encrypt или decrypt.',
+    'XOR_ERROR_TEXT_REQUIRED'  => 'Текст не может быть пустым.',
+    'XOR_ERROR_KEY_REQUIRED'   => 'Ключ не может быть пустым.',
+    'XOR_ERROR_INVALID_HEX'    => 'Шифртекст должен быть корректной hex-строкой.',
+    'XOR_ERROR_INVALID_HEX_KEY'=> 'Ключ должен быть корректной hex-строкой с чётным числом символов.',
+    'XOR_ERROR_INVALID'        => 'Некорректные входные данные.',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
 ];
