@@ -568,7 +568,7 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Ungültige Eingabedaten.',
     'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Richtung muss encrypt oder decrypt sein.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Text ist erforderlich.',
-    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Nicht unterstütztes Alphabet.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED' => 'Nicht unterstütztes Alphabet.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Der Text enthält keine Zeichen des gewählten Alphabets.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Das Chiffre-Alphabet (Schlüssel) ist erforderlich.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Das Chiffre-Alphabet muss genau :size Zeichen enthalten.',
@@ -585,7 +585,7 @@ return [
     'XOR_ERROR_TEXT_REQUIRED'  => 'Text ist erforderlich.',
     'XOR_ERROR_KEY_REQUIRED'   => 'Schlüssel ist erforderlich.',
     'XOR_ERROR_INVALID_HEX'    => 'Der Geheimtext muss eine gültige Hex-Zeichenfolge sein.',
-    'XOR_ERROR_INVALID_HEX_KEY'=> 'Der Schlüssel muss eine gültige Hex-Zeichenfolge mit gerader Zeichenanzahl sein.',
+    'XOR_ERROR_INVALID_HEX_KEY' => 'Der Schlüssel muss eine gültige Hex-Zeichenfolge mit gerader Zeichenanzahl sein.',
     'XOR_ERROR_INVALID'        => 'Ungültige Eingabedaten.',
     // Footer
     'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',

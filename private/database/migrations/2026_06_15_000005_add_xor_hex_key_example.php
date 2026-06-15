@@ -29,7 +29,8 @@ class AddXorHexKeyExample extends Migration
         $exampleId = $this->upsertExample($cipherId, 40, 'encrypt', $now);
 
         $this->upsertExampleTranslation(
-            $exampleId, 'en',
+            $exampleId,
+            'en',
             'Encrypt with hex key',
             'HELLO',
             '0A070E0E0D',
@@ -39,7 +40,8 @@ class AddXorHexKeyExample extends Migration
         );
 
         $this->upsertExampleTranslation(
-            $exampleId, 'ru',
+            $exampleId,
+            'ru',
             'Шифрование с hex-ключом',
             'HELLO',
             '0A070E0E0D',

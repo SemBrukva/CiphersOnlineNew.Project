@@ -568,7 +568,7 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Données d\'entrée invalides.',
     'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'La direction doit être encrypt ou decrypt.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Le texte est requis.',
-    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Alphabet non pris en charge.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED' => 'Alphabet non pris en charge.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'L\'entrée ne contient pas de caractères de l\'alphabet sélectionné.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'L\'alphabet chiffré (clé) est requis.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'L\'alphabet chiffré doit contenir exactement :size caractères.',
@@ -585,7 +585,7 @@ return [
     'XOR_ERROR_TEXT_REQUIRED'  => 'Le texte est obligatoire.',
     'XOR_ERROR_KEY_REQUIRED'   => 'La clé est obligatoire.',
     'XOR_ERROR_INVALID_HEX'    => 'Le texte chiffré doit être une chaîne hexadécimale valide.',
-    'XOR_ERROR_INVALID_HEX_KEY'=> 'La clé doit être une chaîne hexadécimale valide avec un nombre pair de caractères.',
+    'XOR_ERROR_INVALID_HEX_KEY' => 'La clé doit être une chaîne hexadécimale valide avec un nombre pair de caractères.',
     'XOR_ERROR_INVALID'        => 'Données d\'entrée invalides.',
     // Footer
     'FOOTER_DESC'                      => 'catalogue des systèmes de chiffrement populaires avec la possibilité de chiffrer et déchiffrer du texte en ligne',

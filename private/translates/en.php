@@ -591,7 +591,7 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Invalid input data.',
     'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Direction must be encrypt or decrypt.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Text is required.',
-    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Unsupported alphabet.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED' => 'Unsupported alphabet.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Input does not contain characters from the selected alphabet.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Cipher alphabet (key) is required.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Cipher alphabet must contain exactly :size characters.',
@@ -608,7 +608,7 @@ return [
     'XOR_ERROR_TEXT_REQUIRED'  => 'Text is required.',
     'XOR_ERROR_KEY_REQUIRED'   => 'Key is required.',
     'XOR_ERROR_INVALID_HEX'    => 'Ciphertext must be a valid hex string.',
-    'XOR_ERROR_INVALID_HEX_KEY'=> 'Key must be a valid hex string with an even number of characters.',
+    'XOR_ERROR_INVALID_HEX_KEY' => 'Key must be a valid hex string with an even number of characters.',
     'XOR_ERROR_INVALID'        => 'Invalid input data.',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',

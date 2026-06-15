@@ -29,14 +29,18 @@ class AddTimestampConverterExamples extends Migration
 
         // Пример 1: Unix Epoch — encode (Timestamp → Date)
         $e1 = $this->upsertExample($cipherId, 10, 'encrypt', $now);
-        $this->upsertExampleTranslation($e1, 'en',
+        $this->upsertExampleTranslation(
+            $e1,
+            'en',
             'Unix Epoch',
             '0',
             '1970-01-01T00:00:00.000Z',
             'Every Unix timestamp counts seconds from this moment — midnight UTC on 1 January 1970.',
             $now
         );
-        $this->upsertExampleTranslation($e1, 'ru',
+        $this->upsertExampleTranslation(
+            $e1,
+            'ru',
             'Unix-эпоха',
             '0',
             '1970-01-01T00:00:00.000Z',
@@ -46,14 +50,18 @@ class AddTimestampConverterExamples extends Migration
 
         // Пример 2: JavaScript milliseconds — encode (Timestamp → Date)
         $e2 = $this->upsertExample($cipherId, 20, 'encrypt', $now);
-        $this->upsertExampleTranslation($e2, 'en',
+        $this->upsertExampleTranslation(
+            $e2,
+            'en',
             'JavaScript milliseconds',
             '1700000000000',
             '2023-11-14T22:13:20.000Z',
             'JavaScript\'s Date.now() returns milliseconds. The tool auto-detects 13-digit timestamps as milliseconds.',
             $now
         );
-        $this->upsertExampleTranslation($e2, 'ru',
+        $this->upsertExampleTranslation(
+            $e2,
+            'ru',
             'Миллисекунды JavaScript',
             '1700000000000',
             '2023-11-14T22:13:20.000Z',
@@ -63,14 +71,18 @@ class AddTimestampConverterExamples extends Migration
 
         // Пример 3: ISO date → Unix timestamp — decode (Date → Timestamp)
         $e3 = $this->upsertExample($cipherId, 30, 'decrypt', $now);
-        $this->upsertExampleTranslation($e3, 'en',
+        $this->upsertExampleTranslation(
+            $e3,
+            'en',
             'Date to timestamp',
             '2024-01-01T00:00:00Z',
             '1704067200',
             'Paste an ISO 8601 date to get the Unix timestamp in seconds — useful when building API calls or database queries.',
             $now
         );
-        $this->upsertExampleTranslation($e3, 'ru',
+        $this->upsertExampleTranslation(
+            $e3,
+            'ru',
             'Дата в метку',
             '2024-01-01T00:00:00Z',
             '1704067200',
@@ -80,14 +92,18 @@ class AddTimestampConverterExamples extends Migration
 
         // Пример 4: Year 2038 problem — encode (Timestamp → Date)
         $e4 = $this->upsertExample($cipherId, 40, 'encrypt', $now);
-        $this->upsertExampleTranslation($e4, 'en',
+        $this->upsertExampleTranslation(
+            $e4,
+            'en',
             'Year 2038 limit',
             '2147483647',
             '2038-01-19T03:14:07.000Z',
             'The maximum value of a 32-bit signed integer. After this moment, systems that store timestamps as 32-bit integers will overflow (Y2K38 problem).',
             $now
         );
-        $this->upsertExampleTranslation($e4, 'ru',
+        $this->upsertExampleTranslation(
+            $e4,
+            'ru',
             'Предел 2038 года',
             '2147483647',
             '2038-01-19T03:14:07.000Z',

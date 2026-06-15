@@ -28,19 +28,19 @@ use App\Cipher\LetterFrequencyScorer;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareApiCipherTool;
-use App\Cipher\SimpleSubstitutionApiCipherTool;
-use App\Cipher\SimpleSubstitutionCipherService;
-use App\Cipher\XorApiCipherTool;
-use App\Cipher\XorCipherService;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13ApiCipherTool;
 use App\Cipher\Rot13CipherService;
+use App\Cipher\SimpleSubstitutionApiCipherTool;
+use App\Cipher\SimpleSubstitutionCipherService;
 use App\Cipher\VernamApiCipherTool;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereApiCipherTool;
 use App\Cipher\VigenereCipherService;
+use App\Cipher\XorApiCipherTool;
+use App\Cipher\XorCipherService;
 use PHPUnit\Framework\TestCase;
 
 /**

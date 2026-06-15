@@ -257,7 +257,7 @@ final class XorCipherServiceTest extends TestCase
         $service = new XorCipherService();
         $text    = 'HELLO';
 
-        $enc1 = $service->process($text, 'DEADBEEF',    'encrypt', 'hex');
+        $enc1 = $service->process($text, 'DEADBEEF', 'encrypt', 'hex');
         $enc2 = $service->process($text, 'DE AD BE EF', 'encrypt', 'hex');
         self::assertSame($enc1, $enc2);
     }

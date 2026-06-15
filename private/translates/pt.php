@@ -567,7 +567,7 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Dados de entrada inválidos.',
     'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'A direção deve ser encrypt ou decrypt.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'O texto é obrigatório.',
-    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Alfabeto não suportado.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED' => 'Alfabeto não suportado.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'A entrada não contém caracteres do alfabeto selecionado.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'O alfabeto cifrado (chave) é obrigatório.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'O alfabeto cifrado deve conter exatamente :size caracteres.',
@@ -584,7 +584,7 @@ return [
     'XOR_ERROR_TEXT_REQUIRED'  => 'O texto é obrigatório.',
     'XOR_ERROR_KEY_REQUIRED'   => 'A chave é obrigatória.',
     'XOR_ERROR_INVALID_HEX'    => 'O texto cifrado deve ser uma string hexadecimal válida.',
-    'XOR_ERROR_INVALID_HEX_KEY'=> 'A chave deve ser uma string hexadecimal válida com número par de caracteres.',
+    'XOR_ERROR_INVALID_HEX_KEY' => 'A chave deve ser uma string hexadecimal válida com número par de caracteres.',
     'XOR_ERROR_INVALID'        => 'Dados de entrada inválidos.',
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de criptografia populares com a possibilidade de criptografar e descriptografar texto online',

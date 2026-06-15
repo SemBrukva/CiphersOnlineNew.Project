@@ -567,7 +567,7 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Dati di input non validi.',
     'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'La direzione deve essere encrypt o decrypt.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Il testo è obbligatorio.',
-    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Alfabeto non supportato.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED' => 'Alfabeto non supportato.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'L\'input non contiene caratteri dell\'alfabeto selezionato.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'L\'alfabeto cifrato (chiave) è obbligatorio.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'L\'alfabeto cifrato deve contenere esattamente :size caratteri.',
@@ -584,7 +584,7 @@ return [
     'XOR_ERROR_TEXT_REQUIRED'  => 'Il testo è obbligatorio.',
     'XOR_ERROR_KEY_REQUIRED'   => 'La chiave è obbligatoria.',
     'XOR_ERROR_INVALID_HEX'    => 'Il testo cifrato deve essere una stringa esadecimale valida.',
-    'XOR_ERROR_INVALID_HEX_KEY'=> 'La chiave deve essere una stringa esadecimale valida con un numero pari di caratteri.',
+    'XOR_ERROR_INVALID_HEX_KEY' => 'La chiave deve essere una stringa esadecimale valida con un numero pari di caratteri.',
     'XOR_ERROR_INVALID'        => 'Dati di input non validi.',
     // Footer
     'FOOTER_DESC'                      => 'catalogo dei sistemi di crittografia più diffusi con la possibilità di cifrare e decifrare testo online',

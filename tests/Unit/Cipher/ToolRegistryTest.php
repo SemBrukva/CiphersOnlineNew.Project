@@ -18,18 +18,18 @@ use App\Cipher\HillCipherService;
 use App\Cipher\HtmlEncodeCipherService;
 use App\Cipher\JsonFormatterCipherService;
 use App\Cipher\LetterFrequencyService;
-use App\Cipher\TimestampConverterCipherService;
-use App\Cipher\SimpleSubstitutionCipherService;
-use App\Cipher\XorCipherService;
 use App\Cipher\MorseCipherService;
 use App\Cipher\NumbersToLettersService;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
+use App\Cipher\SimpleSubstitutionCipherService;
+use App\Cipher\TimestampConverterCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereCipherService;
+use App\Cipher\XorCipherService;
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -26,8 +26,8 @@ final readonly class SimpleSubstitutionCipherService
     {
         $catalog = $this->alphabetCatalog();
 
-        $letters = static fn(string $code): string => implode('', array_map(
-            static fn(string $c): string => mb_strtoupper($c),
+        $letters = static fn (string $code): string => implode('', array_map(
+            static fn (string $c): string => mb_strtoupper($c),
             $catalog->alphabet($code)
         ));
 

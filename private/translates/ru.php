@@ -591,7 +591,7 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Некорректные входные данные.',
     'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Направление должно быть encrypt или decrypt.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Текст обязателен.',
-    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Выбранный алфавит не поддерживается.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED' => 'Выбранный алфавит не поддерживается.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Текст не содержит символов выбранного алфавита.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Шифровой алфавит (ключ) обязателен.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Шифровой алфавит должен содержать ровно :size символов.',
@@ -608,7 +608,7 @@ return [
     'XOR_ERROR_TEXT_REQUIRED'  => 'Текст не может быть пустым.',
     'XOR_ERROR_KEY_REQUIRED'   => 'Ключ не может быть пустым.',
     'XOR_ERROR_INVALID_HEX'    => 'Шифртекст должен быть корректной hex-строкой.',
-    'XOR_ERROR_INVALID_HEX_KEY'=> 'Ключ должен быть корректной hex-строкой с чётным числом символов.',
+    'XOR_ERROR_INVALID_HEX_KEY' => 'Ключ должен быть корректной hex-строкой с чётным числом символов.',
     'XOR_ERROR_INVALID'        => 'Некорректные входные данные.',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',

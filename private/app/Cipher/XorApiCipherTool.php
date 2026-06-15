@@ -73,7 +73,7 @@ final readonly class XorApiCipherTool implements ApiCipherToolInterface
             'ok'        => true,
             'result'    => $this->cipher->process($text, $key, $direction, $keyFormat),
             'key'       => $key,
-            'key_format'=> $keyFormat,
+            'key_format' => $keyFormat,
         ];
     }
 }

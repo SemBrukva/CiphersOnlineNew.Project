@@ -567,7 +567,7 @@ return [
     'SIMPLE_SUBSTITUTION_ERR_INVALID'             => 'Geçersiz giriş verisi.',
     'SIMPLE_SUBSTITUTION_ERR_DIRECTION'           => 'Yön encrypt veya decrypt olmalıdır.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_REQUIRED'       => 'Metin zorunludur.',
-    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED'=> 'Desteklenmeyen alfabe.',
+    'SIMPLE_SUBSTITUTION_ERR_ALPHABET_UNSUPPORTED' => 'Desteklenmeyen alfabe.',
     'SIMPLE_SUBSTITUTION_ERR_TEXT_ALPHABET'       => 'Giriş, seçilen alfabenin karakterlerini içermiyor.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_REQUIRED'        => 'Şifre alfabesi (anahtar) zorunludur.',
     'SIMPLE_SUBSTITUTION_ERR_KEY_LENGTH'          => 'Şifre alfabesi tam olarak :size karakter içermelidir.',
@@ -584,7 +584,7 @@ return [
     'XOR_ERROR_TEXT_REQUIRED'  => 'Metin zorunludur.',
     'XOR_ERROR_KEY_REQUIRED'   => 'Anahtar zorunludur.',
     'XOR_ERROR_INVALID_HEX'    => 'Şifreli metin geçerli bir hex dizesi olmalıdır.',
-    'XOR_ERROR_INVALID_HEX_KEY'=> 'Anahtar, çift sayıda karaktere sahip geçerli bir hex dizesi olmalıdır.',
+    'XOR_ERROR_INVALID_HEX_KEY' => 'Anahtar, çift sayıda karaktere sahip geçerli bir hex dizesi olmalıdır.',
     'XOR_ERROR_INVALID'        => 'Geçersiz giriş verisi.',
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
