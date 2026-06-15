@@ -82,7 +82,7 @@ final readonly class CipherContentExportCommand implements CommandInterface
         }
 
         if ($outputPath === '') {
-            $outputPath = PRIVATE_PATH . '/storage/content/' . $categoryAlias . '.' . $cipherAlias . '.' . $language . '.json';
+            $outputPath = PRIVATE_PATH . '/storage/content/' . $categoryAlias . '/' . $cipherAlias . '/' . $language . '.json';
         }
 
         $dir = dirname($outputPath);

@@ -76,7 +76,7 @@ final readonly class CipherCategoryContentExportCommand implements CommandInterf
         }
 
         if ($outputPath === '') {
-            $outputPath = PRIVATE_PATH . '/storage/content/categories/' . $categoryAlias . '.' . $language . '.json';
+            $outputPath = PRIVATE_PATH . '/storage/content/' . $categoryAlias . '/category.' . $language . '.json';
         }
 
         $dir = dirname($outputPath);

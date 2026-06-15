@@ -1,6 +1,6 @@
 ---
 name: cipher-content-localizer
-description: Use this skill when you need to localize cipher content JSON files (for example classical-ciphers.playfair.en.json to *.ru.json) with context-aware adaptation, not literal translation, and with mandatory recalculation of localized example outputs through the project API.
+description: Use this skill when you need to localize cipher content JSON files (for example classical-ciphers/playfair/en.json to ru.json) with context-aware adaptation, not literal translation, and with mandatory recalculation of localized example outputs through the project API.
 ---
 
 # Cipher Content Localizer
@@ -18,7 +18,7 @@ Do not use this skill for direct DB writes. This skill prepares localized JSON a
 
 ## Inputs
 Required inputs:
-- Source JSON path (example: `private/storage/content/classical-ciphers.playfair.en.json`)
+- Source JSON path (example: `private/storage/content/classical-ciphers/playfair/en.json`)
 - Target locale code (example: `ru`)
 - Target JSON path
 
@@ -71,8 +71,8 @@ A target file with the same schema:
 Usage:
 ```bash
 python3 scripts/recompute_example_outputs.py \
-  --source /abs/path/classical-ciphers.playfair.en.json \
-  --target /abs/path/classical-ciphers.playfair.ru.json \
+  --source /abs/path/classical-ciphers/playfair/en.json \
+  --target /abs/path/classical-ciphers/playfair/ru.json \
   --base-url http://127.0.0.1:8080
 ```
 

@@ -153,10 +153,10 @@ php bin/console cipher:content:export <category_alias> <cipher_alias> <language>
 php bin/console cipher:content:export classical-ciphers playfair en
 
 # Проверка импорта без записи в БД
-php bin/console cipher:content:import private/storage/content/classical-ciphers.playfair.en.json --dry-run
+php bin/console cipher:content:import private/storage/content/classical-ciphers/playfair/en.json --dry-run
 
 # Боевой импорт
-php bin/console cipher:content:import private/storage/content/classical-ciphers.playfair.en.json
+php bin/console cipher:content:import private/storage/content/classical-ciphers/playfair/en.json
 ```
 
 Подробный формат JSON и правила редактирования описаны в [docs/cipher-content-json.md](docs/cipher-content-json.md).
@@ -172,10 +172,10 @@ php bin/console cipher:content:import private/storage/content/classical-ciphers.
 php bin/console cipher:category:content:export <category_alias> <language> [output_path]
 
 # Проверка импорта без записи в БД
-php bin/console cipher:category:content:import private/storage/content/categories/encoding.en.json --dry-run
+php bin/console cipher:category:content:import private/storage/content/encoding/category.en.json --dry-run
 
 # Боевой импорт
-php bin/console cipher:category:content:import private/storage/content/categories/encoding.en.json
+php bin/console cipher:category:content:import private/storage/content/encoding/category.en.json
 ```
 
 Подробный формат описан в [docs/cipher-category-content-json.md](docs/cipher-category-content-json.md).
@@ -195,8 +195,8 @@ php bin/console cipher:category:content:import private/storage/content/categorie
 
 ```bash
 python3 docs/skills/cipher-content-localizer/scripts/recompute_example_outputs.py \
-  --source /abs/path/classical-ciphers.playfair.en.json \
-  --target /abs/path/classical-ciphers.playfair.ru.json \
+  --source /abs/path/classical-ciphers/playfair/en.json \
+  --target /abs/path/classical-ciphers/playfair/ru.json \
   --base-url http://127.0.0.1:8080
 ```
 

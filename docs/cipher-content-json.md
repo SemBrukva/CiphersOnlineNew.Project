@@ -16,7 +16,7 @@ php bin/console cipher:content:export classical-ciphers playfair en
 
 По умолчанию файл будет сохранён в:
 
-`private/storage/content/<category_alias>.<cipher_alias>.<language>.json`
+`private/storage/content/<category_alias>/<cipher_alias>/<language>.json`
 
 ## Структура
 
@@ -107,5 +107,5 @@ php bin/console cipher:content:import <json_path> [--dry-run]
 Пример проверки без записи:
 
 ```bash
-php bin/console cipher:content:import private/storage/content/classical-ciphers.playfair.en.json --dry-run
+php bin/console cipher:content:import private/storage/content/classical-ciphers/playfair/en.json --dry-run
 ```

@@ -16,7 +16,7 @@ php bin/console cipher:category:content:export encoding en
 
 По умолчанию файл будет сохранён в:
 
-`private/storage/content/categories/<category_alias>.<language>.json`
+`private/storage/content/<category_alias>/category.<language>.json`
 
 ## Структура
 
@@ -49,5 +49,5 @@ php bin/console cipher:category:content:import <json_path> [--dry-run]
 Пример проверки без записи:
 
 ```bash
-php bin/console cipher:category:content:import private/storage/content/categories/encoding.en.json --dry-run
+php bin/console cipher:category:content:import private/storage/content/encoding/category.en.json --dry-run
 ```
