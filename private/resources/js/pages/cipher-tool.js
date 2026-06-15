@@ -1,6 +1,13 @@
 import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
-import { playMorse, stopMorse, isMorsePlaying, downloadMorseWav } from './cipher-tool/morse-audio.js'
 import { detectLanguage, getUnknownChars, isValidMorseFormat } from './cipher-tool/decoders/morse.js'
+import { initJsonFormatter } from './cipher-tool/json-formatter.js'
+import { initFrequencyAnalysis } from './cipher-tool/frequency-analysis.js'
+import { initLetterFrequency } from './cipher-tool/letter-frequency.js'
+import { initBruteForce } from './cipher-tool/brute-force.js'
+import { initMatrixControl } from './cipher-tool/matrix-control.js'
+import { initMorsePlayer } from './cipher-tool/morse-player.js'
+import { initCustomSelects } from './cipher-tool/custom-selects.js'
+import { sendAnalyticsBeacon } from './cipher-tool/analytics.js'
 
 function canUsePreferenceStorage() {
   return window.CiphersOnlineConsent?.has('preferences') === true
@@ -65,15 +72,16 @@ export function initCipherToolPage() {
   const isLetterFrequencyTool = Boolean(ui.letterFrequencyMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
-  let lastJsonParsed = null
-  let lastJsonDuplicates = []
-  let jsonViewMode = 'text'
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
   const decoder = getDecoderBySlug(slug)
   const isClientTool = isEncodingTool || decoder !== null
-  let matrixIsSyncing = false
+  let jsonFormatter = null
+  let frequencyAnalysis = null
+  let letterFrequency = null
+  let bruteForce = null
+  let matrixCtrl = null
 
   const labels = {
     chars: ui.charsLabel || 'chars',
@@ -208,34 +216,6 @@ export function initCipherToolPage() {
     }
   }
 
-  const escapeHtml = (str) =>
-    str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-
-  const showFreqEmpty = () => {
-    if (!visualOutput) return
-    visualOutput.innerHTML = `<p class="freq-empty">${ui.freqEmptyLabel || 'Enter text to analyze'}</p>`
-  }
-
-  const showBruteForceEmpty = () => {
-    if (!visualOutput) return
-    visualOutput.innerHTML = `<p class="freq-empty">${escapeHtml(ui.bruteEmptyLabel || 'Enter ciphertext to see all possible decryptions')}</p>`
-  }
-
-  const showLetterFreqEmpty = () => {
-    if (!visualOutput) return
-    visualOutput.innerHTML = `<p class="freq-empty">${escapeHtml(ui.lfreqEmptyLabel || 'Enter text to see letter frequencies')}</p>`
-  }
-
-  const showJsonEmpty = () => {
-    if (visualOutput) {
-      visualOutput.style.display = 'none'
-      visualOutput.innerHTML = ''
-    }
-    output.style.display = ''
-    lastJsonParsed = null
-    lastJsonDuplicates = []
-  }
-
   const highlightErrorInInput = (line, col) => {
     if (!input || !line) return
     const lines = input.value.split('\n')
@@ -253,379 +233,6 @@ export function initCipherToolPage() {
     }
   }
 
-  const setJsonErrorFeedback = (primary, detail) => {
-    if (!feedback) return
-    const ep = escapeHtml(primary)
-    const ed = detail ? escapeHtml(detail) : ''
-    feedback.innerHTML = ed
-      ? `${ep}<br><span class="json-err-detail">${ed}</span>`
-      : ep
-    feedback.classList.add('error')
-    feedback.classList.remove('info')
-  }
-
-  const renderJsonWarningsHtml = (dupes) => {
-    if (!dupes.length) return ''
-    return `<div class="json-warnings">${dupes.map((d) => {
-      let msg = labels.jsonFormatterWarnDuplicate.replace(':key', escapeHtml(d.key))
-      if (d.line) msg += ` <span class="json-warning-meta">(line ${d.line}${d.count > 2 ? `, ${d.count}×` : ''})</span>`
-      return `<div class="json-warning-item"><span class="json-warning-icon">⚠</span> ${msg}</div>`
-    }).join('')}</div>`
-  }
-
-  const renderJsonStatsHtml = (stats, str) => {
-    const bytes = new TextEncoder().encode(str).length
-    const parts = [
-      `${labels.jsonFormatterStatObjects}: ${stats.objects}`,
-      `${labels.jsonFormatterStatArrays}: ${stats.arrays}`,
-      `${labels.jsonFormatterStatKeys}: ${stats.keys}`,
-      `${labels.jsonFormatterStatDepth}: ${stats.maxDepth}`,
-      `${str.length} ${labels.chars}`,
-      `${bytes} ${labels.bytes}`,
-    ]
-    return `<span class="json-stats">${parts.join(' · ')}</span>`
-  }
-
-  const renderJsonFormatOutput = (parsed, formattedStr, dupes, view) => {
-    if (!visualOutput) return
-    const stats        = analyzeJson(parsed)
-    const warningsHtml = renderJsonWarningsHtml(dupes)
-    const statsHtml    = renderJsonStatsHtml(stats, formattedStr)
-    const isText       = view === 'text'
-
-    const barHtml = (
-      `<div class="json-view-bar">` +
-      `<div class="json-view-tabs">` +
-      `<button class="json-view-tab${isText ? ' json-view-tab--active' : ''}" data-view="text">${labels.jsonFormatterViewText}</button>` +
-      `<button class="json-view-tab${!isText ? ' json-view-tab--active' : ''}" data-view="tree">${labels.jsonFormatterViewTree}</button>` +
-      `</div>` +
-      statsHtml +
-      `</div>`
-    )
-    const textPanel = (
-      `<div class="json-panel json-panel--text"${!isText ? ' style="display:none"' : ''}>` +
-      `<pre class="json-highlight">${highlightJson(formattedStr)}</pre></div>`
-    )
-    const treePanel = (
-      `<div class="json-panel json-panel--tree"${isText ? ' style="display:none"' : ''}>` +
-      `<div class="json-tree">${renderJsonTreeNode(parsed)}</div></div>`
-    )
-
-    output.style.display = 'none'
-    visualOutput.style.display = 'block'
-    visualOutput.innerHTML = barHtml + warningsHtml + textPanel + treePanel
-  }
-
-  const renderJsonMiniOutput = (dupes) => {
-    output.style.display = ''
-    if (dupes.length > 0 && visualOutput) {
-      visualOutput.style.display = 'block'
-      visualOutput.innerHTML = renderJsonWarningsHtml(dupes)
-    } else if (visualOutput) {
-      visualOutput.style.display = 'none'
-      visualOutput.innerHTML = ''
-    }
-  }
-
-  const renderBruteForceTable = (results, bestShift, reliable) => {
-    if (!visualOutput) return
-    if (!results || results.length === 0) {
-      showBruteForceEmpty()
-      return
-    }
-
-    const title        = escapeHtml(ui.bruteTitle || 'All possible decryptions')
-    const colShift     = escapeHtml(ui.bruteColShift || 'Shift')
-    const colText      = escapeHtml(ui.bruteColText || 'Decrypted text')
-    const useLabel     = escapeHtml(ui.bruteUseLabel || 'Use')
-    const bestBadge    = escapeHtml(ui.bruteBestBadge || 'Best')
-    const fitLabel     = escapeHtml(ui.bruteFitnessLabel || 'Confidence')
-    const likelyKeyTpl = String(ui.bruteLikelyKey || 'Most likely key: Shift :shift')
-
-    const likelyKeyText = escapeHtml(likelyKeyTpl.replace(':shift', String(bestShift ?? '')))
-
-    const shortTextWarning = reliable === false
-      ? `<div class="brute-short-text-warn">${escapeHtml(ui.bruteShortText || 'Short text — add more characters for a reliable prediction')}</div>`
-      : ''
-    const summaryHtml = bestShift !== undefined
-      ? `<div class="brute-summary"><span class="brute-summary-icon">★</span>${likelyKeyText}</div>${shortTextWarning}`
-      : shortTextWarning
-
-    const headerHtml = `<div class="brute-header">`
-      + `<span class="brute-title">${title}</span>`
-      + `<span class="brute-fitness-col-label">${fitLabel}</span>`
-      + `</div>`
-
-    const rowsHtml = results.map(({ shift, text, fitness }) => {
-      const isBest  = shift === bestShift
-      const pct     = typeof fitness === 'number' ? fitness : 0
-      const rowCls  = isBest ? 'brute-row brute-row--best' : 'brute-row'
-      const badge   = isBest ? `<span class="brute-best-badge">${bestBadge}</span>` : ''
-      const barHtml = `<div class="brute-fitness-wrap">`
-        + `<div class="brute-fitness-bar" style="width:${pct}%"></div>`
-        + `<span class="brute-fitness-pct">${pct}%</span>`
-        + `</div>`
-
-      return `<div class="${rowCls}">`
-        + `<span class="brute-shift">${shift}</span>`
-        + `<span class="brute-text">${escapeHtml(text)}${badge}</span>`
-        + `${barHtml}`
-        + `<button class="brute-use-btn" data-brute-text="${escapeHtml(text)}">${useLabel}</button>`
-        + `</div>`
-    }).join('')
-
-    const tableHtml = `<div class="brute-table-header">`
-      + `<span>${colShift}</span>`
-      + `<span>${colText}</span>`
-      + `<span>${fitLabel}</span>`
-      + `<span></span>`
-      + `</div>`
-      + `<div class="brute-rows">${rowsHtml}</div>`
-
-    visualOutput.innerHTML = summaryHtml + headerHtml + tableHtml
-
-    if (bestShift !== undefined) {
-      const bestRow = visualOutput.querySelector('.brute-row--best')
-      bestRow?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
-    }
-
-    visualOutput.querySelectorAll('.brute-use-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const text = btn.getAttribute('data-brute-text') || ''
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(text).then(() => setFeedback(labels.copied)).catch(() => setFeedback(labels.copyFailed, true))
-        } else {
-          const ta = document.createElement('textarea')
-          ta.value = text
-          document.body.appendChild(ta)
-          ta.select()
-          document.execCommand('copy')
-          document.body.removeChild(ta)
-          setFeedback(labels.copied)
-        }
-      })
-    })
-  }
-
-  const renderFrequencyChart = (data) => {
-    if (!visualOutput) return
-    const { scope, lang: dataLang, stats, items, mismatch, langMatch } = data
-    if (!items || items.length === 0) {
-      showFreqEmpty()
-      return
-    }
-
-    const maxCount = items[0]?.count || 1
-    const maxPct = items.reduce((m, it) => Math.max(m, it.pct, it.expected ?? 0), 0.1)
-
-    // --- Строка статистики ---
-    const charsWord = (ui.freqStatsCharsLabel || ':count chars').replace(':count', '').trim()
-    const summaryHtml = `<div class="freq-summary">`
-      + `${stats?.totalChars ?? 0} ${charsWord} · `
-      + `${stats?.letters ?? 0} ${ui.freqStatLetters || 'letters'} · `
-      + `${stats?.words ?? 0} ${ui.freqStatWords || 'words'}`
-      + `</div>`
-
-    // --- Блок IC ---
-    const icVal = typeof stats?.ic === 'number' ? stats.ic.toFixed(4) : '0.0000'
-    const icInterp = stats?.icInterpretation || 'short'
-    const icMap = { natural: ui.freqIcNatural, polyalpha: ui.freqIcPolyalpha, random: ui.freqIcRandom, short: ui.freqIcShort }
-    const icText = icMap[icInterp] || icInterp
-    const icHtml = `<div class="freq-ic">`
-      + `<span class="freq-ic-meta">${escapeHtml(ui.freqIcLabel || 'IC')} = ${icVal}</span>`
-      + `<span class="freq-ic-badge freq-ic-badge--${escapeHtml(icInterp)}">${escapeHtml(icText)}</span>`
-      + `</div>`
-
-    // --- Предупреждение о несовпадении языкового профиля ---
-    let mismatchHtml = ''
-    if (scope === 'letters' && mismatch && mismatch.outsideLetters?.length > 0) {
-      const template = ui.freqMismatchWarning || 'Characters outside selected language profile: :chars. Consider switching to :lang.'
-      const chars = mismatch.outsideLetters.join(', ')
-      const suggestName = mismatch.suggestions?.[0]?.name || ''
-      const warnText = template.replace(':chars', chars).replace(':lang', suggestName)
-      mismatchHtml = `<div class="freq-mismatch">${escapeHtml(warnText)}</div>`
-    }
-
-    // --- Вертикальный столбчатый график (только для режима Letters) ---
-    let chartHtml = ''
-    if (scope === 'letters') {
-      const CHART_H = 80
-      const chartMaxF = items.reduce((m, it) => Math.max(m, it.pct, it.expected ?? 0), 0.1)
-      const groups = items.map(({ char, pct, expected = 0 }) => {
-        const aH = Math.max(2, Math.round((pct / chartMaxF) * CHART_H))
-        const eH = Math.max(2, Math.round((expected / chartMaxF) * CHART_H))
-        const tip = `${char}: ${pct.toFixed(1)}% vs ${expected.toFixed(1)}%`
-        return `<div class="freq-chart-group" title="${escapeHtml(tip)}">`
-          + `<div class="freq-chart-cols">`
-          + `<div class="freq-chart-col freq-chart-col--actual" style="height:${aH}px"></div>`
-          + `<div class="freq-chart-col freq-chart-col--expected" style="height:${eH}px"></div>`
-          + `</div>`
-          + `<span class="freq-chart-label">${escapeHtml(char)}</span>`
-          + `</div>`
-      }).join('')
-      chartHtml = `<div class="freq-chart-area">${groups}</div>`
-    }
-
-    // --- Таблица ---
-    let tableHtml
-    if (scope === 'letters') {
-      const diffTip = escapeHtml(ui.freqColDiffTooltip || 'Actual %− Expected %')
-      const header = `<div class="freq-row freq-row--header freq-row--letters">`
-        + `<span>${escapeHtml(ui.freqColLetter || 'Letter')}</span>`
-        + `<span class="freq-col-num">${escapeHtml(ui.freqColCount || 'Count')}</span>`
-        + `<span></span>`
-        + `<span class="freq-col-num">${escapeHtml(ui.freqColActualPct || 'Actual%')}</span>`
-        + `<span class="freq-col-num">${escapeHtml(ui.freqColExpectedPct || 'Exp%')}</span>`
-        + `<span class="freq-col-num freq-diff-header" title="${diffTip}">${escapeHtml(ui.freqColDiff || 'Diff')}</span>`
-        + `</div>`
-      const rows = items.map(({ char, count, pct, expected = 0, diff = 0 }) => {
-        const aW = Math.round((pct / maxPct) * 100)
-        const eW = Math.round((expected / maxPct) * 100)
-        const diffStr = diff >= 0 ? `+${diff.toFixed(1)}` : diff.toFixed(1)
-        const diffCls = diff > 0.5 ? 'freq-diff--pos' : diff < -0.5 ? 'freq-diff--neg' : ''
-        return `<div class="freq-row freq-row--letters">`
-          + `<span class="freq-char">${escapeHtml(char)}</span>`
-          + `<span class="freq-col-num freq-count">${count}</span>`
-          + `<div class="freq-bar-track">`
-          + `<div class="freq-bar-actual" style="width:${aW}%"></div>`
-          + `<div class="freq-bar-expected" style="width:${eW}%"></div>`
-          + `</div>`
-          + `<span class="freq-col-num freq-pct">${pct.toFixed(1)}%</span>`
-          + `<span class="freq-col-num freq-pct freq-pct--exp">${expected.toFixed(1)}%</span>`
-          + `<span class="freq-col-num freq-diff ${diffCls}">${escapeHtml(diffStr)}</span>`
-          + `</div>`
-      }).join('')
-      tableHtml = `<div class="freq-table">${header}${rows}</div>`
-    } else {
-      const colLabel = scope === 'words' ? (ui.freqColWord || 'Word')
-        : scope === 'bigrams' ? (ui.freqColBigram || 'Bigram')
-        : scope === 'trigrams' ? (ui.freqColTrigram || 'Trigram')
-        : (ui.freqColLetter || 'Char')
-      const header = `<div class="freq-row freq-row--header freq-row--simple">`
-        + `<span>${escapeHtml(colLabel)}</span>`
-        + `<span></span>`
-        + `<span class="freq-col-num">${escapeHtml(ui.freqColCount || 'Count')}</span>`
-        + `<span class="freq-col-num">%</span>`
-        + `</div>`
-      const rows = items.map(({ char, count, pct }) => {
-        const bW = Math.round((count / maxCount) * 100)
-        return `<div class="freq-row freq-row--simple">`
-          + `<span class="freq-char">${escapeHtml(char)}</span>`
-          + `<div class="freq-bar-track"><div class="freq-bar-actual" style="width:${bW}%"></div></div>`
-          + `<span class="freq-col-num freq-count">${count}</span>`
-          + `<span class="freq-col-num freq-pct">${pct.toFixed(1)}%</span>`
-          + `</div>`
-      }).join('')
-      tableHtml = `<div class="freq-table">${header}${rows}</div>`
-    }
-
-    // --- Соответствие языкам ---
-    let langMatchHtml = ''
-    if (langMatch && langMatch.length > 0) {
-      const title = escapeHtml(ui.freqLangMatchTitle || 'Language Match')
-      const rows = langMatch.map(({ lang: lCode, name, score }) => {
-        const isSel = lCode === dataLang
-        const cls = isSel ? 'freq-lang-match__row freq-lang-match__row--selected' : 'freq-lang-match__row'
-        return `<div class="${cls}">`
-          + `<span class="freq-lang-match__name">${escapeHtml(name)}</span>`
-          + `<div class="freq-lang-match__bar-wrap"><div class="freq-lang-match__bar" style="width:${score}%"></div></div>`
-          + `<span class="freq-lang-match__score">${score}%</span>`
-          + `</div>`
-      }).join('')
-      langMatchHtml = `<div class="freq-lang-match"><div class="freq-lang-match__title">${title}</div>${rows}</div>`
-    }
-
-    // Текст для буфера обмена
-    const plainText = items.map((it) => {
-      if (scope === 'letters') {
-        return `${it.char}\t${it.count}\t${it.pct.toFixed(1)}%\t${(it.expected ?? 0).toFixed(1)}%\t${(it.diff ?? 0).toFixed(1)}`
-      }
-      return `${it.char}\t${it.count}\t${it.pct.toFixed(1)}%`
-    }).join('\n')
-    output.value = plainText
-
-    visualOutput.innerHTML = summaryHtml + icHtml + mismatchHtml + chartHtml + tableHtml + langMatchHtml
-  }
-
-  const renderLetterFrequencyGrid = (data) => {
-    if (!visualOutput) return
-    const { stats, heatmapItems, tableItems, missingLetters, requestedLang, detectedLang, mismatch } = data
-    const getLangName = (code) =>
-      lfreqLangSelect?.querySelector(`option[value="${code}"]`)?.textContent?.trim() || code
-    if (!heatmapItems || heatmapItems.length === 0) {
-      showLetterFreqEmpty()
-      return
-    }
-
-    // --- Строка статистики + детекция ---
-    let summaryHtml = `<div class="freq-summary">`
-      + `${stats?.letters ?? 0} ${ui.lfreqStatLetters || 'letters'} · `
-      + `${stats?.unique ?? 0} ${ui.lfreqStatUnique || 'unique'}`
-    if (requestedLang === 'auto' && detectedLang) {
-      const detectedTpl = ui.lfreqLangDetectedLabel || 'Detected: :lang'
-      summaryHtml += ` · <span class="lfreq-detected">${escapeHtml(detectedTpl.replace(':lang', getLangName(detectedLang)))}</span>`
-    }
-    summaryHtml += `</div>`
-
-    // --- Предупреждение о несоответствии языка ---
-    let mismatchHtml = ''
-    if (mismatch) {
-      const tpl = ui.lfreqMismatchWarning || 'Text doesn\'t match selected language. Try: :lang.'
-      mismatchHtml = `<div class="lfreq-mismatch">${escapeHtml(tpl.replace(':lang', getLangName(mismatch.detectedLang || '')))}</div>`
-    }
-
-    // --- Тепловая карта ---
-    const maxPct = heatmapItems.reduce((m, it) => Math.max(m, it.pct), 0.01)
-    const cells = heatmapItems.map(({ char, count, pct }) => {
-      const heat = pct / maxPct
-      const cls = count === 0 ? 'lfreq-cell lfreq-cell--zero' : 'lfreq-cell'
-      const tip = count === 0
-        ? `${char}: 0`
-        : `${char}: ${count} (${pct.toFixed(1)}%)`
-      return `<div class="${cls}" style="--lfreq-heat:${heat.toFixed(3)}" title="${escapeHtml(tip)}">`
-        + `<span class="lfreq-cell__char">${escapeHtml(char)}</span>`
-        + `<span class="lfreq-cell__pct">${count === 0 ? '—' : pct.toFixed(1) + '%'}</span>`
-        + `</div>`
-    }).join('')
-    const heatmapHtml = `<div class="lfreq-section-title">${escapeHtml(ui.lfreqHeatmapTitle || 'Alphabet heatmap')}</div>`
-      + `<div class="lfreq-heatmap">${cells}</div>`
-
-    // --- Отсутствующие буквы ---
-    let missingHtml = ''
-    if (missingLetters && missingLetters.length > 0) {
-      const missingStr = missingLetters.join(', ')
-      missingHtml = `<div class="lfreq-missing">`
-        + `<span class="lfreq-missing__label">${escapeHtml(ui.lfreqMissingTitle || 'Not in text')}:</span> `
-        + `<span class="lfreq-missing__chars">${escapeHtml(missingStr)}</span>`
-        + `</div>`
-    }
-
-    // --- Таблица ---
-    const header = `<div class="lfreq-row lfreq-row--header">`
-      + `<span>${escapeHtml(ui.lfreqColLetter || 'Letter')}</span>`
-      + `<span></span>`
-      + `<span class="lfreq-col-num">${escapeHtml(ui.lfreqColCount || 'Count')}</span>`
-      + `<span class="lfreq-col-num">%</span>`
-      + `<span class="lfreq-col-num">${escapeHtml(ui.lfreqColExpected || 'Exp %')}</span>`
-      + `</div>`
-    const tableMaxPct = tableItems.reduce((m, it) => Math.max(m, it.pct), 0.01)
-    const rows = tableItems.map(({ char, count, pct, expected }) => {
-      const barW = Math.round((pct / tableMaxPct) * 100)
-      const zeroCls = count === 0 ? ' lfreq-row--zero' : ''
-      return `<div class="lfreq-row${zeroCls}">`
-        + `<span class="freq-char">${escapeHtml(char)}</span>`
-        + `<div class="freq-bar-track"><div class="freq-bar-actual" style="width:${barW}%"></div></div>`
-        + `<span class="lfreq-col-num freq-count">${count}</span>`
-        + `<span class="lfreq-col-num freq-pct">${pct.toFixed(1)}%</span>`
-        + `<span class="lfreq-col-num freq-pct freq-pct--exp">${expected.toFixed(1)}%</span>`
-        + `</div>`
-    }).join('')
-    const tableHtml = `<div class="lfreq-table">${header}${rows}</div>`
-
-    output.value = tableItems.map((it) => `${it.char}\t${it.count}\t${it.pct.toFixed(1)}%\t${it.expected.toFixed(1)}%`).join('\n')
-
-    visualOutput.innerHTML = summaryHtml + mismatchHtml + heatmapHtml + missingHtml + tableHtml
-  }
 
   const getMaxShift = () => {
     const inputMax = Number(shiftInput?.max ?? 39)
@@ -660,177 +267,6 @@ export function initCipherToolPage() {
     setShiftValue(normalizeShiftInput())
   }
 
-  const positiveMod = (value, modulus) => ((value % modulus) + modulus) % modulus
-
-  const gcd = (left, right) => {
-    let a = Math.abs(Math.trunc(left))
-    let b = Math.abs(Math.trunc(right))
-    while (b !== 0) {
-      const next = a % b
-      a = b
-      b = next
-    }
-    return a
-  }
-
-  const determinant = (matrix) => {
-    const size = matrix.length
-    if (size === 1) return Number(matrix[0]?.[0] ?? 0)
-    if (size === 2) {
-      return Number(matrix[0][0]) * Number(matrix[1][1]) - Number(matrix[0][1]) * Number(matrix[1][0])
-    }
-
-    return matrix[0].reduce((sum, value, col) => {
-      const minor = matrix.slice(1).map((row) => row.filter((_, index) => index !== col))
-      return sum + (col % 2 === 0 ? 1 : -1) * Number(value) * determinant(minor)
-    }, 0)
-  }
-
-  const parseMatrixValue = (value) => {
-    const rows = String(value || '')
-      .trim()
-      .split(/\s*;\s*/u)
-      .map((row) => (row.match(/-?\d+/gu) ?? []).map((item) => Number.parseInt(item, 10)))
-      .filter((row) => row.length > 0)
-
-    if (rows.length === 1) {
-      const flat = rows[0]
-      const size = Math.sqrt(flat.length)
-      if (Number.isInteger(size)) {
-        return Array.from({ length: size }, (_, row) => flat.slice(row * size, row * size + size))
-      }
-    }
-
-    return rows
-  }
-
-  const normalizeMatrixSize = (size) => {
-    const numericSize = Number.parseInt(String(size), 10)
-    return [2, 3, 4, 5].includes(numericSize) ? numericSize : 2
-  }
-
-  const getMatrixFromGrid = () => {
-    if (!matrixGrid) return []
-    const size = normalizeMatrixSize(matrixGrid.dataset.matrixSize || 2)
-    return Array.from({ length: size }, (_, row) => {
-      return Array.from({ length: size }, (_, col) => {
-        const inputEl = matrixGrid.querySelector(`[data-matrix-cell="${row}:${col}"]`)
-        const value = Number.parseInt(String(inputEl?.value ?? '0'), 10)
-        return Number.isFinite(value) ? value : 0
-      })
-    })
-  }
-
-  const serializeMatrix = (matrix) => {
-    return matrix.map((row) => row.map((value) => String(Number.isFinite(value) ? Math.trunc(value) : 0)).join(' ')).join('; ')
-  }
-
-  const selectedAlphabetSize = () => {
-    if (!alphabetSelect) return 26
-    const selected = alphabetSelect.options[alphabetSelect.selectedIndex]
-    const size = Number.parseInt(String(selected?.dataset?.alphabetSize ?? ''), 10)
-    return Number.isFinite(size) && size > 0 ? size : 26
-  }
-
-  const updateMatrixStatus = () => {
-    if (!matrixControl || !matrixStatus) return
-    const matrix = getMatrixFromGrid()
-    const modulus = selectedAlphabetSize()
-    const det = determinant(matrix)
-    const normalizedDet = positiveMod(det, modulus)
-    const isValid = gcd(normalizedDet, modulus) === 1
-    const detLabel = matrixControl.dataset.matrixDeterminantLabel || 'det'
-    const validLabel = matrixControl.dataset.matrixValidLabel || 'Valid key matrix'
-    const invalidLabel = matrixControl.dataset.matrixInvalidLabel || 'Matrix is not invertible for this alphabet'
-
-    matrixStatus.textContent = `${detLabel} = ${normalizedDet} (mod ${modulus}) · ${isValid ? validLabel : invalidLabel}`
-    matrixStatus.classList.toggle('ciphers-settings-matrix__status--ok', isValid)
-    matrixStatus.classList.toggle('ciphers-settings-matrix__status--error', !isValid)
-  }
-
-  const syncMatrixValueFromGrid = () => {
-    if (!keyInput || !matrixGrid) return
-    matrixIsSyncing = true
-    keyInput.value = serializeMatrix(getMatrixFromGrid())
-    matrixIsSyncing = false
-    updateMatrixStatus()
-  }
-
-  const renderMatrixGrid = (size, matrix = []) => {
-    if (!matrixControl || !matrixGrid) return
-    const normalizedSize = normalizeMatrixSize(size)
-    matrixGrid.dataset.matrixSize = String(normalizedSize)
-    matrixGrid.style.setProperty('--matrix-size', String(normalizedSize))
-    matrixGrid.innerHTML = ''
-
-    for (let row = 0; row < normalizedSize; row++) {
-      for (let col = 0; col < normalizedSize; col++) {
-        const cellWrap = document.createElement('div')
-        cellWrap.className = 'ciphers-matrix-cell-wrap'
-
-        const inputEl = document.createElement('input')
-        inputEl.type = 'number'
-        inputEl.inputMode = 'numeric'
-        inputEl.className = 'ciphers-settings-matrix__cell'
-        inputEl.dataset.matrixCell = `${row}:${col}`
-        inputEl.value = String(matrix[row]?.[col] ?? (row === col ? 1 : 0))
-        inputEl.setAttribute('aria-label', `K ${row + 1},${col + 1}`)
-
-        const handleMatrixCellChange = () => {
-          syncMatrixValueFromGrid()
-          saveState()
-          scheduleApiRun()
-        }
-        inputEl.addEventListener('input', handleMatrixCellChange)
-        inputEl.addEventListener('change', handleMatrixCellChange)
-
-        const spinners = document.createElement('div')
-        spinners.className = 'ciphers-matrix-cell-spinners'
-        spinners.setAttribute('aria-hidden', 'true')
-
-        const upBtn = document.createElement('button')
-        upBtn.type = 'button'
-        upBtn.className = 'ciphers-matrix-cell-spinner'
-        upBtn.tabIndex = -1
-        upBtn.innerHTML = '<svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 4L4 1L7 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-        upBtn.addEventListener('mousedown', (e) => {
-          e.preventDefault()
-          inputEl.value = String((Number.parseInt(inputEl.value || '0', 10) || 0) + 1)
-          inputEl.dispatchEvent(new Event('input', { bubbles: true }))
-        })
-
-        const downBtn = document.createElement('button')
-        downBtn.type = 'button'
-        downBtn.className = 'ciphers-matrix-cell-spinner'
-        downBtn.tabIndex = -1
-        downBtn.innerHTML = '<svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-        downBtn.addEventListener('mousedown', (e) => {
-          e.preventDefault()
-          inputEl.value = String((Number.parseInt(inputEl.value || '0', 10) || 0) - 1)
-          inputEl.dispatchEvent(new Event('input', { bubbles: true }))
-        })
-
-        spinners.appendChild(upBtn)
-        spinners.appendChild(downBtn)
-        cellWrap.appendChild(inputEl)
-        cellWrap.appendChild(spinners)
-        matrixGrid.appendChild(cellWrap)
-      }
-    }
-
-    matrixControl.querySelectorAll('button[data-matrix-size]').forEach((button) => {
-      button.classList.toggle('ciphers-settings-matrix__size--active', button.dataset.matrixSize === String(normalizedSize))
-    })
-
-    syncMatrixValueFromGrid()
-  }
-
-  const setMatrixFromKeyValue = (value) => {
-    if (!matrixControl || !keyInput) return
-    const matrix = parseMatrixValue(value)
-    const size = normalizeMatrixSize(matrix.length > 0 ? matrix.length : 2)
-    renderMatrixGrid(size, matrix)
-  }
 
   const applySavedState = () => {
     const savedState = loadState()
@@ -859,7 +295,7 @@ export function initCipherToolPage() {
     }
 
     if (matrixControl && keyInput) {
-      setMatrixFromKeyValue(keyInput.value)
+      matrixCtrl?.setMatrixFromKeyValue(keyInput.value)
     }
 
     syncShiftWithAlphabet()
@@ -883,51 +319,22 @@ export function initCipherToolPage() {
 
     if (!value.trim()) {
       output.value = ''
-      if (isAnalysisTool) showFreqEmpty()
-      if (isBruteForceTool) showBruteForceEmpty()
-      if (isLetterFrequencyTool) showLetterFreqEmpty()
-      if (isJsonFormatterTool) showJsonEmpty()
+      if (isAnalysisTool) frequencyAnalysis.showEmpty()
+      if (isBruteForceTool) bruteForce.showEmpty()
+      if (isLetterFrequencyTool) letterFrequency.showEmpty()
+      if (isJsonFormatterTool) jsonFormatter.showEmpty()
       setOutputState(false)
       setFeedback('')
       return
     }
 
     if (isLetterFrequencyTool) {
-      try {
-        const json = transform(value, 'encode', decoder, {
-          lang: lfreqLangSelect?.value || 'auto',
-          sort: lfreqSortSelect?.value || 'alpha',
-        })
-        const data = JSON.parse(json)
-        renderLetterFrequencyGrid(data)
-        setOutputState(data.tableItems && data.tableItems.length > 0)
-        setFeedback('')
-        sendAnalyticsBeacon(slug, 'analyze')
-      } catch {
-        showLetterFreqEmpty()
-        setOutputState(false)
-        setFeedback(labels.invalid, true)
-      }
+      letterFrequency.run(value)
       return
     }
 
     if (isAnalysisTool) {
-      try {
-        const json = transform(value, 'encode', decoder, {
-          scope: freqScopeSelect?.value || 'letters',
-          sort: freqSortSelect?.value || 'frequency',
-          lang: freqLangSelect?.value || 'en',
-        })
-        const data = JSON.parse(json)
-        renderFrequencyChart(data)
-        setOutputState(data.items && data.items.length > 0)
-        setFeedback('')
-        sendAnalyticsBeacon(slug, 'analyze')
-      } catch {
-        showFreqEmpty()
-        setOutputState(false)
-        setFeedback(labels.invalid, true)
-      }
+      frequencyAnalysis.run(value)
       return
     }
 
@@ -951,48 +358,7 @@ export function initCipherToolPage() {
     }
 
     if (isJsonFormatterTool) {
-      const dupes = findDuplicateJsonKeys(value)
-      let parsed
-      try {
-        parsed = JSON.parse(value)
-      } catch (e) {
-        output.value = ''
-        showJsonEmpty()
-        setOutputState(false)
-        const errInfo = parseJsonError(e, value)
-        if (errInfo.line) {
-          setJsonErrorFeedback(
-            labels.jsonFormatterErrAt
-              .replace(':line', errInfo.line)
-              .replace(':col', errInfo.col ?? '?'),
-            errInfo.description,
-          )
-          highlightErrorInInput(errInfo.line, errInfo.col)
-        } else {
-          setFeedback(labels.jsonFormatterErrInvalid.replace(':error', errInfo.description), true)
-        }
-        return
-      }
-
-      lastJsonParsed = parsed
-      lastJsonDuplicates = dupes
-
-      const indent    = jsonIndentSelect?.value || '2'
-      const indentArg = indent === 'tab' ? '\t' : Number(indent)
-
-      if (mode === 'encode') {
-        output.value = JSON.stringify(parsed, null, indentArg)
-        setOutputState(true)
-        setFeedback('')
-        renderJsonFormatOutput(parsed, output.value, dupes, jsonViewMode)
-        sendAnalyticsBeacon(slug, 'format')
-      } else {
-        output.value = JSON.stringify(parsed)
-        setOutputState(true)
-        setFeedback('')
-        renderJsonMiniOutput(dupes)
-        sendAnalyticsBeacon(slug, 'minify')
-      }
+      jsonFormatter.run(value)
       return
     }
 
@@ -1089,13 +455,7 @@ export function initCipherToolPage() {
       })
 
       if (isBruteForceTool) {
-        const detectedAlpha = response?.detected_alphabet
-        if (detectedAlpha && alphabetSelect && alphabetSelect.value !== detectedAlpha) {
-          alphabetSelect.value = detectedAlpha
-        }
-        renderBruteForceTable(response?.results ?? [], response?.best_shift, response?.reliable)
-        setOutputState(Boolean(response?.results?.length))
-        setFeedback('')
+        bruteForce.handleApiResponse(response, alphabetSelect)
       } else {
         output.value = String(response?.result ?? '')
         setOutputState(Boolean(output.value))
@@ -1114,7 +474,7 @@ export function initCipherToolPage() {
         : null
       const message = String(firstFieldError ?? error?.message ?? error?.response?.error?.message ?? labels.runFailed)
       if (isBruteForceTool) {
-        showBruteForceEmpty()
+        bruteForce.showEmpty()
       }
       output.value = ''
       setOutputState(false)
@@ -1144,7 +504,7 @@ export function initCipherToolPage() {
 
   alphabetSelect?.addEventListener('change', () => {
     syncShiftWithAlphabet()
-    updateMatrixStatus()
+    matrixCtrl?.updateMatrixStatus()
     saveState()
     if (isApiMode) {
       scheduleApiRun()
@@ -1177,20 +537,8 @@ export function initCipherToolPage() {
   })
 
   keyInput?.addEventListener('input', () => {
-    if (matrixControl && !matrixIsSyncing) {
-      setMatrixFromKeyValue(keyInput.value)
-    }
     saveState()
     scheduleApiRun()
-  })
-
-  matrixControl?.querySelectorAll('button[data-matrix-size]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const currentMatrix = getMatrixFromGrid()
-      renderMatrixGrid(normalizeMatrixSize(button.dataset.matrixSize), currentMatrix)
-      saveState()
-      scheduleApiRun()
-    })
   })
 
   coverInput?.addEventListener('input', () => {
@@ -1209,119 +557,70 @@ export function initCipherToolPage() {
     keyInput.dispatchEvent(new Event('input', { bubbles: true }))
   })
 
+  const applyExample = (text, el, { scrollToTool = false } = {}) => {
+    const alphabet   = el.getAttribute('data-alphabet')  || ''
+    const delimiter  = el.getAttribute('data-delimiter') || ''
+    const encoding   = el.getAttribute('data-encoding')  || ''
+    const key        = el.getAttribute('data-key')
+    const keyInputId = el.getAttribute('data-key-input') || 'ciphers-key'
+    const shift      = el.getAttribute('data-shift')
+    const direction  = el.getAttribute('data-direction') || ''
+
+    if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
+      alphabetSelect.value = alphabet
+      alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+    if (alphabet && freqLangSelect && freqLangSelect.value !== alphabet) {
+      freqLangSelect.value = alphabet
+      freqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+    if (alphabet && lfreqLangSelect && lfreqLangSelect.value !== alphabet) {
+      lfreqLangSelect.value = alphabet
+      lfreqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+    if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
+      delimiterSelect.value = delimiter
+      delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+    if (encoding && n2lTypeSelect && n2lTypeSelect.value !== encoding) {
+      n2lTypeSelect.value = encoding
+      n2lTypeSelect.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+    const targetKeyInput = document.getElementById(keyInputId)
+    if (targetKeyInput) {
+      targetKeyInput.value = key ?? ''
+      targetKeyInput.dispatchEvent(new Event('input', { bubbles: true }))
+    }
+    if (shift !== null && shiftInput) {
+      setShiftValue(Number(shift))
+    }
+    input.value = text
+    if (direction === 'decrypt') {
+      setMode('decode')
+    } else if (direction === 'encrypt') {
+      setMode('encode')
+    } else if (looksLikeEncoded(text, decoder)) {
+      setMode('decode')
+    } else {
+      setMode('encode')
+    }
+    if (isApiMode && liveModeInput && !liveModeInput.checked) {
+      liveModeInput.checked = true
+      saveState()
+    }
+    scheduleApiRun()
+    if (scrollToTool) {
+      document.getElementById('ciphers-tool-shell')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    input.focus()
+  }
+
   document.querySelectorAll('.ciphers-example-chip').forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const text = chip.getAttribute('data-example') || ''
-      const alphabet = chip.getAttribute('data-alphabet') || ''
-      const delimiter = chip.getAttribute('data-delimiter') || ''
-      const encoding = chip.getAttribute('data-encoding') || ''
-      const key = chip.getAttribute('data-key')
-      const keyInputId = chip.getAttribute('data-key-input') || 'ciphers-key'
-      const shift = chip.getAttribute('data-shift')
-      if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
-        alphabetSelect.value = alphabet
-        alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (alphabet && freqLangSelect && freqLangSelect.value !== alphabet) {
-        freqLangSelect.value = alphabet
-        freqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (alphabet && lfreqLangSelect && lfreqLangSelect.value !== alphabet) {
-        lfreqLangSelect.value = alphabet
-        lfreqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
-        delimiterSelect.value = delimiter
-        delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (encoding && n2lTypeSelect && n2lTypeSelect.value !== encoding) {
-        n2lTypeSelect.value = encoding
-        n2lTypeSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      const targetKeyInput = document.getElementById(keyInputId)
-      if (targetKeyInput) {
-        targetKeyInput.value = key ?? ''
-        targetKeyInput.dispatchEvent(new Event('input', { bubbles: true }))
-      }
-      if (shift !== null && shiftInput) {
-        setShiftValue(Number(shift))
-      }
-      input.value = text
-      const chipDirection = chip.getAttribute('data-direction') || ''
-      if (chipDirection === 'decrypt') {
-        setMode('decode')
-      } else if (chipDirection === 'encrypt') {
-        setMode('encode')
-      } else if (looksLikeEncoded(text, decoder)) {
-        setMode('decode')
-      } else {
-        setMode('encode')
-      }
-      if (isApiMode && liveModeInput && !liveModeInput.checked) {
-        liveModeInput.checked = true
-        saveState()
-      }
-      scheduleApiRun()
-      input.focus()
-    })
+    chip.addEventListener('click', () => applyExample(chip.getAttribute('data-example') || '', chip))
   })
 
   document.querySelectorAll('.ciphers-example-use').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const text = btn.getAttribute('data-example-text') || ''
-      const alphabet = btn.getAttribute('data-alphabet') || ''
-      const delimiter = btn.getAttribute('data-delimiter') || ''
-      const encoding = btn.getAttribute('data-encoding') || ''
-      const key = btn.getAttribute('data-key')
-      const keyInputId = btn.getAttribute('data-key-input') || 'ciphers-key'
-      const shift = btn.getAttribute('data-shift')
-      const direction = btn.getAttribute('data-direction') || ''
-      if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
-        alphabetSelect.value = alphabet
-        alphabetSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (alphabet && freqLangSelect && freqLangSelect.value !== alphabet) {
-        freqLangSelect.value = alphabet
-        freqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (alphabet && lfreqLangSelect && lfreqLangSelect.value !== alphabet) {
-        lfreqLangSelect.value = alphabet
-        lfreqLangSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (delimiter && delimiterSelect && delimiterSelect.value !== delimiter) {
-        delimiterSelect.value = delimiter
-        delimiterSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      if (encoding && n2lTypeSelect && n2lTypeSelect.value !== encoding) {
-        n2lTypeSelect.value = encoding
-        n2lTypeSelect.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      const targetKeyInput = document.getElementById(keyInputId)
-      if (targetKeyInput) {
-        targetKeyInput.value = key ?? ''
-        targetKeyInput.dispatchEvent(new Event('input', { bubbles: true }))
-      }
-      if (shift !== null && shiftInput) {
-        setShiftValue(Number(shift))
-      }
-      input.value = text
-      if (direction === 'decrypt') {
-        setMode('decode')
-      } else if (direction === 'encrypt') {
-        setMode('encode')
-      } else if (looksLikeEncoded(text, decoder)) {
-        setMode('decode')
-      } else {
-        setMode('encode')
-      }
-      if (isApiMode && liveModeInput && !liveModeInput.checked) {
-        liveModeInput.checked = true
-        saveState()
-      }
-      scheduleApiRun()
-      document.getElementById('ciphers-tool-shell')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      input.focus()
-    })
+    btn.addEventListener('click', () => applyExample(btn.getAttribute('data-example-text') || '', btn, { scrollToTool: true }))
   })
 
   clearBtn?.addEventListener('click', () => {
@@ -1329,9 +628,9 @@ export function initCipherToolPage() {
     if (coverInput) coverInput.value = ''
     if (coverCapacityEl) { coverCapacityEl.textContent = ''; coverCapacityEl.className = 'ciphers-cover-capacity' }
     output.value = ''
-    if (isAnalysisTool) showFreqEmpty()
-    if (isLetterFrequencyTool) showLetterFreqEmpty()
-    if (isJsonFormatterTool) showJsonEmpty()
+    if (isAnalysisTool) frequencyAnalysis.showEmpty()
+    if (isLetterFrequencyTool) letterFrequency.showEmpty()
+    if (isJsonFormatterTool) jsonFormatter.showEmpty()
     updateCounter()
     setOutputState(false)
     setFeedback('')
@@ -1403,46 +702,56 @@ export function initCipherToolPage() {
 
   applySavedState()
   if (matrixControl && keyInput && matrixGrid && matrixGrid.children.length === 0) {
-    setMatrixFromKeyValue(keyInput.value)
+    matrixCtrl?.setMatrixFromKeyValue(keyInput.value)
   }
   saveState()
+
+  if (matrixControl) {
+    matrixCtrl = initMatrixControl({
+      matrixControl, matrixGrid, matrixStatus, keyInput, alphabetSelect,
+      onSave: () => saveState(),
+      onScheduleRun: () => scheduleApiRun(),
+    })
+  }
+
+  if (isJsonFormatterTool) {
+    jsonFormatter = initJsonFormatter({
+      input, output, visualOutput, feedback,
+      labels, jsonIndentSelect, jsonSortKeysBtn, jsonDownloadBtn,
+      setFeedback, setOutputState, highlightErrorInInput,
+      sendAnalyticsBeacon, slug, getMode: () => mode, onProcess: () => process(),
+    })
+  }
+
+  if (isAnalysisTool) {
+    frequencyAnalysis = initFrequencyAnalysis({
+      output, visualOutput, tabDecode, ui, decoder,
+      freqScopeSelect, freqSortSelect, freqLangSelect,
+      labels, setFeedback, setOutputState, sendAnalyticsBeacon, slug,
+      onProcess: () => process(),
+    })
+  }
+
+  if (isBruteForceTool) {
+    bruteForce = initBruteForce({
+      output, visualOutput, tabDecode, ui, labels, setFeedback, setOutputState,
+    })
+  }
+
+  if (isLetterFrequencyTool) {
+    letterFrequency = initLetterFrequency({
+      output, visualOutput, tabDecode, ui, decoder,
+      lfreqLangSelect, lfreqSortSelect,
+      labels, setFeedback, setOutputState, sendAnalyticsBeacon, slug,
+      onProcess: () => process(),
+    })
+  }
+
   setMode('encode')
   initCustomSelects()
 
   if (isMorseTool) {
     initMorsePlayer(output, input, ui, () => mode)
-  }
-
-  if (isAnalysisTool) {
-    tabDecode.style.display = 'none'
-    output.style.display = 'none'
-    if (visualOutput) {
-      visualOutput.style.display = 'block'
-      showFreqEmpty()
-    }
-    freqScopeSelect?.addEventListener('change', () => process())
-    freqSortSelect?.addEventListener('change', () => process())
-    freqLangSelect?.addEventListener('change', () => process())
-  }
-
-  if (isBruteForceTool) {
-    tabDecode.style.display = 'none'
-    output.style.display = 'none'
-    if (visualOutput) {
-      visualOutput.style.display = 'block'
-      showBruteForceEmpty()
-    }
-  }
-
-  if (isLetterFrequencyTool) {
-    tabDecode.style.display = 'none'
-    output.style.display = 'none'
-    if (visualOutput) {
-      visualOutput.style.display = 'block'
-      showLetterFreqEmpty()
-    }
-    lfreqLangSelect?.addEventListener('change', () => process())
-    lfreqSortSelect?.addEventListener('change', () => process())
   }
 
   if (isNumbersToLettersTool) {
@@ -1459,147 +768,7 @@ export function initCipherToolPage() {
     delimiterSelect?.addEventListener('change', () => process())
   }
 
-  if (isJsonFormatterTool) {
-    jsonIndentSelect?.addEventListener('change', () => process())
-
-    visualOutput?.addEventListener('click', (e) => {
-      const caret = e.target.closest('.json-tree-caret')
-      if (caret) {
-        const node = caret.closest('[data-collapsible]')
-        if (node) node.classList.toggle('collapsed')
-        return
-      }
-      const tab = e.target.closest('.json-view-tab')
-      if (tab && lastJsonParsed !== null) {
-        const view = tab.dataset.view
-        if (view) {
-          jsonViewMode = view
-          renderJsonFormatOutput(lastJsonParsed, output.value, lastJsonDuplicates, jsonViewMode)
-        }
-      }
-    })
-
-    jsonSortKeysBtn?.addEventListener('click', () => {
-      if (!lastJsonParsed) return
-      const sorted    = sortJsonKeys(lastJsonParsed)
-      const indent    = jsonIndentSelect?.value || '2'
-      const indentArg = indent === 'tab' ? '\t' : Number(indent)
-      input.value = JSON.stringify(sorted, null, indentArg)
-      process()
-    })
-
-    jsonDownloadBtn?.addEventListener('click', () => {
-      if (!output.value) return
-      const blob = new Blob([output.value], { type: 'application/json;charset=utf-8' })
-      const url  = URL.createObjectURL(blob)
-      const a    = document.createElement('a')
-      a.href = url
-      a.download = 'formatted.json'
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(url)
-    })
-  }
 }
-
-/**
- * Заменяет все `.ciphers-settings-select` на кастомные dropdown,
- * сохраняя нативный select скрытым для совместимости с JS-логикой.
- */
-function initCustomSelects() {
-  let documentListenerAdded = false
-
-  document.querySelectorAll('.ciphers-settings-select').forEach((nativeSelect) => {
-    if (nativeSelect.dataset.customSelectInit) return
-    nativeSelect.dataset.customSelectInit = '1'
-
-    const wrapper = document.createElement('div')
-    wrapper.className = 'ciphers-custom-select'
-    nativeSelect.parentNode.insertBefore(wrapper, nativeSelect)
-    nativeSelect.style.display = 'none'
-    wrapper.appendChild(nativeSelect)
-
-    const trigger = document.createElement('button')
-    trigger.type = 'button'
-    trigger.className = 'ciphers-custom-select__trigger'
-    trigger.setAttribute('aria-haspopup', 'listbox')
-    trigger.setAttribute('aria-expanded', 'false')
-
-    const dropdown = document.createElement('div')
-    dropdown.className = 'ciphers-custom-select__dropdown'
-    dropdown.setAttribute('role', 'listbox')
-
-    wrapper.appendChild(trigger)
-    wrapper.appendChild(dropdown)
-
-    const updateTrigger = () => {
-      const opt = nativeSelect.options[nativeSelect.selectedIndex]
-      trigger.textContent = opt ? opt.text : ''
-    }
-
-    const refreshOptions = () => {
-      dropdown.innerHTML = ''
-      Array.from(nativeSelect.options).forEach((opt) => {
-        const item = document.createElement('div')
-        item.className = 'ciphers-custom-select__option'
-        item.setAttribute('role', 'option')
-        const isSelected = opt.value === nativeSelect.value
-        if (isSelected) item.classList.add('ciphers-custom-select__option--selected')
-        item.setAttribute('aria-selected', isSelected ? 'true' : 'false')
-        item.dataset.value = opt.value
-        item.textContent = opt.text
-
-        item.addEventListener('click', () => {
-          nativeSelect.value = opt.value
-          nativeSelect.dispatchEvent(new Event('change', { bubbles: true }))
-          updateTrigger()
-          close()
-        })
-
-        dropdown.appendChild(item)
-      })
-    }
-
-    const open = () => {
-      document.querySelectorAll('.ciphers-custom-select--open').forEach((el) => {
-        if (el !== wrapper) el.classList.remove('ciphers-custom-select--open')
-      })
-      refreshOptions()
-      wrapper.classList.add('ciphers-custom-select--open')
-      trigger.setAttribute('aria-expanded', 'true')
-    }
-
-    const close = () => {
-      wrapper.classList.remove('ciphers-custom-select--open')
-      trigger.setAttribute('aria-expanded', 'false')
-    }
-
-    trigger.addEventListener('click', (e) => {
-      e.stopPropagation()
-      wrapper.classList.contains('ciphers-custom-select--open') ? close() : open()
-    })
-
-    dropdown.addEventListener('click', (e) => e.stopPropagation())
-
-    nativeSelect.addEventListener('change', updateTrigger)
-
-    updateTrigger()
-
-    if (!documentListenerAdded) {
-      documentListenerAdded = true
-      document.addEventListener('click', () => {
-        document.querySelectorAll('.ciphers-custom-select--open').forEach((el) => {
-          el.classList.remove('ciphers-custom-select--open')
-        })
-      })
-    }
-  })
-}
-
-/**
- * Безопасно парсит JSON-строку.
- */
 function parseJson(raw) {
   try {
     return JSON.parse(raw)
@@ -1617,297 +786,6 @@ function transform(value, mode, decoder, opts) {
 }
 
 /**
- * Токенизирует JSON-строку и оборачивает лексемы в span-теги для подсветки синтаксиса.
- * Вызывается только на уже провалидированном и отформатированном JSON.
- */
-function highlightJson(str) {
-  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-  return str.replace(
-    /("(?:\\u[0-9a-fA-F]{4}|\\[^u]|[^"\\])*")(\s*:)?|(true|false)|(null)|(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)|([{}[\],:])/g,
-    (match, str, colon, bool, nil, num, punct) => {
-      if (str !== undefined) {
-        return colon !== undefined
-          ? `<span class="json-hl-key">${esc(str)}</span>${colon}`
-          : `<span class="json-hl-string">${esc(str)}</span>`
-      }
-      if (bool !== undefined) return `<span class="json-hl-boolean">${bool}</span>`
-      if (nil  !== undefined) return `<span class="json-hl-null">${nil}</span>`
-      if (num  !== undefined) return `<span class="json-hl-number">${num}</span>`
-      if (punct !== undefined) return `<span class="json-hl-punct">${punct}</span>`
-      return esc(match)
-    }
-  )
-}
-
-/**
- * Извлекает позицию (строка, столбец) из нативной ошибки JSON.parse.
- */
-function parseJsonError(err, rawText) {
-  const msg = err.message || ''
-
-  // Firefox: "JSON.parse: ... at line L column C of the JSON data"
-  const ffMatch = msg.match(/at line (\d+) column (\d+)/)
-  if (ffMatch) {
-    return {
-      line: parseInt(ffMatch[1], 10),
-      col: parseInt(ffMatch[2], 10),
-      description: msg.replace(/^JSON\.parse:\s*/, '').replace(/\s*at line \d+ column \d+ of the JSON data.*/, ''),
-    }
-  }
-
-  // Chrome/V8: "... at position N" or "in JSON at position N"
-  const chromeMatch = msg.match(/at position (\d+)/)
-  if (chromeMatch) {
-    const pos    = Math.min(parseInt(chromeMatch[1], 10), rawText.length)
-    const before = rawText.slice(0, pos)
-    const line   = (before.match(/\n/g) || []).length + 1
-    const lastNl = before.lastIndexOf('\n')
-    const col    = pos - lastNl
-    return {
-      line,
-      col,
-      description: msg.replace(/\s+in JSON at position \d+$/, '').replace(/\s+at position \d+$/, ''),
-    }
-  }
-
-  return { line: null, col: null, description: msg }
-}
-
-/**
- * Обнаруживает дублирующиеся ключи внутри объектов JSON без полноценного парсера.
- *
- * @param  {string} rawJson Сырая JSON-строка.
- * @return {{ key: string, line: number, count: number }[]}
- */
-function findDuplicateJsonKeys(rawJson) {
-  const warnings = []
-  let i = 0
-
-  const lineStarts = [0]
-  for (let j = 0; j < rawJson.length; j++) {
-    if (rawJson[j] === '\n') lineStarts.push(j + 1)
-  }
-
-  const offsetToLine = (offset) => {
-    let lo = 0, hi = lineStarts.length - 1
-    while (lo < hi) {
-      const mid = (lo + hi + 1) >> 1
-      if (lineStarts[mid] <= offset) lo = mid; else hi = mid - 1
-    }
-    return lo + 1
-  }
-
-  const skip = () => { while (i < rawJson.length && /\s/.test(rawJson[i])) i++ }
-
-  const readStr = () => {
-    i++ // skip opening "
-    let result = ''
-    while (i < rawJson.length) {
-      if (rawJson[i] === '\\') {
-        const c = rawJson[i + 1]
-        const map = { '"': '"', '\\': '\\', '/': '/', b: '\b', f: '\f', n: '\n', r: '\r', t: '\t' }
-        if (c === 'u') {
-          result += String.fromCharCode(parseInt(rawJson.slice(i + 2, i + 6), 16))
-          i += 6
-        } else {
-          result += map[c] ?? c
-          i += 2
-        }
-        continue
-      }
-      if (rawJson[i] === '"') { i++; break }
-      result += rawJson[i++]
-    }
-    return result
-  }
-
-  function parseVal() {
-    skip()
-    if (i >= rawJson.length) return
-    const c = rawJson[i]
-    if (c === '{') parseObj()
-    else if (c === '[') parseArr()
-    else if (c === '"') readStr()
-    else while (i < rawJson.length && !/[\s,\}\]]/.test(rawJson[i])) i++
-  }
-
-  function parseObj() {
-    i++
-    const seen = {}
-    const firstLine = {}
-    skip()
-    if (rawJson[i] === '}') { i++; return }
-    while (i < rawJson.length) {
-      skip()
-      if (rawJson[i] !== '"') break
-      const ks  = i
-      const key = readStr()
-      const kl  = offsetToLine(ks)
-      if (Object.prototype.hasOwnProperty.call(seen, key)) {
-        seen[key]++
-        const w = warnings.find((w) => w.key === key && w.line === firstLine[key])
-        if (w) w.count = seen[key]; else warnings.push({ key, line: firstLine[key], count: seen[key] })
-      } else {
-        seen[key] = 1
-        firstLine[key] = kl
-      }
-      skip()
-      if (rawJson[i] === ':') i++
-      parseVal()
-      skip()
-      if (rawJson[i] === ',') { i++; continue }
-      if (rawJson[i] === '}') { i++; break }
-      break
-    }
-  }
-
-  function parseArr() {
-    i++
-    skip()
-    if (rawJson[i] === ']') { i++; return }
-    while (i < rawJson.length) {
-      parseVal()
-      skip()
-      if (rawJson[i] === ',') { i++; continue }
-      if (rawJson[i] === ']') { i++; break }
-      break
-    }
-  }
-
-  try { parseVal() } catch { /* игнорируем ошибки сканера */ }
-  return warnings
-}
-
-/**
- * Рекурсивно анализирует структуру JSON: считает объекты, массивы, ключи и глубину.
- *
- * @param  {*} data Распарсенные данные.
- * @return {{ objects: number, arrays: number, keys: number, maxDepth: number }}
- */
-function analyzeJson(data) {
-  let objects = 0, arrays = 0, keys = 0, maxDepth = 0
-
-  const walk = (node, depth) => {
-    if (depth > maxDepth) maxDepth = depth
-    if (Array.isArray(node)) {
-      arrays++
-      for (const item of node) walk(item, depth + 1)
-    } else if (node !== null && typeof node === 'object') {
-      objects++
-      for (const v of Object.values(node)) { keys++; walk(v, depth + 1) }
-    }
-  }
-
-  walk(data, 0)
-  return { objects, arrays, keys, maxDepth }
-}
-
-/**
- * Рекурсивно сортирует ключи объектов JSON по алфавиту (массивы не изменяет).
- *
- * @param  {*} data Распарсенные данные.
- * @return {*}
- */
-function sortJsonKeys(data) {
-  if (Array.isArray(data)) return data.map(sortJsonKeys)
-  if (data !== null && typeof data === 'object') {
-    return Object.keys(data).sort().reduce((acc, k) => {
-      acc[k] = sortJsonKeys(data[k])
-      return acc
-    }, {})
-  }
-  return data
-}
-
-/**
- * Рендерит узел JSON-дерева в виде HTML с возможностью сворачивания.
- *
- * @param  {*}      data  Любое JSON-значение.
- * @return {string} HTML-строка.
- */
-function renderJsonTreeNode(data) {
-  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-
-  if (data === null) return `<span class="json-hl-null">null</span>`
-  if (typeof data === 'boolean') return `<span class="json-hl-boolean">${data}</span>`
-  if (typeof data === 'number')  return `<span class="json-hl-number">${data}</span>`
-  if (typeof data === 'string')  return `<span class="json-hl-string">${esc(JSON.stringify(data))}</span>`
-
-  if (Array.isArray(data)) {
-    if (data.length === 0) return `<span class="json-hl-punct">[]</span>`
-    const items = data.map((v, idx) =>
-      `<li class="json-tree-item">` +
-      `<span class="json-tree-idx">${idx}</span>` +
-      `<span class="json-tree-sep">:</span>` +
-      renderJsonTreeNode(v) +
-      `</li>`
-    ).join('')
-    return (
-      `<span class="json-tree-node" data-collapsible>` +
-      `<button class="json-tree-caret" type="button" aria-label="toggle"></button>` +
-      `<span class="json-hl-punct">[</span>` +
-      `<span class="json-tree-ellipsis">… <span class="json-hl-punct">]</span></span>` +
-      `<span class="json-tree-body"><ul class="json-tree-list">${items}</ul>` +
-      `<span class="json-hl-punct">]</span></span>` +
-      `</span>`
-    )
-  }
-
-  if (typeof data === 'object') {
-    const objKeys = Object.keys(data)
-    if (objKeys.length === 0) return `<span class="json-hl-punct">{}</span>`
-    const items = objKeys.map((k) =>
-      `<li class="json-tree-item">` +
-      `<span class="json-hl-key">${esc(JSON.stringify(k))}</span>` +
-      `<span class="json-tree-sep">:</span>` +
-      renderJsonTreeNode(data[k]) +
-      `</li>`
-    ).join('')
-    return (
-      `<span class="json-tree-node" data-collapsible>` +
-      `<button class="json-tree-caret" type="button" aria-label="toggle"></button>` +
-      `<span class="json-hl-punct">{</span>` +
-      `<span class="json-tree-ellipsis">… <span class="json-hl-punct">}</span></span>` +
-      `<span class="json-tree-body"><ul class="json-tree-list">${items}</ul>` +
-      `<span class="json-hl-punct">}</span></span>` +
-      `</span>`
-    )
-  }
-
-  return esc(String(data))
-}
-
-const ANALYTICS_COOLDOWN_MS = 5 * 60 * 1000
-
-/**
- * Отправляет beacon аналитики использования клиентского инструмента.
- *
- * localStorage используется как первый фильтр — повторные события в пределах
- * cooldown-окна не отправляются. Сервер дополнительно проверяет cooldown через кеш.
- */
-function sendAnalyticsBeacon(toolSlug, mode) {
-  const key = `analytics:cd:${toolSlug}`
-  try {
-    const last = parseInt(localStorage.getItem(key) ?? '0', 10)
-    if (Date.now() - last < ANALYTICS_COOLDOWN_MS) return
-    localStorage.setItem(key, String(Date.now()))
-  } catch {
-    // localStorage недоступен — отправляем без фильтрации
-  }
-  const body = JSON.stringify({ tool: toolSlug, mode })
-  if (typeof navigator.sendBeacon === 'function') {
-    navigator.sendBeacon('/api/analytics/use', new Blob([body], { type: 'application/json' }))
-  } else {
-    fetch('/api/analytics/use', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body,
-      keepalive: true,
-    }).catch(() => {})
-  }
-}
-
-/**
  * Эвристика автоопределения направления для примеров.
  */
 function looksLikeEncoded(text, decoder) {
@@ -1917,170 +795,3 @@ function looksLikeEncoded(text, decoder) {
   return decoder.looksLikeEncoded(value)
 }
 
-/**
- * Инициализирует аудиоплеер азбуки Морзе и внедряет его в DOM после блока результата.
- *
- * @param {HTMLTextAreaElement} outputEl
- * @param {HTMLTextAreaElement} inputEl
- * @param {Record<string, string>} ui
- * @param {() => string} getMode
- */
-function initMorsePlayer(outputEl, inputEl, ui, getMode) {
-  const resultCard = document.getElementById('ciphers-result-card')
-  if (!resultCard) return
-
-  const playLabel     = ui.morsePlayLabel     || 'Play'
-  const stopLabel     = ui.morseStopLabel     || 'Stop'
-  const downloadLabel = ui.morseDownloadLabel || 'Download WAV'
-  const speedLabel    = ui.morseSpeedLabel    || 'Speed (WPM)'
-  const freqLabel     = ui.morseFreqLabel     || 'Tone'
-  const freqLow       = ui.morseFreqLow       || 'Low (400 Hz)'
-  const freqMed       = ui.morseFreqMed       || 'Medium (600 Hz)'
-  const freqHigh      = ui.morseFreqHigh      || 'High (800 Hz)'
-
-  const player = document.createElement('div')
-  player.className = 'morse-player'
-  player.id = 'morse-player'
-  player.innerHTML = `
-    <div class="morse-player__controls">
-      <button class="morse-player__play-btn" id="morse-play" type="button">
-        <i class="bi bi-play-fill"></i><span>${playLabel}</span>
-      </button>
-      <div class="morse-player__settings">
-        <label class="morse-player__label" for="morse-wpm">${speedLabel}</label>
-        <div class="morse-player__wpm-group">
-          <button class="morse-player__step-btn" id="morse-wpm-dec" type="button" aria-label="−">−</button>
-          <input id="morse-wpm" class="morse-player__wpm-input" type="number" min="5" max="60" step="1" value="20">
-          <button class="morse-player__step-btn" id="morse-wpm-inc" type="button" aria-label="+">+</button>
-        </div>
-        <label class="morse-player__label" for="morse-freq">${freqLabel}</label>
-        <select id="morse-freq" class="morse-player__freq-select">
-          <option value="400">${freqLow}</option>
-          <option value="600" selected>${freqMed}</option>
-          <option value="800">${freqHigh}</option>
-        </select>
-        <div class="morse-player__indicator" id="morse-indicator" aria-hidden="true">
-          <span class="morse-player__indicator-dot" id="morse-indicator-dot"></span>
-        </div>
-      </div>
-      <button class="morse-player__download-btn" id="morse-download" type="button">
-        <i class="bi bi-download"></i><span>${downloadLabel}</span>
-      </button>
-    </div>
-  `
-
-  resultCard.after(player)
-
-  const playBtn      = document.getElementById('morse-play')
-  const downloadBtn  = document.getElementById('morse-download')
-  const wpmInput     = document.getElementById('morse-wpm')
-  const wpmDecBtn    = document.getElementById('morse-wpm-dec')
-  const wpmIncBtn    = document.getElementById('morse-wpm-inc')
-  const freqSelect   = document.getElementById('morse-freq')
-  const indicatorDot = document.getElementById('morse-indicator-dot')
-
-  const getMorseText = () => {
-    const isDecodeMode = getMode() === 'decode'
-    return (isDecodeMode ? inputEl?.value?.trim() : outputEl?.value?.trim()) || ''
-  }
-  const getWpm  = () => Math.min(60, Math.max(5, parseInt(wpmInput?.value || '20', 10) || 20))
-  const getFreq = () => parseInt(freqSelect?.value || '600', 10)
-
-  const setWpm = (v) => {
-    if (wpmInput) wpmInput.value = String(Math.min(60, Math.max(5, Math.trunc(v))))
-  }
-
-  const setPlayState = (playing) => {
-    if (!playBtn) return
-    const icon = playBtn.querySelector('.bi')
-    const span = playBtn.querySelector('span')
-    if (playing) {
-      icon && (icon.className = 'bi bi-stop-fill')
-      span && (span.textContent = stopLabel)
-      playBtn.classList.add('morse-player__play-btn--playing')
-      player.classList.add('morse-player--playing')
-    } else {
-      icon && (icon.className = 'bi bi-play-fill')
-      span && (span.textContent = playLabel)
-      playBtn.classList.remove('morse-player__play-btn--playing')
-      player.classList.remove('morse-player--playing')
-      indicatorDot?.classList.remove('morse-player__indicator-dot--on')
-    }
-  }
-
-  const updateAvailability = () => {
-    const hasContent = Boolean(getMorseText())
-    if (playBtn) playBtn.disabled = !hasContent
-    if (downloadBtn) downloadBtn.disabled = !hasContent
-  }
-
-  playBtn?.addEventListener('click', () => {
-    if (isMorsePlaying()) {
-      stopMorse()
-      setPlayState(false)
-      return
-    }
-
-    const text = getMorseText()
-    if (!text) return
-
-    setPlayState(true)
-    playMorse(text, getWpm(), getFreq(), () => {
-      setPlayState(false)
-    }, (isOn) => {
-      if (isOn) {
-        indicatorDot?.classList.add('morse-player__indicator-dot--on')
-      } else {
-        indicatorDot?.classList.remove('morse-player__indicator-dot--on')
-      }
-    })
-  })
-
-  downloadBtn?.addEventListener('click', async () => {
-    const text = getMorseText()
-    if (!text) return
-    if (downloadBtn) downloadBtn.disabled = true
-    try {
-      await downloadMorseWav(text, getWpm(), getFreq(), 'morse.wav')
-    } finally {
-      if (downloadBtn) downloadBtn.disabled = false
-      updateAvailability()
-    }
-  })
-
-  wpmDecBtn?.addEventListener('click', () => setWpm(getWpm() - 1))
-  wpmIncBtn?.addEventListener('click', () => setWpm(getWpm() + 1))
-
-  wpmInput?.addEventListener('input', () => {
-    const v = parseInt(wpmInput.value, 10)
-    if (!isNaN(v) && v > 60) wpmInput.value = '60'
-  })
-  wpmInput?.addEventListener('blur', () => setWpm(parseInt(wpmInput.value || '20', 10) || 20))
-
-  const observer = new MutationObserver(updateAvailability)
-  if (outputEl) {
-    observer.observe(outputEl, { attributes: true, characterData: true, subtree: true })
-    outputEl.addEventListener('input', () => {
-      if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
-      updateAvailability()
-    })
-  }
-  if (inputEl) {
-    inputEl.addEventListener('input', () => {
-      if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
-      updateAvailability()
-    })
-  }
-
-  // Обновляем доступность при смене вкладки encode/decode
-  document.getElementById('tab-encode')?.addEventListener('click', () => {
-    if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
-    window.setTimeout(updateAvailability, 0)
-  })
-  document.getElementById('tab-decode')?.addEventListener('click', () => {
-    if (isMorsePlaying()) { stopMorse(); setPlayState(false) }
-    window.setTimeout(updateAvailability, 0)
-  })
-
-  updateAvailability()
-}
