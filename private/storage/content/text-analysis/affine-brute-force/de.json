@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T15:40:41+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "affine-brute-force",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 42,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 42,
+        "data": {
+            "name": "Affine-Chiffre-Solver",
+            "name_short": "Affine-Solver",
+            "description": "Knacken Sie eine affine Chiffre per Brute Force, ohne das Schlüsselpaar zu kennen. Fügen Sie Ciphertext ein, testen Sie automatisch alle gültigen Multiplikatoren a und Verschiebungen b, vergleichen Sie die bewerteten Klartext-Kandidaten und finden Sie die wahrscheinlichste Entschlüsselung online.",
+            "description_stort": "Solver für die affine Chiffre: testet alle gültigen Schlüsselpaare und bewertet wahrscheinlichen Klartext.",
+            "meta_title": "Affine-Chiffre-Solver | Brute-Force-Decoder online",
+            "meta_description": "Entschlüsseln Sie affine Chiffren ohne Schlüssel. Dieser Online-Solver testet alle gültigen a,b-Paare, bewertet Klartext-Kandidaten und hilft bei CTF, Rätseln und Kryptoanalyse."
+        }
+    },
+    "blocks": [
+        {
+            "id": 157,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie der Solver für affine Chiffren funktioniert",
+                "text": "<p>Die <a href=\"/de/classical-ciphers/affine\">affine Chiffre</a> verschlüsselt jeden Buchstaben mit der Formel E(x) = (a × x + b) mod m. Dabei ist x die Position des Klartextbuchstabens, m die Alphabetgröße, a der Multiplikator und b die Verschiebung. Für eine korrekte Entschlüsselung muss a teilerfremd zu m sein, damit ein modulares Inverses existiert.</p><p>Dieser Solver testet jedes gültige Schlüsselpaar für das gewählte Alphabet. Für das deutsche Alphabet im Tool gilt m = 29; da 29 prim ist, sind alle Multiplikatoren von 1 bis 28 gültig, kombiniert mit 29 Verschiebungen.</p><p>Nach dem Durchlauf bewertet das Werkzeug die besten Klartext-Kandidaten mit Sprachstatistik und markiert den wahrscheinlichsten Schlüssel. Leerzeichen, Zahlen und Satzzeichen bleiben erhalten, sodass Wortgrenzen und Satzstruktur beim Prüfen sichtbar bleiben.</p>"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Wann affine Brute Force hilfreich ist",
+                "text": "<p>Nutzen Sie affine Brute Force, wenn eine Nachricht wie eine monoalphabetische Substitution aussieht und vermutlich die affine Formel verwendet wurde, die Werte a und b aber unbekannt sind. Das ist nützlich für Unterricht, CTF-Aufgaben, Escape-Room-Hinweise, Geocaching, ARG-Rätsel und historische Kryptografie.</p><p>Fügen Sie den Ciphertext ein, wählen Sie das passende Alphabet und starten Sie den Solver. In deutschen Texten fallen häufige Wörter, Endungen und Muster wie DER, DIE, UND, ICH, SCH oder EN schnell auf.</p><p>Wenn der Text mit einer anderen Chiffre erzeugt wurde, kann der affine Solver interessante Teilmuster zeigen, stellt aber keinen vollständigen Klartext wieder her. Vergleichen Sie das Ergebnis dann mit Frequenzanalyse oder einem anderen klassischen Chiffre-Werkzeug.</p>"
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Die bewerteten Ergebnisse lesen",
+                "text": "<p>Der Solver prüft den gesamten gültigen Schlüsselraum, zeigt in der Oberfläche aber die stärksten Kandidaten, damit Sie nicht hunderte zufällige Entschlüsselungen lesen müssen. Jede Zeile enthält das getestete Schlüsselpaar, den entschlüsselten Text und eine sprachliche Bewertung.</p><p>Der bestbewertete Schlüssel ist ein statistischer Hinweis, kein mathematischer Beweis. Längere natürliche Texte liefern mehr Evidenz; sehr kurze Hinweise, Namen, Abkürzungen, seltene Wörter oder Text ohne Leerzeichen können mehrere plausibel wirkende Kandidaten erzeugen.</p><p>Bei kurzen Nachrichten sollten Sie alle angezeigten Kandidaten lesen und Kontext nutzen: erwartete Namen, Thema des Rätsels, bekannte Wörter oder eine wahrscheinliche Phrase können den echten Klartext identifizieren.</p>"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Tipps zum Knacken affiner Ciphertexte",
+                "text": "<ul><li><strong>Wählen Sie das richtige Alphabet.</strong> Deutscher Text sollte mit dem deutschen Alphabet geprüft werden; sprachspezifische Zeichen beeinflussen die Bewertung.</li><li><strong>Behalten Sie Leerzeichen und Satzzeichen.</strong> Nicht-Buchstaben bleiben unverändert und machen lesbare Kandidaten schneller erkennbar.</li><li><strong>Verwenden Sie genug Text.</strong> Ein ganzer Satz lässt sich zuverlässiger bewerten als ein einzelnes Wort, weil Häufigkeiten und Bigramme klarer werden.</li><li><strong>Prüfen Sie den Caesar-Sonderfall.</strong> Wenn der beste Schlüssel a = 1 hat, ist die Nachricht praktisch eine Caesar-Verschiebung mit b als Shift.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 312,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wie viele Schlüsselkombinationen hat die affine Chiffre?",
+                "answer": "Die Anzahl gültiger Paare (a, b) hängt von der Alphabetgröße m ab. Die Verschiebung b kann jeden Wert von 0 bis m - 1 annehmen, während a teilerfremd zu m sein muss. Beim deutschen Alphabet dieses Tools ist m = 29, daher gibt es 28 gültige Multiplikatoren und 29 Verschiebungen, also 812 Schlüsselpaare."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum muss der Multiplikator a teilerfremd zur Alphabetgröße sein?",
+                "answer": "Die Bedingung gcd(a, m) = 1 sorgt dafür, dass die Verschlüsselung umkehrbar ist. Wenn a und m einen gemeinsamen Teiler haben, können mehrere Klartextbuchstaben auf denselben Ciphertext-Buchstaben fallen. Dann existiert kein modulares Inverses und die Entschlüsselung wird mehrdeutig oder unmöglich."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Ist die affine Chiffre sicher?",
+                "answer": "Nein. Die affine Chiffre eignet sich zum Lernen, für modulare Arithmetik und Rätsel, aber nicht für Sicherheit. Sie hat einen kleinen Schlüsselraum und jeder Klartextbuchstabe wird immer gleich ersetzt. Dadurch ist sie anfällig für Brute Force, Frequenzanalyse und Known-Plaintext-Angriffe."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was bedeutet der beste affine Schlüssel?",
+                "answer": "Der beste Schlüssel ist der Kandidat, der nach der Bewertung des Solvers am stärksten wie natürliche Sprache aussieht. Bei längeren Sätzen ist das ein guter Hinweis, aber keine Garantie. Kurzer Ciphertext, ungewöhnliche Wörter oder fehlende Leerzeichen können einen anderen Kandidaten richtig machen."
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen affine Decoder und affine Brute Force?",
+                "answer": "Ein normaler affiner Decoder benötigt den Multiplikator a und die Verschiebung b vor der Entschlüsselung. Affine Brute Force probiert automatisch alle gültigen Schlüsselpaare, bewertet die Kandidaten und hilft, die Nachricht ohne bekannten Schlüssel zu finden."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Kann affine Brute Force Caesar-Text entschlüsseln?",
+                "answer": "Manchmal ja. Die Caesar-Chiffre ist ein Spezialfall der affinen Chiffre mit a = 1 und b als Verschiebung. Wenn Sie Caesar-Text hier eingeben, kann ein Kandidat mit a = 1 den Klartext zeigen. Für eine übersichtlichere Shift-Tabelle nutzen Sie den Caesar-Brute-Force-Solver."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Warum ist kurzer affiner Ciphertext schwer zu bewerten?",
+                "answer": "Der Solver nutzt Sprachstatistik und braucht genügend Buchstaben, um Muster zuverlässig zu vergleichen. Ein einzelnes Wort oder ein kurzer Hinweis enthält oft zu wenig Frequenz- und Bigramm-Information. Lesen Sie bei kurzen Texten alle Kandidaten und nutzen Sie den Kontext."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Deutscher Text (a=5, b=8)",
+                "key": "",
+                "shift": 0,
+                "input": "Zvd hiivsd Ürviiöd dötdxcx adzds Qbürtxhqds ovx cpdv sbodövtürds Türjgttdjs bsz cdvnx Tföhürobtxdö qdv zdö Hshjytd",
+                "output": "a=5, b=8: Die affine Chiffre ersetzt jeden Buchstaben mit zwei numerischen Schlüsseln und zeigt Sprachmuster bei der Analyse",
+                "description": "Entschlüsselt mit a=5, b=8: Die affine Chiffre ersetzt jeden Buchstaben mit zwei numerischen Schlüsseln und zeigt Sprachmuster bei der Analyse."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Schlüsselraum prüfen (a=7, b=3)",
+                "key": "",
+                "shift": 0,
+                "input": "Bis Yväaryyiasclg dhsb xtaayejnbhü üifsröe phy ihn aiypcsis Uacseike ghe üleis Pidiselnü isyväihne",
+                "output": "a=7, b=3: Der Schlüsselraum wird vollständig geprüft bis ein lesbarer Klartext mit guter Bewertung erscheint",
+                "description": "Entschlüsselt mit a=7, b=3: Der Schlüsselraum wird vollständig geprüft bis ein lesbarer Klartext mit guter Bewertung erscheint."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Längerer Satz (a=17, b=20)",
+                "key": "",
+                "shift": 0,
+                "input": "Qzx thxüqvqv äqpalmkqv Lsac kztfa äqv Khpfzüdqzalsxstolq äqx vzmkazüqx Lmktellqt lzmkqvqv cp fzxäqx",
+                "output": "a=17, b=20: Ein längerer deutscher Satz hilft der Häufigkeitsanalyse den richtigen Schlüssel sicherer zu finden",
+                "description": "Entschlüsselt mit a=17, b=20: Ein längerer deutscher Satz hilft der Häufigkeitsanalyse den richtigen Schlüssel sicherer zu finden."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Bekanntes Wort (a=11, b=6)",
+                "key": "",
+                "shift": 0,
+                "input": "Cqo zckfooecü Sxle qd Gqoscqü kfoo tqc wcnöotcoc Üjguyüücurfflöow zcüepeqwco scoo dcglclc Kfotqtfeco zucqzco",
+                "output": "a=11, b=6: Ein bekanntes Wort im Hinweis kann die gefundene Schlüsselpaarung bestätigen wenn mehrere Kandidaten bleiben",
+                "description": "Entschlüsselt mit a=11, b=6: Ein bekanntes Wort im Hinweis kann die gefundene Schlüsselpaarung bestätigen wenn mehrere Kandidaten bleiben."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 237,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Affine-Chiffre-Solver"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Affine Brute Force"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Affine Chiffre entschlüsseln"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Affine-Chiffre-Decoder"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptoanalyse"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Chiffre-Rätsel-Solver"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "CTF-Chiffre-Solver"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

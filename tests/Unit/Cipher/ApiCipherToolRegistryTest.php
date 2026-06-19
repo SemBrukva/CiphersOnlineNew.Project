@@ -8,6 +8,7 @@ use App\Cache\NullCache;
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
 use App\Cipher\AffineApiCipherTool;
+use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\AffineCipherService;
 use App\Cipher\AlphabetCatalog;
 use App\Cipher\ApiCipherToolRegistry;
@@ -94,6 +95,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
             new HillApiCipherTool(new HillCipherService()),
             new CaesarBruteForceApiCipherTool(new CaesarCipherService(), new LetterFrequencyScorer()),
+            new AffineBruteForceApiCipherTool(new AffineCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache()),
             new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService()),
             new XorApiCipherTool(new XorCipherService()),
             new VigenereCrackerApiCipherTool(new VigenereCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache())

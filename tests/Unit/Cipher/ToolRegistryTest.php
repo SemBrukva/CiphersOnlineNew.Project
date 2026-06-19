@@ -9,6 +9,7 @@ use App\Cipher\AffineCipherService;
 use App\Cipher\AtbashCipherService;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortCipherService;
+use App\Cipher\AffineBruteForceService;
 use App\Cipher\CaesarBruteForceService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\ColumnarTranspositionCipherService;
@@ -124,7 +125,8 @@ final class ToolRegistryTest extends TestCase
             new TimestampConverterCipherService(),
             new SimpleSubstitutionCipherService(),
             new XorCipherService(),
-            new VigenereCrackerService()
+            new VigenereCrackerService(),
+            new AffineBruteForceService()
         );
     }
 }

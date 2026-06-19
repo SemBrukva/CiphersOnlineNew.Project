@@ -429,6 +429,19 @@ final class GuestController
     }
 
     /**
+     * Перебирает все допустимые ключи аффинного шифра (brute force) через API.
+     *
+     * POST /api/tools/affine-brute-force
+     */
+    #[ApiOperation(summary: 'Affine Brute Force', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Список всех возможных дешифровок по ключам (a, b)')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function affineBruteForce(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'affine-brute-force');
+    }
+
+    /**
      * Автоматически взламывает шифр Виженера без знания ключа.
      *
      * POST /api/tools/vigenere-cracker

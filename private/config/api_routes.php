@@ -163,6 +163,13 @@ return [
         'name'       => 'api.tools.xor',
     ],
 
+    'POST /tools/affine-brute-force' => [
+        'controller' => GuestController::class,
+        'method'     => 'affineBruteForce',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.affine_brute_force',
+    ],
+
     'POST /tools/vigenere-cracker' => [
         'controller' => GuestController::class,
         'method'     => 'vigenereCracker',

@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T15:40:41+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "affine-brute-force",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 42,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 42,
+        "data": {
+            "name": "Solveur de chiffrement affine",
+            "name_short": "Solveur affine",
+            "description": "Cassez un chiffrement affine par force brute sans connaitre la paire de cles. Collez le ciphertext, testez automatiquement chaque multiplicateur a et decalage b valide, comparez les candidats plaintext classes et trouvez le dechiffrement le plus probable en ligne.",
+            "description_stort": "Solveur de chiffrement affine qui teste toutes les paires de cles valides et classe le plaintext probable.",
+            "meta_title": "Solveur de chiffrement affine | Decodeur force brute en ligne",
+            "meta_description": "Dechiffrez un texte affine sans la cle. Ce solveur en ligne teste toutes les paires a,b valides, classe les plaintext probables et aide pour CTF, enigmes et cryptanalyse."
+        }
+    },
+    "blocks": [
+        {
+            "id": 157,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du solveur affine",
+                "text": "<p>Le <a href=\"/fr/classical-ciphers/affine\">chiffrement affine</a> chiffre chaque lettre avec la formule E(x) = (a × x + b) mod m, ou x est la position de la lettre du texte clair, m la taille de l alphabet, a le multiplicateur et b le decalage. Pour dechiffrer correctement, a doit etre premier avec m afin qu un inverse modulaire existe.</p><p>Ce solveur teste chaque paire de cles valide pour l alphabet choisi. Pour l alphabet francais du service, m = 40: seuls 16 multiplicateurs sont valides, combines avec 40 decalages, soit 640 paires (a, b).</p><p>Apres le parcours de l espace de cles, l outil classe les meilleurs candidats avec des statistiques de langue et signale la cle la plus probable. Les espaces, nombres et signes de ponctuation sont conserves, ce qui aide a lire les mots candidats.</p>"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser la force brute affine",
+                "text": "<p>Utilisez la force brute affine lorsqu un message ressemble a une substitution monoalphabetique et que la formule affine est probable, mais que les valeurs a et b sont inconnues. C est utile pour les exercices, CTF, escape rooms, geocaching, enigmes ARG et exemples historiques de cryptographie.</p><p>Collez le ciphertext, choisissez le bon alphabet et lancez le solveur. En francais, des mots et motifs comme LE, LA, LES, QUE, ENT, TION ou des lettres accentuees peuvent faire ressortir le bon candidat.</p><p>Si le texte vient d un autre chiffrement, le solveur affine peut montrer quelques motifs partiels, mais il ne restaurera pas un plaintext complet. Comparez alors avec l analyse de frequence ou essayez un autre outil de chiffrement classique.</p>"
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Lire les resultats classes",
+                "text": "<p>Le solveur verifie tout l espace de cles valide, mais l interface affiche surtout les candidats les plus forts afin d eviter des centaines de dechiffrements aleatoires. Chaque ligne montre la paire testee, le texte obtenu et un score de similarite avec la langue.</p><p>La meilleure cle est un indice statistique, pas une preuve mathematique. Un ciphertext long en langue naturelle donne plus d elements; une courte piste, des noms, abreviations, mots rares ou un texte sans espaces peuvent produire plusieurs candidats plausibles.</p><p>Pour un message court, lisez tous les candidats affiches et utilisez le contexte: theme de l enigme, noms attendus, mots connus ou phrase probable.</p>"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Conseils pour casser un ciphertext affine",
+                "text": "<ul><li><strong>Choisissez le bon alphabet.</strong> Un texte francais doit utiliser le profil francais; les lettres accentuees changent le score.</li><li><strong>Gardez les espaces et la ponctuation.</strong> Les caracteres non alphabetiques restent inchanges et rendent les candidats lisibles plus faciles a reperer.</li><li><strong>Utilisez assez de texte.</strong> Une phrase complete se classe mieux qu un seul mot, car les frequences et bigrammes deviennent plus nets.</li><li><strong>Verifiez le cas Caesar.</strong> Si la meilleure cle a a = 1, le message est en pratique un chiffrement de Caesar avec b comme decalage.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 312,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Combien de combinaisons de cles possede le chiffrement affine?",
+                "answer": "Le nombre de paires valides (a, b) depend de la taille d alphabet m. Le decalage b peut prendre toute valeur de 0 a m - 1, mais a doit etre premier avec m. Pour l alphabet francais du service (m = 40), il y a 16 multiplicateurs valides et 40 decalages, soit 640 paires de cles."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le multiplicateur a doit-il etre premier avec la taille de l alphabet?",
+                "answer": "La condition gcd(a, m) = 1 garantit que le chiffrement est reversible. Si a et m partagent un diviseur, plusieurs lettres du plaintext peuvent donner la meme lettre chiffree. L inverse modulaire n existe alors pas et le dechiffrement devient ambigu ou impossible."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Le chiffrement affine est-il sur?",
+                "answer": "Non. Il est utile pour apprendre la cryptographie classique, l arithmetique modulaire et les enigmes, mais il n est pas securise. Son espace de cles est petit et chaque lettre du plaintext est toujours remplacee par la meme lettre, ce qui le rend vulnerable a la force brute, a l analyse de frequence et au texte connu."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Que signifie la meilleure cle affine?",
+                "answer": "La meilleure cle est le candidat qui ressemble le plus a une langue naturelle selon le score du solveur. C est un indice solide pour les phrases longues, mais pas une garantie. Un ciphertext court, des mots rares, l absence d espaces ou un vocabulaire d enigme peuvent rendre un autre candidat correct."
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quelle difference entre decodeur affine et force brute affine?",
+                "answer": "Un decodeur affine classique demande de connaitre a et b avant le dechiffrement. La force brute affine essaie automatiquement toutes les paires valides, classe les candidats et aide a retrouver le message lorsque la cle est inconnue."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "La force brute affine peut-elle dechiffrer un texte Caesar?",
+                "answer": "Parfois oui. Le chiffrement de Caesar est un cas particulier du chiffrement affine avec a = 1 et b comme decalage. Si vous collez un texte Caesar ici, un resultat avec a = 1 peut le reveler. Pour une table de decalages plus claire, utilisez le solveur Caesar brute force."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Pourquoi un ciphertext affine court est-il difficile a classer?",
+                "answer": "Le solveur utilise des statistiques de langue et a besoin d assez de lettres pour comparer les motifs. Un mot ou une courte piste peut manquer de frequences et de bigrammes. Pour les textes courts, lisez les candidats manuellement et utilisez le contexte."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Texte francais (a=7, b=8)",
+                "key": "",
+                "shift": 0,
+                "input": "Sï xqüffyïwïâë éffüâï yïwoséxï xqéujï sïëëyï édïx êïjl xsïc âjwïyüujïc ïë kéyêï êïc wèëüfc êï séâkjï oèjy s éâésrcï",
+                "output": "a=7, b=8: Le chiffrement affine remplace chaque lettre avec deux cles numeriques et garde des motifs de langue pour l analyse",
+                "description": "Dechiffre avec a=7, b=8: Le chiffrement affine remplace chaque lettre avec deux cles numeriques et garde des motifs de langue pour l analyse."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Force brute (a=11, b=3)",
+                "key": "",
+                "shift": 0,
+                "input": "Ob iîlea xlgâa âaùâa âîgâaù oaù ÿbélaù ïboétaù àgùèg b ea èga oa âazâa eobél taïéaçça oéùéxoa aâ eîyalaçâ",
+                "output": "a=11, b=3: La force brute teste toutes les paires valides jusqu a ce que le texte clair devienne lisible et coherent",
+                "description": "Dechiffre avec a=11, b=3: La force brute teste toutes les paires valides jusqu a ce que le texte clair devienne lisible et coherent."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Phrase plus longue (a=17, b=20)",
+                "key": "",
+                "shift": 0,
+                "input": "Êvk çjzlîk ôzlvélwîk çaêî aëvàêk lwâk ak îéëzk âk ôzknêkvék l üzëêÿkz al ùëvvk éak lÿké çaêî âk éëvôwlvék",
+                "output": "a=17, b=20: Une phrase francaise plus longue aide le score de frequence a trouver la bonne cle avec plus de confiance",
+                "description": "Dechiffre avec a=17, b=20: Une phrase francaise plus longue aide le score de frequence a trouver la bonne cle avec plus de confiance."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Mot connu (a=13, b=6)",
+                "key": "",
+                "shift": 0,
+                "input": "Xf zpo jpffx cdfê q àfcàjï dàcï d jpfâàyzïy qd ëdàyï cï jqïê oypxéïï qpyêôxï ëqxêàïxyê jdfcàcdoê yïêoïfo",
+                "output": "a=13, b=6: Un mot connu dans l indice aide a confirmer la paire de cles trouvee lorsque plusieurs candidats restent",
+                "description": "Dechiffre avec a=13, b=6: Un mot connu dans l indice aide a confirmer la paire de cles trouvee lorsque plusieurs candidats restent."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 237,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Solveur de chiffrement affine"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Force brute affine"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Dechiffrer affine"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Decodeur de chiffrement affine"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cryptanalyse classique"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Solveur d enigmes chiffrees"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Solveur de chiffrements CTF"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

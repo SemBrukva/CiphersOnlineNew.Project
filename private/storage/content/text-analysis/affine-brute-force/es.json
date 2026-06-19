@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T15:40:41+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "affine-brute-force",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 42,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 42,
+        "data": {
+            "name": "Solver del cifrado afin",
+            "name_short": "Solver afin",
+            "description": "Rompe un cifrado afin por fuerza bruta sin conocer la pareja de claves. Pega el ciphertext, prueba automaticamente cada multiplicador a y desplazamiento b validos, compara candidatos de plaintext ordenados y encuentra el descifrado mas probable en linea.",
+            "description_stort": "Solver del cifrado afin que prueba todas las parejas validas y ordena el plaintext probable.",
+            "meta_title": "Solver de cifrado afin | Decodificador brute force online",
+            "meta_description": "Descifra texto de cifrado afin sin la clave. Este solver online prueba todos los pares validos a,b, ordena plaintext probable y ayuda en CTF, puzzles y criptoanalisis."
+        }
+    },
+    "blocks": [
+        {
+            "id": 157,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona el solver de cifrado afin",
+                "text": "<p>El <a href=\"/es/classical-ciphers/affine\">cifrado afin</a> cifra cada letra con la formula E(x) = (a × x + b) mod m, donde x es la posicion de la letra en el texto claro, m es el tamaño del alfabeto, a es el multiplicador y b es el desplazamiento. Para descifrar correctamente, a debe ser coprimo con m para que exista un inverso modular.</p><p>Este solver prueba cada pareja de claves valida para el alfabeto seleccionado. Para el alfabeto español del servicio, m = 27: hay 18 multiplicadores validos y 27 desplazamientos, es decir, 486 pares (a, b).</p><p>Despues de probar el espacio de claves, la herramienta ordena los mejores candidatos con estadistica del idioma y destaca la clave mas probable. Los espacios, numeros y signos de puntuacion se conservan, asi que la estructura de las palabras sigue visible.</p>"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cuando usar fuerza bruta afin",
+                "text": "<p>Usa fuerza bruta afin cuando el mensaje parece una sustitucion monoalfabetica y sospechas que se uso la formula afin, pero no conoces a y b. Es util para ejercicios, retos CTF, pistas de escape room, geocaching, puzzles ARG y ejemplos historicos de criptografia.</p><p>Pega el ciphertext, elige el alfabeto correcto y ejecuta el solver. En texto español, palabras y patrones como QUE, LOS, LAS, DEL, ENT, CION o la letra Ñ pueden hacer visible el candidato correcto.</p><p>Si el texto fue cifrado con otro metodo, el solver afin puede mostrar patrones parciales, pero no recuperara un plaintext completo. En ese caso compara con analisis de frecuencia o prueba otra herramienta de cifrados clasicos.</p>"
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Leer los resultados ordenados",
+                "text": "<p>El solver revisa todo el espacio valido de claves, pero la interfaz se centra en los candidatos mas fuertes para que no tengas que leer cientos de descifrados aleatorios. Cada fila muestra la pareja probada, el texto descifrado y una puntuacion de similitud con el idioma.</p><p>La mejor clave es una pista estadistica, no una prueba matematica. Un ciphertext largo y natural da mas evidencia; pistas muy cortas, nombres, abreviaturas, palabras raras o texto sin espacios pueden producir varios candidatos plausibles.</p><p>Cuando el mensaje sea corto, revisa todos los candidatos mostrados y usa el contexto: tema del puzzle, nombres esperados, palabras conocidas o una frase probable.</p>"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Consejos para romper ciphertext afin",
+                "text": "<ul><li><strong>Elige el alfabeto correcto.</strong> Un mensaje español debe analizarse con el alfabeto español; la Ñ y el perfil del idioma afectan la puntuacion.</li><li><strong>Conserva espacios y puntuacion.</strong> Los caracteres no alfabeticos no cambian y ayudan a reconocer el texto legible.</li><li><strong>Usa suficiente texto.</strong> Una frase completa se ordena mejor que una sola palabra porque aparecen frecuencias y bigramas.</li><li><strong>Revisa el caso Caesar.</strong> Si la mejor clave tiene a = 1, el mensaje es basicamente un cifrado Caesar con b como desplazamiento.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 312,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Cuantas combinaciones de clave tiene el cifrado afin?",
+                "answer": "El numero de pares validos (a, b) depende del tamaño del alfabeto m. El desplazamiento b puede tomar cualquier valor de 0 a m - 1, pero a debe ser coprimo con m. Para el alfabeto español del servicio (m = 27), hay 18 multiplicadores validos y 27 desplazamientos: 486 pares de claves."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Por que el multiplicador a debe ser coprimo con el tamaño del alfabeto?",
+                "answer": "La condicion gcd(a, m) = 1 garantiza que el cifrado sea reversible. Si a y m comparten un divisor, varias letras del plaintext pueden terminar en la misma letra cifrada. Entonces no existe inverso modular y el descifrado se vuelve ambiguo o imposible."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Es seguro el cifrado afin?",
+                "answer": "No. El cifrado afin sirve para aprender criptografia clasica, aritmetica modular y puzzles, pero no para proteger informacion. Su espacio de claves es pequeño y cada letra del plaintext siempre se sustituye por la misma letra, lo que lo hace vulnerable a fuerza bruta, analisis de frecuencia y texto conocido."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Que significa la mejor clave afin?",
+                "answer": "La mejor clave es el candidato que mas se parece al lenguaje natural segun la puntuacion del solver. Es una pista fuerte en frases largas, pero no una garantia. Texto corto, vocabulario raro, falta de espacios o contexto de puzzle pueden hacer correcto otro candidato."
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Cual es la diferencia entre un decodificador afin y fuerza bruta afin?",
+                "answer": "Un decodificador afin normal necesita conocer a y b antes de descifrar. La fuerza bruta afin prueba automaticamente todas las parejas validas, ordena los candidatos y ayuda a recuperar el mensaje cuando la clave es desconocida."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Puede la fuerza bruta afin descifrar texto Caesar?",
+                "answer": "A veces si. El cifrado Caesar es un caso especial del cifrado afin con a = 1 y b como desplazamiento. Si pegas un Caesar aqui, un resultado con a = 1 puede revelarlo. Para una tabla de desplazamientos mas clara, usa el solver Caesar brute force."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Por que el ciphertext afin corto es dificil de ordenar?",
+                "answer": "El solver usa estadistica del idioma, por lo que necesita suficientes letras para comparar patrones. Una palabra o pista corta puede no tener frecuencias ni bigramas suficientes. En textos cortos revisa los candidatos manualmente y usa el contexto externo."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Texto español (a=5, b=8)",
+                "key": "",
+                "shift": 0,
+                "input": "Bj rugqiwc igus vfvauafyb riwi jbaqi rcs wcv rjikbv sfñbquriv y wbzi hiaqcsbv wbj uwucñi hiqi bj isijuvuv",
+                "output": "a=5, b=8: El cifrado afin sustituye cada letra con dos claves numericas y deja patrones del idioma para el analisis",
+                "description": "Descifrado con a=5, b=8: El cifrado afin sustituye cada letra con dos claves numericas y deja patrones del idioma para el analisis."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Fuerza bruta (a=7, b=3)",
+                "key": "",
+                "shift": 0,
+                "input": "Zd loeuwd kuoid huoekd iaxdb zdb hduemdb vdzfxdb ydbid ñoe ez iejia qzdua dhdueqe zerfkze p qayeuenie",
+                "output": "a=7, b=3: La fuerza bruta prueba todas las parejas validas hasta que el texto claro aparece legible y coherente",
+                "description": "Descifrado con a=7, b=3: La fuerza bruta prueba todas las parejas validas hasta que el texto claro aparece legible y coherente."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Frase mas larga (a=17, b=20)",
+                "key": "",
+                "shift": 0,
+                "input": "Zyt xctsh hsvtofrt its rtcñt tnzqt t mzh rt vzyjztaufy hyazhyjch rt artph afcchajt afy itnfc shñzcuqtq",
+                "output": "a=17, b=20: Una frase española mas larga ayuda a que la puntuacion encuentre la clave correcta con mayor seguridad",
+                "description": "Descifrado con a=17, b=20: Una frase española mas larga ayuda a que la puntuacion encuentre la clave correcta con mayor seguridad."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Palabra conocida (a=11, b=6)",
+                "key": "",
+                "shift": 0,
+                "input": "Uñg tnzkg bjñ uñg tgsgqog bjñjbnmg glumg g bjñhnodgo sg tgowxg mw bsgfwz bugñmj euwmgñ fgongz jtbnjñwz",
+                "output": "a=11, b=6: Una pista con una palabra conocida ayuda a confirmar la pareja de claves cuando quedan varias opciones",
+                "description": "Descifrado con a=11, b=6: Una pista con una palabra conocida ayuda a confirmar la pareja de claves cuando quedan varias opciones."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 237,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Solver de cifrado afin"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Fuerza bruta afin"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Descifrar cifrado afin"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Decodificador de cifrado afin"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Criptoanalisis clasico"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Solver de puzzles cifrados"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Solver de cifrados CTF"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

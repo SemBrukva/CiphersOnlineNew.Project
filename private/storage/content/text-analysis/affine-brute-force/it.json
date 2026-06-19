@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T15:40:41+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "affine-brute-force",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 42,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 42,
+        "data": {
+            "name": "Solver del cifrario affine",
+            "name_short": "Solver affine",
+            "description": "Viola un cifrario affine con forza bruta senza conoscere la coppia di chiavi. Incolla il ciphertext, prova automaticamente ogni moltiplicatore a e spostamento b valido, confronta i candidati plaintext ordinati e trova la decifratura piu probabile online.",
+            "description_stort": "Solver del cifrario affine che prova tutte le coppie valide e ordina il plaintext probabile.",
+            "meta_title": "Solver cifrario affine | Decoder brute force online",
+            "meta_description": "Decifra testo affine senza chiave. Questo solver online prova tutte le coppie valide a,b, ordina plaintext probabili e aiuta con CTF, enigmi e crittoanalisi."
+        }
+    },
+    "blocks": [
+        {
+            "id": 157,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il solver del cifrario affine",
+                "text": "<p>Il <a href=\"/it/classical-ciphers/affine\">cifrario affine</a> cifra ogni lettera con la formula E(x) = (a × x + b) mod m, dove x e la posizione della lettera nel testo in chiaro, m e la dimensione dell alfabeto, a e il moltiplicatore e b lo spostamento. Per decifrare correttamente, a deve essere coprimo con m in modo che esista un inverso modulare.</p><p>Questo solver prova ogni coppia di chiavi valida per l alfabeto selezionato. Per l alfabeto italiano del servizio, m = 26: ci sono 12 moltiplicatori validi e 26 spostamenti, quindi 312 coppie (a, b).</p><p>Dopo aver provato lo spazio delle chiavi, lo strumento ordina i migliori candidati con statistiche linguistiche e segnala la chiave piu probabile. Spazi, numeri e punteggiatura restano invariati, cosi la struttura delle parole rimane visibile.</p>"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usare la forza bruta affine",
+                "text": "<p>Usa la forza bruta affine quando un messaggio sembra una sostituzione monoalfabetica e sospetti che sia stata usata la formula affine, ma non conosci a e b. E utile per esercizi, sfide CTF, escape room, geocaching, enigmi ARG ed esempi storici di crittografia.</p><p>Incolla il ciphertext, scegli l alfabeto corretto e avvia il solver. Nei testi italiani, parole e schemi come CHE, DEL, ERE, ZIONE, GLI o NTE spesso fanno emergere il candidato giusto.</p><p>Se il testo e stato cifrato con un altro metodo, il solver affine puo mostrare schemi parziali, ma non recuperera un plaintext completo. In quel caso confronta con l analisi delle frequenze o prova un altro strumento di cifrari classici.</p>"
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Leggere i risultati ordinati",
+                "text": "<p>Il solver controlla tutto lo spazio valido delle chiavi, ma l interfaccia mostra soprattutto i candidati piu forti invece di costringerti a leggere centinaia di decifrature casuali. Ogni riga mostra la coppia testata, il testo decifrato e un punteggio di somiglianza linguistica.</p><p>La chiave migliore e un indizio statistico, non una prova matematica. Un ciphertext lungo e naturale offre piu evidenza; indizi brevi, nomi, abbreviazioni, parole rare o testo senza spazi possono produrre piu candidati plausibili.</p><p>Quando il messaggio e corto, leggi tutti i candidati mostrati e usa il contesto: tema dell enigma, nomi attesi, parole note o una frase probabile.</p>"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Consigli per rompere ciphertext affine",
+                "text": "<ul><li><strong>Scegli l alfabeto corretto.</strong> Un testo italiano va analizzato con il profilo italiano; il profilo linguistico influisce sul punteggio.</li><li><strong>Mantieni spazi e punteggiatura.</strong> I caratteri non alfabetici non cambiano e rendono piu facile riconoscere i candidati leggibili.</li><li><strong>Usa abbastanza testo.</strong> Una frase completa si ordina meglio di una sola parola perche frequenze e bigrammi diventano piu chiari.</li><li><strong>Controlla il caso Caesar.</strong> Se la chiave migliore ha a = 1, il messaggio e di fatto un cifrario di Cesare con b come spostamento.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 312,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quante combinazioni di chiavi ha il cifrario affine?",
+                "answer": "Il numero di coppie valide (a, b) dipende dalla dimensione dell alfabeto m. Lo spostamento b puo assumere qualsiasi valore da 0 a m - 1, mentre a deve essere coprimo con m. Per l alfabeto italiano del servizio (m = 26), ci sono 12 moltiplicatori validi e 26 spostamenti: 312 coppie di chiavi."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Perche il moltiplicatore a deve essere coprimo con la dimensione dell alfabeto?",
+                "answer": "La condizione gcd(a, m) = 1 garantisce che la cifratura sia reversibile. Se a e m condividono un divisore, piu lettere del plaintext possono finire nella stessa lettera cifrata. In quel caso non esiste inverso modulare e la decifratura diventa ambigua o impossibile."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Il cifrario affine e sicuro?",
+                "answer": "No. Il cifrario affine e utile per imparare crittografia classica, aritmetica modulare ed enigmi, ma non e sicuro. Ha uno spazio di chiavi piccolo e ogni lettera del plaintext viene sempre sostituita dalla stessa lettera, quindi e vulnerabile a forza bruta, analisi delle frequenze e attacchi con testo noto."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cosa significa la migliore chiave affine?",
+                "answer": "La chiave migliore e il candidato che assomiglia di piu al linguaggio naturale secondo il punteggio del solver. E un buon indizio per frasi lunghe, ma non una garanzia. Ciphertext breve, lessico raro, assenza di spazi o contesto di enigma possono rendere corretto un altro candidato."
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Qual e la differenza tra decoder affine e forza bruta affine?",
+                "answer": "Un decoder affine normale richiede di conoscere a e b prima della decifratura. La forza bruta affine prova automaticamente tutte le coppie valide, ordina i candidati e aiuta a recuperare il messaggio quando la chiave e sconosciuta."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "La forza bruta affine puo decifrare testo Caesar?",
+                "answer": "A volte si. Il cifrario di Cesare e un caso speciale del cifrario affine con a = 1 e b come spostamento. Se incolli qui un testo Caesar, un risultato con a = 1 puo rivelarlo. Per una tabella di spostamenti piu chiara usa il solver Caesar brute force."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Perche un ciphertext affine corto e difficile da ordinare?",
+                "answer": "Il solver usa statistiche linguistiche e ha bisogno di abbastanza lettere per confrontare gli schemi. Una parola o un breve indizio puo non contenere frequenze e bigrammi sufficienti. Per testi corti leggi i candidati manualmente e usa il contesto."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Testo italiano (a=5, b=8)",
+                "key": "",
+                "shift": 0,
+                "input": "Wl swhpipwa ihhwvc uauzwzewusc amvw lczzcpi sav xec srwijw veqcpwsrc c qauzpi usrcqw lwvmewuzwsw xepivzc l ivilwuw",
+                "output": "a=5, b=8: Il cifrario affine sostituisce ogni lettera con due chiavi numeriche e mostra schemi linguistici durante l analisi",
+                "description": "Decifrato con a=5, b=8: Il cifrario affine sostituisce ogni lettera con due chiavi numeriche e mostra schemi linguistici durante l analisi."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Forza bruta (a=7, b=3)",
+                "key": "",
+                "shift": 0,
+                "input": "Cd mxswd ksngd esxud gnggf cf rxeehf udchyf mhqraf hc gfzgx hq rahdsx yhufqgd cftthkhcf f rxfsfqgf",
+                "output": "a=7, b=3: La forza bruta prova tutte le coppie valide finche il testo in chiaro diventa leggibile e coerente",
+                "description": "Decifrato con a=7, b=3: La forza bruta prova tutte le coppie valide finche il testo in chiaro diventa leggibile e coerente."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Frase piu lunga (a=17, b=20)",
+                "key": "",
+                "shift": 0,
+                "input": "Whu bxuok afuzauhu paw zwhsu uawfu az pwhfkssay tkzzk bxkgwkhdk u fxynuxk zu cjaunk cyxxkffu cyh oacwxkddu",
+                "output": "a=17, b=20: Una frase italiana piu lunga aiuta il punteggio delle frequenze a trovare la chiave corretta con sicurezza",
+                "description": "Decifrato con a=17, b=20: Una frase italiana piu lunga aiuta il punteggio delle frequenze a trovare la chiave corretta con sicurezza."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Parola nota (a=11, b=6)",
+                "key": "",
+                "shift": 0,
+                "input": "Stg pglexg tehg tyxx qtnqvqe gqshg g cetjyligly xg ceppqg nq cfqgdq asgtne lywhgte nqdylwq cgtnqnghq",
+                "output": "a=11, b=6: Una parola nota nell indizio aiuta a confermare la coppia di chiavi quando restano diversi candidati",
+                "description": "Decifrato con a=11, b=6: Una parola nota nell indizio aiuta a confermare la coppia di chiavi quando restano diversi candidati."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 237,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Solver cifrario affine"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Forza bruta affine"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Decifrare cifrario affine"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Decoder cifrario affine"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Crittoanalisi classica"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Solver enigmi cifrati"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Solver cifrari CTF"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

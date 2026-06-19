@@ -127,6 +127,8 @@ export class ApiClient {
         hill: (data) => this.#request('POST', '/tools/hill', data),
         /** POST /api/tools/caesar-brute-force */
         'caesar-brute-force': (data) => this.#request('POST', '/tools/caesar-brute-force', data),
+        /** POST /api/tools/affine-brute-force */
+        'affine-brute-force': (data) => this.#request('POST', '/tools/affine-brute-force', data),
         /** POST /api/tools/simple-substitution */
         'simple-substitution': (data) => this.#request('POST', '/tools/simple-substitution', data),
         /** POST /api/tools/xor */

@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T15:40:41+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "affine-brute-force",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 42,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 42,
+        "data": {
+            "name": "Affine Cipher Solver",
+            "name_short": "Affine Solver",
+            "description": "Crack an affine cipher by brute force without knowing the key pair. Paste ciphertext, try every valid multiplier a and shift b automatically, compare ranked plaintext candidates, and find the most likely decryption online.",
+            "description_stort": "Affine cipher solver that tries all valid key pairs and ranks likely plaintext.",
+            "meta_title": "Affine Cipher Solver | Brute Force Decoder Online",
+            "meta_description": "Decode affine cipher text without the key. This online affine brute force solver tries all valid a,b pairs, ranks likely plaintext, and helps solve CTF, puzzle, and cryptanalysis tasks."
+        }
+    },
+    "blocks": [
+        {
+            "id": 157,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the affine cipher solver works",
+                "text": "<p>An <a href=\"/classical-ciphers/affine\">Affine cipher</a> encrypts each letter with the formula E(x) = (a × x + b) mod m, where x is the plaintext letter position, m is the alphabet size, a is the multiplier, and b is the shift. To decrypt correctly, a must be coprime with m so that a modular inverse exists.</p><p>This affine cipher solver tests every valid key pair for the selected alphabet. For English, m = 26: there are 12 valid multipliers and 26 shifts, so the complete brute-force search covers 312 possible (a, b) combinations. Other supported alphabets use their own alphabet size and valid multiplier set.</p><p>After trying the key space, the tool ranks the best plaintext candidates with language statistics and highlights the most likely key. Spaces, numbers, and punctuation are preserved, so word breaks and sentence structure remain visible while you inspect the results.</p>"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "When to use affine brute force",
+                "text": "<p>Use affine brute force when a message looks like a monoalphabetic substitution cipher and you suspect the Affine formula was used, but the key values a and b are unknown. It is useful for classroom exercises, CTF challenges, escape-room clues, geocaching hints, ARG puzzles, and historical cryptography examples.</p><p>Paste the ciphertext, choose the matching alphabet, and run the solver. In English text, common words and patterns such as THE, AND, ING, TION, or repeated letter pairs often make the correct candidate easy to recognize.</p><p>If the text was encrypted with a different cipher, the affine solver may still produce interesting partial patterns, but it will not recover a full meaningful plaintext. In that case, compare the result with frequency analysis or try another classical cipher tool.</p>"
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Reading the ranked results",
+                "text": "<p>The solver checks the complete valid key space, but the interface focuses on the strongest candidates instead of forcing you to read hundreds of nearly random decryptions. Each row shows the tested key pair, the decrypted text, and a confidence-style fitness score.</p><p>The best-ranked key is a statistical hint, not a mathematical proof. Longer natural-language ciphertext gives the scorer more evidence, while very short clues, names, abbreviations, invented words, or text without spaces can produce several plausible-looking candidates.</p><p>When the message is short, read every displayed candidate and use context: expected names, puzzle theme, known words, or a likely phrase can identify the true plaintext even when the automatic score is uncertain.</p>"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Tips for cracking affine ciphertext",
+                "text": "<ul><li><strong>Choose the correct alphabet.</strong> English ciphertext should use the English alphabet; accented or language-specific text needs the matching alphabet profile.</li><li><strong>Keep spacing and punctuation.</strong> Non-letter characters are preserved and make readable candidates much easier to spot.</li><li><strong>Use enough text when possible.</strong> A full sentence ranks better than a single word because frequency and bigram patterns become clearer.</li><li><strong>Check for Caesar as a special case.</strong> If the best key has a = 1, the message is effectively a Caesar shift with b as the shift value.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 312,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How many key combinations does the affine cipher have?",
+                "answer": "The number of valid key pairs (a, b) depends on the alphabet size m. The shift b can be any value from 0 to m - 1, but the multiplier a must be coprime with m. For English (m = 26), there are 12 valid multipliers and 26 shifts, giving 312 possible key pairs. This small key space is why affine brute force is fast."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why must the multiplier a be coprime with the alphabet size?",
+                "answer": "The condition gcd(a, m) = 1 ensures that the encryption function is reversible. If a and the alphabet size share a divisor, several plaintext letters can map to the same ciphertext letter, so the modular inverse does not exist and decryption becomes ambiguous or impossible."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is the affine cipher secure?",
+                "answer": "No. The affine cipher is useful for learning classical cryptography, modular arithmetic, and puzzle solving, but it is not secure. In English it has only 312 valid key pairs, and each plaintext letter always maps to the same ciphertext letter. That makes it vulnerable to brute force, frequency analysis, and known-plaintext attacks."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What does the best affine key mean?",
+                "answer": "The best key is the candidate that looks most like natural language according to the solver's scoring. It is a strong hint, especially for full sentences, but it is not a guarantee. Short ciphertext, unusual vocabulary, missing spaces, or puzzle-specific wording can make another displayed candidate the real answer."
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What is the difference between an affine decoder and affine brute force?",
+                "answer": "A regular affine decoder needs you to know the multiplier a and shift b before decrypting. Affine brute force is a solver: it automatically tries all valid key pairs, ranks the candidate plaintexts, and helps you recover the message when the key is unknown."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can affine brute force decode Caesar cipher text?",
+                "answer": "Sometimes, yes. Caesar cipher is a special case of the affine cipher where a = 1 and b is the Caesar shift. If a Caesar message is entered here, an affine result with a = 1 may reveal it. For a cleaner all-shifts table, use the dedicated Caesar brute force solver."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Why can short affine ciphertext be hard to rank?",
+                "answer": "The solver uses language statistics, so it needs enough letters to compare patterns reliably. A one-word clue or a short phrase may not contain enough common bigrams and letter frequencies. For short text, review the displayed candidates manually and use any external context from the puzzle or exercise."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "English (a=5, b=8)",
+                "key": "",
+                "shift": 0,
+                "input": "Ihhwvc swfrcpu cvspyfz cisr lczzcp owzr zoa veqcpws gcyu ivx pcjcil livmeimc fizzcpvu evxcp ivilyuwu",
+                "output": "a=5, b=8: Affine ciphers encrypt each letter with two numeric keys and reveal language patterns under analysis",
+                "description": "Decoded with a=5, b=8: Affine ciphers encrypt each letter with two numeric keys and reveal language patterns under analysis."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "English (a=7, b=3)",
+                "key": "",
+                "shift": 0,
+                "input": "Ksngf mxsrf dggdrvz gsp fufsp udchy vfp edhs nqghc gaf ecdhq gfig fjfstfz hq sfdydkcf mxsj mxs dqdcpzhz",
+                "output": "a=7, b=3: Brute force attacks try every valid key pair until the plain text emerges in readable form for analysis",
+                "description": "Decoded with a=7, b=3: Brute force attacks try every valid key pair until the plain text emerges in readable form for analysis."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "English pangram (a=17, b=20)",
+                "key": "",
+                "shift": 0,
+                "input": "Fjk gwaci lxyeh byv rwqpo ynkx fjk zudm tys ejazk xkutahs czuooacuz zafkxufwxk ulywf uhcakhf jattkh cytko",
+                "output": "a=17, b=20: The quick brown fox jumps over the lazy dog while reading classical literature about ancient hidden codes",
+                "description": "Decoded with a=17, b=20: The quick brown fox jumps over the lazy dog while reading classical literature about ancient hidden codes."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Known plaintext hint (a=11, b=6)",
+                "key": "",
+                "shift": 0,
+                "input": "Mteot pxgqthyzh fyxpw cetjqli gt gjjqty myk rycgswy ety xyhhyl pgql cgt tglleo hfy wyglcf gtn xetuyl hyzh igmyw lgtmqtu cxyglyl",
+                "output": "a=11, b=6: Known plaintext helps confirm an affine key because one letter pair can narrow the search and longer text makes ranking clearer",
+                "description": "Decoded with a=11, b=6: Known plaintext helps confirm an affine key because one letter pair can narrow the search and longer text makes ranking clearer."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 237,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Affine cipher solver"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Affine brute force"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Decode affine cipher"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Affine cipher decoder"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptanalysis"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cipher puzzle solver"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "CTF cipher solver"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

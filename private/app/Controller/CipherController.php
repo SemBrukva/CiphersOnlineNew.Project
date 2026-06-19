@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VigenereCrackerApiCipherTool;
 use App\Http\Request;
@@ -117,6 +118,10 @@ final readonly class CipherController
             $toolUi['relatedToolUrl']   = locale_url('/text-analysis/caesar-brute-force');
             $toolUi['relatedToolLabel'] = trans('CAESAR_HINT_BRUTE_FORCE');
         }
+        if ($cipherAlias === 'affine') {
+            $toolUi['relatedToolUrl']   = locale_url('/text-analysis/affine-brute-force');
+            $toolUi['relatedToolLabel'] = trans('AFFINE_HINT_BRUTE_FORCE');
+        }
         if ($cipherAlias === 'vigenere') {
             $toolUi['relatedToolUrl']   = locale_url('/text-analysis/vigenere-cracker');
             $toolUi['relatedToolLabel'] = trans('VIGENERE_HINT_CRACKER');
@@ -132,6 +137,21 @@ final readonly class CipherController
             $toolUi['bruteFitnessLabel']   = trans('CAESAR_BRUTE_FITNESS_LABEL');
             $toolUi['bruteBestBadge']      = trans('CAESAR_BRUTE_BEST_BADGE');
             $toolUi['bruteShortText']      = trans('CAESAR_BRUTE_SHORT_TEXT');
+        }
+        if ($cipherAlias === 'affine-brute-force') {
+            $toolUi['bruteForceMode']      = true;
+            $toolUi['affineMode']          = true;
+            $toolUi['disableLiveMode']     = true;
+            $toolUi['inputMaxLength']      = AffineBruteForceApiCipherTool::MAX_TEXT_LENGTH;
+            $toolUi['bruteEmptyLabel']     = trans('AFFINE_BRUTE_EMPTY');
+            $toolUi['bruteColShift']       = trans('AFFINE_BRUTE_COL_KEY');
+            $toolUi['bruteColText']        = trans('AFFINE_BRUTE_COL_TEXT');
+            $toolUi['bruteUseLabel']       = trans('AFFINE_BRUTE_USE_LABEL');
+            $toolUi['bruteTitle']          = trans('AFFINE_BRUTE_TITLE');
+            $toolUi['bruteLikelyKey']      = trans('AFFINE_BRUTE_LIKELY_KEY');
+            $toolUi['bruteFitnessLabel']   = trans('AFFINE_BRUTE_FITNESS_LABEL');
+            $toolUi['bruteBestBadge']      = trans('AFFINE_BRUTE_BEST_BADGE');
+            $toolUi['bruteShortText']      = trans('AFFINE_BRUTE_SHORT_TEXT');
         }
         if ($cipherAlias === 'vigenere-cracker') {
             $toolUi['vigenereCrackerMode']     = true;

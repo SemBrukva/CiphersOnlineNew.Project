@@ -172,6 +172,28 @@ final readonly class LetterFrequencyScorer
     }
 
     /**
+     * Возвращает ожидаемые частоты букв алфавита в порядке индексов алфавита (доли 0..1).
+     *
+     * Буквы, отсутствующие в частотной таблице, получают 0. Используется в брут-форсе
+     * для одностадийного χ² по гистограмме шифртекста без посимвольного обхода.
+     *
+     * @param  string[] $alphabetData Алфавит в порядке индексов.
+     * @return float[]                Ожидаемые доли, индексированные по позиции в алфавите.
+     */
+    public function expectedFrequencyVector(string $alphabet, array $alphabetData): array
+    {
+        $freqs  = self::FREQUENCIES[$alphabet] ?? [];
+        $result = array_fill(0, count($alphabetData), 0.0);
+        foreach ($alphabetData as $idx => $letter) {
+            if (isset($freqs[$letter])) {
+                $result[$idx] = $freqs[$letter] / 100.0;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Возвращает теоретический индекс совпадений (IC) для естественного языка.
      *
      * Вычисляется как ∑p_i² по ожидаемым частотам алфавита.

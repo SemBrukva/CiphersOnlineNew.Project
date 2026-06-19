@@ -34,11 +34,12 @@ final class ApiCipherToolRegistry
         PolybiusSquareApiCipherTool $polybiusSquareTool,
         HillApiCipherTool $hillTool,
         CaesarBruteForceApiCipherTool $caesarBruteForceTool,
+        AffineBruteForceApiCipherTool $affineBruteForceTool,
         SimpleSubstitutionApiCipherTool $simpleSubstitutionTool,
         XorApiCipherTool $xorTool,
         VigenereCrackerApiCipherTool $vigenereCrackerTool
     ) {
-        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $simpleSubstitutionTool, $xorTool, $vigenereCrackerTool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $xorTool, $vigenereCrackerTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

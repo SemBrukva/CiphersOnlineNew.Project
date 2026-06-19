@@ -61,4 +61,17 @@ return [
         'classical-ciphers/caesar',
         'text-analysis/caesar-brute-force',
     ],
+    'classical-ciphers/affine' => [
+        'text-analysis/affine-brute-force',
+        'classical-ciphers/caesar',
+        'text-analysis/frequency-analysis',
+        'text-analysis/letter-frequency',
+    ],
+    'text-analysis/affine-brute-force' => [
+        'classical-ciphers/affine',
+        'text-analysis/caesar-brute-force',
+        'text-analysis/frequency-analysis',
+        'text-analysis/letter-frequency',
+        'text-analysis/vigenere-cracker',
+    ],
 ];

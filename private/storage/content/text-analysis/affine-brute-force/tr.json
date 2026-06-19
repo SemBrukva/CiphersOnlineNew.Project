@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T15:40:41+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "affine-brute-force",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 42,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 42,
+        "data": {
+            "name": "Affine şifre çözücü",
+            "name_short": "Affine çözücü",
+            "description": "Anahtar çiftini bilmeden affine şifreyi brute force ile kırın. Ciphertext yapıştırın, geçerli tüm a çarpanlarını ve b kaydırmalarını otomatik deneyin, sıralanan plaintext adaylarını karşılaştırın ve en olası çözümü çevrimiçi bulun.",
+            "description_stort": "Tüm geçerli affine anahtar çiftlerini deneyen ve olası plaintext adaylarını sıralayan çözücü.",
+            "meta_title": "Affine Şifre Çözücü | Online Brute Force Decoder",
+            "meta_description": "Anahtar olmadan affine şifreli metni çözün. Online affine brute force çözücü tüm geçerli a,b çiftlerini dener, plaintext adaylarını sıralar ve CTF, bulmaca, kriptanaliz görevlerine yardım eder."
+        }
+    },
+    "blocks": [
+        {
+            "id": 157,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Affine şifre çözücü nasıl çalışır",
+                "text": "<p><a href=\"/tr/classical-ciphers/affine\">Affine şifre</a> her harfi E(x) = (a × x + b) mod m formülüyle şifreler. Burada x açık metindeki harf konumu, m alfabe boyutu, a çarpan ve b kaydırmadır. Doğru çözme için a ile m aralarında asal olmalıdır; böylece modüler ters değer bulunabilir.</p><p>Bu çözücü seçilen alfabe için geçerli her anahtar çiftini dener. Türkçe alfabe için m = 29 kabul edilir; 29 asal olduğu için 1 ile 28 arasındaki tüm çarpanlar geçerlidir ve 29 kaydırma ile birlikte 812 çift (a, b) denenir.</p><p>Anahtar alanı tarandıktan sonra araç en iyi plaintext adaylarını dil istatistikleriyle sıralar ve en olası anahtarı işaretler. Boşluklar, sayılar ve noktalama korunur; böylece kelime sınırları sonucu okumayı kolaylaştırır.</p>"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Affine brute force ne zaman kullanılır",
+                "text": "<p>Mesaj monoalfabetik yerine koyma gibi görünüyorsa ve affine formül kullanılmış olabileceğini düşünüyorsanız, ancak a ve b değerlerini bilmiyorsanız affine brute force kullanın. Ders alıştırmaları, CTF görevleri, escape room ipuçları, geocaching, ARG bulmacaları ve tarihsel kriptografi örnekleri için uygundur.</p><p>Ciphertext metnini yapıştırın, doğru alfabeyi seçin ve çözücüyü çalıştırın. Türkçe metinlerde BIR, VE, DE, LAR, MEK, ILE gibi kelimeler ve ekler doğru adayı görünür kılabilir.</p><p>Metin başka bir şifreyle üretildiyse affine çözücü bazı kısmi örüntüler gösterebilir, fakat tam plaintext üretmez. Bu durumda sonucu frekans analiziyle karşılaştırın veya başka bir klasik şifre aracı deneyin.</p>"
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sıralanan sonuçları okumak",
+                "text": "<p>Çözücü tüm geçerli anahtar alanını kontrol eder, ancak arayüz yüzlerce rastgele çözüm göstermek yerine en güçlü adaylara odaklanır. Her satır denenen anahtar çiftini, çözülmüş metni ve doğal dile benzerlik puanını gösterir.</p><p>En iyi anahtar istatistiksel bir ipucudur, matematiksel kanıt değildir. Daha uzun doğal dil metni daha fazla kanıt verir; kısa ipuçları, adlar, kısaltmalar, nadir kelimeler veya boşluksuz metin birkaç makul aday üretebilir.</p><p>Mesaj kısa olduğunda gösterilen tüm adayları okuyun ve bağlamı kullanın: bulmacanın teması, beklenen adlar, bilinen kelimeler veya olası bir ifade doğru plaintext seçimini kolaylaştırır.</p>"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Affine ciphertext kırma ipuçları",
+                "text": "<ul><li><strong>Doğru alfabeyi seçin.</strong> Türkçe metin Türkçe alfabe profiliyle denenmelidir; dil profili puanı etkiler.</li><li><strong>Boşlukları ve noktalama işaretlerini koruyun.</strong> Harf olmayan karakterler değişmez ve okunabilir adayları daha hızlı fark ettirir.</li><li><strong>Yeterli metin kullanın.</strong> Tam bir cümle tek kelimeden daha güvenilir sıralanır, çünkü frekanslar ve bigramlar belirginleşir.</li><li><strong>Caesar özel durumunu kontrol edin.</strong> En iyi anahtarda a = 1 ise mesaj aslında b kaydırmalı Caesar şifresidir.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 312,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Affine şifrede kaç anahtar kombinasyonu vardır?",
+                "answer": "Geçerli (a, b) çiftlerinin sayısı alfabe boyutu m değerine bağlıdır. b kaydırması 0 ile m - 1 arasında olabilir, fakat a ile m aralarında asal olmalıdır. Türkçe alfabe için m = 29 olduğundan 28 geçerli çarpan ve 29 kaydırma vardır: toplam 812 anahtar çifti."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "a çarpanı neden alfabe boyutuyla aralarında asal olmalıdır?",
+                "answer": "gcd(a, m) = 1 koşulu şifrelemenin tersine çevrilebilir olmasını sağlar. a ve m ortak bölen paylaşırsa birden çok plaintext harfi aynı ciphertext harfine dönüşebilir. Bu durumda modüler ters yoktur ve çözme belirsiz ya da imkansız hale gelir."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Affine şifre güvenli midir?",
+                "answer": "Hayır. Affine şifre klasik kriptografi, modüler aritmetik ve bulmacalar için öğreticidir, ancak güvenli değildir. Anahtar alanı küçüktür ve her plaintext harfi her zaman aynı ciphertext harfine dönüşür. Bu yüzden brute force, frekans analizi ve bilinen plaintext saldırılarına açıktır."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "En iyi affine anahtar ne anlama gelir?",
+                "answer": "En iyi anahtar, çözücünün puanına göre doğal dile en çok benzeyen adaydır. Uzun cümlelerde güçlü bir ipucudur, fakat garanti değildir. Kısa ciphertext, sıra dışı kelimeler, boşluk eksikliği veya bulmaca bağlamı başka bir adayı doğru yapabilir."
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Affine decoder ile affine brute force arasındaki fark nedir?",
+                "answer": "Normal affine decoder çözmeden önce a ve b değerlerini bilmenizi ister. Affine brute force tüm geçerli anahtar çiftlerini otomatik dener, adayları sıralar ve anahtar bilinmediğinde mesajı kurtarmaya yardım eder."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Affine brute force Caesar metnini çözebilir mi?",
+                "answer": "Bazen evet. Caesar şifresi, a = 1 ve b kaydırması olan affine şifrenin özel durumudur. Buraya Caesar metni yapıştırırsanız a = 1 olan bir sonuç metni açabilir. Daha temiz bir kaydırma tablosu için Caesar brute force çözücüsünü kullanın."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Kısa affine ciphertext neden zor sıralanır?",
+                "answer": "Çözücü dil istatistikleri kullanır ve örüntüleri karşılaştırmak için yeterli harfe ihtiyaç duyar. Tek kelime ya da kısa ipucu yeterli frekans ve bigram bilgisi taşımayabilir. Kısa metinlerde adayları elle inceleyin ve dış bağlamı kullanın."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Türkçe metin (a=5, b=8)",
+                "key": "",
+                "shift": 0,
+                "input": "Ğheb cehsd uds uğshe eme vğyavğr ğbğugğsrğ zdpecgeses şd zer mğranrğsaba ğbğreç eteb lisobos kasğmas",
+                "output": "a=5, b=8: Afin şifre her harfi iki sayısal anahtarla değiştirir ve dil kalıplarını analiz için görünür bırakır",
+                "description": "Şu anahtarla çözüldü a=5, b=8: Afin şifre her harfi iki sayısal anahtarla değiştirir ve dil kalıplarını analiz için görünür bırakır."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Kaba kuvvet (a=7, b=3)",
+                "key": "",
+                "shift": 0,
+                "input": "Gçıç gviihp pds thuhylş çzçğpçy uşnplhyşzş chzhy ih fgvzçışlşy çumg shpşz fypçöç umgçzç gçcçy emyçlçy",
+                "output": "a=7, b=3: Kaba kuvvet tüm geçerli anahtar çiftlerini dener ve okunabilir açık metin ortaya çıkana kadar sıralar",
+                "description": "Şu anahtarla çözüldü a=7, b=3: Kaba kuvvet tüm geçerli anahtar çiftlerini dener ve okunabilir açık metin ortaya çıkana kadar sıralar."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Daha uzun cümle (a=17, b=20)",
+                "key": "",
+                "shift": 0,
+                "input": "Brzr şçşc ğdj Eıjhkö üılvö fjöhrca uşrcncnc bpijş rcrzerjn brzr tıyöcvö ğşvlrancr mrjbnl öböj",
+                "output": "a=17, b=20: Daha uzun bir Türkçe cümle frekans puanının doğru anahtarı daha güvenle bulmasına yardım eder",
+                "description": "Şu anahtarla çözüldü a=17, b=20: Daha uzun bir Türkçe cümle frekans puanının doğru anahtarı daha güvenle bulmasına yardım eder."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Bilinen kelime (a=11, b=6)",
+                "key": "",
+                "shift": 0,
+                "input": "Oimiğçğ oit dçmivç ijhzhğsf üçıçteç ohmhğfğ fğföyft ıilyiği spgthmfvfd sföf dpmfk pmht",
+                "output": "a=11, b=6: Bilinen bir kelime ipucunda geçerse bulunan anahtar çiftini doğrulamak daha kolay olur",
+                "description": "Şu anahtarla çözüldü a=11, b=6: Bilinen bir kelime ipucunda geçerse bulunan anahtar çiftini doğrulamak daha kolay olur."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 237,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Affine şifre çözücü"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Affine brute force"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Affine şifre çözme"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Affine şifre decoder"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptanaliz"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Şifre bulmaca çözücü"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "CTF şifre çözücü"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

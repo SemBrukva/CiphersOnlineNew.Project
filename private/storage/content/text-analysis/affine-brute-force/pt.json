@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T15:40:41+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "affine-brute-force",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 42,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 42,
+        "data": {
+            "name": "Solucionador da cifra afim",
+            "name_short": "Solver afim",
+            "description": "Quebre uma cifra afim por força bruta sem conhecer o par de chaves. Cole o ciphertext, teste automaticamente cada multiplicador a e deslocamento b validos, compare candidatos de plaintext classificados e encontre a decifragem mais provavel online.",
+            "description_stort": "Solver da cifra afim que testa todos os pares validos e classifica plaintext provavel.",
+            "meta_title": "Solver da cifra afim | Decodificador brute force online",
+            "meta_description": "Decifre texto de cifra afim sem a chave. Este solver online testa todos os pares validos a,b, classifica plaintext provavel e ajuda em CTF, enigmas e criptoanalise."
+        }
+    },
+    "blocks": [
+        {
+            "id": 157,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona o solver da cifra afim",
+                "text": "<p>A <a href=\"/pt/classical-ciphers/affine\">cifra afim</a> cifra cada letra com a formula E(x) = (a × x + b) mod m, onde x e a posicao da letra no texto claro, m e o tamanho do alfabeto, a e o multiplicador e b e o deslocamento. Para decifrar corretamente, a deve ser coprimo com m para existir um inverso modular.</p><p>Este solver testa cada par de chaves valido para o alfabeto escolhido. Para o alfabeto portugues do serviço, m = 36: existem 12 multiplicadores validos e 36 deslocamentos, totalizando 432 pares (a, b).</p><p>Depois de testar o espaco de chaves, a ferramenta classifica os melhores candidatos com estatisticas de idioma e destaca a chave mais provavel. Espacos, numeros e pontuacao sao preservados, mantendo visiveis as fronteiras das palavras.</p>"
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usar força bruta afim",
+                "text": "<p>Use força bruta afim quando a mensagem parece uma substituicao monoalfabetica e voce suspeita da formula afim, mas nao conhece os valores a e b. Ela e util em exercicios, desafios CTF, pistas de escape room, geocaching, enigmas ARG e exemplos historicos de criptografia.</p><p>Cole o ciphertext, escolha o alfabeto correto e execute o solver. Em textos portugueses, palavras e padroes como QUE, COM, PARA, ENT, ADO ou CAO ajudam a destacar o candidato correto.</p><p>Se o texto foi cifrado por outro metodo, o solver afim pode revelar alguns padroes parciais, mas nao vai recuperar um plaintext completo. Nesse caso compare com analise de frequencia ou tente outra ferramenta de cifras classicas.</p>"
+            }
+        },
+        {
+            "id": 159,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Lendo os resultados classificados",
+                "text": "<p>O solver verifica todo o espaco valido de chaves, mas a interface foca nos candidatos mais fortes para evitar centenas de decifrados aleatorios. Cada linha mostra o par testado, o texto decifrado e uma pontuacao de semelhanca com o idioma.</p><p>A melhor chave e uma pista estatistica, nao uma prova matematica. Ciphertext longo em linguagem natural fornece mais evidencias; pistas curtas, nomes, abreviacoes, palavras raras ou texto sem espacos podem gerar varios candidatos plausiveis.</p><p>Quando a mensagem for curta, leia todos os candidatos exibidos e use o contexto: tema do enigma, nomes esperados, palavras conhecidas ou uma frase provavel.</p>"
+            }
+        },
+        {
+            "id": 160,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Dicas para quebrar ciphertext afim",
+                "text": "<ul><li><strong>Escolha o alfabeto correto.</strong> Texto portugues deve usar o perfil portugues; acentos e cedilha afetam a pontuacao.</li><li><strong>Mantenha espacos e pontuacao.</strong> Caracteres nao alfabeticos nao mudam e facilitam reconhecer candidatos legiveis.</li><li><strong>Use texto suficiente.</strong> Uma frase completa e melhor classificada que uma palavra, porque frequencias e bigramas ficam mais claros.</li><li><strong>Confira o caso Caesar.</strong> Se a melhor chave tem a = 1, a mensagem e basicamente uma cifra de Caesar com b como deslocamento.</li></ul>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 312,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quantas combinacoes de chave a cifra afim tem?",
+                "answer": "O numero de pares validos (a, b) depende do tamanho do alfabeto m. O deslocamento b pode ser qualquer valor de 0 a m - 1, mas a deve ser coprimo com m. Para o alfabeto portugues do serviço (m = 36), ha 12 multiplicadores validos e 36 deslocamentos: 432 pares de chaves."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Por que o multiplicador a deve ser coprimo com o tamanho do alfabeto?",
+                "answer": "A condicao gcd(a, m) = 1 garante que a cifra seja reversivel. Se a e m compartilham um divisor, varias letras do plaintext podem virar a mesma letra cifrada. Entao nao existe inverso modular e a decifragem fica ambigua ou impossivel."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "A cifra afim e segura?",
+                "answer": "Nao. A cifra afim e util para aprender criptografia classica, aritmetica modular e enigmas, mas nao e segura. Ela tem espaco de chaves pequeno e cada letra do plaintext sempre vira a mesma letra, por isso e vulneravel a força bruta, analise de frequencia e ataques com texto conhecido."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "O que significa a melhor chave afim?",
+                "answer": "A melhor chave e o candidato que mais se parece com linguagem natural segundo a pontuacao do solver. E uma boa pista para frases longas, mas nao uma garantia. Ciphertext curto, vocabulario incomum, falta de espacos ou contexto de enigma podem tornar outro candidato correto."
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Qual e a diferenca entre decodificador afim e força bruta afim?",
+                "answer": "Um decodificador afim normal precisa conhecer a e b antes de decifrar. A força bruta afim testa automaticamente todos os pares validos, classifica os candidatos e ajuda a recuperar a mensagem quando a chave e desconhecida."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "A força bruta afim pode decifrar texto Caesar?",
+                "answer": "As vezes sim. A cifra de Caesar e um caso especial da cifra afim com a = 1 e b como deslocamento. Se voce colar um Caesar aqui, um resultado com a = 1 pode revelar o texto. Para uma tabela de deslocamentos mais clara, use o solver Caesar brute force."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Por que ciphertext afim curto e dificil de classificar?",
+                "answer": "O solver usa estatisticas de idioma e precisa de letras suficientes para comparar padroes. Uma palavra ou pista curta pode nao ter frequencias e bigramas suficientes. Para textos curtos, revise os candidatos manualmente e use o contexto externo."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 155,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Texto portugues (a=5, b=8)",
+                "key": "",
+                "shift": 0,
+                "input": "E xçsúe esçv zétzbçbéç xede rgbúe ncú déez xáemgz aévgúçxez g dgçue nedúcgz de rçawée neúe e eaerçzg",
+                "output": "a=5, b=8: A cifra afim substitui cada letra por duas chaves numericas e deixa padroes da lingua para a analise",
+                "description": "Decifrado com a=5, b=8: A cifra afim substitui cada letra por duas chaves numericas e deixa padroes da lingua para a analise."
+            }
+        },
+        {
+            "id": 156,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Força bruta (a=7, b=3)",
+                "key": "",
+                "shift": 0,
+                "input": "Ã eçcàã vcrmã môgmã mçjçg çg sãcôg bãoujçg ãmô ç môlmç àoãcç euàãc oôíubôo ô àçôcôzmô sãcã oôumrcã",
+                "output": "a=7, b=3: A forca bruta testa todos os pares validos ate o texto claro ficar legivel e coerente para leitura",
+                "description": "Decifrado com a=7, b=3: A forca bruta testa todos os pares validos ate o texto claro ficar legivel e coerente para leitura."
+            }
+        },
+        {
+            "id": 157,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Frase mais longa (a=17, b=20)",
+                "key": "",
+                "shift": 0,
+                "input": "Émn súnfg wkútéeégfn mnçf àkaen nbévn n wkaténxnk vg súghégaxçn n gaxkatúnú n xqndg xkúúgtn xkm mnçf fgeéúnaxn",
+                "output": "a=17, b=20: Uma frase portuguesa mais longa ajuda a pontuacao de frequencia a encontrar a chave correta com mais seguranca",
+                "description": "Decifrado com a=17, b=20: Uma frase portuguesa mais longa ajuda a pontuacao de frequencia a encontrar a chave correta com mais seguranca."
+            }
+        },
+        {
+            "id": 158,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Palavra conhecida (a=13, b=6)",
+                "key": "",
+                "shift": 0,
+                "input": "Ôáç úexêç zsá ôáç úçpçhnç zsivàzeqç çyôqç ç zsicenáçn s úçn qà zvçhàx dôçiqs nàxêçá hçnesx zçiqeqçêsx",
+                "output": "a=13, b=6: Uma pista com uma palavra conhecida ajuda a confirmar o par de chaves quando restam varios candidatos",
+                "description": "Decifrado com a=13, b=6: Uma pista com uma palavra conhecida ajuda a confirmar o par de chaves quando restam varios candidatos."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 237,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Solver da cifra afim"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Força bruta afim"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Decifrar cifra afim"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Decodificador da cifra afim"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Criptoanalise classica"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Solver de enigmas cifrados"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Solver de cifras CTF"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
