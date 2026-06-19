@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T16:48:56+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "autokey",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 43,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 43,
+        "data": {
+            "name": "Autokey Şifresi",
+            "name_short": "Autokey Şifresi",
+            "description": "Autokey şifresiyle metni çevrimiçi şifreleyin ve çözün. Başlangıç anahtar sözcüğünü girin, alfabeyi seçin veya otomatik algılamayı kullanın ve açık metnin anahtar akışını nasıl sürdürdüğünü görün.",
+            "description_stort": "Anahtar sözcük ve alfabe seçimiyle Autokey şifreleyici ve çözücü.",
+            "meta_title": "Autokey Şifresi online: şifreleyici ve çözücü",
+            "meta_description": "Autokey şifresini çevrimiçi kullanarak başlangıç anahtarıyla metni şifreleyin veya çözün. Alfabe seçin, boşlukları koruyun ve Vigenere ile karşılaştırın."
+        }
+    },
+    "blocks": [
+        {
+            "id": 163,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Autokey Şifresi nasıl çalışır",
+                "text": "<p>Autokey Şifresi, Vigenere ailesiyle ilişkili çok alfabeli bir yerine koyma şifresidir. Başlangıç anahtar sözcüğüyle başlar, fakat bu sözcüğü mesajın sonuna kadar tekrar etmez: anahtardan sonra akış, açık metnin kendi karakterleriyle devam eder.<\/p><p>Şifrelemede her açık metin harfi, anahtar akışındaki geçerli harfe göre kaydırılır. Başlangıç sözcüğü bittiğinde, daha önce işlenen açık metin harfleri sonraki anahtar harfleri olur. Çözmede aynı başlangıç anahtarı gerekir; geri kazanılan her açık metin harfi, kalan metni çözmek için anahtar akışına eklenir.<\/p><p>Bu nedenle Autokey, tekrarlanan anahtarlı Vigenere’den ayrılır: anahtar akışı gerçek mesaja bağlıdır ve kısa anahtarın tekrar eden örüntüleri daha az görünür. Yine de Autokey klasik ve öğretici bir şifredir; modern gizli iletişim için güvenli değildir.<\/p>"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Bu araç ne zaman kullanılır",
+                "text": "<p>Bu Autokey aracını alıştırma metinlerini şifrelemek veya çözmek, ders ve CTF örneklerini kontrol etmek, anahtar akışını göstermek ve Autokey’i Vigenere, Beaufort, Gronsfeld ve diğer klasik çok alfabeli şifrelerle karşılaştırmak için kullanın.<\/p><p>Servis şifreleme ve çözme, özel başlangıç anahtarı, otomatik alfabe algılama ve İngilizce, Rusça, İspanyolca, Portekizce, Türkçe, Fransızca, Almanca ve İtalyanca metinler için manuel alfabe seçimini destekler. Boşluklar, noktalama işaretleri, sayılar ve seçilen alfabenin dışındaki karakterler korunur.<\/p>"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Autokey girişi ve sonucu",
+                "text": "<p>Bir mesajı şifrelemek için açık metni girin, Şifrele modunu seçin ve GİZLİ ya da IŞIK gibi bir başlangıç anahtar sözcüğü yazın. Anahtar, seçilen alfabeden en az bir harf içermelidir; diğer karakterler anahtar akışında yok sayılır.<\/p><p>Çözmek için şifreli metni yapıştırın, Çöz modunu seçin ve şifrelemede kullanılan aynı başlangıç anahtarını ve aynı alfabeyi kullanın. Yanlış anahtar veya alfabe yine metin üretir, ancak özgün mesajı geri getirmez.<\/p>"
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Autokey ve Vigenere",
+                "text": "<p>Autokey ve Vigenere, Sezar tarzı kaydırmalardan oluşan bir dizi kullanır; ancak anahtar akışını farklı kurar. Vigenere anahtar sözcüğü metin bitene kadar tekrar eder, Autokey ise anahtarı yalnızca başlangıç tohumu olarak kullanır ve sonra açık metin harflerini ekler.<\/p><p>Bu tasarım kısa anahtardan gelen belirgin tekrarları azaltır, fakat çözmeyi açık metni adım adım yeniden kurmaya bağımlı hale getirir. Yanlış bir anahtar harfi, alfabe uyumsuzluğu veya şifreli metindeki hata sonraki kaydırmaları etkileyebilir.<\/p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 322,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Autokey Şifresi nedir?",
+                "answer": "Autokey Şifresi klasik bir çok alfabeli yerine koyma şifresidir. Başlangıç anahtar sözcüğüyle başlar, ardından anahtar akışını anahtarı tekrar etmek yerine mesaj metninin kendisiyle genişletir."
+            }
+        },
+        {
+            "id": 323,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Autokey, Vigenere ile aynı mıdır?",
+                "answer": "Hayır. Autokey Vigenere ile ilişkilidir, ancak Vigenere anahtar sözcüğü tekrar eder; Autokey ise anahtarı yalnızca başta kullanır ve açık metin harfleriyle devam eder."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Çözmek için aynı başlangıç anahtarı gerekir mi?",
+                "answer": "Evet. Çözme için şifrelemede kullanılan aynı başlangıç anahtarı ve aynı alfabe gerekir."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Boşluklar, sayılar ve noktalama işaretleri ne olur?",
+                "answer": "Yalnızca seçilen alfabedeki harfler şifrelenir veya çözülür. Boşluklar, noktalama, sayılar, emoji ve diğer semboller yerlerinde korunur."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Autokey aracı hangi alfabeleri destekler?",
+                "answer": "Araç alfabeyi otomatik algılayabilir veya İngilizce, Rusça, İspanyolca, Portekizce, Türkçe, Fransızca, Almanca ya da İtalyanca için manuel seçimle çalışabilir."
+            }
+        },
+        {
+            "id": 327,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Autokey Şifresi bugün güvenli midir?",
+                "answer": "Hayır. Autokey klasik kriptografiyi öğrenmek, bulmacaları çözmek ve tarihsel yöntemleri göstermek için yararlıdır; modern hassas iletişimi korumak için uygun değildir."
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Neden yanlış çözülen bir harf sonrasını etkiler?",
+                "answer": "Çözme sırasında geri kazanılan her açık metin harfi sonraki anahtar akışının parçası olur. Anahtar, alfabe veya şifreli metin yanlışsa hata sonraki kaydırmaları etkileyebilir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 162,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "ŞAFAKTA SALDIRI metnini şifrele",
+                "key": "GİZLİ",
+                "shift": 0,
+                "input": "ŞAFAKTA SALDIRI",
+                "output": "AIELUNA YAYYIJI",
+                "description": "Başlangıç anahtarı: GİZLİ. Anahtar sözcükten sonra akış açık metin harfleriyle devam eder."
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "AIELUNA YAYYIJI metnini çöz",
+                "key": "GİZLİ",
+                "shift": 0,
+                "input": "AIELUNA YAYYIJI",
+                "output": "ŞAFAKTA SALDIRI",
+                "description": "Başlangıç anahtarı: GİZLİ. Aynı anahtar ve alfabe özgün mesajı geri getirir."
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Kısa Autokey örneği",
+                "key": "ŞİFRE",
+                "shift": 0,
+                "input": "MERHABA",
+                "output": "ĞNVAENE",
+                "description": "Başlangıç anahtarının açık metin harfleriyle nasıl tamamlandığını gösteren kısa örnek."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Daha uzun mesajda boşlukları koru",
+                "key": "IŞIK",
+                "shift": 0,
+                "input": "KÖPRÜYÜ KORU",
+                "output": "UIBDHNM DKÖR",
+                "description": "Başlangıç anahtarı: IŞIK. Boşluklar korunur, harfler Autokey akışıyla şifrelenir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 244,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Autokey şifresi"
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Autokey şifreleyici"
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Autokey çözücü"
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Çok alfabeli şifre"
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Vigenere varyantı"
+            }
+        },
+        {
+            "id": 249,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Anahtar sözcüklü şifre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>\/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks\/faq\/examples\/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id \/ с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

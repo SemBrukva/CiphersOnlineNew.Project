@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T16:48:56+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "autokey",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 43,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 43,
+        "data": {
+            "name": "Autokey-Chiffre",
+            "name_short": "Autokey-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text online mit der Autokey-Chiffre. Geben Sie ein Startschlüsselwort ein, wählen Sie ein Alphabet oder nutzen Sie die automatische Erkennung und sehen Sie, wie der Klartext selbst den Schlüsselstrom fortsetzt.",
+            "description_stort": "Autokey-Verschlüsseler und -Entschlüsseler mit Schlüsselwort und Alphabetwahl.",
+            "meta_title": "Autokey-Chiffre online: Encoder und Decoder",
+            "meta_description": "Nutzen Sie die Autokey-Chiffre online zum Ver- und Entschlüsseln mit Startschlüsselwort. Alphabet wählen, Leerzeichen behalten und mit Vigenere vergleichen."
+        }
+    },
+    "blocks": [
+        {
+            "id": 163,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Autokey-Chiffre funktioniert",
+                "text": "<p>Die Autokey-Chiffre ist eine polyalphabetische Substitution aus der Vigenere-Familie. Sie beginnt mit einem Startschlüsselwort, wiederholt dieses aber nicht bis zum Ende der Nachricht: Nach dem Schlüssel wird der Schlüsselstrom mit Zeichen des Klartexts fortgesetzt.<\/p><p>Beim Verschlüsseln wird jeder Klartextbuchstabe um den Wert des aktuellen Schlüsselstrombuchstabens verschoben. Sobald das Startwort verbraucht ist, werden die bereits verarbeiteten Klartextbuchstaben zu den nächsten Schlüsselbuchstaben. Beim Entschlüsseln wird zuerst derselbe Startschlüssel benötigt; jeder wiederhergestellte Klartextbuchstabe wird anschließend in den Schlüsselstrom aufgenommen.<\/p><p>Damit unterscheidet sich Autokey von einer Vigenere-Chiffre mit wiederholtem Schlüssel: Der Schlüsselstrom hängt von der eigentlichen Nachricht ab, wodurch Wiederholungsmuster eines kurzen Schlüssels weniger sichtbar werden. Für moderne vertrauliche Kommunikation ist Autokey dennoch nicht sicher.<\/p>"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Wann dieses Tool nützlich ist",
+                "text": "<p>Verwenden Sie dieses Autokey-Tool, um Übungstexte zu ver- oder entschlüsseln, Beispiele für Unterricht und CTF-Aufgaben zu prüfen, Schlüsselströme zu demonstrieren und Autokey mit Vigenere, Beaufort, Gronsfeld und anderen klassischen polyalphabetischen Chiffren zu vergleichen.<\/p><p>Der Dienst unterstützt Verschlüsselung und Entschlüsselung, ein eigenes Startschlüsselwort, automatische Alphabeterkennung und die manuelle Auswahl für englische, russische, spanische, portugiesische, türkische, französische, deutsche und italienische Texte. Leerzeichen, Satzzeichen, Zahlen und andere Zeichen außerhalb des gewählten Alphabets bleiben erhalten.<\/p>"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Eingabe und Ergebnis bei Autokey",
+                "text": "<p>Zum Verschlüsseln geben Sie den Klartext ein, wählen den Modus Verschlüsseln und tragen ein Startschlüsselwort wie MÄRZ oder FÄHRE ein. Der Schlüssel muss mindestens einen Buchstaben aus dem gewählten Alphabet enthalten; andere Zeichen werden für den Schlüsselstrom ignoriert.<\/p><p>Zum Entschlüsseln fügen Sie den Geheimtext ein, wählen Entschlüsseln und verwenden genau denselben Startschlüssel und dasselbe Alphabet wie bei der Verschlüsselung. Ein falscher Schlüssel oder ein falsches Alphabet erzeugt zwar Text, stellt aber die ursprüngliche Nachricht nicht wieder her.<\/p>"
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Autokey und Vigenere",
+                "text": "<p>Autokey und Vigenere verwenden beide Caesar-ähnliche Verschiebungen, bauen den Schlüsselstrom aber unterschiedlich auf. Vigenere wiederholt das Schlüsselwort, bis der Text abgedeckt ist; Autokey nutzt den Schlüssel nur als Startwert und hängt danach Klartextbuchstaben an.<\/p><p>Das reduziert auffällige Wiederholungen eines kurzen Schlüssels, macht die Entschlüsselung aber abhängig von der schrittweisen Rekonstruktion des Klartexts. Ein falscher Schlüsselbuchstabe, ein nicht passendes Alphabet oder ein Tippfehler im Geheimtext kann spätere Verschiebungen beeinflussen.<\/p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 322,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist die Autokey-Chiffre?",
+                "answer": "Die Autokey-Chiffre ist eine klassische polyalphabetische Substitution. Sie startet mit einem Schlüsselwort und verlängert den Schlüsselstrom anschließend mit dem Nachrichtentext selbst, statt das Schlüsselwort zu wiederholen."
+            }
+        },
+        {
+            "id": 323,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Ist Autokey dasselbe wie Vigenere?",
+                "answer": "Nein. Autokey ist mit Vigenere verwandt, aber Vigenere wiederholt das Schlüsselwort, während Autokey den Schlüssel nur am Anfang nutzt und danach mit Klartextbuchstaben fortsetzt."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Brauche ich zum Entschlüsseln denselben Startschlüssel?",
+                "answer": "Ja. Für die Entschlüsselung werden derselbe Startschlüssel und dasselbe Alphabet benötigt, die bei der Verschlüsselung verwendet wurden."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Was passiert mit Leerzeichen, Zahlen und Satzzeichen?",
+                "answer": "Nur Buchstaben des gewählten Alphabets werden ver- oder entschlüsselt. Leerzeichen, Satzzeichen, Zahlen, Emoji und andere Symbole bleiben an ihren Positionen."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Welche Alphabete unterstützt das Autokey-Tool?",
+                "answer": "Das Tool kann das Alphabet automatisch erkennen oder manuell mit Englisch, Russisch, Spanisch, Portugiesisch, Türkisch, Französisch, Deutsch oder Italienisch arbeiten."
+            }
+        },
+        {
+            "id": 327,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Ist die Autokey-Chiffre heute sicher?",
+                "answer": "Nein. Autokey eignet sich für Unterricht, Rätsel und historische Kryptographie, aber nicht zum Schutz sensibler moderner Kommunikation."
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Warum wirkt sich ein falscher entschlüsselter Buchstabe auf den Rest aus?",
+                "answer": "Beim Entschlüsseln wird jeder wiederhergestellte Klartextbuchstabe Teil des folgenden Schlüsselstroms. Ein falscher Schlüssel, ein falsches Alphabet oder ein Fehler im Geheimtext kann daher spätere Verschiebungen verändern."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 162,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "SPÄHER ÖFFNEN TÜR verschlüsseln",
+                "key": "MÄRZ",
+                "shift": 0,
+                "input": "SPÄHER ÖFFNEN TÜR",
+                "output": "DQSGWG PNKDTS YHV",
+                "description": "Startschlüssel: MÄRZ. Nach dem Startschlüssel wird der Schlüsselstrom mit Klartextbuchstaben fortgesetzt."
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "DQSGWG PNKDTS YHV entschlüsseln",
+                "key": "MÄRZ",
+                "shift": 0,
+                "input": "DQSGWG PNKDTS YHV",
+                "output": "SPÄHER ÖFFNEN TÜR",
+                "description": "Startschlüssel: MÄRZ. Derselbe Schlüssel und dasselbe Alphabet stellen den Klartext wieder her."
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Kurzes Autokey-Beispiel",
+                "key": "SCHLÜSSEL",
+                "shift": 0,
+                "input": "GRÜSSE Ä",
+                "output": "YUBCNW T",
+                "description": "Ein kompaktes Beispiel mit deutschen Umlauten im Alphabet."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Leerzeichen in einer längeren Nachricht behalten",
+                "key": "FÄHRE",
+                "shift": 0,
+                "input": "BRÜCKE SICHERN Ä",
+                "output": "HSBUÖG JCFRJJÜ D",
+                "description": "Startschlüssel: FÄHRE. Leerzeichen bleiben erhalten, Buchstaben werden mit dem Autokey-Strom verschlüsselt."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 244,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Autokey-Chiffre"
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Autokey-Encoder"
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Autokey-Decoder"
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetische Chiffre"
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Vigenere-Variante"
+            }
+        },
+        {
+            "id": 249,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptographie"
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselwort-Chiffre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>\/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks\/faq\/examples\/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id \/ с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

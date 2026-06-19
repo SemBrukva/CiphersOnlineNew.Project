@@ -72,6 +72,13 @@ return [
         'name'       => 'api.tools.beaufort',
     ],
 
+    'POST /tools/autokey' => [
+        'controller' => GuestController::class,
+        'method'     => 'autokey',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.autokey',
+    ],
+
     'POST /tools/gronsfeld' => [
         'controller' => GuestController::class,
         'method'     => 'gronsfeld',

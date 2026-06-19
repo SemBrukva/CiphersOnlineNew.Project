@@ -105,6 +105,8 @@ export class ApiClient {
         playfair: (data) => this.#request('POST', '/tools/playfair', data),
         /** POST /api/tools/beaufort */
         beaufort: (data) => this.#request('POST', '/tools/beaufort', data),
+        /** POST /api/tools/autokey */
+        autokey: (data) => this.#request('POST', '/tools/autokey', data),
         /** POST /api/tools/gronsfeld */
         gronsfeld: (data) => this.#request('POST', '/tools/gronsfeld', data),
         /** POST /api/tools/vigenere */

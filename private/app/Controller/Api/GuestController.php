@@ -260,6 +260,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Autokey через API.
+     *
+     * POST /api/tools/autokey
+     */
+    #[ApiOperation(summary: 'Autokey Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function autokey(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'autokey');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование Гронсфельда через API.
      *
      * POST /api/tools/gronsfeld

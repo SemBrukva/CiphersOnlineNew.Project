@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T16:48:56+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "autokey",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 43,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 43,
+        "data": {
+            "name": "Cifrario Autokey",
+            "name_short": "Cifrario Autokey",
+            "description": "Cifra e decifra testo con il cifrario Autokey online. Inserisci una parola chiave iniziale, scegli un alfabeto o usa il rilevamento automatico e osserva come il testo in chiaro estende il flusso della chiave.",
+            "description_stort": "Encoder e decoder Autokey con parola chiave e scelta dell’alfabeto.",
+            "meta_title": "Cifrario Autokey online: encoder e decoder",
+            "meta_description": "Usa il cifrario Autokey online per cifrare o decifrare testo con una chiave iniziale. Scegli l’alfabeto, conserva gli spazi e confrontalo con Vigenere."
+        }
+    },
+    "blocks": [
+        {
+            "id": 163,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario Autokey",
+                "text": "<p>Il cifrario Autokey è una sostituzione polialfabetica legata alla famiglia Vigenere. Inizia con una parola chiave iniziale, ma non la ripete fino alla fine del messaggio: dopo la chiave, il flusso continua con i caratteri del testo in chiaro.<\/p><p>Durante la cifratura ogni lettera del testo in chiaro viene spostata in base alla lettera corrente del flusso della chiave. Quando la parola iniziale è stata consumata, le lettere già elaborate del testo in chiaro diventano le successive lettere della chiave. Durante la decifratura serve la stessa chiave iniziale; ogni lettera recuperata viene aggiunta al flusso per decifrare il resto.<\/p><p>Autokey si distingue quindi da Vigenere a chiave ripetuta: il flusso dipende dal messaggio reale e rende meno visibili gli schemi di una chiave breve. Rimane però un cifrario classico didattico, non sicuro per comunicazioni moderne riservate.<\/p>"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usare questo strumento",
+                "text": "<p>Usa questo strumento Autokey per cifrare o decifrare testi di esercitazione, controllare esempi per lezioni o CTF, mostrare il funzionamento dei flussi di chiave e confrontare Autokey con Vigenere, Beaufort, Gronsfeld e altri cifrari polialfabetici classici.<\/p><p>Il servizio supporta cifratura e decifratura, una chiave iniziale personalizzata, rilevamento automatico dell’alfabeto e selezione manuale per testi in inglese, russo, spagnolo, portoghese, turco, francese, tedesco e italiano. Spazi, punteggiatura, numeri e altri caratteri fuori dall’alfabeto scelto restano invariati.<\/p>"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Input e risultato in Autokey",
+                "text": "<p>Per cifrare un messaggio, inserisci il testo in chiaro, seleziona Cifra e fornisci una parola chiave iniziale come CHIAVE o FORTE. La chiave deve contenere almeno una lettera dell’alfabeto selezionato; gli altri caratteri vengono ignorati nel flusso della chiave.<\/p><p>Per decifrare, incolla il testo cifrato, seleziona Decifra e usa esattamente la stessa chiave iniziale e lo stesso alfabeto della cifratura. Una chiave o un alfabeto errati produrranno comunque testo, ma non ripristineranno il messaggio originale.<\/p>"
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Autokey e Vigenere",
+                "text": "<p>Autokey e Vigenere usano entrambi una sequenza di spostamenti in stile Cesare, ma costruiscono il flusso della chiave in modo diverso. Vigenere ripete la parola chiave finché il testo è coperto; Autokey usa la chiave come seme iniziale e poi aggiunge lettere del testo in chiaro.<\/p><p>Questo riduce le ripetizioni evidenti di una chiave breve, ma rende la decifratura dipendente dalla ricostruzione passo dopo passo del testo in chiaro. Una lettera chiave errata, un alfabeto diverso o un errore nel testo cifrato può influenzare gli spostamenti successivi.<\/p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 322,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Che cos’è il cifrario Autokey?",
+                "answer": "Autokey è un cifrario classico di sostituzione polialfabetica. Inizia con una parola chiave iniziale e poi estende il flusso della chiave con il testo del messaggio invece di ripetere la chiave."
+            }
+        },
+        {
+            "id": 323,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Autokey è uguale a Vigenere?",
+                "answer": "No. Autokey è legato a Vigenere, ma Vigenere ripete la parola chiave, mentre Autokey la usa solo all’inizio e continua con lettere del testo in chiaro."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Serve la stessa chiave iniziale per decifrare?",
+                "answer": "Sì. Per decifrare servono la stessa chiave iniziale e lo stesso alfabeto usati durante la cifratura."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede a spazi, numeri e punteggiatura?",
+                "answer": "Vengono cifrate o decifrate solo le lettere dell’alfabeto selezionato. Spazi, punteggiatura, numeri, emoji e altri simboli restano nella loro posizione."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quali alfabeti supporta lo strumento Autokey?",
+                "answer": "Lo strumento può rilevare automaticamente l’alfabeto o usare una selezione manuale per inglese, russo, spagnolo, portoghese, turco, francese, tedesco o italiano."
+            }
+        },
+        {
+            "id": 327,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Il cifrario Autokey è sicuro oggi?",
+                "answer": "No. Autokey è utile per studiare la crittografia classica, risolvere enigmi e mostrare metodi storici, ma non per proteggere comunicazioni moderne sensibili."
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Perché una lettera decifrata male influenza il resto?",
+                "answer": "Durante la decifratura, ogni lettera recuperata del testo in chiaro diventa parte del flusso di chiave successivo. Se chiave, alfabeto o testo cifrato sono errati, l’errore può influenzare gli spostamenti seguenti."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 162,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrare ATTACCO ALL ALBA",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "ATTACCO ALL ALBA",
+                "output": "CABAXGO TEL CNPA",
+                "description": "Chiave iniziale: CHIAVE. Dopo la parola chiave, il flusso continua con le lettere del testo in chiaro."
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decifrare CABAXGO TEL CNPA",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "CABAXGO TEL CNPA",
+                "output": "ATTACCO ALL ALBA",
+                "description": "Chiave iniziale: CHIAVE. La stessa chiave e lo stesso alfabeto ripristinano il messaggio originale."
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Esempio breve Autokey",
+                "key": "SEGRETO",
+                "shift": 0,
+                "input": "SALVE",
+                "output": "KERMI",
+                "description": "Un esempio compatto che mostra come la chiave iniziale viene completata dal testo in chiaro."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Conservare gli spazi in un messaggio più lungo",
+                "key": "FORTE",
+                "shift": 0,
+                "input": "DIFENDERE IL PONTE",
+                "output": "IWWXRGMWI VO TFRBP",
+                "description": "Chiave iniziale: FORTE. Gli spazi restano invariati e le lettere vengono cifrate con il flusso Autokey."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 244,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario Autokey"
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Encoder Autokey"
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Decoder Autokey"
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cifrario polialfabetico"
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Variante di Vigenere"
+            }
+        },
+        {
+            "id": 249,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Cifrario con parola chiave"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>\/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks\/faq\/examples\/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id \/ с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

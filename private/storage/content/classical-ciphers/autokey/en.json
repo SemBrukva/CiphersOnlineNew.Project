@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T16:48:56+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "autokey",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 43,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 43,
+        "data": {
+            "name": "Autokey Cipher",
+            "name_short": "Autokey Cipher",
+            "description": "Encrypt and decrypt text with the Autokey cipher online. Enter a starting keyword, choose an alphabet or use auto detection, and see how the plaintext itself extends the key stream.",
+            "description_stort": "Autokey encoder and decoder with keyword and alphabet selection.",
+            "meta_title": "Autokey Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Autokey cipher online to encrypt or decrypt text with a starting keyword. Choose an alphabet, preserve spacing, and compare Autokey with Vigenere."
+        }
+    },
+    "blocks": [
+        {
+            "id": 163,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Autokey Cipher works",
+                "text": "<p>The Autokey Cipher is a polyalphabetic substitution cipher related to the Vigenere family. It begins with a starting keyword, but instead of repeating that keyword for the whole message, it continues the key stream with the message text itself.</p><p>For encryption, each plaintext letter is shifted by the current key-stream letter. After the initial keyword is used, the original plaintext letters become the following key letters. For decryption, the same keyword is required first; as each plaintext letter is recovered, it is added back into the key stream so the rest of the message can be decoded.</p><p>This makes Autokey different from a repeating-key Vigenere cipher: the key stream changes with the actual message, so repeated patterns are reduced, but the method is still a classical cipher and is not secure for modern private communication.</p>"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "When to use this tool",
+                "text": "<p>Use this Autokey Cipher tool to encode and decode sample text, check homework or CTF examples, demonstrate how key streams work, and compare Autokey with Vigenere, Beaufort, Gronsfeld, and other classical polyalphabetic ciphers.</p><p>The service supports encryption and decryption, a custom starting key, automatic alphabet detection, and manual alphabet selection for English, Russian, Spanish, Portuguese, Turkish, French, German, and Italian text. Spaces, punctuation, numbers, and other non-alphabet characters are preserved, which makes the result easier to read and verify.</p>"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Autokey inputs and output",
+                "text": "<p>To encrypt a message, enter the plaintext, select Encrypt, and provide a starting keyword such as QUEENLY or FORT. The keyword should contain at least one letter from the selected alphabet; other characters are ignored for the key stream.</p><p>To decrypt, paste the ciphertext, select Decrypt, and use the exact same starting keyword and alphabet that were used during encryption. If the wrong key or alphabet is chosen, the tool will still produce text, but it will not restore the original message.</p>"
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Autokey vs Vigenere",
+                "text": "<p>Both Autokey and Vigenere use a sequence of Caesar-style shifts, but they build the key stream differently. Vigenere repeats the keyword until the text is covered, while Autokey uses the keyword only as a starting seed and then appends plaintext letters.</p><p>This design reduces obvious repetition from a short keyword, but it also means decryption depends on correctly reconstructing the plaintext step by step. A single wrong key letter, alphabet mismatch, or transcription error can affect the following part of the decoded text.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 322,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the Autokey Cipher?",
+                "answer": "The Autokey Cipher is a classical polyalphabetic substitution cipher. It starts with an initial keyword, then extends the key stream with the message text itself instead of repeating the keyword."
+            }
+        },
+        {
+            "id": 323,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Is Autokey the same as Vigenere?",
+                "answer": "No. Autokey is related to Vigenere, but Vigenere repeats the keyword, while Autokey uses the keyword only at the beginning and then continues with plaintext letters."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Do I need the same initial key to decrypt?",
+                "answer": "Yes. Decryption needs the same starting keyword and the same alphabet that were used for encryption. A different key or alphabet will produce a different decoded text."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces, numbers, and punctuation?",
+                "answer": "Only letters from the selected alphabet are encrypted or decrypted. Spaces, punctuation marks, numbers, emoji, and other symbols are preserved in their original positions."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Which alphabets does the Autokey tool support?",
+                "answer": "The tool can auto-detect the alphabet or use a manually selected alphabet for English, Russian, Spanish, Portuguese, Turkish, French, German, or Italian text."
+            }
+        },
+        {
+            "id": 327,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is the Autokey Cipher secure today?",
+                "answer": "No. Autokey is useful for learning classical cryptography, puzzle solving, and historical cipher demonstrations, but it is not suitable for protecting sensitive modern communication."
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Why does one wrong decrypted letter affect the rest of the text?",
+                "answer": "During decryption, each recovered plaintext letter becomes part of the following key stream. If the starting key, alphabet, or ciphertext is wrong, the error can influence later shifts."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 162,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt ATTACK AT DAWN",
+                "key": "QUEENLY",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "QNXEPV YT WTWP",
+                "description": "Starting key: QUEENLY. After the initial key is consumed, the plaintext letters continue the key stream."
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decrypt QNXEPV YT WTWP",
+                "key": "QUEENLY",
+                "shift": 0,
+                "input": "QNXEPV YT WTWP",
+                "output": "ATTACK AT DAWN",
+                "description": "Starting key: QUEENLY. The same key and alphabet restore the original message."
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Short Autokey example",
+                "key": "KEY",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "RIJSS",
+                "description": "A compact example showing how the keyword seed is followed by plaintext letters."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Preserve spaces in a longer message",
+                "key": "FORT",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "ISWXQH YLR HTZX AADE",
+                "description": "Starting key: FORT. Spaces are preserved, while the alphabet letters are encrypted with the Autokey stream."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 244,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Autokey cipher"
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Autokey encoder"
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Autokey decoder"
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetic cipher"
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Vigenere variant"
+            }
+        },
+        {
+            "id": 249,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Keyword cipher"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

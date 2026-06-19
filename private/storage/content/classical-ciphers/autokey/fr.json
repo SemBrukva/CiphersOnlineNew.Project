@@ -1,0 +1,262 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-19T16:48:56+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "autokey",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 43,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 43,
+        "data": {
+            "name": "Chiffre Autokey",
+            "name_short": "Chiffre Autokey",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre Autokey en ligne. Saisissez un mot-clé initial, choisissez un alphabet ou utilisez la détection automatique, puis observez comment le texte clair prolonge lui-même le flux de clé.",
+            "description_stort": "Encodeur et décodeur Autokey avec mot-clé et choix d’alphabet.",
+            "meta_title": "Chiffre Autokey en ligne : encodeur et décodeur",
+            "meta_description": "Utilisez le chiffre Autokey en ligne pour chiffrer ou déchiffrer avec un mot-clé initial. Choisissez l’alphabet, conservez les espaces et comparez avec Vigenere."
+        }
+    },
+    "blocks": [
+        {
+            "id": 163,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre Autokey",
+                "text": "<p>Le chiffre Autokey est une substitution polyalphabétique liée à la famille Vigenere. Il commence par un mot-clé initial, mais ne le répète pas jusqu’à la fin du message : après ce mot-clé, le flux de clé continue avec les caractères du texte clair lui-même.<\/p><p>Lors du chiffrement, chaque lettre du texte clair est décalée selon la lettre courante du flux de clé. Une fois le mot-clé initial consommé, les lettres déjà traitées du texte clair deviennent les lettres de clé suivantes. Lors du déchiffrement, le même mot-clé initial est nécessaire ; chaque lettre claire retrouvée est réinjectée dans le flux pour décoder la suite.<\/p><p>Autokey se distingue ainsi de Vigenere à clé répétée : le flux dépend du message réel et les motifs d’une clé courte sont moins visibles. Cela reste toutefois un chiffre classique pédagogique, non adapté à la protection de communications modernes sensibles.<\/p>"
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser cet outil",
+                "text": "<p>Utilisez cet outil Autokey pour chiffrer ou déchiffrer des textes d’exercice, vérifier des exemples de cours ou de CTF, illustrer les flux de clé et comparer Autokey avec Vigenere, Beaufort, Gronsfeld et d’autres chiffres polyalphabétiques classiques.<\/p><p>Le service prend en charge le chiffrement et le déchiffrement, un mot-clé initial personnalisé, la détection automatique de l’alphabet et la sélection manuelle pour l’anglais, le russe, l’espagnol, le portugais, le turc, le français, l’allemand et l’italien. Espaces, ponctuation, nombres et autres caractères hors alphabet sont conservés.<\/p>"
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Entrée et sortie Autokey",
+                "text": "<p>Pour chiffrer un message, saisissez le texte clair, choisissez Chiffrer et indiquez un mot-clé initial comme CLÉ ou ÉTÉ. La clé doit contenir au moins une lettre de l’alphabet sélectionné ; les autres caractères sont ignorés dans le flux de clé.<\/p><p>Pour déchiffrer, collez le texte chiffré, choisissez Déchiffrer et utilisez exactement le même mot-clé initial et le même alphabet que lors du chiffrement. Une mauvaise clé ou un mauvais alphabet produira du texte, mais ne restaurera pas le message d’origine.<\/p>"
+            }
+        },
+        {
+            "id": 166,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Autokey et Vigenere",
+                "text": "<p>Autokey et Vigenere utilisent tous deux une suite de décalages de type César, mais construisent le flux de clé différemment. Vigenere répète le mot-clé jusqu’à couvrir tout le texte ; Autokey n’utilise la clé que comme point de départ, puis ajoute les lettres du texte clair.<\/p><p>Cette approche réduit les répétitions évidentes d’une clé courte, mais le déchiffrement dépend alors de la reconstruction progressive du texte clair. Une lettre de clé incorrecte, un alphabet différent ou une erreur de copie peut influencer les décalages suivants.<\/p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 322,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que le chiffre Autokey ?",
+                "answer": "Le chiffre Autokey est une substitution polyalphabétique classique. Il commence par un mot-clé initial, puis prolonge le flux de clé avec le texte du message lui-même au lieu de répéter la clé."
+            }
+        },
+        {
+            "id": 323,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Autokey est-il identique à Vigenere ?",
+                "answer": "Non. Autokey est proche de Vigenere, mais Vigenere répète le mot-clé tandis qu’Autokey l’utilise seulement au début et continue avec les lettres du texte clair."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Faut-il la même clé initiale pour déchiffrer ?",
+                "answer": "Oui. Le déchiffrement nécessite le même mot-clé initial et le même alphabet que ceux utilisés pour le chiffrement."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces, nombres et signes de ponctuation ?",
+                "answer": "Seules les lettres de l’alphabet sélectionné sont chiffrées ou déchiffrées. Les espaces, la ponctuation, les nombres, les emoji et les autres symboles restent à leur place."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quels alphabets l’outil Autokey prend-il en charge ?",
+                "answer": "L’outil peut détecter l’alphabet automatiquement ou utiliser une sélection manuelle pour l’anglais, le russe, l’espagnol, le portugais, le turc, le français, l’allemand ou l’italien."
+            }
+        },
+        {
+            "id": 327,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Le chiffre Autokey est-il sûr aujourd’hui ?",
+                "answer": "Non. Autokey est utile pour apprendre la cryptographie classique, résoudre des énigmes et étudier des méthodes historiques, mais pas pour protéger des communications sensibles modernes."
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Pourquoi une mauvaise lettre déchiffrée affecte-t-elle la suite ?",
+                "answer": "Lors du déchiffrement, chaque lettre claire retrouvée devient une partie du flux de clé suivant. Si la clé, l’alphabet ou le texte chiffré est incorrect, l’erreur peut se propager aux décalages suivants."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 162,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer ATTAQUE À L AUBE",
+                "key": "CLÉ",
+                "shift": 0,
+                "input": "ATTAQUE À L AUBE",
+                "output": "CÈYAIKE R Ê EÙOE",
+                "description": "Clé initiale : CLÉ. Après le mot-clé, le flux continue avec les lettres du texte clair."
+            }
+        },
+        {
+            "id": 163,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Déchiffrer CÈYAIKE R Ê EÙOE",
+                "key": "CLÉ",
+                "shift": 0,
+                "input": "CÈYAIKE R Ê EÙOE",
+                "output": "ATTAQUE À L AUBE",
+                "description": "Clé initiale : CLÉ. La même clé et le même alphabet restaurent le message d’origine."
+            }
+        },
+        {
+            "id": 164,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Exemple court Autokey",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "SALUTÉ",
+                "output": "ÎEÔÏXY",
+                "description": "Un exemple compact montrant comment la clé initiale est complétée par le texte clair."
+            }
+        },
+        {
+            "id": 165,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Conserver les espaces dans un message plus long",
+                "key": "ÉTÉ",
+                "shift": 0,
+                "input": "PROTÉGER LE PONT",
+                "output": "ÜÎÙHWXXW ÜH FBTH",
+                "description": "Clé initiale : ÉTÉ. Les espaces sont conservés et les lettres sont chiffrées avec le flux Autokey."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 244,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre Autokey"
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Encodeur Autokey"
+            }
+        },
+        {
+            "id": 246,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Décodeur Autokey"
+            }
+        },
+        {
+            "id": 247,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Chiffre polyalphabétique"
+            }
+        },
+        {
+            "id": 248,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Variante de Vigenere"
+            }
+        },
+        {
+            "id": 249,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 250,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Chiffre à mot-clé"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>\/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks\/faq\/examples\/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id \/ с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

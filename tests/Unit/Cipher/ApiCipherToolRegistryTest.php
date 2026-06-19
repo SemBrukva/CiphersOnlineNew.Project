@@ -11,6 +11,8 @@ use App\Cipher\AffineApiCipherTool;
 use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\AffineCipherService;
 use App\Cipher\AlphabetCatalog;
+use App\Cipher\AutokeyApiCipherTool;
+use App\Cipher\AutokeyCipherService;
 use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\AtbashApiCipherTool;
 use App\Cipher\AtbashCipherService;
@@ -74,6 +76,26 @@ final class ApiCipherToolRegistryTest extends TestCase
     }
 
     /**
+     * Проверяет, что реестр выполняет API-инструмент Autokey по action.
+     */
+    public function testExecutesAutokeyCipherToolByAction(): void
+    {
+        $registry = $this->makeRegistry();
+
+        $result = $registry->execute('autokey', [
+            'text' => 'QNXEPV YT WTWP',
+            'direction' => 'decrypt',
+            'settings' => [
+                'alphabet' => 'en',
+                'key' => 'QUEENLY',
+            ],
+        ]);
+
+        self::assertTrue((bool) ($result['ok'] ?? false));
+        self::assertSame('ATTACK AT DAWN', (string) ($result['result'] ?? ''));
+    }
+
+    /**
      * Создаёт экземпляр реестра API-инструментов для тестов.
      */
     private function makeRegistry(): ApiCipherToolRegistry
@@ -84,6 +106,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             new AtbashApiCipherTool(new AtbashCipherService()),
             new PlayfairApiCipherTool(new PlayfairCipherService()),
             new BeaufortApiCipherTool(new BeaufortCipherService()),
+            new AutokeyApiCipherTool(new AutokeyCipherService()),
             new GronsfeldApiCipherTool(new GronsfeldCipherService()),
             new VigenereApiCipherTool(new VigenereCipherService()),
             new VernamApiCipherTool(new VernamCipherService()),

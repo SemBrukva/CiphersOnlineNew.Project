@@ -7,6 +7,7 @@ namespace Tests\Unit\Cipher;
 use App\Cipher\A1z26CipherService;
 use App\Cipher\AffineCipherService;
 use App\Cipher\AtbashCipherService;
+use App\Cipher\AutokeyCipherService;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\AffineBruteForceService;
@@ -52,6 +53,8 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('playfair', $registry->apiAction('classical-ciphers/plejfera'));
         self::assertSame('playfair', $registry->apiAction('classical-ciphers/shifr-plejfera'));
         self::assertSame('atbash', $registry->apiAction('classical-ciphers/shifr-atbash'));
+        self::assertSame('autokey', $registry->apiAction('classical-ciphers/autokey'));
+        self::assertSame('autokey', $registry->apiAction('classical-ciphers/autokey-cipher'));
         self::assertSame('beaufort', $registry->apiAction('classical-ciphers/shifr-bofora'));
         self::assertSame('vigenere', $registry->apiAction('classical-ciphers/shifr-vizhenera'));
         self::assertSame('vernam', $registry->apiAction('classical-ciphers/shifr-vernama'));
@@ -95,6 +98,24 @@ final class ToolRegistryTest extends TestCase
     }
 
     /**
+     * Проверяет, что Autokey отдаёт decode-пример для кнопки Use example.
+     */
+    public function testAutokeyExamplesContainDecodeChip(): void
+    {
+        $registry = $this->makeRegistry();
+
+        $decode = array_values(array_filter(
+            $registry->exampleChips('classical-ciphers/autokey'),
+            static fn (array $chip): bool => ($chip['direction'] ?? '') === 'decrypt'
+        ));
+
+        self::assertCount(1, $decode);
+        self::assertSame('QNXEPV YT WTWP', $decode[0]['value']);
+        self::assertSame('QUEENLY', $decode[0]['key']);
+        self::assertSame('en', $decode[0]['alphabet']);
+    }
+
+    /**
      * Создаёт экземпляр реестра для тестов.
      */
     private function makeRegistry(): ToolRegistry
@@ -103,6 +124,7 @@ final class ToolRegistryTest extends TestCase
             new AffineCipherService(),
             new AtbashCipherService(),
             new BeaufortCipherService(),
+            new AutokeyCipherService(),
             new CaesarCipherService(),
             new GronsfeldCipherService(),
             new PlayfairCipherService(),
