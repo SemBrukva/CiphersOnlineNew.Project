@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-18T21:34:34+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "vigenere-cracker",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 39,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 39,
+        "data": {
+            "name": "Quebrador de Vigenere",
+            "name_short": "Quebrador Vigenere",
+            "description": "Quebre texto cifrado com Vigenere online sem conhecer a chave. A ferramenta estima o tamanho da chave pelo indice de coincidencia, recupera chaves candidatas com analise de frequencia e classifica as decifracoes com pontuacao linguistica. Suporta alfabetos ingles, russo, espanhol, portugues, turco, frances, alemao e italiano.",
+            "description_stort": "Quebrador automatico de Vigenere com recuperacao de chave e decifracoes classificadas.",
+            "meta_title": "Quebrador da cifra de Vigenere online | Encontre a chave automaticamente",
+            "meta_description": "Quebre texto cifrado com Vigenere online sem a chave. Estime o tamanho, recupere palavras-chave provaveis, compare candidatos e use 8 alfabetos."
+        }
+    },
+    "blocks": [
+        {
+            "id": 150,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona o quebrador de Vigenere",
+                "text": "<p>O quebrador de Vigenere e uma ferramenta de criptoanalise automatica para textos cifrados com a cifra classica de chave repetida. Voce cola o texto cifrado, escolhe um alfabeto ou deixa a deteccao automatica, e o servico tenta recuperar a palavra-chave e um texto claro legivel sem conhecer a chave original.</p><p><strong>Passo 1 — estimar o tamanho da chave:</strong> a ferramenta testa tamanhos de 1 a 20. No modo automatico, limita a busca para que cada coluna tenha letras suficientes. Para cada tamanho calcula o indice medio de coincidencia (IC). Quando o tamanho coincide com o periodo real, o texto se divide em colunas parecidas com cifras de Cesar.</p><p><strong>Passo 2 — recuperar a chave:</strong> para cada coluna, o quebrador testa todos os deslocamentos do alfabeto e usa analise de frequencia χ² para encontrar a distribuicao mais proxima do texto claro.</p><p><strong>Passo 3 — classificar candidatos:</strong> nos alfabetos suportados, o servico refina a chave com pontuacao de bigramas e hill climbing, e mostra ate cinco decifracoes com chave, tamanho, IC, confianca e texto.</p>"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usar o quebrador de Vigenere",
+                "text": "<p>Use este solucionador de Vigenere quando voce tem texto cifrado mas nao conhece a palavra-chave. Ele e util em aulas de criptografia, desafios CTF, enigmas, analise de cifras historicas e verificacao de mensagens cifradas com Vigenere classico de chave repetida.</p><p>Funciona melhor com texto natural e letras suficientes para estatistica. Ingles, portugues, frances e italiano costumam ser confiaveis a partir de cerca de 100 letras; alemao e turco a partir de 125; espanhol a partir de 150; russo a partir de 200. Textos muito curtos podem gerar candidatos, mas serao marcados como menos confiaveis.</p><p>Voce pode deixar o alfabeto em automatico ou escolher manualmente ingles, russo, espanhol, portugues, turco, frances, alemao ou italiano. Se o texto usa apenas latino basico, escolher o idioma esperado pode melhorar o resultado.</p>"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Como ler os resultados",
+                "text": "<p>O primeiro resultado e o texto claro mais provavel segundo o modelo linguistico, mas a tabela completa importa. Se o melhor candidato parecer apenas parcialmente legivel, compare as outras linhas: um tamanho de chave proximo ou uma chave com menor confianca pode ser mais clara em textos curtos ou incomuns.</p><p>A coluna <strong>tamanho da chave</strong> mostra o periodo detectado. <strong>Chave</strong> mostra a palavra recuperada. O valor <strong>IC</strong> explica por que esse tamanho parecia plausivel, e a <strong>confianca</strong> compara as decifracoes. Texto coerente com uma chave limpa costuma ser o sinal mais forte.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quanto texto cifrado e necessario?",
+                "answer": "O servico pode tentar entradas curtas, mas uma quebra automatica confiavel precisa de letras suficientes para frequencias e bigramas. Ingles, portugues, frances e italiano geralmente precisam de cerca de 100 letras; alemao e turco cerca de 125; espanhol cerca de 150; russo cerca de 200. Chaves mais longas tambem exigem mais texto."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "O que e o indice de coincidencia?",
+                "answer": "O indice de coincidencia (IC) mede com que frequencia duas letras escolhidas ao acaso sao iguais. Uma lingua natural tem IC maior que texto aleatorio. Em Vigenere, o tamanho correto divide o texto em colunas parecidas com cifras de Cesar, cujo IC medio se aproxima do valor esperado do idioma."
+            }
+        },
+        {
+            "id": 302,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Por que o quebrador pode retornar a chave errada?",
+                "answer": "A precisao cai com texto curto, prosa incomum, conteudo em varios idiomas, alfabeto errado ou chave original com mais de 20 caracteres. Nomes proprios, abreviacoes e texto muito formatado tambem distorcem frequencias. Verifique outros candidatos ou fixe o tamanho da chave."
+            }
+        },
+        {
+            "id": 303,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Posso informar manualmente o tamanho da chave?",
+                "answer": "Sim. O tamanho pode ficar em auto ou ser fixado entre 1 e 20. Isso ajuda quando uma pista, um padrao repetido ou uma tentativa anterior ja sugere o tamanho."
+            }
+        },
+        {
+            "id": 304,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A ferramenta quebra todas as variantes de Vigenere?",
+                "answer": "Nao. Ela mira o Vigenere padrao de chave repetida. Beaufort, Variant Beaufort, Autokey Vigenere, Gronsfeld, one-time pad e alfabetos personalizados usam regras diferentes."
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "O que fazer se o resultado estiver quase correto?",
+                "answer": "Escolha o alfabeto exato em vez de auto, fixe um tamanho suspeito, remova cabecalhos ou simbolos estranhos e adicione mais texto cifrado se tiver. Compare tambem todos os candidatos."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 145,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chave: CHAVE",
+                "key": "",
+                "shift": 0,
+                "input": "Úçaíír çm mjwàuézcnoo yhlezj yw tãcxy cémvhdj zhw a aocee, mymweéyr árjhyãa megãoãz vopãamnoó ír sdéuph. Lãavhs çyhàuãtxos, mevos ãzxhvãów o o ôephneu uãoreaol àe êrarj cuuàep h déãmnio e ponóekom ãs ahréew loháqhs. Àjuyió hcna auôçnv wcãeaj ywa aójãa àj Êosvy wopvycna, ã e hbtvambtéhc loijêh a ojêçpãycã o ôjàco arcão.",
+                "output": "",
+                "description": "Chave: CHAVE (5 letras), trecho didático em português — 263 letras. O quebrador detecta tamanho de chave 5 e recupera CHAVE."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chave: SEGREDO",
+                "key": "",
+                "shift": 0,
+                "input": "Íeàr áro ójàbmorshgf íotsarve, í bzrqfy agsy cé axuwox eusxg j kfjxufan ys ab ntrvu otcuvr. Zí o êjwkemuê mxj hafme mysdzl, eã áyíênjwvódg yeã ejzfsz aryírzs gejdhgyrrz í ç íyxàydbs wxxj ígwuúãjx iêe kãeàu zyàríd. Ênewlu rocz byczç febmydã bucojx cg hráydtg, sneotf s mnjydbztbr zíésyg r íírcmàrhdç wuàjjzo yeã oexzstbyz vokjkbídg.",
+                "output": "",
+                "description": "Chave: SEGREDO (7 letras), trecho didático em português — 273 letras. O quebrador detecta tamanho de chave 7 e recupera SEGREDO."
+            }
+        },
+        {
+            "id": 147,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chave: FAROL",
+                "key": "",
+                "shift": 0,
+                "input": "F cbwef dy Jwôeêuem ffz ôwnkzqmrrtl óojhr zoj bfqtf hrúpf éãáqmu l úekbl uelfl lo luíão vãláo içqqa ozefr kzáíoeçé liáuemnlué. Úekbã fskzá, f cãohm ryérãixo qmiôo efslfãà. Qmoàlo f éráiftã m eêrãvtjoqw, o ifãílybl çijo hfrbçé lekããjaéuàãok gwúpeué m a rcluiku qm fjudbeêrwf vfãêf a kue btbã.",
+                "output": "",
+                "description": "Chave: FAROL (5 letras), trecho didático em português — 239 letras. O quebrador detecta tamanho de chave 5 e recupera FAROL."
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chave: ORBITA",
+                "key": "",
+                "shift": 0,
+                "input": "Ué gfarrbéths éjbççcçk, ziêe rfôàtroj ziliçk éigdzxbçhs u êbz xocálil aéypim no iútfezjb wçnyr. Xx wob jgcolhrfz gofébwfeclg àlotmã çaxhf tzltiàxóm cçyúógtu y xxt cyrzó xuflb àêaikléal. Gy b baséfvçt pojgmar ukwbtnyr, gcxoããb àhrhmjdas brpdtlbypça, fzôg df toébyco rfpsaczxq zo atbéthnu ébtm tuôwz xiwjboh.",
+                "output": "",
+                "description": "Chave: ORBITA (6 letras), trecho didático em português — 257 letras. O quebrador detecta tamanho de chave 6 e recupera ORBITA."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra de Vigenere"
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Analise de frequencia"
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Criptoanalise"
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Quebrador Vigenere"
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Recuperacao de chave"
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Indice de coincidencia"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

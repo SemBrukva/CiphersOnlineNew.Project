@@ -12,6 +12,12 @@ declare(strict_types=1);
  * затем добирает до 6 из той же категории (исключая текущий и уже добавленные).
  */
 return [
+    'text-analysis/vigenere-cracker' => [
+        'classical-ciphers/vigenere',
+        'text-analysis/frequency-analysis',
+        'text-analysis/caesar-brute-force',
+        'text-analysis/letter-frequency',
+    ],
     'text-analysis/caesar-brute-force' => [
         'classical-ciphers/caesar',
         'classical-ciphers/rot13',
@@ -38,6 +44,12 @@ return [
     ],
     'encoding/hex' => [
         'classical-ciphers/xor-cipher',
+    ],
+    'classical-ciphers/vigenere' => [
+        'text-analysis/vigenere-cracker',
+        'text-analysis/frequency-analysis',
+        'classical-ciphers/beaufort',
+        'classical-ciphers/gronsfeld',
     ],
     'classical-ciphers/caesar' => [
         'classical-ciphers/rot13',

@@ -163,6 +163,13 @@ return [
         'name'       => 'api.tools.xor',
     ],
 
+    'POST /tools/vigenere-cracker' => [
+        'controller' => GuestController::class,
+        'method'     => 'vigenereCracker',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.vigenere_cracker',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

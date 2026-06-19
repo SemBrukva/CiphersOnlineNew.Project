@@ -36,5 +36,13 @@ return [
             'max_attempts' => (int) env('RATE_LIMIT_API_ADMIN_MAX_ATTEMPTS', 60),
             'window_seconds' => (int) env('RATE_LIMIT_API_ADMIN_WINDOW_SECONDS', 60),
         ],
+        // Vigenere Cracker — тяжёлый CPU-расчёт; отдельный лимит, чтобы один IP
+        // не мог занимать FPM-воркеры серией расшифровок (см. MAX_TEXT_LENGTH).
+        'api_tools_vigenere_cracker' => [
+            'method' => 'POST',
+            'path' => '/api/tools/vigenere-cracker',
+            'max_attempts' => (int) env('RATE_LIMIT_API_VIGENERE_CRACKER_MAX_ATTEMPTS', 20),
+            'window_seconds' => (int) env('RATE_LIMIT_API_VIGENERE_CRACKER_WINDOW_SECONDS', 60),
+        ],
     ],
 ];

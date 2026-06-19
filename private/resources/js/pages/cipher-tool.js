@@ -5,6 +5,7 @@ import { initTimestampConverter } from './cipher-tool/timestamp-converter.js'
 import { initFrequencyAnalysis } from './cipher-tool/frequency-analysis.js'
 import { initLetterFrequency } from './cipher-tool/letter-frequency.js'
 import { initBruteForce } from './cipher-tool/brute-force.js'
+import { initVigenereCracker } from './cipher-tool/vigenere-cracker.js'
 import { initMatrixControl } from './cipher-tool/matrix-control.js'
 import { initMorsePlayer } from './cipher-tool/morse-player.js'
 import { initCustomSelects } from './cipher-tool/custom-selects.js'
@@ -41,6 +42,7 @@ export function initCipherToolPage() {
   const shiftDecBtn = document.getElementById('ciphers-shift-dec')
   const shiftIncBtn = document.getElementById('ciphers-shift-inc')
   const alphabetSelect = document.getElementById('ciphers-alphabet')
+  const keyLengthSelect = document.getElementById('ciphers-key-length')
   const delimiterSelect = document.getElementById('ciphers-delimiter')
   const keyInput = document.getElementById('ciphers-key')
   const matrixControl = document.querySelector('[data-matrix-control]')
@@ -74,6 +76,7 @@ export function initCipherToolPage() {
   const isMorseTool = slug === 'codes-and-alphabets/morse-code'
   const isAnalysisTool = Boolean(ui.analysisMode)
   const isBruteForceTool = Boolean(ui.bruteForceMode)
+  const isVigenereCrackerTool = Boolean(ui.vigenereCrackerMode)
   const isLetterFrequencyTool = Boolean(ui.letterFrequencyMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
@@ -81,6 +84,32 @@ export function initCipherToolPage() {
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
+
+  // LRU-кеш ответов API в рамках текущей страницы: повторные одинаковые запросы
+  // отдаются мгновенно без сетевого вызова. Особенно полезно для тяжёлых тулов
+  // (vigenere-cracker, brute-force) и при повторных кликах после переключения настроек.
+  const apiResultCache = new Map()
+  const API_CACHE_LIMIT = 20
+
+  const cacheKeyFor = (action, payload) => JSON.stringify([action, payload])
+
+  const readApiCache = (key) => {
+    if (!apiResultCache.has(key)) return undefined
+    // Перемещаем запись в конец — для LRU-эвикции.
+    const value = apiResultCache.get(key)
+    apiResultCache.delete(key)
+    apiResultCache.set(key, value)
+    return value
+  }
+
+  const writeApiCache = (key, value) => {
+    if (apiResultCache.has(key)) apiResultCache.delete(key)
+    apiResultCache.set(key, value)
+    while (apiResultCache.size > API_CACHE_LIMIT) {
+      const oldestKey = apiResultCache.keys().next().value
+      apiResultCache.delete(oldestKey)
+    }
+  }
   const decoder = getDecoderBySlug(slug)
   const isClientTool = isEncodingTool || decoder !== null
   let jsonFormatter = null
@@ -88,6 +117,7 @@ export function initCipherToolPage() {
   let frequencyAnalysis = null
   let letterFrequency = null
   let bruteForce = null
+  let vigenereCracker = null
   let matrixCtrl = null
 
   const labels = {
@@ -192,6 +222,8 @@ export function initCipherToolPage() {
     }
   }
 
+  const inputMaxLength = Number(ui.inputMaxLength) || 0
+
   const updateCounter = () => {
     const val = input.value || ''
     const chars = val.length
@@ -205,7 +237,12 @@ export function initCipherToolPage() {
     }
 
     const bytes = new TextEncoder().encode(val).length
-    counter.textContent = `${chars} ${labels.chars} · ${bytes} ${labels.bytes}`
+    if (inputMaxLength > 0) {
+      counter.textContent = `${chars} / ${inputMaxLength} ${labels.chars} · ${bytes} ${labels.bytes}`
+      counter.classList.toggle('is-near-limit', chars >= inputMaxLength)
+    } else {
+      counter.textContent = `${chars} ${labels.chars} · ${bytes} ${labels.bytes}`
+    }
   }
 
   const setMode = (nextMode) => {
@@ -353,6 +390,7 @@ export function initCipherToolPage() {
       output.value = ''
       if (isAnalysisTool) frequencyAnalysis.showEmpty()
       if (isBruteForceTool) bruteForce.showEmpty()
+      if (isVigenereCrackerTool) vigenereCracker.showEmpty()
       if (isLetterFrequencyTool) letterFrequency.showEmpty()
       if (isJsonFormatterTool) jsonFormatter.showEmpty()
       if (isTimestampConverterTool) timestampConverter.showEmpty()
@@ -462,6 +500,7 @@ export function initCipherToolPage() {
 
     const shift        = Number(shiftInput?.value ?? 3)
     const alphabet     = String(alphabetSelect?.value ?? 'auto')
+    const keyLength    = String(keyLengthSelect?.value ?? '')
     const delimiter    = String(delimiterSelect?.value ?? 'dash')
     const key          = String(keyInput?.value ?? '')
     const coverText    = String(coverInput?.value ?? '')
@@ -470,6 +509,7 @@ export function initCipherToolPage() {
 
     if (runBtn) {
       runBtn.disabled = true
+      runBtn.classList.add('is-loading')
     }
 
     try {
@@ -478,7 +518,7 @@ export function initCipherToolPage() {
         throw new Error(`Unknown API action: ${apiAction}`)
       }
 
-      const response = await apiMethod({
+      const requestPayload = {
         text,
         direction,
         locale: ui.locale ?? 'en',
@@ -486,16 +526,26 @@ export function initCipherToolPage() {
           Object.entries({
             shift,
             alphabet,
+            key_length: keyLength,
             delimiter,
             key,
             cover_text: coverText,
             xor_key_format: xorKeyFormat,
           }).filter(([, value]) => value !== '')
         ),
-      })
+      }
+
+      const cacheKey = cacheKeyFor(apiAction, requestPayload)
+      let response = readApiCache(cacheKey)
+      if (response === undefined) {
+        response = await apiMethod(requestPayload)
+        writeApiCache(cacheKey, response)
+      }
 
       if (isBruteForceTool) {
         bruteForce.handleApiResponse(response, alphabetSelect)
+      } else if (isVigenereCrackerTool) {
+        vigenereCracker.handleApiResponse(response, alphabetSelect)
       } else {
         output.value = String(response?.result ?? '')
         setOutputState(Boolean(output.value))
@@ -516,12 +566,16 @@ export function initCipherToolPage() {
       if (isBruteForceTool) {
         bruteForce.showEmpty()
       }
+      if (isVigenereCrackerTool) {
+        vigenereCracker.showEmpty()
+      }
       output.value = ''
       setOutputState(false)
       setFeedback(message, true)
     } finally {
       if (runBtn) {
         runBtn.disabled = false
+        runBtn.classList.remove('is-loading')
       }
     }
   }
@@ -679,11 +733,17 @@ export function initCipherToolPage() {
     } else {
       setMode('encode')
     }
-    if (isApiMode && liveModeInput && !liveModeInput.checked) {
-      liveModeInput.checked = true
-      saveState()
+    if (isApiMode) {
+      if (liveModeInput && !liveModeInput.checked) {
+        liveModeInput.checked = true
+        saveState()
+      }
+      if (!liveModeInput) {
+        void runApiRequest()
+      } else {
+        scheduleApiRun()
+      }
     }
-    scheduleApiRun()
     if (scrollToTool) {
       document.getElementById('ciphers-tool-shell')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
@@ -821,6 +881,12 @@ export function initCipherToolPage() {
 
   if (isBruteForceTool) {
     bruteForce = initBruteForce({
+      output, visualOutput, tabDecode, ui, labels, setFeedback, setOutputState,
+    })
+  }
+
+  if (isVigenereCrackerTool) {
+    vigenereCracker = initVigenereCracker({
       output, visualOutput, tabDecode, ui, labels, setFeedback, setOutputState,
     })
   }

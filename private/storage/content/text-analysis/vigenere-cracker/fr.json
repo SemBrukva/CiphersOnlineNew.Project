@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-18T21:34:34+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "vigenere-cracker",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 39,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 39,
+        "data": {
+            "name": "Casseur Vigenere",
+            "name_short": "Casseur Vigenere",
+            "description": "Cassez un texte chiffre avec Vigenere en ligne sans connaitre la cle. L outil estime la longueur de cle avec l indice de coincidence, recupere des cles candidates par analyse de frequence et classe les dechiffrements avec une evaluation linguistique. Il prend en charge les alphabets anglais, russe, espagnol, portugais, turc, francais, allemand et italien.",
+            "description_stort": "Casseur automatique de Vigenere avec recuperation de cle et dechiffrements classes.",
+            "meta_title": "Casseur de chiffre Vigenere en ligne | Trouver la cle automatiquement",
+            "meta_description": "Cassez un texte chiffre avec Vigenere en ligne sans la cle. Estimez la longueur, recuperez des mots-cles probables et comparez les candidats dans 8 alphabets."
+        }
+    },
+    "blocks": [
+        {
+            "id": 150,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du casseur Vigenere",
+                "text": "<p>Le casseur Vigenere est un outil de cryptanalyse automatique pour les textes chiffres avec le chiffre classique a cle repetee. Vous collez le texte chiffre, choisissez un alphabet ou gardez la detection automatique, et le service tente de retrouver le mot-cle et un texte clair lisible sans connaitre la cle originale.</p><p><strong>Etape 1 — estimation de la longueur de cle :</strong> l outil teste des longueurs candidates de 1 a 20. En mode automatique, il limite la recherche pour que chaque colonne contienne assez de lettres. Pour chaque longueur, il calcule l indice de coincidence moyen (IC). Quand la longueur estimee correspond a la periode reelle, le texte se divise en colonnes proches de chiffres de Cesar.</p><p><strong>Etape 2 — recuperation de la cle :</strong> pour chaque colonne, le casseur essaie tous les decalages possibles et utilise l analyse de frequence χ² afin de trouver la distribution la plus proche du texte clair.</p><p><strong>Etape 3 — classement des candidats :</strong> pour les alphabets pris en charge, le service affine la cle avec un score de bigrammes et du hill climbing, puis affiche jusqu a cinq dechiffrements avec cle, longueur, IC, confiance et texte obtenu.</p>"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser le casseur Vigenere",
+                "text": "<p>Utilisez ce solveur Vigenere lorsque vous avez un texte chiffre mais pas le mot-cle. Il convient aux cours de cryptographie, aux CTF, aux enigmes, a l analyse de chiffres historiques et a la verification d un chiffrement Vigenere standard a cle repetee.</p><p>Le casseur fonctionne mieux avec un texte naturel et assez de lettres pour les statistiques. L anglais, le portugais, le francais et l italien deviennent generalement fiables vers 100 lettres; l allemand et le turc vers 125; l espagnol vers 150; le russe vers 200. Un texte tres court peut produire des candidats, mais le resultat sera moins fiable.</p><p>Vous pouvez laisser l alphabet en automatique ou choisir manuellement anglais, russe, espagnol, portugais, turc, francais, allemand ou italien. Si le texte n utilise que le latin de base, choisir la langue attendue peut ameliorer le resultat.</p>"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Lire les resultats",
+                "text": "<p>Le premier resultat est le texte clair le plus probable selon le modele linguistique, mais le tableau complet reste important. Si le meilleur candidat est seulement partiellement lisible, comparez les autres lignes: une longueur proche ou une cle moins bien classee peut donner un message plus clair, surtout avec un texte court ou atypique.</p><p>La colonne <strong>longueur de cle</strong> indique la periode detectee. <strong>Cle</strong> affiche le mot-cle retrouve. La valeur <strong>IC</strong> explique pourquoi cette longueur etait plausible, et la <strong>confiance</strong> compare les dechiffrements. Un texte coherent avec une cle nette est habituellement le meilleur indice.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quelle quantite de texte chiffre faut-il?",
+                "answer": "Le service peut essayer des entrees courtes, mais un cassage fiable demande assez de lettres pour les frequences et les bigrammes. Anglais, portugais, francais et italien demandent souvent environ 100 lettres; allemand et turc environ 125; espagnol environ 150; russe environ 200. Les cles longues exigent aussi davantage de texte."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qu est-ce que l indice de coincidence?",
+                "answer": "L indice de coincidence (IC) mesure la frequence a laquelle deux lettres prises au hasard sont identiques. Une langue naturelle a un IC plus eleve qu un texte aleatoire. Dans Vigenere, la bonne longueur de cle separe le texte en colonnes semblables a des chiffres de Cesar, dont l IC moyen se rapproche de la langue."
+            }
+        },
+        {
+            "id": 302,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le casseur peut-il donner une mauvaise cle?",
+                "answer": "La precision baisse avec un texte court, une prose inhabituelle, plusieurs langues, un mauvais alphabet ou une cle originale de plus de 20 caracteres. Les noms propres, abreviations et textes tres formates perturbent aussi les statistiques. Consultez les autres candidats ou fixez la longueur de cle."
+            }
+        },
+        {
+            "id": 303,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Puis-je indiquer la longueur de cle manuellement?",
+                "answer": "Oui. La longueur peut rester en automatique ou etre fixee de 1 a 20. C est utile lorsqu un indice, un motif repete ou un essai precedent suggere deja cette longueur."
+            }
+        },
+        {
+            "id": 304,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "L outil casse-t-il toutes les variantes de Vigenere?",
+                "answer": "Non. Il vise le Vigenere standard a cle repetee. Beaufort, Variant Beaufort, Autokey Vigenere, Gronsfeld, masque jetable et alphabets personnalises utilisent d autres regles."
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Que faire si le resultat est presque correct?",
+                "answer": "Choisissez l alphabet exact au lieu du mode auto, fixez une longueur supposee, retirez les en-tetes et symboles inutiles, puis ajoutez plus de texte chiffre si possible. Comparez aussi tous les candidats."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 145,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Clé : CLE",
+                "key": "",
+                "shift": 0,
+                "input": "Uêeqq yq ômëeëjryù ehébnü êt ürbür ëjwkîeh ûltû ae éah, ka ëjrvévh ê lêreg ôrw pbxkûw ùrûëèhû qh ôl rcâlvr. Rëé rëèxùrw îehuêhqèhû, ahû çekehû éxcorëé hü ae ôbtïêhve ûùbêcorë qh ôl ëôr ekqhqè e ûrûcehù ah prwûllë rt tayûwhvew ébrrâtëé. Hqéykèh éveuêh ébrrâtë ehûéhporë l yq ômkûkùr gë Ôhûlv ëè rëé wülxkéxkdyëé vëèvrêàëâx try c çhv ah ürbür ëôlnù.",
+                "output": "",
+                "description": "Clé : CLE (3 lettres), extrait pédagogique en français — 283 lettres. Le casseur detecte une longueur de cle 3 et recupere CLE."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Clé : SECRET",
+                "key": "",
+                "shift": 0,
+                "input": "Guvh yë ïhûî ûxveïêlchyë, âr osyü énxjb vînèbwëh yë éuqa ûtîwcah üëmëhhëï gcèw kêh ûvyèw rcèlkw. Wk eh êwwûrlx wwü îvfg ërïvj, éhû zvxhyëèëxî gë ehjïvëi wxèêôvtj srërxfbvëi hj éh thuâiepéh hwyü ùmfbwkh yëw scïàtbwë ùrx. Grvi rx ïhaîh üânîzvx ûuqînxêx êv ûbieûvw ësxvhhèéhû, frkî r rïxcé gkixcêlvv rx ùuq ühüânîzvxèhqî gxî àchntêxëi ûîëëjvw.",
+                "output": "",
+                "description": "Clé : SECRET (6 lettres), extrait pédagogique en français — 281 lettres. Le casseur detecte une longueur de cle 6 et recupere SECRET."
+            }
+        },
+        {
+            "id": 147,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Clé : PHARE",
+                "key": "",
+                "shift": 0,
+                "input": "Çm cànyqrv Àareèhfm a euertvsêâ prvi âoenùm prvtm qï yem mvsû veîxfm dï xûêtv ëçhih ûécvrnh lemhetr friâivyfâ sôssylvw ùtfzhfmnîw. Êyuhxpxt ee tve hhêmtvh çhiiwû lei xfhcvw. Ëcaèg çh pvvaydv hgb thuiéev, rû zrêêçmmv gûéivth cnv wittv gû leùeçhgvw gtmfrûâ eî r pxaecgm dv kfmqïheje hhùmvâheb uînçm.",
+                "output": "",
+                "description": "Clé : PHARE (5 lettres), extrait pédagogique en français — 247 lettres. Le casseur detecte une longueur de cle 5 et recupere PHARE."
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Clé : ORBITE",
+                "key": "",
+                "shift": 0,
+                "input": "Trpb èhë vznîëÿùêb hvoîjàkhë, âo rtyf ùqxheêvu aèyëâêçîw rrpmcgoîù nj tu fbb àeÿhê kftwâbyüh gèjàkhcvpc t ro funênuhê wclçv. Üy ûuç hêbkrfrû mftçv ùÿkàuèû çë xuoûn àvoèeicw rêïnîhçî êc ktu ùon üughûn hroïùuûru. Ij wt vufqyïh ëvôjèh uîuiëlu, ùïÿcwÿiùns ru zuiëëoâù xttgvowxsuèû, rcbuq oi èuçaünkv rêpykh dï büfyfvâ aèyë üê cxbfv etckwhê.",
+                "output": "",
+                "description": "Clé : ORBITE (6 lettres), extrait pédagogique en français — 279 lettres. Le casseur detecte une longueur de cle 6 et recupere ORBITE."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre Vigenere"
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Analyse de frequence"
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cryptanalyse"
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Casseur Vigenere"
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Recuperation de cle"
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Indice de coincidence"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

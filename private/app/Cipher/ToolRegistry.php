@@ -39,7 +39,8 @@ final readonly class ToolRegistry
         private JsonFormatterCipherService $jsonFormatter,
         private TimestampConverterCipherService $timestampConverter,
         private SimpleSubstitutionCipherService $simpleSubstitution,
-        private XorCipherService $xorCipher
+        private XorCipherService $xorCipher,
+        private VigenereCrackerService $vigenereCracker
     ) {
     }
 
@@ -206,6 +207,11 @@ final readonly class ToolRegistry
                 ['label' => 'Shift 3',  'value' => 'KHOOR ZRUOG',       'alphabet' => 'en'],
                 ['label' => 'Shift 7',  'value' => 'HAAHJR HA KHDU',    'alphabet' => 'en'],
             ],
+            'text-analysis/vigenere-cracker' => [
+                ['label' => 'Key KEY',    'value' => 'SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC YJ DYSJSWFXIQC MR GEQ DLC OTMML MP FCVMCP MR GEQ DLC OTMML MP MLMVCNYJSXW',   'alphabet' => 'en'],
+                ['label' => 'Key LEMON',  'value' => 'QSGF FNSDS NYH ESIPR KSNCW MUB ZYD TNELQFF MVAITSX RCEEL AB GSME QBYXUBRYX M BRH RMHVZR OCANIUJRO MZ ZVMIDHL LRP RROMOOGPH FC GSI BFBASEWGTSZ HULX MZY XIZ OEP GDSNEIP SDFEX', 'alphabet' => 'en'],
+                ['label' => 'Key SECRET', 'value' => 'LS DV SK FSV KS UW XJRX BK XJV UNWWVZSG OLGKLXJ XKJ RHTPGI MG LLG DMGV XQ JYYXIT KLX KPKEKL SRF RVKGAU FJ HMXTRKXGYU WSKLYPV SK LS VROX SVOJ EZSMPJX T KIC FJ MJSWSPXK', 'alphabet' => 'en'],
+            ],
             'text-analysis/letter-frequency' => [
                 ['label' => 'English', 'value' => 'The quick brown fox jumps over the lazy dog', 'alphabet' => 'en'],
                 ['label' => 'Caesar',  'value' => 'KHOOR ZRUOG',                                 'alphabet' => 'en'],
@@ -253,6 +259,7 @@ final readonly class ToolRegistry
             'encoding/timestamp-converter' => null,
             'text-analysis/frequency-analysis' => null,
             'text-analysis/caesar-brute-force' => 'caesar-brute-force',
+            'text-analysis/vigenere-cracker'   => 'vigenere-cracker',
             'text-analysis/letter-frequency' => null,
             default => null,
         };
@@ -292,6 +299,7 @@ final readonly class ToolRegistry
             'encoding/timestamp-converter' => $this->timestampConverter->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getToolSettings(),
+            'text-analysis/vigenere-cracker'   => $this->vigenereCracker->getToolSettings(),
             'text-analysis/letter-frequency'   => $this->letterFrequency->getToolSettings(),
             default => [],
         };
@@ -326,6 +334,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),
+            'text-analysis/vigenere-cracker'   => $this->vigenereCracker->getTrustItems($calculationMode),
             'text-analysis/letter-frequency'   => $this->letterFrequency->getTrustItems($calculationMode),
             'encoding/html-encode' => $this->htmlEncode->getTrustItems($calculationMode),
             'encoding/json-formatter' => $this->jsonFormatter->getTrustItems($calculationMode),

@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-18T21:34:34+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "vigenere-cracker",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 39,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 39,
+        "data": {
+            "name": "Vigenère Cracker",
+            "name_short": "Vigenère Cracker",
+            "description": "Crack Vigenère cipher text online without knowing the key. The tool estimates the key length with the Index of Coincidence, recovers candidate keys with frequency analysis, and ranks decryptions with language scoring. Supports English, Russian, Spanish, Portuguese, Turkish, French, German, and Italian alphabets.",
+            "description_stort": "Automatic Vigenère cipher cracker with key recovery and ranked decryptions.",
+            "meta_title": "Vigenère Cipher Cracker Online | Find the Key Automatically",
+            "meta_description": "Crack Vigenère cipher text online without the key. Estimate key length, recover likely keywords, compare ranked plaintext candidates, and use 8 supported alphabets."
+        }
+    },
+    "blocks": [
+        {
+            "id": 150,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Vigenère cracker works",
+                "text": "<p>The Vigenère cracker is an automatic cryptanalysis tool for text encrypted with the classic repeating-key Vigenère cipher. You paste the ciphertext, choose an alphabet or leave it on auto, and the service tries to recover the keyword and readable plaintext without requiring the original key.</p><p><strong>Step 1 — key length estimation:</strong> the tool checks candidate key lengths from 1 to 20. In automatic mode it limits the search so each key column has enough letters for analysis. For every candidate length it computes the average Index of Coincidence (IC). When the guessed length matches the real period, the ciphertext is split into Caesar-like columns whose statistics look closer to natural language.</p><p><strong>Step 2 — key recovery:</strong> for each column, the cracker tries every possible alphabet shift and uses χ² frequency analysis to find the best matching plaintext distribution. This creates an initial keyword candidate.</p><p><strong>Step 3 — candidate ranking:</strong> for supported alphabets, the service refines the keyword with bigram language scoring and hill climbing, then ranks up to five candidate decryptions. The best result is shown first, with the recovered key, key length, IC value, confidence score, and decrypted text.</p>"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "When to use the Vigenère cracker",
+                "text": "<p>Use this Vigenère cipher solver when you have ciphertext but do not know the keyword. It is useful for classroom cryptography, CTF challenges, puzzle solving, historical cipher practice, and checking whether a message was encrypted with a standard repeating-key Vigenère method.</p><p>The cracker works best on natural-language text with enough letters for statistics. English, Portuguese, French, and Italian usually become reliable at about 100 letters; German and Turkish need about 125; Spanish about 150; Russian about 200. Very short ciphertext can still return candidates, but the page marks the result as less reliable.</p><p>You can leave the alphabet on auto or choose English, Russian, Spanish, Portuguese, Turkish, French, German, or Italian manually. Auto mode detects the most likely alphabet from character coverage; if the text uses only basic Latin letters, selecting the intended language can improve results.</p>"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to read the results",
+                "text": "<p>The first result is the most likely plaintext according to the scoring model, but the full candidate table is important. If the best candidate looks partially readable, compare the other rows: a nearby key length or a lower-confidence keyword can sometimes produce a better human-readable message, especially when the ciphertext is short or contains unusual vocabulary.</p><p>The <strong>key length</strong> column shows the detected keyword period. The <strong>key</strong> column shows the recovered Vigenère keyword. The <strong>IC</strong> value helps explain why that length was considered plausible, and the <strong>confidence</strong> bar compares candidate decryptions against each other. Use the key and plaintext together: a meaningful plaintext with a clean keyword is usually the strongest signal.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How much ciphertext is needed for reliable cracking?",
+                "answer": "The service can try short inputs, but reliable automatic cracking needs enough letters for frequency and bigram statistics. English, Portuguese, French, and Italian generally need about 100 letters; German and Turkish about 125; Spanish about 150; Russian about 200. Longer keys also need longer ciphertext because each key position is analyzed as its own column."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the Index of Coincidence?",
+                "answer": "The Index of Coincidence (IC) measures how often two randomly chosen letters from a text are the same. Natural language has a higher IC than random text. In a Vigenère cipher, the correct key length splits the ciphertext into columns that behave like separate Caesar ciphers, so their average IC becomes closer to the expected value for the language."
+            }
+        },
+        {
+            "id": 302,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why might the cracker return the wrong key?",
+                "answer": "Accuracy drops when the ciphertext is short, the plaintext is not ordinary prose, the message mixes languages, the alphabet is wrong, or the original key is longer than 20 characters. Proper names, abbreviations, code words, and heavily formatted text can also distort frequency statistics. If the top row looks wrong, inspect the other ranked candidates or set the expected key length manually."
+            }
+        },
+        {
+            "id": 303,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can I specify the Vigenère key length manually?",
+                "answer": "Yes. The key length setting can stay on auto or be fixed from 1 to 20. Manual length is useful when you already know the keyword length from a puzzle clue, repeated-pattern analysis, or a previous failed attempt. Fixing the length narrows the search and can improve results on borderline ciphertext."
+            }
+        },
+        {
+            "id": 304,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Does the tool crack every Vigenère variant?",
+                "answer": "No. This cracker targets the standard repeating-key Vigenère cipher. It is not designed for Beaufort, Variant Beaufort, Autokey Vigenère, Gronsfeld, one-time pad, or custom alphabets with non-standard rules. Those systems can look similar but use different transformations."
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What should I do if the result is close but not perfect?",
+                "answer": "Try selecting the exact alphabet instead of auto, set a suspected key length manually, remove unrelated symbols or headers, and add more ciphertext if you have it. Also compare all candidate rows: the best statistical score is usually right, but human readability still matters for short or unusual texts."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 145,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Key: KEY",
+                "key": "",
+                "shift": 0,
+                "input": "SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC YJ DYSJSWFXIQC MR GEQ DLC OTMML MP FCVMCP MR GEQ DLC OTMML MP MLMVCNYJSXW",
+                "output": "",
+                "description": "Key KEY (3 letters), Dickens \"A Tale of Two Cities\" — 129 letters. The cracker will detect key length 3 and recover KEY."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Key: LEMON",
+                "key": "",
+                "shift": 0,
+                "input": "QSGF FNSDS NYH ESIPR KSNCW MUB ZYD TNELQFF MVAITSX RCEEL AB GSME QBYXUBRYX M BRH RMHVZR OCANIUJRO MZ ZVMIDHL LRP RROMOOGPH FC GSI BFBASEWGTSZ HULX MZY XIZ OEP GDSNEIP SDFEX",
+                "output": "",
+                "description": "Key LEMON (5 letters), Gettysburg Address — 143 letters. The cracker will detect key length 5 and recover LEMON."
+            }
+        },
+        {
+            "id": 147,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Key: SECRET",
+                "key": "",
+                "shift": 0,
+                "input": "LS DV SK FSV KS UW XJRX BK XJV UNWWVZSG OLGKLXJ XKJ RHTPGI MG LLG DMGV XQ JYYXIT KLX KPKEKL SRF RVKGAU FJ HMXTRKXGYU WSKLYPV SK LS VROX SVOJ EZSMPJX T KIC FJ MJSWSPXK",
+                "output": "",
+                "description": "Key SECRET (6 letters), Shakespeare \"Hamlet\" — 133 letters. The cracker will detect key length 6 and recover SECRET."
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Key: ORBIT",
+                "key": "",
+                "shift": 0,
+                "input": "KV IWER KIMLS KSCMVJ UW US JFTY SMJLXBK UPTH RMT FSE BZX QIFIMSU FYNOC UPTH KIMR OIF MGRFXMW PP UPXWI DZXOKPZ PWKI KXFKBQG IEBTBSEBJES IJOAHJ UPTH RNWGU KIMLS RSM EWWF TBPVSBR OEE BAS GVZLIZU WY VRQXBBVTA",
+                "output": "",
+                "description": "Key ORBIT (5 letters), Declaration of Independence excerpt — 182 letters. The ciphertext was generated with the Vigenère tool and the cracker recovers ORBIT automatically."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Vigenère cipher"
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Frequency analysis"
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cryptanalysis"
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Vigenère cracker"
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Key recovery"
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Index of Coincidence"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-18T21:34:34+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "vigenere-cracker",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 39,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 39,
+        "data": {
+            "name": "Vigenere Kırıcı",
+            "name_short": "Vigenere Kırıcı",
+            "description": "Anahtarı bilmeden Vigenere ile şifrelenmiş metni çevrim içi kırın. Araç anahtar uzunluğunu Çakışma İndeksi ile tahmin eder, frekans analiziyle olası anahtarları çıkarır ve dil puanlamasıyla çözümleri sıralar. İngilizce, Rusça, İspanyolca, Portekizce, Türkçe, Fransızca, Almanca ve İtalyanca alfabeleri destekler.",
+            "description_stort": "Anahtar kurtarma ve sıralı çözümler sunan otomatik Vigenere kırıcı.",
+            "meta_title": "Vigenere Şifresi Kırıcı Online | Anahtarı Otomatik Bul",
+            "meta_description": "Anahtar olmadan Vigenere şifreli metni çevrim içi kırın. Uzunluğu tahmin edin, olası anahtarları bulun, adayları karşılaştırın ve 8 alfabeyi kullanın."
+        }
+    },
+    "blocks": [
+        {
+            "id": 150,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Vigenere kırıcı nasıl çalışır",
+                "text": "<p>Vigenere kırıcı, klasik tekrarlanan anahtarlı Vigenere şifresiyle şifrelenmiş metinler için otomatik kriptoanaliz aracıdır. Şifreli metni yapıştırır, alfabeyi seçer veya otomatik algılamayı açık bırakırsınız; servis özgün anahtarı bilmeden anahtar kelimeyi ve okunabilir açık metni bulmaya çalışır.</p><p><strong>Adım 1 — anahtar uzunluğunu tahmin etme:</strong> araç 1 ile 20 arasındaki aday uzunlukları dener. Otomatik modda, her anahtar sütununda analiz için yeterli harf kalacak şekilde aramayı sınırlar. Her uzunluk için ortalama Çakışma İndeksi (IC) hesaplanır. Tahmin edilen uzunluk gerçek dönemle eşleştiğinde, metin Caesar benzeri sütunlara ayrılır.</p><p><strong>Adım 2 — anahtarı kurtarma:</strong> kırıcı her sütun için tüm alfabe kaydırmalarını dener ve açık metne en yakın dağılımı bulmak için χ² frekans analizini kullanır.</p><p><strong>Adım 3 — adayları sıralama:</strong> desteklenen alfabelerde servis anahtarı bigram puanlaması ve hill climbing ile iyileştirir, ardından anahtar, uzunluk, IC, güven ve çözülmüş metinle en fazla beş aday gösterir.</p>"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Vigenere kırıcı ne zaman kullanılır",
+                "text": "<p>Şifreli metniniz var ama anahtar kelimeyi bilmiyorsanız bu Vigenere çözücüyü kullanın. Kriptografi dersleri, CTF görevleri, bulmacalar, tarihsel şifre analizi ve bir mesajın standart tekrarlanan anahtarlı Vigenere ile şifrelenip şifrelenmediğini kontrol etmek için uygundur.</p><p>Araç doğal dil metninde ve yeterli harf olduğunda en iyi çalışır. İngilizce, Portekizce, Fransızca ve İtalyanca genelde yaklaşık 100 harfte güvenilir olur; Almanca ve Türkçe yaklaşık 125; İspanyolca yaklaşık 150; Rusça yaklaşık 200 harf ister. Çok kısa metinler aday üretebilir, ancak sonuç daha az güvenilir işaretlenir.</p><p>Alfabeyi otomatik bırakabilir veya İngilizce, Rusça, İspanyolca, Portekizce, Türkçe, Fransızca, Almanca ya da İtalyanca olarak elle seçebilirsiniz. Metin yalnızca temel Latin harfleri kullanıyorsa beklenen dili elle seçmek sonucu iyileştirebilir.</p>"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sonuçlar nasıl okunur",
+                "text": "<p>İlk sonuç dil modeline göre en olası açık metindir, ancak tüm aday tablosu önemlidir. En iyi aday yalnızca kısmen okunur görünüyorsa diğer satırları karşılaştırın: yakın bir anahtar uzunluğu veya daha düşük güvenli bir anahtar, kısa ya da alışılmadık metinlerde daha anlaşılır olabilir.</p><p><strong>Anahtar uzunluğu</strong> sütunu bulunan dönemi gösterir. <strong>Anahtar</strong> kurtarılan Vigenere anahtarını gösterir. <strong>IC</strong> değeri bu uzunluğun neden olası olduğunu açıklar, <strong>güven</strong> ise çözümleri karşılaştırır. Anlamlı açık metin ve temiz bir anahtar genellikle en güçlü işarettir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Güvenilir kırma için ne kadar şifreli metin gerekir?",
+                "answer": "Servis kısa girdileri deneyebilir, ancak güvenilir otomatik kırma frekans ve bigram istatistikleri için yeterli harf ister. İngilizce, Portekizce, Fransızca ve İtalyanca genelde yaklaşık 100 harf; Almanca ve Türkçe yaklaşık 125; İspanyolca yaklaşık 150; Rusça yaklaşık 200 harf gerektirir. Daha uzun anahtarlar daha fazla metin ister."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Çakışma İndeksi nedir?",
+                "answer": "Çakışma İndeksi (IC), metinden rastgele seçilen iki harfin aynı olma sıklığını ölçer. Doğal dilin IC değeri rastgele metinden yüksektir. Vigenere şifresinde doğru anahtar uzunluğu metni Caesar benzeri sütunlara ayırır ve bu sütunların ortalama IC değeri dile yaklaşır."
+            }
+        },
+        {
+            "id": 302,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Kırıcı neden yanlış anahtar döndürebilir?",
+                "answer": "Kısa metin, olağan dışı düz yazı, karışık diller, yanlış alfabe veya 20 karakterden uzun özgün anahtar doğruluğu düşürür. Özel adlar, kısaltmalar ve yoğun biçimlendirme de istatistikleri bozar. İlk satır yanlış görünüyorsa diğer adayları inceleyin veya anahtar uzunluğunu elle girin."
+            }
+        },
+        {
+            "id": 303,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Vigenere anahtar uzunluğunu elle belirtebilir miyim?",
+                "answer": "Evet. Uzunluk otomatik kalabilir veya 1 ile 20 arasında sabitlenebilir. Bir ipucu, tekrar eden desen analizi ya da önceki deneme uzunluğu düşündürüyorsa bu yararlıdır."
+            }
+        },
+        {
+            "id": 304,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Araç tüm Vigenere türlerini kırar mı?",
+                "answer": "Hayır. Bu kırıcı standart tekrarlanan anahtarlı Vigenere içindir. Beaufort, Variant Beaufort, Autokey Vigenere, Gronsfeld, tek kullanımlık şerit ve özel alfabeler farklı kurallar kullanır."
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Sonuç neredeyse doğruysa ne yapmalıyım?",
+                "answer": "Otomatik yerine doğru alfabeyi seçin, şüpheli uzunluğu elle girin, ilgisiz başlıkları ve sembolleri kaldırın, varsa daha fazla şifreli metin ekleyin. Tüm aday satırlarını da karşılaştırın."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 145,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Anahtar: ANAHTAR",
+                "key": "",
+                "shift": 0,
+                "input": "Byr hlaktvrutcb açaöoaiı dlutyrn himleei oia heliç atyızıçdh jnşe riten öiçetznün yztzrcny aatr. Jıa hhlfeeg, shclrm üaaa çcfıllli oe dlhmı rnnhçtr mzintöğm msshfı sigkhv sntinh tybrcagt yrrrıu zdür. Ouüyag sdnat hür ğüçön rygı ıer Şasshl şcfgebe gcby gylügüg vl eslaıiboid apış helny akdm rdvm nzrc gstrlii.",
+                "output": "",
+                "description": "Anahtar: ANAHTAR (7 harf), Türkçe eğitim parçası — 259 harf. Kırıcı anahtar uzunluğunu 7 olarak bulur ve ANAHTAR anahtarını kurtarır."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Anahtar: GIZLI",
+                "key": "",
+                "shift": 0,
+                "input": "Jpığçjü aüc inmpvj şcüy bnj öşsmd jifskasa fyhy dn şhegcku jöc ölcıi jhüsimair fvsftmte. Vjçzv luu juçg zkhczi ğlck oppugyrziys plçbödzn lapıyçc üp byzfeiş hzbüod zbinezes zncpjöüıe. Döoppüö vdğşt yd yiiip özmik ngşüd üljcıeçj ipll izgef ıayıvç jdbıjc zöieüzemgy n yiiip ühö ivucoc.",
+                "output": "",
+                "description": "Anahtar: GIZLI (5 harf), Türkçe eğitim parçası — 237 harf. Kırıcı anahtar uzunluğunu 5 olarak bulur ve GIZLI anahtarını kurtarır."
+            }
+        },
+        {
+            "id": 147,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Anahtar: DENIZ",
+                "key": "",
+                "shift": 0,
+                "input": "Bntnmhüs dııüsçı zdiy raüs öugpj çzcmbmh, gbçuu dğvu lhzyyçhöy ivrm üipı incjöm ğnleşbüduı ramaysjıönlzpğa. Lşmh hs edoünckdsny zreüezu nm jhueasp. Ğtçnl eabfmğaufmğe fcnepsv amüaic eeğşş oelmhurnhz mssc üh ignjdsğ imdpyıı cıçşçhs lipdübs ğdps ödöng.",
+                "output": "",
+                "description": "Anahtar: DENIZ (5 harf), Türkçe eğitim parçası — 213 harf. Kırıcı anahtar uzunluğunu 5 olarak bulur ve DENIZ anahtarını kurtarır."
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Anahtar: YILDIZ",
+                "key": "",
+                "shift": 0,
+                "input": "Şhszüzkizl öoöniönpcn jdümğınd şki çlyspy öıbnmkny cnphyp eşpiio dmzüs ydcsğülvehövlo hzöieösçğc. İjm çnlfo inmçüzmukç iböiljs Ğacjbn aheıl ğp osry vlofk zşe dyzgelu ğdöşe. Cimğe ğzrzd öçugmthcuçz Sgeo ikdimhçılş pöüd pnohjıjşe, eşkhypr fyşyzzpt eşehjıjşe bnvy mlki eyızd dıdcpöş lçeür njjnjhjıjşeüşmhı.",
+                "output": "",
+                "description": "Anahtar: YILDIZ (6 harf), Türkçe eğitim parçası — 261 harf. Kırıcı anahtar uzunluğunu 6 olarak bulur ve YILDIZ anahtarını kurtarır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Vigenere şifresi"
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Frekans analizi"
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Kriptoanaliz"
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Vigenere kırıcı"
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Anahtar kurtarma"
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Çakışma İndeksi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

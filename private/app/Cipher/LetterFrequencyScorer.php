@@ -172,6 +172,28 @@ final readonly class LetterFrequencyScorer
     }
 
     /**
+     * Возвращает теоретический индекс совпадений (IC) для естественного языка.
+     *
+     * Вычисляется как ∑p_i² по ожидаемым частотам алфавита.
+     * Применяется в IC-анализе при взломе шифра Виженера.
+     */
+    public function naturalIc(string $alphabet): float
+    {
+        $freqs = self::FREQUENCIES[$alphabet] ?? null;
+        if ($freqs === null) {
+            return 0.065;
+        }
+
+        $ic = 0.0;
+        foreach ($freqs as $pct) {
+            $p   = $pct / 100.0;
+            $ic += $p * $p;
+        }
+
+        return $ic;
+    }
+
+    /**
      * Преобразует массив χ²-значений в оценки пригодности от 0 до 100.
      * Лучший вариант (минимальный χ²) получает 100, остальные — пропорционально меньше.
      *

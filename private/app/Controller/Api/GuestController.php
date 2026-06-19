@@ -429,6 +429,19 @@ final class GuestController
     }
 
     /**
+     * Автоматически взламывает шифр Виженера без знания ключа.
+     *
+     * POST /api/tools/vigenere-cracker
+     */
+    #[ApiOperation(summary: 'Vigenère Cracker', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат взлома с найденным ключом и кандидатами')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function vigenereCracker(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'vigenere-cracker');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

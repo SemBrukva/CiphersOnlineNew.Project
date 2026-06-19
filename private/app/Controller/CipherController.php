@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Cipher\ToolRegistry;
+use App\Cipher\VigenereCrackerApiCipherTool;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -116,6 +117,10 @@ final readonly class CipherController
             $toolUi['relatedToolUrl']   = locale_url('/text-analysis/caesar-brute-force');
             $toolUi['relatedToolLabel'] = trans('CAESAR_HINT_BRUTE_FORCE');
         }
+        if ($cipherAlias === 'vigenere') {
+            $toolUi['relatedToolUrl']   = locale_url('/text-analysis/vigenere-cracker');
+            $toolUi['relatedToolLabel'] = trans('VIGENERE_HINT_CRACKER');
+        }
         if ($cipherAlias === 'caesar-brute-force') {
             $toolUi['bruteForceMode']      = true;
             $toolUi['bruteEmptyLabel']     = trans('CAESAR_BRUTE_EMPTY');
@@ -127,6 +132,22 @@ final readonly class CipherController
             $toolUi['bruteFitnessLabel']   = trans('CAESAR_BRUTE_FITNESS_LABEL');
             $toolUi['bruteBestBadge']      = trans('CAESAR_BRUTE_BEST_BADGE');
             $toolUi['bruteShortText']      = trans('CAESAR_BRUTE_SHORT_TEXT');
+        }
+        if ($cipherAlias === 'vigenere-cracker') {
+            $toolUi['vigenereCrackerMode']     = true;
+            $toolUi['disableLiveMode']         = true;
+            $toolUi['inputMaxLength']          = VigenereCrackerApiCipherTool::MAX_TEXT_LENGTH;
+            $toolUi['vcEmptyLabel']            = trans('VIGENERE_CRACK_EMPTY');
+            $toolUi['vcTitle']                 = trans('VIGENERE_CRACK_TITLE');
+            $toolUi['vcKeyLabel']              = trans('VIGENERE_CRACK_KEY_LABEL');
+            $toolUi['vcTextLabel']             = trans('VIGENERE_CRACK_TEXT_LABEL');
+            $toolUi['vcColLen']                = trans('VIGENERE_CRACK_COL_LEN');
+            $toolUi['vcColKey']                = trans('VIGENERE_CRACK_COL_KEY');
+            $toolUi['vcColIc']                 = trans('VIGENERE_CRACK_COL_IC');
+            $toolUi['vcColFitness']            = trans('VIGENERE_CRACK_COL_FITNESS');
+            $toolUi['vcViewLabel']             = trans('VIGENERE_CRACK_VIEW_LABEL');
+            $toolUi['vcBestBadge']             = trans('VIGENERE_CRACK_BEST_BADGE');
+            $toolUi['vcShortText']             = trans('VIGENERE_CRACK_SHORT_TEXT');
         }
         if ($cipherAlias === 'numbers-to-letters') {
             $toolUi['numbersToLettersMode']   = true;

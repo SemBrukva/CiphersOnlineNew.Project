@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Cipher;
 
+use App\Cache\NullCache;
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
 use App\Cipher\AffineApiCipherTool;
 use App\Cipher\AffineCipherService;
+use App\Cipher\AlphabetCatalog;
 use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\AtbashApiCipherTool;
 use App\Cipher\AtbashCipherService;
@@ -15,6 +17,7 @@ use App\Cipher\BaconApiCipherTool;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortApiCipherTool;
 use App\Cipher\BeaufortCipherService;
+use App\Cipher\BigramFrequencyScorer;
 use App\Cipher\CaesarApiCipherTool;
 use App\Cipher\CaesarBruteForceApiCipherTool;
 use App\Cipher\CaesarCipherService;
@@ -39,6 +42,7 @@ use App\Cipher\VernamApiCipherTool;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereApiCipherTool;
 use App\Cipher\VigenereCipherService;
+use App\Cipher\VigenereCrackerApiCipherTool;
 use App\Cipher\XorApiCipherTool;
 use App\Cipher\XorCipherService;
 use PHPUnit\Framework\TestCase;
@@ -91,7 +95,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new HillApiCipherTool(new HillCipherService()),
             new CaesarBruteForceApiCipherTool(new CaesarCipherService(), new LetterFrequencyScorer()),
             new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService()),
-            new XorApiCipherTool(new XorCipherService())
+            new XorApiCipherTool(new XorCipherService()),
+            new VigenereCrackerApiCipherTool(new VigenereCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache())
         );
     }
 }

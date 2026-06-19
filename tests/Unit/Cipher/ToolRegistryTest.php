@@ -29,6 +29,7 @@ use App\Cipher\TimestampConverterCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereCipherService;
+use App\Cipher\VigenereCrackerService;
 use App\Cipher\XorCipherService;
 use PHPUnit\Framework\TestCase;
 
@@ -122,7 +123,8 @@ final class ToolRegistryTest extends TestCase
             new JsonFormatterCipherService(),
             new TimestampConverterCipherService(),
             new SimpleSubstitutionCipherService(),
-            new XorCipherService()
+            new XorCipherService(),
+            new VigenereCrackerService()
         );
     }
 }

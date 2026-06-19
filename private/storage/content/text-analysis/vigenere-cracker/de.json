@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-18T21:34:34+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "vigenere-cracker",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 39,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 39,
+        "data": {
+            "name": "Vigenere-Knacker",
+            "name_short": "Vigenere-Knacker",
+            "description": "Knacken Sie Vigenere-Geheimtext online, ohne den Schluessel zu kennen. Das Werkzeug schaetzt die Schluessellaenge mit dem Koinzidenzindex, rekonstruiert Schluesselkandidaten per Haeufigkeitsanalyse und ordnet Entschluesselungen mit Sprachbewertung ein. Es unterstuetzt Englisch, Russisch, Spanisch, Portugiesisch, Tuerkisch, Franzoesisch, Deutsch und Italienisch.",
+            "description_stort": "Automatischer Vigenere-Knacker mit Schluesselrekonstruktion und bewerteten Entschluesselungen.",
+            "meta_title": "Vigenere-Chiffre online knacken | Schluessel automatisch finden",
+            "meta_description": "Knacken Sie Vigenere-Geheimtext online ohne Schluessel. Schaetzen Sie die Schluessellaenge, finden Sie wahrscheinliche Keywords und vergleichen Sie Kandidaten in 8 Alphabeten."
+        }
+    },
+    "blocks": [
+        {
+            "id": 150,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie der Vigenere-Knacker funktioniert",
+                "text": "<p>Der Vigenere-Knacker ist ein Werkzeug fuer automatische Kryptanalyse von Texten, die mit der klassischen Vigenere-Chiffre und einem wiederholten Schluessel verschluesselt wurden. Sie fuegen den Geheimtext ein, waehlen ein Alphabet oder lassen die automatische Erkennung aktiv, und der Dienst versucht, das Keyword und lesbaren Klartext ohne den urspruenglichen Schluessel zu finden.</p><p><strong>Schritt 1 — Schluessellaenge schaetzen:</strong> Das Werkzeug prueft moegliche Schluessellaengen von 1 bis 20. Im Automatikmodus wird die Suche so begrenzt, dass jede Schluesselspalte genug Buchstaben fuer die Analyse enthaelt. Fuer jede Laenge wird der durchschnittliche Koinzidenzindex (IC) berechnet. Wenn die geschaetzte Laenge zum echten Zeitraum passt, zerfaellt der Geheimtext in Caesar-aehnliche Spalten, deren Statistik natuerlicher Sprache naeherkommt.</p><p><strong>Schritt 2 — Schluessel rekonstruieren:</strong> Fuer jede Spalte probiert der Knacker alle moeglichen Alphabetverschiebungen und nutzt χ²-Haeufigkeitsanalyse, um die Verteilung zu finden, die am besten zu Klartext passt.</p><p><strong>Schritt 3 — Kandidaten bewerten:</strong> Fuer unterstuetzte Alphabete verfeinert der Dienst den Schluessel mit Bigramm-Scoring und Hill Climbing und zeigt bis zu fuenf Entschluesselungen. Der beste Kandidat erscheint zuerst, zusammen mit Schluessel, Laenge, IC, Konfidenz und Klartext.</p>"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Wann Sie den Vigenere-Knacker verwenden sollten",
+                "text": "<p>Verwenden Sie diesen Vigenere-Loeser, wenn Sie Geheimtext haben, aber das Keyword nicht kennen. Er eignet sich fuer Kryptographieunterricht, CTF-Aufgaben, Raetsel, historische Chiffren und die Pruefung, ob ein Text mit der standardmaessigen wiederholten Vigenere-Methode verschluesselt wurde.</p><p>Der Knacker funktioniert am besten mit natuerlichem Text und genuegend Buchstaben fuer Statistik. Englisch, Portugiesisch, Franzoesisch und Italienisch werden meist ab etwa 100 Buchstaben zuverlaessig; Deutsch und Tuerkisch brauchen etwa 125; Spanisch etwa 150; Russisch etwa 200. Sehr kurze Geheimtexte koennen Kandidaten liefern, werden aber als weniger zuverlaessig markiert.</p><p>Sie koennen das Alphabet automatisch erkennen lassen oder Englisch, Russisch, Spanisch, Portugiesisch, Tuerkisch, Franzoesisch, Deutsch oder Italienisch manuell auswaehlen. Bei lateinischen Texten ohne Sonderzeichen kann die manuelle Sprachwahl das Ergebnis verbessern.</p>"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Wie Sie die Ergebnisse lesen",
+                "text": "<p>Das erste Ergebnis ist nach dem Sprachmodell der wahrscheinlichste Klartext, aber die ganze Kandidatentabelle ist wichtig. Wenn der beste Kandidat nur teilweise lesbar wirkt, vergleichen Sie die anderen Zeilen: Eine nahe Schluessellaenge oder ein niedriger bewerteter Kandidat kann bei kurzen oder ungewoehnlichen Texten besser lesbar sein.</p><p>Die Spalte <strong>Schluessellaenge</strong> zeigt die erkannte Periode des Keywords. <strong>Schluessel</strong> zeigt den rekonstruierten Vigenere-Schluessel. Der <strong>IC</strong>-Wert erklaert, warum diese Laenge plausibel war, und die <strong>Konfidenz</strong> vergleicht Kandidaten miteinander. Ein sinnvoller Klartext zusammen mit einem sauberen Keyword ist normalerweise das staerkste Signal.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wie viel Geheimtext ist fuer zuverlaessiges Knacken noetig?",
+                "answer": "Der Dienst kann auch kurze Eingaben testen, aber zuverlaessige automatische Kryptanalyse braucht genug Buchstaben fuer Haeufigkeiten und Bigramme. Englisch, Portugiesisch, Franzoesisch und Italienisch brauchen meist etwa 100 Buchstaben; Deutsch und Tuerkisch etwa 125; Spanisch etwa 150; Russisch etwa 200. Laengere Schluessel brauchen mehr Geheimtext, weil jede Schluesselposition als eigene Spalte analysiert wird."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Was ist der Koinzidenzindex?",
+                "answer": "Der Koinzidenzindex (IC) misst, wie oft zwei zufaellig gewaehlte Buchstaben eines Textes gleich sind. Natuerliche Sprache hat einen hoeheren IC als Zufallstext. Bei Vigenere teilt die richtige Schluessellaenge den Geheimtext in Caesar-aehnliche Spalten, deren durchschnittlicher IC dem erwarteten Sprachwert naeherkommt."
+            }
+        },
+        {
+            "id": 302,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Warum kann der Knacker den falschen Schluessel liefern?",
+                "answer": "Die Genauigkeit sinkt bei kurzem Geheimtext, ungewoehnlicher Prosa, gemischten Sprachen, falschem Alphabet oder einem urspruenglichen Schluessel mit mehr als 20 Zeichen. Eigennamen, Abkuerzungen und stark formatiertes Material verzerren ebenfalls die Statistik. Wenn die erste Zeile falsch wirkt, pruefen Sie andere Kandidaten oder setzen Sie die Schluessellaenge manuell."
+            }
+        },
+        {
+            "id": 303,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Kann ich die Vigenere-Schluessellaenge manuell angeben?",
+                "answer": "Ja. Die Einstellung kann auf Auto bleiben oder auf einen Wert von 1 bis 20 gesetzt werden. Eine feste Laenge ist hilfreich, wenn sie aus einem Hinweis, einer Musteranalyse oder einem vorherigen Versuch bekannt ist."
+            }
+        },
+        {
+            "id": 304,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Knackt das Werkzeug jede Vigenere-Variante?",
+                "answer": "Nein. Es zielt auf die klassische Vigenere-Chiffre mit wiederholtem Schluessel. Beaufort, Variant Beaufort, Autokey Vigenere, Gronsfeld, One-Time-Pad und eigene Alphabete folgen anderen Regeln."
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Was tun, wenn das Ergebnis fast richtig ist?",
+                "answer": "Waehlen Sie das genaue Alphabet statt Auto, setzen Sie eine vermutete Schluessellaenge, entfernen Sie fremde Kopfzeilen oder fuegen Sie mehr Geheimtext hinzu. Vergleichen Sie ausserdem alle Kandidaten, denn Lesbarkeit ist bei kurzen Texten wichtig."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 145,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Schlüssel: CODE",
+                "key": "",
+                "shift": 0,
+                "input": "Zsqr hvq Kqevhksü jlair Jsljlzwjag rmps Vhkyxjüfip helehyw, wwqlx he cyhevx pogm zviiheojkeirgsq Qwfwjua hju Ftvcqlj. Koiyivkj Ehgmügdgha, vxcpmph Cdeus xrg rmj ysüqwgixh Ydjpui ihf Vhkyxjüfipü üipisq, ils Qefüünfüw np zimusüj Ücdpvsq dw ginosq. Icadhk fmjkg njgs Vucywj zvi jlai jluirh Qdjüoü Hkvjkus dyü, hqi gvi Wvownügmö ihimug hjp Xöeugibv Fgmuvwx ihiv Üqlvlgw dwexjfx.",
+                "output": "",
+                "description": "Schlüssel: CODE (4 Buchstaben), deutscher Übungsabschnitt — 314 Buchstaben. Der Knacker erkennt die Schlüssellänge 4 und rekonstruiert CODE."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Schlüssel: GEHEIM",
+                "key": "",
+                "shift": 0,
+                "input": "Mymv nutj znltlvm Uzflkärö uyx mnü wgrojz lawhquqtmhjüslrljz Elba nü qörmv Aäxekmn töpnvnujm. Pwä pöj Ueltxnkmä la öävh, iövrjü pöj Jyltyxhgnyoemyounömnäqt däkiqrppl byk ihw Xculyeux qeur nutju kiwyhöjü Djmsyndyjs äiqopmr. Rq sjöv ümzymvtujmm Wiqzdm inc Njöjqxzjex nyzmhjte, kjzxv vreyjz exjurä pgw Djzvfjäl mul vphpeölm Jüeyhöpbqywmpbyn aür iqorsnltlr Cezugrajü.",
+                "output": "",
+                "description": "Schlüssel: GEHEIM (6 Buchstaben), deutscher Übungsabschnitt — 311 Buchstaben. Der Knacker erkennt die Schlüssellänge 6 und rekonstruiert GEHEIM."
+            }
+        },
+        {
+            "id": 147,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Schlüssel: LICHT",
+                "key": "",
+                "shift": 0,
+                "input": "Öqh Cärnpmkp Lkpyqzh otvä ohfrn csl cäcyc, hnls wpzümdnn Eävsavhüp mhz Cviuaxiäü pf gnuzvsqhlxxn Bmäophu öpzzhfönoa ppzgmf üvpump. Mhy ptngmksvoax Clksnpaümd sqpaxbtcmlcä mmwylk Ziezhu. Lykcsw öqh Wxbqqlx rniäfönp pld, elyw öqh Hnqöcjx kb ömabnumf pqpntophu Öpzükatneäfrnp, äfö mlm Alnwnärshpmciphdjah däbm zpxönu unpäbsäop.",
+                "output": "",
+                "description": "Schlüssel: LICHT (5 Buchstaben), deutscher Übungsabschnitt — 277 Buchstaben. Der Knacker erkennt die Schlüssellänge 5 und rekonstruiert LICHT."
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Schlüssel: ORBIT",
+                "key": "",
+                "shift": 0,
+                "input": "Vd rztxkkavüvö Intxbkxa bppfg vu aäqy, onaevtn Codfqwokgü sh ngzzyvklasd vüw azepm alt mxe vtamsd Änäyv äb ösiüzthvö. Näa xväxf Vtöxpdka dvvhnkg dpzeobgzpszun dsjdiksd fnngjepxa Kgfm hdf näavö sneqgü iyrvaäpbgü Lqynbxfjgt. Psdö mäs Röäpäiü uxeäybxeükö thjuqxük, mifa cbü Wslüavü cbünsbn etsynnf, szön üsäbüfgv Nixaxg axgqgü grvt uxüi Inaszoäxlk jqfnlhbxuvö.",
+                "output": "",
+                "description": "Schlüssel: ORBIT (5 Buchstaben), deutscher Übungsabschnitt — 303 Buchstaben. Der Knacker erkennt die Schlüssellänge 5 und rekonstruiert ORBIT."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Vigenere-Chiffre"
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Haeufigkeitsanalyse"
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Kryptanalyse"
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Vigenere-Knacker"
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Schluesselrekonstruktion"
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Koinzidenzindex"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

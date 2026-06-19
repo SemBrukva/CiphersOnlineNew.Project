@@ -131,6 +131,8 @@ export class ApiClient {
         'simple-substitution': (data) => this.#request('POST', '/tools/simple-substitution', data),
         /** POST /api/tools/xor */
         xor: (data) => this.#request('POST', '/tools/xor', data),
+        /** POST /api/tools/vigenere-cracker */
+        'vigenere-cracker': (data) => this.#request('POST', '/tools/vigenere-cracker', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

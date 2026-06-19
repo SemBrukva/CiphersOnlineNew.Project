@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-18T21:34:34+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "vigenere-cracker",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 39,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 39,
+        "data": {
+            "name": "Cracker Vigenere",
+            "name_short": "Cracker Vigenere",
+            "description": "Rompi un testo cifrato con Vigenere online senza conoscere la chiave. Lo strumento stima la lunghezza della chiave con l indice di coincidenza, recupera chiavi candidate con analisi di frequenza e ordina le decifrazioni con punteggio linguistico. Supporta alfabeti inglese, russo, spagnolo, portoghese, turco, francese, tedesco e italiano.",
+            "description_stort": "Cracker automatico Vigenere con recupero della chiave e decifrazioni ordinate.",
+            "meta_title": "Cracker del cifrario Vigenere online | Trova la chiave automaticamente",
+            "meta_description": "Rompi testo cifrato Vigenere online senza chiave. Stima la lunghezza, recupera parole chiave probabili, confronta candidati e usa 8 alfabeti."
+        }
+    },
+    "blocks": [
+        {
+            "id": 150,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cracker Vigenere",
+                "text": "<p>Il cracker Vigenere e uno strumento di crittoanalisi automatica per testi cifrati con il classico metodo a chiave ripetuta. Incolli il testo cifrato, scegli un alfabeto o lasci il rilevamento automatico, e il servizio prova a recuperare la parola chiave e un testo chiaro leggibile senza conoscere la chiave originale.</p><p><strong>Passo 1 — stima della lunghezza:</strong> lo strumento prova lunghezze da 1 a 20. In modalita automatica limita la ricerca affinche ogni colonna abbia abbastanza lettere. Per ogni lunghezza calcola l indice medio di coincidenza (IC). Quando la lunghezza stimata coincide con il periodo reale, il testo si divide in colonne simili a cifrari di Cesare.</p><p><strong>Passo 2 — recupero della chiave:</strong> per ogni colonna il cracker prova tutti gli spostamenti e usa l analisi χ² delle frequenze per trovare la distribuzione piu vicina al testo chiaro.</p><p><strong>Passo 3 — ordinamento:</strong> per gli alfabeti supportati, il servizio affina la chiave con punteggio di bigrammi e hill climbing, poi mostra fino a cinque decifrazioni con chiave, lunghezza, IC, confidenza e testo.</p>"
+            }
+        },
+        {
+            "id": 151,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usare il cracker Vigenere",
+                "text": "<p>Usa questo risolutore Vigenere quando hai testo cifrato ma non conosci la parola chiave. E utile per corsi di crittografia, CTF, enigmi, analisi di cifrari storici e verifiche su messaggi cifrati con Vigenere classico a chiave ripetuta.</p><p>Funziona meglio con testo naturale e abbastanza lettere per le statistiche. Inglese, portoghese, francese e italiano sono di solito affidabili da circa 100 lettere; tedesco e turco da circa 125; spagnolo da circa 150; russo da circa 200. Testi molto brevi possono produrre candidati, ma il risultato sara meno affidabile.</p><p>Puoi lasciare l alfabeto in automatico o scegliere manualmente inglese, russo, spagnolo, portoghese, turco, francese, tedesco o italiano. Se il testo usa solo latino di base, scegliere la lingua prevista puo migliorare il risultato.</p>"
+            }
+        },
+        {
+            "id": 152,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Come leggere i risultati",
+                "text": "<p>Il primo risultato e il testo chiaro piu probabile secondo il modello linguistico, ma l intera tabella e importante. Se il candidato migliore e solo parzialmente leggibile, confronta le altre righe: una lunghezza vicina o una chiave con minore confidenza puo essere piu chiara nei testi brevi o insoliti.</p><p>La colonna <strong>lunghezza chiave</strong> mostra il periodo rilevato. <strong>Chiave</strong> mostra la parola recuperata. Il valore <strong>IC</strong> spiega perche quella lunghezza era plausibile, mentre la <strong>confidenza</strong> confronta le decifrazioni. Un testo sensato con una chiave pulita e di solito il segnale migliore.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quanto testo cifrato serve per un risultato affidabile?",
+                "answer": "Il servizio puo provare input brevi, ma il cracking automatico affidabile richiede abbastanza lettere per frequenze e bigrammi. Inglese, portoghese, francese e italiano richiedono spesso circa 100 lettere; tedesco e turco circa 125; spagnolo circa 150; russo circa 200. Chiavi piu lunghe richiedono piu testo."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Che cos e l indice di coincidenza?",
+                "answer": "L indice di coincidenza (IC) misura quanto spesso due lettere scelte a caso sono uguali. Una lingua naturale ha IC piu alto del testo casuale. In Vigenere la lunghezza corretta divide il testo in colonne simili a Cesare, il cui IC medio si avvicina al valore della lingua."
+            }
+        },
+        {
+            "id": 302,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Perche il cracker puo restituire una chiave sbagliata?",
+                "answer": "La precisione cala con testo corto, prosa insolita, lingue miste, alfabeto errato o chiavi originali oltre 20 caratteri. Nomi propri, abbreviazioni e testo molto formattato alterano le frequenze. Controlla altri candidati o imposta la lunghezza manualmente."
+            }
+        },
+        {
+            "id": 303,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Posso specificare manualmente la lunghezza della chiave?",
+                "answer": "Si. La lunghezza puo restare su auto o essere fissata da 1 a 20. E utile quando un indizio, un pattern ripetuto o un tentativo precedente suggerisce gia la lunghezza."
+            }
+        },
+        {
+            "id": 304,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Lo strumento rompe tutte le varianti di Vigenere?",
+                "answer": "No. Mira al Vigenere standard con chiave ripetuta. Beaufort, Variant Beaufort, Autokey Vigenere, Gronsfeld, one-time pad e alfabeti personalizzati usano regole diverse."
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Cosa fare se il risultato e quasi corretto?",
+                "answer": "Scegli l alfabeto esatto invece di auto, imposta una lunghezza sospetta, rimuovi intestazioni o simboli estranei e aggiungi piu testo cifrato se disponibile. Confronta anche tutti i candidati."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 145,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiave: CHIAVE",
+                "key": "",
+                "shift": 0,
+                "input": "Sbinys wu zixitjitjvg yqczzg bv tzwvv kiavcaw szrbh ta xlkhde, xitji pmmoh q mjhgsti mmrlbuom fltlv pkuouv. Pg smtoitl nrzuwlvtd, pg jwpkmg zbawmnp m lv pwuohzdbh xrjfciqlz hgsta xlkhde vmwainj e fpdiyitl ql hiuzigbmq pv pdy evtoirg. Wwi jkpp kogspui szqdyi ui gkmzammq kq Czwcym e ge uaitdwvpka mmrvztv kthluvpolvtz mn amsos qyqgdrcsm.",
+                "output": "",
+                "description": "Chiave: CHIAVE (6 lettere), brano didattico in italiano — 279 lettere. Il cracker rileva lunghezza chiave 6 e recupera CHIAVE."
+            }
+        },
+        {
+            "id": 146,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiave: SEGRETO",
+                "key": "",
+                "shift": 0,
+                "input": "Hix lrt djsbr hbrsxzzgt qgrbzigs mwgii nb tvges eifku v ghsjitki bb mrg jseo dmtxyt. Gw mr dilgskmzs x hjsvgs vcjxu, ci yfwuavrss virci eslxkii lsefxrrh qswarpb s ap viszfsqsr tnc kgkxpbsji aee vvaebv wuoyporxt. Day zvwmc fezlvtzw guexbsfi oc gbtjezf, tbi ds ykvnawrzf hbglmtxyx zs hktmyfsdofrx qgvxvxmo verci oojmgexb gaqocm.",
+                "output": "",
+                "description": "Chiave: SEGRETO (7 lettere), brano didattico in italiano — 271 lettere. Il cracker rileva lunghezza chiave 7 e recupera SEGRETO."
+            }
+        },
+        {
+            "id": 147,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiave: FARO",
+                "key": "",
+                "shift": 0,
+                "input": "Nl twkrrfno Mwleeswe wi hoegndvfftf ftblgyo gsw mfzyo ksrpf djrtvj lr gyejgf lvhyeio iec hjskc hhzowo gcyemo iimsstrfj szagocw iimswsz. Hztkoair zf cywfvv fnpvhztr zfstwf tiohcv. Ezaert ic djrzcio mwjnv hwomoyo, zz urfpqedo iimsstr isa jswiv rn svaulzqn sgcxtrajnkw j l rbflzgn dvzqe wfjqlsszv htreo ztzzj.",
+                "output": "",
+                "description": "Chiave: FARO (4 lettere), brano didattico in italiano — 257 lettere. Il cracker rileva lunghezza chiave 4 e recupera FARO."
+            }
+        },
+        {
+            "id": 148,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiave: ORBITA",
+                "key": "",
+                "shift": 0,
+                "input": "Bvhtb egvskbzw gsimiqz dwgvwvom vobwswgtoif xbu qrolbdokj m gob wjltrgz tweo rvmtt pfzni kiur. Vv uuce sqluzkbbh dw jptbtc gswwuqv umltc zuieioep axngruw x ubr dpbajv czxvs gminswsjtx. Ss cb zbsdftbt ssdczt shibvt, pifj aveucjmke z zuieioep utnirmuxnhv, gqlsoif cga zlooaenqb vhto f boziiehmke ocuzh tsjuw vitibbh.",
+                "output": "",
+                "description": "Chiave: ORBITA (6 lettere), brano didattico in italiano — 263 lettere. Il cracker rileva lunghezza chiave 6 e recupera ORBITA."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario Vigenere"
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Analisi di frequenza"
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Crittoanalisi"
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cracker Vigenere"
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Recupero chiave"
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Indice di coincidenza"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

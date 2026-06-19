@@ -171,6 +171,7 @@
                 <textarea class="form-control ciphers-textarea ciphers-unified__textarea"
                           id="ciphers-input"
                           rows="7"
+                          {if isset($tool_ui.inputMaxLength)}maxlength="{$tool_ui.inputMaxLength|escape}"{/if}
                           placeholder="{$tool_ui.placeholderEncode}"></textarea>
             </div>
 
@@ -188,7 +189,11 @@
 
             {if ($tool_ui.calculationMode|default:'client') == 'api'}
                 <div class="ciphers-unified__actions">
-                    <button class="ciphers-unified__run-btn" type="button" id="ciphers-primary">{$tool_ui.runLabel}</button>
+                    <button class="ciphers-unified__run-btn" type="button" id="ciphers-primary">
+                        <span class="run-btn-content">{$tool_ui.runLabel}</span>
+                        <span class="run-btn-spinner" aria-hidden="true"></span>
+                    </button>
+                    {if !($tool_ui.disableLiveMode|default:false)}
                     <label class="ciphers-unified__toggle-wrap" for="ciphers-live-mode">
                         <input type="checkbox" id="ciphers-live-mode" class="ciphers-unified__toggle-input">
                         <span class="ciphers-unified__toggle-track">
@@ -196,6 +201,7 @@
                         </span>
                         <span class="ciphers-unified__toggle-label">Live Mode</span>
                     </label>
+                    {/if}
                 </div>
             {/if}
 
