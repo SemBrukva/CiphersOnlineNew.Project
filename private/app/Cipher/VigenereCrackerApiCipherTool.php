@@ -126,6 +126,8 @@ final readonly class VigenereCrackerApiCipherTool implements ApiCipherToolInterf
      * Выполняет тяжёлый расчёт взлома Виженера. Вынесен из {@see execute()},
      * чтобы оборачиваться кешем; никаких сайд-эффектов и зависимостей от
      * глобального состояния, кроме локали (учтена в ключе кеша).
+     *
+     * @return array<string, mixed>
      */
     private function compute(string $text, string $alphabet, bool $isAuto, ?int $fixedKeyLength): array
     {
