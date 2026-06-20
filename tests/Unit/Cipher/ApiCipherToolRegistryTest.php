@@ -23,6 +23,8 @@ use App\Cipher\BeaufortApiCipherTool;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\BifidApiCipherTool;
 use App\Cipher\BifidCipherService;
+use App\Cipher\TrifidApiCipherTool;
+use App\Cipher\TrifidCipherService;
 use App\Cipher\BigramFrequencyScorer;
 use App\Cipher\CaesarApiCipherTool;
 use App\Cipher\CaesarBruteForceApiCipherTool;
@@ -126,7 +128,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService()),
             new XorApiCipherTool(new XorCipherService()),
             new VigenereCrackerApiCipherTool(new VigenereCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache()),
-            new BifidApiCipherTool(new BifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder()))
+            new BifidApiCipherTool(new BifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder())),
+            new TrifidApiCipherTool(new TrifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder()))
         );
     }
 }

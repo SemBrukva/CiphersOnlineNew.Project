@@ -1,0 +1,219 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T14:29:05+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "trifid",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 45,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 45,
+        "data": {
+            "name": "Trifid-Chiffre",
+            "name_short": "Trifid-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text mit der Trifid-Chiffre — einer klassischen fraktionierenden Chiffre von Félix Delastelle, die einen schlüsselbasierten 3×3×3-Polybios-Würfel nutzt und Buchstaben in Ebene-, Zeilen- und Spaltenkoordinaten zerlegt.",
+            "description_stort": "Trifid-Encoder und -Decoder mit Schlüsselwort, Alphabetauswahl und 3×3×3-Polybios-Würfel.",
+            "meta_title": "Trifid-Chiffre online verschlüsseln und entschlüsseln | Ciphers Online",
+            "meta_description": "Verschlüsseln und entschlüsseln Sie die Trifid-Chiffre online mit Schlüsselwort, automatischer oder manueller Alphabetauswahl und 3×3×3-Polybios-Würfel."
+        }
+    },
+    "blocks": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "So funktioniert die Trifid-Chiffre",
+                "text": "<p>Die Trifid-Chiffre ist eine klassische fraktionierende Chiffre von Félix Delastelle, dem Erfinder der Bifid-Chiffre. Statt eines zweidimensionalen Polybios-Quadrats verwendet Trifid einen 3×3×3-Polybios-Würfel: Jede Zelle enthält ein Zeichen des gewählten Alphabets, und jeder Klartextbuchstabe wird durch drei Koordinaten beschrieben — Ebene, Zeile und Spalte.</p><p>Beim Verschlüsseln baut der Dienst den Würfel aus Ihrem Schlüsselwort, schreibt zuerst alle Ebenenkoordinaten, danach alle Zeilenkoordinaten und danach alle Spaltenkoordinaten. Dieser Koordinatenstrom wird anschließend neu in Dreiergruppen aufgeteilt. Jede neue Dreiergruppe wird im Würfel nachgeschlagen und ergibt ein Zeichen des Geheimtexts. Die Entschlüsselung kehrt diesen Ablauf um, deshalb müssen Schlüsselwort und Alphabet identisch sein.</p>"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Wann dieses Werkzeug nützlich ist",
+                "text": "<p>Nutzen Sie dieses Trifid-Werkzeug, um Klartext zu verschlüsseln, Trifid-Geheimtext zu entschlüsseln, Schlüsselwörter zu vergleichen und zu sehen, wie dreidimensionale Koordinatenfraktionierung Informationen über eine Nachricht verteilt. Das Formular unterstützt Verschlüsselung und Entschlüsselung, ein erforderliches Schlüsselwort, automatische Alphabet-Erkennung und eine explizite Alphabetauswahl.</p><p>Unterstützt werden Englisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Englisch und Italienisch verwenden ein 25-Buchstaben-Raster mit J→I und zwei Ziffern als Füllpositionen; Spanisch füllt den Würfel mit ñ natürlich aus; Deutsch, Französisch, Portugiesisch und Türkisch nutzen sprachspezifische Zusammenführungen, damit das Alphabet genau in 27 Würfelzellen passt.</p><p>Leerzeichen, Satzzeichen und nicht unterstützte Zeichen werden vor der Berechnung entfernt, das Ergebnis erscheint in Großbuchstaben. Das Werkzeug eignet sich zum Lernen klassischer Kryptografie, zum Prüfen manueller Rechnungen, für Beispiele und für Experimente mit dem Einfluss des Schlüssels auf den Trifid-Würfel.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 336,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist die Trifid-Chiffre?",
+                "answer": "Die Trifid-Chiffre ist eine klassische fraktionierende Chiffre von Félix Delastelle. Sie verwendet einen 3×3×3-Polybios-Würfel, stellt jeden Buchstaben als drei Koordinaten dar und mischt diese Koordinaten über die Nachricht, wodurch stärkere Diffusion als bei der Bifid-Chiffre entsteht."
+            }
+        },
+        {
+            "id": 337,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Wie unterscheidet sich Trifid von Bifid?",
+                "answer": "Bifid nutzt ein zweidimensionales Polybios-Quadrat mit zwei Koordinaten pro Buchstabe. Trifid nutzt einen dreidimensionalen Polybios-Würfel mit drei Koordinaten pro Buchstabe. Die Mischung aus drei Koordinatenströmen erzeugt mehr Diffusion und erschwert die Kryptoanalyse."
+            }
+        },
+        {
+            "id": 338,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Warum enthält der Geheimtext manchmal Ziffern?",
+                "answer": "Beim englischen und italienischen Alphabet füllen zwei Ziffern (1 und 2) den 3×3×3-Würfel auf genau 27 Positionen auf. Wenn eine neu gruppierte Koordinate auf eine solche Füllposition zeigt, erscheint eine Ziffer im Geheimtext. Bei der Entschlüsselung wird sie korrekt verarbeitet."
+            }
+        },
+        {
+            "id": 339,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Brauche ich denselben Schlüssel zum Entschlüsseln?",
+                "answer": "Ja. Zum Entschlüsseln müssen dasselbe Schlüsselwort und dasselbe Alphabet wie bei der Verschlüsselung verwendet werden. Das Schlüsselwort bestimmt die Reihenfolge der Zeichen im 3×3×3-Würfel."
+            }
+        },
+        {
+            "id": 340,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Welche Alphabete unterstützt dieses Trifid-Werkzeug?",
+                "answer": "Der Trifid-Encoder und -Decoder unterstützt Englisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Sie können das Alphabet manuell wählen oder die automatische Erkennung verwenden."
+            }
+        },
+        {
+            "id": 341,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Was passiert mit Leerzeichen, Satzzeichen und nicht unterstützten Buchstaben?",
+                "answer": "Sie werden bei der Berechnung ignoriert. Die Trifid-Chiffre arbeitet nur mit Zeichen des gewählten unterstützten Alphabets, wendet die nötigen Buchstabenzusammenführungen an und gibt das Ergebnis in Großbuchstaben ohne Leerzeichen oder Satzzeichen zurück."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 170,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Mit Trifid verschlüsseln",
+                "key": "GEHEIMNIS",
+                "shift": 0,
+                "input": "BERLIN",
+                "output": "DBGKIU",
+                "description": "Ein einfaches deutsches Beispiel mit dem Schlüsselwort GEHEIMNIS."
+            }
+        },
+        {
+            "id": 171,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Mit Trifid entschlüsseln",
+                "key": "GEHEIMNIS",
+                "shift": 0,
+                "input": "DBGKIU",
+                "output": "BERLIN",
+                "description": "Entschlüsselung mit demselben Schlüsselwort und demselben deutschen Alphabet."
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Eine Phrase mit Trifid verschlüsseln",
+                "key": "SCHLÜSSEL",
+                "shift": 0,
+                "input": "MÜNCHEN MORGEN",
+                "output": "FSKUKPOPÖFXVX",
+                "description": "Dieses Beispiel zeigt, dass Leerzeichen vor der Berechnung entfernt werden."
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Längeres Trifid-Beispiel",
+                "key": "GEHEIMNIS",
+                "shift": 0,
+                "input": "DEUTSCHER TEXT",
+                "output": "DTHURHGGUÖNCC",
+                "description": "Ein längeres deutsches Beispiel für die Diffusion durch Koordinatenfraktionierung."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 256,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "trifid-chiffre"
+            }
+        },
+        {
+            "id": 257,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "trifid-chiffre online"
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "trifid-decoder"
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "polybios-würfel 3×3×3"
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "fraktionierende chiffre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

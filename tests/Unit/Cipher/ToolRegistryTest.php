@@ -14,6 +14,7 @@ use App\Cipher\AutokeyCipherService;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\BifidCipherService;
+use App\Cipher\TrifidCipherService;
 use App\Cipher\CaesarBruteForceService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\CaseFolder;
@@ -157,7 +158,8 @@ final class ToolRegistryTest extends TestCase
             new XorCipherService(),
             new VigenereCrackerService(),
             new AffineBruteForceService(),
-            new BifidCipherService($catalog, $alphabetTool, $caseFolder)
+            new BifidCipherService($catalog, $alphabetTool, $caseFolder),
+            new TrifidCipherService($catalog, $alphabetTool, $caseFolder)
         );
     }
 }

@@ -1,0 +1,219 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T14:29:05+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "trifid",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 45,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 45,
+        "data": {
+            "name": "Trifid Şifresi",
+            "name_short": "Trifid",
+            "description": "Trifid şifresiyle metin şifreleyin ve çözün — Félix Delastelle’in anahtar sözcüklü 3×3×3 Polybius küpü kullanan ve harfleri katman, satır, sütun koordinatlarına ayıran klasik fraksiyonlama şifresi.",
+            "description_stort": "Anahtar sözcük, alfabe seçimi ve 3×3×3 Polybius küpü ile Trifid kodlayıcı ve çözücü.",
+            "meta_title": "Trifid Şifresi Online — şifrele ve çöz | Ciphers Online",
+            "meta_description": "Trifid şifresini online kullanın: anahtar sözcük, otomatik veya manuel alfabe seçimi ve 3×3×3 Polybius küpü ile şifreleyin ya da çözün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Trifid Şifresi nasıl çalışır",
+                "text": "<p>Trifid Şifresi, Bifid şifresinin de yaratıcısı olan Félix Delastelle tarafından geliştirilmiş klasik bir fraksiyonlama şifresidir. İki boyutlu Polybius karesi yerine Trifid, 3×3×3 Polybius küpü kullanır: Her hücre seçilen alfabenin bir sembolünü içerir ve her açık metin harfi üç koordinatla tanımlanır — katman, satır ve sütun.</p><p>Şifreleme sırasında servis küpü anahtar sözcükten oluşturur, önce tüm katman koordinatlarını, sonra tüm satır koordinatlarını, ardından tüm sütun koordinatlarını yazar ve bu akışı yeni üçlüler halinde gruplar. Her üçlü küpte okunarak şifreli metni üretir. Çözme işlemi bunun tersidir; bu yüzden aynı anahtar sözcük ve aynı alfabe gerekir.</p>"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Bu araç ne zaman kullanılır",
+                "text": "<p>Bu Trifid aracını açık metni şifrelemek, Trifid şifreli metnini çözmek, farklı anahtar sözcükleri karşılaştırmak ve üç boyutlu koordinat fraksiyonlamasının bilgiyi mesaj boyunca nasıl yaydığını incelemek için kullanın. Form şifreleme ve çözme, zorunlu anahtar sözcük, otomatik alfabe algılama ve açık alfabe seçimini destekler.</p><p>Desteklenen alfabeler: İngilizce, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce ve Türkçe. İngilizce ve İtalyanca J→I birleşimi ve iki rakamsal dolgu konumu olan 25 harfli düzeni kullanır; İspanyolca ñ ile küpü doğal olarak doldurur; Almanca, Fransızca, Portekizce ve Türkçe 27 hücreye sığmak için dile özgü birleşimler kullanır.</p><p>Boşluklar, noktalama işaretleri ve desteklenmeyen karakterler hesaplamadan önce kaldırılır; sonuç büyük harfle döner. Araç klasik kriptografiyi öğrenmek, elle yapılan hesapları denetlemek ve anahtarın Trifid küpünü nasıl değiştirdiğini görmek için uygundur.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 336,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Trifid Şifresi nedir?",
+                "answer": "Trifid Şifresi, Félix Delastelle tarafından geliştirilmiş klasik bir fraksiyonlama şifresidir. Her harfi üç koordinatla göstermek için 3×3×3 Polybius küpü kullanır ve bu koordinatları mesaj boyunca karıştırarak Bifid’e göre daha güçlü yayılım sağlar."
+            }
+        },
+        {
+            "id": 337,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Trifid, Bifid’den nasıl farklıdır?",
+                "answer": "Bifid iki boyutlu Polybius karesi kullanır ve her harf iki koordinata sahiptir. Trifid üç boyutlu Polybius küpü kullanır ve her harf üç koordinata sahiptir. Üç koordinat akışının karışması yayılımı artırır ve analizi zorlaştırır."
+            }
+        },
+        {
+            "id": 338,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Şifreli metinde neden bazen rakamlar olur?",
+                "answer": "İngilizce ve İtalyanca alfabelerde iki dolgu rakamı (1 ve 2), 3×3×3 küpü tam 27 konuma tamamlar. Yeniden gruplanan bir üçlü bu konumlardan birine denk gelirse şifreli metinde rakam görünür; çözme sırasında doğru işlenir."
+            }
+        },
+        {
+            "id": 339,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Çözmek için aynı anahtar gerekir mi?",
+                "answer": "Evet. Şifreleme sırasında kullanılan anahtar sözcük ve alfabe aynen kullanılmalıdır. Anahtar sözcük küpteki sembol sırasını belirler."
+            }
+        },
+        {
+            "id": 340,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Bu Trifid aracı hangi alfabeleri destekler?",
+                "answer": "Trifid kodlayıcı ve çözücü İngilizce, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce ve Türkçe alfabeleri destekler. Alfabeyi elle seçebilir veya otomatik algılamayı kullanabilirsiniz."
+            }
+        },
+        {
+            "id": 341,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Boşluklar, noktalama ve desteklenmeyen harfler ne olur?",
+                "answer": "Hesaplama sırasında yok sayılır. Trifid seçilen desteklenen alfabenin harfleriyle çalışır, gerekli harf birleşimlerini uygular ve sonucu boşluksuz, noktalamasız büyük harflerle verir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 170,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Trifid ile şifrele",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "ISTANBUL",
+                "output": "LAUTRSNŞ",
+                "description": "Türkçe alfabe ile temel Trifid şifreleme örneği."
+            }
+        },
+        {
+            "id": 171,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Trifid ile çöz",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "LAUTRSNŞ",
+                "output": "ISTANBUL",
+                "description": "Aynı anahtar sözcük ve aynı Türkçe alfabe ile çözme örneği."
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Trifid ile ifade şifrele",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "TURKCE METIN",
+                "output": "CFIFİSRNLTN",
+                "description": "Bu örnek, boşlukların 3×3×3 anahtarlı küp hesabından önce kaldırıldığını gösterir."
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Daha uzun Trifid örneği",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "ANKARA ISTANBUL",
+                "output": "NALAŞTFTRPPHNŞ",
+                "description": "Koordinat fraksiyonlamasının tekrarlanan harfleri şifreli metne nasıl yaydığını gösteren daha uzun bir örnek."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 256,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "trifid şifresi"
+            }
+        },
+        {
+            "id": 257,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "trifid online"
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "trifid çözücü"
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "3×3×3 polybius küpü"
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "fraksiyonlama şifresi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

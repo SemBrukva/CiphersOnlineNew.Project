@@ -465,6 +465,16 @@ return [
     'BIFID_ERR_KEY_NO_LETTERS'          => 'Key does not contain characters from the selected alphabet.',
     'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Based on a Polybius square with keyword',
     'BIFID_TRUST_FRACTIONATION'         => 'Fractionation: coordinates split and recombined',
+
+    'TRIFID_ERR_INVALID'                => 'Invalid input data.',
+    'TRIFID_ERR_DIRECTION'              => 'Direction must be encrypt or decrypt.',
+    'TRIFID_ERR_TEXT_REQUIRED'          => 'Text is required.',
+    'TRIFID_ERR_KEY_REQUIRED'           => 'Key is required.',
+    'TRIFID_ERR_ALPHABET_UNSUPPORTED'   => 'Unsupported alphabet.',
+    'TRIFID_ERR_TEXT_NO_LETTERS'        => 'Input does not contain characters from the selected alphabet.',
+    'TRIFID_ERR_KEY_NO_LETTERS'         => 'Key does not contain characters from the selected alphabet.',
+    'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Based on a 3×3×3 Polybius cube with keyword',
+    'TRIFID_TRUST_FRACTIONATION'        => 'Fractionation: coordinates split across three layers',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
     'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',

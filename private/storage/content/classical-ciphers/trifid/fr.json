@@ -1,0 +1,219 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T14:29:05+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "trifid",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 45,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 45,
+        "data": {
+            "name": "Chiffre de Trifid",
+            "name_short": "Trifid",
+            "description": "Chiffrez et déchiffrez du texte avec le chiffre de Trifid, un chiffre fractionnaire classique de Félix Delastelle utilisant un cube de Polybe 3×3×3 à mot-clé pour diviser les lettres en coordonnées de couche, ligne et colonne.",
+            "description_stort": "Encodeur et décodeur Trifid avec mot-clé, choix d’alphabet et cube de Polybe 3×3×3.",
+            "meta_title": "Chiffre de Trifid en ligne — chiffrer et déchiffrer | Ciphers Online",
+            "meta_description": "Chiffrez et déchiffrez Trifid en ligne avec un mot-clé, un alphabet automatique ou manuel et un cube de Polybe 3×3×3."
+        }
+    },
+    "blocks": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Trifid",
+                "text": "<p>Le chiffre de Trifid est un chiffre fractionnaire classique créé par Félix Delastelle, également auteur du chiffre de Bifid. Au lieu d’un carré de Polybe en deux dimensions, Trifid utilise un cube de Polybe 3×3×3 : chaque cellule contient un symbole de l’alphabet choisi, et chaque lettre du texte clair est décrite par trois coordonnées — couche, ligne et colonne.</p><p>Lors du chiffrement, le service construit le cube à partir du mot-clé, écrit d’abord toutes les coordonnées de couche, puis toutes les coordonnées de ligne, puis toutes les coordonnées de colonne, et regroupe ce flux en nouveaux triplets. Chaque triplet est lu dans le cube pour produire le texte chiffré. Le déchiffrement inverse l’opération ; le même mot-clé et le même alphabet sont donc nécessaires.</p>"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser cet outil",
+                "text": "<p>Utilisez cet outil Trifid pour chiffrer un texte clair, déchiffrer un texte Trifid, comparer des mots-clés et observer comment la fractionnement tridimensionnel des coordonnées diffuse l’information dans le message. Le formulaire prend en charge le chiffrement, le déchiffrement, le mot-clé obligatoire, la détection automatique et le choix explicite de l’alphabet.</p><p>Alphabets pris en charge : anglais, allemand, espagnol, français, italien, portugais et turc. L’anglais et l’italien utilisent une grille de 25 lettres avec J→I et deux positions numériques de remplissage ; l’espagnol remplit naturellement le cube avec ñ ; l’allemand, le français, le portugais et le turc utilisent des regroupements propres à la langue pour obtenir 27 cellules.</p><p>Les espaces, la ponctuation et les caractères non pris en charge sont ignorés avant le calcul, puis le résultat est renvoyé en majuscules. L’outil convient à l’apprentissage de la cryptographie classique, à la vérification de calculs manuels et aux expériences avec différents mots-clés.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 336,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que le chiffre de Trifid ?",
+                "answer": "Le chiffre de Trifid est un chiffre fractionnaire classique inventé par Félix Delastelle. Il utilise un cube de Polybe 3×3×3 pour représenter chaque lettre par trois coordonnées, puis mélange ces coordonnées dans le message pour obtenir plus de diffusion que Bifid."
+            }
+        },
+        {
+            "id": 337,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "En quoi Trifid diffère-t-il de Bifid ?",
+                "answer": "Bifid utilise un carré de Polybe 2D avec deux coordonnées par lettre. Trifid utilise un cube de Polybe 3D avec trois coordonnées par lettre. Le mélange de trois flux de coordonnées augmente la diffusion et rend l’analyse plus difficile."
+            }
+        },
+        {
+            "id": 338,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le texte chiffré contient-il parfois des chiffres ?",
+                "answer": "Pour les alphabets anglais et italien, deux chiffres de remplissage (1 et 2) complètent le cube 3×3×3 jusqu’à 27 positions. Si un triplet recomposé pointe vers une position de remplissage, un chiffre apparaît ; il est correctement traité au déchiffrement."
+            }
+        },
+        {
+            "id": 339,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Faut-il la même clé pour déchiffrer ?",
+                "answer": "Oui. Le même mot-clé et le même alphabet que lors du chiffrement sont nécessaires. Le mot-clé détermine l’ordre des symboles dans le cube."
+            }
+        },
+        {
+            "id": 340,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quels alphabets cet outil Trifid prend-il en charge ?",
+                "answer": "L’encodeur et décodeur Trifid prend en charge l’anglais, l’allemand, l’espagnol, le français, l’italien, le portugais et le turc. Vous pouvez choisir l’alphabet manuellement ou utiliser la détection automatique."
+            }
+        },
+        {
+            "id": 341,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces, la ponctuation et les lettres non prises en charge ?",
+                "answer": "Ils sont ignorés pendant le calcul. Trifid travaille avec les lettres de l’alphabet sélectionné, applique les regroupements nécessaires et renvoie un résultat en majuscules sans espaces ni ponctuation."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 170,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer avec Trifid",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "BONJOUR",
+                "output": "ÇNBUIÇS",
+                "description": "Exemple de chiffrement Trifid avec l’alphabet français."
+            }
+        },
+        {
+            "id": 171,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Déchiffrer avec Trifid",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "ÇNBUIÇS",
+                "output": "BONJOUR",
+                "description": "Déchiffrement avec le même mot-clé et le même alphabet français."
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer une phrase avec Trifid",
+                "key": "CLEF",
+                "shift": 0,
+                "input": "ÉCOLE PARIS",
+                "output": "LLDRRUELVA",
+                "description": "Les accents sont normalisés selon les règles françaises avant le calcul."
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Exemple Trifid plus long",
+                "key": "DELASTELLE",
+                "shift": 0,
+                "input": "MESSAGE SECRET",
+                "output": "FEDBBJEBAJSJW",
+                "description": "Un exemple plus long montrant la diffusion produite par le fractionnement des coordonnées."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 256,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "chiffre de trifid"
+            }
+        },
+        {
+            "id": 257,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "trifid en ligne"
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "décodeur trifid"
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "cube de polybe 3×3×3"
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "chiffre fractionnaire"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

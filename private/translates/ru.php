@@ -465,6 +465,16 @@ return [
     'BIFID_ERR_KEY_NO_LETTERS'          => 'Ключ не содержит символов выбранного алфавита.',
     'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Квадрат Полибия с ключевым словом',
     'BIFID_TRUST_FRACTIONATION'         => 'Фракционирование: координаты разбиваются и рекомбинируются',
+
+    'TRIFID_ERR_INVALID'                => 'Некорректные входные данные.',
+    'TRIFID_ERR_DIRECTION'              => 'Направление должно быть encrypt или decrypt.',
+    'TRIFID_ERR_TEXT_REQUIRED'          => 'Текст обязателен.',
+    'TRIFID_ERR_KEY_REQUIRED'           => 'Ключ обязателен.',
+    'TRIFID_ERR_ALPHABET_UNSUPPORTED'   => 'Неподдерживаемый алфавит.',
+    'TRIFID_ERR_TEXT_NO_LETTERS'        => 'Текст не содержит символов выбранного алфавита.',
+    'TRIFID_ERR_KEY_NO_LETTERS'         => 'Ключ не содержит символов выбранного алфавита.',
+    'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Куб Полибия 3×3×3 с ключевым словом',
+    'TRIFID_TRUST_FRACTIONATION'        => 'Фракционирование: координаты разбиваются по трём слоям',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
     'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',

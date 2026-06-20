@@ -1,0 +1,219 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T14:29:05+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "trifid",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 45,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 45,
+        "data": {
+            "name": "Trifid Cipher",
+            "name_short": "Trifid Cipher",
+            "description": "Encrypt and decrypt text with the Trifid cipher — a classical fractionating cipher by Félix Delastelle that uses a keyed 3×3×3 Polybius cube to split letters into layer, row, and column coordinates.",
+            "description_stort": "Trifid cipher encoder and decoder with a keyword, alphabet selection, and 3×3×3 Polybius cube.",
+            "meta_title": "Trifid Cipher Online Encoder & Decoder | Ciphers Online",
+            "meta_description": "Encrypt and decrypt Trifid cipher online with a keyword, auto or manual alphabet selection, and a 3×3×3 Polybius cube. Learn how Trifid fractionation works."
+        }
+    },
+    "blocks": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Trifid Cipher works",
+                "text": "<p>The Trifid Cipher is a classical fractionating cipher invented by Félix Delastelle, the same cryptographer who created the Bifid cipher. Instead of a 2D Polybius square, Trifid uses a 3×3×3 Polybius cube: each cell contains one alphabet symbol, and each plaintext letter is represented by three coordinates — layer, row, and column.</p><p>During encryption, the service builds the cube from your keyword, writes all layer coordinates first, then all row coordinates, then all column coordinates, and finally regroups that coordinate stream into new triples. Each new triple is read back from the cube to produce the ciphertext. Decryption reverses the process with the same keyword and alphabet, so both settings must match the original encryption.</p>"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "When to use this tool",
+                "text": "<p>Use this Trifid cipher tool to encode plaintext, decode Trifid ciphertext, compare keywords, and study how three-dimensional coordinate fractionation spreads information across a message. The form supports encryption and decryption, a required keyword, automatic alphabet detection, and explicit alphabet selection.</p><p>Supported alphabets are English, German, Spanish, French, Italian, Portuguese, and Turkish. English and Italian use a 25-letter grid with J merged into I plus two numeric padding positions; Spanish fits the cube naturally with ñ; German, French, Portuguese, and Turkish use language-specific merges so their alphabets fit exactly into 27 cube cells.</p><p>The tool strips spaces, punctuation, and unsupported characters before processing, then returns the result in uppercase. It is ideal for learning classical cryptography, checking hand calculations, preparing examples, and testing how keyword changes alter the Trifid cipher alphabet cube.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 336,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the Trifid Cipher?",
+                "answer": "The Trifid Cipher is a classical fractionating cipher invented by Félix Delastelle. It uses a 3×3×3 Polybius cube to represent each letter as three coordinates, then mixes those coordinates across the message to achieve stronger diffusion than the Bifid cipher."
+            }
+        },
+        {
+            "id": 337,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How is Trifid different from Bifid?",
+                "answer": "Bifid uses a 2D Polybius square giving each letter two coordinates. Trifid uses a 3D Polybius cube giving each letter three coordinates. The three-stream coordinate mixing achieves greater diffusion, making Trifid harder to cryptanalyse than Bifid."
+            }
+        },
+        {
+            "id": 338,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why does the ciphertext sometimes contain digits?",
+                "answer": "For English and Italian alphabets, two numeric pad characters (1 and 2) fill the 3×3×3 cube to exactly 27 positions. When the recombined coordinate triples map to those padding positions, digits appear in the ciphertext. They are correctly handled during decryption."
+            }
+        },
+        {
+            "id": 339,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Do I need the same key to decrypt?",
+                "answer": "Yes. You must use the same keyword and the same alphabet as during encryption. The keyword determines the order of letters inside the 3×3×3 cube."
+            }
+        },
+        {
+            "id": 340,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Which alphabets does this Trifid tool support?",
+                "answer": "The online Trifid encoder and decoder supports English, German, Spanish, French, Italian, Portuguese, and Turkish. You can choose an alphabet manually or leave the setting on auto detection."
+            }
+        },
+        {
+            "id": 341,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces, punctuation, and unsupported letters?",
+                "answer": "They are ignored during calculation. The Trifid cipher works on letters from the selected alphabet, applies the required letter merges for that alphabet, and returns an uppercase result without spaces or punctuation."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 170,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt with Trifid",
+                "key": "KEYWORD",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "FFOF1",
+                "description": "Basic Trifid encryption example using English alphabet (J→I, two numeric pads)."
+            }
+        },
+        {
+            "id": 171,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decrypt with Trifid",
+                "key": "KEYWORD",
+                "shift": 0,
+                "input": "FFOF1",
+                "output": "HELLO",
+                "description": "Decryption using the same keyword and English alphabet."
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt a phrase with Trifid",
+                "key": "KEYWORD",
+                "shift": 0,
+                "input": "MEET ME AT NOON",
+                "output": "CUAEQDTLOSNI",
+                "description": "English Trifid example showing that spaces are ignored before the keyed 3×3×3 cube calculation."
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Longer Trifid encryption example",
+                "key": "PLAYFAIR",
+                "shift": 0,
+                "input": "ATTACKATDAWN",
+                "output": "CLBBPBPIW1VV",
+                "description": "A longer English Trifid example showing how coordinate fractionation diffuses repeated letters across the ciphertext."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 256,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": ""
+            }
+        },
+        {
+            "id": 257,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": ""
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": ""
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": ""
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": ""
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

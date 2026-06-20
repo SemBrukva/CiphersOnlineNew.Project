@@ -39,9 +39,10 @@ final class ApiCipherToolRegistry
         SimpleSubstitutionApiCipherTool $simpleSubstitutionTool,
         XorApiCipherTool $xorTool,
         VigenereCrackerApiCipherTool $vigenereCrackerTool,
-        BifidApiCipherTool $bifidTool
+        BifidApiCipherTool $bifidTool,
+        TrifidApiCipherTool $trifidTool
     ) {
-        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $autokeyTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $xorTool, $vigenereCrackerTool, $bifidTool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $autokeyTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $xorTool, $vigenereCrackerTool, $bifidTool, $trifidTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

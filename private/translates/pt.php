@@ -441,6 +441,16 @@ return [
     'BIFID_ERR_KEY_NO_LETTERS'          => 'A chave não contém caracteres do alfabeto selecionado.',
     'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Baseado em um quadrado de Polibio com palavra-chave',
     'BIFID_TRUST_FRACTIONATION'         => 'Fracionamento: coordenadas divididas e recombinadas',
+
+    'TRIFID_ERR_INVALID'                => 'Dados de entrada inválidos.',
+    'TRIFID_ERR_DIRECTION'              => 'A direção deve ser encrypt ou decrypt.',
+    'TRIFID_ERR_TEXT_REQUIRED'          => 'O texto é obrigatório.',
+    'TRIFID_ERR_KEY_REQUIRED'           => 'A chave é obrigatória.',
+    'TRIFID_ERR_ALPHABET_UNSUPPORTED'   => 'Alfabeto não suportado.',
+    'TRIFID_ERR_TEXT_NO_LETTERS'        => 'O texto não contém caracteres do alfabeto selecionado.',
+    'TRIFID_ERR_KEY_NO_LETTERS'         => 'A chave não contém caracteres do alfabeto selecionado.',
+    'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Baseado em um cubo de Polibio 3×3×3 com palavra-chave',
+    'TRIFID_TRUST_FRACTIONATION'        => 'Fracionamento: coordenadas divididas em três camadas',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Codificação de binário para texto',
     'BASE64_TRUST_USES'                => 'Amplamente usado em APIs, e-mails e web',

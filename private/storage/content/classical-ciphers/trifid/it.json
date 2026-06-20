@@ -1,0 +1,219 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T14:29:05+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "trifid",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 45,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 45,
+        "data": {
+            "name": "Cifrario Trifid",
+            "name_short": "Trifid",
+            "description": "Cifra e decifra testo con il cifrario Trifid, un cifrario frazionante classico di Félix Delastelle che usa un cubo di Polibio 3×3×3 con parola chiave e divide le lettere in coordinate di strato, riga e colonna.",
+            "description_stort": "Encoder e decoder Trifid con parola chiave, scelta dell’alfabeto e cubo di Polibio 3×3×3.",
+            "meta_title": "Cifrario Trifid online — cifrare e decifrare | Ciphers Online",
+            "meta_description": "Cifra e decifra Trifid online con parola chiave, alfabeto automatico o manuale e cubo di Polibio 3×3×3."
+        }
+    },
+    "blocks": [
+        {
+            "id": 171,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario Trifid",
+                "text": "<p>Il cifrario Trifid è un cifrario frazionante classico creato da Félix Delastelle, autore anche del cifrario Bifid. Invece di un quadrato di Polibio bidimensionale, Trifid usa un cubo di Polibio 3×3×3: ogni cella contiene un simbolo dell’alfabeto scelto e ogni lettera del testo in chiaro è descritta da tre coordinate — strato, riga e colonna.</p><p>Durante la cifratura, il servizio costruisce il cubo dalla parola chiave, scrive prima tutte le coordinate degli strati, poi quelle delle righe e infine quelle delle colonne, quindi raggruppa il flusso in nuove terne. Ogni terna viene letta nel cubo per produrre il testo cifrato. La decifratura inverte il processo, quindi parola chiave e alfabeto devono coincidere.</p>"
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usare questo strumento",
+                "text": "<p>Usa questo strumento Trifid per cifrare testo in chiaro, decifrare testo Trifid, confrontare parole chiave e studiare come il frazionamento tridimensionale delle coordinate distribuisce l’informazione nel messaggio. Il modulo supporta cifratura e decifratura, parola chiave obbligatoria, rilevamento automatico e selezione esplicita dell’alfabeto.</p><p>Alfabeti supportati: inglese, tedesco, spagnolo, francese, italiano, portoghese e turco. Inglese e italiano usano una griglia di 25 lettere con J→I e due posizioni numeriche di riempimento; lo spagnolo riempie naturalmente il cubo con ñ; tedesco, francese, portoghese e turco usano fusioni specifiche per arrivare a 27 celle.</p><p>Spazi, punteggiatura e caratteri non supportati vengono rimossi prima del calcolo, poi il risultato viene restituito in maiuscolo. È utile per imparare la crittografia classica, verificare calcoli manuali e sperimentare con parole chiave diverse.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 336,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Che cos’è il cifrario Trifid?",
+                "answer": "Il cifrario Trifid è un cifrario frazionante classico inventato da Félix Delastelle. Usa un cubo di Polibio 3×3×3 per rappresentare ogni lettera con tre coordinate e mescola quelle coordinate nel messaggio per ottenere più diffusione rispetto a Bifid."
+            }
+        },
+        {
+            "id": 337,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "In cosa Trifid differisce da Bifid?",
+                "answer": "Bifid usa un quadrato di Polibio 2D con due coordinate per lettera. Trifid usa un cubo di Polibio 3D con tre coordinate per lettera. La miscela di tre flussi di coordinate aumenta la diffusione e rende l’analisi più difficile."
+            }
+        },
+        {
+            "id": 338,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Perché a volte il testo cifrato contiene cifre?",
+                "answer": "Negli alfabeti inglese e italiano, due cifre di riempimento (1 e 2) completano le 27 posizioni del cubo 3×3×3. Se una terna ricomposta punta a una posizione di riempimento, nel testo cifrato appare una cifra, gestita correttamente in decifratura."
+            }
+        },
+        {
+            "id": 339,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Serve la stessa chiave per decifrare?",
+                "answer": "Sì. Devi usare la stessa parola chiave e lo stesso alfabeto usati per cifrare. La parola chiave determina l’ordine dei simboli nel cubo."
+            }
+        },
+        {
+            "id": 340,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quali alfabeti supporta questo strumento Trifid?",
+                "answer": "L’encoder e decoder Trifid supporta inglese, tedesco, spagnolo, francese, italiano, portoghese e turco. Puoi scegliere manualmente l’alfabeto oppure usare il rilevamento automatico."
+            }
+        },
+        {
+            "id": 341,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede a spazi, punteggiatura e lettere non supportate?",
+                "answer": "Vengono ignorati durante il calcolo. Trifid lavora con le lettere dell’alfabeto selezionato, applica le fusioni necessarie e restituisce un risultato in maiuscolo senza spazi né punteggiatura."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 170,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrare con Trifid",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "CIAO",
+                "output": "CGMU",
+                "description": "Esempio base di cifratura Trifid con alfabeto italiano."
+            }
+        },
+        {
+            "id": 171,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decifrare con Trifid",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "CGMU",
+                "output": "CIAO",
+                "description": "Decifratura con la stessa parola chiave e lo stesso alfabeto italiano."
+            }
+        },
+        {
+            "id": 172,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrare una frase con Trifid",
+                "key": "SEGRETO",
+                "shift": 0,
+                "input": "INCONTRO A ROMA",
+                "output": "IRSEOYKXZPIQQ",
+                "description": "L’esempio mostra che gli spazi vengono ignorati prima del calcolo."
+            }
+        },
+        {
+            "id": 173,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Esempio Trifid più lungo",
+                "key": "TRIFIDO",
+                "shift": 0,
+                "input": "MESSAGGIO SEGRETO",
+                "output": "MUEXFFITETOTDZDI",
+                "description": "Un esempio più lungo che mostra la diffusione prodotta dal frazionamento delle coordinate."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 256,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "cifrario trifid"
+            }
+        },
+        {
+            "id": 257,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "trifid online"
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "decoder trifid"
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "cubo di polibio 3×3×3"
+            }
+        },
+        {
+            "id": 260,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "cifrario frazionante"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

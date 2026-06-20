@@ -283,7 +283,7 @@
                             {if $example.key}data-key="{$example.key|escape:'html'}"{/if}
                             data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"
                             {if $example.shift|default:0}data-shift="{$example.shift|escape:'html'}"{/if}
-                            data-alphabet="{$example.language|escape:'html'}"
+                            data-alphabet="{$example.alphabet|default:$example.language|escape:'html'}"
                             {if $example.delimiter}data-delimiter="{$example.delimiter|escape:'html'}"{/if}
                             {if $example.direction}data-direction="{$example.direction|escape:'html'}"{/if}
                             {if $example.encoding}data-encoding="{$example.encoding|escape:'html'}"{/if}

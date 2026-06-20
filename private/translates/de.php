@@ -442,6 +442,16 @@ return [
     'BIFID_ERR_KEY_NO_LETTERS'          => 'Der Schlüssel enthält keine Zeichen des ausgewählten Alphabets.',
     'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Basierend auf einem Polybios-Quadrat mit Schlüsselwort',
     'BIFID_TRUST_FRACTIONATION'         => 'Fraktionierung: Koordinaten werden aufgeteilt und rekombiniert',
+
+    'TRIFID_ERR_INVALID'                => 'Ungültige Eingabedaten.',
+    'TRIFID_ERR_DIRECTION'              => 'Richtung muss encrypt oder decrypt sein.',
+    'TRIFID_ERR_TEXT_REQUIRED'          => 'Text ist erforderlich.',
+    'TRIFID_ERR_KEY_REQUIRED'           => 'Schlüssel ist erforderlich.',
+    'TRIFID_ERR_ALPHABET_UNSUPPORTED'   => 'Nicht unterstütztes Alphabet.',
+    'TRIFID_ERR_TEXT_NO_LETTERS'        => 'Der Text enthält keine Zeichen des ausgewählten Alphabets.',
+    'TRIFID_ERR_KEY_NO_LETTERS'         => 'Der Schlüssel enthält keine Zeichen des ausgewählten Alphabets.',
+    'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Basierend auf einem 3×3×3-Polybios-Würfel mit Schlüsselwort',
+    'TRIFID_TRUST_FRACTIONATION'        => 'Fraktionierung: Koordinaten auf drei Ebenen aufgeteilt',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binär-zu-Text-Kodierung',
     'BASE64_TRUST_USES'                => 'Weit verbreitet in APIs, E-Mails und im Web',

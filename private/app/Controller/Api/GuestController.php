@@ -481,6 +481,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование шифром Трифид через API.
+     *
+     * POST /api/tools/trifid
+     */
+    #[ApiOperation(summary: 'Trifid Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function trifid(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'trifid');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

@@ -191,6 +191,13 @@ return [
         'name'       => 'api.tools.bifid',
     ],
 
+    'POST /tools/trifid' => [
+        'controller' => GuestController::class,
+        'method'     => 'trifid',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.trifid',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

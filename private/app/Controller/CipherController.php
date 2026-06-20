@@ -328,6 +328,13 @@ final readonly class CipherController
      */
     private function enrichExamples(string $toolSlug, array $examples): array
     {
+        if ($toolSlug === 'classical-ciphers/trifid' && locale() === 'ru') {
+            foreach ($examples as &$example) {
+                $example['alphabet'] = 'en';
+            }
+            unset($example);
+        }
+
         if (!$this->toolRegistry->exampleKeyIsMatrix($toolSlug)) {
             return $examples;
         }

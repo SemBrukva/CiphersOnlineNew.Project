@@ -139,6 +139,8 @@ export class ApiClient {
         'vigenere-cracker': (data) => this.#request('POST', '/tools/vigenere-cracker', data),
         /** POST /api/tools/bifid */
         bifid: (data) => this.#request('POST', '/tools/bifid', data),
+        /** POST /api/tools/trifid */
+        trifid: (data) => this.#request('POST', '/tools/trifid', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

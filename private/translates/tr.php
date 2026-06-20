@@ -441,6 +441,16 @@ return [
     'BIFID_ERR_KEY_NO_LETTERS'          => 'Anahtar seçilen alfabeye ait karakter içermiyor.',
     'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Anahtar kelimeli Polybius karesine dayalı',
     'BIFID_TRUST_FRACTIONATION'         => 'Fraksiyonlama: koordinatlar bölünür ve yeniden birleştirilir',
+
+    'TRIFID_ERR_INVALID'                => 'Geçersiz giriş verisi.',
+    'TRIFID_ERR_DIRECTION'              => 'Yön encrypt veya decrypt olmalıdır.',
+    'TRIFID_ERR_TEXT_REQUIRED'          => 'Metin zorunludur.',
+    'TRIFID_ERR_KEY_REQUIRED'           => 'Anahtar zorunludur.',
+    'TRIFID_ERR_ALPHABET_UNSUPPORTED'   => 'Desteklenmeyen alfabe.',
+    'TRIFID_ERR_TEXT_NO_LETTERS'        => 'Metin seçilen alfabeye ait karakter içermiyor.',
+    'TRIFID_ERR_KEY_NO_LETTERS'         => 'Anahtar seçilen alfabeye ait karakter içermiyor.',
+    'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Anahtar kelimeli 3×3×3 Polybius küpüne dayalı',
+    'TRIFID_TRUST_FRACTIONATION'        => 'Fraksiyonlama: koordinatlar üç katmana bölünür',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
     'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',
