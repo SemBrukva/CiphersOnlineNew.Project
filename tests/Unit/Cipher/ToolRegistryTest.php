@@ -5,14 +5,18 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher;
 
 use App\Cipher\A1z26CipherService;
+use App\Cipher\AffineBruteForceService;
 use App\Cipher\AffineCipherService;
+use App\Cipher\AlphabetCatalog;
+use App\Cipher\AlphabetTool;
 use App\Cipher\AtbashCipherService;
 use App\Cipher\AutokeyCipherService;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortCipherService;
-use App\Cipher\AffineBruteForceService;
+use App\Cipher\BifidCipherService;
 use App\Cipher\CaesarBruteForceService;
 use App\Cipher\CaesarCipherService;
+use App\Cipher\CaseFolder;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\FrequencyAnalysisService;
 use App\Cipher\GronsfeldCipherService;
@@ -120,6 +124,10 @@ final class ToolRegistryTest extends TestCase
      */
     private function makeRegistry(): ToolRegistry
     {
+        $catalog      = new AlphabetCatalog();
+        $caseFolder   = new CaseFolder();
+        $alphabetTool = new AlphabetTool($catalog, $caseFolder);
+
         return new ToolRegistry(
             new AffineCipherService(),
             new AtbashCipherService(),
@@ -148,7 +156,8 @@ final class ToolRegistryTest extends TestCase
             new SimpleSubstitutionCipherService(),
             new XorCipherService(),
             new VigenereCrackerService(),
-            new AffineBruteForceService()
+            new AffineBruteForceService(),
+            new BifidCipherService($catalog, $alphabetTool, $caseFolder)
         );
     }
 }

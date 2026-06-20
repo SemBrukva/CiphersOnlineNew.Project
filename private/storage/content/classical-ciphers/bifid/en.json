@@ -1,0 +1,246 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T12:37:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bifid",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 44,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 44,
+        "data": {
+            "name": "Bifid Cipher",
+            "name_short": "Bifid Cipher",
+            "description": "Encrypt and decrypt text with the Bifid cipher online. Use a custom keyword, choose an alphabet, and see how Delastelle's fractionating transposition cipher combines a Polybius square with coordinate splitting.",
+            "description_stort": "Keyword-based Bifid cipher encoder and decoder with selectable alphabets.",
+            "meta_title": "Bifid Cipher Online Encoder & Decoder",
+            "meta_description": "Use the Bifid cipher online with a custom keyword and selectable alphabet. Encrypt, decrypt, and learn how Polybius-square fractionation works."
+        }
+    },
+    "blocks": [
+        {
+            "id": 167,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Bifid cipher works",
+                "text": "<p>The Bifid cipher is a classical fractionating transposition cipher invented by Félix Delastelle. It starts with a keyword-based Polybius square: duplicate letters are removed from the keyword, then the remaining alphabet fills the grid.</p><p>Each plaintext letter is converted into two coordinates: a row number and a column number. The cipher writes all row coordinates first, then all column coordinates, and reads the combined coordinate stream in pairs to produce the ciphertext.</p><p>This process is called fractionation because each letter is split into smaller coordinate parts before being recombined. The result is stronger than a simple substitution cipher because one plaintext letter can influence the positions of several ciphertext letters.</p>"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "When to use this tool",
+                "text": "<p>Use this Bifid cipher tool to encode and decode messages, test different keywords, compare alphabet settings, and study how fractionation changes letter patterns. It is useful for cryptography lessons, puzzle design, CTF-style challenges, historical demonstrations, and checking hand calculations.</p><p>The tool supports encryption and decryption with the same keyword. It can auto-detect the alphabet from your text and key, or you can select a specific alphabet manually when you need reproducible results.</p>"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Supported alphabets and text handling",
+                "text": "<p>The English Bifid cipher uses a traditional 5×5 square, so J is treated as I. This gives 25 cells and keeps the historical Polybius-square format. Italian uses the same 5×5 approach in this implementation.</p><p>Other supported alphabets use larger square grids where needed: Russian, German, Spanish, Portuguese, and Turkish use 6×6 grids, while French uses a 7×7 grid. Some grids include numeric filler symbols so the alphabet fits a perfect square.</p><p>Spaces, punctuation, and unsupported characters are ignored during calculation. Output is returned in uppercase, which makes the result easy to copy, compare, and reuse in examples.</p>"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Bifid cipher security and limitations",
+                "text": "<p>Bifid is stronger than a monoalphabetic substitution cipher because it combines substitution with transposition-like coordinate mixing. That makes direct single-letter frequency analysis less effective than it is against Caesar, Atbash, or simple substitution ciphers.</p><p>However, Bifid is still a historical manual cipher, not a secure modern encryption method. With enough ciphertext, modern cryptanalysis and computers can recover patterns and test likely keys. Use it for learning, puzzles, and classical cryptography experiments rather than real private communication.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 329,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the Bifid Cipher?",
+                "answer": "The Bifid Cipher is a classical fractionating cipher invented by Félix Delastelle. It uses a keyword-based Polybius square, splits each letter into row and column coordinates, then recombines those coordinates to create the ciphertext."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why is J removed from the English grid?",
+                "answer": "The English alphabet has 26 letters, which does not fit a 5×5 square. Treating J as I gives 25 letters, exactly enough for the traditional Bifid Polybius square."
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Do I need the same key to decrypt?",
+                "answer": "Yes. Decryption requires the same keyword and the same alphabet setting that were used during encryption. A different keyword builds a different Polybius square and produces a different result."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Are spaces and punctuation encrypted?",
+                "answer": "No. This implementation extracts only characters from the selected alphabet. Spaces, punctuation marks, and unsupported symbols are ignored during encryption and decryption."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Which alphabets does this Bifid tool support?",
+                "answer": "The tool supports English, Russian, German, Spanish, French, Italian, Portuguese, and Turkish. You can let the tool detect the alphabet automatically or select one manually."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What does the keyword do in the Bifid cipher?",
+                "answer": "The keyword controls the order of letters in the Polybius square. Duplicate key letters are used only once, and the rest of the alphabet fills the remaining cells."
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is the Bifid cipher secure today?",
+                "answer": "No. Bifid is valuable for education, puzzles, and historical cryptography, but it is not secure for modern private communication."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt with Bifid",
+                "key": "KEYWORD",
+                "shift": 0,
+                "input": "HELLO",
+                "output": "FHYCZ",
+                "description": "Basic Bifid encryption example using the keyword KEYWORD. The plaintext is converted to Polybius-square coordinates, fractionated, and recombined as ciphertext."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decrypt with Bifid",
+                "key": "KEYWORD",
+                "shift": 0,
+                "input": "FHYCZ",
+                "output": "HELLO",
+                "description": "Decryption using the same keyword and alphabet setting. The coordinate stream is split back into rows and columns to restore the plaintext."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt a phrase with spaces",
+                "key": "PLAYFAIR",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "YNBYIXMWSMWE",
+                "description": "Spaces are ignored during calculation, so the phrase is processed as ATTACKATDAWN before encryption."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "English J is treated as I",
+                "key": "KEYWORD",
+                "shift": 0,
+                "input": "JIGSAW",
+                "output": "HIRQCI",
+                "description": "In the English 5×5 grid, J shares the same cell as I. This example shows how text containing J is normalized before Bifid encryption."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 251,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Bifid cipher"
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polybius square"
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Fractionating cipher"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Keyword-based"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

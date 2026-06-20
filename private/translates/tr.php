@@ -431,6 +431,16 @@ return [
     'AUTOKEY_ERR_TEXT_ALPHABET'         => 'Girdi, seçilen alfabeden karakter içermiyor.',
     'AUTOKEY_ERR_KEY_ALPHABET'          => 'Anahtar, seçilen alfabeden karakter içermiyor.',
     'AUTOKEY_TRUST_KEY_STREAM'          => 'Anahtar akışı ileti metniyle devam eder',
+    // Bifid Şifresi
+    'BIFID_ERR_INVALID'                 => 'Geçersiz giriş verisi.',
+    'BIFID_ERR_DIRECTION'               => 'Yön encrypt veya decrypt olmalıdır.',
+    'BIFID_ERR_TEXT_REQUIRED'           => 'Metin zorunludur.',
+    'BIFID_ERR_KEY_REQUIRED'            => 'Anahtar zorunludur.',
+    'BIFID_ERR_ALPHABET_UNSUPPORTED'    => 'Desteklenmeyen alfabe.',
+    'BIFID_ERR_TEXT_NO_LETTERS'         => 'Metin seçilen alfabeye ait karakter içermiyor.',
+    'BIFID_ERR_KEY_NO_LETTERS'          => 'Anahtar seçilen alfabeye ait karakter içermiyor.',
+    'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Anahtar kelimeli Polybius karesine dayalı',
+    'BIFID_TRUST_FRACTIONATION'         => 'Fraksiyonlama: koordinatlar bölünür ve yeniden birleştirilir',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
     'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',

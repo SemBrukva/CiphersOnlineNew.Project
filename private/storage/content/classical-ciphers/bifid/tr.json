@@ -1,0 +1,246 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T12:37:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bifid",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 44,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 44,
+        "data": {
+            "name": "Bifid Şifresi",
+            "name_short": "Bifid Şifresi",
+            "description": "Bifid şifresiyle metni çevrimiçi şifreleyin ve çözün. Kendi anahtarınızı kullanın, alfabeyi seçin ve Delastelle’in fraksiyonel transpozisyon şifresinin Polybius karesiyle koordinat ayırmayı nasıl birleştirdiğini öğrenin.",
+            "description_stort": "Anahtar tabanlı, seçilebilir alfabeli Bifid şifreleyici ve çözücü.",
+            "meta_title": "Bifid Şifresi çevrimiçi şifreleme ve çözme",
+            "meta_description": "Özel anahtar ve seçilebilir alfabeyle Bifid şifresini çevrimiçi kullanın. Şifreleyin, çözün ve Polybius karesiyle fraksiyonlamayı öğrenin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 167,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Bifid şifresi nasıl çalışır?",
+                "text": "<p>Bifid şifresi, Félix Delastelle tarafından geliştirilen klasik bir fraksiyonel transpozisyon şifresidir. Önce anahtar kelimeye dayalı bir Polybius karesi oluşturulur: anahtardaki yinelenen harfler kaldırılır ve kalan hücreler seçilen alfabenin harfleriyle doldurulur.</p><p>Düz metindeki her harf iki koordinata dönüştürülür: satır ve sütun. Şifre önce tüm satır koordinatlarını, sonra tüm sütun koordinatlarını yazar; birleşen koordinat akışını çiftler halinde okuyarak şifreli metni üretir.</p><p>Bu işlem fraksiyonlama olarak adlandırılır, çünkü her harf daha küçük koordinat parçalarına ayrılır ve sonra yeniden birleştirilir. Sonuç, basit yer değiştirme şifrelerinden daha güçlüdür; çünkü bir düz metin harfi şifreli metindeki birden fazla konumu etkileyebilir.</p>"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Bu araç ne zaman kullanılır?",
+                "text": "<p>Bu Bifid aracı mesajları şifrelemek ve çözmek, farklı anahtarları test etmek, alfabe ayarlarını karşılaştırmak ve fraksiyonlamanın harf örüntülerini nasıl değiştirdiğini incelemek için kullanılabilir. Kriptografi dersleri, bulmacalar, CTF görevleri, tarihsel gösterimler ve elle yapılan hesaplamaları kontrol etmek için uygundur.</p><p>Araç aynı anahtarla şifreleme ve çözmeyi destekler. Alfabe metin ve anahtardan otomatik algılanabilir veya tekrarlanabilir sonuçlar için elle seçilebilir.</p>"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Desteklenen alfabeler ve metin işleme",
+                "text": "<p>İngilizce Bifid geleneksel 5×5 kareyi kullanır; bu nedenle J, I gibi işlenir. Böylece tarihsel Polybius karesi için 25 hücre elde edilir. İtalyanca da bu uygulamada aynı 5×5 yaklaşımını kullanır.</p><p>Diğer alfabeler gerektiğinde daha büyük kareler kullanır: Rusça, Almanca, İspanyolca, Portekizce ve Türkçe 6×6; Fransızca ise 7×7 ızgara kullanır. Bazı ızgaralarda alfabenin tam kareye sığması için rakam dolguları bulunur.</p><p>Boşluklar, noktalama işaretleri ve desteklenmeyen karakterler hesaplama sırasında yok sayılır. Çıktı büyük harfle döndürülür, böylece kopyalaması, karşılaştırması ve örneklerde kullanması kolay olur.</p>"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Bifid şifresinin güvenliği ve sınırları",
+                "text": "<p>Bifid, monoalfabetik yer değiştirmeden daha güçlüdür; çünkü yer değiştirmeyi koordinatların transpozisyona benzer karışımıyla birleştirir. Bu nedenle tek harf frekans analizi, Sezar, Atbash veya basit yer değiştirmeye göre daha az etkilidir.</p><p>Yine de Bifid tarihsel bir el şifresidir; modern güvenli şifreleme yöntemi değildir. Yeterli şifreli metinle modern kriptoanaliz ve bilgisayarlar örüntüleri bulabilir ve olası anahtarları deneyebilir. Gerçek gizli iletişim yerine öğrenme, bulmacalar ve klasik kriptografi deneyleri için kullanın.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 329,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Bifid şifresi nedir?",
+                "answer": "Bifid şifresi, Félix Delastelle tarafından geliştirilen klasik bir fraksiyonel şifredir. Anahtar tabanlı bir Polybius karesi kullanır, her harfi satır ve sütun koordinatlarına ayırır ve bu koordinatları yeniden birleştirerek şifreli metni oluşturur."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "İngilizce ızgarada J neden kaldırılır?",
+                "answer": "İngiliz alfabesinde 26 harf vardır ve bu 5×5 kareye sığmaz. J harfini I gibi işlemek 25 harf verir; bu da geleneksel Bifid Polybius karesi için tam sayıdır."
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Çözmek için aynı anahtar gerekir mi?",
+                "answer": "Evet. Çözme işlemi, şifreleme sırasında kullanılan aynı anahtarı ve aynı alfabe ayarını gerektirir. Farklı bir anahtar farklı bir Polybius karesi oluşturur."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Boşluklar ve noktalama işaretleri şifrelenir mi?",
+                "answer": "Hayır. Bu uygulama yalnızca seçilen alfabedeki karakterleri çıkarır. Boşluklar, noktalama işaretleri ve desteklenmeyen semboller şifreleme ve çözme sırasında yok sayılır."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Bu Bifid aracı hangi alfabeleri destekler?",
+                "answer": "Araç İngilizce, Rusça, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce ve Türkçe alfabelerini destekler. Alfabeyi otomatik algılatabilir veya elle seçebilirsiniz."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Bifid şifresinde anahtar ne yapar?",
+                "answer": "Anahtar, Polybius karesindeki harf sırasını belirler. Anahtardaki yinelenen harfler yalnızca bir kez kullanılır; kalan hücreler alfabenin geri kalanıyla doldurulur."
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Bifid şifresi bugün güvenli mi?",
+                "answer": "Hayır. Bifid eğitim, bulmacalar ve tarihsel kriptografi için yararlıdır, ancak modern özel iletişim için güvenli değildir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Bifid ile şifreleme",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "MERHABA",
+                "output": "OAAASĞ2",
+                "description": "ANAHTAR kelimesiyle temel örnek. Düz metin Polybius karesi koordinatlarına dönüştürülür, fraksiyonlanır ve şifreli metin olarak yeniden birleştirilir."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Bifid metnini çözme",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "OAAASĞ2",
+                "output": "MERHABA",
+                "description": "Aynı anahtar ve alfabe ayarıyla çözme. Koordinat akışı satır ve sütunlara ayrılarak düz metin geri elde edilir."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Boşluklu bir ifadeyi şifreleme",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "GİZLİ MESAJ",
+                "output": "DVJEH41ĞST",
+                "description": "Boşluklar hesaplama sırasında yok sayılır; ifade Türkçe harflerden oluşan sürekli bir dizi olarak işlenir."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Türkçede I ve İ ayrımı",
+                "key": "ANAHTAR",
+                "shift": 0,
+                "input": "IŞIK",
+                "output": "JİGF",
+                "description": "Türkçe alfabede I/ı ve İ/i farklı harf çiftleridir. Bu uygulama Türkçe büyük-küçük harf dönüşümünü buna göre yapar."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 251,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Bifid şifresi"
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polybius karesi"
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Fraksiyonel şifre"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Anahtar tabanlı"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

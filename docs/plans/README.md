@@ -11,6 +11,7 @@
 | P2        | [priority-2-modern-conveniences.md](priority-2-modern-conveniences.md) | DX-улучшения: auto-wiring, именованные маршруты, кеши      |
 | P3        | [priority-3-framework-features.md](priority-3-framework-features.md) | Фичи фреймворка: events, queue, schema builder, OpenAPI    |
 | P4        | [priority-4-infrastructure.md](priority-4-infrastructure.md)        | Инфраструктура: Docker, CI, безопасность по умолчанию      |
+| Точечно   | [casefolder-migration.md](casefolder-migration.md)                  | Миграция cipher-сервисов на CaseFolder (фикс tr `İ`/`ı`)   |
 
 ## Как пользоваться
 

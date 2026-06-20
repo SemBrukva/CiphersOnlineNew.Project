@@ -1,0 +1,246 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T12:37:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bifid",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 44,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 44,
+        "data": {
+            "name": "Cifrado bífido",
+            "name_short": "Cifrado bífido",
+            "description": "Cifra y descifra texto en línea con el cifrado bífido. Usa una clave personalizada, elige un alfabeto y aprende cómo el cifrado fraccionario de Delastelle combina un cuadrado de Polibio con la división de coordenadas.",
+            "description_stort": "Codificador y decodificador bífido con clave y alfabetos seleccionables.",
+            "meta_title": "Cifrado bífido online para cifrar y descifrar",
+            "meta_description": "Usa el cifrado bífido online con una clave personalizada y alfabeto seleccionable. Cifra, descifra y aprende la fraccionación con el cuadrado de Polibio."
+        }
+    },
+    "blocks": [
+        {
+            "id": 167,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el cifrado bífido",
+                "text": "<p>El cifrado bífido es un cifrado clásico de transposición fraccionaria inventado por Félix Delastelle. Primero se crea un cuadrado de Polibio basado en la clave: se eliminan las letras repetidas de la clave y el resto del alfabeto completa la tabla.</p><p>Cada letra del texto claro se convierte en dos coordenadas: fila y columna. El cifrado escribe primero todas las coordenadas de fila, luego todas las coordenadas de columna, y lee el flujo combinado por pares para obtener el texto cifrado.</p><p>Este proceso se llama fraccionación porque cada letra se divide en partes de coordenadas y luego se recombina. El resultado es más fuerte que una sustitución simple, ya que una letra del texto claro puede influir en varias posiciones del texto cifrado.</p>"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cuándo usar esta herramienta",
+                "text": "<p>Esta herramienta de cifrado bífido sirve para cifrar y descifrar mensajes, probar distintas claves, comparar configuraciones de alfabeto y estudiar cómo la fraccionación cambia los patrones de letras. Es útil para clases de criptografía, acertijos, retos CTF, demostraciones históricas y comprobación de cálculos manuales.</p><p>La herramienta admite cifrado y descifrado con la misma clave. Puede detectar el alfabeto automáticamente a partir del texto y la clave, o puedes seleccionarlo manualmente para obtener resultados reproducibles.</p>"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Alfabetos admitidos y tratamiento del texto",
+                "text": "<p>El cifrado bífido inglés usa el cuadrado tradicional de 5×5, por lo que J se trata como I. Así se obtienen 25 celdas para el formato histórico del cuadrado de Polibio. El italiano usa el mismo enfoque 5×5 en esta implementación.</p><p>Otros alfabetos usan cuadrículas mayores cuando es necesario: ruso, alemán, español, portugués y turco usan 6×6, mientras que francés usa 7×7. Algunas cuadrículas incluyen cifras de relleno para que el alfabeto encaje en un cuadrado perfecto.</p><p>Los espacios, signos de puntuación y caracteres no admitidos se ignoran durante el cálculo. La salida se devuelve en mayúsculas para que sea fácil copiarla, compararla y reutilizarla en ejemplos.</p>"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Seguridad y límites del cifrado bífido",
+                "text": "<p>Bifid es más fuerte que una sustitución monoalfabética porque combina sustitución con una mezcla de coordenadas similar a una transposición. Esto hace que el análisis directo de frecuencia por letras sea menos eficaz que contra César, Atbash o una sustitución simple.</p><p>Aun así, Bifid sigue siendo un cifrado manual histórico, no un método moderno de seguridad. Con suficiente texto cifrado, la criptografía moderna y los ordenadores pueden encontrar patrones y probar claves probables. Úsalo para aprender, resolver acertijos y experimentar con criptografía clásica, no para comunicaciones privadas reales.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 329,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué es el cifrado bífido?",
+                "answer": "El cifrado bífido es un cifrado clásico fraccionario inventado por Félix Delastelle. Usa un cuadrado de Polibio basado en una clave, divide cada letra en coordenadas de fila y columna y recombina esas coordenadas para crear el texto cifrado."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Por qué se elimina la J en la cuadrícula inglesa?",
+                "answer": "El alfabeto inglés tiene 26 letras y no cabe en un cuadrado de 5×5. Al tratar J como I quedan 25 letras, justo las necesarias para el cuadrado de Polibio tradicional."
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Necesito la misma clave para descifrar?",
+                "answer": "Sí. Para descifrar debes usar la misma clave y el mismo alfabeto que se usaron al cifrar. Una clave distinta construye otro cuadrado de Polibio y produce otro resultado."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Se cifran los espacios y la puntuación?",
+                "answer": "No. Esta implementación extrae solo caracteres del alfabeto seleccionado. Los espacios, signos de puntuación y símbolos no admitidos se ignoran durante el cifrado y descifrado."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Qué alfabetos admite esta herramienta bífida?",
+                "answer": "La herramienta admite inglés, ruso, alemán, español, francés, italiano, portugués y turco. Puedes dejar que detecte el alfabeto automáticamente o seleccionarlo manualmente."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Qué hace la clave en el cifrado bífido?",
+                "answer": "La clave controla el orden de las letras en el cuadrado de Polibio. Las letras repetidas de la clave se usan solo una vez y las demás celdas se completan con el resto del alfabeto."
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Es seguro hoy el cifrado bífido?",
+                "answer": "No. Bifid es útil para educación, acertijos y criptografía histórica, pero no es seguro para comunicaciones privadas modernas."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrar con Bifid",
+                "key": "CLAVE",
+                "shift": 0,
+                "input": "HOLA",
+                "output": "GCUG",
+                "description": "Ejemplo básico con la clave CLAVE. El texto claro se convierte en coordenadas del cuadrado de Polibio, se fracciona y se recombina como texto cifrado."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Descifrar texto bífido",
+                "key": "CLAVE",
+                "shift": 0,
+                "input": "GCUG",
+                "output": "HOLA",
+                "description": "Descifrado con la misma clave y el mismo alfabeto. El flujo de coordenadas se vuelve a dividir en filas y columnas para restaurar el texto claro."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrar una frase con espacios",
+                "key": "SECRETO",
+                "shift": 0,
+                "input": "ATAQUE AL AMANECER",
+                "output": "AFÑDDDSSTCPRTODF",
+                "description": "Los espacios se ignoran durante el cálculo, por lo que la frase se procesa como una secuencia continua de letras españolas."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Alfabeto español con Ñ",
+                "key": "CLAVE",
+                "shift": 0,
+                "input": "NIÑO",
+                "output": "MNOU",
+                "description": "El alfabeto español incluye Ñ en esta implementación y usa una cuadrícula de 6×6 con símbolos de relleno."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 251,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrado bífido"
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cuadrado de Polibio"
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifrado fraccionario"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Basado en clave"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Criptografía clásica"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

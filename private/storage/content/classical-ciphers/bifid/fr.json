@@ -1,0 +1,246 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T12:37:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bifid",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 44,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 44,
+        "data": {
+            "name": "Chiffre de Bifid",
+            "name_short": "Chiffre de Bifid",
+            "description": "Chiffrez et déchiffrez du texte en ligne avec le chiffre de Bifid. Utilisez un mot-clé personnalisé, choisissez un alphabet et découvrez comment le chiffrement fractionnaire de Delastelle combine un carré de Polybe avec la séparation des coordonnées.",
+            "description_stort": "Encodeur et décodeur Bifid avec mot-clé et alphabets sélectionnables.",
+            "meta_title": "Chiffre de Bifid en ligne — chiffrement et déchiffrement",
+            "meta_description": "Utilisez le chiffre de Bifid en ligne avec un mot-clé personnalisé et un alphabet sélectionnable. Chiffrez, déchiffrez et apprenez la fractionation par carré de Polybe."
+        }
+    },
+    "blocks": [
+        {
+            "id": 167,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Bifid",
+                "text": "<p>Le chiffre de Bifid est un chiffre classique de transposition fractionnaire inventé par Félix Delastelle. Il commence par un carré de Polybe construit avec un mot-clé : les lettres répétées du mot-clé sont supprimées, puis le reste de l’alphabet remplit la grille.</p><p>Chaque lettre du texte clair est convertie en deux coordonnées : une ligne et une colonne. Le chiffre écrit d’abord toutes les coordonnées de ligne, puis toutes les coordonnées de colonne, et relit le flux combiné par paires pour produire le texte chiffré.</p><p>Ce procédé s’appelle la fractionation, car chaque lettre est divisée en coordonnées plus petites avant d’être recombinée. Le résultat est plus fort qu’une substitution simple, parce qu’une lettre du texte clair peut influencer plusieurs positions du texte chiffré.</p>"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quand utiliser cet outil",
+                "text": "<p>Cet outil Bifid permet de chiffrer et déchiffrer des messages, de tester différents mots-clés, de comparer les réglages d’alphabet et d’étudier la manière dont la fractionation modifie les motifs de lettres. Il est utile pour les cours de cryptographie, les énigmes, les défis CTF, les démonstrations historiques et la vérification de calculs manuels.</p><p>L’outil prend en charge le chiffrement et le déchiffrement avec le même mot-clé. Il peut détecter automatiquement l’alphabet à partir du texte et du mot-clé, ou vous pouvez le choisir manuellement pour obtenir un résultat reproductible.</p>"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Alphabets pris en charge et traitement du texte",
+                "text": "<p>Le Bifid anglais utilise le carré traditionnel 5×5, où J est traité comme I. Cela donne 25 cases et conserve le format historique du carré de Polybe. L’italien utilise la même approche 5×5 dans cette implémentation.</p><p>D’autres alphabets utilisent des grilles plus grandes si nécessaire : le russe, l’allemand, l’espagnol, le portugais et le turc utilisent des grilles 6×6, tandis que le français utilise une grille 7×7. Certaines grilles contiennent des chiffres de remplissage pour former un carré parfait.</p><p>Les espaces, la ponctuation et les caractères non pris en charge sont ignorés pendant le calcul. La sortie est renvoyée en majuscules afin d’être facile à copier, comparer et réutiliser dans les exemples.</p>"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Sécurité et limites du chiffre de Bifid",
+                "text": "<p>Bifid est plus fort qu’une substitution monoalphabétique, car il combine la substitution avec un mélange de coordonnées proche d’une transposition. L’analyse fréquentielle directe des lettres isolées est donc moins efficace que contre César, Atbash ou une substitution simple.</p><p>Cependant, Bifid reste un chiffre manuel historique, pas une méthode de chiffrement moderne. Avec assez de texte chiffré, la cryptanalyse moderne et les ordinateurs peuvent retrouver des motifs et tester des mots-clés probables. Utilisez-le pour apprendre, créer des énigmes et expérimenter avec la cryptographie classique, pas pour une communication réellement privée.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 329,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que le chiffre de Bifid ?",
+                "answer": "Le chiffre de Bifid est un chiffre fractionnaire classique inventé par Félix Delastelle. Il utilise un carré de Polybe fondé sur un mot-clé, sépare chaque lettre en coordonnées de ligne et de colonne, puis recombine ces coordonnées pour créer le texte chiffré."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Pourquoi J est-il retiré de la grille anglaise ?",
+                "answer": "L’alphabet anglais contient 26 lettres, ce qui ne tient pas dans un carré 5×5. En traitant J comme I, on obtient 25 lettres, exactement le nombre nécessaire au carré de Polybe traditionnel."
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Faut-il le même mot-clé pour déchiffrer ?",
+                "answer": "Oui. Le déchiffrement exige le même mot-clé et le même réglage d’alphabet que ceux utilisés pour le chiffrement. Un autre mot-clé crée un autre carré de Polybe."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Les espaces et la ponctuation sont-ils chiffrés ?",
+                "answer": "Non. Cette implémentation extrait uniquement les caractères de l’alphabet sélectionné. Les espaces, la ponctuation et les symboles non pris en charge sont ignorés."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quels alphabets cet outil Bifid prend-il en charge ?",
+                "answer": "L’outil prend en charge l’anglais, le russe, l’allemand, l’espagnol, le français, l’italien, le portugais et le turc. Vous pouvez laisser l’outil détecter l’alphabet ou le choisir manuellement."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "À quoi sert le mot-clé dans le chiffre de Bifid ?",
+                "answer": "Le mot-clé contrôle l’ordre des lettres dans le carré de Polybe. Les lettres répétées du mot-clé ne sont utilisées qu’une seule fois, puis le reste de l’alphabet remplit les cases restantes."
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Bifid est-il sûr aujourd’hui ?",
+                "answer": "Non. Bifid est utile pour l’apprentissage, les énigmes et l’histoire de la cryptographie, mais il n’est pas sûr pour les communications privées modernes."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer avec Bifid",
+                "key": "CLÉ",
+                "shift": 0,
+                "input": "SALUT",
+                "output": "SÀSNH",
+                "description": "Exemple de base avec le mot-clé CLÉ. Le texte clair est converti en coordonnées du carré de Polybe, fractionné puis recombiné en texte chiffré."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Déchiffrer un texte Bifid",
+                "key": "CLÉ",
+                "shift": 0,
+                "input": "SÀSNH",
+                "output": "SALUT",
+                "description": "Déchiffrement avec le même mot-clé et le même alphabet. Le flux de coordonnées est séparé en lignes et colonnes pour restaurer le texte clair."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer une phrase avec espaces",
+                "key": "CLÉ",
+                "shift": 0,
+                "input": "MESSAGE SECRET",
+                "output": "NÛÉÊÇNSGAÉÉBH",
+                "description": "Les espaces sont ignorés pendant le calcul, la phrase est donc traitée comme une suite continue de lettres françaises."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Grille française 7×7 avec accents",
+                "key": "CLÉ",
+                "shift": 0,
+                "input": "ÉTÉ",
+                "output": "ÀÉE",
+                "description": "L’alphabet français de cette implémentation inclut plusieurs lettres accentuées et utilise une grille 7×7 avec chiffres de remplissage."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 251,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de Bifid"
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Carré de Polybe"
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Chiffre fractionnaire"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Basé sur un mot-clé"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

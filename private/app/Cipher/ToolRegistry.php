@@ -42,7 +42,8 @@ final readonly class ToolRegistry
         private SimpleSubstitutionCipherService $simpleSubstitution,
         private XorCipherService $xorCipher,
         private VigenereCrackerService $vigenereCracker,
-        private AffineBruteForceService $affineBruteForce
+        private AffineBruteForceService $affineBruteForce,
+        private BifidCipherService $bifidCipher
     ) {
     }
 
@@ -132,6 +133,11 @@ final readonly class ToolRegistry
                 ['label' => 'Classic',  'value' => 'ATTACK AT DAWN',       'alphabet' => 'en', 'key' => 'QUEENLY'],
                 ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'FORT'],
                 ['label' => 'Decode',   'value' => 'QNXEPV YT WTWP',       'alphabet' => 'en', 'key' => 'QUEENLY', 'direction' => 'decrypt'],
+            ],
+            'classical-ciphers/bifid' => [
+                ['label' => 'Classic',  'value' => 'HELLO',          'alphabet' => 'en', 'key' => 'KEYWORD'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => 'PLAYFAIR'],
+                ['label' => 'Decode',   'value' => 'FHYCZ',          'alphabet' => 'en', 'key' => 'KEYWORD', 'direction' => 'decrypt'],
             ],
             'classical-ciphers/gronsfeld' => [
                 ['label' => 'Military', 'value' => 'HELLO WORLD',    'alphabet' => 'en', 'key' => '9871'],
@@ -253,6 +259,7 @@ final readonly class ToolRegistry
             'classical-ciphers/playfair' => 'playfair',
             'classical-ciphers/beaufort' => 'beaufort',
             'classical-ciphers/autokey' => 'autokey',
+            'classical-ciphers/bifid'   => 'bifid',
             'classical-ciphers/gronsfeld' => 'gronsfeld',
             'classical-ciphers/vigenere' => 'vigenere',
             'classical-ciphers/vernam' => 'vernam',
@@ -295,6 +302,7 @@ final readonly class ToolRegistry
             'classical-ciphers/playfair' => $this->playfairCipher->getToolSettings(),
             'classical-ciphers/beaufort' => $this->beaufortCipher->getToolSettings(),
             'classical-ciphers/autokey' => $this->autokeyCipher->getToolSettings(),
+            'classical-ciphers/bifid'   => $this->bifidCipher->getToolSettings(),
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getToolSettings(),
             'classical-ciphers/vigenere' => $this->vigenereCipher->getToolSettings(),
             'classical-ciphers/vernam' => $this->vernamCipher->getToolSettings(),
@@ -335,6 +343,7 @@ final readonly class ToolRegistry
             'classical-ciphers/atbash'    => $this->atbashCipher->getTrustItems($calculationMode),
             'classical-ciphers/beaufort'  => $this->beaufortCipher->getTrustItems($calculationMode),
             'classical-ciphers/autokey'   => $this->autokeyCipher->getTrustItems($calculationMode),
+            'classical-ciphers/bifid'     => $this->bifidCipher->getTrustItems($calculationMode),
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getTrustItems($calculationMode),
             'classical-ciphers/vigenere'  => $this->vigenereCipher->getTrustItems($calculationMode),
             'classical-ciphers/vernam'    => $this->vernamCipher->getTrustItems($calculationMode),
@@ -458,6 +467,7 @@ final readonly class ToolRegistry
             'classical-ciphers/plejfera', 'classical-ciphers/shifr-plejfera' => 'classical-ciphers/playfair',
             'classical-ciphers/shifr-bofora' => 'classical-ciphers/beaufort',
             'classical-ciphers/autokey-cipher', 'classical-ciphers/shifr-autokey' => 'classical-ciphers/autokey',
+            'classical-ciphers/bifid-cipher', 'classical-ciphers/shifr-bifida' => 'classical-ciphers/bifid',
             'classical-ciphers/shifr-gronsfelda' => 'classical-ciphers/gronsfeld',
             'classical-ciphers/shifr-vizhenera' => 'classical-ciphers/vigenere',
             'classical-ciphers/shifr-vernama' => 'classical-ciphers/vernam',

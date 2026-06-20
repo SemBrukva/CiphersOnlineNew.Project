@@ -11,9 +11,14 @@ final readonly class AlphabetTool
 {
     /**
      * Создаёт экземпляр утилиты алфавитов.
+     *
+     * CaseFolder опционален для обратной совместимости со старыми вызовами без DI;
+     * при отсутствии используется fallback-инстанс. Производственный путь — через
+     * Container, который всегда подставит реальный сервис.
      */
     public function __construct(
-        private AlphabetCatalog $catalog
+        private AlphabetCatalog $catalog,
+        private ?CaseFolder     $caseFolder = null
     ) {
     }
 
@@ -24,11 +29,11 @@ final readonly class AlphabetTool
     {
         $letters = $this->catalog->alphabet($alphabet);
         $set = array_flip($letters);
+        $folded = $this->caseFolder()->toLower($text, $alphabet);
 
-        $length = mb_strlen($text);
+        $length = mb_strlen($folded);
         for ($i = 0; $i < $length; $i++) {
-            $char = mb_strtolower(mb_substr($text, $i, 1));
-            if (isset($set[$char])) {
+            if (isset($set[mb_substr($folded, $i, 1)])) {
                 return true;
             }
         }
@@ -43,13 +48,13 @@ final readonly class AlphabetTool
     {
         $scores = [];
         foreach ($this->catalog->all() as $code => $letters) {
-            $set = array_flip($letters);
+            $set    = array_flip($letters);
+            $folded = $this->caseFolder()->toLower($text, $code);
             $scores[$code] = 0;
 
-            $length = mb_strlen($text);
+            $length = mb_strlen($folded);
             for ($i = 0; $i < $length; $i++) {
-                $char = mb_strtolower(mb_substr($text, $i, 1));
-                if (isset($set[$char])) {
+                if (isset($set[mb_substr($folded, $i, 1)])) {
                     $scores[$code]++;
                 }
             }
@@ -69,5 +74,13 @@ final readonly class AlphabetTool
         arsort($scores);
 
         return (string) array_key_first($scores);
+    }
+
+    /**
+     * Возвращает CaseFolder, создавая fallback-инстанс при необходимости.
+     */
+    private function caseFolder(): CaseFolder
+    {
+        return $this->caseFolder ?? new CaseFolder();
     }
 }

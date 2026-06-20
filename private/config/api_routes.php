@@ -184,6 +184,13 @@ return [
         'name'       => 'api.tools.vigenere_cracker',
     ],
 
+    'POST /tools/bifid' => [
+        'controller' => GuestController::class,
+        'method'     => 'bifid',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.bifid',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

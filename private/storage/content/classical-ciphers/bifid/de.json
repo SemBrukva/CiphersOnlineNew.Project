@@ -1,0 +1,246 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T12:37:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bifid",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 44,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 44,
+        "data": {
+            "name": "Bifid-Chiffre",
+            "name_short": "Bifid-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie Text online mit der Bifid-Chiffre. Verwenden Sie ein eigenes Schlüsselwort, wählen Sie ein Alphabet und lernen Sie, wie Delastelles fraktionierende Transpositionschiffre ein Polybios-Quadrat mit Koordinatenteilung verbindet.",
+            "description_stort": "Bifid-Encoder und -Decoder mit Schlüsselwort und wählbaren Alphabeten.",
+            "meta_title": "Bifid-Chiffre online verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die Bifid-Chiffre online mit eigenem Schlüsselwort und wählbarem Alphabet. Verschlüsseln, entschlüsseln und Polybios-Fraktionierung verstehen."
+        }
+    },
+    "blocks": [
+        {
+            "id": 167,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Bifid-Chiffre funktioniert",
+                "text": "<p>Die Bifid-Chiffre ist eine klassische fraktionierende Transpositionschiffre von Félix Delastelle. Zuerst wird aus dem Schlüsselwort ein Polybios-Quadrat gebildet: doppelte Buchstaben im Schlüssel werden entfernt, danach füllt das übrige Alphabet die freien Felder.</p><p>Jeder Klartextbuchstabe wird in zwei Koordinaten zerlegt: Zeile und Spalte. Die Chiffre schreibt zuerst alle Zeilenkoordinaten, dann alle Spaltenkoordinaten und liest den kombinierten Koordinatenstrom paarweise wieder als Buchstaben.</p><p>Dieses Verfahren heißt Fraktionierung, weil jeder Buchstabe in kleinere Koordinatenteile zerlegt und anschließend neu kombiniert wird. Dadurch ist Bifid stärker als eine einfache Substitution, denn ein Klartextbuchstabe kann mehrere Positionen im Geheimtext beeinflussen.</p>"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Wann dieses Werkzeug nützlich ist",
+                "text": "<p>Dieses Bifid-Werkzeug eignet sich zum Verschlüsseln und Entschlüsseln von Nachrichten, zum Testen verschiedener Schlüsselwörter, zum Vergleichen von Alphabet-Einstellungen und zum Lernen, wie Fraktionierung Buchstabenmuster verändert. Es ist praktisch für Kryptografie-Unterricht, Rätsel, CTF-Aufgaben, historische Demonstrationen und die Kontrolle handschriftlicher Berechnungen.</p><p>Das Werkzeug unterstützt Verschlüsselung und Entschlüsselung mit demselben Schlüsselwort. Das Alphabet kann automatisch aus Text und Schlüssel erkannt oder manuell gewählt werden, wenn reproduzierbare Ergebnisse wichtig sind.</p>"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Unterstützte Alphabete und Textbehandlung",
+                "text": "<p>Die englische Bifid-Chiffre verwendet traditionell ein 5×5-Quadrat, in dem J wie I behandelt wird. So entstehen 25 Felder für das historische Polybios-Quadrat. Italienisch nutzt in dieser Implementierung denselben 5×5-Ansatz.</p><p>Andere Alphabete verwenden bei Bedarf größere Quadrate: Russisch, Deutsch, Spanisch, Portugiesisch und Türkisch nutzen 6×6-Gitter, Französisch ein 7×7-Gitter. Einige Gitter enthalten Ziffern als Füllzeichen, damit das Alphabet ein perfektes Quadrat bildet.</p><p>Leerzeichen, Satzzeichen und nicht unterstützte Zeichen werden bei der Berechnung ignoriert. Die Ausgabe erfolgt in Großbuchstaben, damit sie leicht kopiert, verglichen und in Beispielen verwendet werden kann.</p>"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Sicherheit und Grenzen der Bifid-Chiffre",
+                "text": "<p>Bifid ist stärker als eine monoalphabetische Substitution, weil es Substitution mit einer transpositionsähnlichen Mischung von Koordinaten verbindet. Eine direkte Häufigkeitsanalyse einzelner Buchstaben ist daher weniger wirksam als bei Caesar, Atbash oder einfachen Substitutionschiffren.</p><p>Trotzdem bleibt Bifid eine historische Handchiffre und keine moderne sichere Verschlüsselung. Mit genügend Geheimtext können moderne Kryptoanalyse und Computer Muster finden und wahrscheinliche Schlüssel testen. Verwenden Sie sie für Lernen, Rätsel und Experimente mit klassischer Kryptografie, nicht für echte private Kommunikation.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 329,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Was ist die Bifid-Chiffre?",
+                "answer": "Die Bifid-Chiffre ist eine klassische fraktionierende Chiffre von Félix Delastelle. Sie nutzt ein schlüsselwortbasiertes Polybios-Quadrat, zerlegt jeden Buchstaben in Zeilen- und Spaltenkoordinaten und kombiniert diese Koordinaten anschließend zum Geheimtext."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum wird J im englischen Gitter entfernt?",
+                "answer": "Das englische Alphabet hat 26 Buchstaben, passt aber nicht in ein 5×5-Quadrat. Wenn J wie I behandelt wird, bleiben 25 Buchstaben übrig, genau genug für das traditionelle Bifid-Polybios-Quadrat."
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Brauche ich denselben Schlüssel zum Entschlüsseln?",
+                "answer": "Ja. Für die Entschlüsselung müssen dasselbe Schlüsselwort und dieselbe Alphabet-Einstellung verwendet werden wie bei der Verschlüsselung. Ein anderes Schlüsselwort erzeugt ein anderes Polybios-Quadrat."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Werden Leerzeichen und Satzzeichen verschlüsselt?",
+                "answer": "Nein. Diese Implementierung extrahiert nur Zeichen aus dem gewählten Alphabet. Leerzeichen, Satzzeichen und nicht unterstützte Symbole werden beim Ver- und Entschlüsseln ignoriert."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Welche Alphabete unterstützt dieses Bifid-Werkzeug?",
+                "answer": "Das Werkzeug unterstützt Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Sie können das Alphabet automatisch erkennen lassen oder manuell auswählen."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Was macht das Schlüsselwort in der Bifid-Chiffre?",
+                "answer": "Das Schlüsselwort bestimmt die Reihenfolge der Buchstaben im Polybios-Quadrat. Doppelte Schlüsselbuchstaben werden nur einmal verwendet; die übrigen Felder werden mit dem restlichen Alphabet gefüllt."
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Ist die Bifid-Chiffre heute sicher?",
+                "answer": "Nein. Bifid ist nützlich für Bildung, Rätsel und historische Kryptografie, eignet sich aber nicht für moderne private Kommunikation."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Verschlüsseln mit Bifid",
+                "key": "SCHLÜSSEL",
+                "shift": 0,
+                "input": "HALLO",
+                "output": "CSKLU",
+                "description": "Grundbeispiel mit dem Schlüsselwort SCHLÜSSEL. Der Klartext wird in Polybios-Koordinaten umgewandelt, fraktioniert und wieder als Geheimtext zusammengesetzt."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Bifid-Geheimtext entschlüsseln",
+                "key": "SCHLÜSSEL",
+                "shift": 0,
+                "input": "CSKLU",
+                "output": "HALLO",
+                "description": "Entschlüsselung mit demselben Schlüsselwort und Alphabet. Der Koordinatenstrom wird wieder in Zeilen und Spalten geteilt, um den Klartext zu rekonstruieren."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Eine Nachricht mit Leerzeichen verschlüsseln",
+                "key": "SCHLÜSSEL",
+                "shift": 0,
+                "input": "GEHEIME NACHRICHT",
+                "output": "ASKHALIL7OL6CMCN",
+                "description": "Leerzeichen werden bei der Berechnung ignoriert, sodass die Nachricht als zusammenhängende Buchstabenfolge verarbeitet wird."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Deutsches 6×6-Gitter mit Umlauten",
+                "key": "SCHLÜSSEL",
+                "shift": 0,
+                "input": "ÜBEN",
+                "output": "CHX6",
+                "description": "Das deutsche Alphabet verwendet hier ein 6×6-Gitter mit Umlauten und Füllziffern. Deshalb können auch Ziffern im Geheimtext erscheinen."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 251,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Bifid-Chiffre"
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polybios-Quadrat"
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Fraktionierende Chiffre"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselwortbasiert"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

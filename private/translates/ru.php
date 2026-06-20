@@ -455,6 +455,16 @@ return [
     'AUTOKEY_ERR_TEXT_ALPHABET'         => 'Текст не содержит символов выбранного алфавита.',
     'AUTOKEY_ERR_KEY_ALPHABET'          => 'Ключ не содержит символов выбранного алфавита.',
     'AUTOKEY_TRUST_KEY_STREAM'          => 'Ключевой поток продолжается текстом сообщения',
+    // Шифр Бифид
+    'BIFID_ERR_INVALID'                 => 'Некорректные входные данные.',
+    'BIFID_ERR_DIRECTION'               => 'Направление должно быть encrypt или decrypt.',
+    'BIFID_ERR_TEXT_REQUIRED'           => 'Текст обязателен.',
+    'BIFID_ERR_KEY_REQUIRED'            => 'Ключ обязателен.',
+    'BIFID_ERR_ALPHABET_UNSUPPORTED'    => 'Неподдерживаемый алфавит.',
+    'BIFID_ERR_TEXT_NO_LETTERS'         => 'Текст не содержит символов выбранного алфавита.',
+    'BIFID_ERR_KEY_NO_LETTERS'          => 'Ключ не содержит символов выбранного алфавита.',
+    'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Квадрат Полибия с ключевым словом',
+    'BIFID_TRUST_FRACTIONATION'         => 'Фракционирование: координаты разбиваются и рекомбинируются',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
     'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',

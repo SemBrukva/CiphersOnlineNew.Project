@@ -1,0 +1,246 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T12:37:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bifid",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 44,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 44,
+        "data": {
+            "name": "Cifrario Bifid",
+            "name_short": "Cifrario Bifid",
+            "description": "Cifra e decifra testo online con il cifrario Bifid. Usa una parola chiave personalizzata, scegli un alfabeto e scopri come il cifrario frazionato di Delastelle combina un quadrato di Polibio con la divisione delle coordinate.",
+            "description_stort": "Encoder e decoder Bifid con parola chiave e alfabeti selezionabili.",
+            "meta_title": "Cifrario Bifid online per cifrare e decifrare",
+            "meta_description": "Usa il cifrario Bifid online con una parola chiave personalizzata e un alfabeto selezionabile. Cifra, decifra e impara la frazionazione con il quadrato di Polibio."
+        }
+    },
+    "blocks": [
+        {
+            "id": 167,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario Bifid",
+                "text": "<p>Il cifrario Bifid è un cifrario classico a trasposizione frazionata inventato da Félix Delastelle. Inizia con un quadrato di Polibio basato sulla parola chiave: le lettere duplicate vengono rimosse e il resto dell’alfabeto riempie la griglia.</p><p>Ogni lettera del testo in chiaro viene convertita in due coordinate: riga e colonna. Il cifrario scrive prima tutte le coordinate di riga, poi tutte quelle di colonna, e legge il flusso combinato a coppie per produrre il testo cifrato.</p><p>Questo processo si chiama frazionamento perché ogni lettera viene divisa in parti coordinate più piccole e poi ricombinata. Il risultato è più forte di una semplice sostituzione, perché una lettera del testo in chiaro può influenzare diverse posizioni del testo cifrato.</p>"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usare questo strumento",
+                "text": "<p>Questo strumento Bifid serve per cifrare e decifrare messaggi, provare parole chiave diverse, confrontare impostazioni dell’alfabeto e studiare come il frazionamento modifica i pattern delle lettere. È utile per lezioni di crittografia, enigmi, sfide CTF, dimostrazioni storiche e verifica di calcoli manuali.</p><p>Lo strumento supporta cifratura e decifratura con la stessa parola chiave. Può rilevare automaticamente l’alfabeto dal testo e dalla chiave, oppure puoi selezionarlo manualmente per ottenere risultati riproducibili.</p>"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Alfabeti supportati e gestione del testo",
+                "text": "<p>Il Bifid inglese usa il tradizionale quadrato 5×5, quindi J viene trattata come I. Questo produce 25 celle e mantiene il formato storico del quadrato di Polibio. In questa implementazione l’italiano usa lo stesso approccio 5×5.</p><p>Altri alfabeti usano griglie più grandi quando necessario: russo, tedesco, spagnolo, portoghese e turco usano griglie 6×6, mentre il francese usa una griglia 7×7. Alcune griglie includono cifre di riempimento per ottenere un quadrato perfetto.</p><p>Spazi, punteggiatura e caratteri non supportati vengono ignorati durante il calcolo. L’output è restituito in maiuscolo, così è facile da copiare, confrontare e riutilizzare negli esempi.</p>"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Sicurezza e limiti del cifrario Bifid",
+                "text": "<p>Bifid è più forte di una sostituzione monoalfabetica perché combina sostituzione e miscelazione delle coordinate simile a una trasposizione. L’analisi diretta delle frequenze sulle singole lettere è quindi meno efficace rispetto a Cesare, Atbash o sostituzione semplice.</p><p>Tuttavia Bifid resta un cifrario manuale storico, non un metodo moderno di protezione. Con abbastanza testo cifrato, la crittoanalisi moderna e i computer possono trovare pattern e provare chiavi probabili. Usalo per studio, enigmi ed esperimenti di crittografia classica, non per comunicazioni private reali.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 329,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Che cos’è il cifrario Bifid?",
+                "answer": "Il cifrario Bifid è un cifrario classico frazionato inventato da Félix Delastelle. Usa un quadrato di Polibio basato su una parola chiave, divide ogni lettera in coordinate di riga e colonna e ricombina quelle coordinate per creare il testo cifrato."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Perché J viene rimossa dalla griglia inglese?",
+                "answer": "L’alfabeto inglese ha 26 lettere e non entra in un quadrato 5×5. Trattando J come I si ottengono 25 lettere, esattamente il numero necessario per il quadrato di Polibio tradizionale."
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Serve la stessa chiave per decifrare?",
+                "answer": "Sì. Per decifrare servono la stessa parola chiave e la stessa impostazione dell’alfabeto usate nella cifratura. Una parola chiave diversa crea un diverso quadrato di Polibio."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Spazi e punteggiatura vengono cifrati?",
+                "answer": "No. Questa implementazione estrae solo i caratteri dell’alfabeto selezionato. Spazi, punteggiatura e simboli non supportati vengono ignorati durante cifratura e decifratura."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quali alfabeti supporta questo strumento Bifid?",
+                "answer": "Lo strumento supporta inglese, russo, tedesco, spagnolo, francese, italiano, portoghese e turco. Puoi lasciare il rilevamento automatico o scegliere l’alfabeto manualmente."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Che cosa fa la parola chiave nel Bifid?",
+                "answer": "La parola chiave controlla l’ordine delle lettere nel quadrato di Polibio. Le lettere duplicate della chiave vengono usate una sola volta e le celle rimanenti vengono riempite con il resto dell’alfabeto."
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Il cifrario Bifid è sicuro oggi?",
+                "answer": "No. Bifid è utile per didattica, enigmi e studio della crittografia storica, ma non è sicuro per comunicazioni private moderne."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrare con Bifid",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "CIAO",
+                "output": "CIIT",
+                "description": "Esempio base con la parola chiave CHIAVE. Il testo in chiaro viene convertito in coordinate del quadrato di Polibio, frazionato e ricombinato come testo cifrato."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decifrare un testo Bifid",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "CIIT",
+                "output": "CIAO",
+                "description": "Decifratura con la stessa parola chiave e lo stesso alfabeto. Il flusso di coordinate viene diviso di nuovo in righe e colonne per ripristinare il testo."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrare una frase con spazi",
+                "key": "SEGRETO",
+                "shift": 0,
+                "input": "ATTACCO ALL ALBA",
+                "output": "OEAAIBADWQEZDH",
+                "description": "Gli spazi vengono ignorati durante il calcolo, quindi la frase viene elaborata come una sequenza continua di lettere."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "J viene trattata come I",
+                "key": "CHIAVE",
+                "shift": 0,
+                "input": "JOLLY",
+                "output": "IMXWF",
+                "description": "Nella griglia italiana 5×5 di questa implementazione, J condivide la stessa cella di I. Questo esempio mostra la normalizzazione prima della cifratura."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 251,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario Bifid"
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Quadrato di Polibio"
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifrario frazionato"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Basato su chiave"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

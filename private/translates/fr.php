@@ -432,6 +432,16 @@ return [
     'AUTOKEY_ERR_TEXT_ALPHABET'         => "L'entrée ne contient pas de caractères de l'alphabet sélectionné.",
     'AUTOKEY_ERR_KEY_ALPHABET'          => "La clé ne contient pas de caractères de l'alphabet sélectionné.",
     'AUTOKEY_TRUST_KEY_STREAM'          => 'Le flux de clé se poursuit avec le texte du message',
+    // Chiffre de Bifid
+    'BIFID_ERR_INVALID'                 => "Données d'entrée invalides.",
+    'BIFID_ERR_DIRECTION'               => 'La direction doit être encrypt ou decrypt.',
+    'BIFID_ERR_TEXT_REQUIRED'           => 'Le texte est obligatoire.',
+    'BIFID_ERR_KEY_REQUIRED'            => 'La clé est obligatoire.',
+    'BIFID_ERR_ALPHABET_UNSUPPORTED'    => 'Alphabet non pris en charge.',
+    'BIFID_ERR_TEXT_NO_LETTERS'         => "Le texte ne contient pas de caractères de l'alphabet sélectionné.",
+    'BIFID_ERR_KEY_NO_LETTERS'          => "La clé ne contient pas de caractères de l'alphabet sélectionné.",
+    'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Basé sur un carré de Polybe avec mot-clé',
+    'BIFID_TRUST_FRACTIONATION'         => 'Fractionnement : coordonnées divisées et recombinées',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Encodage binaire vers texte',
     'BASE64_TRUST_USES'                => 'Largement utilisé dans les API, e-mails et le web',

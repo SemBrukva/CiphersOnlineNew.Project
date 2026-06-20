@@ -11,19 +11,23 @@ use App\Cipher\AffineApiCipherTool;
 use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\AffineCipherService;
 use App\Cipher\AlphabetCatalog;
-use App\Cipher\AutokeyApiCipherTool;
-use App\Cipher\AutokeyCipherService;
+use App\Cipher\AlphabetTool;
 use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\AtbashApiCipherTool;
 use App\Cipher\AtbashCipherService;
+use App\Cipher\AutokeyApiCipherTool;
+use App\Cipher\AutokeyCipherService;
 use App\Cipher\BaconApiCipherTool;
 use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortApiCipherTool;
 use App\Cipher\BeaufortCipherService;
+use App\Cipher\BifidApiCipherTool;
+use App\Cipher\BifidCipherService;
 use App\Cipher\BigramFrequencyScorer;
 use App\Cipher\CaesarApiCipherTool;
 use App\Cipher\CaesarBruteForceApiCipherTool;
 use App\Cipher\CaesarCipherService;
+use App\Cipher\CaseFolder;
 use App\Cipher\ColumnarTranspositionApiCipherTool;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldApiCipherTool;
@@ -121,7 +125,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new AffineBruteForceApiCipherTool(new AffineCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache()),
             new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService()),
             new XorApiCipherTool(new XorCipherService()),
-            new VigenereCrackerApiCipherTool(new VigenereCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache())
+            new VigenereCrackerApiCipherTool(new VigenereCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache()),
+            new BifidApiCipherTool(new BifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder()))
         );
     }
 }

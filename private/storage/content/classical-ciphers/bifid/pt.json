@@ -1,0 +1,246 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-20T12:37:37+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "bifid",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 44,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 44,
+        "data": {
+            "name": "Cifra Bifid",
+            "name_short": "Cifra Bifid",
+            "description": "Criptografe e descriptografe texto online com a cifra Bifid. Use uma palavra-chave personalizada, escolha um alfabeto e veja como a cifra fracionária de Delastelle combina um quadrado de Políbio com divisão de coordenadas.",
+            "description_stort": "Codificador e decodificador Bifid com palavra-chave e alfabetos selecionáveis.",
+            "meta_title": "Cifra Bifid online para criptografar e descriptografar",
+            "meta_description": "Use a cifra Bifid online com palavra-chave personalizada e alfabeto selecionável. Criptografe, descriptografe e aprenda a fracionação pelo quadrado de Políbio."
+        }
+    },
+    "blocks": [
+        {
+            "id": 167,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra Bifid funciona",
+                "text": "<p>A cifra Bifid é uma cifra clássica de transposição fracionária inventada por Félix Delastelle. Ela começa com um quadrado de Políbio baseado na palavra-chave: letras repetidas da chave são removidas e o restante do alfabeto preenche a grade.</p><p>Cada letra do texto claro é convertida em duas coordenadas: linha e coluna. A cifra escreve primeiro todas as coordenadas de linha, depois todas as coordenadas de coluna, e lê o fluxo combinado em pares para produzir o texto cifrado.</p><p>Esse processo é chamado de fracionamento porque cada letra é dividida em partes coordenadas menores antes de ser recombinada. O resultado é mais forte do que uma substituição simples, pois uma letra do texto claro pode influenciar várias posições do texto cifrado.</p>"
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Quando usar esta ferramenta",
+                "text": "<p>Use esta ferramenta Bifid para criptografar e descriptografar mensagens, testar diferentes palavras-chave, comparar configurações de alfabeto e estudar como o fracionamento altera padrões de letras. Ela é útil para aulas de criptografia, enigmas, desafios CTF, demonstrações históricas e conferência de cálculos manuais.</p><p>A ferramenta suporta criptografia e descriptografia com a mesma palavra-chave. O alfabeto pode ser detectado automaticamente a partir do texto e da chave, ou selecionado manualmente quando você precisa de resultados reproduzíveis.</p>"
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Alfabetos suportados e tratamento do texto",
+                "text": "<p>A cifra Bifid em inglês usa o quadrado tradicional 5×5, então J é tratado como I. Isso gera 25 células e preserva o formato histórico do quadrado de Políbio. O italiano usa a mesma abordagem 5×5 nesta implementação.</p><p>Outros alfabetos usam grades maiores quando necessário: russo, alemão, espanhol, português e turco usam grades 6×6, enquanto francês usa 7×7. Algumas grades incluem dígitos de preenchimento para que o alfabeto caiba em um quadrado perfeito.</p><p>Espaços, pontuação e caracteres não suportados são ignorados durante o cálculo. A saída é retornada em maiúsculas, facilitando copiar, comparar e reutilizar em exemplos.</p>"
+            }
+        },
+        {
+            "id": 170,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Segurança e limites da cifra Bifid",
+                "text": "<p>Bifid é mais forte do que uma substituição monoalfabética porque combina substituição com uma mistura de coordenadas parecida com transposição. Isso torna a análise direta de frequência de letras menos eficaz do que contra César, Atbash ou substituição simples.</p><p>Mesmo assim, Bifid continua sendo uma cifra manual histórica, não um método moderno de segurança. Com texto cifrado suficiente, a criptoanálise moderna e computadores podem encontrar padrões e testar chaves prováveis. Use-a para aprendizado, enigmas e experimentos com criptografia clássica, não para comunicação privada real.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 329,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "O que é a cifra Bifid?",
+                "answer": "A cifra Bifid é uma cifra fracionária clássica inventada por Félix Delastelle. Ela usa um quadrado de Políbio baseado em palavra-chave, divide cada letra em coordenadas de linha e coluna e recombina essas coordenadas para criar o texto cifrado."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Por que J é removido da grade em inglês?",
+                "answer": "O alfabeto inglês tem 26 letras e não cabe em um quadrado 5×5. Ao tratar J como I, restam 25 letras, exatamente o necessário para o quadrado de Políbio tradicional."
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Preciso da mesma chave para descriptografar?",
+                "answer": "Sim. A descriptografia exige a mesma palavra-chave e a mesma configuração de alfabeto usadas na criptografia. Uma chave diferente cria outro quadrado de Políbio e produz outro resultado."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Espaços e pontuação são criptografados?",
+                "answer": "Não. Esta implementação extrai apenas caracteres do alfabeto selecionado. Espaços, sinais de pontuação e símbolos não suportados são ignorados durante criptografia e descriptografia."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Quais alfabetos esta ferramenta Bifid suporta?",
+                "answer": "A ferramenta suporta inglês, russo, alemão, espanhol, francês, italiano, português e turco. Você pode deixar a detecção automática ativa ou escolher o alfabeto manualmente."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "O que a palavra-chave faz na cifra Bifid?",
+                "answer": "A palavra-chave controla a ordem das letras no quadrado de Políbio. Letras repetidas da chave são usadas apenas uma vez, e as células restantes são preenchidas com o restante do alfabeto."
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "A cifra Bifid é segura hoje?",
+                "answer": "Não. Bifid é útil para educação, enigmas e criptografia histórica, mas não é segura para comunicação privada moderna."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 166,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Criptografar com Bifid",
+                "key": "CHAVE",
+                "shift": 0,
+                "input": "OLÁ",
+                "output": "NEÉ",
+                "description": "Exemplo básico com a palavra-chave CHAVE. O texto claro é convertido em coordenadas do quadrado de Políbio, fracionado e recombinado como texto cifrado."
+            }
+        },
+        {
+            "id": 167,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Descriptografar texto Bifid",
+                "key": "CHAVE",
+                "shift": 0,
+                "input": "NEÉ",
+                "output": "OLÁ",
+                "description": "Descriptografia com a mesma palavra-chave e o mesmo alfabeto. O fluxo de coordenadas é dividido novamente em linhas e colunas para restaurar o texto claro."
+            }
+        },
+        {
+            "id": 168,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Criptografar uma frase com espaços",
+                "key": "SEGREDO",
+                "shift": 0,
+                "input": "ATAQUE AO AMANHECER",
+                "output": "BBÓAÃÃÇASÓNAÚÓYCÃ",
+                "description": "Os espaços são ignorados durante o cálculo, então a frase é processada como uma sequência contínua de letras portuguesas."
+            }
+        },
+        {
+            "id": 169,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Alfabeto português com acentos",
+                "key": "CHAVE",
+                "shift": 0,
+                "input": "AÇÃO",
+                "output": "HÇID",
+                "description": "O alfabeto português desta implementação inclui letras acentuadas e Ç em uma grade 6×6."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 251,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra Bifid"
+            }
+        },
+        {
+            "id": 252,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Quadrado de Políbio"
+            }
+        },
+        {
+            "id": 253,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifra fracionária"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Baseada em chave"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

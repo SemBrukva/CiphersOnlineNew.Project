@@ -455,6 +455,16 @@ return [
     'AUTOKEY_ERR_TEXT_ALPHABET'         => 'Input does not contain characters from the selected alphabet.',
     'AUTOKEY_ERR_KEY_ALPHABET'          => 'Key does not contain characters from the selected alphabet.',
     'AUTOKEY_TRUST_KEY_STREAM'          => 'Key stream continues with the message text',
+    // Bifid Cipher
+    'BIFID_ERR_INVALID'                 => 'Invalid input data.',
+    'BIFID_ERR_DIRECTION'               => 'Direction must be encrypt or decrypt.',
+    'BIFID_ERR_TEXT_REQUIRED'           => 'Text is required.',
+    'BIFID_ERR_KEY_REQUIRED'            => 'Key is required.',
+    'BIFID_ERR_ALPHABET_UNSUPPORTED'    => 'Unsupported alphabet.',
+    'BIFID_ERR_TEXT_NO_LETTERS'         => 'Input does not contain characters from the selected alphabet.',
+    'BIFID_ERR_KEY_NO_LETTERS'          => 'Key does not contain characters from the selected alphabet.',
+    'BIFID_TRUST_POLYBIUS_SQUARE'       => 'Based on a Polybius square with keyword',
+    'BIFID_TRUST_FRACTIONATION'         => 'Fractionation: coordinates split and recombined',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
     'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',
