@@ -18,20 +18,32 @@
                                 {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
                                 {$item.label}
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu{if $item.children|@count >= 10} dropdown-menu--wide{/if}">
                                 <li>
                                     <a class="dropdown-item dropdown-item--category{if $item.page_active} active{/if}" href="{$item.url}">
                                         {$item.label}
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
-                                {foreach $item.children as $child}
-                                    <li>
-                                        <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
-                                            {$child.label}
-                                        </a>
+                                {if $item.children|@count >= 10}
+                                    <li class="dropdown-menu-grid-wrapper">
+                                        <div class="dropdown-menu-grid">
+                                            {foreach $item.children as $child}
+                                                <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
+                                                    {$child.label}
+                                                </a>
+                                            {/foreach}
+                                        </div>
                                     </li>
-                                {/foreach}
+                                {else}
+                                    {foreach $item.children as $child}
+                                        <li>
+                                            <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
+                                                {$child.label}
+                                            </a>
+                                        </li>
+                                    {/foreach}
+                                {/if}
                             </ul>
                         </div>
                     {else}
