@@ -307,6 +307,12 @@ return [
     'BEAUFORT_ERR_ALPHABET_UNSUPPORTED' => 'Unsupported alphabet.',
     'BEAUFORT_ERR_TEXT_ALPHABET'        => 'Input does not contain characters from the selected alphabet.',
     'BEAUFORT_ERR_KEY_ALPHABET'         => 'Key does not contain characters from the selected alphabet.',
+    'PORTA_ERR_INVALID'                 => 'Invalid input data.',
+    'PORTA_ERR_DIRECTION'               => 'Direction must be encrypt or decrypt.',
+    'PORTA_ERR_TEXT_REQUIRED'           => 'Text is required.',
+    'PORTA_ERR_KEY_REQUIRED'            => 'Key is required.',
+    'PORTA_ERR_TEXT_LATIN'              => 'Input must contain at least one Latin letter.',
+    'PORTA_ERR_KEY_LATIN'               => 'Key must contain at least one Latin letter.',
     // Gronsfeld errors
     'GRONSFELD_ERR_INVALID'              => 'Invalid input data.',
     'GRONSFELD_ERR_DIRECTION'            => 'Direction must be encrypt or decrypt.',

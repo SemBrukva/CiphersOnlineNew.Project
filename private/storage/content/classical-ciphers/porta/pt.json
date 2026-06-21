@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-21T18:04:43+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "porta",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 46,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 46,
+        "data": {
+            "name": "Cifra Porta",
+            "name_short": "Cifra Porta",
+            "description": "Cifre e decifre texto latino com a cifra Porta online. Use uma palavra-chave, preserve espaços e pontuação e trabalhe com a tabela polialfabética recíproca histórica A-Z de Porta.",
+            "description_stort": "Codificador e decodificador Porta online com palavra-chave.",
+            "meta_title": "Cifra Porta Online: Codificador e Decodificador",
+            "meta_description": "Cifre e decifre texto com a cifra Porta online. Informe uma palavra-chave, use a tabela recíproca Porta A-Z e aprenda como esta cifra polialfabética clássica funciona."
+        }
+    },
+    "blocks": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como a cifra Porta funciona",
+                "text": "<p>A cifra Porta é uma cifra clássica de substituição polialfabética que usa uma palavra-chave para escolher uma das treze linhas de alfabetos pareados para cada letra da mensagem. As letras da chave são agrupadas em pares: A/B, C/D, E/F e assim por diante até Y/Z. Letras do mesmo par selecionam a mesma linha da tabela Porta.</p><p>Durante o processamento do texto, a palavra-chave se repete apenas sobre letras latinas. Espaços, sinais de pontuação, números e caracteres não suportados permanecem no lugar, preservando a estrutura da mensagem enquanto somente as letras A-Z são transformadas.</p><p>A característica mais importante de Porta é a reciprocidade. A mesma tabela e a mesma palavra-chave são usadas para cifrar e decifrar; aplicar a operação novamente restaura o texto original.</p>"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "O que esta ferramenta Porta faz",
+                "text": "<p>Esta ferramenta online da cifra Porta permite codificar e decodificar texto latino com uma palavra-chave personalizada. Digite o texto claro para cifrar, alterne para o modo de decodificação para o texto cifrado e use a mesma chave nas duas direções, porque Porta é uma cifra recíproca.</p><p>A implementação segue a tabela histórica A-Z. Ela preserva maiúsculas e minúsculas, ignora símbolos que não são letras na chave e deixa caracteres não latinos inalterados na mensagem. Letras acentuadas ou outros caracteres podem aparecer no texto, mas esta variante de Porta não os cifra.</p><p>Use o serviço para aulas de criptografia, enigmas, prática de CTF, verificação de exemplos históricos ou comparação de Porta com cifras de palavra-chave relacionadas, como Vigenere e Beaufort. Como outras cifras clássicas, Porta é educativa e não adequada para proteger dados sensíveis hoje.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 342,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Que alfabeto a cifra Porta usa?",
+                "answer": "Esta implementação usa o alfabeto latino histórico A-Z. Letras latinas são cifradas ou decifradas, enquanto caracteres não latinos permanecem inalterados."
+            }
+        },
+        {
+            "id": 343,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Cifrar e decifrar são a mesma operação em Porta?",
+                "answer": "Sim. Porta é recíproca: a mesma tabela Porta com a mesma palavra-chave converte texto claro em texto cifrado e texto cifrado de volta em texto claro."
+            }
+        },
+        {
+            "id": 344,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "O que acontece com espaços e pontuação?",
+                "answer": "Espaços, sinais de pontuação, números e caracteres não suportados são preservados no resultado. Eles também não avançam a chave; apenas letras latinas consomem letras da chave."
+            }
+        },
+        {
+            "id": 345,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Como a palavra-chave Porta é usada?",
+                "answer": "A palavra-chave é repetida ao longo da mensagem. Cada letra latina da chave seleciona uma das treze linhas pareadas de Porta: A e B selecionam a mesma linha, C e D a mesma, e assim por diante."
+            }
+        },
+        {
+            "id": 346,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "A chave pode conter espaços ou números?",
+                "answer": "Sim, mas apenas letras latinas da chave são usadas. Espaços, dígitos, sinais de pontuação e símbolos não latinos na chave são ignorados."
+            }
+        },
+        {
+            "id": 347,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "A cifra Porta preserva maiúsculas e minúsculas?",
+                "answer": "Sim. Letras maiúsculas continuam maiúsculas e letras minúsculas continuam minúsculas no resultado."
+            }
+        },
+        {
+            "id": 348,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "A cifra Porta é segura hoje?",
+                "answer": "Não. Porta é uma cifra clássica histórica e pode ser atacada com criptoanálise moderna. Use-a para aprendizado, enigmas e demonstrações, não para segurança real."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 174,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrar HELLO WORLD",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "OYTUB CHJUQ",
+                "description": "Chave: PORTA. A tabela Porta transforma cada letra latina, enquanto o espaço permanece inalterado."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrar uma mensagem mais longa",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "ZTTZLZ KWS ZPJK HOTN",
+                "description": "Chave: SECRET. A palavra-chave se repete automaticamente sobre as letras latinas da mensagem."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decifrar com a mesma chave",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "OYTUB CHJUQ",
+                "output": "HELLO WORLD",
+                "description": "Chave: PORTA. Porta é recíproca, então a mesma operação restaura o texto claro original."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Preservar pontuação e números",
+                "key": "GUIDE",
+                "shift": 0,
+                "input": "MEET AT 9 PM!",
+                "output": "POVF PD 9 FQ!",
+                "description": "Chave: GUIDE. Dígitos, espaços e sinais de pontuação permanecem inalterados; apenas letras latinas são cifradas."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 261,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifra Porta"
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifra polialfabética"
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifra recíproca"
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cifra com palavra-chave"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Criptografia clássica"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cifra de substituição"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

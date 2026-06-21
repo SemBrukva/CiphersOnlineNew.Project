@@ -28,6 +28,7 @@ use App\Cipher\MorseCipherService;
 use App\Cipher\NumbersToLettersService;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareCipherService;
+use App\Cipher\PortaCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
 use App\Cipher\SimpleSubstitutionCipherService;
@@ -61,6 +62,8 @@ final class ToolRegistryTest extends TestCase
         self::assertSame('autokey', $registry->apiAction('classical-ciphers/autokey'));
         self::assertSame('autokey', $registry->apiAction('classical-ciphers/autokey-cipher'));
         self::assertSame('beaufort', $registry->apiAction('classical-ciphers/shifr-bofora'));
+        self::assertSame('porta', $registry->apiAction('classical-ciphers/porta'));
+        self::assertSame('porta', $registry->apiAction('classical-ciphers/porta-cipher'));
         self::assertSame('vigenere', $registry->apiAction('classical-ciphers/shifr-vizhenera'));
         self::assertSame('vernam', $registry->apiAction('classical-ciphers/shifr-vernama'));
         self::assertSame('bacon', $registry->apiAction('classical-ciphers/shifr-behkona'));
@@ -133,6 +136,7 @@ final class ToolRegistryTest extends TestCase
             new AffineCipherService(),
             new AtbashCipherService(),
             new BeaufortCipherService(),
+            new PortaCipherService(),
             new AutokeyCipherService(),
             new CaesarCipherService(),
             new GronsfeldCipherService(),

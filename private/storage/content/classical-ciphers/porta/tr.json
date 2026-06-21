@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-21T18:04:43+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "porta",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 46,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 46,
+        "data": {
+            "name": "Porta Şifresi",
+            "name_short": "Porta Şifresi",
+            "description": "Porta şifresiyle Latin metnini çevrimiçi olarak şifreleyin ve çözün. Bir anahtar sözcük kullanın, boşlukları ve noktalama işaretlerini koruyun ve tarihsel karşılıklı polialfabetik Porta A-Z tablosuyla çalışın.",
+            "description_stort": "Anahtar sözcüklü çevrimiçi Porta kodlayıcı ve çözücü.",
+            "meta_title": "Porta Şifresi Online: Kodlayıcı ve Çözücü",
+            "meta_description": "Porta şifresiyle metni çevrimiçi olarak şifreleyin ve çözün. Bir anahtar sözcük girin, karşılıklı Porta A-Z tablosunu kullanın ve bu klasik polialfabetik şifrenin nasıl çalıştığını öğrenin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Porta şifresi nasıl çalışır",
+                "text": "<p>Porta şifresi, mesajdaki her harf için on üç eşleştirilmiş alfabe satırından birini seçmek üzere anahtar sözcük kullanan klasik bir polialfabetik yerine koyma şifresidir. Anahtar harfleri çiftler hâlinde gruplanır: A/B, C/D, E/F ve Y/Z’ye kadar böyle devam eder. Aynı çifte ait harfler Porta tablosunda aynı satırı seçer.</p><p>Metin işlenirken anahtar sözcük yalnızca Latin harfleri üzerinde tekrarlanır. Boşluklar, noktalama işaretleri, sayılar ve desteklenmeyen karakterler yerinde kalır; böylece mesajın yapısı korunur ve yalnızca A-Z harfleri dönüştürülür.</p><p>Porta’nın en önemli özelliği karşılıklı olmasıdır. Şifreleme ve çözme için aynı tablo ve aynı anahtar sözcük kullanılır; işlem tekrar uygulandığında özgün metin geri gelir.</p>"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Bu Porta aracı ne yapar",
+                "text": "<p>Bu çevrimiçi Porta şifresi aracı, özel bir anahtar sözcükle Latin metnini kodlamanızı ve çözmenizi sağlar. Şifrelemek için düz metni girin, şifreli metin için çözme moduna geçin ve her iki yönde de aynı anahtarı kullanın; çünkü Porta karşılıklı bir şifredir.</p><p>Uygulama tarihsel A-Z tablosunu izler. Büyük/küçük harf durumunu korur, anahtardaki harf olmayan sembolleri yok sayar ve mesajdaki Latin olmayan karakterleri değiştirmez. Türkçe karakterler veya başka karakterler metinde bulunabilir, ancak bu Porta varyantı onları şifrelemez.</p><p>Bu servisi kriptografi dersleri, bulmacalar, CTF pratiği, tarihsel örnekleri kontrol etme veya Porta’yı Vigenere ve Beaufort gibi ilgili anahtar sözcüklü şifrelerle karşılaştırma için kullanın. Diğer klasik şifreler gibi Porta eğiticidir, ancak günümüzde hassas verileri korumak için uygun değildir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 342,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Porta şifresi hangi alfabeyi kullanır?",
+                "answer": "Bu uygulama tarihsel Latin alfabesi A-Z’yi kullanır. Latin harfleri şifrelenir veya çözülür; Latin olmayan karakterler ise değişmeden kalır."
+            }
+        },
+        {
+            "id": 343,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Porta’da şifreleme ve çözme aynı mıdır?",
+                "answer": "Evet. Porta karşılıklıdır: aynı Porta tablosu ve aynı anahtar sözcük düz metni şifreli metne, şifreli metni de tekrar düz metne dönüştürür."
+            }
+        },
+        {
+            "id": 344,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Boşluklara ve noktalama işaretlerine ne olur?",
+                "answer": "Boşluklar, noktalama işaretleri, sayılar ve desteklenmeyen karakterler sonuçta korunur. Ayrıca anahtarı ilerletmezler; yalnızca Latin harfleri anahtar harflerini tüketir."
+            }
+        },
+        {
+            "id": 345,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Porta anahtar sözcüğü nasıl kullanılır?",
+                "answer": "Anahtar sözcük mesaj boyunca tekrarlanır. Her Latin anahtar harfi on üç eşleştirilmiş Porta satırından birini seçer: A ve B aynı satırı, C ve D aynı satırı seçer ve böyle devam eder."
+            }
+        },
+        {
+            "id": 346,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Anahtar boşluk veya sayı içerebilir mi?",
+                "answer": "Evet, ancak anahtarda yalnızca Latin harfleri kullanılır. Anahtardaki boşluklar, rakamlar, noktalama işaretleri ve Latin olmayan semboller yok sayılır."
+            }
+        },
+        {
+            "id": 347,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Porta şifresi harf büyüklüğünü korur mu?",
+                "answer": "Evet. Büyük harfler sonuçta büyük, küçük harfler küçük kalır."
+            }
+        },
+        {
+            "id": 348,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Porta şifresi bugün güvenli midir?",
+                "answer": "Hayır. Porta tarihsel bir klasik şifredir ve modern kriptoanalizle saldırıya açıktır. Onu öğrenme, bulmaca ve gösterimler için kullanın; gerçek güvenlik için kullanmayın."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 174,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "HELLO WORLD metnini şifrele",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "OYTUB CHJUQ",
+                "description": "Anahtar: PORTA. Porta tablosu her Latin harfini dönüştürür, boşluk ise değişmeden kalır."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Daha uzun bir mesajı şifrele",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "ZTTZLZ KWS ZPJK HOTN",
+                "description": "Anahtar: SECRET. Anahtar sözcük, mesajdaki Latin harfleri boyunca otomatik olarak tekrarlanır."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Aynı anahtarla çöz",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "OYTUB CHJUQ",
+                "output": "HELLO WORLD",
+                "description": "Anahtar: PORTA. Porta karşılıklı olduğu için aynı işlem özgün düz metni geri getirir."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Noktalama ve sayıları koru",
+                "key": "GUIDE",
+                "shift": 0,
+                "input": "MEET AT 9 PM!",
+                "output": "POVF PD 9 FQ!",
+                "description": "Anahtar: GUIDE. Rakamlar, boşluklar ve noktalama işaretleri değişmeden kalır; yalnızca Latin harfleri şifrelenir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 261,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Porta şifresi"
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polialfabetik şifre"
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Karşılıklı şifre"
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Anahtar sözcüklü şifre"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Yerine koyma şifresi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

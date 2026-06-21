@@ -307,6 +307,12 @@ return [
     'BEAUFORT_ERR_ALPHABET_UNSUPPORTED' => 'Выбранный алфавит не поддерживается.',
     'BEAUFORT_ERR_TEXT_ALPHABET'        => 'Текст не содержит символов выбранного алфавита.',
     'BEAUFORT_ERR_KEY_ALPHABET'         => 'Ключ не содержит символов выбранного алфавита.',
+    'PORTA_ERR_INVALID'                 => 'Некорректные входные данные.',
+    'PORTA_ERR_DIRECTION'               => 'Направление должно быть encrypt или decrypt.',
+    'PORTA_ERR_TEXT_REQUIRED'           => 'Текст обязателен.',
+    'PORTA_ERR_KEY_REQUIRED'            => 'Ключ обязателен.',
+    'PORTA_ERR_TEXT_LATIN'              => 'Текст должен содержать хотя бы одну латинскую букву.',
+    'PORTA_ERR_KEY_LATIN'               => 'Ключ должен содержать хотя бы одну латинскую букву.',
     // Gronsfeld errors
     'GRONSFELD_ERR_INVALID'              => 'Некорректные входные данные.',
     'GRONSFELD_ERR_DIRECTION'            => 'Направление должно быть encrypt или decrypt.',

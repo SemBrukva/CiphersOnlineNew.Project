@@ -39,6 +39,8 @@ use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareApiCipherTool;
 use App\Cipher\PolybiusSquareCipherService;
+use App\Cipher\PortaApiCipherTool;
+use App\Cipher\PortaCipherService;
 use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13ApiCipherTool;
@@ -102,6 +104,25 @@ final class ApiCipherToolRegistryTest extends TestCase
     }
 
     /**
+     * Проверяет, что реестр выполняет API-инструмент Porta по action.
+     */
+    public function testExecutesPortaCipherToolByAction(): void
+    {
+        $registry = $this->makeRegistry();
+
+        $result = $registry->execute('porta', [
+            'text' => 'HELLO WORLD',
+            'direction' => 'encrypt',
+            'settings' => [
+                'key' => 'PORTA',
+            ],
+        ]);
+
+        self::assertTrue((bool) ($result['ok'] ?? false));
+        self::assertSame('OYTUB CHJUQ', (string) ($result['result'] ?? ''));
+    }
+
+    /**
      * Создаёт экземпляр реестра API-инструментов для тестов.
      */
     private function makeRegistry(): ApiCipherToolRegistry
@@ -112,6 +133,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             new AtbashApiCipherTool(new AtbashCipherService()),
             new PlayfairApiCipherTool(new PlayfairCipherService()),
             new BeaufortApiCipherTool(new BeaufortCipherService()),
+            new PortaApiCipherTool(new PortaCipherService()),
             new AutokeyApiCipherTool(new AutokeyCipherService()),
             new GronsfeldApiCipherTool(new GronsfeldCipherService()),
             new VigenereApiCipherTool(new VigenereCipherService()),

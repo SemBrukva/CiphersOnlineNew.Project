@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-21T18:04:43+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "porta",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 46,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 46,
+        "data": {
+            "name": "Porta-Chiffre",
+            "name_short": "Porta-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie lateinischen Text online mit der Porta-Chiffre. Nutzen Sie ein Schlüsselwort, behalten Sie Leerzeichen und Satzzeichen bei und arbeiten Sie mit der historischen reziproken polyalphabetischen Porta-Tabelle A-Z.",
+            "description_stort": "Online-Encoder und Decoder für Porta mit Schlüsselwort.",
+            "meta_title": "Porta-Chiffre Online: Encoder & Decoder",
+            "meta_description": "Verschlüsseln und entschlüsseln Sie Text mit der Porta-Chiffre online. Geben Sie ein Schlüsselwort ein, nutzen Sie die reziproke Porta-Tabelle A-Z und lernen Sie diese klassische polyalphabetische Chiffre kennen."
+        }
+    },
+    "blocks": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Porta-Chiffre funktioniert",
+                "text": "<p>Die Porta-Chiffre ist eine klassische polyalphabetische Substitutionschiffre, bei der ein Schlüsselwort für jeden Buchstaben der Nachricht eine von dreizehn gepaarten Alphabetzeilen auswählt. Die Schlüsselbuchstaben werden paarweise gruppiert: A/B, C/D, E/F und so weiter bis Y/Z. Buchstaben aus demselben Paar wählen dieselbe Zeile der Porta-Tabelle.</p><p>Beim Verarbeiten des Textes wird das Schlüsselwort nur über lateinische Buchstaben wiederholt. Leerzeichen, Satzzeichen, Zahlen und nicht unterstützte Zeichen bleiben an ihrer Position, sodass die Struktur der Nachricht lesbar bleibt, während nur A-Z-Buchstaben umgewandelt werden.</p><p>Die wichtigste Eigenschaft von Porta ist die Reziprozität. Für Verschlüsselung und Entschlüsselung werden dieselbe Tabelle und dasselbe Schlüsselwort verwendet; wendet man die Operation erneut an, erscheint wieder der ursprüngliche Text.</p>"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Was dieses Porta-Werkzeug macht",
+                "text": "<p>Dieses Online-Werkzeug für die Porta-Chiffre codiert und decodiert lateinischen Text mit einem eigenen Schlüsselwort. Geben Sie Klartext zum Verschlüsseln ein, wechseln Sie für Chiffretext in den Decodiermodus und verwenden Sie in beiden Richtungen denselben Schlüssel, weil Porta eine reziproke Chiffre ist.</p><p>Die Implementierung folgt der historischen A-Z-Tabelle. Sie erhält Groß- und Kleinschreibung, ignoriert nicht alphabetische Zeichen im Schlüssel und lässt nicht lateinische Zeichen in der Nachricht unverändert. Umlaute oder andere nicht lateinische Zeichen können im Text stehen, werden in dieser Porta-Variante aber nicht verschlüsselt.</p><p>Nutzen Sie den Dienst für Kryptografieunterricht, Rätsel, CTF-Übungen, historische Beispiele oder den Vergleich von Porta mit verwandten Schlüsselwortchiffren wie Vigenere und Beaufort. Wie andere klassische Chiffren ist Porta lehrreich, aber nicht für moderne Datensicherheit geeignet.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 342,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Welches Alphabet verwendet Porta?",
+                "answer": "Diese Implementierung verwendet das historische lateinische Alphabet A-Z. Lateinische Buchstaben werden ver- oder entschlüsselt, während nicht lateinische Zeichen unverändert bleiben."
+            }
+        },
+        {
+            "id": 343,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Sind Verschlüsselung und Entschlüsselung bei Porta gleich?",
+                "answer": "Ja. Porta ist reziprok: dieselbe Porta-Tabelle mit demselben Schlüsselwort wandelt Klartext in Chiffretext und Chiffretext wieder in Klartext um."
+            }
+        },
+        {
+            "id": 344,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was passiert mit Leerzeichen und Satzzeichen?",
+                "answer": "Leerzeichen, Satzzeichen, Zahlen und nicht unterstützte Zeichen bleiben im Ergebnis erhalten. Sie verschieben auch den Schlüssel nicht; nur lateinische Buchstaben verbrauchen Schlüsselbuchstaben."
+            }
+        },
+        {
+            "id": 345,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Wie wird das Porta-Schlüsselwort verwendet?",
+                "answer": "Das Schlüsselwort wird über die Nachricht wiederholt. Jeder lateinische Schlüsselbuchstabe wählt eine von dreizehn gepaarten Porta-Zeilen: A und B wählen dieselbe Zeile, C und D dieselbe Zeile und so weiter."
+            }
+        },
+        {
+            "id": 346,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Darf der Schlüssel Leerzeichen oder Zahlen enthalten?",
+                "answer": "Ja, aber nur lateinische Buchstaben des Schlüssels werden verwendet. Leerzeichen, Ziffern, Satzzeichen und nicht lateinische Symbole im Schlüssel werden ignoriert."
+            }
+        },
+        {
+            "id": 347,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Erhält die Porta-Chiffre die Groß- und Kleinschreibung?",
+                "answer": "Ja. Großbuchstaben bleiben im Ergebnis groß, Kleinbuchstaben bleiben klein."
+            }
+        },
+        {
+            "id": 348,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Ist die Porta-Chiffre heute sicher?",
+                "answer": "Nein. Porta ist eine historische klassische Chiffre und kann mit moderner Kryptoanalyse angegriffen werden. Verwenden Sie sie für Unterricht, Rätsel und Demonstrationen, nicht für echte Sicherheit."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 174,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "HELLO WORLD verschlüsseln",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "OYTUB CHJUQ",
+                "description": "Schlüssel: PORTA. Die Porta-Tabelle wandelt jeden lateinischen Buchstaben um, während das Leerzeichen unverändert bleibt."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Eine längere Nachricht verschlüsseln",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "ZTTZLZ KWS ZPJK HOTN",
+                "description": "Schlüssel: SECRET. Das Schlüsselwort wird automatisch über die lateinischen Buchstaben der Nachricht wiederholt."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Mit demselben Schlüssel entschlüsseln",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "OYTUB CHJUQ",
+                "output": "HELLO WORLD",
+                "description": "Schlüssel: PORTA. Porta ist reziprok, daher stellt dieselbe Operation den ursprünglichen Klartext wieder her."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Satzzeichen und Zahlen erhalten",
+                "key": "GUIDE",
+                "shift": 0,
+                "input": "MEET AT 9 PM!",
+                "output": "POVF PD 9 FQ!",
+                "description": "Schlüssel: GUIDE. Zahlen, Leerzeichen und Satzzeichen bleiben unverändert; nur lateinische Buchstaben werden verschlüsselt."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 261,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Porta-Chiffre"
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetische Chiffre"
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Reziproke Chiffre"
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Schlüsselwortchiffre"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Substitutionschiffre"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

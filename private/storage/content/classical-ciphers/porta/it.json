@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-21T18:04:43+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "porta",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 46,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 46,
+        "data": {
+            "name": "Cifrario Porta",
+            "name_short": "Cifrario Porta",
+            "description": "Cifra e decifra testo latino con il cifrario Porta online. Usa una parola chiave, conserva spazi e punteggiatura e lavora con la tabella polialfabetica reciproca storica A-Z di Porta.",
+            "description_stort": "Codificatore e decodificatore Porta online con parola chiave.",
+            "meta_title": "Cifrario Porta Online: Codificatore e Decodificatore",
+            "meta_description": "Cifra e decifra testo con il cifrario Porta online. Inserisci una parola chiave, usa la tabella reciproca Porta A-Z e scopri questo cifrario polialfabetico classico."
+        }
+    },
+    "blocks": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il cifrario Porta",
+                "text": "<p>Il cifrario Porta è un cifrario di sostituzione polialfabetico classico che usa una parola chiave per scegliere, per ogni lettera del messaggio, una delle tredici righe di alfabeti appaiati. Le lettere della chiave sono raggruppate in coppie: A/B, C/D, E/F e così via fino a Y/Z. Le lettere della stessa coppia selezionano la stessa riga della tabella Porta.</p><p>Durante l’elaborazione del testo, la parola chiave si ripete solo sulle lettere latine. Spazi, segni di punteggiatura, numeri e caratteri non supportati restano al loro posto, così la struttura del messaggio rimane leggibile mentre vengono trasformate solo le lettere A-Z.</p><p>La caratteristica più importante di Porta è la reciprocità. Per cifrare e decifrare si usano la stessa tabella e la stessa parola chiave; applicando di nuovo l’operazione si ripristina il testo originale.</p>"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Che cosa fa questo strumento Porta",
+                "text": "<p>Questo strumento online per il cifrario Porta permette di codificare e decodificare testo latino con una parola chiave personalizzata. Inserisci il testo in chiaro per cifrarlo, passa alla modalità di decodifica per il testo cifrato e usa la stessa chiave in entrambe le direzioni perché Porta è un cifrario reciproco.</p><p>L’implementazione segue la tabella storica A-Z. Conserva maiuscole e minuscole, ignora i simboli non alfabetici nella chiave e lascia invariati i caratteri non latini del messaggio. Puoi inserire lettere accentate o altri caratteri, ma questa variante di Porta non li cifra.</p><p>Usa il servizio per lezioni di crittografia, enigmi, pratica CTF, verifica di esempi storici o confronto di Porta con cifrari a parola chiave correlati come Vigenere e Beaufort. Come altri cifrari classici, Porta è utile per imparare ma non adatto alla protezione moderna di dati sensibili.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 342,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quale alfabeto usa il cifrario Porta?",
+                "answer": "Questa implementazione usa l’alfabeto latino storico A-Z. Le lettere latine vengono cifrate o decifrate, mentre i caratteri non latini restano invariati."
+            }
+        },
+        {
+            "id": 343,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Cifratura e decifratura sono uguali in Porta?",
+                "answer": "Sì. Porta è reciproco: la stessa tabella Porta con la stessa parola chiave converte testo in chiaro in testo cifrato e testo cifrato di nuovo in testo in chiaro."
+            }
+        },
+        {
+            "id": 344,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Che cosa succede a spazi e punteggiatura?",
+                "answer": "Spazi, segni di punteggiatura, numeri e caratteri non supportati vengono conservati nel risultato. Inoltre non fanno avanzare la chiave: solo le lettere latine consumano lettere della chiave."
+            }
+        },
+        {
+            "id": 345,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Come viene usata la parola chiave Porta?",
+                "answer": "La parola chiave viene ripetuta lungo il messaggio. Ogni lettera latina della chiave seleziona una delle tredici righe appaiate di Porta: A e B selezionano la stessa riga, C e D la stessa, e così via."
+            }
+        },
+        {
+            "id": 346,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "La chiave può contenere spazi o numeri?",
+                "answer": "Sì, ma vengono usate solo le lettere latine della chiave. Spazi, cifre, segni di punteggiatura e simboli non latini nella chiave sono ignorati."
+            }
+        },
+        {
+            "id": 347,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Il cifrario Porta conserva maiuscole e minuscole?",
+                "answer": "Sì. Le lettere maiuscole restano maiuscole e le minuscole restano minuscole nel risultato."
+            }
+        },
+        {
+            "id": 348,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Il cifrario Porta è sicuro oggi?",
+                "answer": "No. Porta è un cifrario classico storico e può essere attaccato con la crittoanalisi moderna. Usalo per apprendimento, enigmi e dimostrazioni, non per sicurezza reale."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 174,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrare HELLO WORLD",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "OYTUB CHJUQ",
+                "description": "Chiave: PORTA. La tabella Porta trasforma ogni lettera latina, mentre lo spazio resta invariato."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Cifrare un messaggio più lungo",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "ZTTZLZ KWS ZPJK HOTN",
+                "description": "Chiave: SECRET. La parola chiave si ripete automaticamente sulle lettere latine del messaggio."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decifrare con la stessa chiave",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "OYTUB CHJUQ",
+                "output": "HELLO WORLD",
+                "description": "Chiave: PORTA. Porta è reciproco, quindi la stessa operazione ripristina il testo in chiaro originale."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Conservare punteggiatura e numeri",
+                "key": "GUIDE",
+                "shift": 0,
+                "input": "MEET AT 9 PM!",
+                "output": "POVF PD 9 FQ!",
+                "description": "Chiave: GUIDE. Cifre, spazi e segni di punteggiatura restano invariati; vengono cifrate solo le lettere latine."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 261,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cifrario Porta"
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cifrario polialfabetico"
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cifrario reciproco"
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cifrario con parola chiave"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Crittografia classica"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Cifrario di sostituzione"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -284,6 +284,12 @@ return [
     'BEAUFORT_ERR_ALPHABET_UNSUPPORTED' => 'Desteklenmeyen alfabe.',
     'BEAUFORT_ERR_TEXT_ALPHABET'        => 'Metin, seçilen alfabenin karakterlerini içermiyor.',
     'BEAUFORT_ERR_KEY_ALPHABET'         => 'Anahtar, seçilen alfabenin karakterlerini içermiyor.',
+    'PORTA_ERR_INVALID'                 => 'Geçersiz giriş verisi.',
+    'PORTA_ERR_DIRECTION'               => 'Yön encrypt veya decrypt olmalıdır.',
+    'PORTA_ERR_TEXT_REQUIRED'           => 'Metin zorunludur.',
+    'PORTA_ERR_KEY_REQUIRED'            => 'Anahtar zorunludur.',
+    'PORTA_ERR_TEXT_LATIN'              => 'Metin en az bir Latin harfi içermelidir.',
+    'PORTA_ERR_KEY_LATIN'               => 'Anahtar en az bir Latin harfi içermelidir.',
     // Gronsfeld errors
     'GRONSFELD_ERR_INVALID'              => 'Geçersiz giriş verisi.',
     'GRONSFELD_ERR_DIRECTION'            => 'Yön encrypt veya decrypt olmalıdır.',

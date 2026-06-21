@@ -284,6 +284,12 @@ return [
     'BEAUFORT_ERR_ALPHABET_UNSUPPORTED' => 'Nicht unterstütztes Alphabet.',
     'BEAUFORT_ERR_TEXT_ALPHABET'        => 'Der Text enthält keine Zeichen des gewählten Alphabets.',
     'BEAUFORT_ERR_KEY_ALPHABET'         => 'Der Schlüssel enthält keine Zeichen des gewählten Alphabets.',
+    'PORTA_ERR_INVALID'                 => 'Ungültige Eingabedaten.',
+    'PORTA_ERR_DIRECTION'               => 'Richtung muss encrypt oder decrypt sein.',
+    'PORTA_ERR_TEXT_REQUIRED'           => 'Text ist erforderlich.',
+    'PORTA_ERR_KEY_REQUIRED'            => 'Schlüssel ist erforderlich.',
+    'PORTA_ERR_TEXT_LATIN'              => 'Der Text muss mindestens einen lateinischen Buchstaben enthalten.',
+    'PORTA_ERR_KEY_LATIN'               => 'Der Schlüssel muss mindestens einen lateinischen Buchstaben enthalten.',
     // Gronsfeld errors
     'GRONSFELD_ERR_INVALID'              => 'Ungültige Eingabedaten.',
     'GRONSFELD_ERR_DIRECTION'            => 'Richtung muss encrypt oder decrypt sein.',

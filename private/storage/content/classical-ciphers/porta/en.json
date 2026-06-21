@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-21T18:04:43+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "porta",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 46,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 46,
+        "data": {
+            "name": "Porta Cipher",
+            "name_short": "Porta Cipher",
+            "description": "Encrypt and decrypt Latin text with the Porta cipher online. Use a keyword, preserve spaces and punctuation, and work with the historical reciprocal polyalphabetic Porta table.",
+            "description_stort": "Online Porta cipher encoder and decoder with a keyword.",
+            "meta_title": "Porta Cipher Online Encoder & Decoder",
+            "meta_description": "Encrypt and decrypt text with the Porta cipher online. Enter a keyword, use the reciprocal Porta table, and learn how this classical polyalphabetic cipher works."
+        }
+    },
+    "blocks": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Porta Cipher works",
+                "text": "<p>The Porta Cipher is a classical polyalphabetic substitution cipher that uses a keyword to choose one of thirteen paired alphabets for each letter of the message. The key letters are grouped into pairs: A/B, C/D, E/F, and so on through Y/Z. Letters from the same pair select the same Porta alphabet row.</p><p>As the text is processed, the keyword repeats across Latin letters only. Spaces, punctuation marks, numbers, and unsupported characters stay in place, so the layout of the message remains readable while the A-Z letters are transformed.</p><p>The most important feature of Porta is reciprocity. The same table and the same keyword are used for encryption and decryption, so applying the operation again restores the original text.</p>"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "What this Porta Cipher tool does",
+                "text": "<p>This online Porta Cipher tool lets you encode and decode Latin text with a custom keyword. Enter plaintext to encrypt it, switch to decode mode for ciphertext, and use the same key in both directions because Porta is a reciprocal cipher.</p><p>The implementation follows the historical A-Z Porta table. It preserves uppercase and lowercase letters, ignores non-letter symbols in the keyword, and leaves non-Latin characters unchanged in the message.</p><p>Use it for cryptography lessons, puzzle making, CTF practice, checking historical examples, or comparing Porta with related keyword ciphers such as Vigenere and Beaufort. Like other classical ciphers, Porta is educational and not suitable for protecting sensitive information today.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 342,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What alphabet does Porta use?",
+                "answer": "This implementation uses the historical Latin alphabet A-Z. Latin letters are encrypted or decrypted, while non-Latin characters are left unchanged."
+            }
+        },
+        {
+            "id": 343,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Is encryption the same as decryption?",
+                "answer": "Yes. Porta is reciprocal: applying the same Porta table with the same keyword converts plaintext to ciphertext and ciphertext back to plaintext."
+            }
+        },
+        {
+            "id": 344,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What happens to spaces and punctuation?",
+                "answer": "Spaces, punctuation, numbers, and unsupported characters are preserved in the output. They also do not advance the keyword; only Latin letters consume key letters."
+            }
+        },
+        {
+            "id": 345,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "How is the Porta keyword used?",
+                "answer": "The keyword is repeated across the message. Each Latin key letter selects one of thirteen paired Porta alphabets: A and B select the same row, C and D select the same row, and so on."
+            }
+        },
+        {
+            "id": 346,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can the keyword contain spaces or numbers?",
+                "answer": "Yes, but only Latin letters in the keyword are used. Spaces, digits, punctuation marks, and non-Latin symbols in the key are ignored."
+            }
+        },
+        {
+            "id": 347,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does the Porta cipher preserve letter case?",
+                "answer": "Yes. Uppercase letters remain uppercase and lowercase letters remain lowercase in the result."
+            }
+        },
+        {
+            "id": 348,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is the Porta cipher secure today?",
+                "answer": "No. Porta is a historical classical cipher and can be attacked with modern cryptanalysis. Use it for education, puzzles, and demonstrations, not for real security."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 174,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt HELLO WORLD",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "OYTUB CHJUQ",
+                "description": "Keyword: PORTA. The Porta table transforms each Latin letter while the space remains unchanged."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Encrypt a longer message",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "ZTTZLZ KWS ZPJK HOTN",
+                "description": "Keyword: SECRET. The keyword repeats across the Latin letters of the message."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Decrypt with the same keyword",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "OYTUB CHJUQ",
+                "output": "HELLO WORLD",
+                "description": "Keyword: PORTA. Porta is reciprocal, so the same operation restores the original plaintext."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Preserve punctuation and numbers",
+                "key": "GUIDE",
+                "shift": 0,
+                "input": "MEET AT 9 PM!",
+                "output": "POVF PD 9 FQ!",
+                "description": "Keyword: GUIDE. Digits, spaces, and punctuation stay unchanged; only Latin letters are encrypted."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 261,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Porta cipher"
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Polyalphabetic cipher"
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Reciprocal cipher"
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Keyword cipher"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Substitution cipher"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

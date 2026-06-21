@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-21T18:04:43+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "porta",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 46,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 46,
+        "data": {
+            "name": "Chiffre de Porta",
+            "name_short": "Chiffre de Porta",
+            "description": "Chiffrez et déchiffrez du texte latin avec le chiffre de Porta en ligne. Utilisez un mot-clé, conservez les espaces et la ponctuation, et travaillez avec la table polyalphabétique réciproque historique A-Z de Porta.",
+            "description_stort": "Encodeur et décodeur Porta en ligne avec mot-clé.",
+            "meta_title": "Chiffre de Porta en ligne : encodeur et décodeur",
+            "meta_description": "Chiffrez et déchiffrez du texte avec le chiffre de Porta en ligne. Saisissez un mot-clé, utilisez la table réciproque Porta A-Z et découvrez ce chiffre polyalphabétique classique."
+        }
+    },
+    "blocks": [
+        {
+            "id": 173,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du chiffre de Porta",
+                "text": "<p>Le chiffre de Porta est un chiffre de substitution polyalphabétique classique qui utilise un mot-clé pour choisir, pour chaque lettre du message, l’une des treize lignes d’alphabets appariés. Les lettres de la clé sont groupées par paires : A/B, C/D, E/F, et ainsi de suite jusqu’à Y/Z. Les lettres d’une même paire sélectionnent la même ligne de la table de Porta.</p><p>Pendant le traitement, le mot-clé se répète uniquement sur les lettres latines. Les espaces, signes de ponctuation, chiffres et caractères non pris en charge restent à leur place, ce qui conserve la structure du message tandis que seules les lettres A-Z sont transformées.</p><p>La propriété essentielle de Porta est sa réciprocité. Le chiffrement et le déchiffrement utilisent la même table et le même mot-clé ; appliquer l’opération une seconde fois restaure le texte d’origine.</p>"
+            }
+        },
+        {
+            "id": 174,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Ce que fait cet outil Porta",
+                "text": "<p>Cet outil en ligne pour le chiffre de Porta permet d’encoder et de décoder du texte latin avec un mot-clé personnalisé. Saisissez le texte clair pour le chiffrer, passez en mode décodage pour le texte chiffré et utilisez la même clé dans les deux sens, car Porta est un chiffre réciproque.</p><p>L’implémentation suit la table historique A-Z. Elle conserve les majuscules et minuscules, ignore les symboles non alphabétiques dans la clé et laisse inchangés les caractères non latins du message. Les lettres accentuées ou autres caractères peuvent être présents, mais cette variante de Porta ne les chiffre pas.</p><p>Utilisez ce service pour des cours de cryptographie, des énigmes, des exercices CTF, la vérification d’exemples historiques ou la comparaison de Porta avec des chiffres à mot-clé apparentés comme Vigenere et Beaufort. Comme les autres chiffres classiques, Porta est pédagogique et ne convient pas à la protection de données sensibles aujourd’hui.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 342,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quel alphabet le chiffre de Porta utilise-t-il ?",
+                "answer": "Cette implémentation utilise l’alphabet latin historique A-Z. Les lettres latines sont chiffrées ou déchiffrées, tandis que les caractères non latins restent inchangés."
+            }
+        },
+        {
+            "id": 343,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Le chiffrement et le déchiffrement sont-ils identiques avec Porta ?",
+                "answer": "Oui. Porta est réciproque : la même table de Porta avec le même mot-clé transforme le texte clair en texte chiffré et le texte chiffré en texte clair."
+            }
+        },
+        {
+            "id": 344,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Que deviennent les espaces et la ponctuation ?",
+                "answer": "Les espaces, signes de ponctuation, chiffres et caractères non pris en charge sont conservés dans le résultat. Ils ne font pas avancer la clé ; seules les lettres latines consomment des lettres de clé."
+            }
+        },
+        {
+            "id": 345,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Comment le mot-clé Porta est-il utilisé ?",
+                "answer": "Le mot-clé est répété sur le message. Chaque lettre latine de la clé sélectionne l’une des treize lignes appariées de Porta : A et B sélectionnent la même ligne, C et D la même ligne, et ainsi de suite."
+            }
+        },
+        {
+            "id": 346,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "La clé peut-elle contenir des espaces ou des chiffres ?",
+                "answer": "Oui, mais seules les lettres latines de la clé sont utilisées. Les espaces, chiffres, signes de ponctuation et symboles non latins dans la clé sont ignorés."
+            }
+        },
+        {
+            "id": 347,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Porta conserve-t-il la casse ?",
+                "answer": "Oui. Les majuscules restent majuscules et les minuscules restent minuscules dans le résultat."
+            }
+        },
+        {
+            "id": 348,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Le chiffre de Porta est-il sûr aujourd’hui ?",
+                "answer": "Non. Porta est un chiffre classique historique qui peut être attaqué par la cryptanalyse moderne. Utilisez-le pour l’apprentissage, les énigmes et les démonstrations, pas pour une sécurité réelle."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 174,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer HELLO WORLD",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "OYTUB CHJUQ",
+                "description": "Clé : PORTA. La table de Porta transforme chaque lettre latine, tandis que l’espace reste inchangé."
+            }
+        },
+        {
+            "id": 175,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Chiffrer un message plus long",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "DEFEND THE EAST WALL",
+                "output": "ZTTZLZ KWS ZPJK HOTN",
+                "description": "Clé : SECRET. Le mot-clé se répète automatiquement sur les lettres latines du message."
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Déchiffrer avec la même clé",
+                "key": "PORTA",
+                "shift": 0,
+                "input": "OYTUB CHJUQ",
+                "output": "HELLO WORLD",
+                "description": "Clé : PORTA. Porta est réciproque ; la même opération restaure donc le texte clair d’origine."
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "data": {
+                "title": "Conserver la ponctuation et les chiffres",
+                "key": "GUIDE",
+                "shift": 0,
+                "input": "MEET AT 9 PM!",
+                "output": "POVF PD 9 FQ!",
+                "description": "Clé : GUIDE. Les chiffres, espaces et signes de ponctuation restent inchangés ; seules les lettres latines sont chiffrées."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 261,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de Porta"
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Chiffre polyalphabétique"
+            }
+        },
+        {
+            "id": 263,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Chiffre réciproque"
+            }
+        },
+        {
+            "id": 264,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Chiffre à mot-clé"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Cryptographie classique"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Chiffre de substitution"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

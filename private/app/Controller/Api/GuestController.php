@@ -260,6 +260,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Porta через API.
+     *
+     * POST /api/tools/porta
+     */
+    #[ApiOperation(summary: 'Porta Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function porta(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'porta');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование Autokey через API.
      *
      * POST /api/tools/autokey

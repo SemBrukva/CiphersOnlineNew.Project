@@ -72,6 +72,13 @@ return [
         'name'       => 'api.tools.beaufort',
     ],
 
+    'POST /tools/porta' => [
+        'controller' => GuestController::class,
+        'method'     => 'porta',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.porta',
+    ],
+
     'POST /tools/autokey' => [
         'controller' => GuestController::class,
         'method'     => 'autokey',
