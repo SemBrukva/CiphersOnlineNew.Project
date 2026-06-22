@@ -6,6 +6,7 @@ namespace Tests\Unit\Cipher;
 
 use App\Cipher\A1z26CipherService;
 use App\Cipher\AffineBruteForceService;
+use App\Cipher\AlbertiCipherService;
 use App\Cipher\AffineCipherService;
 use App\Cipher\AlphabetCatalog;
 use App\Cipher\AlphabetTool;
@@ -163,7 +164,8 @@ final class ToolRegistryTest extends TestCase
             new VigenereCrackerService(),
             new AffineBruteForceService(),
             new BifidCipherService($catalog, $alphabetTool, $caseFolder),
-            new TrifidCipherService($catalog, $alphabetTool, $caseFolder)
+            new TrifidCipherService($catalog, $alphabetTool, $caseFolder),
+            new AlbertiCipherService()
         );
     }
 }

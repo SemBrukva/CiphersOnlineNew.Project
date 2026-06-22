@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-22T18:08:47+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "alberti",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 47,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 47,
+        "data": {
+            "name": "Alberti Şifresi",
+            "name_short": "Alberti Şifresi",
+            "description": "Alberti şifre diskiyle Latin metnini çevrimiçi şifreleyin ve çözün. Bir anahtar sözcük seçin, başlangıç indeksini ayarlayın, canlı eşlemeyi inceleyin ve bu Rönesans şifresinin A-Z alfabesini anahtarlı bir yerine koymaya nasıl dönüştürdüğünü görün.",
+            "description_stort": "Anahtar sözcük, indeks, canlı eşleme, şifreleme ve çözme içeren Alberti diski.",
+            "meta_title": "Alberti Şifresi online - Alberti diskiyle şifreleme ve çözme",
+            "meta_description": "Latin metnini şifrelemek veya çözmek için Alberti diskini online kullanın. Anahtar sözcük ve başlangıç indeksi belirleyin, iç alfabeyi görün ve örnekleri deneyin."
+        }
+    },
+    "blocks": [
+        {
+            "id": 175,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Alberti şifre diski nasıl çalışır",
+                "text": "<p>Alberti şifresi, Leon Battista Alberti’nin 15. yüzyılda tanımladığı şifre diskine dayanır. Bu çevrimiçi uygulamada dış halka sabit açık metin alfabesi A-Z’dir; iç halka ise anahtar sözcüğünüzden üretilen anahtarlı alfabedir.</p><p>Şifreleme sırasında araç her açık metin harfini dış halkada bulur ve iç halkadaki hizalanmış karakteri okur. Çözme sırasında arama ters yönde yapılır. Seçilen başlangıç indeksi işlemden önce iç diski döndürür; bu nedenle aynı anahtar sözcük indeks değiştiğinde farklı şifreli metin üretebilir.</p>"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Bu Alberti aracı ne yapar",
+                "text": "<p>Bu sayfayı Latin alfabesindeki kısa mesajları şifrelemek ve çözmek, anahtar sözcük-indeks kombinasyonlarını karşılaştırmak ve Alberti diskinin oluşturduğu eşlemeyi incelemek için kullanın. Etkileşimli disk, anahtar yazdığınızda, indeks seçtiğinizde veya ok düğmeleriyle diski döndürdüğünüzde güncellenir.</p><p>Sonuç paneli ayrıca API üzerinden üretilen iç alfabeyi ve ofseti döndürür. Bu, alıştırmaları kontrol etmek, gösterimler hazırlamak ve fiziksel bir şifre diskinin bir alfabeyi başka bir alfabeye nasıl eşlediğini açıklamak için kullanışlıdır.</p>"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Anahtar sözcük, iç alfabe ve başlangıç indeksi",
+                "text": "<p>Anahtar sözcük, ilk görülme sırasına göre benzersiz Latin harflerine indirgenir; ardından kullanılmayan A-Z harfleri eklenir. Böylece anahtar iç halkanın başlangıcını belirler ve alfabenin kalanı halkayı tamamlar.</p><p>Başlangıç indeksi A ile Z arasında bir harftir. Dış halkanın hangi konumunun iç halkanın ilk konumuyla hizalanacağını belirler. A indeksi sıfır ofsettir; D indeksi üç konum kaydırır. Boş veya geçersiz değerler A’ya döner.</p>"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Giriş kuralları ve pratik sınırlar",
+                "text": "<p>Servis Latin alfabesi A-Z ile çalışır ve büyük/küçük harf biçimini korur. Boşluklar, noktalama işaretleri, sayılar ve Latin dışı karakterler değişmeden kalır; böylece mesaj biçimi korunur ve yalnızca desteklenen harfler dönüştürülür.</p><p>Bu uygulama tüm mesaj için tek bir disk hizalaması kullanır. Tarihsel olarak Alberti diski, birden fazla yerine koyma alfabesi oluşturmak için mesaj içinde de döndürülebilirdi; çevrimiçi araç ise arayüzde görülen anahtar sözcük artı başlangıç indeksi akışına odaklanır.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 349,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Alberti şifresi hangi alfabeyi kullanır?",
+                "answer": "Bu uygulama Latin alfabesi A-Z’yi kullanır. Dış halka sabittir, iç halka ise aynı 26 harfin anahtarlı bir permütasyonudur. A-Z dışındaki karakterler, boşluklar, noktalama, rakamlar ve Latin dışı harfler dahil, değişmeden geçer."
+            }
+        },
+        {
+            "id": 350,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Anahtar sözcüğün görevi nedir?",
+                "answer": "Anahtar sözcük iç halkanın alfabesini üretir. Araç, anahtardaki her Latin harfinin ilk geçtiği yeri tutar, tekrarları yok sayar ve kalan kullanılmamış A-Z harflerini ekler. Boş anahtar normal bir A-Z iç halkası üretir."
+            }
+        },
+        {
+            "id": 351,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Başlangıç indeksi nedir?",
+                "answer": "Başlangıç indeksi, şifreleme veya çözme öncesinde iç diski döndürmek için kullanılan A-Z harfidir. A indeksi 0 ofset, B indeksi 1 ofsettir ve böyle devam eder. İndeksi değiştirmek, anahtar aynı kalsa bile mevcut eşlemeyi değiştirir."
+            }
+        },
+        {
+            "id": 352,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Bu araçla Alberti şifreli metnini çözebilir miyim?",
+                "answer": "Evet. Çözme moduna geçin, şifreli metni yapıştırın ve şifrelemede kullanılan aynı anahtar sözcüğü ve başlangıç indeksini girin. Çözme işlemi, iç halkadan sabit dış alfabeye doğru aramayı tersine çevirir."
+            }
+        },
+        {
+            "id": 353,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Disk mesaj sırasında otomatik döner mi?",
+                "answer": "Hayır. Bu çevrimiçi servis tüm mesaj için tek bir başlangıç indeksi kullanır. Çalıştırmadan önce diski elle döndürebilirsiniz, ancak araç mesaj içinde indeks değişiklikleri eklemez ve otomatik dönüş işaretleri kullanmaz."
+            }
+        },
+        {
+            "id": 354,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Anahtarı değiştirmek neden tüm eşlemeyi değiştirir?",
+                "answer": "Anahtar sözcük iç halkanın sırasını belirler. Başlangıç indeksi aynı kalsa bile farklı bir anahtar farklı bir iç alfabe oluşturur, bu yüzden çoğu harf yerine koyması değişir."
+            }
+        },
+        {
+            "id": 355,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Alberti şifresi güvenli mi?",
+                "answer": "Hayır. Eğitim, bulmaca ve tarihsel gösterimler için kullanın; gerçek sırları korumak için kullanmayın. Sabit hizalamayla anahtarlı bir yerine koyma şifresi gibi davranır ve frekans analiziyle saldırıya açıktır; tarihsel disk döndürme daha güçlü polialfabetik sistemlere giden önemli bir adımdı, ancak modern kriptografi değildir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Klasik Alberti diski",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "MERHABA DUNYA",
+                "output": "JRPCALA EUKYA",
+                "description": "ALBERTI anahtar sözcüğü ve A başlangıç indeksiyle temel şifreleme örneği."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Farklı anahtar sözcük",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "SAFAKTA SALDIRI",
+                "output": "QZCZISZ QZJRGPG",
+                "description": "ZEBRA anahtarı farklı bir iç alfabe oluşturur; başlangıç indeksi A olarak kalır."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Bilinen ayarlarla çözme",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "JRPCALA EUKYA",
+                "output": "MERHABA DUNYA",
+                "description": "Aynı Alberti ayarları şifreli metni özgün mesaja geri döndürür."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "D",
+            "data": {
+                "title": "Başlangıç indeksi kayması",
+                "key": "SIFRE",
+                "shift": 0,
+                "input": "GECE YARISI BULUSMA",
+                "output": "RIZI VXMANA YPDPNGX",
+                "description": "D indeksi, şifrelemeden önce diski döndürür ve SIFRE anahtarının ürettiği eşlemeyi değiştirir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 267,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Alberti şifresi"
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Alberti diski"
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "şifre diski"
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "polialfabetik şifre"
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "klasik şifre"
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Rönesans kriptografisi"
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "anahtarlı yerine koyma şifresi"
+            }
+        },
+        {
+            "id": 274,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "online şifrele çöz"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

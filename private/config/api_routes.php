@@ -205,6 +205,13 @@ return [
         'name'       => 'api.tools.trifid',
     ],
 
+    'POST /tools/alberti' => [
+        'controller' => GuestController::class,
+        'method'     => 'alberti',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.alberti',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

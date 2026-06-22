@@ -481,6 +481,16 @@ return [
     'TRIFID_ERR_KEY_NO_LETTERS'         => 'Key does not contain characters from the selected alphabet.',
     'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Based on a 3×3×3 Polybius cube with keyword',
     'TRIFID_TRUST_FRACTIONATION'        => 'Fractionation: coordinates split across three layers',
+    // Alberti
+    'ALBERTI_ERR_INVALID'               => 'Invalid input data.',
+    'ALBERTI_ERR_DIRECTION'             => 'Direction must be encrypt or decrypt.',
+    'ALBERTI_ERR_TEXT_REQUIRED'         => 'Text is required.',
+    'ALBERTI_ERR_TEXT_LATIN'            => 'Input must contain at least one Latin letter.',
+    'ALBERTI_TRUST_DISK'                => 'Based on the Alberti cipher disk (c. 1467)',
+    'ALBERTI_TRUST_MIXED_ALPHABET'      => 'Keyword-mixed inner ring alphabet',
+    'ALBERTI_SETTING_INDEX'             => 'Starting index',
+    'ALBERTI_WHEEL_DISK_LABEL'          => 'Alberti Cipher Disk',
+    'ALBERTI_WHEEL_MAPPING_LABEL'       => 'Current Mapping',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
     'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',

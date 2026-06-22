@@ -481,6 +481,16 @@ return [
     'TRIFID_ERR_KEY_NO_LETTERS'         => 'Ключ не содержит символов выбранного алфавита.',
     'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Куб Полибия 3×3×3 с ключевым словом',
     'TRIFID_TRUST_FRACTIONATION'        => 'Фракционирование: координаты разбиваются по трём слоям',
+    // Alberti
+    'ALBERTI_ERR_INVALID'               => 'Некорректные входные данные.',
+    'ALBERTI_ERR_DIRECTION'             => 'Направление должно быть encrypt или decrypt.',
+    'ALBERTI_ERR_TEXT_REQUIRED'         => 'Введите текст.',
+    'ALBERTI_ERR_TEXT_LATIN'            => 'Текст должен содержать хотя бы одну латинскую букву.',
+    'ALBERTI_TRUST_DISK'                => 'На основе диска Альберти (ок. 1467 г.)',
+    'ALBERTI_TRUST_MIXED_ALPHABET'      => 'Внутреннее кольцо с перемешанным алфавитом по ключу',
+    'ALBERTI_SETTING_INDEX'             => 'Начальный индекс',
+    'ALBERTI_WHEEL_DISK_LABEL'          => 'Диск Альберти',
+    'ALBERTI_WHEEL_MAPPING_LABEL'       => 'Текущий маппинг',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
     'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',

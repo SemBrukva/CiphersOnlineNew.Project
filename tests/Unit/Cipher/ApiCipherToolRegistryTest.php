@@ -8,6 +8,8 @@ use App\Cache\NullCache;
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
 use App\Cipher\AffineApiCipherTool;
+use App\Cipher\AlbertiApiCipherTool;
+use App\Cipher\AlbertiCipherService;
 use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\AffineCipherService;
 use App\Cipher\AlphabetCatalog;
@@ -151,7 +153,8 @@ final class ApiCipherToolRegistryTest extends TestCase
             new XorApiCipherTool(new XorCipherService()),
             new VigenereCrackerApiCipherTool(new VigenereCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache()),
             new BifidApiCipherTool(new BifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder())),
-            new TrifidApiCipherTool(new TrifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder()))
+            new TrifidApiCipherTool(new TrifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder())),
+            new AlbertiApiCipherTool(new AlbertiCipherService())
         );
     }
 }

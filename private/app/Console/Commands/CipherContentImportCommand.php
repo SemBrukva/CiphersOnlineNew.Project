@@ -156,16 +156,9 @@ final readonly class CipherContentImportCommand implements CommandInterface
                         }
                     } else {
                         $this->assertOwnership(Tables::CIPHERS_EXAMPLES, 'app_id', $cipherId, $exampleId, 'example');
-                        if ($language === $defaultLanguage) {
-                            $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
-                            $delimiter = $this->sanitizeDelimiter((string) ($item['delimiter'] ?? ''));
-                            $encoding  = $this->sanitizeEncoding((string) ($item['encoding'] ?? ''));
-                            $keyFormat = $this->sanitizeKeyFormat((string) ($item['key_format'] ?? ''));
-                            $this->db->execute(
-                                'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, delimiter = ?, encoding = ?, key_format = ?, updated_at = ? WHERE id = ?',
-                                [$direction, $delimiter, $encoding, $keyFormat, $now, $exampleId]
-                            );
-                        }
+                    }
+                    if ($language === $defaultLanguage) {
+                        $this->updateExampleMetadata($exampleId, $item, $now);
                     }
                     $this->upsertExampleTranslation($exampleId, $language, $data, $now);
                     $seenIds['examples'][] = $exampleId;
@@ -399,6 +392,25 @@ final readonly class CipherContentImportCommand implements CommandInterface
     }
 
     /**
+     * Обновляет служебные поля примера из JSON.
+     *
+     * @param array<string, mixed> $item Элемент примера из JSON.
+     */
+    private function updateExampleMetadata(int $exampleId, array $item, string $now): void
+    {
+        $direction = $this->sanitizeDirection((string) ($item['direction'] ?? ''));
+        $delimiter = $this->sanitizeDelimiter((string) ($item['delimiter'] ?? ''));
+        $encoding  = $this->sanitizeEncoding((string) ($item['encoding'] ?? ''));
+        $keyFormat = $this->sanitizeKeyFormat((string) ($item['key_format'] ?? ''));
+        $albertiIndex = $this->readAlbertiIndex($item);
+
+        $this->db->execute(
+            'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, delimiter = ?, encoding = ?, key_format = ?, alberti_index = ?, updated_at = ? WHERE id = ?',
+            [$direction, $delimiter, $encoding, $keyFormat, $albertiIndex, $now, $exampleId]
+        );
+    }
+
+    /**
      * Создаёт новую сущность info-блока для шифра.
      *
      * @param array<string, mixed> $item Элемент блока из JSON.
@@ -429,10 +441,11 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $delimiter = $this->sanitizeDelimiter((string) ($item['delimiter'] ?? ''));
         $encoding  = $this->sanitizeEncoding((string) ($item['encoding'] ?? ''));
         $keyFormat = $this->sanitizeKeyFormat((string) ($item['key_format'] ?? ''));
+        $albertiIndex = $this->readAlbertiIndex($item);
 
         $id = $this->db->insert(
-            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, delimiter, encoding, key_format, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            [$cipherId, $sortOrder, $published, $direction, $delimiter, $encoding, $keyFormat, $now, $now]
+            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, delimiter, encoding, key_format, alberti_index, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [$cipherId, $sortOrder, $published, $direction, $delimiter, $encoding, $keyFormat, $albertiIndex, $now, $now]
         );
 
         return (int) $id;
@@ -828,5 +841,27 @@ final readonly class CipherContentImportCommand implements CommandInterface
     private function sanitizeKeyFormat(string $value): string
     {
         return in_array($value, ['text', 'hex'], true) ? $value : '';
+    }
+
+    /**
+     * Возвращает индекс диска Альберти из JSON-элемента примера.
+     *
+     * @param array<string, mixed> $item Элемент примера из JSON.
+     */
+    private function readAlbertiIndex(array $item): string
+    {
+        $data = is_array($item['data'] ?? null) ? $item['data'] : [];
+
+        return $this->sanitizeAlbertiIndex((string) ($item['alberti_index'] ?? $data['alberti_index'] ?? ''));
+    }
+
+    /**
+     * Нормализует индекс диска Альберти: допустима одна буква A-Z или '' (не задан).
+     */
+    private function sanitizeAlbertiIndex(string $value): string
+    {
+        $value = strtoupper(trim($value));
+
+        return in_array($value, range('A', 'Z'), true) ? $value : '';
     }
 }

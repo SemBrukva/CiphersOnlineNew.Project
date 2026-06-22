@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-22T18:08:47+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "alberti",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 47,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 47,
+        "data": {
+            "name": "Chiffre d’Alberti",
+            "name_short": "Chiffre d’Alberti",
+            "description": "Chiffrez et déchiffrez du texte latin en ligne avec le disque d’Alberti. Choisissez un mot-clé, réglez l’index de départ, consultez la correspondance en direct et voyez comment ce chiffre de la Renaissance transforme l’alphabet A-Z en substitution à clé.",
+            "description_stort": "Disque d’Alberti avec mot-clé, index, correspondance en direct, chiffrement et déchiffrement.",
+            "meta_title": "Chiffre d’Alberti en ligne - chiffrer et déchiffrer avec le disque d’Alberti",
+            "meta_description": "Utilisez le disque d’Alberti en ligne pour chiffrer ou déchiffrer du texte latin. Définissez un mot-clé et un index de départ, consultez l’alphabet interne et testez des exemples."
+        }
+    },
+    "blocks": [
+        {
+            "id": 175,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du disque d’Alberti",
+                "text": "<p>Le chiffre d’Alberti repose sur le disque décrit par Leon Battista Alberti au XVe siècle. Dans cette implémentation en ligne, l’anneau extérieur est l’alphabet fixe du texte clair A-Z, tandis que l’anneau intérieur est un alphabet à clé généré à partir de votre mot-clé.</p><p>Pour chiffrer, l’outil trouve chaque lettre du texte clair sur l’anneau extérieur et lit le caractère aligné sur l’anneau intérieur. Pour déchiffrer, il effectue la recherche inverse. L’index de départ choisi fait tourner le disque intérieur avant le traitement, de sorte que le même mot-clé peut produire un texte chiffré différent quand l’index change.</p>"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Ce que fait cet outil Alberti",
+                "text": "<p>Utilisez cette page pour chiffrer et déchiffrer de courts messages en alphabet latin, comparer des combinaisons mot-clé/index et étudier la correspondance créée par le disque d’Alberti. La roue interactive se met à jour lorsque vous saisissez un mot-clé, choisissez un index ou faites tourner le disque avec les boutons fléchés.</p><p>Le panneau de résultat renvoie aussi l’alphabet interne généré et le décalage via l’API, ce qui aide à vérifier des exercices, préparer des démonstrations et expliquer comment un disque physique associe un alphabet à un autre.</p>"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Mot-clé, alphabet interne et index de départ",
+                "text": "<p>Le mot-clé est réduit aux lettres latines uniques dans l’ordre de leur première apparition, puis les lettres restantes de A-Z sont ajoutées. Le mot-clé définit ainsi le début de l’anneau intérieur, complété ensuite par le reste de l’alphabet.</p><p>L’index de départ est une lettre de A à Z. Il définit quelle position de l’anneau extérieur est alignée avec la première position de l’anneau intérieur. L’index A signifie aucun décalage; l’index D décale de trois positions. Les valeurs vides ou invalides reviennent à A.</p>"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Règles de saisie et limites pratiques",
+                "text": "<p>Le service fonctionne avec l’alphabet latin A-Z et conserve les majuscules et minuscules. Les espaces, signes de ponctuation, chiffres et caractères non latins restent inchangés, ce qui préserve la mise en forme du message tout en transformant seulement les lettres prises en charge.</p><p>Cette implémentation utilise un seul alignement du disque pour tout le message. Historiquement, le disque d’Alberti pouvait aussi être tourné pendant le message afin d’introduire plusieurs alphabets de substitution, mais l’outil en ligne se concentre sur le flux clair mot-clé plus index de départ.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 349,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quel alphabet utilise le chiffre d’Alberti?",
+                "answer": "Cette implémentation utilise l’alphabet latin A-Z. L’anneau extérieur est fixe et l’anneau intérieur est une permutation à clé des mêmes 26 lettres. Les caractères hors A-Z, y compris les espaces, la ponctuation, les chiffres et les lettres non latines, restent inchangés."
+            }
+        },
+        {
+            "id": 350,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quel est le rôle du mot-clé?",
+                "answer": "Le mot-clé génère l’alphabet de l’anneau intérieur. L’outil conserve la première occurrence de chaque lettre latine du mot-clé, ignore les répétitions et ajoute les lettres restantes de A-Z. Un mot-clé vide produit un anneau intérieur A-Z normal."
+            }
+        },
+        {
+            "id": 351,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que l’index de départ?",
+                "answer": "L’index de départ est la lettre A-Z utilisée pour faire tourner le disque intérieur avant le chiffrement ou le déchiffrement. L’index A vaut 0, B vaut 1, etc. Modifier l’index change la correspondance même si le mot-clé reste identique."
+            }
+        },
+        {
+            "id": 352,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Puis-je déchiffrer un texte Alberti avec cet outil?",
+                "answer": "Oui. Passez en mode déchiffrement, collez le texte chiffré et utilisez le même mot-clé et le même index de départ que pour le chiffrement. Le déchiffrement inverse la recherche depuis l’anneau intérieur vers l’alphabet extérieur fixe."
+            }
+        },
+        {
+            "id": 353,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Le disque tourne-t-il automatiquement pendant le message?",
+                "answer": "Non. Ce service en ligne utilise un seul index de départ pour tout le message. Vous pouvez tourner le disque manuellement avant l’exécution, mais l’outil n’insère pas de changements d’index au milieu du message et n’utilise pas de rotation automatique."
+            }
+        },
+        {
+            "id": 354,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Pourquoi changer le mot-clé modifie toute la correspondance?",
+                "answer": "Le mot-clé définit l’ordre de l’anneau intérieur. Même si l’index de départ reste le même, un autre mot-clé crée un alphabet interne différent, donc la plupart des substitutions changent."
+            }
+        },
+        {
+            "id": 355,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Le chiffre d’Alberti est-il sûr?",
+                "answer": "Non. Utilisez-le pour l’apprentissage, les énigmes et les démonstrations historiques, pas pour protéger de vrais secrets. Avec un alignement fixe, il agit comme un chiffre de substitution à clé et peut être attaqué par analyse de fréquence; la rotation historique du disque fut une étape importante vers des systèmes polyalphabétiques plus forts, mais ce n’est pas de la cryptographie moderne."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Disque d’Alberti classique",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "BONJOUR MONDE",
+                "output": "LMKFMUP JMKER",
+                "description": "Exemple simple de chiffrement avec le mot-clé ALBERTI et l’index de départ A."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Autre mot-clé",
+                "key": "ZEBRE",
+                "shift": 0,
+                "input": "ATTAQUE A LAUBE",
+                "output": "ZSSZOTA Z JZTEA",
+                "description": "Le mot-clé ZEBRE crée un autre alphabet interne tandis que l’index reste A."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Déchiffrer avec les bons réglages",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "LMKFMUP JMKER",
+                "output": "BONJOUR MONDE",
+                "description": "Les mêmes réglages Alberti ramènent le texte chiffré au message original."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "D",
+            "data": {
+                "title": "Décalage de l’index de départ",
+                "key": "CHIFFRE",
+                "shift": 0,
+                "input": "RENDEZVOUS A MINUIT",
+                "output": "NHJCHWSKQO X GEJQEP",
+                "description": "L’index D tourne le disque avant le chiffrement et change la correspondance produite par le mot-clé CHIFFRE."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 267,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "chiffre d’Alberti"
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "disque d’Alberti"
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "disque de chiffrement"
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "chiffre polyalphabétique"
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "chiffre classique"
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "cryptographie de la Renaissance"
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "chiffre de substitution à clé"
+            }
+        },
+        {
+            "id": 274,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "chiffrer déchiffrer en ligne"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -45,7 +45,8 @@ final readonly class ToolRegistry
         private VigenereCrackerService $vigenereCracker,
         private AffineBruteForceService $affineBruteForce,
         private BifidCipherService $bifidCipher,
-        private TrifidCipherService $trifidCipher
+        private TrifidCipherService $trifidCipher,
+        private AlbertiCipherService $albertiCipher
     ) {
     }
 
@@ -154,6 +155,11 @@ final readonly class ToolRegistry
                 ['label' => 'Türkçe',    'value' => 'ISTANBUL',       'alphabet' => 'tr', 'key' => 'ANAHTAR'],
                 ['label' => 'Português', 'value' => 'PORTO',          'alphabet' => 'pt', 'key' => 'SEGREDO'],
                 ['label' => 'Français',  'value' => 'BONJOUR',        'alphabet' => 'fr', 'key' => 'SECRET'],
+            ],
+            'classical-ciphers/alberti' => [
+                ['label' => 'Classic',  'value' => 'HELLO WORLD',    'key' => 'ALBERTI', 'alberti_index' => 'A'],
+                ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'key' => 'ZEBRAS',  'alberti_index' => 'A'],
+                ['label' => 'Decode',   'value' => 'CRHHM WMPHE',    'key' => 'ALBERTI', 'alberti_index' => 'A', 'direction' => 'decrypt'],
             ],
             'classical-ciphers/gronsfeld' => [
                 ['label' => 'Military', 'value' => 'HELLO WORLD',    'alphabet' => 'en', 'key' => '9871'],
@@ -276,8 +282,9 @@ final readonly class ToolRegistry
             'classical-ciphers/beaufort' => 'beaufort',
             'classical-ciphers/porta' => 'porta',
             'classical-ciphers/autokey' => 'autokey',
-            'classical-ciphers/bifid'   => 'bifid',
-            'classical-ciphers/trifid'  => 'trifid',
+            'classical-ciphers/bifid'    => 'bifid',
+            'classical-ciphers/trifid'   => 'trifid',
+            'classical-ciphers/alberti'  => 'alberti',
             'classical-ciphers/gronsfeld' => 'gronsfeld',
             'classical-ciphers/vigenere' => 'vigenere',
             'classical-ciphers/vernam' => 'vernam',
@@ -321,8 +328,9 @@ final readonly class ToolRegistry
             'classical-ciphers/beaufort' => $this->beaufortCipher->getToolSettings(),
             'classical-ciphers/porta' => $this->portaCipher->getToolSettings(),
             'classical-ciphers/autokey' => $this->autokeyCipher->getToolSettings(),
-            'classical-ciphers/bifid'   => $this->bifidCipher->getToolSettings(),
-            'classical-ciphers/trifid'  => $this->trifidCipher->getToolSettings(),
+            'classical-ciphers/bifid'    => $this->bifidCipher->getToolSettings(),
+            'classical-ciphers/trifid'   => $this->trifidCipher->getToolSettings(),
+            'classical-ciphers/alberti'  => $this->albertiCipher->getToolSettings(),
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getToolSettings(),
             'classical-ciphers/vigenere' => $this->vigenereCipher->getToolSettings(),
             'classical-ciphers/vernam' => $this->vernamCipher->getToolSettings(),
@@ -366,6 +374,7 @@ final readonly class ToolRegistry
             'classical-ciphers/autokey'   => $this->autokeyCipher->getTrustItems($calculationMode),
             'classical-ciphers/bifid'     => $this->bifidCipher->getTrustItems($calculationMode),
             'classical-ciphers/trifid'    => $this->trifidCipher->getTrustItems($calculationMode),
+            'classical-ciphers/alberti'   => $this->albertiCipher->getTrustItems($calculationMode),
             'classical-ciphers/gronsfeld' => $this->gronsfeldCipher->getTrustItems($calculationMode),
             'classical-ciphers/vigenere'  => $this->vigenereCipher->getTrustItems($calculationMode),
             'classical-ciphers/vernam'    => $this->vernamCipher->getTrustItems($calculationMode),
@@ -492,6 +501,7 @@ final readonly class ToolRegistry
             'classical-ciphers/autokey-cipher', 'classical-ciphers/shifr-autokey' => 'classical-ciphers/autokey',
             'classical-ciphers/bifid-cipher', 'classical-ciphers/shifr-bifida' => 'classical-ciphers/bifid',
             'classical-ciphers/trifid-cipher', 'classical-ciphers/shifr-trifida' => 'classical-ciphers/trifid',
+            'classical-ciphers/alberti-cipher', 'classical-ciphers/shifr-alberti', 'classical-ciphers/disk-alberti' => 'classical-ciphers/alberti',
             'classical-ciphers/shifr-gronsfelda' => 'classical-ciphers/gronsfeld',
             'classical-ciphers/shifr-vizhenera' => 'classical-ciphers/vigenere',
             'classical-ciphers/shifr-vernama' => 'classical-ciphers/vernam',

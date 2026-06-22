@@ -457,6 +457,16 @@ return [
     'TRIFID_ERR_KEY_NO_LETTERS'         => "La chiave non contiene caratteri dell'alfabeto selezionato.",
     'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Basato su un cubo di Polibio 3×3×3 con parola chiave',
     'TRIFID_TRUST_FRACTIONATION'        => 'Frazionamento: coordinate suddivise su tre livelli',
+    // Alberti
+    'ALBERTI_ERR_INVALID'               => 'Dati di input non validi.',
+    'ALBERTI_ERR_DIRECTION'             => 'La direzione deve essere encrypt o decrypt.',
+    'ALBERTI_ERR_TEXT_REQUIRED'         => 'Il testo è obbligatorio.',
+    'ALBERTI_ERR_TEXT_LATIN'            => 'L\'input deve contenere almeno una lettera latina.',
+    'ALBERTI_TRUST_DISK'                => 'Basato sul disco cifrante di Alberti (ca. 1467)',
+    'ALBERTI_TRUST_MIXED_ALPHABET'      => 'Alfabeto interno mescolato con parola chiave',
+    'ALBERTI_SETTING_INDEX'             => 'Indice iniziale',
+    'ALBERTI_WHEEL_DISK_LABEL'          => 'Disco cifrante di Alberti',
+    'ALBERTI_WHEEL_MAPPING_LABEL'       => 'Corrispondenza attuale',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Codifica da binario a testo',
     'BASE64_TRUST_USES'                => 'Ampiamente usato in API, email e web',

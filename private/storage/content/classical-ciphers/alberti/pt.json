@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-22T18:08:47+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "alberti",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 47,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 47,
+        "data": {
+            "name": "Cifra de Alberti",
+            "name_short": "Cifra de Alberti",
+            "description": "Cifre e decifre texto latino online com o disco de Alberti. Escolha uma palavra-chave, defina o índice inicial, veja o mapeamento ao vivo e entenda como esta cifra renascentista transforma o alfabeto A-Z em uma substituição com chave.",
+            "description_stort": "Disco de Alberti com palavra-chave, índice, mapeamento ao vivo, cifragem e decifragem.",
+            "meta_title": "Cifra de Alberti online - cifrar e decifrar com o disco de Alberti",
+            "meta_description": "Use o disco de Alberti online para cifrar ou decifrar texto latino. Defina palavra-chave e índice inicial, veja o alfabeto interno e teste exemplos."
+        }
+    },
+    "blocks": [
+        {
+            "id": 175,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como funciona o disco de Alberti",
+                "text": "<p>A cifra de Alberti se baseia no disco descrito por Leon Battista Alberti no século XV. Nesta implementação online, o anel externo é o alfabeto fixo do texto claro A-Z, enquanto o anel interno é um alfabeto com chave gerado pela sua palavra-chave.</p><p>Para cifrar, a ferramenta encontra cada letra do texto claro no anel externo e lê o caractere alinhado no anel interno. Para decifrar, faz a busca inversa. O índice inicial escolhido gira o disco interno antes do processamento, então a mesma palavra-chave pode produzir textos cifrados diferentes quando o índice muda.</p>"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "O que esta ferramenta Alberti faz",
+                "text": "<p>Use esta página para cifrar e decifrar mensagens curtas no alfabeto latino, comparar combinações de palavra-chave e índice e estudar o mapeamento criado pelo disco de Alberti. A roda interativa é atualizada quando você digita uma chave, seleciona um índice ou gira o disco com os botões de seta.</p><p>O painel de resultado também retorna o alfabeto interno gerado e o deslocamento pela API, o que ajuda a verificar exercícios, preparar demonstrações e explicar como um disco físico mapeia um alfabeto para outro.</p>"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Palavra-chave, alfabeto interno e índice inicial",
+                "text": "<p>A palavra-chave é reduzida a letras latinas únicas na ordem da primeira ocorrência; depois são adicionadas as letras restantes de A-Z que ainda não foram usadas. Assim, a chave define o início do anel interno e o restante do alfabeto o completa.</p><p>O índice inicial é uma letra de A a Z. Ele define qual posição do anel externo fica alinhada com a primeira posição do anel interno. O índice A não aplica deslocamento; o índice D desloca três posições. Valores vazios ou inválidos voltam para A.</p>"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Regras de entrada e limites práticos",
+                "text": "<p>O serviço trabalha com o alfabeto latino A-Z e preserva maiúsculas e minúsculas. Espaços, pontuação, números e caracteres não latinos ficam inalterados, então a formatação da mensagem é preservada e apenas as letras suportadas são transformadas.</p><p>Esta implementação usa um único alinhamento do disco para toda a mensagem. Historicamente, o disco de Alberti também podia ser girado durante a mensagem para introduzir vários alfabetos de substituição, mas a ferramenta online se concentra no fluxo claro de palavra-chave mais índice inicial.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 349,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Que alfabeto a cifra de Alberti usa?",
+                "answer": "Esta implementação usa o alfabeto latino A-Z. O anel externo é fixo, e o anel interno é uma permutação com chave das mesmas 26 letras. Caracteres fora de A-Z, incluindo espaços, pontuação, dígitos e letras não latinas, passam sem alteração."
+            }
+        },
+        {
+            "id": 350,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qual é o papel da palavra-chave?",
+                "answer": "A palavra-chave gera o alfabeto do anel interno. A ferramenta mantém a primeira ocorrência de cada letra latina da chave, ignora repetições e adiciona as letras restantes de A-Z. Uma chave vazia produz um anel interno A-Z normal."
+            }
+        },
+        {
+            "id": 351,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "O que é o índice inicial?",
+                "answer": "O índice inicial é a letra A-Z usada para girar o disco interno antes de cifrar ou decifrar. O índice A é deslocamento 0, B é deslocamento 1 e assim por diante. Mudar o índice altera o mapeamento mesmo com a mesma palavra-chave."
+            }
+        },
+        {
+            "id": 352,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Posso decifrar texto Alberti com esta ferramenta?",
+                "answer": "Sim. Mude para o modo de decifragem, cole o texto cifrado e use a mesma palavra-chave e o mesmo índice inicial usados na cifragem. A decifragem inverte a busca do anel interno para o alfabeto externo fixo."
+            }
+        },
+        {
+            "id": 353,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "O disco gira automaticamente durante a mensagem?",
+                "answer": "Não. Este serviço online usa um único índice inicial para toda a mensagem. Você pode girar o disco manualmente antes de executar, mas a ferramenta não insere mudanças de índice no meio da mensagem nem usa rotação automática."
+            }
+        },
+        {
+            "id": 354,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Por que mudar a chave muda todo o mapeamento?",
+                "answer": "A palavra-chave define a ordem do anel interno. Mesmo que o índice inicial continue igual, outra palavra-chave cria outro alfabeto interno, então a maioria das substituições muda."
+            }
+        },
+        {
+            "id": 355,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "A cifra de Alberti é segura?",
+                "answer": "Não. Use para educação, enigmas e demonstrações históricas, não para proteger segredos reais. Com alinhamento fixo, ela se comporta como uma cifra de substituição com chave e pode ser atacada por análise de frequência; a rotação histórica do disco foi um passo importante rumo a sistemas polialfabéticos mais fortes, mas não é criptografia moderna."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Disco de Alberti clássico",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "OLA MUNDO",
+                "output": "MHA JUKEM",
+                "description": "Exemplo básico de cifragem com a palavra-chave ALBERTI e índice inicial A."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Outra palavra-chave",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "ATAQUE AO AMANHECER",
+                "output": "ZSZOTA ZM ZKZLFABAP",
+                "description": "A chave ZEBRA cria outro alfabeto interno enquanto o índice continua A."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Decifrar com configurações conhecidas",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "MHA JUKEM",
+                "output": "OLA MUNDO",
+                "description": "As mesmas configurações de Alberti retornam o texto cifrado à mensagem original."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "D",
+            "data": {
+                "title": "Deslocamento do índice inicial",
+                "key": "CIFRA",
+                "shift": 0,
+                "input": "ENCONTRO A MEIA NOITE",
+                "output": "IJZKJPNK X HIBX JKBPI",
+                "description": "O índice D gira o disco antes da cifragem e muda o mapeamento produzido pela chave CIFRA."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 267,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "cifra de Alberti"
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "disco de Alberti"
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "disco de cifra"
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "cifra polialfabética"
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "cifra clássica"
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "criptografia renascentista"
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "cifra de substituição com chave"
+            }
+        },
+        {
+            "id": 274,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "cifrar decifrar online"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

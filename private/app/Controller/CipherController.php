@@ -228,6 +228,11 @@ final readonly class CipherController
             $toolUi['morseWarnUnknownChars']  = trans('MORSE_WARN_UNKNOWN_CHARS');
             $toolUi['morseInfoDecodedUnknown'] = trans('MORSE_INFO_DECODED_UNKNOWN');
         }
+        if ($cipherAlias === 'alberti') {
+            $toolUi['albertiWheelMode']        = true;
+            $toolUi['albertiWheelDiskLabel']    = trans('ALBERTI_WHEEL_DISK_LABEL');
+            $toolUi['albertiWheelMappingLabel'] = trans('ALBERTI_WHEEL_MAPPING_LABEL');
+        }
         $allInCategoryLabel = str_replace(
             ':category',
             (string) ($category['name'] ?? $categoryAlias),

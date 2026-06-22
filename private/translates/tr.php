@@ -457,6 +457,16 @@ return [
     'TRIFID_ERR_KEY_NO_LETTERS'         => 'Anahtar seçilen alfabeye ait karakter içermiyor.',
     'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Anahtar kelimeli 3×3×3 Polybius küpüne dayalı',
     'TRIFID_TRUST_FRACTIONATION'        => 'Fraksiyonlama: koordinatlar üç katmana bölünür',
+    // Alberti
+    'ALBERTI_ERR_INVALID'               => 'Geçersiz giriş verisi.',
+    'ALBERTI_ERR_DIRECTION'             => 'Yön encrypt veya decrypt olmalıdır.',
+    'ALBERTI_ERR_TEXT_REQUIRED'         => 'Metin gereklidir.',
+    'ALBERTI_ERR_TEXT_LATIN'            => 'Giriş en az bir Latin harfi içermelidir.',
+    'ALBERTI_TRUST_DISK'                => 'Alberti şifre diski\'ne dayalı (yakl. 1467)',
+    'ALBERTI_TRUST_MIXED_ALPHABET'      => 'Anahtar kelimeli karışık iç halka alfabesi',
+    'ALBERTI_SETTING_INDEX'             => 'Başlangıç indeksi',
+    'ALBERTI_WHEEL_DISK_LABEL'          => 'Alberti Şifre Diski',
+    'ALBERTI_WHEEL_MAPPING_LABEL'       => 'Geçerli Eşleşme',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
     'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',

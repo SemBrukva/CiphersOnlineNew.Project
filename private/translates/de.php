@@ -458,6 +458,18 @@ return [
     'TRIFID_ERR_KEY_NO_LETTERS'         => 'Der Schlüssel enthält keine Zeichen des ausgewählten Alphabets.',
     'TRIFID_TRUST_POLYBIUS_CUBE'        => 'Basierend auf einem 3×3×3-Polybios-Würfel mit Schlüsselwort',
     'TRIFID_TRUST_FRACTIONATION'        => 'Fraktionierung: Koordinaten auf drei Ebenen aufgeteilt',
+    // Alberti
+    'ALBERTI_ERR_INVALID'               => 'Ungültige Eingabedaten.',
+    'ALBERTI_ERR_DIRECTION'             => 'Richtung muss encrypt oder decrypt sein.',
+    'ALBERTI_ERR_TEXT_REQUIRED'         => 'Text ist erforderlich.',
+    'ALBERTI_ERR_TEXT_LATIN'            => 'Die Eingabe muss mindestens einen lateinischen Buchstaben enthalten.',
+    'ALBERTI_TRUST_DISK'                => 'Basierend auf der Alberti-Chiffrierscheibe (ca. 1467)',
+    'ALBERTI_TRUST_MIXED_ALPHABET'      => 'Gemischtes Innenring-Alphabet mit Schlüsselwort',
+    'ALBERTI_SETTING_INDEX'             => 'Startindex',
+    'ALBERTI_WHEEL_DISK_LABEL'          => 'Alberti-Chiffrierscheibe',
+    'ALBERTI_WHEEL_MAPPING_LABEL'       => 'Aktuelle Zuordnung',
+    'ALBERTI_WHEEL_DISK_LABEL'          => 'Alberti-Chiffrierscheibe',
+    'ALBERTI_WHEEL_MAPPING_LABEL'       => 'Aktuelle Zuordnung',
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binär-zu-Text-Kodierung',
     'BASE64_TRUST_USES'                => 'Weit verbreitet in APIs, E-Mails und im Web',

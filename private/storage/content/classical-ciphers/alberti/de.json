@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-22T18:08:47+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "alberti",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 47,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 47,
+        "data": {
+            "name": "Alberti-Chiffre",
+            "name_short": "Alberti-Chiffre",
+            "description": "Verschlüsseln und entschlüsseln Sie lateinischen Text online mit der Alberti-Chiffrierscheibe. Wählen Sie ein Schlüsselwort, setzen Sie den Startindex, prüfen Sie die Live-Zuordnung und sehen Sie, wie diese Renaissance-Chiffre das einfache Alphabet A-Z in eine Schlüssel-Substitution verwandelt.",
+            "description_stort": "Alberti-Chiffrierscheibe mit Schlüsselwort, Index, Live-Zuordnung, Verschlüsselung und Entschlüsselung.",
+            "meta_title": "Alberti-Chiffre online - mit der Alberti-Scheibe verschlüsseln und entschlüsseln",
+            "meta_description": "Nutzen Sie die Alberti-Chiffrierscheibe online, um lateinischen Text zu verschlüsseln oder zu entschlüsseln. Schlüsselwort, Startindex, inneres Alphabet und Beispiele inklusive."
+        }
+    },
+    "blocks": [
+        {
+            "id": 175,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Alberti-Chiffrierscheibe funktioniert",
+                "text": "<p>Die Alberti-Chiffre basiert auf der Chiffrierscheibe, die Leon Battista Alberti im 15. Jahrhundert beschrieb. In dieser Online-Umsetzung ist der äußere Ring das feste Klartextalphabet A-Z, während der innere Ring aus Ihrem Schlüsselwort erzeugt wird.</p><p>Beim Verschlüsseln sucht das Tool jeden Klartextbuchstaben auf dem äußeren Ring und liest den ausgerichteten Buchstaben auf dem inneren Ring ab. Beim Entschlüsseln wird die Suche umgekehrt. Der gewählte Startindex dreht die innere Scheibe vor der Verarbeitung, sodass dasselbe Schlüsselwort bei anderem Index einen anderen Geheimtext erzeugt.</p>"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Was dieses Alberti-Tool kann",
+                "text": "<p>Nutzen Sie diese Seite, um kurze Nachrichten im lateinischen Alphabet zu verschlüsseln und zu entschlüsseln, Schlüsselwort-Index-Kombinationen zu vergleichen und die Zuordnung der Alberti-Scheibe zu untersuchen. Das interaktive Rad aktualisiert sich, wenn Sie ein Schlüsselwort eingeben, einen Index wählen oder die Scheibe mit den Pfeiltasten drehen.</p><p>Das Ergebnis liefert außerdem das erzeugte innere Alphabet und den Offset über die API. Dadurch eignet sich das Tool für Lernbeispiele, Demonstrationen und Erklärungen, wie eine physische Chiffrierscheibe ein Alphabet auf ein anderes abbildet.</p>"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Schlüsselwort, inneres Alphabet und Startindex",
+                "text": "<p>Das Schlüsselwort wird auf eindeutige lateinische Buchstaben in der Reihenfolge ihres ersten Auftretens reduziert; danach werden die übrigen unbenutzten Buchstaben A-Z angehängt. So bestimmt das Schlüsselwort den Anfang des inneren Rings und der Rest des Alphabets ergänzt ihn.</p><p>Der Startindex ist ein Buchstabe von A bis Z. Er legt fest, welche Position des äußeren Rings mit der ersten Position des inneren Rings ausgerichtet wird. Index A bedeutet keinen Offset, Index D verschiebt um drei Positionen. Ungültige oder leere Werte fallen auf A zurück.</p>"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Eingaberegeln und praktische Grenzen",
+                "text": "<p>Der Dienst arbeitet mit dem lateinischen Alphabet A-Z und erhält Groß- und Kleinschreibung. Leerzeichen, Satzzeichen, Zahlen und nichtlateinische Zeichen bleiben unverändert, sodass das Format der Nachricht erhalten bleibt und nur unterstützte Buchstaben umgewandelt werden.</p><p>Diese Umsetzung verwendet eine gewählte Scheibenausrichtung für die gesamte Nachricht. Historisch konnte Albertis Scheibe auch innerhalb einer Nachricht gedreht werden, um mehrere Substitutionsalphabete einzuführen; das Online-Tool konzentriert sich jedoch auf den klaren Ablauf aus Schlüsselwort und Startindex.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 349,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Welches Alphabet verwendet die Alberti-Chiffre?",
+                "answer": "Diese Umsetzung verwendet das lateinische Alphabet A-Z. Der äußere Ring ist fest, der innere Ring ist eine schlüsselbasierte Permutation derselben 26 Buchstaben. Zeichen außerhalb von A-Z, einschließlich Leerzeichen, Satzzeichen, Ziffern und nichtlateinischer Buchstaben, bleiben unverändert."
+            }
+        },
+        {
+            "id": 350,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Welche Rolle spielt das Schlüsselwort?",
+                "answer": "Das Schlüsselwort erzeugt das Alphabet des inneren Rings. Das Tool behält das erste Auftreten jedes lateinischen Buchstabens im Schlüssel, ignoriert Wiederholungen und hängt die übrigen unbenutzten Buchstaben A-Z an. Ein leeres Schlüsselwort erzeugt einen normalen inneren Ring A-Z."
+            }
+        },
+        {
+            "id": 351,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was ist der Startindex?",
+                "answer": "Der Startindex ist der Buchstabe A-Z, mit dem die innere Scheibe vor dem Verschlüsseln oder Entschlüsseln gedreht wird. Index A ist Offset 0, B ist Offset 1 und so weiter. Ein anderer Index ändert die aktuelle Zuordnung auch bei gleichem Schlüsselwort."
+            }
+        },
+        {
+            "id": 352,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Kann ich Alberti-Geheimtext mit diesem Tool entschlüsseln?",
+                "answer": "Ja. Wechseln Sie in den Entschlüsselungsmodus, fügen Sie den Geheimtext ein und verwenden Sie dasselbe Schlüsselwort und denselben Startindex wie bei der Verschlüsselung. Die Entschlüsselung kehrt die Suche vom inneren Ring zum festen äußeren Alphabet um."
+            }
+        },
+        {
+            "id": 353,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Dreht sich die Scheibe automatisch während der Nachricht?",
+                "answer": "Nein. Dieser Online-Dienst verwendet einen ausgewählten Startindex für die gesamte Nachricht. Sie können die Scheibe vor dem Ausführen manuell drehen, aber das Tool fügt keine Indexwechsel innerhalb der Nachricht ein und nutzt keine automatische Rotation."
+            }
+        },
+        {
+            "id": 354,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Warum ändert ein anderes Schlüsselwort die ganze Zuordnung?",
+                "answer": "Das Schlüsselwort bestimmt die Reihenfolge des inneren Rings. Selbst wenn der Startindex gleich bleibt, erzeugt ein anderes Schlüsselwort ein anderes inneres Alphabet, sodass sich die meisten Buchstabenersetzungen ändern."
+            }
+        },
+        {
+            "id": 355,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Ist die Alberti-Chiffre sicher?",
+                "answer": "Nein. Verwenden Sie sie für Bildung, Rätsel und historische Demonstrationen, nicht zum Schutz echter Geheimnisse. Mit fester Ausrichtung verhält sie sich wie eine Schlüssel-Substitution und kann per Häufigkeitsanalyse angegriffen werden; historische Scheibendrehung war ein wichtiger Schritt zu stärkeren polyalphabetischen Systemen, ist aber keine moderne Kryptografie."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Klassische Alberti-Scheibe",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "HALLO WELT",
+                "output": "CAHHM WRHS",
+                "description": "Ein einfaches Verschlüsselungsbeispiel mit dem Schlüsselwort ALBERTI und Startindex A."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Anderes Schlüsselwort",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "ANGRIFF IM MORGENGRAUEN",
+                "output": "ZLDPGCC GK KMPDALDPZTAL",
+                "description": "Das Schlüsselwort ZEBRA erzeugt ein anderes inneres Alphabet, während der Startindex A bleibt."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Entschlüsseln mit bekannten Einstellungen",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "CAHHM WRHS",
+                "output": "HALLO WELT",
+                "description": "Dieselben Alberti-Einstellungen verwandeln den Geheimtext zurück in die ursprüngliche Nachricht."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "D",
+            "data": {
+                "title": "Verschobener Startindex",
+                "key": "SCHEIBE",
+                "shift": 0,
+                "input": "TREFFEN UM MITTERNACHT",
+                "output": "PNCHHCJ QG GBPPCNJXZIP",
+                "description": "Index D dreht die Scheibe vor der Verschlüsselung und verändert die vom Schlüssel SCHEIBE erzeugte Zuordnung."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 267,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Alberti-Chiffre"
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Alberti-Chiffrierscheibe"
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Chiffrierscheibe"
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "polyalphabetische Chiffre"
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "klassische Chiffre"
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Kryptografie der Renaissance"
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Schlüssel-Substitution"
+            }
+        },
+        {
+            "id": 274,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "online verschlüsseln entschlüsseln"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-22T18:08:47+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "alberti",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 47,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 47,
+        "data": {
+            "name": "Alberti Cipher",
+            "name_short": "Alberti Cipher",
+            "description": "Encrypt and decrypt Latin text with the Alberti cipher disk online. Choose a keyword, set the starting index, inspect the live disk mapping, and see how this Renaissance cipher turns a plain A–Z alphabet into a keyed substitution.",
+            "description_stort": "Alberti cipher disk with keyword, index, live mapping, encryption and decryption.",
+            "meta_title": "Alberti Cipher Online - Encrypt and Decrypt with Alberti Disk",
+            "meta_description": "Use the Alberti cipher disk online to encrypt or decrypt Latin text. Set a keyword and starting index, view the inner alphabet, and test Alberti cipher examples."
+        }
+    },
+    "blocks": [
+        {
+            "id": 175,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Alberti Cipher Disk works",
+                "text": "<p>The Alberti cipher is based on the cipher disk described by Leon Battista Alberti in the fifteenth century. In this online implementation the outer ring is the fixed plaintext alphabet A–Z, while the inner ring is a keyed alphabet generated from your keyword.</p><p>To encrypt, the tool finds each plaintext letter on the outer ring and reads the aligned character from the inner ring. To decrypt, it performs the reverse lookup. The selected starting index rotates the inner disk before processing, so the same keyword can produce different ciphertext when the index changes.</p>"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "What this Alberti Cipher tool does",
+                "text": "<p>Use this page to encrypt and decrypt short Latin-alphabet messages, compare keyword and index combinations, and study the mapping created by the Alberti disk. The interactive wheel updates as you type a keyword, select an index, or rotate the disk with the arrow controls.</p><p>The result panel also returns the generated inner alphabet and offset through the API, which makes the tool useful for checking homework examples, building demonstrations, and explaining how a physical cipher disk maps one alphabet onto another.</p>"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Keyword, inner alphabet and starting index",
+                "text": "<p>The keyword is reduced to unique Latin letters in their first-seen order, then the remaining unused A–Z letters are appended. For example, a keyword starts the inner ring with its distinct letters and completes the ring with the rest of the alphabet.</p><p>The starting index is a letter from A to Z. It defines which outer-ring position is aligned with the first position of the inner ring. Index A means no offset; index D shifts the mapping by three positions. Invalid or empty index values fall back to A.</p>"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Input rules and practical limits",
+                "text": "<p>The service works with the Latin alphabet A–Z and preserves uppercase and lowercase letters. Spaces, punctuation, numbers, and non-Latin characters are left unchanged in the output, so you can keep message formatting while transforming only the supported letters.</p><p>This implementation uses one chosen disk alignment for the whole message. Historically, Alberti's disk could also be rotated during a message to introduce multiple substitution alphabets, but the online tool focuses on the clear keyword-plus-index workflow shown in the interface.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 349,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What alphabet does the Alberti cipher use?",
+                "answer": "This implementation uses the Latin alphabet A–Z. The outer ring is fixed, and the inner ring is a keyword-mixed permutation of the same 26 letters. Characters outside A–Z, including spaces, punctuation, digits, and non-Latin letters, pass through unchanged."
+            }
+        },
+        {
+            "id": 350,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the role of the keyword?",
+                "answer": "The keyword generates the inner ring alphabet. The tool keeps the first occurrence of each Latin letter in the keyword, ignores repeated letters, and appends the remaining unused letters of A–Z. An empty keyword produces a normal A–Z inner ring."
+            }
+        },
+        {
+            "id": 351,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What is the starting index?",
+                "answer": "The starting index is the A–Z letter used to rotate the inner disk before encryption or decryption. Index A is offset 0, B is offset 1, and so on. Changing the index changes the current mapping even when the keyword stays the same."
+            }
+        },
+        {
+            "id": 352,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can I decrypt Alberti cipher text with this tool?",
+                "answer": "Yes. Switch the tool to decode mode, paste the ciphertext, and use the same keyword and starting index that were used for encryption. Decryption reverses the lookup from the inner ring back to the fixed outer alphabet."
+            }
+        },
+        {
+            "id": 353,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Does the disk rotate automatically during the message?",
+                "answer": "No. This online service uses one selected starting index for the entire message. You can rotate the disk manually before running a message, but the tool does not insert mid-message index changes or automatic rotation markers."
+            }
+        },
+        {
+            "id": 354,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does changing the keyword change the whole mapping?",
+                "answer": "The keyword defines the order of the inner ring. Even if the starting index stays the same, a different keyword creates a different inner alphabet, so most letter substitutions change."
+            }
+        },
+        {
+            "id": 355,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is the Alberti cipher secure?",
+                "answer": "No. Use it for education, puzzles, and historical demonstrations, not for protecting real secrets. With a fixed alignment it behaves like a keyed substitution cipher and can be attacked with frequency analysis; historical disk rotation was an important step toward stronger polyalphabetic systems, but it is still not modern cryptography."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Classic Alberti disk",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "CRHHM WMPHE",
+                "description": "A basic encryption example using keyword ALBERTI and starting index A."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Different keyword",
+                "key": "ZEBRAS",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "ZQQZBH ZQ RZVK",
+                "description": "The keyword ZEBRAS creates a different inner alphabet while the index remains A."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Decode with known settings",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "CRHHM WMPHE",
+                "output": "HELLO WORLD",
+                "description": "The same Alberti settings reverse the ciphertext back to the original message."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "D",
+            "data": {
+                "title": "Starting index shift",
+                "key": "CIPHER",
+                "shift": 0,
+                "input": "MEET AT NOON",
+                "output": "FIIO XO GJJG",
+                "description": "Index D rotates the disk before encryption, changing the mapping produced by the keyword CIPHER."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 267,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "alberti cipher"
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "alberti cipher disk"
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "cipher disk"
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "polyalphabetic cipher"
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "classical cipher"
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "renaissance cryptography"
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "keyword substitution cipher"
+            }
+        },
+        {
+            "id": 274,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "encrypt decrypt online"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

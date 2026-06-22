@@ -1,0 +1,274 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-22T18:08:47+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "alberti",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 47,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 47,
+        "data": {
+            "name": "Cifrario Alberti",
+            "name_short": "Cifrario Alberti",
+            "description": "Cifra e decifra testo latino online con il disco di Alberti. Scegli una parola chiave, imposta l’indice iniziale, osserva la mappatura in tempo reale e scopri come questo cifrario rinascimentale trasforma l’alfabeto A-Z in una sostituzione con chiave.",
+            "description_stort": "Disco di Alberti con parola chiave, indice, mappatura live, cifratura e decifratura.",
+            "meta_title": "Cifrario Alberti online - cifrare e decifrare con il disco di Alberti",
+            "meta_description": "Usa il disco di Alberti online per cifrare o decifrare testo latino. Imposta parola chiave e indice iniziale, guarda l’alfabeto interno e prova esempi."
+        }
+    },
+    "blocks": [
+        {
+            "id": 175,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il disco cifrante di Alberti",
+                "text": "<p>Il cifrario Alberti si basa sul disco descritto da Leon Battista Alberti nel XV secolo. In questa implementazione online l’anello esterno è l’alfabeto fisso del testo in chiaro A-Z, mentre l’anello interno è un alfabeto con chiave generato dalla parola chiave.</p><p>Per cifrare, lo strumento trova ogni lettera del testo in chiaro sull’anello esterno e legge il carattere allineato sull’anello interno. Per decifrare, esegue la ricerca inversa. L’indice iniziale scelto ruota il disco interno prima dell’elaborazione, quindi la stessa parola chiave può produrre testi cifrati diversi se cambia l’indice.</p>"
+            }
+        },
+        {
+            "id": 176,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cosa fa questo strumento Alberti",
+                "text": "<p>Usa questa pagina per cifrare e decifrare brevi messaggi in alfabeto latino, confrontare combinazioni di parola chiave e indice e studiare la mappatura creata dal disco di Alberti. La ruota interattiva si aggiorna quando inserisci una chiave, scegli un indice o ruoti il disco con i pulsanti freccia.</p><p>Il pannello del risultato restituisce anche l’alfabeto interno generato e lo scostamento tramite API, utile per verificare esercizi, preparare dimostrazioni e spiegare come un disco fisico associa un alfabeto a un altro.</p>"
+            }
+        },
+        {
+            "id": 177,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Parola chiave, alfabeto interno e indice iniziale",
+                "text": "<p>La parola chiave viene ridotta alle lettere latine uniche nell’ordine della loro prima comparsa, poi vengono aggiunte le restanti lettere A-Z non usate. Così la chiave definisce l’inizio dell’anello interno e il resto dell’alfabeto lo completa.</p><p>L’indice iniziale è una lettera da A a Z. Definisce quale posizione dell’anello esterno si allinea con la prima posizione dell’anello interno. L’indice A significa nessuno scostamento; l’indice D sposta di tre posizioni. Valori vuoti o non validi tornano ad A.</p>"
+            }
+        },
+        {
+            "id": 178,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Regole di input e limiti pratici",
+                "text": "<p>Il servizio lavora con l’alfabeto latino A-Z e conserva maiuscole e minuscole. Spazi, punteggiatura, numeri e caratteri non latini restano invariati, quindi il formato del messaggio viene mantenuto mentre vengono trasformate solo le lettere supportate.</p><p>Questa implementazione usa un solo allineamento del disco per tutto il messaggio. Storicamente il disco di Alberti poteva anche essere ruotato durante il messaggio per introdurre più alfabeti di sostituzione, ma lo strumento online si concentra sul flusso chiaro parola chiave più indice iniziale.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 349,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quale alfabeto usa il cifrario Alberti?",
+                "answer": "Questa implementazione usa l’alfabeto latino A-Z. L’anello esterno è fisso e l’anello interno è una permutazione con chiave delle stesse 26 lettere. I caratteri fuori da A-Z, inclusi spazi, punteggiatura, cifre e lettere non latine, passano invariati."
+            }
+        },
+        {
+            "id": 350,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qual è il ruolo della parola chiave?",
+                "answer": "La parola chiave genera l’alfabeto dell’anello interno. Lo strumento conserva la prima occorrenza di ogni lettera latina della chiave, ignora le ripetizioni e aggiunge le restanti lettere A-Z. Una chiave vuota produce un normale anello interno A-Z."
+            }
+        },
+        {
+            "id": 351,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Che cos’è l’indice iniziale?",
+                "answer": "L’indice iniziale è la lettera A-Z usata per ruotare il disco interno prima di cifrare o decifrare. L’indice A corrisponde allo scostamento 0, B allo scostamento 1 e così via. Cambiare indice modifica la mappatura anche se la parola chiave resta la stessa."
+            }
+        },
+        {
+            "id": 352,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Posso decifrare testo Alberti con questo strumento?",
+                "answer": "Sì. Passa alla modalità di decifratura, incolla il testo cifrato e usa la stessa parola chiave e lo stesso indice iniziale usati per cifrare. La decifratura inverte la ricerca dall’anello interno all’alfabeto esterno fisso."
+            }
+        },
+        {
+            "id": 353,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Il disco ruota automaticamente durante il messaggio?",
+                "answer": "No. Questo servizio online usa un solo indice iniziale per l’intero messaggio. Puoi ruotare il disco manualmente prima dell’esecuzione, ma lo strumento non inserisce cambi di indice nel messaggio e non usa rotazioni automatiche."
+            }
+        },
+        {
+            "id": 354,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Perché cambiare la chiave cambia tutta la mappatura?",
+                "answer": "La parola chiave definisce l’ordine dell’anello interno. Anche se l’indice iniziale resta uguale, una parola chiave diversa crea un alfabeto interno diverso, quindi cambiano la maggior parte delle sostituzioni."
+            }
+        },
+        {
+            "id": 355,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Il cifrario Alberti è sicuro?",
+                "answer": "No. Usalo per studio, enigmi e dimostrazioni storiche, non per proteggere segreti reali. Con un allineamento fisso si comporta come un cifrario a sostituzione con chiave e può essere attaccato con analisi delle frequenze; la rotazione storica del disco fu un passo importante verso sistemi polialfabetici più forti, ma non è crittografia moderna."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 178,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Disco di Alberti classico",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "CIAO MONDO",
+                "output": "BDAM JMKEM",
+                "description": "Esempio base di cifratura con la parola chiave ALBERTI e indice iniziale A."
+            }
+        },
+        {
+            "id": 179,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Parola chiave diversa",
+                "key": "ZEBRA",
+                "shift": 0,
+                "input": "ATTACCO ALL ALBA",
+                "output": "ZSSZBBM ZJJ ZJEZ",
+                "description": "La chiave ZEBRA crea un alfabeto interno diverso mentre l’indice resta A."
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "A",
+            "data": {
+                "title": "Decifrare con impostazioni note",
+                "key": "ALBERTI",
+                "shift": 0,
+                "input": "BDAM JMKEM",
+                "output": "CIAO MONDO",
+                "description": "Le stesse impostazioni Alberti riportano il testo cifrato al messaggio originale."
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "D",
+            "data": {
+                "title": "Spostamento dell’indice iniziale",
+                "key": "CIFRA",
+                "shift": 0,
+                "input": "INCONTRO A MEZZANOTTE",
+                "output": "BJZKJPNK X HIWWXJKPPI",
+                "description": "L’indice D ruota il disco prima della cifratura e cambia la mappatura prodotta dalla chiave CIFRA."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 267,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "cifrario Alberti"
+            }
+        },
+        {
+            "id": 268,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "disco di Alberti"
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "disco cifrante"
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "cifrario polialfabetico"
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "cifrario classico"
+            }
+        },
+        {
+            "id": 272,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "crittografia rinascimentale"
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "cifrario a sostituzione con chiave"
+            }
+        },
+        {
+            "id": 274,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "tag": "cifrare decifrare online"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

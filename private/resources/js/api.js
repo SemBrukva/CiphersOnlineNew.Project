@@ -143,6 +143,8 @@ export class ApiClient {
         bifid: (data) => this.#request('POST', '/tools/bifid', data),
         /** POST /api/tools/trifid */
         trifid: (data) => this.#request('POST', '/tools/trifid', data),
+        /** POST /api/tools/alberti */
+        alberti: (data) => this.#request('POST', '/tools/alberti', data),
         /** GET /api/tools/search?q=...&locale=ru */
         searchTools: (q, locale = '') => {
             const params = 'q=' + encodeURIComponent(q) + (locale ? '&locale=' + encodeURIComponent(locale) : '')

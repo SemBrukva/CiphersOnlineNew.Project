@@ -1,3 +1,4 @@
+import { initAlbertiWheel } from './cipher-tool/alberti-wheel.js'
 import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
 import { detectLanguage, getUnknownChars, isValidMorseFormat } from './cipher-tool/decoders/morse.js'
 import { initJsonFormatter } from './cipher-tool/json-formatter.js'
@@ -66,6 +67,7 @@ export function initCipherToolPage() {
   const tsUnitSelect        = document.getElementById('ciphers-ts-unit')
   const tsNowBtn            = document.getElementById('ciphers-ts-now')
   const xorKeyFormatSelect  = document.getElementById('ciphers-xor-key-format')
+  const albertiIndexSelect  = document.getElementById('ciphers-alberti-index')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -76,8 +78,9 @@ export function initCipherToolPage() {
   const isMorseTool = slug === 'codes-and-alphabets/morse-code'
   const isAnalysisTool = Boolean(ui.analysisMode)
   const isBruteForceTool = Boolean(ui.bruteForceMode)
-  const isVigenereCrackerTool = Boolean(ui.vigenereCrackerMode)
-  const isLetterFrequencyTool = Boolean(ui.letterFrequencyMode)
+  const isVigenereCrackerTool  = Boolean(ui.vigenereCrackerMode)
+  const isLetterFrequencyTool  = Boolean(ui.letterFrequencyMode)
+  const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
@@ -119,6 +122,7 @@ export function initCipherToolPage() {
   let bruteForce = null
   let vigenereCracker = null
   let matrixCtrl = null
+  let albertiWheel = null
 
   const labels = {
     chars: ui.charsLabel || 'chars',
@@ -200,6 +204,7 @@ export function initCipherToolPage() {
         jsonIndent: String(jsonIndentSelect?.value ?? ''),
         tsUnit: String(tsUnitSelect?.value ?? ''),
         xorKeyFormat: String(xorKeyFormatSelect?.value ?? ''),
+        albertiIndex: String(albertiIndexSelect?.value ?? 'A'),
       }
       window.localStorage.setItem(stateStorageKey, JSON.stringify(state))
     } catch {
@@ -379,6 +384,11 @@ export function initCipherToolPage() {
       const hasFormat = Array.from(xorKeyFormatSelect.options).some((o) => o.value === savedState.xorKeyFormat)
       if (hasFormat) xorKeyFormatSelect.value = savedState.xorKeyFormat
     }
+
+    if (albertiIndexSelect && typeof savedState.albertiIndex === 'string' && savedState.albertiIndex !== '') {
+      const hasIdx = Array.from(albertiIndexSelect.options).some((o) => o.value === savedState.albertiIndex)
+      if (hasIdx) albertiIndexSelect.value = savedState.albertiIndex
+    }
   }
 
   const process = () => {
@@ -504,8 +514,9 @@ export function initCipherToolPage() {
     const delimiter    = String(delimiterSelect?.value ?? 'dash')
     const key          = String(keyInput?.value ?? '')
     const coverText    = String(coverInput?.value ?? '')
-    const xorKeyFormat = String(xorKeyFormatSelect?.value ?? '')
-    const direction    = mode === 'decode' ? 'decrypt' : 'encrypt'
+    const xorKeyFormat  = String(xorKeyFormatSelect?.value ?? '')
+    const albertiIndex  = String(albertiIndexSelect?.value ?? 'A')
+    const direction     = mode === 'decode' ? 'decrypt' : 'encrypt'
 
     if (runBtn) {
       runBtn.disabled = true
@@ -531,6 +542,7 @@ export function initCipherToolPage() {
             key,
             cover_text: coverText,
             xor_key_format: xorKeyFormat,
+            alberti_index: albertiIndex,
           }).filter(([, value]) => value !== '')
         ),
       }
@@ -547,6 +559,9 @@ export function initCipherToolPage() {
       } else if (isVigenereCrackerTool) {
         vigenereCracker.handleApiResponse(response, alphabetSelect)
       } else {
+        if (isAlbertiWheelTool && albertiWheel && response?.inner_alphabet) {
+          albertiWheel.update(String(response.inner_alphabet), Number(response.index_offset ?? 0))
+        }
         output.value = String(response?.result ?? '')
         setOutputState(Boolean(output.value))
         if (output.value && response?.warning) {
@@ -632,6 +647,11 @@ export function initCipherToolPage() {
     scheduleApiRun()
   })
 
+  albertiIndexSelect?.addEventListener('change', () => {
+    saveState()
+    scheduleApiRun()
+  })
+
   shiftInput?.addEventListener('input', () => {
     setShiftValue(normalizeShiftInput())
     saveState()
@@ -679,14 +699,15 @@ export function initCipherToolPage() {
   })
 
   const applyExample = (text, el, { scrollToTool = false } = {}) => {
-    const alphabet   = el.getAttribute('data-alphabet')    || ''
-    const delimiter  = el.getAttribute('data-delimiter')   || ''
-    const encoding   = el.getAttribute('data-encoding')    || ''
-    const keyFormat  = el.getAttribute('data-key-format')  || ''
-    const key        = el.getAttribute('data-key')
-    const keyInputId = el.getAttribute('data-key-input') || 'ciphers-key'
-    const shift      = el.getAttribute('data-shift')
-    const direction  = el.getAttribute('data-direction') || ''
+    const alphabet      = el.getAttribute('data-alphabet')      || ''
+    const delimiter     = el.getAttribute('data-delimiter')     || ''
+    const encoding      = el.getAttribute('data-encoding')      || ''
+    const keyFormat     = el.getAttribute('data-key-format')    || ''
+    const key           = el.getAttribute('data-key')
+    const keyInputId    = el.getAttribute('data-key-input') || 'ciphers-key'
+    const shift         = el.getAttribute('data-shift')
+    const direction     = el.getAttribute('data-direction')     || ''
+    const albertiIndex  = el.getAttribute('data-alberti-index') || ''
 
     if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
       alphabetSelect.value = alphabet
@@ -722,6 +743,10 @@ export function initCipherToolPage() {
     }
     if (shift !== null && shiftInput) {
       setShiftValue(Number(shift))
+    }
+    if (albertiIndex && albertiIndexSelect && albertiIndexSelect.value !== albertiIndex) {
+      albertiIndexSelect.value = albertiIndex
+      albertiIndexSelect.dispatchEvent(new Event('change', { bubbles: true }))
     }
     input.value = text
     if (direction === 'decrypt') {
@@ -902,6 +927,20 @@ export function initCipherToolPage() {
 
   setMode('encode')
   initCustomSelects()
+
+  if (isAlbertiWheelTool) {
+    const wheelWrap = document.createElement('div')
+    wheelWrap.className = 'alberti-wheel-wrap'
+    const inputWrap = document.querySelector('.ciphers-unified__input-wrap')
+    inputWrap?.parentNode?.insertBefore(wheelWrap, inputWrap)
+    albertiWheel = initAlbertiWheel({
+      container: wheelWrap,
+      keyInput,
+      indexSelect: albertiIndexSelect,
+      diskLabel:    String(ui.albertiWheelDiskLabel    || 'Alberti Cipher Disk'),
+      mappingLabel: String(ui.albertiWheelMappingLabel || 'Current Mapping'),
+    })
+  }
 
   if (isMorseTool) {
     initMorsePlayer(output, input, ui, () => mode)
