@@ -59,11 +59,18 @@ final readonly class CaesarDetector implements CipherDetectorInterface
         }
 
         // Пробуем все сдвиги, считаем χ² для каждой расшифровки.
-        $maxShift  = $this->caesar->maxShiftForAlphabet($alphabet);
-        $chiValues = [];
+        $maxShift       = $this->caesar->maxShiftForAlphabet($alphabet);
+        $chiValues      = [];
+        $bestDecrypted  = '';
+        $bestChi        = PHP_FLOAT_MAX;
         for ($shift = 0; $shift <= $maxShift; $shift++) {
             $decrypted         = $this->caesar->process($ctx->text, $alphabet, $shift, 'decrypt');
-            $chiValues[$shift] = $this->scorer->chiSquared($decrypted, $alphabet);
+            $chi               = $this->scorer->chiSquared($decrypted, $alphabet);
+            $chiValues[$shift] = $chi;
+            if ($chi < $bestChi) {
+                $bestChi       = $chi;
+                $bestDecrypted = $decrypted;
+            }
         }
 
         asort($chiValues);
@@ -100,6 +107,7 @@ final readonly class CaesarDetector implements CipherDetectorInterface
             bruteForceAction: 'caesar-brute-force',
             detectedAlphabet: $alphabet,
             hints: $hints,
+            decryptedText: $bestDecrypted,
         );
     }
 }

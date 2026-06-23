@@ -82,15 +82,23 @@ export function initCipherIdentifier({
     return autoResult.key ? String(autoResult.key) : ''
   }
 
-  const buildAutoResultCard = (autoAction, autoResult) => {
+  const buildAutoResultCard = (autoAction, autoResult, cipherName) => {
     if (!autoResult) return ''
 
     const title       = esc(ui.cidAutoResultTitle || 'Auto-detected result')
     const decrypted   = extractDecryptedText(autoAction, autoResult)
     const keyLabel    = extractKeyLabel(autoAction, autoResult)
 
-    const keyHtml = keyLabel
-      ? `<div class="cid-auto-card__key">${esc(keyLabel)}</div>`
+    const cipherBadge = cipherName
+      ? `<span class="cid-auto-card__cipher">${esc(cipherName)}</span>`
+      : ''
+
+    const keyBadge = keyLabel
+      ? `<span class="cid-auto-card__key">${esc(keyLabel)}</span>`
+      : ''
+
+    const metaHtml = (cipherBadge || keyBadge)
+      ? `<div class="cid-auto-card__meta">${cipherBadge}${keyBadge}</div>`
       : ''
 
     const resultHtml = decrypted
@@ -99,7 +107,7 @@ export function initCipherIdentifier({
 
     return `<div class="cid-auto-card">`
       + `<div class="cid-auto-card__title"><span class="brute-summary-icon">★</span>${title}</div>`
-      + keyHtml
+      + metaHtml
       + resultHtml
       + `</div>`
   }
@@ -236,7 +244,13 @@ export function initCipherIdentifier({
       return
     }
 
-    const autoCard       = buildAutoResultCard(autoAction, autoResult)
+    const autoCandidate  = autoAction
+      ? (candidates.find((c) => c.brute_force_action === autoAction) ?? candidates[0])
+      : candidates[0]
+    const autoCipherName = autoResult && autoCandidate
+      ? (t(autoCandidate.cipher_key) || autoCandidate.cipher_key || '')
+      : ''
+    const autoCard       = buildAutoResultCard(autoAction, autoResult, autoCipherName)
     // Если для лидера уже отработал auto-result — не дублируем кнопку «Взломать»
     // на той же строке (карточка сверху и так показывает результат).
     const suppressAction = autoResult ? (autoAction || '') : ''

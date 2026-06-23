@@ -699,6 +699,11 @@ return [
     'CID_EV_CHISQ_BEST_SHIFT'   => 'Chi-Quadrat-Signal für besten Versatz',
     'CID_EV_AMBIGUOUS_POLYALPHA' => 'Mehrere polyalphabetische Chiffren teilen dieses Muster',
     'CID_EV_LOW_SAMPLE'         => 'Kurze Probe — geringe Konfidenz',
+    'CID_EV_BIGRAM_READABLE'    => 'Die Entschlüsselung liest sich wie natürliche Sprache (Bigramm-Analyse)',
+    'CID_EV_IOC_COLUMNS_PEAK'   => 'IoC-Spitze pro Spalte deutet auf wahrscheinliche Schlüssellänge hin',
+    'CID_EV_KASISKI_AGREE'      => 'Kasiski-Test bestätigt die geschätzte Schlüssellänge',
+    'CID_EV_COMMON_WORDS'       => 'Entschlüsselung enthält häufige Wörter der Sprache',
+    'CID_EV_FILE_SIGNATURE'     => 'Dekodierte Bytes beginnen mit einer bekannten Dateisignatur',
     // Cipher Identifier — cipher names
     'CIPHER_NAME_BASE64'               => 'Base64',
     'CIPHER_NAME_HEX'                  => 'Hexadezimal',

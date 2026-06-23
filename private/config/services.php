@@ -371,6 +371,39 @@ return [
             ],
             $container->get(App\Cipher\LetterFrequencyScorer::class),
             $container->get(App\Cipher\IndexOfCoincidence::class),
+            $container->get(App\Cipher\BigramFrequencyScorer::class),
+        );
+    },
+
+    App\Cipher\Detector\AffineDetector::class => static function (Container $container): App\Cipher\Detector\AffineDetector {
+        return new App\Cipher\Detector\AffineDetector(
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
+            $container->get(App\Cipher\AffineCipherService::class),
+        );
+    },
+
+    App\Cipher\Detector\VigenereDetector::class => static function (Container $container): App\Cipher\Detector\VigenereDetector {
+        return new App\Cipher\Detector\VigenereDetector(
+            $container->get(App\Cipher\AlphabetCatalog::class),
+        );
+    },
+
+    App\Cipher\Detector\BaconDetector::class => static function (Container $container): App\Cipher\Detector\BaconDetector {
+        return new App\Cipher\Detector\BaconDetector(
+            $container->get(App\Cipher\BaconCipherService::class),
+        );
+    },
+
+    App\Cipher\Detector\A1z26Detector::class => static function (Container $container): App\Cipher\Detector\A1z26Detector {
+        return new App\Cipher\Detector\A1z26Detector(
+            $container->get(App\Cipher\A1z26CipherService::class),
+        );
+    },
+
+    App\Cipher\Detector\PolybiusSquareDetector::class => static function (Container $container): App\Cipher\Detector\PolybiusSquareDetector {
+        return new App\Cipher\Detector\PolybiusSquareDetector(
+            $container->get(App\Cipher\PolybiusSquareCipherService::class),
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
         );
     },
 
@@ -392,18 +425,6 @@ return [
         return new App\Cipher\Detector\AtbashDetector(
             $container->get(App\Cipher\LetterFrequencyScorer::class),
             $container->get(App\Cipher\AtbashCipherService::class),
-        );
-    },
-
-    App\Cipher\Detector\RailFenceDetector::class => static function (Container $container): App\Cipher\Detector\RailFenceDetector {
-        return new App\Cipher\Detector\RailFenceDetector(
-            $container->get(App\Cipher\LetterFrequencyScorer::class),
-        );
-    },
-
-    App\Cipher\Detector\ColumnarTranspositionDetector::class => static function (Container $container): App\Cipher\Detector\ColumnarTranspositionDetector {
-        return new App\Cipher\Detector\ColumnarTranspositionDetector(
-            $container->get(App\Cipher\LetterFrequencyScorer::class),
         );
     },
 

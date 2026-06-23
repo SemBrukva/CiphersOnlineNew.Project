@@ -151,17 +151,53 @@ final readonly class LetterFrequencyScorer
     }
 
     /**
-     * Определяет наиболее вероятный язык текста по количеству совпавших букв алфавита.
+     * Буквы, уникальные для конкретного латинского алфавита: при наличии любой
+     * из них в тексте язык-кандидат получает приоритет над дефолтным 'en'.
      *
-     * Возвращает код языка с наибольшим числом совпадений; при ничье возвращает 'en'.
+     * Разделение en / es / fr / it / de / pt / tr на основе одного только подсчёта
+     * совпадений букв даёт шум: эти алфавиты пересекаются на 23+ буквах. Уникальные
+     * акцентные/специальные символы — единственный надёжный сигнал на коротком
+     * шифр-тексте.
+     *
+     * @var array<string, string[]>
+     */
+    private const array LATIN_EXCLUSIVE_MARKS = [
+        'es' => ['ñ'],
+        'de' => ['ß', 'ä', 'ö', 'ü'],
+        'tr' => ['ı', 'ş', 'ğ'],
+        'pt' => ['ã', 'õ', 'á', 'í', 'ú'],
+        'fr' => ['ë', 'œ', 'â', 'ô', 'ÿ', 'ê', 'è', 'ï', 'î', 'ù', 'û', 'à'],
+    ];
+
+    /**
+     * Определяет наиболее вероятный язык текста.
+     *
+     * Двухстадийный алгоритм:
+     * 1. Если кириллица доминирует среди букв (≥ 50% от общего числа букв) → 'ru'.
+     *    Доли ниже игнорируются: единичные русские слова в латинском тексте не
+     *    должны его «угнать».
+     * 2. Для латинского текста ищем уникальные для конкретного языка символы
+     *    (ñ → es, ß/ä/ö/ü → de, ı/ş/ğ → tr и т.п.); язык с наибольшим числом
+     *    совпадений побеждает.
+     * 3. Если уникальных символов нет — отдаём 'en' как дефолт (en/it отличить
+     *    без акцентов нельзя, так что выбор английского — разумный baseline).
      */
     public function detectAlphabet(string $text): string
     {
-        $best      = 'en';
-        $bestCount = 0;
+        $cyrillicCount = $this->countLetters($text, 'ru');
+        $totalLetters  = preg_match_all('/\p{L}/u', $text) ?: 0;
+        if ($totalLetters > 0 && $cyrillicCount / $totalLetters >= 0.5) {
+            return 'ru';
+        }
 
-        foreach (array_keys(self::FREQUENCIES) as $code) {
-            $count = $this->countLetters($text, $code);
+        $lower     = mb_strtolower($text);
+        $bestCount = 0;
+        $best      = 'en';
+        foreach (self::LATIN_EXCLUSIVE_MARKS as $code => $marks) {
+            $count = 0;
+            foreach ($marks as $mark) {
+                $count += mb_substr_count($lower, $mark);
+            }
             if ($count > $bestCount) {
                 $bestCount = $count;
                 $best      = $code;

@@ -58,7 +58,7 @@ final readonly class AtbashDetector implements CipherDetectorInterface
 
         $decrypted = $this->atbash->process($ctx->text, $alphabet);
         $chiDecr   = $this->scorer->chiSquared($decrypted, $alphabet);
-        $chiOrig   = $this->scorer->chiSquared($ctx->text, $alphabet);
+        $chiOrig   = $ctx->chiSquaredOriginal($alphabet);
 
         // Расшифровка должна быть строго лучше оригинала, иначе это случайный шум.
         if ($chiOrig <= 0.0 || $chiDecr >= $chiOrig * self::REQUIRED_RATIO) {
@@ -88,6 +88,7 @@ final readonly class AtbashDetector implements CipherDetectorInterface
             evidenceKeys: $evidence,
             detectedAlphabet: $alphabet,
             hints: $hints,
+            decryptedText: $decrypted,
         );
     }
 }

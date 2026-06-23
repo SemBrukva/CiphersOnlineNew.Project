@@ -95,6 +95,7 @@ final readonly class Rot13Detector implements CipherDetectorInterface
             bruteForceAction: 'caesar-brute-force',
             detectedAlphabet: 'en',
             hints: $hints,
+            decryptedText: $rot13Decrypted,
         );
     }
 }

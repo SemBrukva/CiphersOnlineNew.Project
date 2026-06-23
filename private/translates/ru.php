@@ -720,6 +720,11 @@ return [
     'CID_EV_CHISQ_BEST_SHIFT'   => 'Сигнал наилучшего сдвига по хи-квадрат',
     'CID_EV_AMBIGUOUS_POLYALPHA' => 'Несколько полиалфавитных шифров имеют похожий паттерн',
     'CID_EV_LOW_SAMPLE'         => 'Короткий образец — низкая уверенность',
+    'CID_EV_BIGRAM_READABLE'    => 'Расшифровка читается как естественный язык (биграммный анализ)',
+    'CID_EV_IOC_COLUMNS_PEAK'   => 'Пик IoC по колонкам указывает на вероятную длину ключа',
+    'CID_EV_KASISKI_AGREE'      => 'Тест Касиски подтверждает оценку длины ключа',
+    'CID_EV_COMMON_WORDS'       => 'В расшифровке найдены частые слова языка',
+    'CID_EV_FILE_SIGNATURE'     => 'Декодированные байты начинаются с известной сигнатуры файла',
     // Cipher Identifier — cipher names
     'CIPHER_NAME_BASE64'               => 'Base64',
     'CIPHER_NAME_HEX'                  => 'Шестнадцатеричная',

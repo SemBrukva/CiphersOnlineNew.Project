@@ -696,6 +696,11 @@ return [
     'CID_EV_CHISQ_BEST_SHIFT'   => 'En iyi kaydırma için ki-kare sinyali',
     'CID_EV_AMBIGUOUS_POLYALPHA' => 'Birden fazla polialfabetik şifre bu deseni paylaşıyor',
     'CID_EV_LOW_SAMPLE'         => 'Kısa örnek — düşük güven',
+    'CID_EV_BIGRAM_READABLE'    => 'Çözüm doğal dil gibi okunuyor (bigram analizi)',
+    'CID_EV_IOC_COLUMNS_PEAK'   => 'Sütun başına IoC tepesi olası anahtar uzunluğunu gösteriyor',
+    'CID_EV_KASISKI_AGREE'      => 'Kasiski testi tahmini anahtar uzunluğunu doğruluyor',
+    'CID_EV_COMMON_WORDS'       => 'Çözüm dilin yaygın kelimelerini içeriyor',
+    'CID_EV_FILE_SIGNATURE'     => 'Çözülen baytlar bilinen bir dosya imzasıyla başlıyor',
     // Cipher Identifier — cipher names
     'CIPHER_NAME_BASE64'               => 'Base64',
     'CIPHER_NAME_HEX'                  => 'Onaltılık',

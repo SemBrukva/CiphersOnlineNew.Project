@@ -697,6 +697,11 @@ return [
     'CID_EV_CHISQ_BEST_SHIFT'   => 'Signal chi-carré du meilleur décalage',
     'CID_EV_AMBIGUOUS_POLYALPHA' => 'Plusieurs chiffres polyalphabétiques partagent ce motif',
     'CID_EV_LOW_SAMPLE'         => 'Échantillon court — faible confiance',
+    'CID_EV_BIGRAM_READABLE'    => 'Le déchiffrement se lit comme du langage naturel (analyse de bigrammes)',
+    'CID_EV_IOC_COLUMNS_PEAK'   => 'Le pic d\'IoC par colonne suggère la longueur probable de la clé',
+    'CID_EV_KASISKI_AGREE'      => 'Le test de Kasiski confirme la longueur estimée de la clé',
+    'CID_EV_COMMON_WORDS'       => 'Le déchiffrement contient des mots fréquents de la langue',
+    'CID_EV_FILE_SIGNATURE'     => 'Les octets décodés commencent par une signature de fichier connue',
     // Cipher Identifier — cipher names
     'CIPHER_NAME_BASE64'               => 'Base64',
     'CIPHER_NAME_HEX'                  => 'Hexadécimal',

@@ -8,7 +8,6 @@ use App\Cipher\CipherDetection;
 use App\Cipher\CipherDetectorInterface;
 use App\Cipher\IdentificationContext;
 use App\Cipher\IndexOfCoincidence;
-use App\Cipher\LetterFrequencyScorer;
 
 /**
  * Детектор шифра Rail Fence (транспозиция).
@@ -17,14 +16,6 @@ use App\Cipher\LetterFrequencyScorer;
  */
 final readonly class RailFenceDetector implements CipherDetectorInterface
 {
-    /**
-     * Создаёт экземпляр детектора.
-     */
-    public function __construct(
-        private LetterFrequencyScorer $scorer,
-    ) {
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -49,7 +40,7 @@ final readonly class RailFenceDetector implements CipherDetectorInterface
         }
 
         // chi² исходного должен быть высоким (текст не читается).
-        $chiOrig = $this->scorer->chiSquared($ctx->text, $alphabet);
+        $chiOrig = $ctx->chiSquaredOriginal($alphabet);
         if ($chiOrig < 0.1) {
             return null;
         }

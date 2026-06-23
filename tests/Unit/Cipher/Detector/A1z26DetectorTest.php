@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Cipher\Detector;
 
+use App\Cipher\A1z26CipherService;
 use App\Cipher\Detector\A1z26Detector;
 
 /**
@@ -16,7 +17,7 @@ final class A1z26DetectorTest extends DetectorTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->detector = new A1z26Detector();
+        $this->detector = new A1z26Detector(new A1z26CipherService());
     }
 
     /**

@@ -696,6 +696,11 @@ return [
     'CID_EV_CHISQ_BEST_SHIFT'   => 'Segnale chi-quadrato del miglior turno',
     'CID_EV_AMBIGUOUS_POLYALPHA' => 'Più cifre polialfabetiche condividono questo schema',
     'CID_EV_LOW_SAMPLE'         => 'Campione breve — bassa fiducia',
+    'CID_EV_BIGRAM_READABLE'    => 'La decifratura si legge come linguaggio naturale (analisi di bigrammi)',
+    'CID_EV_IOC_COLUMNS_PEAK'   => 'Il picco di IoC per colonna suggerisce la lunghezza probabile della chiave',
+    'CID_EV_KASISKI_AGREE'      => 'Il test di Kasiski concorda con la lunghezza stimata della chiave',
+    'CID_EV_COMMON_WORDS'       => 'La decifratura contiene parole frequenti della lingua',
+    'CID_EV_FILE_SIGNATURE'     => 'I byte decodificati iniziano con una firma di file nota',
     // Cipher Identifier — cipher names
     'CIPHER_NAME_BASE64'               => 'Base64',
     'CIPHER_NAME_HEX'                  => 'Esadecimale',

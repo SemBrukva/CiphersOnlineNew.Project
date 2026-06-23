@@ -24,6 +24,7 @@ use App\Cipher\FrequencyAnalysisService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\HillCipherService;
 use App\Cipher\HtmlEncodeCipherService;
+use App\Cipher\BigramFrequencyScorer;
 use App\Cipher\IndexOfCoincidence;
 use App\Cipher\JsonFormatterCipherService;
 use App\Cipher\LetterFrequencyScorer;
@@ -169,7 +170,7 @@ final class ToolRegistryTest extends TestCase
             new BifidCipherService($catalog, $alphabetTool, $caseFolder),
             new TrifidCipherService($catalog, $alphabetTool, $caseFolder),
             new AlbertiCipherService(),
-            new CipherIdentifierService([], new LetterFrequencyScorer(), new IndexOfCoincidence())
+            new CipherIdentifierService([], new LetterFrequencyScorer(), new IndexOfCoincidence(), new BigramFrequencyScorer())
         );
     }
 }

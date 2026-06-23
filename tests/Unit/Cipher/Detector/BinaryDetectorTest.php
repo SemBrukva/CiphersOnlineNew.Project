@@ -46,4 +46,24 @@ final class BinaryDetectorTest extends DetectorTestCase
         $result = $this->detector->detect($this->ctx(''));
         self::assertNull($result);
     }
+
+    /**
+     * Проверяет, что бинарная строка из непечатных байт получает пониженный confidence.
+     */
+    public function testNonPrintableBytesGetLowConfidence(): void
+    {
+        $result = $this->detector->detect($this->ctx('00000001 11111110 10000000 01111111'));
+        self::assertNotNull($result);
+        self::assertLessThan(0.70, $result->confidence);
+    }
+
+    /**
+     * Проверяет, что 8-битное представление обычного ASCII получает высокий confidence.
+     */
+    public function testPrintableAsciiGetsHighConfidence(): void
+    {
+        $result = $this->detector->detect($this->ctx('01001000 01100101 01101100 01101100 01101111'));
+        self::assertNotNull($result);
+        self::assertGreaterThanOrEqual(0.85, $result->confidence);
+    }
 }

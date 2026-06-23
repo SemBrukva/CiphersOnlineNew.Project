@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher\Detector;
 
 use App\Cipher\Detector\PolybiusSquareDetector;
+use App\Cipher\LetterFrequencyScorer;
+use App\Cipher\PolybiusSquareCipherService;
 
 /**
  * Тесты детектора квадрата Полибия.
@@ -16,7 +18,10 @@ final class PolybiusSquareDetectorTest extends DetectorTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->detector = new PolybiusSquareDetector();
+        $this->detector = new PolybiusSquareDetector(
+            new PolybiusSquareCipherService(),
+            new LetterFrequencyScorer(),
+        );
     }
 
     /**

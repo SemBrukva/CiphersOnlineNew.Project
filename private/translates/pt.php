@@ -696,6 +696,11 @@ return [
     'CID_EV_CHISQ_BEST_SHIFT'   => 'Sinal qui-quadrado do melhor deslocamento',
     'CID_EV_AMBIGUOUS_POLYALPHA' => 'Várias cifras polialfabéticas compartilham esse padrão',
     'CID_EV_LOW_SAMPLE'         => 'Amostra curta — baixa confiança',
+    'CID_EV_BIGRAM_READABLE'    => 'A descriptografia se lê como linguagem natural (análise de bigramas)',
+    'CID_EV_IOC_COLUMNS_PEAK'   => 'O pico de IoC por coluna sugere o comprimento provável da chave',
+    'CID_EV_KASISKI_AGREE'      => 'O teste de Kasiski concorda com o comprimento estimado da chave',
+    'CID_EV_COMMON_WORDS'       => 'A descriptografia contém palavras frequentes do idioma',
+    'CID_EV_FILE_SIGNATURE'     => 'Os bytes decodificados começam com uma assinatura de arquivo conhecida',
     // Cipher Identifier — cipher names
     'CIPHER_NAME_BASE64'               => 'Base64',
     'CIPHER_NAME_HEX'                  => 'Hexadecimal',

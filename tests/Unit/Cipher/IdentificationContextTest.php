@@ -103,4 +103,20 @@ final class IdentificationContextTest extends TestCase
         );
         self::assertTrue($ctx->hasReliableSample('en'));
     }
+
+    /**
+     * Проверяет, что chiSquaredOriginal численно совпадает со scorer->chiSquared
+     * и при повторном вызове отдаёт идентичное значение (кэш).
+     */
+    public function testChiSquaredOriginalIsCachedAndMatchesScorer(): void
+    {
+        $text = 'KHOOR ZRUOG WKLV LV D WHVW PHVVDJH IRU FLSKHU GHWHFWLRQ';
+        $ctx  = new IdentificationContext($text, null, $this->scorer, $this->ioc);
+
+        $first  = $ctx->chiSquaredOriginal('en');
+        $second = $ctx->chiSquaredOriginal('en');
+
+        self::assertSame($first, $second);
+        self::assertSame($this->scorer->chiSquared($text, 'en'), $first);
+    }
 }

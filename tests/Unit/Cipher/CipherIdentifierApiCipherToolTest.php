@@ -112,38 +112,45 @@ final class CipherIdentifierApiCipherToolTest extends TestCase
         $catalog = new AlphabetCatalog();
         $folder  = new CaseFolder();
 
+        $bigramScorer = new BigramFrequencyScorer();
+        $affineCipher = new AffineCipherService();
+        $baconCipher  = new BaconCipherService();
+        $a1z26Cipher  = new A1z26CipherService();
+        $polybiusCipher = new PolybiusSquareCipherService();
+
         $service = new CipherIdentifierService(
             [
                 new JwtDetector(),
                 new MorseCodeDetector(),
-                new BaconDetector(),
+                new BaconDetector($baconCipher),
                 new BinaryDetector(),
                 new HexDetector(),
                 new Base64Detector(),
-                new A1z26Detector(),
-                new PolybiusSquareDetector(),
+                new A1z26Detector($a1z26Cipher),
+                new PolybiusSquareDetector($polybiusCipher, $scorer),
                 new UrlEncodedDetector(),
                 new UnicodeEscapeDetector(),
                 new Rot13Detector($scorer, $caesar),
                 new CaesarDetector($scorer, $caesar),
                 new AtbashDetector($scorer, new AtbashCipherService()),
-                new AffineDetector(),
+                new AffineDetector($scorer, $affineCipher),
                 new SimpleSubstitutionDetector(),
                 new XorDetector(),
-                new VigenereDetector(),
+                new VigenereDetector($catalog),
                 new BeaufortDetector(),
                 new AutokeyDetector(),
                 new GronsfeldDetector(),
                 new AlbertiDetector(),
                 new BifidDetector(),
                 new TrifidDetector(),
-                new RailFenceDetector($scorer),
-                new ColumnarTranspositionDetector($scorer),
+                new RailFenceDetector(),
+                new ColumnarTranspositionDetector(),
                 new PlayfairDetector(),
                 new HillDetector(),
             ],
             $scorer,
             $ioc,
+            $bigramScorer,
         );
 
         $this->registry = new ApiCipherToolRegistry(
@@ -317,6 +324,7 @@ final class CipherIdentifierApiCipherToolTest extends TestCase
             ],
             $scorer,
             $ioc,
+            new BigramFrequencyScorer(),
         );
 
         $tool = new CipherIdentifierApiCipherTool($service, $failingRegistry);

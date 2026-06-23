@@ -177,6 +177,50 @@ final readonly class BigramFrequencyScorer
     ];
 
     /**
+     * Топ-частые триграммы / короткие слова естественного языка. Если хотя бы
+     * одна из них найдена в расшифровке — это очень сильный сигнал, что
+     * расшифровка действительно правильная (биграммная статистика на коротких
+     * текстах не различает «правильно» и «почти правильно», а конкретное слово
+     * различает однозначно).
+     *
+     * @var array<string, string[]>
+     */
+    private const array COMMON_NGRAMS = [
+        'en' => ['the', 'and', 'ing', 'ion', 'tion', 'ent', 'for', 'tha', 'her', 'with'],
+        'ru' => ['что', 'как', 'при', 'это', 'для', 'все', 'его', 'или', 'был', 'ого'],
+        'de' => ['der', 'die', 'und', 'ich', 'ein', 'den', 'gen', 'nde', 'sch', 'das'],
+        'es' => ['que', 'los', 'las', 'del', 'con', 'ent', 'por', 'ent', 'res', 'ado'],
+        'fr' => ['les', 'des', 'que', 'ent', 'ait', 'ion', 'lle', 'pou', 'tio', 'our'],
+        'it' => ['che', 'ent', 'one', 'are', 'ion', 'all', 'lla', 'ato', 'per', 'sta'],
+        'pt' => ['que', 'ent', 'com', 'par', 'ado', 'ara', 'aci', 'eit', 'inh', 'mai'],
+        'tr' => ['bir', 'ile', 'lar', 'ler', 'gel', 'ola', 'eri', 'ene', 'esi', 'and'],
+    ];
+
+    /**
+     * Считает, сколько из топ-частых триграмм языка встречается в тексте.
+     *
+     * Дешёвая проверка: если расшифровка содержит характерные триграммы языка
+     * (например, "the", "and", "ing" для en) — confidence можно поднять заметно
+     * сильнее, чем по одному биграммному скору.
+     */
+    public function commonNgramMatches(string $text, string $alphabet): int
+    {
+        $ngrams = self::COMMON_NGRAMS[$alphabet] ?? null;
+        if ($ngrams === null) {
+            return 0;
+        }
+        $lower = mb_strtolower($text);
+        $count = 0;
+        foreach ($ngrams as $ngram) {
+            if (mb_strpos($lower, $ngram) !== false) {
+                $count++;
+            }
+        }
+
+        return $count;
+    }
+
+    /**
      * Возвращает биграммный скор текста для указанного алфавита.
      *
      * Выше — лучше. Скор нормализован на количество биграмм, то есть

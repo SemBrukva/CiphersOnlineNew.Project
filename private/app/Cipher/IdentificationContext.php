@@ -19,6 +19,9 @@ final class IdentificationContext
     /** @var array<string, float> Алфавит → IoC по этому алфавиту. */
     private array $iocs = [];
 
+    /** @var array<string, float> Алфавит → χ² оригинального (зашифрованного) текста. */
+    private array $chiSquaredOriginal = [];
+
     private ?string $detectedAlphabetCache = null;
 
     private string $cleanedText;
@@ -85,6 +88,18 @@ final class IdentificationContext
     public function iocFor(string $alphabet): float
     {
         return $this->iocs[$alphabet] ??= $this->ioc->compute($this->text, $alphabet);
+    }
+
+    /**
+     * Возвращает χ² исходного (зашифрованного) текста по заданному алфавиту.
+     *
+     * Кэшируется per-alphabet: AtbashDetector / RailFenceDetector /
+     * ColumnarTranspositionDetector обращаются к нему повторно, и без кэша
+     * каждое обращение проходило бы по тексту заново.
+     */
+    public function chiSquaredOriginal(string $alphabet): float
+    {
+        return $this->chiSquaredOriginal[$alphabet] ??= $this->scorer->chiSquared($this->text, $alphabet);
     }
 
     /**

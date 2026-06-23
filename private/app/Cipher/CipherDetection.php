@@ -19,6 +19,7 @@ final readonly class CipherDetection
      * @param string|null         $bruteForceAction  action для ApiCipherToolRegistry ('caesar-brute-force').
      * @param string|null         $detectedAlphabet  'en' | 'ru' | ... или null.
      * @param array<string,scalar> $hints             Доп. подсказки для UI (например, key_required).
+     * @param string|null         $decryptedText     Лучшая расшифровка, найденная детектором, для bigram-second-pass.
      */
     public function __construct(
         public string $toolSlug,
@@ -28,6 +29,28 @@ final readonly class CipherDetection
         public ?string $bruteForceAction = null,
         public ?string $detectedAlphabet = null,
         public array $hints = [],
+        public ?string $decryptedText = null,
     ) {
+    }
+
+    /**
+     * Возвращает копию детекции с пересчитанным confidence и дополненными
+     * evidence/hints. Используется в bigram-rescore из {@see CipherIdentifierService}.
+     *
+     * @param string[]              $evidenceKeys
+     * @param array<string, scalar> $hints
+     */
+    public function withRescore(float $confidence, array $evidenceKeys, array $hints): self
+    {
+        return new self(
+            toolSlug: $this->toolSlug,
+            cipherKey: $this->cipherKey,
+            confidence: $confidence,
+            evidenceKeys: $evidenceKeys,
+            bruteForceAction: $this->bruteForceAction,
+            detectedAlphabet: $this->detectedAlphabet,
+            hints: $hints,
+            decryptedText: $this->decryptedText,
+        );
     }
 }

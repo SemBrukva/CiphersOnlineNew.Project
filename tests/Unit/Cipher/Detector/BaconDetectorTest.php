@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Cipher\Detector;
 
+use App\Cipher\BaconCipherService;
 use App\Cipher\Detector\BaconDetector;
 
 /**
@@ -16,7 +17,7 @@ final class BaconDetectorTest extends DetectorTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->detector = new BaconDetector();
+        $this->detector = new BaconDetector(new BaconCipherService());
     }
 
     /**

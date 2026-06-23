@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher\Detector;
 
 use App\Cipher\Detector\ColumnarTranspositionDetector;
-use App\Cipher\LetterFrequencyScorer;
 
 /**
  * Тесты детектора столбчатой перестановки.
@@ -17,7 +16,7 @@ final class ColumnarTranspositionDetectorTest extends DetectorTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->detector = new ColumnarTranspositionDetector(new LetterFrequencyScorer());
+        $this->detector = new ColumnarTranspositionDetector();
     }
 
     /**

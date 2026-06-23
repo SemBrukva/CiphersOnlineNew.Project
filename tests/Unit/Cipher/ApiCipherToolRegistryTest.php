@@ -150,7 +150,7 @@ final class ApiCipherToolRegistryTest extends TestCase
         $mockRegistry = $this->createMock(ApiCipherToolExecutorInterface::class);
 
         $cipherIdentifierTool = new CipherIdentifierApiCipherTool(
-            new CipherIdentifierService([], $scorer, $ioc),
+            new CipherIdentifierService([], $scorer, $ioc, $bigram),
             $mockRegistry,
         );
 

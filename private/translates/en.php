@@ -720,6 +720,11 @@ return [
     'CID_EV_CHISQ_BEST_SHIFT'   => 'Chi-squared best-shift signal',
     'CID_EV_AMBIGUOUS_POLYALPHA' => 'Multiple polyalphabetic ciphers share this pattern',
     'CID_EV_LOW_SAMPLE'         => 'Short sample — low confidence',
+    'CID_EV_BIGRAM_READABLE'    => 'Decryption reads as natural language (bigram analysis)',
+    'CID_EV_IOC_COLUMNS_PEAK'   => 'IoC peak per column suggests likely key length',
+    'CID_EV_KASISKI_AGREE'      => 'Kasiski test agrees with estimated key length',
+    'CID_EV_COMMON_WORDS'       => 'Decryption contains common words of the language',
+    'CID_EV_FILE_SIGNATURE'     => 'Decoded bytes start with a known file signature',
     // Cipher Identifier — cipher names
     'CIPHER_NAME_BASE64'               => 'Base64',
     'CIPHER_NAME_HEX'                  => 'Hexadecimal',

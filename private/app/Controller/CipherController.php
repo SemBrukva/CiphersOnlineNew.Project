@@ -292,6 +292,11 @@ final readonly class CipherController
                 'CID_EV_CHISQ_BEST_SHIFT'          => trans('CID_EV_CHISQ_BEST_SHIFT'),
                 'CID_EV_AMBIGUOUS_POLYALPHA'       => trans('CID_EV_AMBIGUOUS_POLYALPHA'),
                 'CID_EV_LOW_SAMPLE'                => trans('CID_EV_LOW_SAMPLE'),
+                'CID_EV_BIGRAM_READABLE'           => trans('CID_EV_BIGRAM_READABLE'),
+                'CID_EV_IOC_COLUMNS_PEAK'          => trans('CID_EV_IOC_COLUMNS_PEAK'),
+                'CID_EV_KASISKI_AGREE'             => trans('CID_EV_KASISKI_AGREE'),
+                'CID_EV_COMMON_WORDS'              => trans('CID_EV_COMMON_WORDS'),
+                'CID_EV_FILE_SIGNATURE'            => trans('CID_EV_FILE_SIGNATURE'),
             ];
         }
         $allInCategoryLabel = str_replace(

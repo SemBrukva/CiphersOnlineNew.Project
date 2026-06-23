@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher\Detector;
 
 use App\Cipher\Detector\RailFenceDetector;
-use App\Cipher\LetterFrequencyScorer;
 
 /**
  * Тесты детектора шифра Rail Fence.
@@ -17,7 +16,7 @@ final class RailFenceDetectorTest extends DetectorTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->detector = new RailFenceDetector(new LetterFrequencyScorer());
+        $this->detector = new RailFenceDetector();
     }
 
     /**
