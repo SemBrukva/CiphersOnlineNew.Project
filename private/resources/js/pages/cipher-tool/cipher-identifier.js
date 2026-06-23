@@ -104,7 +104,7 @@ export function initCipherIdentifier({
       + `</div>`
   }
 
-  const buildCandidatesTable = (candidates) => {
+  const buildCandidatesTable = (candidates, suppressCrackForAction) => {
     if (!Array.isArray(candidates) || candidates.length === 0) return ''
 
     const titleHtml = `<div class="brute-header">`
@@ -116,6 +116,7 @@ export function initCipherIdentifier({
     const colEvidence   = esc(ui.cidColEvidence    || 'Evidence')
     const colAction     = esc(ui.cidColAction      || 'Action')
     const openTool      = esc(ui.cidOpenTool       || 'Open tool')
+    const crackLabel    = esc(ui.cidCrackBtn       || 'Crack')
 
     const headerHtml = `<div class="cid-table-header">`
       + `<span>${colCipher}</span>`
@@ -142,19 +143,83 @@ export function initCipherIdentifier({
       ).join('')
 
       const toolUrl = c.tool_slug ? `${lp}/${c.tool_slug}` : null
-      const actionBtn = toolUrl
+      const openBtn = toolUrl
         ? `<a class="cid-open-btn" href="${esc(toolUrl)}">${openTool}</a>`
         : ''
 
-      return `<div class="${cls}">`
+      const action = c.brute_force_action || ''
+      const showCrack = action && action !== suppressCrackForAction
+      const crackBtn = showCrack
+        ? `<button type="button" class="cid-crack-btn" data-crack-action="${esc(action)}" data-alphabet="${esc(c.detected_alphabet ?? '')}">${crackLabel}</button>`
+        : ''
+
+      const rowHtml = `<div class="${cls}" data-row-action="${esc(action)}">`
         + `<span class="cid-col-name">${esc(cipherName)}</span>`
         + bar
         + `<span class="cid-col-evidence">${evidenceTags}</span>`
-        + `<span class="cid-col-action">${actionBtn}</span>`
+        + `<span class="cid-col-action">${crackBtn}${openBtn}</span>`
         + `</div>`
+
+      const slotHtml = `<div class="cid-crack-slot" data-slot-for="${esc(action)}"></div>`
+      return rowHtml + slotHtml
     }).join('')
 
     return titleHtml + headerHtml + `<div class="cid-rows">${rowsHtml}</div>`
+  }
+
+  // Извлекает читаемую метку ключа из ответа cracker'а (используется в
+  // инлайн-блоке cid-crack-result).
+  const formatKeyForResult = (action, result) => extractKeyLabel(action, result)
+
+  const buildCrackResultHtml = (action, result) => {
+    const decrypted = extractDecryptedText(action, result)
+    const keyLabel  = formatKeyForResult(action, result)
+    const keyTitle  = esc(ui.cidCrackKey || 'Key')
+
+    const keyHtml = keyLabel
+      ? `<div class="cid-crack-result__key"><span class="cid-crack-result__key-label">${keyTitle}:</span> ${esc(keyLabel)}</div>`
+      : ''
+    const textHtml = decrypted
+      ? `<div class="cid-crack-result__text">${esc(decrypted)}</div>`
+      : `<div class="cid-crack-result__text cid-crack-result__text--empty">—</div>`
+
+    return `<div class="cid-crack-result">${keyHtml}${textHtml}</div>`
+  }
+
+  // Запускает cracker по клику и инлайн-рендерит результат в слот под строкой.
+  const attachCrackHandlers = (currentText) => {
+    visualOutput.querySelectorAll('.cid-crack-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const action   = btn.getAttribute('data-crack-action') || ''
+        const alphabet = btn.getAttribute('data-alphabet') || 'auto'
+        const slot     = visualOutput.querySelector(`.cid-crack-slot[data-slot-for="${CSS.escape(action)}"]`)
+        if (!action || !slot) return
+        if (!window.api?.guest?.[action]) {
+          slot.innerHTML = `<div class="cid-crack-result cid-crack-result--error">${esc(ui.cidCrackFailed || 'Failed to crack the text')}</div>`
+          return
+        }
+
+        const originalLabel = btn.textContent
+        btn.disabled = true
+        btn.classList.add('cid-crack-btn--loading')
+        btn.textContent = ui.cidCrackRunning || 'Cracking…'
+        slot.innerHTML = `<div class="cid-crack-result cid-crack-result--loading">${esc(ui.cidCrackRunning || 'Cracking…')}</div>`
+
+        try {
+          const response = await window.api.guest[action]({
+            text: currentText,
+            settings: { alphabet: alphabet || 'auto' },
+          })
+          slot.innerHTML = buildCrackResultHtml(action, response)
+        } catch {
+          slot.innerHTML = `<div class="cid-crack-result cid-crack-result--error">${esc(ui.cidCrackFailed || 'Failed to crack the text')}</div>`
+        } finally {
+          btn.disabled = false
+          btn.classList.remove('cid-crack-btn--loading')
+          btn.textContent = originalLabel
+        }
+      })
+    })
   }
 
   const handleApiResponse = (response) => {
@@ -172,13 +237,17 @@ export function initCipherIdentifier({
     }
 
     const autoCard       = buildAutoResultCard(autoAction, autoResult)
-    const candidatesHtml = buildCandidatesTable(candidates)
+    // Если для лидера уже отработал auto-result — не дублируем кнопку «Взломать»
+    // на той же строке (карточка сверху и так показывает результат).
+    const suppressAction = autoResult ? (autoAction || '') : ''
+    const candidatesHtml = buildCandidatesTable(candidates, suppressAction)
     visualOutput.innerHTML = autoCard + candidatesHtml
 
     const currentText = input ? input.value : ''
     visualOutput.querySelectorAll('.cid-open-btn').forEach((btn) => {
       btn.addEventListener('click', () => saveCarryOver(currentText))
     })
+    attachCrackHandlers(currentText)
 
     const bestResult = extractDecryptedText(autoAction, autoResult)
     output.value = bestResult

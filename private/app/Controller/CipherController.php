@@ -245,6 +245,10 @@ final readonly class CipherController
             $toolUi['cidColEvidence']            = trans('CIPHER_IDENTIFIER_COLUMN_EVIDENCE');
             $toolUi['cidColAction']              = trans('CIPHER_IDENTIFIER_COLUMN_ACTION');
             $toolUi['cidOpenTool']               = trans('CIPHER_IDENTIFIER_OPEN_TOOL');
+            $toolUi['cidCrackBtn']               = trans('CIPHER_IDENTIFIER_CRACK_BTN');
+            $toolUi['cidCrackRunning']           = trans('CIPHER_IDENTIFIER_CRACK_RUNNING');
+            $toolUi['cidCrackFailed']            = trans('CIPHER_IDENTIFIER_CRACK_FAILED');
+            $toolUi['cidCrackKey']               = trans('CIPHER_IDENTIFIER_CRACK_KEY');
             $toolUi['cidTranslations']           = [
                 'CIPHER_NAME_BASE64'               => trans('CIPHER_NAME_BASE64'),
                 'CIPHER_NAME_HEX'                  => trans('CIPHER_NAME_HEX'),
