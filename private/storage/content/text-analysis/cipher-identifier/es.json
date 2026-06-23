@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-23T18:04:47+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "cipher-identifier",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 48,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 48,
+        "data": {
+            "name": "Identificador de cifrados",
+            "name_short": "Identificador de cifrados",
+            "description": "Identifica texto cifrado desconocido, cifrados clásicos y codificaciones de texto comunes en línea. Pega una cadena sospechosa y obtén una lista ordenada de tipos probables con porcentajes de confianza, evidencias, enlaces a herramientas relacionadas y descifrado automático cuando un candidato compatible es suficientemente fuerte.",
+            "description_stort": "Detecta el cifrado o la codificación probable de un texto desconocido.",
+            "meta_title": "Identificador de cifrados - detectar cifrado y codificación online",
+            "meta_description": "Identificador gratuito para texto cifrado desconocido. Detecta César, Vigenere, Atbash, Afín, Playfair, Morse, Base64, Hex, Binary, JWT y más."
+        }
+    },
+    "blocks": [
+        {
+            "id": 179,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona el identificador de cifrados",
+                "text": "<p>El identificador analiza texto desconocido y devuelve una lista ordenada de candidatos de cifrado y codificación. Cada candidato incluye un porcentaje de confianza, etiquetas de evidencia y un enlace directo a la herramienta relacionada, para pasar de la identificación a la verificación sin volver a escribir el texto.</p><p>El detector combina señales de formato y señales estadísticas. Las primeras buscan Base64, hexadecimal, binario, escapes URL, Unicode escape, Morse, números A1Z26, coordenadas Polybius o estructura JWT. Las segundas analizan texto alfabético con índice de coincidencia, chi-squared de frecuencias, legibilidad de bigramas, n-gramas comunes y heurísticas específicas.</p><p>Si un candidato compatible alcanza al menos 70% de confianza y supera al siguiente por 10 puntos, el servicio puede ejecutar automáticamente el flujo de cracking correspondiente, por ejemplo César, Afín o análisis de Vigenere, manteniendo visible la tabla completa.</p>"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Familias de cifrados y codificaciones compatibles",
+                "text": "<p>La herramienta revisa 27 detectores: <strong>codificaciones y formatos</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>códigos y alfabetos</strong>: Morse, Bacon, A1Z26, Polybius Square; <strong>monoalfabéticos</strong>: César, ROT13, Atbash, Afín, sustitución simple, XOR; <strong>polialfabéticos</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>fraccionarios</strong>: Bifid, Trifid; <strong>transposición</strong>: Rail Fence, Columnar Transposition; <strong>poligráficos</strong>: Playfair, Hill.</p><p>Para análisis dependiente del idioma puedes usar detección automática o elegir inglés, ruso, alemán, español, francés, italiano, portugués o turco. El alfabeto correcto ayuda a comparar el texto cifrado con el perfil lingüístico adecuado.</p>"
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Qué significa el resultado",
+                "text": "<p>El resultado no es una única respuesta, sino un informe de diagnóstico. La primera fila es el candidato más probable, el porcentaje indica confianza relativa y las evidencias explican por qué coincidió: patrón de formato, conjunto de caracteres, rango de IoC, forma de frecuencias, bigramas legibles, palabras comunes, señal de longitud de clave o puntuación específica.</p><p><strong>Abrir herramienta</strong> continúa en la página relacionada con el mismo texto. Si existe una acción de cracking, <strong>Descifrar</strong> ejecuta el solver disponible desde los resultados. Un resultado automático es una ayuda del candidato más fuerte, no un sustituto de revisar alternativas cercanas.</p>"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Usos recomendados",
+                "text": "<p>El servicio ayuda con mensajes cifrados desconocidos, acertijos, CTF, ejercicios de criptografía, tokens codificados, fragmentos copiados o muestras históricas. Separa codificaciones como Base64, Hex, Binary, URL encoding y JWT de criptografía clásica como César, Vigenere, Playfair, Afín, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid y Hill.</p><p>Es especialmente útil antes de descifrar: reduce el espacio de búsqueda, sugiere la herramienta relevante y muestra si el texto parece un formato, una sustitución, un cifrado polialfabético, una transposición o un sistema de coordenadas.</p>"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Calidad de entrada y límites",
+                "text": "<p>Las muestras cortas, idiomas mezclados, mucha puntuación, errores de copia y textos incompletos reducen la confianza. Las codificaciones estrictas pueden reconocerse con cadenas breves, pero los cifrados clásicos necesitan muestras alfabéticas más largas. Como regla práctica, 50 o más letras dan mucha más evidencia que una sola palabra.</p><p>El límite de entrada es 3000 caracteres. Pega solo el texto cifrado, elimina etiquetas externas, conserva espacios solo si son relevantes y elige el alfabeto probable si la detección automática duda. La herramienta está pensada para cifrados clásicos, criptoanálisis educativo y codificaciones de texto comunes, no para AES, RSA ni archivos binarios cifrados.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 356,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué tan preciso es el identificador?",
+                "answer": "La precisión depende de longitud, alfabeto, ruido y familia. Formatos como Base64, Hex, Binary, URL encoding, Unicode escape, JWT y Morse tienen reglas estrictas y funcionan con muestras cortas. Los cifrados clásicos son estadísticos: unas pocas palabras dan pistas; 50+ letras suelen mejorar mucho el resultado."
+            }
+        },
+        {
+            "id": 357,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Qué es el índice de coincidencia?",
+                "answer": "El IoC mide qué tan desigual es la distribución de letras. En lenguaje natural algunas letras son más frecuentes, por eso el IoC es mayor que en texto aleatorio. César, Atbash, Afín y sustitución conservan frecuencias; Vigenere y otros polialfabéticos las distribuyen mejor."
+            }
+        },
+        {
+            "id": 358,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Por qué aparecen varios candidatos?",
+                "answer": "Muchos cifrados clásicos comparten huellas estadísticas. Vigenere, Beaufort y Autokey pueden parecerse; César, Afín y Atbash conservan patrones monoalfabéticos. La lista ordenada muestra esa incertidumbre. Si un candidato domina con 70% y 10 puntos de ventaja, puede iniciarse el cracking automático."
+            }
+        },
+        {
+            "id": 359,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿También identifica codificaciones?",
+                "answer": "Sí. Revisa Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT, Morse, A1Z26 y coordenadas Polybius, además de cifrados. Muchas cadenas que parecen cifradas son en realidad datos codificados."
+            }
+        },
+        {
+            "id": 360,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Descifra automáticamente el mensaje?",
+                "answer": "A veces. Primero devuelve candidatos. Si el mejor tiene una acción compatible de brute force o cracking y supera el umbral, puede mostrar un resultado automático. Otros casos requieren abrir la herramienta o probar claves y parámetros."
+            }
+        },
+        {
+            "id": 361,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Qué alfabetos se admiten?",
+                "answer": "Auto-detect y alfabetos de inglés, ruso, alemán, español, francés, italiano, portugués y turco. El alfabeto afecta frecuencias, IoC, chi-squared y pruebas de legibilidad."
+            }
+        },
+        {
+            "id": 362,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿Puede identificar AES, RSA o cifrado moderno?",
+                "answer": "No. Está diseñado para cifrados clásicos, ejercicios, acertijos y codificaciones de texto. AES, RSA, ChaCha20 y archivos cifrados están diseñados para parecer aleatorios y no se identifican de forma fiable solo con el ciphertext."
+            }
+        },
+        {
+            "id": 363,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "¿Qué debo pegar para obtener mejor resultado?",
+                "answer": "Pega el ciphertext o la cadena codificada sin explicación alrededor. No mezcles mensajes distintos y elimina etiquetas. Para cifrados clásicos usa más texto alfabético; para codificaciones conserva separadores, puntos, barras, porcentajes, padding y saltos de línea."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 182,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Código Morse",
+                "key": "",
+                "shift": 0,
+                "input": ".... --- .-.. .- / -- ..- -. -.. ---",
+                "output": "",
+                "description": "El detector reconoce el código Morse internacional por puntos, rayas, espacios y separadores de palabras; este ejemplo codifica HOLA MUNDO y se identifica como Morse con cerca del 95% de confianza."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Base64",
+                "key": "",
+                "shift": 0,
+                "input": "SG9sYSwgbXVuZG8h",
+                "output": "",
+                "description": "Es la representación Base64 de “Hola, mundo!”. El conjunto de caracteres, la longitud y la decodificación UTF-8 válida permiten detectar Base64 con cerca del 90% de confianza."
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Cifrado César",
+                "key": "",
+                "shift": 0,
+                "input": "OHPVDMH VHFUHWR SDUD SUREDU HÑ FLIUDGR FHVDU B ÑD GHWHFFLRP GHÑ VHUYLFLR",
+                "output": "",
+                "description": "Texto en español cifrado con desplazamiento 3. El IoC alto y el mejor desplazamiento según chi-squared sitúan el cifrado César primero con cerca del 95% de confianza."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Cifrado Vigenere",
+                "key": "",
+                "shift": 0,
+                "input": "GDTZ XGITK IUAAISN WAÑ OCCGK WKCVZ TCCA LVQMAN IN NIAVCÑO LSNSAGJCMEOMEZ DZ ZKQEIITO Y GE FOTZGESOI",
+                "output": "",
+                "description": "Ejemplo español polialfabético cifrado con la clave CLAVE. El IoC más bajo y el pico por columnas hacen que Vigenere aparezca como candidato principal con cerca del 76% de confianza."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 275,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Identificador de cifrados"
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Criptoanálisis"
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Análisis de frecuencia"
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Detección de cifrado"
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Texto cifrado desconocido"
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Detector de codificación"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Cifrados clásicos"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

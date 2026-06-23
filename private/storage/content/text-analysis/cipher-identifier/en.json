@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-23T18:04:47+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "cipher-identifier",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 48,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 48,
+        "data": {
+            "name": "Cipher Identifier",
+            "name_short": "Cipher Identifier",
+            "description": "Identify unknown ciphertext, classical ciphers, and common text encodings online. Paste a suspicious string and get a ranked list of likely cipher or encoding types with confidence scores, evidence labels, links to the matching tools, and automatic cracking when a supported candidate is strong enough.",
+            "description_stort": "Detect the likely cipher or encoding behind unknown text.",
+            "meta_title": "Cipher Identifier - Detect Cipher and Encoding Type Online",
+            "meta_description": "Free cipher identifier for unknown ciphertext. Detect Caesar, Vigenere, Atbash, Affine, Playfair, Morse, Base64, Hex, Binary, JWT and more with ranked confidence scores."
+        }
+    },
+    "blocks": [
+        {
+            "id": 179,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Cipher Identifier works",
+                "text": "<p>The Cipher Identifier analyzes unknown text and returns a ranked list of cipher and encoding candidates. Each candidate includes a confidence score, evidence labels, and a direct link to the related tool, so you can move from identification to verification without retyping the text.</p><p>The detector combines two kinds of signals. Pattern-based checks look for strict formats such as Base64 padding, hexadecimal-only input, binary groups, URL percent escapes, Unicode escape sequences, Morse symbols, A1Z26 numbers, Polybius-style coordinates, and JWT dot-separated structure. Statistical checks then examine alphabetic ciphertext with the Index of Coincidence, chi-squared letter frequency, bigram readability, common n-gram matches, and cipher-specific heuristics.</p><p>When one supported candidate reaches at least 70% confidence and leads the next candidate by 10 percentage points or more, the service can automatically run the matching cracking workflow. This currently applies to supported brute-force or cracking actions such as Caesar, Affine, and Vigenere analysis, while the full candidate table remains visible for manual review.</p>"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Supported cipher and encoding families",
+                "text": "<p>The tool currently checks 27 detector types across several families: <strong>encodings and structured formats</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>codes and alphabet systems</strong>: Morse code, Bacon cipher, A1Z26, Polybius Square; <strong>monoalphabetic ciphers</strong>: Caesar, ROT13, Atbash, Affine, Simple Substitution, XOR; <strong>polyalphabetic ciphers</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>fractionating ciphers</strong>: Bifid, Trifid; <strong>transposition ciphers</strong>: Rail Fence, Columnar Transposition; <strong>polygraphic ciphers</strong>: Playfair, Hill.</p><p>For language-dependent analysis, the alphabet setting can be left on auto-detect or limited manually to English, Russian, German, Spanish, French, Italian, Portuguese, or Turkish. Choosing the correct alphabet helps the frequency model compare the ciphertext against the right language profile.</p>"
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "What the result tells you",
+                "text": "<p>The result is not a single yes-or-no guess. It is a ranked diagnostic report for unknown ciphertext. The top row is the most likely candidate, the percentage shows relative confidence, and the evidence labels explain why the detector matched: format pattern, character set, IoC range, frequency shape, readable bigrams, common words, key-length signal, or cipher-specific scoring.</p><p>Use <strong>Open tool</strong> to continue in the matching cipher or encoding page with the same text carried over. If a candidate has a supported cracking action, use <strong>Crack</strong> to run the available solver directly from the identifier results. If an automatic result appears, it is a convenience result from the strongest supported candidate, not a replacement for checking close alternatives.</p>"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Best uses for cipher detection",
+                "text": "<p>This service is useful when you have an unknown encrypted message, puzzle text, CTF challenge, classroom cryptography exercise, encoded token, copied data fragment, or legacy cipher sample and need to know where to start. It helps separate simple encodings such as Base64, Hex, Binary, URL encoding, and JWT from classical cryptography such as Caesar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid, Hill, and related systems.</p><p>The identifier is especially helpful as a first step before decryption: it narrows the search space, suggests the most relevant tool, and shows whether the text looks more like a format, a substitution cipher, a polyalphabetic cipher, a transposition cipher, or a coordinate-based system.</p>"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Input quality and limitations",
+                "text": "<p>Short samples, mixed languages, heavy punctuation, transcription errors, and partially copied ciphertext reduce confidence. Strict encodings can often be recognized from short strings, but statistical identification for classical ciphers works best with longer alphabetic samples. As a practical rule, 50 or more letters gives the detector much more evidence than a single word or a short code.</p><p>The input limit is 3000 characters. For best results, paste the ciphertext itself, remove unrelated labels or explanations, preserve spaces only when they may be meaningful, and choose the likely alphabet if auto-detection is uncertain. The tool is designed for classical ciphers, educational cryptanalysis, and common text encodings; it is not a detector for modern cryptographic algorithms such as AES, RSA, or encrypted binary files.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 356,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How accurate is the Cipher Identifier?",
+                "answer": "Accuracy depends heavily on text length, alphabet, noise, and cipher family. Structured formats and encodings such as Base64, Hex, Binary, URL encoding, Unicode escape, JWT, and Morse can be identified from short samples because they have strict character patterns. Classical cipher detection is statistical, so it becomes more reliable as the sample grows. A few words may only produce broad hints, while 50+ alphabetic characters usually give the detector much stronger evidence."
+            }
+        },
+        {
+            "id": 357,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the Index of Coincidence and why is it useful?",
+                "answer": "The Index of Coincidence (IoC) measures how unevenly letters are distributed in a text. Natural language has uneven letter frequencies, so its IoC is usually higher than random text. Caesar, Atbash, Affine, and many simple substitution ciphers preserve much of that frequency shape. Vigenere, Beaufort, Autokey, Gronsfeld, and similar polyalphabetic ciphers spread letters more evenly, producing a lower IoC. Comparing the measured IoC with language-specific reference values helps the tool separate cipher families before applying more specific tests."
+            }
+        },
+        {
+            "id": 358,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why does the tool show multiple candidates instead of one answer?",
+                "answer": "Many classical ciphers share statistical fingerprints, especially when the text is short or the cipher introduces only subtle changes. Vigenere, Beaufort, Autokey, Gronsfeld, and Alberti can look similar; Caesar, Affine, Atbash, and simple substitution all preserve strong monoalphabetic patterns. Rather than hiding uncertainty, the tool returns a ranked list so you can compare the top candidates. If one candidate clearly dominates with at least 70% confidence and a 10-point lead, the identifier may run the supported cracking workflow automatically."
+            }
+        },
+        {
+            "id": 359,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can the tool identify encodings as well as ciphers?",
+                "answer": "Yes. The identifier checks both cipher families and common encoded text formats. It can recognize patterns typical of Base64, Hexadecimal, Binary, URL encoding, Unicode escape sequences, JWT tokens, Morse code, A1Z26 numbers, and Polybius-style coordinates. This matters because many strings that look encrypted are actually encoded or formatted rather than encrypted with a classical cipher."
+            }
+        },
+        {
+            "id": 360,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Will it decrypt the message automatically?",
+                "answer": "Sometimes. The identifier always returns candidates first. If the strongest candidate has a supported brute-force or cracking action and passes the confidence threshold, the service can show an automatic result. For other candidates, use the Open tool or Crack action to continue manually. Some ciphers require a secret key, matrix, alphabet, or additional assumptions, so identification does not always mean instant decryption."
+            }
+        },
+        {
+            "id": 361,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Which alphabets and languages are supported?",
+                "answer": "The alphabet setting supports auto-detect plus English, Russian, German, Spanish, French, Italian, Portuguese, and Turkish. The selected alphabet affects frequency analysis, IoC comparison, chi-squared scoring, and readable-text checks. If you know the plaintext language, selecting it manually can improve the ranking."
+            }
+        },
+        {
+            "id": 362,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can it identify AES, RSA, or modern encryption?",
+                "answer": "No. The Cipher Identifier is built for classical ciphers, educational cryptanalysis, puzzle-style ciphertext, and common text encodings. Modern encryption such as AES, RSA, ChaCha20, or encrypted files is intentionally designed to look random and cannot be identified reliably from ciphertext alone without metadata, protocol context, keys, or file structure."
+            }
+        },
+        {
+            "id": 363,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "What should I paste for the best result?",
+                "answer": "Paste the raw ciphertext or encoded string, not the surrounding explanation. Keep enough text for analysis, avoid mixing several different messages in one input, and remove obvious labels such as \"ciphertext:\" or \"answer:\". For classical ciphers, longer alphabetic text is much better than a single word. For encodings, preserve separators, slashes, dots, percent signs, padding, and line breaks when they are part of the format."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 182,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Morse code",
+                "key": "",
+                "shift": 0,
+                "input": ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
+                "output": "",
+                "description": "The tool detects Morse code charset (dots, dashes, slashes) and returns ~95 % confidence."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Base64",
+                "key": "",
+                "shift": 0,
+                "input": "SGVsbG8gV29ybGQh",
+                "output": "",
+                "description": "Base64 charset with length divisible by 4 → ~90 % confidence."
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Caesar cipher",
+                "key": "",
+                "shift": 0,
+                "input": "KHOOR ZRUOG WKLV LV D WHVW RI WKH FDHVDU FLSKHU",
+                "output": "",
+                "description": "High IoC and strong chi-squared signal identifies Caesar cipher (shift 3) with ~65 % confidence; the tool auto-triggers Caesar brute force."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Vigenère cipher",
+                "key": "",
+                "shift": 0,
+                "input": "SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR G",
+                "output": "",
+                "description": "Lower IoC in polyalphabetic zone → Vigenère / Beaufort / Autokey candidates. Auto-triggers Vigenère cracker when confidence is high enough."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 275,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Cipher identifier"
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Cryptanalysis"
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Frequency analysis"
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Cipher detection"
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Unknown ciphertext"
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Encoding detector"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Classical ciphers"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

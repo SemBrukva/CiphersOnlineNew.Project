@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-23T18:04:47+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "cipher-identifier",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 48,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 48,
+        "data": {
+            "name": "Chiffren-Erkennung",
+            "name_short": "Chiffren-Erkennung",
+            "description": "Identifizieren Sie unbekannten Geheimtext, klassische Chiffren und gängige Textcodierungen online. Fügen Sie eine verdächtige Zeichenfolge ein und erhalten Sie eine sortierte Liste wahrscheinlicher Chiffren oder Codierungen mit Vertrauenswerten, Hinweisen, Links zu passenden Werkzeugen und automatischem Knacken, wenn ein unterstützter Kandidat stark genug ist.",
+            "description_stort": "Erkennen Sie die wahrscheinliche Chiffre oder Codierung eines unbekannten Textes.",
+            "meta_title": "Chiffren-Erkennung - Chiffre und Codierung online erkennen",
+            "meta_description": "Kostenlose Chiffren-Erkennung für unbekannten Geheimtext. Erkennt Caesar, Vigenere, Atbash, Affine, Playfair, Morse, Base64, Hex, Binary, JWT und mehr."
+        }
+    },
+    "blocks": [
+        {
+            "id": 179,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Chiffren-Erkennung funktioniert",
+                "text": "<p>Die Chiffren-Erkennung analysiert unbekannten Text und liefert eine sortierte Liste möglicher Chiffren und Codierungen. Jeder Kandidat enthält einen Vertrauenswert, Hinweise und einen direkten Link zum passenden Werkzeug, sodass Sie ohne erneute Eingabe vom Erkennen zur Prüfung wechseln können.</p><p>Der Detektor kombiniert zwei Signalarten. Musterbasierte Prüfungen suchen strenge Formate wie Base64-Padding, rein hexadezimale Eingaben, Binärgruppen, URL-Prozentcodierung, Unicode-Escape-Sequenzen, Morsezeichen, A1Z26-Zahlen, Polybios-Koordinaten und JWT-Strukturen mit Punkten. Statistische Prüfungen untersuchen alphabetischen Geheimtext mit Koinzidenzindex, Chi-squared-Buchstabenhäufigkeit, Bigramm-Lesbarkeit, häufigen n-Grammen und chiffrespezifischen Heuristiken.</p><p>Wenn ein unterstützter Kandidat mindestens 70% Vertrauen erreicht und den nächsten Kandidaten um mindestens 10 Prozentpunkte übertrifft, kann der Dienst automatisch den passenden Crack-Workflow ausführen. Das gilt derzeit für unterstützte Brute-force- oder Cracker-Aktionen wie Caesar, Affine und Vigenere; die vollständige Kandidatentabelle bleibt weiterhin sichtbar.</p>"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Unterstützte Chiffren- und Codierungsfamilien",
+                "text": "<p>Das Werkzeug prüft 27 Detektortypen in mehreren Familien: <strong>Codierungen und strukturierte Formate</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>Codes und Alphabetsysteme</strong>: Morsecode, Bacon-Chiffre, A1Z26, Polybios-Quadrat; <strong>monoalphabetische Chiffren</strong>: Caesar, ROT13, Atbash, Affine, einfache Substitution, XOR; <strong>polyalphabetische Chiffren</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>fraktionierende Chiffren</strong>: Bifid, Trifid; <strong>Transpositionen</strong>: Rail Fence, Columnar Transposition; <strong>polygraphische Chiffren</strong>: Playfair, Hill.</p><p>Für sprachabhängige Analyse kann die Alphabet-Einstellung auf Auto-Erkennung bleiben oder manuell auf Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch oder Türkisch gesetzt werden. Das richtige Alphabet hilft dem Frequenzmodell, den Geheimtext mit dem passenden Sprachprofil zu vergleichen.</p>"
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Was das Ergebnis bedeutet",
+                "text": "<p>Das Ergebnis ist keine einzelne Ja-oder-Nein-Vermutung, sondern ein Diagnosebericht für unbekannten Geheimtext. Die oberste Zeile ist der wahrscheinlichste Kandidat, der Prozentwert zeigt das relative Vertrauen, und die Hinweise erklären, warum der Detektor gepasst hat: Formatmuster, Zeichensatz, IoC-Bereich, Frequenzform, lesbare Bigramme, häufige Wörter, Schlüssel-Längensignal oder chifferspezifische Bewertung.</p><p>Mit <strong>Werkzeug öffnen</strong> wechseln Sie mit demselben Text zur passenden Chiffren- oder Codierungsseite. Wenn ein Kandidat eine unterstützte Crack-Aktion hat, startet <strong>Knacken</strong> den verfügbaren Solver direkt aus den Ergebnissen. Ein automatisches Ergebnis ist eine hilfreiche Abkürzung des stärksten unterstützten Kandidaten, ersetzt aber nicht die Prüfung naher Alternativen.</p>"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Typische Einsatzfälle",
+                "text": "<p>Der Dienst ist nützlich bei unbekannten verschlüsselten Nachrichten, Rätseltexten, CTF-Aufgaben, Kryptografieübungen, codierten Tokens, kopierten Datenfragmenten oder historischen Chiffren, wenn zunächst die richtige Richtung gefunden werden muss. Er trennt einfache Codierungen wie Base64, Hex, Binary, URL encoding und JWT von klassischer Kryptografie wie Caesar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybios, Bacon, Bifid, Trifid, Hill und verwandten Systemen.</p><p>Die Erkennung ist besonders hilfreich als erster Schritt vor der Entschlüsselung: Sie verkleinert den Suchraum, schlägt das relevanteste Werkzeug vor und zeigt, ob der Text eher wie ein Format, eine Substitution, eine polyalphabetische Chiffre, eine Transposition oder ein Koordinatensystem aussieht.</p>"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Eingabequalität und Grenzen",
+                "text": "<p>Kurze Proben, gemischte Sprachen, viel Interpunktion, Abschreibfehler und unvollständig kopierter Geheimtext verringern das Vertrauen. Strenge Codierungen lassen sich oft schon an kurzen Zeichenfolgen erkennen, statistische Erkennung klassischer Chiffren funktioniert jedoch am besten mit längeren alphabetischen Proben. Als Faustregel liefern 50 oder mehr Buchstaben deutlich mehr Evidenz als ein einzelnes Wort.</p><p>Die Eingabe ist auf 3000 Zeichen begrenzt. Für beste Ergebnisse fügen Sie den Geheimtext selbst ein, entfernen Sie fremde Beschriftungen, bewahren Sie nur bedeutungsvolle Leerzeichen und wählen Sie bei Unsicherheit das vermutete Alphabet manuell. Das Werkzeug ist für klassische Chiffren, Lern-Kryptoanalyse und gängige Textcodierungen gedacht, nicht für moderne Verfahren wie AES, RSA oder verschlüsselte Binärdateien.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 356,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wie genau ist die Chiffren-Erkennung?",
+                "answer": "Die Genauigkeit hängt stark von Textlänge, Alphabet, Rauschen und Chiffrenfamilie ab. Strukturierte Formate wie Base64, Hex, Binary, URL encoding, Unicode escape, JWT und Morse sind schon bei kurzen Proben gut erkennbar. Klassische Chiffren werden statistisch erkannt; wenige Wörter liefern oft nur Hinweise, während 50+ Buchstaben deutlich stärkere Evidenz geben."
+            }
+        },
+        {
+            "id": 357,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Was ist der Koinzidenzindex und warum ist er nützlich?",
+                "answer": "Der Koinzidenzindex (IoC) misst, wie ungleich Buchstaben verteilt sind. Natürliche Sprache hat ungleiche Häufigkeiten und daher meist einen höheren IoC als zufälliger Text. Caesar, Atbash, Affine und einfache Substitution erhalten viel davon; Vigenere, Beaufort, Autokey und ähnliche polyalphabetische Chiffren verteilen Buchstaben gleichmäßiger."
+            }
+        },
+        {
+            "id": 358,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Warum zeigt das Werkzeug mehrere Kandidaten?",
+                "answer": "Viele klassische Chiffren teilen statistische Spuren, besonders bei kurzen Texten. Vigenere, Beaufort, Autokey, Gronsfeld und Alberti können ähnlich wirken; Caesar, Affine, Atbash und Substitution behalten monoalphabetische Muster. Die Rangliste zeigt diese Unsicherheit offen. Bei mindestens 70% Vertrauen und 10 Punkten Vorsprung kann ein unterstützter Crack-Workflow automatisch starten."
+            }
+        },
+        {
+            "id": 359,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Erkennt das Werkzeug Codierungen genauso wie Chiffren?",
+                "answer": "Ja. Es prüft Chiffrenfamilien und gängige codierte Textformate wie Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT, Morse, A1Z26 und Polybios-Koordinaten. Das ist wichtig, weil viele vermeintlich verschlüsselte Strings eigentlich nur codiert oder strukturiert sind."
+            }
+        },
+        {
+            "id": 360,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Wird die Nachricht automatisch entschlüsselt?",
+                "answer": "Manchmal. Die Erkennung gibt immer zuerst Kandidaten zurück. Hat der stärkste Kandidat eine unterstützte Brute-force- oder Crack-Aktion und erfüllt den Schwellwert, kann ein automatisches Ergebnis erscheinen. Andere Kandidaten können über „Werkzeug öffnen“ oder „Knacken“ weiter untersucht werden."
+            }
+        },
+        {
+            "id": 361,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Welche Alphabete und Sprachen werden unterstützt?",
+                "answer": "Die Alphabet-Einstellung unterstützt Auto-Erkennung sowie Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Die Wahl beeinflusst Frequenzanalyse, IoC-Vergleich, Chi-squared-Bewertung und Lesbarkeitsprüfungen."
+            }
+        },
+        {
+            "id": 362,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Kann AES, RSA oder moderne Verschlüsselung erkannt werden?",
+                "answer": "Nein. Der Cipher Identifier ist für klassische Chiffren, Lern-Kryptoanalyse, Rätseltexte und gängige Textcodierungen gebaut. Moderne Verschlüsselung wie AES, RSA, ChaCha20 oder verschlüsselte Dateien soll zufällig aussehen und lässt sich aus Geheimtext allein nicht zuverlässig identifizieren."
+            }
+        },
+        {
+            "id": 363,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Was sollte ich für das beste Ergebnis einfügen?",
+                "answer": "Fügen Sie den rohen Geheimtext oder die codierte Zeichenfolge ein, nicht die umgebende Erklärung. Mischen Sie keine unterschiedlichen Nachrichten und entfernen Sie Labels wie „ciphertext:“. Bei klassischen Chiffren ist längerer alphabetischer Text besser; bei Codierungen sollten Trennzeichen, Punkte, Slashes, Prozentzeichen, Padding und Zeilenumbrüche erhalten bleiben."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 182,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Morsecode",
+                "key": "",
+                "shift": 0,
+                "input": ".... .- .-.. .-.. --- / .-- . .-.. -",
+                "output": "",
+                "description": "Der Detektor erkennt internationalen Morsecode an Punkten, Strichen, Leerzeichen und Worttrennern; dieses Beispiel codiert HALLO WELT und wird mit etwa 95% Sicherheit als Morsecode erkannt."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Base64",
+                "key": "",
+                "shift": 0,
+                "input": "SGFsbG8gV2VsdCE=",
+                "output": "",
+                "description": "Das ist die Base64-Darstellung von „Hallo Welt!“. Zeichensatz, Länge und gültige UTF-8-Decodierung führen zu einer Base64-Erkennung mit etwa 90% Sicherheit."
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Caesar-Chiffre",
+                "key": "",
+                "shift": 0,
+                "input": "JHKHLÖH PCFKULFKV BWÖ VHÜVHP GHU FCHÜCU YHUÜFKLHEWPJ WPG GHU HUNHPPWPJ",
+                "output": "",
+                "description": "Ein deutscher Text mit Verschiebung 3. Hoher IoC und eine klare beste Verschiebung im Chi-squared-Test setzen die Caesar-Chiffre mit etwa 95% Sicherheit an die Spitze."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Vigenere-Chiffre",
+                "key": "",
+                "shift": 0,
+                "input": "VLMCYV CSJXYHYP XJMLWOZH APRX VAJXL BÄW NJKLJX VHZ AHPQSPAZCJPNNKÜMPE YPRYRWJJ GWUNLÄVWEW EEG LPL JJBJXEWUR",
+                "output": "",
+                "description": "Ein längerer deutscher polyalphabetischer Text, verschlüsselt mit dem Schlüssel SCHLUESSEL. Niedrigerer IoC und ein Spalten-IoC-Signal lassen Vigenere mit etwa 76% Sicherheit führen."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 275,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Chiffren-Erkennung"
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Kryptoanalyse"
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Frequenzanalyse"
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Chiffre erkennen"
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Unbekannter Geheimtext"
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Codierungsdetektor"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Klassische Chiffren"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-23T18:04:47+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "cipher-identifier",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 48,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 48,
+        "data": {
+            "name": "Şifre Tanımlayıcı",
+            "name_short": "Şifre Tanımlayıcı",
+            "description": "Bilinmeyen şifreli metni, klasik şifreleri ve yaygın metin kodlamalarını çevrimiçi tanımlayın. Şüpheli bir dize yapıştırın; güven puanları, kanıt etiketleri, ilgili araç bağlantıları ve desteklenen güçlü adaylarda otomatik kırma ile sıralı aday listesi alın.",
+            "description_stort": "Bilinmeyen metnin olası şifresini veya kodlamasını tespit edin.",
+            "meta_title": "Şifre Tanımlayıcı - şifre ve kodlama türünü çevrimiçi bul",
+            "meta_description": "Bilinmeyen ciphertext için ücretsiz şifre tanımlayıcı. Sezar, Vigenere, Atbash, Affine, Playfair, Morse, Base64, Hex, Binary, JWT ve daha fazlasını algılar."
+        }
+    },
+    "blocks": [
+        {
+            "id": 179,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Şifre Tanımlayıcı nasıl çalışır",
+                "text": "<p>Şifre Tanımlayıcı bilinmeyen metni analiz eder ve olası şifre/kodlama adaylarını sıralı olarak döndürür. Her adayda güven puanı, kanıt etiketleri ve ilgili araca doğrudan bağlantı bulunur; böylece metni yeniden yazmadan doğrulamaya geçebilirsiniz.</p><p>Algılayıcı iki tür sinyali birleştirir. Biçim kontrolleri Base64, onaltılık, ikili gruplar, URL escape, Unicode escape, Morse, A1Z26 sayıları, Polybius koordinatları ve JWT yapısını arar. İstatistiksel kontroller ise alfabetik ciphertext üzerinde çakışma indeksi, chi-squared harf frekansı, bigram okunabilirliği, yaygın n-gramlar ve şifreye özel sezgiseller kullanır.</p><p>Desteklenen bir aday en az %70 güvene ulaşır ve ikinci adayı 10 puan geçerse servis uygun kırma akışını otomatik çalıştırabilir. Bu şu anda Sezar, Affine ve Vigenere gibi desteklenen brute-force veya cracker işlemleri için geçerlidir; tam aday tablosu görünür kalır.</p>"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Desteklenen şifre ve kodlama aileleri",
+                "text": "<p>Araç 27 algılayıcıyı kontrol eder: <strong>kodlamalar ve biçimler</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>kodlar ve alfabeler</strong>: Morse, Bacon, A1Z26, Polybius Square; <strong>monoalfabetik şifreler</strong>: Sezar, ROT13, Atbash, Affine, basit yerine koyma, XOR; <strong>polialfabetik şifreler</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>parçalı şifreler</strong>: Bifid, Trifid; <strong>transpozisyon</strong>: Rail Fence, Columnar Transposition; <strong>poligrafik şifreler</strong>: Playfair, Hill.</p><p>Dile bağlı analiz için alfabe otomatik bırakılabilir veya İngilizce, Rusça, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce ya da Türkçe seçilebilir. Doğru alfabe frekans modelinin ciphertext’i doğru dil profiliyle karşılaştırmasına yardımcı olur.</p>"
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sonuç ne anlatır",
+                "text": "<p>Sonuç tek bir kesin tahmin değil, bilinmeyen ciphertext için tanı raporudur. İlk satır en olası adayı, yüzde göreli güveni, kanıtlar ise eşleşme nedenini gösterir: biçim deseni, karakter kümesi, IoC aralığı, frekans şekli, okunabilir bigramlar, yaygın kelimeler, anahtar uzunluğu sinyali veya şifreye özel puanlama.</p><p><strong>Aracı aç</strong> aynı metinle ilgili sayfaya geçer. Adayda desteklenen kırma işlemi varsa <strong>Kır</strong> sonucu doğrudan çalıştırır. Otomatik sonuç güçlü adaydan gelen kullanışlı bir kısayoldur; yakın alternatifleri kontrol etmenin yerine geçmez.</p>"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Ne zaman kullanılır",
+                "text": "<p>Servis bilinmeyen şifreli mesajlar, bulmacalar, CTF görevleri, kriptografi dersleri, kodlanmış tokenlar, kopyalanmış veri parçaları veya eski şifre örneklerinde başlangıç noktasını bulmaya yarar. Base64, Hex, Binary, URL encoding ve JWT gibi kodlamaları Sezar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid ve Hill gibi klasik şifrelerden ayırır.</p><p>Çözmeden önce iyi bir ilk adımdır: arama alanını daraltır, ilgili aracı önerir ve metnin biçim, yerine koyma, polialfabetik şifre, transpozisyon veya koordinat sistemi gibi mi göründüğünü gösterir.</p>"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Girdi kalitesi ve sınırlar",
+                "text": "<p>Kısa örnekler, karışık diller, fazla noktalama, yazım hataları ve eksik ciphertext güveni düşürür. Katı kodlamalar kısa dizelerden tanınabilir, fakat klasik şifreler için daha uzun alfabetik metin gerekir. Pratikte 50 veya daha fazla harf tek kelimeden çok daha fazla kanıt sağlar.</p><p>Girdi sınırı 3000 karakterdir. En iyi sonuç için ciphertext’in kendisini yapıştırın, dış etiketleri kaldırın, yalnızca anlamlı boşlukları koruyun ve otomatik algılama kararsızsa olası alfabeyi seçin. Araç klasik şifreler, eğitim amaçlı kriptoanaliz ve metin kodlamaları içindir; AES, RSA veya şifreli ikili dosyalar için değildir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 356,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Şifre Tanımlayıcı ne kadar doğru?",
+                "answer": "Doğruluk metin uzunluğu, alfabe, gürültü ve şifre ailesine bağlıdır. Base64, Hex, Binary, URL encoding, Unicode escape, JWT ve Morse gibi biçimler kısa örneklerde bile tanınabilir. Klasik şifreler istatistikseldir; birkaç kelime yalnızca ipucu verir, 50+ harf sonucu güçlendirir."
+            }
+        },
+        {
+            "id": 357,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Çakışma indeksi nedir?",
+                "answer": "IoC harf dağılımının ne kadar dengesiz olduğunu ölçer. Doğal dilde bazı harfler sık geçtiği için IoC rastgele metinden yüksektir. Sezar, Atbash, Affine ve yerine koyma bunu korur; Vigenere ve polialfabetik şifreler harfleri daha eşit dağıtır."
+            }
+        },
+        {
+            "id": 358,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Neden birden fazla aday gösteriliyor?",
+                "answer": "Birçok klasik şifre benzer istatistiksel izler taşır. Vigenere, Beaufort ve Autokey benzeyebilir; Sezar, Affine ve Atbash monoalfabetik desenleri korur. Sıralı liste bu belirsizliği gösterir; güçlü adaylarda otomatik kırma başlayabilir."
+            }
+        },
+        {
+            "id": 359,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Kodlamaları da tanır mı?",
+                "answer": "Evet. Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT, Morse, A1Z26 ve Polybius biçimlerini de kontrol eder. Şifreli görünen birçok dize aslında kodlanmış veridir."
+            }
+        },
+        {
+            "id": 360,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Mesaj otomatik çözülür mü?",
+                "answer": "Bazen. Araç önce adayları döndürür. En güçlü aday desteklenen brute-force veya cracking işlemine sahipse ve eşiği geçerse otomatik sonuç gösterebilir. Diğerlerinde aracı açmak veya anahtar/parametre denemek gerekir."
+            }
+        },
+        {
+            "id": 361,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Hangi alfabeler destekleniyor?",
+                "answer": "Otomatik algılama ile İngilizce, Rusça, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce ve Türkçe desteklenir. Seçim frekans analizi, IoC, chi-squared ve okunabilirlik kontrollerini etkiler."
+            }
+        },
+        {
+            "id": 362,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "AES, RSA veya modern şifreleme tanınabilir mi?",
+                "answer": "Hayır. Araç klasik şifreler, eğitim, bulmacalar ve metin kodlamaları için tasarlanmıştır. AES, RSA, ChaCha20 ve şifreli dosyalar rastgele görünmek üzere tasarlanır ve yalnızca ciphertext ile güvenilir biçimde tanınamaz."
+            }
+        },
+        {
+            "id": 363,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "En iyi sonuç için ne yapıştırmalıyım?",
+                "answer": "Çevresindeki açıklama olmadan ham ciphertext veya kodlanmış dizeyi yapıştırın. Farklı mesajları karıştırmayın. Klasik şifrelerde daha uzun alfabetik metin; kodlamalarda ayırıcılar, noktalar, slash, yüzde işaretleri, padding ve satır sonları korunmalıdır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 182,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Mors kodu",
+                "key": "",
+                "shift": 0,
+                "input": "-- . .-. .... .- -... .- / -.. ..- -. -.-- .-",
+                "output": "",
+                "description": "Algılayıcı uluslararası Mors kodunu nokta, çizgi, boşluk ve kelime ayırıcılardan tanır; bu örnek MERHABA DUNYA metnini kodlar ve yaklaşık %95 güvenle Morse olarak belirlenir."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Base64",
+                "key": "",
+                "shift": 0,
+                "input": "TWVyaGFiYSBkdW55YSE=",
+                "output": "",
+                "description": "Bu, “Merhaba dunya!” metninin Base64 gösterimidir. Karakter kümesi, uzunluk ve geçerli UTF-8 çözümleme Base64 tespitini yaklaşık %90 güvenle sağlar."
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Sezar şifresi",
+                "key": "",
+                "shift": 0,
+                "input": "ILCOL ÖĞUÇM UĞCÇT ULHTĞULPL AĞ VĞUŞLV ÇTÇELPL GĞPĞÖĞN LELP JÇCLTOÇPGL",
+                "output": "",
+                "description": "3 kaydırma ile şifrelenmiş Türkçe örnek. Yüksek IoC ve chi-squared testindeki en iyi kaydırma Sezar şifresini yaklaşık %72 güvenle ilk sıraya taşır."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Vigenere şifresi",
+                "key": "",
+                "shift": 0,
+                "input": "AİOPPÜİ ŞNRLT İIİY ŞICRLD YIYIJĞNYÜDE UCÜKLYÖÜIE ĞJ FYHY ŞNŞİB MJEDYEÜCUB BUÜİZZOGJDĞİU EIÖÜHÖ IVÜCB NŞANZİYD JIYMIAKÖ ZKHC",
+                "output": "",
+                "description": "GIZLI anahtarıyla şifrelenmiş uzun Türkçe polialfabetik örnek. IoC profili ve kolon sinyali Vigenere adayını yaklaşık %72 güvenle ilk sıraya çıkarır."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 275,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Şifre tanımlayıcı"
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Kriptoanaliz"
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Frekans analizi"
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Şifre tespiti"
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Bilinmeyen ciphertext"
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Kodlama algılayıcı"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Klasik şifreler"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

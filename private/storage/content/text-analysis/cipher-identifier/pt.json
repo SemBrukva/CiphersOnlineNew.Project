@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-23T18:04:47+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "cipher-identifier",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 48,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 48,
+        "data": {
+            "name": "Identificador de cifras",
+            "name_short": "Identificador de cifras",
+            "description": "Identifique texto cifrado desconhecido, cifras clássicas e codificações comuns online. Cole uma string suspeita e receba uma lista ranqueada de candidatos com pontuações de confiança, evidências, links para ferramentas relacionadas e quebra automática quando um candidato suportado for forte o suficiente.",
+            "description_stort": "Detecte a cifra ou codificação provável de um texto desconhecido.",
+            "meta_title": "Identificador de cifras - detectar cifra e codificação online",
+            "meta_description": "Identificador gratuito para texto cifrado desconhecido. Detecta César, Vigenere, Atbash, Afim, Playfair, Morse, Base64, Hex, Binary, JWT e mais."
+        }
+    },
+    "blocks": [
+        {
+            "id": 179,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como o identificador funciona",
+                "text": "<p>O identificador analisa texto desconhecido e retorna uma lista ranqueada de possíveis cifras e codificações. Cada candidato inclui confiança, evidências e link direto para a ferramenta relacionada, permitindo passar da identificação para a verificação sem redigitar o texto.</p><p>O detector combina sinais de formato e estatísticos. Ele procura Base64, hexadecimal, binário, URL escapes, Unicode escape, Morse, A1Z26, coordenadas Polybius e JWT; depois analisa texto alfabético com índice de coincidência, chi-squared, bigramas legíveis, n-gramas comuns e heurísticas específicas.</p><p>Se um candidato suportado atinge pelo menos 70% e supera o segundo por 10 pontos, o serviço pode executar automaticamente o fluxo de cracking adequado, como César, Afim ou Vigenere, mantendo a tabela completa visível.</p>"
+            }
+        },
+        {
+            "id": 180,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Famílias suportadas",
+                "text": "<p>A ferramenta verifica 27 detectores: <strong>codificações e formatos</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>códigos e alfabetos</strong>: Morse, Bacon, A1Z26, Polybius Square; <strong>monoalfabéticas</strong>: César, ROT13, Atbash, Afim, substituição simples, XOR; <strong>polialfabéticas</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>fracionárias</strong>: Bifid, Trifid; <strong>transposição</strong>: Rail Fence, Columnar Transposition; <strong>poligráficas</strong>: Playfair, Hill.</p><p>Para análise dependente de idioma, use auto-detecção ou escolha inglês, russo, alemão, espanhol, francês, italiano, português ou turco. O alfabeto correto melhora a comparação com o perfil linguístico certo.</p>"
+            }
+        },
+        {
+            "id": 181,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "O que o resultado mostra",
+                "text": "<p>O resultado é um relatório diagnóstico, não uma única resposta definitiva. A primeira linha é o candidato mais provável, a porcentagem mostra confiança relativa e as evidências explicam o motivo: formato, conjunto de caracteres, faixa IoC, frequências, bigramas legíveis, palavras comuns, sinal de tamanho de chave ou pontuação específica.</p><p><strong>Abrir ferramenta</strong> continua na página relacionada com o mesmo texto. Se houver cracking suportado, <strong>Decifrar</strong> executa o solver nos resultados. Um resultado automático é um atalho útil do candidato mais forte, não substitui revisar alternativas próximas.</p>"
+            }
+        },
+        {
+            "id": 182,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Quando usar",
+                "text": "<p>O serviço ajuda com mensagens cifradas desconhecidas, puzzles, CTFs, exercícios de criptografia, tokens codificados, fragmentos copiados ou cifras históricas. Ele separa codificações como Base64, Hex, Binary, URL encoding e JWT de cifras clássicas como César, Vigenere, Playfair, Afim, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid e Hill.</p><p>É um bom primeiro passo antes de decifrar: reduz o espaço de busca, sugere a ferramenta relevante e indica se o texto parece formato, substituição, cifra polialfabética, transposição ou sistema de coordenadas.</p>"
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Qualidade da entrada e limites",
+                "text": "<p>Amostras curtas, idiomas mistos, pontuação excessiva, erros de cópia e texto incompleto reduzem a confiança. Codificações rígidas podem ser reconhecidas em strings curtas, mas cifras clássicas precisam de mais texto alfabético. Na prática, 50 ou mais letras dão muito mais evidência que uma palavra.</p><p>O limite é 3000 caracteres. Cole o texto cifrado, remova rótulos externos, preserve espaços apenas quando significativos e escolha o alfabeto provável se a auto-detecção estiver incerta. A ferramenta é para cifras clássicas, criptoanálise educacional e codificações de texto, não AES, RSA ou arquivos binários cifrados.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 356,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qual é a precisão do identificador?",
+                "answer": "Depende de tamanho, alfabeto, ruído e família. Base64, Hex, Binary, URL encoding, Unicode escape, JWT e Morse têm formatos rígidos e funcionam em amostras curtas. Cifras clássicas são estatísticas: poucas palavras dão pistas, 50+ letras melhoram muito."
+            }
+        },
+        {
+            "id": 357,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "O que é o índice de coincidência?",
+                "answer": "O IoC mede quão desigual é a distribuição de letras. Línguas naturais têm letras frequentes, então IoC maior que texto aleatório. César, Atbash, Afim e substituição preservam isso; Vigenere e polialfabéticas distribuem melhor as letras."
+            }
+        },
+        {
+            "id": 358,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Por que há vários candidatos?",
+                "answer": "Muitas cifras clássicas compartilham impressões estatísticas. Vigenere, Beaufort e Autokey podem parecer semelhantes; César, Afim e Atbash mantêm padrões monoalfabéticos. A lista mostra essa incerteza e pode iniciar cracking automático quando um candidato domina."
+            }
+        },
+        {
+            "id": 359,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Também identifica codificações?",
+                "answer": "Sim. Verifica Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT, Morse, A1Z26 e Polybius além de cifras. Muitas strings suspeitas são codificadas, não cifradas."
+            }
+        },
+        {
+            "id": 360,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ele decifra automaticamente?",
+                "answer": "Às vezes. Primeiro retorna candidatos. Se o melhor tiver brute force ou cracking suportado e passar o limiar, pode mostrar um resultado automático. Outros casos exigem abrir a ferramenta ou testar chaves e parâmetros."
+            }
+        },
+        {
+            "id": 361,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Quais alfabetos são suportados?",
+                "answer": "Auto-detecção mais inglês, russo, alemão, espanhol, francês, italiano, português e turco. A escolha afeta frequências, IoC, chi-squared e legibilidade."
+            }
+        },
+        {
+            "id": 362,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Pode identificar AES, RSA ou criptografia moderna?",
+                "answer": "Não. É feito para cifras clássicas, exercícios, puzzles e codificações textuais. AES, RSA, ChaCha20 e arquivos cifrados são projetados para parecer aleatórios e não são identificáveis só pelo ciphertext."
+            }
+        },
+        {
+            "id": 363,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "O que devo colar para melhor resultado?",
+                "answer": "Cole o ciphertext ou string codificada sem explicação ao redor. Não misture mensagens. Para cifras clássicas use mais texto alfabético; para codificações preserve separadores, pontos, barras, porcentagens, padding e quebras de linha úteis."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 182,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Código Morse",
+                "key": "",
+                "shift": 0,
+                "input": "--- .-.. .- / -- ..- -. -.. ---",
+                "output": "",
+                "description": "O detector reconhece o código Morse internacional por pontos, traços, espaços e separadores de palavras; este exemplo codifica OLA MUNDO e é identificado como Morse com cerca de 95% de confiança."
+            }
+        },
+        {
+            "id": 183,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Base64",
+                "key": "",
+                "shift": 0,
+                "input": "T2xhLCBtdW5kbyE=",
+                "output": "",
+                "description": "Esta é a representação Base64 de “Ola, mundo!”. O conjunto de caracteres, o tamanho e a decodificação UTF-8 válida permitem detectar Base64 com cerca de 90% de confiança."
+            }
+        },
+        {
+            "id": 184,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Cifra de César",
+                "key": "",
+                "shift": 0,
+                "input": "ÓFÔÚÃÍFÓ ÚFEUFVÃ SÃUÃ VFÚVÃU Ã EKIUÃ ÊF EFÚÃU F Ã ÊFVFEEÃP ÊP ÚFUYKEP",
+                "output": "",
+                "description": "Texto em português cifrado com deslocamento 3. IoC alto e melhor deslocamento no teste chi-squared colocam César em primeiro com cerca de 95% de confiança."
+            }
+        },
+        {
+            "id": 185,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Cifra de Vigenere",
+                "key": "",
+                "shift": 0,
+                "input": "HBTÃ AHÊTJ WRÃTPNYOS IEMB LJTKY SÃYAO PVYC CEÓACÃ A AÓJÃA MUÔSAHMCKEÔÓÊH DÃ ÃMQEÍJVO E V ÍHCEAHCY",
+                "output": "",
+                "description": "Exemplo português polialfabético cifrado com a chave CHAVE. IoC mais baixo e sinal por colunas fazem Vigenere liderar com cerca de 76% de confiança."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 275,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Identificador de cifras"
+            }
+        },
+        {
+            "id": 276,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Criptoanálise"
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Análise de frequência"
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Detecção de cifra"
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Texto cifrado desconhecido"
+            }
+        },
+        {
+            "id": 280,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Detector de codificação"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Cifras clássicas"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
