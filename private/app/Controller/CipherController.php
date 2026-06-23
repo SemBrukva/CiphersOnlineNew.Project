@@ -237,7 +237,8 @@ final readonly class CipherController
             $toolUi['identifierMode']            = true;
             $toolUi['disableLiveMode']           = true;
             $toolUi['inputMaxLength']            = \App\Cipher\CipherIdentifierApiCipherTool::MAX_TEXT_LENGTH;
-            $toolUi['cidEmptyLabel']             = trans('CIPHER_IDENTIFIER_NO_CANDIDATES');
+            $toolUi['cidEmptyLabel']             = trans('CIPHER_IDENTIFIER_EMPTY_LABEL');
+            $toolUi['cidNoCandidatesMsg']        = trans('CIPHER_IDENTIFIER_NO_CANDIDATES');
             $toolUi['cidAutoResultTitle']        = trans('CIPHER_IDENTIFIER_AUTO_RESULT_TITLE');
             $toolUi['cidCandidatesTitle']        = trans('CIPHER_IDENTIFIER_CANDIDATES_TITLE');
             $toolUi['cidColCipher']              = trans('CIPHER_IDENTIFIER_COLUMN_CIPHER');

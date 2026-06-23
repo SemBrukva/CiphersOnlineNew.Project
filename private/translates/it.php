@@ -665,6 +665,7 @@ return [
     'XOR_ERROR_INVALID_HEX_KEY' => 'La chiave deve essere una stringa esadecimale valida con un numero pari di caratteri.',
     'XOR_ERROR_INVALID'        => 'Dati di input non validi.',
     // Cipher Identifier
+    'CIPHER_IDENTIFIER_EMPTY_LABEL'       => 'Inserisci il testo per identificare il cifrario',
     'CIPHER_IDENTIFIER_NO_CANDIDATES'     => 'Il tipo di cifratura non è stato identificato. Prova ad inserire più testo.',
     'CIPHER_IDENTIFIER_AUTO_RESULT_TITLE' => 'Risultato rilevato automaticamente',
     'CIPHER_IDENTIFIER_CANDIDATES_TITLE'  => 'Candidati di cifratura',

@@ -668,6 +668,7 @@ return [
     'XOR_ERROR_INVALID_HEX_KEY' => 'Der Schlüssel muss eine gültige Hex-Zeichenfolge mit gerader Zeichenanzahl sein.',
     'XOR_ERROR_INVALID'        => 'Ungültige Eingabedaten.',
     // Cipher Identifier
+    'CIPHER_IDENTIFIER_EMPTY_LABEL'       => 'Text eingeben, um die Verschlüsselung zu ermitteln',
     'CIPHER_IDENTIFIER_NO_CANDIDATES'     => 'Der Verschlüsselungstyp konnte nicht identifiziert werden. Bitte mehr Text eingeben.',
     'CIPHER_IDENTIFIER_AUTO_RESULT_TITLE' => 'Automatisch erkanntes Ergebnis',
     'CIPHER_IDENTIFIER_CANDIDATES_TITLE'  => 'Verschlüsselungskandidaten',

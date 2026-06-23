@@ -666,6 +666,7 @@ return [
     'XOR_ERROR_INVALID_HEX_KEY' => 'La clave debe ser una cadena hexadecimal válida con un número par de caracteres.',
     'XOR_ERROR_INVALID'        => 'Datos de entrada inválidos.',
     // Cipher Identifier
+    'CIPHER_IDENTIFIER_EMPTY_LABEL'       => 'Introduce el texto para identificar el cifrado',
     'CIPHER_IDENTIFIER_NO_CANDIDATES'     => 'No se pudo identificar el tipo de cifrado. Intente ingresar más texto.',
     'CIPHER_IDENTIFIER_AUTO_RESULT_TITLE' => 'Resultado detectado automáticamente',
     'CIPHER_IDENTIFIER_CANDIDATES_TITLE'  => 'Candidatos de cifrado',

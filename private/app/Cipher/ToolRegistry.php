@@ -244,10 +244,10 @@ final readonly class ToolRegistry
                 ['label' => 'Shift 7',  'value' => 'HAAHJR HA KHDU',    'alphabet' => 'en'],
             ],
             'text-analysis/cipher-identifier' => [
-                ['label' => 'Morse',   'value' => '... --- ...'],
-                ['label' => 'Base64',  'value' => 'SGVsbG8gV29ybGQh'],
-                ['label' => 'Caesar',  'value' => 'KHOOR ZRUOG'],
-                ['label' => 'Vigenere', 'value' => 'RIJVS UYVJN'],
+                ['label' => 'Morse',    'value' => '.... . .-.. .-.. --- / .-- --- .-. .-.. -..'],
+                ['label' => 'Base64',   'value' => 'SGVsbG8gV29ybGQh'],
+                ['label' => 'Caesar',   'value' => 'KHOOR ZRUOG WKLV LV D WHVW RI WKH FDHVDU FLSKHU'],
+                ['label' => 'Vigenere', 'value' => 'SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR G'],
             ],
             'text-analysis/vigenere-cracker' => [
                 ['label' => 'Key KEY',    'value' => 'SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC YJ DYSJSWFXIQC MR GEQ DLC OTMML MP FCVMCP MR GEQ DLC OTMML MP MLMVCNYJSXW',   'alphabet' => 'en'],

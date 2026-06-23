@@ -689,6 +689,7 @@ return [
     'XOR_ERROR_INVALID_HEX_KEY' => 'Key must be a valid hex string with an even number of characters.',
     'XOR_ERROR_INVALID'        => 'Invalid input data.',
     // Cipher Identifier
+    'CIPHER_IDENTIFIER_EMPTY_LABEL'       => 'Enter text to identify the cipher',
     'CIPHER_IDENTIFIER_NO_CANDIDATES'     => 'No cipher types could be identified. Try entering more text.',
     'CIPHER_IDENTIFIER_AUTO_RESULT_TITLE' => 'Auto-detected result',
     'CIPHER_IDENTIFIER_CANDIDATES_TITLE'  => 'Cipher candidates',

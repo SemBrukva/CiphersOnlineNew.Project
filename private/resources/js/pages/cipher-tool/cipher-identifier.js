@@ -240,7 +240,7 @@ export function initCipherIdentifier({
     if (candidates.length === 0) {
       showEmpty()
       setOutputState(false)
-      setFeedback('')
+      setFeedback(ui.cidNoCandidatesMsg || 'No cipher types could be identified. Try entering more text.', false)
       return
     }
 

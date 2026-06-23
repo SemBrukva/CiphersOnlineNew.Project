@@ -665,6 +665,7 @@ return [
     'XOR_ERROR_INVALID_HEX_KEY' => 'Anahtar, çift sayıda karaktere sahip geçerli bir hex dizesi olmalıdır.',
     'XOR_ERROR_INVALID'        => 'Geçersiz giriş verisi.',
     // Cipher Identifier
+    'CIPHER_IDENTIFIER_EMPTY_LABEL'       => 'Şifreyi tespit etmek için metin girin',
     'CIPHER_IDENTIFIER_NO_CANDIDATES'     => 'Şifre türü belirlenemedi. Daha fazla metin girmeyi deneyin.',
     'CIPHER_IDENTIFIER_AUTO_RESULT_TITLE' => 'Otomatik algılanan sonuç',
     'CIPHER_IDENTIFIER_CANDIDATES_TITLE'  => 'Şifre adayları',

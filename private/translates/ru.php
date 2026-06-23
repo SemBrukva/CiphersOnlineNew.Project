@@ -689,6 +689,7 @@ return [
     'XOR_ERROR_INVALID_HEX_KEY' => 'Ключ должен быть корректной hex-строкой с чётным числом символов.',
     'XOR_ERROR_INVALID'        => 'Некорректные входные данные.',
     // Cipher Identifier
+    'CIPHER_IDENTIFIER_EMPTY_LABEL'       => 'Введите текст для определения шифра',
     'CIPHER_IDENTIFIER_NO_CANDIDATES'     => 'Тип шифра не удалось определить. Попробуйте ввести больше текста.',
     'CIPHER_IDENTIFIER_AUTO_RESULT_TITLE' => 'Автоматически определённый результат',
     'CIPHER_IDENTIFIER_CANDIDATES_TITLE'  => 'Кандидаты на тип шифра',
