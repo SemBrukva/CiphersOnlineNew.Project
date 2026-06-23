@@ -6,8 +6,8 @@ namespace Tests\Unit\Cipher;
 
 use App\Cipher\A1z26CipherService;
 use App\Cipher\AffineBruteForceService;
-use App\Cipher\AlbertiCipherService;
 use App\Cipher\AffineCipherService;
+use App\Cipher\AlbertiCipherService;
 use App\Cipher\AlphabetCatalog;
 use App\Cipher\AlphabetTool;
 use App\Cipher\AtbashCipherService;
@@ -18,12 +18,15 @@ use App\Cipher\BifidCipherService;
 use App\Cipher\CaesarBruteForceService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\CaseFolder;
+use App\Cipher\CipherIdentifierService;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\FrequencyAnalysisService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\HillCipherService;
 use App\Cipher\HtmlEncodeCipherService;
+use App\Cipher\IndexOfCoincidence;
 use App\Cipher\JsonFormatterCipherService;
+use App\Cipher\LetterFrequencyScorer;
 use App\Cipher\LetterFrequencyService;
 use App\Cipher\MorseCipherService;
 use App\Cipher\NumbersToLettersService;
@@ -165,7 +168,8 @@ final class ToolRegistryTest extends TestCase
             new AffineBruteForceService(),
             new BifidCipherService($catalog, $alphabetTool, $caseFolder),
             new TrifidCipherService($catalog, $alphabetTool, $caseFolder),
-            new AlbertiCipherService()
+            new AlbertiCipherService(),
+            new CipherIdentifierService([], new LetterFrequencyScorer(), new IndexOfCoincidence())
         );
     }
 }

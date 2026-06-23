@@ -9,7 +9,7 @@ use App\Http\Exception\NotFoundException;
 /**
  * Реестр API-инструментов шифрования с доступом по action.
  */
-final class ApiCipherToolRegistry
+final class ApiCipherToolRegistry implements ApiCipherToolExecutorInterface
 {
     /** @var array<string, ApiCipherToolInterface> Карта action -> инструмент. */
     private array $tools = [];
@@ -42,11 +42,20 @@ final class ApiCipherToolRegistry
         VigenereCrackerApiCipherTool $vigenereCrackerTool,
         BifidApiCipherTool $bifidTool,
         TrifidApiCipherTool $trifidTool,
-        AlbertiApiCipherTool $albertiTool
+        AlbertiApiCipherTool $albertiTool,
     ) {
         foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $portaTool, $autokeyTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $xorTool, $vigenereCrackerTool, $bifidTool, $trifidTool, $albertiTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
+    }
+
+    /**
+     * Регистрирует дополнительный инструмент после создания реестра.
+     * Используется для разрыва циклической зависимости при DI.
+     */
+    public function register(ApiCipherToolInterface $tool): void
+    {
+        $this->tools[$tool->action()] = $tool;
     }
 
     /**

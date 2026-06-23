@@ -8,12 +8,13 @@ use App\Cache\NullCache;
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
 use App\Cipher\AffineApiCipherTool;
-use App\Cipher\AlbertiApiCipherTool;
-use App\Cipher\AlbertiCipherService;
 use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\AffineCipherService;
+use App\Cipher\AlbertiApiCipherTool;
+use App\Cipher\AlbertiCipherService;
 use App\Cipher\AlphabetCatalog;
 use App\Cipher\AlphabetTool;
+use App\Cipher\ApiCipherToolExecutorInterface;
 use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\AtbashApiCipherTool;
 use App\Cipher\AtbashCipherService;
@@ -30,12 +31,15 @@ use App\Cipher\CaesarApiCipherTool;
 use App\Cipher\CaesarBruteForceApiCipherTool;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\CaseFolder;
+use App\Cipher\CipherIdentifierApiCipherTool;
+use App\Cipher\CipherIdentifierService;
 use App\Cipher\ColumnarTranspositionApiCipherTool;
 use App\Cipher\ColumnarTranspositionCipherService;
 use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\HillApiCipherTool;
 use App\Cipher\HillCipherService;
+use App\Cipher\IndexOfCoincidence;
 use App\Cipher\LetterFrequencyScorer;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
@@ -126,12 +130,33 @@ final class ApiCipherToolRegistryTest extends TestCase
 
     /**
      * Создаёт экземпляр реестра API-инструментов для тестов.
+     *
+     * CipherIdentifierApiCipherTool использует mock реестра как inner registry,
+     * чтобы разорвать circular dependency в тестах.
      */
     private function makeRegistry(): ApiCipherToolRegistry
     {
+        $scorer  = new LetterFrequencyScorer();
+        $ioc     = new IndexOfCoincidence();
+        $caesar  = new CaesarCipherService();
+        $catalog = new AlphabetCatalog();
+        $folder  = new CaseFolder();
+        $cache   = new NullCache();
+        $bigram  = new BigramFrequencyScorer();
+
+        // Mock исполнителя для CipherIdentifierApiCipherTool.
+        // Auto-dispatch не тестируется здесь, поэтому mock достаточен.
+        /** @var ApiCipherToolExecutorInterface $mockRegistry */
+        $mockRegistry = $this->createMock(ApiCipherToolExecutorInterface::class);
+
+        $cipherIdentifierTool = new CipherIdentifierApiCipherTool(
+            new CipherIdentifierService([], $scorer, $ioc),
+            $mockRegistry,
+        );
+
         return new ApiCipherToolRegistry(
             new AffineApiCipherTool(new AffineCipherService()),
-            new CaesarApiCipherTool(new CaesarCipherService()),
+            new CaesarApiCipherTool($caesar),
             new AtbashApiCipherTool(new AtbashCipherService()),
             new PlayfairApiCipherTool(new PlayfairCipherService()),
             new BeaufortApiCipherTool(new BeaufortCipherService()),
@@ -147,14 +172,15 @@ final class ApiCipherToolRegistryTest extends TestCase
             new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),
             new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
             new HillApiCipherTool(new HillCipherService()),
-            new CaesarBruteForceApiCipherTool(new CaesarCipherService(), new LetterFrequencyScorer()),
-            new AffineBruteForceApiCipherTool(new AffineCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache()),
+            new CaesarBruteForceApiCipherTool($caesar, $scorer),
+            new AffineBruteForceApiCipherTool(new AffineCipherService(), $scorer, $catalog, $bigram, $cache),
             new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService()),
             new XorApiCipherTool(new XorCipherService()),
-            new VigenereCrackerApiCipherTool(new VigenereCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new NullCache()),
-            new BifidApiCipherTool(new BifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder())),
-            new TrifidApiCipherTool(new TrifidCipherService(new AlphabetCatalog(), new AlphabetTool(new AlphabetCatalog(), new CaseFolder()), new CaseFolder())),
-            new AlbertiApiCipherTool(new AlbertiCipherService())
+            new VigenereCrackerApiCipherTool(new VigenereCipherService(), $scorer, $catalog, $bigram, $cache),
+            new BifidApiCipherTool(new BifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
+            new TrifidApiCipherTool(new TrifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
+            new AlbertiApiCipherTool(new AlbertiCipherService()),
+            $cipherIdentifierTool,
         );
     }
 }

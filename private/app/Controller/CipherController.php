@@ -233,6 +233,63 @@ final readonly class CipherController
             $toolUi['albertiWheelDiskLabel']    = trans('ALBERTI_WHEEL_DISK_LABEL');
             $toolUi['albertiWheelMappingLabel'] = trans('ALBERTI_WHEEL_MAPPING_LABEL');
         }
+        if ($cipherAlias === 'cipher-identifier') {
+            $toolUi['identifierMode']            = true;
+            $toolUi['disableLiveMode']           = true;
+            $toolUi['inputMaxLength']            = \App\Cipher\CipherIdentifierApiCipherTool::MAX_TEXT_LENGTH;
+            $toolUi['cidEmptyLabel']             = trans('CIPHER_IDENTIFIER_NO_CANDIDATES');
+            $toolUi['cidAutoResultTitle']        = trans('CIPHER_IDENTIFIER_AUTO_RESULT_TITLE');
+            $toolUi['cidCandidatesTitle']        = trans('CIPHER_IDENTIFIER_CANDIDATES_TITLE');
+            $toolUi['cidColCipher']              = trans('CIPHER_IDENTIFIER_COLUMN_CIPHER');
+            $toolUi['cidColConfidence']          = trans('CIPHER_IDENTIFIER_COLUMN_CONFIDENCE');
+            $toolUi['cidColEvidence']            = trans('CIPHER_IDENTIFIER_COLUMN_EVIDENCE');
+            $toolUi['cidColAction']              = trans('CIPHER_IDENTIFIER_COLUMN_ACTION');
+            $toolUi['cidOpenTool']               = trans('CIPHER_IDENTIFIER_OPEN_TOOL');
+            $toolUi['cidTranslations']           = [
+                'CIPHER_NAME_BASE64'               => trans('CIPHER_NAME_BASE64'),
+                'CIPHER_NAME_HEX'                  => trans('CIPHER_NAME_HEX'),
+                'CIPHER_NAME_BINARY'               => trans('CIPHER_NAME_BINARY'),
+                'CIPHER_NAME_MORSE_CODE'           => trans('CIPHER_NAME_MORSE_CODE'),
+                'CIPHER_NAME_BACON'                => trans('CIPHER_NAME_BACON'),
+                'CIPHER_NAME_A1Z26'                => trans('CIPHER_NAME_A1Z26'),
+                'CIPHER_NAME_POLYBIUS_SQUARE'      => trans('CIPHER_NAME_POLYBIUS_SQUARE'),
+                'CIPHER_NAME_URL_ENCODE'           => trans('CIPHER_NAME_URL_ENCODE'),
+                'CIPHER_NAME_JWT'                  => trans('CIPHER_NAME_JWT'),
+                'CIPHER_NAME_UNICODE'              => trans('CIPHER_NAME_UNICODE'),
+                'CIPHER_NAME_CAESAR'               => trans('CIPHER_NAME_CAESAR'),
+                'CIPHER_NAME_ROT13'                => trans('CIPHER_NAME_ROT13'),
+                'CIPHER_NAME_ATBASH'               => trans('CIPHER_NAME_ATBASH'),
+                'CIPHER_NAME_AFFINE'               => trans('CIPHER_NAME_AFFINE'),
+                'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => trans('CIPHER_NAME_SIMPLE_SUBSTITUTION'),
+                'CIPHER_NAME_XOR'                  => trans('CIPHER_NAME_XOR'),
+                'CIPHER_NAME_VIGENERE'             => trans('CIPHER_NAME_VIGENERE'),
+                'CIPHER_NAME_BEAUFORT'             => trans('CIPHER_NAME_BEAUFORT'),
+                'CIPHER_NAME_AUTOKEY'              => trans('CIPHER_NAME_AUTOKEY'),
+                'CIPHER_NAME_GRONSFELD'            => trans('CIPHER_NAME_GRONSFELD'),
+                'CIPHER_NAME_ALBERTI'              => trans('CIPHER_NAME_ALBERTI'),
+                'CIPHER_NAME_BIFID'                => trans('CIPHER_NAME_BIFID'),
+                'CIPHER_NAME_TRIFID'               => trans('CIPHER_NAME_TRIFID'),
+                'CIPHER_NAME_RAIL_FENCE'           => trans('CIPHER_NAME_RAIL_FENCE'),
+                'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => trans('CIPHER_NAME_COLUMNAR_TRANSPOSITION'),
+                'CIPHER_NAME_PLAYFAIR'             => trans('CIPHER_NAME_PLAYFAIR'),
+                'CIPHER_NAME_HILL'                 => trans('CIPHER_NAME_HILL'),
+                'CIPHER_NAME_VERNAM'               => trans('CIPHER_NAME_VERNAM'),
+                'CID_EV_CHARSET_LETTERS'           => trans('CID_EV_CHARSET_LETTERS'),
+                'CID_EV_CHARSET_HEX'               => trans('CID_EV_CHARSET_HEX'),
+                'CID_EV_CHARSET_BASE64'            => trans('CID_EV_CHARSET_BASE64'),
+                'CID_EV_CHARSET_BINARY'            => trans('CID_EV_CHARSET_BINARY'),
+                'CID_EV_CHARSET_MORSE'             => trans('CID_EV_CHARSET_MORSE'),
+                'CID_EV_CHARSET_BACON'             => trans('CID_EV_CHARSET_BACON'),
+                'CID_EV_CHARSET_NUMBERS'           => trans('CID_EV_CHARSET_NUMBERS'),
+                'CID_EV_LENGTH_MULTIPLE_OF'        => trans('CID_EV_LENGTH_MULTIPLE_OF'),
+                'CID_EV_IOC_MONO'                  => trans('CID_EV_IOC_MONO'),
+                'CID_EV_IOC_POLY'                  => trans('CID_EV_IOC_POLY'),
+                'CID_EV_IOC_PRESERVED'             => trans('CID_EV_IOC_PRESERVED'),
+                'CID_EV_CHISQ_BEST_SHIFT'          => trans('CID_EV_CHISQ_BEST_SHIFT'),
+                'CID_EV_AMBIGUOUS_POLYALPHA'       => trans('CID_EV_AMBIGUOUS_POLYALPHA'),
+                'CID_EV_LOW_SAMPLE'                => trans('CID_EV_LOW_SAMPLE'),
+            ];
+        }
         $allInCategoryLabel = str_replace(
             ':category',
             (string) ($category['name'] ?? $categoryAlias),
@@ -271,6 +328,7 @@ final readonly class CipherController
     private function buildToolUi(string $toolSlug, string $calculationMode): array
     {
         return [
+            'toolSlug' => $toolSlug,
             'tabEncode' => trans('CIPHER_TOOL_TAB_ENCODE'),
             'tabDecode' => trans('CIPHER_TOOL_TAB_DECODE'),
             'inputLabelEncode' => trans('CIPHER_TOOL_INPUT_LABEL_ENCODE'),

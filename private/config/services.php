@@ -337,4 +337,114 @@ return [
             $container->get(LoggerInterface::class)
         );
     },
+
+    App\Cipher\CipherIdentifierService::class => static function (Container $container): App\Cipher\CipherIdentifierService {
+        return new App\Cipher\CipherIdentifierService(
+            [
+                $container->get(App\Cipher\Detector\JwtDetector::class),
+                $container->get(App\Cipher\Detector\MorseCodeDetector::class),
+                $container->get(App\Cipher\Detector\BaconDetector::class),
+                $container->get(App\Cipher\Detector\BinaryDetector::class),
+                $container->get(App\Cipher\Detector\HexDetector::class),
+                $container->get(App\Cipher\Detector\Base64Detector::class),
+                $container->get(App\Cipher\Detector\A1z26Detector::class),
+                $container->get(App\Cipher\Detector\PolybiusSquareDetector::class),
+                $container->get(App\Cipher\Detector\UrlEncodedDetector::class),
+                $container->get(App\Cipher\Detector\UnicodeEscapeDetector::class),
+                $container->get(App\Cipher\Detector\Rot13Detector::class),
+                $container->get(App\Cipher\Detector\CaesarDetector::class),
+                $container->get(App\Cipher\Detector\AtbashDetector::class),
+                $container->get(App\Cipher\Detector\AffineDetector::class),
+                $container->get(App\Cipher\Detector\SimpleSubstitutionDetector::class),
+                $container->get(App\Cipher\Detector\XorDetector::class),
+                $container->get(App\Cipher\Detector\VigenereDetector::class),
+                $container->get(App\Cipher\Detector\BeaufortDetector::class),
+                $container->get(App\Cipher\Detector\AutokeyDetector::class),
+                $container->get(App\Cipher\Detector\GronsfeldDetector::class),
+                $container->get(App\Cipher\Detector\AlbertiDetector::class),
+                $container->get(App\Cipher\Detector\BifidDetector::class),
+                $container->get(App\Cipher\Detector\TrifidDetector::class),
+                $container->get(App\Cipher\Detector\RailFenceDetector::class),
+                $container->get(App\Cipher\Detector\ColumnarTranspositionDetector::class),
+                $container->get(App\Cipher\Detector\PlayfairDetector::class),
+                $container->get(App\Cipher\Detector\HillDetector::class),
+            ],
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
+            $container->get(App\Cipher\IndexOfCoincidence::class),
+        );
+    },
+
+    App\Cipher\Detector\CaesarDetector::class => static function (Container $container): App\Cipher\Detector\CaesarDetector {
+        return new App\Cipher\Detector\CaesarDetector(
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
+            $container->get(App\Cipher\CaesarCipherService::class),
+        );
+    },
+
+    App\Cipher\Detector\Rot13Detector::class => static function (Container $container): App\Cipher\Detector\Rot13Detector {
+        return new App\Cipher\Detector\Rot13Detector(
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
+            $container->get(App\Cipher\CaesarCipherService::class),
+        );
+    },
+
+    App\Cipher\Detector\AtbashDetector::class => static function (Container $container): App\Cipher\Detector\AtbashDetector {
+        return new App\Cipher\Detector\AtbashDetector(
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
+            $container->get(App\Cipher\AtbashCipherService::class),
+        );
+    },
+
+    App\Cipher\Detector\RailFenceDetector::class => static function (Container $container): App\Cipher\Detector\RailFenceDetector {
+        return new App\Cipher\Detector\RailFenceDetector(
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
+        );
+    },
+
+    App\Cipher\Detector\ColumnarTranspositionDetector::class => static function (Container $container): App\Cipher\Detector\ColumnarTranspositionDetector {
+        return new App\Cipher\Detector\ColumnarTranspositionDetector(
+            $container->get(App\Cipher\LetterFrequencyScorer::class),
+        );
+    },
+
+    // Явный binding чтобы разрешить циклическую зависимость:
+    // ApiCipherToolRegistry → CipherIdentifierApiCipherTool → ApiCipherToolExecutorInterface → ApiCipherToolRegistry
+    App\Cipher\ApiCipherToolRegistry::class => static function (Container $container): App\Cipher\ApiCipherToolRegistry {
+        $registry = new App\Cipher\ApiCipherToolRegistry(
+            $container->get(App\Cipher\AffineApiCipherTool::class),
+            $container->get(App\Cipher\CaesarApiCipherTool::class),
+            $container->get(App\Cipher\AtbashApiCipherTool::class),
+            $container->get(App\Cipher\PlayfairApiCipherTool::class),
+            $container->get(App\Cipher\BeaufortApiCipherTool::class),
+            $container->get(App\Cipher\PortaApiCipherTool::class),
+            $container->get(App\Cipher\AutokeyApiCipherTool::class),
+            $container->get(App\Cipher\GronsfeldApiCipherTool::class),
+            $container->get(App\Cipher\VigenereApiCipherTool::class),
+            $container->get(App\Cipher\VernamApiCipherTool::class),
+            $container->get(App\Cipher\BaconApiCipherTool::class),
+            $container->get(App\Cipher\Rot13ApiCipherTool::class),
+            $container->get(App\Cipher\A1z26ApiCipherTool::class),
+            $container->get(App\Cipher\RailFenceApiCipherTool::class),
+            $container->get(App\Cipher\ColumnarTranspositionApiCipherTool::class),
+            $container->get(App\Cipher\PolybiusSquareApiCipherTool::class),
+            $container->get(App\Cipher\HillApiCipherTool::class),
+            $container->get(App\Cipher\CaesarBruteForceApiCipherTool::class),
+            $container->get(App\Cipher\AffineBruteForceApiCipherTool::class),
+            $container->get(App\Cipher\SimpleSubstitutionApiCipherTool::class),
+            $container->get(App\Cipher\XorApiCipherTool::class),
+            $container->get(App\Cipher\VigenereCrackerApiCipherTool::class),
+            $container->get(App\Cipher\BifidApiCipherTool::class),
+            $container->get(App\Cipher\TrifidApiCipherTool::class),
+            $container->get(App\Cipher\AlbertiApiCipherTool::class),
+        );
+        $registry->register(new App\Cipher\CipherIdentifierApiCipherTool(
+            $container->get(App\Cipher\CipherIdentifierService::class),
+            $registry,
+        ));
+        return $registry;
+    },
+
+    App\Cipher\ApiCipherToolExecutorInterface::class => static function (Container $container): App\Cipher\ApiCipherToolExecutorInterface {
+        return $container->get(App\Cipher\ApiCipherToolRegistry::class);
+    },
 ];

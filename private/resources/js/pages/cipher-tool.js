@@ -7,6 +7,7 @@ import { initFrequencyAnalysis } from './cipher-tool/frequency-analysis.js'
 import { initLetterFrequency } from './cipher-tool/letter-frequency.js'
 import { initBruteForce } from './cipher-tool/brute-force.js'
 import { initVigenereCracker } from './cipher-tool/vigenere-cracker.js'
+import { initCipherIdentifier } from './cipher-tool/cipher-identifier.js'
 import { initMatrixControl } from './cipher-tool/matrix-control.js'
 import { initMorsePlayer } from './cipher-tool/morse-player.js'
 import { initCustomSelects } from './cipher-tool/custom-selects.js'
@@ -79,6 +80,7 @@ export function initCipherToolPage() {
   const isAnalysisTool = Boolean(ui.analysisMode)
   const isBruteForceTool = Boolean(ui.bruteForceMode)
   const isVigenereCrackerTool  = Boolean(ui.vigenereCrackerMode)
+  const isIdentifierTool       = Boolean(ui.identifierMode)
   const isLetterFrequencyTool  = Boolean(ui.letterFrequencyMode)
   const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
@@ -121,6 +123,7 @@ export function initCipherToolPage() {
   let letterFrequency = null
   let bruteForce = null
   let vigenereCracker = null
+  let cipherIdentifier = null
   let matrixCtrl = null
   let albertiWheel = null
 
@@ -224,6 +227,27 @@ export function initCipherToolPage() {
       return parsedState
     } catch {
       return null
+    }
+  }
+
+  const loadCarryOver = () => {
+    if (!canUsePreferenceStorage()) return
+    try {
+      const raw = window.localStorage.getItem('ciphers:carry-over')
+      if (!raw) return
+      const payload = JSON.parse(raw)
+      if (!payload || typeof payload !== 'object') return
+      if (Date.now() > (payload.expiresAt ?? 0)) {
+        window.localStorage.removeItem('ciphers:carry-over')
+        return
+      }
+      const text = String(payload.text ?? '')
+      if (!text) return
+      window.localStorage.removeItem('ciphers:carry-over')
+      input.value = text
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+    } catch {
+      // ignore storage errors
     }
   }
 
@@ -401,6 +425,7 @@ export function initCipherToolPage() {
       if (isAnalysisTool) frequencyAnalysis.showEmpty()
       if (isBruteForceTool) bruteForce.showEmpty()
       if (isVigenereCrackerTool) vigenereCracker.showEmpty()
+      if (isIdentifierTool) cipherIdentifier.showEmpty()
       if (isLetterFrequencyTool) letterFrequency.showEmpty()
       if (isJsonFormatterTool) jsonFormatter.showEmpty()
       if (isTimestampConverterTool) timestampConverter.showEmpty()
@@ -558,6 +583,8 @@ export function initCipherToolPage() {
         bruteForce.handleApiResponse(response, alphabetSelect)
       } else if (isVigenereCrackerTool) {
         vigenereCracker.handleApiResponse(response, alphabetSelect)
+      } else if (isIdentifierTool) {
+        cipherIdentifier.handleApiResponse(response)
       } else {
         if (isAlbertiWheelTool && albertiWheel && response?.inner_alphabet) {
           albertiWheel.update(String(response.inner_alphabet), Number(response.index_offset ?? 0))
@@ -583,6 +610,9 @@ export function initCipherToolPage() {
       }
       if (isVigenereCrackerTool) {
         vigenereCracker.showEmpty()
+      }
+      if (isIdentifierTool) {
+        cipherIdentifier.showEmpty()
       }
       output.value = ''
       setOutputState(false)
@@ -916,6 +946,12 @@ export function initCipherToolPage() {
     })
   }
 
+  if (isIdentifierTool) {
+    cipherIdentifier = initCipherIdentifier({
+      output, visualOutput, tabDecode, ui, input, setFeedback, setOutputState,
+    })
+  }
+
   if (isLetterFrequencyTool) {
     letterFrequency = initLetterFrequency({
       output, visualOutput, tabDecode, ui, decoder,
@@ -927,6 +963,7 @@ export function initCipherToolPage() {
 
   setMode('encode')
   initCustomSelects()
+  loadCarryOver()
 
   if (isAlbertiWheelTool) {
     const wheelWrap = document.createElement('div')

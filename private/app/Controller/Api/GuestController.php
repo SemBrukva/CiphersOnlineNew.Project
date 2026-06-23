@@ -520,6 +520,19 @@ final class GuestController
     }
 
     /**
+     * Определяет тип шифра/кодировки для произвольного текста.
+     *
+     * POST /api/tools/cipher-identifier
+     */
+    #[ApiOperation(summary: 'Cipher Identifier', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Список кандидатов с confidence')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function cipherIdentifier(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'cipher-identifier');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

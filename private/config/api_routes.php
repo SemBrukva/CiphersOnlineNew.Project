@@ -212,6 +212,13 @@ return [
         'name'       => 'api.tools.alberti',
     ],
 
+    'POST /tools/cipher-identifier' => [
+        'controller' => GuestController::class,
+        'method'     => 'cipherIdentifier',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.cipher_identifier',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

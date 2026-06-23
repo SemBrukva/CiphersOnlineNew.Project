@@ -46,7 +46,8 @@ final readonly class ToolRegistry
         private AffineBruteForceService $affineBruteForce,
         private BifidCipherService $bifidCipher,
         private TrifidCipherService $trifidCipher,
-        private AlbertiCipherService $albertiCipher
+        private AlbertiCipherService $albertiCipher,
+        private CipherIdentifierService $cipherIdentifier
     ) {
     }
 
@@ -242,6 +243,12 @@ final readonly class ToolRegistry
                 ['label' => 'Shift 3',  'value' => 'KHOOR ZRUOG',       'alphabet' => 'en'],
                 ['label' => 'Shift 7',  'value' => 'HAAHJR HA KHDU',    'alphabet' => 'en'],
             ],
+            'text-analysis/cipher-identifier' => [
+                ['label' => 'Morse',   'value' => '... --- ...'],
+                ['label' => 'Base64',  'value' => 'SGVsbG8gV29ybGQh'],
+                ['label' => 'Caesar',  'value' => 'KHOOR ZRUOG'],
+                ['label' => 'Vigenere', 'value' => 'RIJVS UYVJN'],
+            ],
             'text-analysis/vigenere-cracker' => [
                 ['label' => 'Key KEY',    'value' => 'SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC YJ DYSJSWFXIQC MR GEQ DLC OTMML MP FCVMCP MR GEQ DLC OTMML MP MLMVCNYJSXW',   'alphabet' => 'en'],
                 ['label' => 'Key LEMON',  'value' => 'QSGF FNSDS NYH ESIPR KSNCW MUB ZYD TNELQFF MVAITSX RCEEL AB GSME QBYXUBRYX M BRH RMHVZR OCANIUJRO MZ ZVMIDHL LRP RROMOOGPH FC GSI BFBASEWGTSZ HULX MZY XIZ OEP GDSNEIP SDFEX', 'alphabet' => 'en'],
@@ -306,6 +313,7 @@ final readonly class ToolRegistry
             'text-analysis/caesar-brute-force' => 'caesar-brute-force',
             'text-analysis/affine-brute-force' => 'affine-brute-force',
             'text-analysis/vigenere-cracker'   => 'vigenere-cracker',
+            'text-analysis/cipher-identifier'  => 'cipher-identifier',
             'text-analysis/letter-frequency' => null,
             default => null,
         };
@@ -349,10 +357,11 @@ final readonly class ToolRegistry
             'encoding/json-formatter' => $this->jsonFormatter->getToolSettings(),
             'encoding/timestamp-converter' => $this->timestampConverter->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
-            'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getToolSettings(),
-            'text-analysis/affine-brute-force' => $this->affineBruteForce->getToolSettings(),
-            'text-analysis/vigenere-cracker'   => $this->vigenereCracker->getToolSettings(),
-            'text-analysis/letter-frequency'   => $this->letterFrequency->getToolSettings(),
+            'text-analysis/caesar-brute-force'  => $this->caesarBruteForce->getToolSettings(),
+            'text-analysis/affine-brute-force'  => $this->affineBruteForce->getToolSettings(),
+            'text-analysis/vigenere-cracker'    => $this->vigenereCracker->getToolSettings(),
+            'text-analysis/letter-frequency'    => $this->letterFrequency->getToolSettings(),
+            'text-analysis/cipher-identifier'   => $this->cipherIdentifier->getToolSettings(),
             default => [],
         };
     }
@@ -391,9 +400,10 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),
-            'text-analysis/affine-brute-force' => $this->affineBruteForce->getTrustItems($calculationMode),
-            'text-analysis/vigenere-cracker'   => $this->vigenereCracker->getTrustItems($calculationMode),
-            'text-analysis/letter-frequency'   => $this->letterFrequency->getTrustItems($calculationMode),
+            'text-analysis/affine-brute-force'  => $this->affineBruteForce->getTrustItems($calculationMode),
+            'text-analysis/vigenere-cracker'    => $this->vigenereCracker->getTrustItems($calculationMode),
+            'text-analysis/letter-frequency'    => $this->letterFrequency->getTrustItems($calculationMode),
+            'text-analysis/cipher-identifier'   => $this->cipherIdentifier->getTrustItems($calculationMode),
             'encoding/html-encode' => $this->htmlEncode->getTrustItems($calculationMode),
             'encoding/json-formatter' => $this->jsonFormatter->getTrustItems($calculationMode),
             'encoding/timestamp-converter' => $this->timestampConverter->getTrustItems($calculationMode),
