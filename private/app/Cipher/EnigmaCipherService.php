@@ -349,6 +349,8 @@ final readonly class EnigmaCipherService
 
     /**
      * Прямое прохождение через ротор: вход → выход (для одного направления).
+     *
+     * @param int[] $wiring
      */
     private function rotorForward(int $signal, array $wiring, int $position, int $ring): int
     {
@@ -359,6 +361,8 @@ final readonly class EnigmaCipherService
 
     /**
      * Обратное прохождение через ротор (после рефлектора).
+     *
+     * @param int[] $wiringInv
      */
     private function rotorBackward(int $signal, array $wiringInv, int $position, int $ring): int
     {

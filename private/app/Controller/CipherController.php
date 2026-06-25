@@ -472,12 +472,12 @@ final readonly class CipherController
         $plugboard = trim($parts[4]);
 
         $example['enigma_reflector']    = $reflector;
-        $example['enigma_rotor_left']   = strtoupper($rotors[0])    ?: 'I';
-        $example['enigma_rotor_middle'] = strtoupper($rotors[1])    ?: 'II';
-        $example['enigma_rotor_right']  = strtoupper($rotors[2])    ?: 'III';
-        $example['enigma_ring_left']    = strtoupper($rings[0])     ?: 'A';
-        $example['enigma_ring_middle']  = strtoupper($rings[1])     ?: 'A';
-        $example['enigma_ring_right']   = strtoupper($rings[2])     ?: 'A';
+        $example['enigma_rotor_left']   = strtoupper($rotors[0]) ?: 'I';
+        $example['enigma_rotor_middle'] = strtoupper($rotors[1]) ?: 'II';
+        $example['enigma_rotor_right']  = strtoupper($rotors[2]) ?: 'III';
+        $example['enigma_ring_left']    = strtoupper($rings[0]) ?: 'A';
+        $example['enigma_ring_middle']  = strtoupper($rings[1]) ?: 'A';
+        $example['enigma_ring_right']   = strtoupper($rings[2]) ?: 'A';
         $example['enigma_pos_left']     = strtoupper($positions[0]) ?: 'A';
         $example['enigma_pos_middle']   = strtoupper($positions[1]) ?: 'A';
         $example['enigma_pos_right']    = strtoupper($positions[2]) ?: 'A';
