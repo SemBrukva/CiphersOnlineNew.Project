@@ -6383,3 +6383,217 @@ a:focus .nav-fav-count {
 
   .cid-col-action { justify-content: flex-start; }
 }
+
+/* ── Enigma Machine Panel ───────────────────────────────────────── */
+.enigma-panel-wrap {
+  padding: 0 0 12px;
+}
+
+.enigma-panel {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(193, 255, 0, 0.16);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.enigma-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--co-accent);
+  background: rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(193, 255, 0, 0.12);
+}
+
+.enigma-panel__body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.enigma-panel__top {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: start;
+}
+
+.enigma-windows {
+  display: flex;
+  gap: 10px;
+}
+
+.enigma-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+  padding: 10px 12px 10px;
+  border: 1px solid rgba(193, 255, 0, 0.22);
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.28);
+  text-align: center;
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+}
+
+.enigma-window__ring {
+  margin-top: 6px;
+  font-size: 9px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2px 8px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.04em;
+}
+
+.enigma-window__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.enigma-window__rotor {
+  font-size: 12px;
+  color: var(--co-accent);
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.enigma-window__letter {
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #fff;
+  margin: 6px 0 4px;
+}
+
+.enigma-window__final {
+  min-height: 14px;
+  font-size: 12px;
+  color: rgba(193, 255, 0, 0.85);
+  letter-spacing: 0.06em;
+}
+
+.enigma-window__final:not(:empty)::before {
+  content: '→ ';
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.enigma-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.enigma-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.enigma-meta-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.enigma-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(193, 255, 0, 0.12);
+  color: var(--co-accent);
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+}
+
+.enigma-badge--counter {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.enigma-plugboard-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.enigma-plug-pair {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+  letter-spacing: 0.03em;
+}
+
+.enigma-plugboard-empty {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+.enigma-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-self: start;
+}
+
+.enigma-btn {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.enigma-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.enigma-btn--accent {
+  border-color: rgba(193, 255, 0, 0.4);
+  color: var(--co-accent);
+  background: rgba(193, 255, 0, 0.08);
+}
+
+.enigma-btn--accent:hover {
+  background: rgba(193, 255, 0, 0.18);
+  border-color: rgba(193, 255, 0, 0.6);
+}
+
+@media (max-width: 640px) {
+  .enigma-panel__top {
+    grid-template-columns: 1fr;
+  }
+  .enigma-windows {
+    justify-content: center;
+  }
+  .enigma-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

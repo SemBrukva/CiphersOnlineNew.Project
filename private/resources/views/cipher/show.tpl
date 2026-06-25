@@ -179,7 +179,7 @@
                 <span class="ciphers-unified__examples-label">{$tool_ui.tryLabel}</span>
                 <div class="ciphers-example-chips">
                     {foreach $tool_ui.exampleChips as $chip}
-                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}{if isset($chip.direction)} data-direction="{$chip.direction|escape:'html'}"{/if}{if isset($chip.delimiter)} data-delimiter="{$chip.delimiter|escape:'html'}"{/if}{if isset($chip.encoding)} data-encoding="{$chip.encoding|escape:'html'}"{/if}{if isset($chip.key_format)} data-key-format="{$chip.key_format|escape:'html'}"{/if}{if isset($chip.alberti_index)} data-alberti-index="{$chip.alberti_index|escape:'html'}"{/if}>{$chip.label}</button>
+                    <button class="ciphers-example-chip" type="button" data-example="{$chip.value|escape:'html'}" data-key-input="{$tool_ui.exampleKeyInputId|default:'ciphers-key'|escape:'html'}"{if isset($chip.alphabet)} data-alphabet="{$chip.alphabet|escape:'html'}"{/if}{if isset($chip.key)} data-key="{$chip.key|escape:'html'}"{/if}{if isset($chip.shift)} data-shift="{$chip.shift|escape:'html'}"{/if}{if isset($chip.direction)} data-direction="{$chip.direction|escape:'html'}"{/if}{if isset($chip.delimiter)} data-delimiter="{$chip.delimiter|escape:'html'}"{/if}{if isset($chip.encoding)} data-encoding="{$chip.encoding|escape:'html'}"{/if}{if isset($chip.key_format)} data-key-format="{$chip.key_format|escape:'html'}"{/if}{if isset($chip.alberti_index)} data-alberti-index="{$chip.alberti_index|escape:'html'}"{/if}{if isset($chip.enigma_reflector)} data-enigma-reflector="{$chip.enigma_reflector|escape:'html'}"{/if}{if isset($chip.enigma_rotor_left)} data-enigma-rotor-left="{$chip.enigma_rotor_left|escape:'html'}"{/if}{if isset($chip.enigma_rotor_middle)} data-enigma-rotor-middle="{$chip.enigma_rotor_middle|escape:'html'}"{/if}{if isset($chip.enigma_rotor_right)} data-enigma-rotor-right="{$chip.enigma_rotor_right|escape:'html'}"{/if}{if isset($chip.enigma_ring_left)} data-enigma-ring-left="{$chip.enigma_ring_left|escape:'html'}"{/if}{if isset($chip.enigma_ring_middle)} data-enigma-ring-middle="{$chip.enigma_ring_middle|escape:'html'}"{/if}{if isset($chip.enigma_ring_right)} data-enigma-ring-right="{$chip.enigma_ring_right|escape:'html'}"{/if}{if isset($chip.enigma_pos_left)} data-enigma-pos-left="{$chip.enigma_pos_left|escape:'html'}"{/if}{if isset($chip.enigma_pos_middle)} data-enigma-pos-middle="{$chip.enigma_pos_middle|escape:'html'}"{/if}{if isset($chip.enigma_pos_right)} data-enigma-pos-right="{$chip.enigma_pos_right|escape:'html'}"{/if}{if isset($chip.enigma_plugboard)} data-enigma-plugboard="{$chip.enigma_plugboard|escape:'html'}"{/if}>{$chip.label}</button>
                     {/foreach}
                     {if isset($tool_ui.timestampConverterMode) && $tool_ui.timestampConverterMode}
                     <button class="ciphers-example-chip" type="button" id="ciphers-ts-now"><i class="bi bi-clock"></i> {$tool_ui.tsNowLabel|default:'Now'}</button>
@@ -289,7 +289,18 @@
                             {if $example.direction}data-direction="{$example.direction|escape:'html'}"{/if}
                             {if $example.encoding}data-encoding="{$example.encoding|escape:'html'}"{/if}
                             {if isset($example.key_format) && $example.key_format}data-key-format="{$example.key_format|escape:'html'}"{/if}
-                            {if $example.alberti_index|default:''}data-alberti-index="{$example.alberti_index|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
+                            {if $example.alberti_index|default:''}data-alberti-index="{$example.alberti_index|escape:'html'}"{/if}
+                            {if isset($example.enigma_reflector)}data-enigma-reflector="{$example.enigma_reflector|escape:'html'}"{/if}
+                            {if isset($example.enigma_rotor_left)}data-enigma-rotor-left="{$example.enigma_rotor_left|escape:'html'}"{/if}
+                            {if isset($example.enigma_rotor_middle)}data-enigma-rotor-middle="{$example.enigma_rotor_middle|escape:'html'}"{/if}
+                            {if isset($example.enigma_rotor_right)}data-enigma-rotor-right="{$example.enigma_rotor_right|escape:'html'}"{/if}
+                            {if isset($example.enigma_ring_left)}data-enigma-ring-left="{$example.enigma_ring_left|escape:'html'}"{/if}
+                            {if isset($example.enigma_ring_middle)}data-enigma-ring-middle="{$example.enigma_ring_middle|escape:'html'}"{/if}
+                            {if isset($example.enigma_ring_right)}data-enigma-ring-right="{$example.enigma_ring_right|escape:'html'}"{/if}
+                            {if isset($example.enigma_pos_left)}data-enigma-pos-left="{$example.enigma_pos_left|escape:'html'}"{/if}
+                            {if isset($example.enigma_pos_middle)}data-enigma-pos-middle="{$example.enigma_pos_middle|escape:'html'}"{/if}
+                            {if isset($example.enigma_pos_right)}data-enigma-pos-right="{$example.enigma_pos_right|escape:'html'}"{/if}
+                            {if isset($example.enigma_plugboard)}data-enigma-plugboard="{$example.enigma_plugboard|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
                 </article>
             {/foreach}
         </div>

@@ -212,6 +212,13 @@ return [
         'name'       => 'api.tools.alberti',
     ],
 
+    'POST /tools/enigma' => [
+        'controller' => GuestController::class,
+        'method'     => 'enigma',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.enigma',
+    ],
+
     'POST /tools/cipher-identifier' => [
         'controller' => GuestController::class,
         'method'     => 'cipherIdentifier',

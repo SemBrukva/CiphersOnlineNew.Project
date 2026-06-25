@@ -233,6 +233,19 @@ final readonly class CipherController
             $toolUi['albertiWheelDiskLabel']    = trans('ALBERTI_WHEEL_DISK_LABEL');
             $toolUi['albertiWheelMappingLabel'] = trans('ALBERTI_WHEEL_MAPPING_LABEL');
         }
+        if ($cipherAlias === 'enigma') {
+            $toolUi['enigmaMode']            = true;
+            $toolUi['enigmaVisualTitle']     = trans('ENIGMA_VISUAL_TITLE');
+            $toolUi['enigmaVisualRotors']    = trans('ENIGMA_VISUAL_ROTOR_LABEL');
+            $toolUi['enigmaVisualReflector'] = trans('ENIGMA_VISUAL_REFLECTOR_LABEL');
+            $toolUi['enigmaVisualPlugboard'] = trans('ENIGMA_VISUAL_PLUGBOARD_LABEL');
+            $toolUi['enigmaVisualStart']     = trans('ENIGMA_VISUAL_START_LABEL');
+            $toolUi['enigmaVisualFinal']     = trans('ENIGMA_VISUAL_FINAL_LABEL');
+            $toolUi['enigmaVisualLetters']   = trans('ENIGMA_VISUAL_LETTERS_LABEL');
+            $toolUi['enigmaVisualEmpty']     = trans('ENIGMA_VISUAL_PLUGBOARD_EMPTY');
+            $toolUi['enigmaVisualReset']     = trans('ENIGMA_VISUAL_RESET_LABEL');
+            $toolUi['enigmaVisualRandom']    = trans('ENIGMA_VISUAL_RANDOM_LABEL');
+        }
         if ($cipherAlias === 'cipher-identifier') {
             $toolUi['identifierMode']            = true;
             $toolUi['disableLiveMode']           = true;
@@ -408,6 +421,13 @@ final readonly class CipherController
             unset($example);
         }
 
+        if ($toolSlug === 'classical-ciphers/enigma') {
+            foreach ($examples as &$example) {
+                $this->enrichEnigmaExample($example);
+            }
+            unset($example);
+        }
+
         if (!$this->toolRegistry->exampleKeyIsMatrix($toolSlug)) {
             return $examples;
         }
@@ -427,6 +447,54 @@ final readonly class CipherController
         }
 
         return $examples;
+    }
+
+    /**
+     * Раскладывает поле key примера Enigma в data-атрибуты для настроек.
+     *
+     * Формат key в БД: rotorL,rotorM,rotorR|ringL,ringM,ringR|posL,posM,posR|reflector|plugboard
+     * Поле key переписывается в человекочитаемое представление для UI карточки.
+     *
+     * @param array<string, mixed> $example
+     */
+    private function enrichEnigmaExample(array &$example): void
+    {
+        $raw = trim((string) ($example['key'] ?? ''));
+        if ($raw === '') {
+            return;
+        }
+
+        $parts = array_pad(explode('|', $raw), 5, '');
+        $rotors    = array_pad(array_map('trim', explode(',', $parts[0])), 3, '');
+        $rings     = array_pad(array_map('trim', explode(',', $parts[1])), 3, '');
+        $positions = array_pad(array_map('trim', explode(',', $parts[2])), 3, '');
+        $reflector = strtoupper(trim($parts[3])) ?: 'B';
+        $plugboard = trim($parts[4]);
+
+        $example['enigma_reflector']    = $reflector;
+        $example['enigma_rotor_left']   = strtoupper($rotors[0])    ?: 'I';
+        $example['enigma_rotor_middle'] = strtoupper($rotors[1])    ?: 'II';
+        $example['enigma_rotor_right']  = strtoupper($rotors[2])    ?: 'III';
+        $example['enigma_ring_left']    = strtoupper($rings[0])     ?: 'A';
+        $example['enigma_ring_middle']  = strtoupper($rings[1])     ?: 'A';
+        $example['enigma_ring_right']   = strtoupper($rings[2])     ?: 'A';
+        $example['enigma_pos_left']     = strtoupper($positions[0]) ?: 'A';
+        $example['enigma_pos_middle']   = strtoupper($positions[1]) ?: 'A';
+        $example['enigma_pos_right']    = strtoupper($positions[2]) ?: 'A';
+        $example['enigma_plugboard']    = $plugboard;
+
+        $display = sprintf(
+            '%s-%s-%s · %s-%s-%s · UKW-%s%s',
+            $example['enigma_rotor_left'],
+            $example['enigma_rotor_middle'],
+            $example['enigma_rotor_right'],
+            $example['enigma_pos_left'],
+            $example['enigma_pos_middle'],
+            $example['enigma_pos_right'],
+            $reflector,
+            $plugboard !== '' ? ' · ' . $plugboard : ''
+        );
+        $example['key'] = $display;
     }
 
     /**

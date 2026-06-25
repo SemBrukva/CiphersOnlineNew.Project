@@ -35,6 +35,8 @@ use App\Cipher\CipherIdentifierApiCipherTool;
 use App\Cipher\CipherIdentifierService;
 use App\Cipher\ColumnarTranspositionApiCipherTool;
 use App\Cipher\ColumnarTranspositionCipherService;
+use App\Cipher\EnigmaApiCipherTool;
+use App\Cipher\EnigmaCipherService;
 use App\Cipher\GronsfeldApiCipherTool;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\HillApiCipherTool;
@@ -154,7 +156,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             $mockRegistry,
         );
 
-        return new ApiCipherToolRegistry(
+        $registry = new ApiCipherToolRegistry(
             new AffineApiCipherTool(new AffineCipherService()),
             new CaesarApiCipherTool($caesar),
             new AtbashApiCipherTool(new AtbashCipherService()),
@@ -180,7 +182,11 @@ final class ApiCipherToolRegistryTest extends TestCase
             new BifidApiCipherTool(new BifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
             new TrifidApiCipherTool(new TrifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
             new AlbertiApiCipherTool(new AlbertiCipherService()),
-            $cipherIdentifierTool,
+            new EnigmaApiCipherTool(new EnigmaCipherService()),
         );
+
+        $registry->register($cipherIdentifierTool);
+
+        return $registry;
     }
 }

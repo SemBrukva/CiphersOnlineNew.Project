@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-25T17:52:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "enigma",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 50,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 50,
+        "data": {
+            "name": "Enigma Makinesi Simülatörü",
+            "name_short": "Enigma Makinesi",
+            "description": "Rotorlar I-V, UKW-B/C yansıtıcıları, halka ayarları, rotor başlangıç konumları ve plugboard çiftleriyle mesaj şifrelemek ve çözmek için tarihsel doğrulukta çevrimiçi Enigma I (Wehrmacht, M3) simülatörü.",
+            "description_stort": "Rotor, yansıtıcı ve plugboard içeren çevrimiçi Enigma I simülatörü.",
+            "meta_title": "Enigma Makinesi Simülatörü Çevrimiçi | Ciphers Online",
+            "meta_description": "Enigma I/M3 şifreleme ve çözme için çevrimiçi Enigma Makinesi simülatörünü kullanın. Rotorlar I-V, UKW-B/C yansıtıcı, halka ayarları, başlangıç konumları ve plugboard yapılandırın."
+        }
+    },
+    "blocks": [
+        {
+            "id": 186,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Enigma makinesi nasıl çalışır",
+                "text": "<p>Enigma makinesi, Nazi Almanyası tarafından II. Dünya Savaşı öncesinde ve sırasında kullanılan elektromekanik bir rotor şifresidir. Her tuş basımında sinyal plugboard üzerinden sağ, orta ve sol rotora, ardından yansıtıcıya gider; sonra aynı rotorlar ve plugboard üzerinden ters yönde geri dönerek lamba panelindeki harfi üretir.</p><p>Yansıtıcı sinyal yolunu karşılıklı hale getirdiği için aynı makine yapılandırması hem şifreleme hem de çözme için kullanılır. Rotorlar her harf işlenmeden önce ilerler - tarihsel çift adım davranışı dahil -, bu yüzden değiştirme alfabesi mesaj boyunca sürekli değişir.</p><p>Bu çevrimiçi simülatör standart Enigma I / M3 akışına odaklanır: günlük anahtarı ayarlayın, düz metni veya şifreli metni yazın ve sonucu tersine çevirmek için aynı ayarları kullanın.</p>"
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Simülatörü yapılandırma",
+                "text": "<p>Simülatör, beş kullanılabilir rotor (<strong>I, II, III, IV, V</strong>) ve iki yansıtıcı (<strong>UKW-B</strong> ve <strong>UKW-C</strong>) ile standart <strong>Enigma I</strong> makinesini modeller. Sol, orta ve sağ yuvalar için üç farklı rotor seçilmelidir; gerçek üç rotorlu kurulum farklı çarklar kullandığı için tekrarlanan rotorlar reddedilir.</p><p>Her rotor için <em>halka ayarı</em> (Ringstellung) ve görünen <em>başlangıç konumu</em> (Grundstellung) belirlenebilir. Halka ayarı iç kablolama ofsetini ve çentik zamanlamasını değiştirirken, başlangıç konumu ilk tuş basımından önce rotor penceresinde görünen harftir.</p><p>İsteğe bağlı <strong>plugboard</strong> (Steckerbrett), <code>AB CD EF</code> gibi çiftleri kabul eder. Boşluklar, virgüller ve tireler ayırıcı olarak ele alınır; her harf yalnızca bir çiftte yer alabilir, bir harf kendisiyle eşleştirilemez ve simülatör en fazla 13 çifte izin verir. Tarihsel olarak operatörler çoğunlukla 10 çift kullanırdı.</p>"
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Çevrimiçi araç ne gösterir",
+                "text": "<p>Araç; yansıtıcıyı, rotor sırasını, mevcut pencere harflerini, halka işaretlerini, plugboard çiftlerini ve işlenen harf sayısını gösteren görsel bir makine durumu paneli içerir. Çalıştırmadan sonra rotorların son konumlarını da gösterir, böylece makinenin ne kadar ilerlediğini görebilirsiniz.</p><p>Latin dışı karakterler, boşluklar, noktalama ve satır sonları çıktıda korunur; yalnızca A-Z harfleri şifrelenir, rotorları ilerletir ve işlenen harf olarak sayılır. Büyük/küçük harf korunur; bu da simülatörü kısa notlar, ders örnekleri ve şifre bulmacalarını kontrol etmek için kullanışlı yapar.</p><p><strong>Konumları sıfırla</strong> düğmesi halkaları, konumları ve plugboard'u varsayılan duruma getirir; <strong>Rastgele</strong> ise seçili rotor sırasını geçerli tutarak rastgele halka ayarları, rotor konumları ve plugboard çiftleri üretir.</p>"
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Şifreleme ve çözme",
+                "text": "<p>Bir mesajı şifrelemek için yansıtıcıyı, rotor sırasını, halka ayarlarını, başlangıç konumlarını ve plugboard'u seçin, ardından düz metni girin. Çıktı, bu tam yapılandırmanın ürettiği Enigma şifreli metnidir.</p><p>Çözmek için şifreli metni girin ve şifreleme sırasında kullanılan aynı ayarları geri yükleyin. Enigma karşılıklı bir şifre olduğundan ayrı bir matematiksel çözme modu yoktur: arayüz yönü açıklık için gösterir, ancak sinyal yolu aynıdır.</p><p>Kompakt anahtar gösterimi <code>rotors|rings|positions|reflector|plugboard</code> olarak okunur. Örneğin <code>I,II,III|A,A,A|M,C,K|B|AB CD EF</code>; rotorlar I-II-III, halkalar A-A-A, başlangıç pencereleri M-C-K, yansıtıcı UKW-B ve üç plugboard çifti anlamına gelir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 369,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Hangi Enigma modeli simüle ediliyor?",
+                "answer": "Bu, Wehrmacht tarafından kullanılan standart Enigma I (M3) modelidir. Üç rotor yuvası vardır ve I-V rotorları ile UKW-B ve UKW-C yansıtıcılarını içerir. Dördüncü ince rotora sahip deniz M4 modeli dahil değildir."
+            }
+        },
+        {
+            "id": 370,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Şifreleme neden çözmeyle aynıdır?",
+                "answer": "Sinyal yolunun sonundaki yansıtıcı, sinyali rotorlar içinden farklı bir rotayla geri gönderir. Bu kablolamayı karşılıklı yapar: belirli bir makine durumunda A harfi D'ye şifreleniyorsa, aynı durumdan D tekrar A'ya döner. Bu nedenle hiçbir harf kendisine şifrelenmez."
+            }
+        },
+        {
+            "id": 371,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Çift adım anomalisi nedir?",
+                "answer": "Normalde sağ rotor her tuş basımında ilerler ve çentiğine ulaştığında orta rotoru tetikler. Ancak orta rotor kendi çentiği aktifken de ilerler ve sol rotoru da beraberinde taşır. Bu, orta rotorun art arda iki adım atmasına yol açar; simülatör bu tarihsel mekanik davranışı yeniden üretir."
+            }
+        },
+        {
+            "id": 372,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Plugboard'u nasıl yapılandırırım?",
+                "answer": "Harf çiftlerini boşluk, tire veya virgülle ayırarak girin; örneğin AB CD EF. Her harf yalnızca bir çiftte görünebilir ve kendisiyle eşleştirilemez. En fazla 13 çifte izin verilir. Plugboard'u kapatmak için alanı boş bırakın."
+            }
+        },
+        {
+            "id": 374,
+            "sort_order": 45,
+            "published": true,
+            "data": {
+                "question": "Halka ayarları ile başlangıç konumları arasındaki fark nedir?",
+                "answer": "Başlangıç konumu, yazmaya başlamadan önce rotor penceresinde görünen harftir. Halka ayarı, alfabe halkasını rotorun iç kablolamasına göre kaydırır; bu da ofseti ve ilerleme davranışını değiştirir. Aynı rotor sırası ve aynı başlangıç konumları, farklı halka ayarlarıyla tamamen farklı metinler üretebilir."
+            }
+        },
+        {
+            "id": 373,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Enigma bugün güvenli mi?",
+                "answer": "Hayır. Modern bilgisayarlar tarihsel Enigma anahtarlarını çok hızlı deneyebilir. II. Dünya Savaşı sırasında bile şifre, Marian Rejewski, Alan Turing ve diğerleri dahil olmak üzere Polonyalı ve İngiliz kriptologlar tarafından ele geçirilen materyaller, mesaj göstergeleri ve Bletchley Park'taki istatistiksel saldırılarla kırıldı. Simülatör eğitim ve keşif içindir."
+            }
+        },
+        {
+            "id": 375,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Noktalama veya boşluklar rotor konumlarını etkiler mi?",
+                "answer": "Hayır. Simülatör noktalama, boşluk, rakam ve satır sonlarını çıktıda korur; ancak yalnızca Latin A-Z harfleri şifrelenir ve rotorları ilerletir. Böylece okunabilir biçim korunurken Enigma'nın harf harf işleyişi de korunur."
+            }
+        },
+        {
+            "id": 376,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Üç rotor neden farklı olmalıdır?",
+                "answer": "Servis pratik Enigma I kurulumunu izler: sol, orta ve sağ yuvalar I, II, III, IV ve V arasından seçilmiş üç farklı rotor kullanmalıdır. Aynı rotor iki kez seçilirse API tarihsel olmayan bir kurulum üretmek yerine yapılandırmayı reddeder."
+            }
+        },
+        {
+            "id": 377,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Ders kitaplarındaki Enigma örneklerini yeniden üretebilir miyim?",
+                "answer": "Evet, örnek Enigma I/M3, I-V rotorları, UKW-B veya UKW-C yansıtıcısı, üç rotor penceresi, halka ayarları ve isteğe bağlı plugboard kullanıyorsa. Deniz M4, dördüncü rotor, Yunan rotorları veya başka Enigma varyantları gerektiren örnekler bu simülatörün dışındadır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 189,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Varsayılan ayarlar",
+                "key": "I,II,III|A,A,A|A,A,A|B|",
+                "shift": 0,
+                "input": "MERHABA DUNYA",
+                "output": "DLXKOYC UPHZS",
+                "description": "Rotorlar I-II-III, yansıtıcı UKW-B, halkalar A-A-A, konumlar A-A-A, plugboard yok. Metin, Enigma I'in A-Z alfabesine uyması için Türkçe karakter olmadan yazılmıştır."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plugboard ile",
+                "key": "I,II,III|A,A,A|M,C,K|B|AB CD EF",
+                "shift": 0,
+                "input": "SAFAKTA SALDIRI",
+                "output": "XSZLDME JKWWJGZ",
+                "description": "Rotorlar I-II-III, konumlar M-C-K, plugboard AB CD EF (3 çift). Metin A-Z alfabesine uygun olarak yazılmıştır."
+            }
+        },
+        {
+            "id": 191,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Çözme örneği",
+                "key": "I,II,III|A,A,A|A,A,A|B|",
+                "shift": 0,
+                "input": "DLXKOYC UPHZS",
+                "output": "MERHABA DUNYA",
+                "description": "Örnek 1 ile aynı ayarlar: Enigma karşılıklı bir şifredir."
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Yansıtıcı C ve özel halkalar",
+                "key": "IV,V,I|B,C,D|X,Y,Z|C|AT BS DE FG IJ",
+                "shift": 0,
+                "input": "SIFRE",
+                "output": "YDKXJ",
+                "description": "Yansıtıcı UKW-C, rotorlar IV-V-I, halkalar B-C-D, konumlar X-Y-Z ve plugboard AT BS DE FG IJ."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Enigma makinesi simülatörü"
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Enigma şifresi"
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Rotor şifresi"
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "II. Dünya Savaşı kriptografisi"
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Plugboard"
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Ringstellung"
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Klasik kriptografi"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

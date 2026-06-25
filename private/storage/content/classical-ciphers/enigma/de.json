@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-25T17:52:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "enigma",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 50,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 50,
+        "data": {
+            "name": "Enigma-Maschine Simulator",
+            "name_short": "Enigma-Maschine",
+            "description": "Historisch genauer Online-Simulator der Enigma I (Wehrmacht, M3) zum Verschlüsseln und Entschlüsseln von Nachrichten mit Rotoren I-V, Reflektoren UKW-B/C, Ringstellungen, Rotorpositionen und Steckerbrett-Paaren.",
+            "description_stort": "Online-Simulator der Enigma I mit Rotoren, Reflektor und Steckerbrett.",
+            "meta_title": "Enigma-Maschine Simulator online | Ciphers Online",
+            "meta_description": "Nutzen Sie den Online-Simulator der Enigma-Maschine für Enigma I/M3 Verschlüsselung und Entschlüsselung. Rotoren I-V, UKW-B/C, Ringstellungen, Startpositionen und Steckerbrett konfigurieren."
+        }
+    },
+    "blocks": [
+        {
+            "id": 186,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie die Enigma-Maschine funktioniert",
+                "text": "<p>Die Enigma-Maschine ist eine elektromechanische Rotor-Chiffre, die vor und während des Zweiten Weltkriegs von NS-Deutschland verwendet wurde. Bei jedem Tastendruck läuft das Signal durch das Steckerbrett, den rechten, mittleren und linken Rotor, einen Reflektor und anschließend in umgekehrter Richtung wieder durch dieselben Rotoren und das Steckerbrett, wodurch ein Buchstabe auf dem Lampenfeld erscheint.</p><p>Da der Reflektor den Signalweg reziprok macht, verschlüsselt und entschlüsselt dieselbe Maschinenkonfiguration. Die Rotoren schalten vor der Verarbeitung jedes Buchstabens weiter - einschließlich des historischen Doppeltritts -, sodass sich das Ersetzungsalphabet während der Nachricht ständig ändert.</p><p>Dieser Online-Simulator konzentriert sich auf den Standardablauf der Enigma I / M3: Tagesschlüssel einstellen, Klartext oder Geheimtext eingeben und mit denselben Einstellungen die Umkehrung erzeugen.</p>"
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Simulator konfigurieren",
+                "text": "<p>Der Simulator modelliert die standardmäßige <strong>Enigma I</strong> mit fünf verfügbaren Rotoren (<strong>I, II, III, IV, V</strong>) und zwei Reflektoren (<strong>UKW-B</strong> und <strong>UKW-C</strong>). Für den linken, mittleren und rechten Steckplatz müssen drei verschiedene Rotoren gewählt werden; doppelte Rotoren werden abgelehnt, weil eine reale Drei-Rotor-Konfiguration unterschiedliche Walzen nutzte.</p><p>Für jeden Rotor lassen sich die <em>Ringstellung</em> und die sichtbare <em>Grundstellung</em> einstellen. Die Ringstellung verschiebt die interne Verdrahtung und den Übertrittspunkt, während die Grundstellung der Buchstabe ist, der vor dem ersten Tastendruck im Rotorfenster steht.</p><p>Das optionale <strong>Steckerbrett</strong> akzeptiert Paare wie <code>AB CD EF</code>. Leerzeichen, Kommas und Bindestriche gelten als Trennzeichen; jeder Buchstabe darf nur in einem Paar vorkommen, Selbstpaare sind ungültig, und der Simulator erlaubt bis zu 13 Paare. Historisch wurden häufig 10 Steckerpaare verwendet.</p>"
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Was das Online-Tool anzeigt",
+                "text": "<p>Das Tool enthält eine visuelle Maschinenzustandsanzeige für Reflektor, Rotorreihenfolge, aktuelle Fensterbuchstaben, Ringmarkierungen, Steckerbrett-Paare und die Anzahl verarbeiteter Buchstaben. Nach einem Lauf zeigt es außerdem die Endpositionen der Rotoren, damit nachvollziehbar ist, wie weit die Maschine weitergeschaltet hat.</p><p>Nicht-lateinische Zeichen, Leerzeichen, Satzzeichen und Zeilenumbrüche bleiben in der Ausgabe erhalten; nur A-Z-Buchstaben werden verschlüsselt, schalten die Rotoren weiter und zählen als verarbeitete Zeichen. Die Groß- und Kleinschreibung bleibt erhalten, was den Simulator praktisch für kurze Notizen, Unterrichtsbeispiele und Chiffre-Rätsel macht.</p><p>Mit <strong>Positionen zurücksetzen</strong> werden Ringe, Positionen und Steckerbrett auf den Standardzustand gesetzt; <strong>Zufällig</strong> erzeugt zufällige Ringstellungen, Rotorpositionen und Steckerbrett-Paare, ohne die gewählte Rotorreihenfolge ungültig zu machen.</p>"
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Verschlüsseln und entschlüsseln",
+                "text": "<p>Zum Verschlüsseln wählen Sie Reflektor, Rotorreihenfolge, Ringstellungen, Startpositionen und Steckerbrett und geben anschließend den Klartext ein. Die Ausgabe ist der Enigma-Geheimtext für genau diese Konfiguration.</p><p>Zum Entschlüsseln geben Sie den Geheimtext ein und stellen dieselben Einstellungen wieder her, die beim Verschlüsseln verwendet wurden. Da Enigma reziprok ist, gibt es keinen separaten mathematischen Entschlüsselungsmodus: Die Oberfläche zeigt die Richtung zur Orientierung, aber der Signalweg bleibt derselbe.</p><p>Die kompakte Schlüsselschreibweise liest sich als <code>rotors|rings|positions|reflector|plugboard</code>. Beispiel: <code>I,II,III|A,A,A|M,C,K|B|AB CD EF</code> bedeutet Rotoren I-II-III, Ringe A-A-A, Startfenster M-C-K, Reflektor UKW-B und drei Steckerbrett-Paare.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 369,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Welches Enigma-Modell wird simuliert?",
+                "answer": "Simuliert wird die standardmäßige Enigma I (M3), wie sie von der Wehrmacht verwendet wurde. Sie hat drei Rotorplätze und enthält die Rotoren I-V sowie die Reflektoren UKW-B und UKW-C. Die Marine-Enigma M4 mit einem vierten dünnen Rotor ist nicht enthalten."
+            }
+        },
+        {
+            "id": 370,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Warum sind Verschlüsselung und Entschlüsselung gleich?",
+                "answer": "Der Reflektor am Ende des Signalwegs schickt das Signal auf einem anderen Weg durch die Rotoren zurück. Dadurch wird die Verdrahtung reziprok: Wenn A in einem bestimmten Maschinenzustand zu D wird, wird D aus demselben Zustand wieder zu A. Deshalb wird ein Buchstabe nie zu sich selbst verschlüsselt."
+            }
+        },
+        {
+            "id": 371,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Was ist der Doppeltritt?",
+                "answer": "Normalerweise schaltet der rechte Rotor bei jedem Tastendruck weiter und stößt den mittleren Rotor an, wenn er seine Kerbe erreicht. Der mittlere Rotor schaltet aber auch, wenn seine eigene Kerbe aktiv ist, und nimmt dabei den linken Rotor mit. Dadurch macht der mittlere Rotor zwei aufeinanderfolgende Schritte; der Simulator bildet dieses historische mechanische Verhalten nach."
+            }
+        },
+        {
+            "id": 372,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Wie konfiguriere ich das Steckerbrett?",
+                "answer": "Geben Sie Buchstabenpaare getrennt durch Leerzeichen, Bindestriche oder Kommas ein, zum Beispiel AB CD EF. Jeder Buchstabe darf nur in einem Paar vorkommen und kann nicht mit sich selbst verbunden werden. Bis zu 13 Paare sind erlaubt. Lassen Sie das Feld leer, um das Steckerbrett zu deaktivieren."
+            }
+        },
+        {
+            "id": 374,
+            "sort_order": 45,
+            "published": true,
+            "data": {
+                "question": "Was ist der Unterschied zwischen Ringstellung und Startposition?",
+                "answer": "Die Startposition ist der sichtbare Buchstabe im Rotorfenster vor dem Tippen. Die Ringstellung verschiebt den Alphabetring relativ zur internen Rotorverdrahtung und ändert dadurch Offset und Übertrittsverhalten. Zwei Schlüssel mit gleicher Rotorreihenfolge und gleichen Startpositionen können völlig andere Texte erzeugen, wenn die Ringstellungen verschieden sind."
+            }
+        },
+        {
+            "id": 373,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ist Enigma heute sicher?",
+                "answer": "Nein. Moderne Computer können historische Enigma-Schlüssel sehr schnell durchsuchen. Schon im Zweiten Weltkrieg wurde die Chiffre von polnischen und britischen Kryptologen, darunter Marian Rejewski, Alan Turing und andere, mithilfe erbeuteter Unterlagen, Nachrichtenindikatoren und statistischer Angriffe in Bletchley Park gebrochen. Der Simulator ist für Lernen und Exploration gedacht."
+            }
+        },
+        {
+            "id": 375,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Beeinflussen Satzzeichen oder Leerzeichen die Rotorpositionen?",
+                "answer": "Nein. Der Simulator erhält Satzzeichen, Leerzeichen, Ziffern und Zeilenumbrüche in der Ausgabe, aber nur lateinische Buchstaben A-Z werden verschlüsselt und schalten die Rotoren weiter. So bleibt die Formatierung lesbar, während der buchstabenweise Enigma-Prozess erhalten bleibt."
+            }
+        },
+        {
+            "id": 376,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Warum müssen die drei Rotoren verschieden sein?",
+                "answer": "Der Dienst folgt der praktischen Enigma-I-Konfiguration: linker, mittlerer und rechter Steckplatz müssen drei verschiedene Rotoren aus I, II, III, IV und V verwenden. Wird derselbe Rotor zweimal gewählt, weist die API die Konfiguration zurück, statt eine nicht historische Einstellung zu erzeugen."
+            }
+        },
+        {
+            "id": 377,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Kann ich Lehrbuchbeispiele zur Enigma reproduzieren?",
+                "answer": "Ja, sofern das Beispiel Enigma I/M3 mit Rotoren I-V, Reflektor UKW-B oder UKW-C, drei Rotorfenstern, Ringstellungen und optionalem Steckerbrett verwendet. Beispiele für die Marine-M4, vierte Rotoren, griechische Rotoren oder andere Enigma-Varianten liegen außerhalb dieses Simulators."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 189,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Standardeinstellungen",
+                "key": "I,II,III|A,A,A|A,A,A|B|",
+                "shift": 0,
+                "input": "HALLO WELT",
+                "output": "IDBDA AKGH",
+                "description": "Rotoren I-II-III, Reflektor UKW-B, Ringe A-A-A, Positionen A-A-A, kein Steckerbrett."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Mit Steckerbrett",
+                "key": "I,II,III|A,A,A|M,C,K|B|AB CD EF",
+                "shift": 0,
+                "input": "ANGRIFF BEI DAEMMERUNG",
+                "output": "VMCTBYY MCS WNOESZDHAA",
+                "description": "Rotoren I-II-III, Positionen M-C-K, Steckerbrett AB CD EF (3 Paare). Der Text nutzt AE statt Ä, passend zum A-Z-Alphabet der Enigma."
+            }
+        },
+        {
+            "id": 191,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Entschlüsselungsbeispiel",
+                "key": "I,II,III|A,A,A|A,A,A|B|",
+                "shift": 0,
+                "input": "IDBDA AKGH",
+                "output": "HALLO WELT",
+                "description": "Dieselben Einstellungen wie in Beispiel 1: Enigma ist reziprok."
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Reflektor C und eigene Ringe",
+                "key": "IV,V,I|B,C,D|X,Y,Z|C|AT BS DE FG IJ",
+                "shift": 0,
+                "input": "GEHEIM",
+                "output": "NNZDMU",
+                "description": "Reflektor UKW-C, Rotoren IV-V-I, Ringe B-C-D, Positionen X-Y-Z und Steckerbrett AT BS DE FG IJ."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Enigma-Maschine Simulator"
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Enigma-Chiffre"
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Rotor-Chiffre"
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Kryptografie des Zweiten Weltkriegs"
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Steckerbrett"
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Ringstellung"
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Klassische Kryptografie"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

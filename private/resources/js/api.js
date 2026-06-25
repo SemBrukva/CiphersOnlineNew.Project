@@ -145,6 +145,8 @@ export class ApiClient {
         trifid: (data) => this.#request('POST', '/tools/trifid', data),
         /** POST /api/tools/alberti */
         alberti: (data) => this.#request('POST', '/tools/alberti', data),
+        /** POST /api/tools/enigma */
+        enigma: (data) => this.#request('POST', '/tools/enigma', data),
         /** POST /api/tools/cipher-identifier */
         'cipher-identifier': (data) => this.#request('POST', '/tools/cipher-identifier', data),
         /** GET /api/tools/search?q=...&locale=ru */

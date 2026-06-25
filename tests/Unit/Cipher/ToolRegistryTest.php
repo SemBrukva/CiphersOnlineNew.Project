@@ -20,6 +20,7 @@ use App\Cipher\CaesarCipherService;
 use App\Cipher\CaseFolder;
 use App\Cipher\CipherIdentifierService;
 use App\Cipher\ColumnarTranspositionCipherService;
+use App\Cipher\EnigmaCipherService;
 use App\Cipher\FrequencyAnalysisService;
 use App\Cipher\GronsfeldCipherService;
 use App\Cipher\HillCipherService;
@@ -170,6 +171,7 @@ final class ToolRegistryTest extends TestCase
             new BifidCipherService($catalog, $alphabetTool, $caseFolder),
             new TrifidCipherService($catalog, $alphabetTool, $caseFolder),
             new AlbertiCipherService(),
+            new EnigmaCipherService(),
             new CipherIdentifierService([], new LetterFrequencyScorer(), new IndexOfCoincidence(), new BigramFrequencyScorer())
         );
     }

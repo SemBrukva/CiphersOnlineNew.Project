@@ -457,6 +457,7 @@ return [
             $container->get(App\Cipher\BifidApiCipherTool::class),
             $container->get(App\Cipher\TrifidApiCipherTool::class),
             $container->get(App\Cipher\AlbertiApiCipherTool::class),
+            $container->get(App\Cipher\EnigmaApiCipherTool::class),
         );
         $registry->register(new App\Cipher\CipherIdentifierApiCipherTool(
             $container->get(App\Cipher\CipherIdentifierService::class),

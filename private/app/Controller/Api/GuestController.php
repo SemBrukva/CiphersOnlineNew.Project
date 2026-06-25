@@ -520,6 +520,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование на симуляторе Enigma через API.
+     *
+     * POST /api/tools/enigma
+     */
+    #[ApiOperation(summary: 'Enigma Machine Simulator', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function enigma(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'enigma');
+    }
+
+    /**
      * Определяет тип шифра/кодировки для произвольного текста.
      *
      * POST /api/tools/cipher-identifier

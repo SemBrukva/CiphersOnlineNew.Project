@@ -1,4 +1,5 @@
 import { initAlbertiWheel } from './cipher-tool/alberti-wheel.js'
+import { initEnigmaPanel } from './cipher-tool/enigma-panel.js'
 import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
 import { detectLanguage, getUnknownChars, isValidMorseFormat } from './cipher-tool/decoders/morse.js'
 import { initJsonFormatter } from './cipher-tool/json-formatter.js'
@@ -69,6 +70,17 @@ export function initCipherToolPage() {
   const tsNowBtn            = document.getElementById('ciphers-ts-now')
   const xorKeyFormatSelect  = document.getElementById('ciphers-xor-key-format')
   const albertiIndexSelect  = document.getElementById('ciphers-alberti-index')
+  const enigmaReflectorSelect = document.getElementById('ciphers-enigma-reflector')
+  const enigmaRotorLeftSelect = document.getElementById('ciphers-enigma-rotor-left')
+  const enigmaRotorMiddleSelect = document.getElementById('ciphers-enigma-rotor-middle')
+  const enigmaRotorRightSelect = document.getElementById('ciphers-enigma-rotor-right')
+  const enigmaRingLeftSelect   = document.getElementById('ciphers-enigma-ring-left')
+  const enigmaRingMiddleSelect = document.getElementById('ciphers-enigma-ring-middle')
+  const enigmaRingRightSelect  = document.getElementById('ciphers-enigma-ring-right')
+  const enigmaPosLeftSelect    = document.getElementById('ciphers-enigma-pos-left')
+  const enigmaPosMiddleSelect  = document.getElementById('ciphers-enigma-pos-middle')
+  const enigmaPosRightSelect   = document.getElementById('ciphers-enigma-pos-right')
+  const enigmaPlugboardInput   = document.getElementById('ciphers-enigma-plugboard')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -83,6 +95,7 @@ export function initCipherToolPage() {
   const isIdentifierTool       = Boolean(ui.identifierMode)
   const isLetterFrequencyTool  = Boolean(ui.letterFrequencyMode)
   const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
+  const isEnigmaTool           = Boolean(ui.enigmaMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
@@ -126,6 +139,7 @@ export function initCipherToolPage() {
   let cipherIdentifier = null
   let matrixCtrl = null
   let albertiWheel = null
+  let enigmaPanel = null
 
   const labels = {
     chars: ui.charsLabel || 'chars',
@@ -554,6 +568,20 @@ export function initCipherToolPage() {
         throw new Error(`Unknown API action: ${apiAction}`)
       }
 
+      const enigmaSettings = isEnigmaTool ? {
+        enigma_reflector:    String(enigmaReflectorSelect?.value ?? 'B'),
+        enigma_rotor_left:   String(enigmaRotorLeftSelect?.value ?? 'I'),
+        enigma_rotor_middle: String(enigmaRotorMiddleSelect?.value ?? 'II'),
+        enigma_rotor_right:  String(enigmaRotorRightSelect?.value ?? 'III'),
+        enigma_ring_left:    String(enigmaRingLeftSelect?.value ?? 'A'),
+        enigma_ring_middle:  String(enigmaRingMiddleSelect?.value ?? 'A'),
+        enigma_ring_right:   String(enigmaRingRightSelect?.value ?? 'A'),
+        enigma_pos_left:     String(enigmaPosLeftSelect?.value ?? 'A'),
+        enigma_pos_middle:   String(enigmaPosMiddleSelect?.value ?? 'A'),
+        enigma_pos_right:    String(enigmaPosRightSelect?.value ?? 'A'),
+        enigma_plugboard:    String(enigmaPlugboardInput?.value ?? ''),
+      } : {}
+
       const requestPayload = {
         text,
         direction,
@@ -568,6 +596,7 @@ export function initCipherToolPage() {
             cover_text: coverText,
             xor_key_format: xorKeyFormat,
             alberti_index: albertiIndex,
+            ...enigmaSettings,
           }).filter(([, value]) => value !== '')
         ),
       }
@@ -588,6 +617,9 @@ export function initCipherToolPage() {
       } else {
         if (isAlbertiWheelTool && albertiWheel && response?.inner_alphabet) {
           albertiWheel.update(String(response.inner_alphabet), Number(response.index_offset ?? 0))
+        }
+        if (isEnigmaTool && enigmaPanel) {
+          enigmaPanel.showResult(response)
         }
         output.value = String(response?.result ?? '')
         setOutputState(Boolean(output.value))
@@ -778,6 +810,46 @@ export function initCipherToolPage() {
       albertiIndexSelect.value = albertiIndex
       albertiIndexSelect.dispatchEvent(new Event('change', { bubbles: true }))
     }
+
+    // ── Enigma: применяем настройки роторов, колец, позиций, рефлектора и plugboard.
+    if (isEnigmaTool) {
+      const enigmaSelectMap = [
+        [enigmaReflectorSelect,   el.getAttribute('data-enigma-reflector')],
+        [enigmaRotorLeftSelect,   el.getAttribute('data-enigma-rotor-left')],
+        [enigmaRotorMiddleSelect, el.getAttribute('data-enigma-rotor-middle')],
+        [enigmaRotorRightSelect,  el.getAttribute('data-enigma-rotor-right')],
+        [enigmaRingLeftSelect,    el.getAttribute('data-enigma-ring-left')],
+        [enigmaRingMiddleSelect,  el.getAttribute('data-enigma-ring-middle')],
+        [enigmaRingRightSelect,   el.getAttribute('data-enigma-ring-right')],
+        [enigmaPosLeftSelect,     el.getAttribute('data-enigma-pos-left')],
+        [enigmaPosMiddleSelect,   el.getAttribute('data-enigma-pos-middle')],
+        [enigmaPosRightSelect,    el.getAttribute('data-enigma-pos-right')],
+      ]
+      let enigmaChanged = false
+      enigmaSelectMap.forEach(([sel, val]) => {
+        if (!sel || val === null) return
+        const upper = String(val).toUpperCase()
+        const hasOption = Array.from(sel.options).some((o) => o.value === upper)
+        if (hasOption && sel.value !== upper) {
+          sel.value = upper
+          enigmaChanged = true
+        }
+      })
+
+      const plugboardAttr = el.getAttribute('data-enigma-plugboard')
+      if (enigmaPlugboardInput && plugboardAttr !== null && enigmaPlugboardInput.value !== plugboardAttr) {
+        enigmaPlugboardInput.value = plugboardAttr
+        enigmaChanged = true
+      }
+
+      if (enigmaChanged) {
+        // Один change-event на любом select достаточно, чтобы синхронизировать визуальную панель;
+        // applyExample в конце всё равно вызовет API-запрос.
+        enigmaReflectorSelect?.dispatchEvent(new Event('change', { bubbles: true }))
+        enigmaPlugboardInput?.dispatchEvent(new Event('input', { bubbles: true }))
+      }
+    }
+
     input.value = text
     if (direction === 'decrypt') {
       setMode('decode')
@@ -977,6 +1049,53 @@ export function initCipherToolPage() {
       diskLabel:    String(ui.albertiWheelDiskLabel    || 'Alberti Cipher Disk'),
       mappingLabel: String(ui.albertiWheelMappingLabel || 'Current Mapping'),
     })
+  }
+
+  if (isEnigmaTool) {
+    const panelWrap = document.createElement('div')
+    panelWrap.className = 'enigma-panel-wrap'
+    const inputWrap = document.querySelector('.ciphers-unified__input-wrap')
+    inputWrap?.parentNode?.insertBefore(panelWrap, inputWrap)
+    enigmaPanel = initEnigmaPanel({
+      container: panelWrap,
+      selects: {
+        reflector: enigmaReflectorSelect,
+        rotorL: enigmaRotorLeftSelect,
+        rotorM: enigmaRotorMiddleSelect,
+        rotorR: enigmaRotorRightSelect,
+        ringL: enigmaRingLeftSelect,
+        ringM: enigmaRingMiddleSelect,
+        ringR: enigmaRingRightSelect,
+        posL: enigmaPosLeftSelect,
+        posM: enigmaPosMiddleSelect,
+        posR: enigmaPosRightSelect,
+      },
+      plugboardInput: enigmaPlugboardInput,
+      labels: {
+        title:     String(ui.enigmaVisualTitle      || 'Machine state'),
+        rotors:    String(ui.enigmaVisualRotors     || 'Rotors'),
+        reflector: String(ui.enigmaVisualReflector  || 'Reflector'),
+        plugboard: String(ui.enigmaVisualPlugboard  || 'Plugboard'),
+        start:     String(ui.enigmaVisualStart      || 'Start'),
+        final:     String(ui.enigmaVisualFinal      || 'Final'),
+        letters:   String(ui.enigmaVisualLetters    || 'Letters processed'),
+        empty:     String(ui.enigmaVisualEmpty      || 'no pairs'),
+        reset:     String(ui.enigmaVisualReset      || 'Reset'),
+        random:    String(ui.enigmaVisualRandom     || 'Randomize'),
+      },
+      onChange: () => { scheduleApiRun() },
+    })
+
+    // Селекты роторов/колец/позиций + plugboard должны триггерить API-запрос в live-режиме.
+    const enigmaTriggers = [
+      enigmaReflectorSelect, enigmaRotorLeftSelect, enigmaRotorMiddleSelect, enigmaRotorRightSelect,
+      enigmaRingLeftSelect,  enigmaRingMiddleSelect,  enigmaRingRightSelect,
+      enigmaPosLeftSelect,   enigmaPosMiddleSelect,   enigmaPosRightSelect,
+    ]
+    enigmaTriggers.forEach((el) => {
+      el?.addEventListener('change', () => { scheduleApiRun() })
+    })
+    enigmaPlugboardInput?.addEventListener('input', () => { scheduleApiRun() })
   }
 
   if (isMorseTool) {

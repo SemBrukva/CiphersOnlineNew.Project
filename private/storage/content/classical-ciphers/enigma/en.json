@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-25T17:52:41+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "enigma",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 50,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 50,
+        "data": {
+            "name": "Enigma Machine Simulator",
+            "name_short": "Enigma Machine",
+            "description": "Historically accurate online Enigma I (Wehrmacht, M3) simulator for encrypting and decrypting messages with rotors I-V, UKW-B/C reflectors, ring settings, rotor positions and plugboard pairs.",
+            "description_stort": "Online Enigma I simulator with rotors, reflector and plugboard.",
+            "meta_title": "Enigma Machine Simulator Online | Ciphers Online",
+            "meta_description": "Use an online Enigma Machine simulator for Enigma I/M3 encryption and decryption. Configure rotors I-V, UKW-B/C reflector, ring settings, start positions and plugboard."
+        }
+    },
+    "blocks": [
+        {
+            "id": 186,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Enigma machine works",
+                "text": "<p>The Enigma machine is an electromechanical rotor cipher used by Nazi Germany before and during World War II. Each key press routes the signal through the plugboard, the right, middle and left rotors, a reflector, then back through the same rotors and plugboard in reverse, producing the lampboard letter.</p><p>Because the reflector makes the path reciprocal, the same machine configuration both encrypts and decrypts. The rotors step before each letter is processed - including the historical double-stepping behavior - so the substitution alphabet changes continuously throughout the message.</p><p>This online simulator focuses on the standard Enigma I / M3 workflow: set the daily key, type plaintext or ciphertext, then use the same settings to reverse the result.</p>"
+            }
+        },
+        {
+            "id": 187,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Configuring the simulator",
+                "text": "<p>This simulator models the standard <strong>Enigma I</strong> machine with five available rotors (<strong>I, II, III, IV, V</strong>) and two reflectors (<strong>UKW-B</strong> and <strong>UKW-C</strong>). Choose three different rotors for the left, middle and right slots; repeated rotors are rejected because a real three-rotor setup used distinct wheels.</p><p>For every rotor you can set the <em>ring setting</em> (Ringstellung) and the visible <em>starting position</em> (Grundstellung). The ring changes the internal wiring offset and notch timing, while the starting position is the letter shown in the rotor window before the first key press.</p><p>The optional <strong>plugboard</strong> (Steckerbrett) accepts pairs such as <code>AB CD EF</code>. Spaces, commas and dashes are treated as separators; each letter can appear in only one pair, self-pairs are invalid, and the simulator allows up to 13 pairs. Historically, operators often used 10 plugboard pairs.</p>"
+            }
+        },
+        {
+            "id": 188,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "What the online tool shows",
+                "text": "<p>The tool includes a visual machine-state panel for the reflector, rotor order, current window letters, ring markers, plugboard pairs and the number of processed letters. After a run, it also shows the final rotor positions so you can see exactly how far the machine advanced.</p><p>Non-Latin characters, spaces, punctuation and line breaks are preserved in the output, while only A-Z letters advance the rotors and count as processed letters. Letter case is preserved, which makes the simulator convenient for short notes, classroom examples and cipher puzzle checking.</p><p>Use <strong>Reset positions</strong> to return rings, positions and plugboard to the default state, or <strong>Randomize</strong> to generate random ring settings, rotor positions and plugboard pairs while keeping the selected rotor order valid.</p>"
+            }
+        },
+        {
+            "id": 189,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "How to encrypt and decrypt",
+                "text": "<p>To encrypt a message, choose the reflector, rotor order, ring settings, starting positions and plugboard, then enter the plaintext. The output is the Enigma ciphertext produced by that exact configuration.</p><p>To decrypt, enter the ciphertext and restore the same settings used for encryption. Because Enigma is reciprocal, there is no separate mathematical decrypt mode: the interface labels the direction for clarity, but the same signal path is used both ways.</p><p>For historical notation, you can read the compact key summary as <code>rotors|rings|positions|reflector|plugboard</code>. For example, <code>I,II,III|A,A,A|M,C,K|B|AB CD EF</code> means rotors I-II-III, rings A-A-A, starting windows M-C-K, reflector UKW-B and three plugboard pairs.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 369,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Which Enigma model is simulated?",
+                "answer": "This is the standard Enigma I (M3) used by the Wehrmacht. It has three rotor slots and ships with rotors I–V and reflectors UKW-B and UKW-C. The naval M4 with a fourth (thin) rotor is not included."
+            }
+        },
+        {
+            "id": 370,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why does encryption equal decryption?",
+                "answer": "The reflector at the end of the signal path sends the signal back through the rotors along a different route. This makes every wiring reciprocal: if A encrypts to D at a given machine state, D encrypts back to A from the same state. As a consequence, no letter is ever encrypted to itself."
+            }
+        },
+        {
+            "id": 371,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What is the double-stepping anomaly?",
+                "answer": "Normally the right rotor steps with every key press and triggers the middle rotor when it reaches its notch. But the middle rotor also steps when its own notch is active, carrying the left rotor with it. This creates two consecutive steps of the middle rotor, and the simulator reproduces that historical mechanical behavior."
+            }
+        },
+        {
+            "id": 372,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "How do I configure the plugboard?",
+                "answer": "Enter pairs of letters separated by spaces, dashes or commas, e.g. AB CD EF. Each letter may appear in only one pair and cannot be paired with itself. Up to 13 pairs are allowed. Leave the field empty to disable the plugboard."
+            }
+        },
+        {
+            "id": 374,
+            "sort_order": 45,
+            "published": true,
+            "data": {
+                "question": "What is the difference between ring settings and starting positions?",
+                "answer": "The starting position is the visible rotor-window letter before typing begins. The ring setting shifts the alphabet ring relative to the rotor wiring, changing the internal offset and turnover behavior. Two keys with the same rotor order and start positions can produce completely different text if their ring settings differ."
+            }
+        },
+        {
+            "id": 373,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Is the Enigma secure today?",
+                "answer": "No. Modern computers brute-force any historic Enigma key in seconds. Even in WWII the cipher was broken by Polish and British cryptographers (Marian Rejewski, Alan Turing and others) using captured material, message indicators and statistical attacks at Bletchley Park. The simulator is intended for education and exploration."
+            }
+        },
+        {
+            "id": 375,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does punctuation or spacing affect the rotor positions?",
+                "answer": "No. The simulator preserves punctuation, spaces, digits and line breaks in the output, but only Latin letters A-Z are encrypted and advance the rotors. This lets you keep readable formatting while still matching the letter-by-letter Enigma process."
+            }
+        },
+        {
+            "id": 376,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Why must the three rotors be different?",
+                "answer": "The service follows the practical Enigma I setup: the left, middle and right slots must use three distinct rotors selected from I, II, III, IV and V. If the same rotor is selected twice, the API rejects the configuration instead of producing a non-historical setup."
+            }
+        },
+        {
+            "id": 377,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can I reproduce textbook Enigma examples?",
+                "answer": "Yes, as long as the example uses Enigma I/M3 with rotors I-V, reflector UKW-B or UKW-C, three rotor windows, ring settings and an optional plugboard. Examples that require the naval M4 fourth rotor, Greek rotors or other Enigma variants are outside this simulator."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 189,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Default settings",
+                "key": "I,II,III|A,A,A|A,A,A|B|",
+                "shift": 0,
+                "input": "HELLO WORLD",
+                "output": "ILBDA AMTAZ",
+                "description": "Rotors I-II-III, reflector UKW-B, rings A-A-A, positions A-A-A, no plugboard."
+            }
+        },
+        {
+            "id": 190,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "With plugboard",
+                "key": "I,II,III|A,A,A|M,C,K|B|AB CD EF",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "VXLLMV EL MTDA",
+                "description": "Rotors I-II-III, positions M-C-K, plugboard AB CD EF (3 pairs)."
+            }
+        },
+        {
+            "id": 191,
+            "sort_order": 30,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Decrypt example",
+                "key": "I,II,III|A,A,A|A,A,A|B|",
+                "shift": 0,
+                "input": "ILBDA AMTAZ",
+                "output": "HELLO WORLD",
+                "description": "Same settings as example 1 — Enigma is reciprocal."
+            }
+        },
+        {
+            "id": 192,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Reflector C and custom rings",
+                "key": "IV,V,I|B,C,D|X,Y,Z|C|AT BS DE FG IJ",
+                "shift": 0,
+                "input": "CRYPTO",
+                "output": "VFLULK",
+                "description": "Reflector UKW-C, rotors IV-V-I, rings B-C-D, positions X-Y-Z and plugboard AT BS DE FG IJ."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 282,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Enigma machine simulator"
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Enigma cipher"
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Rotor cipher"
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "WWII cryptography"
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Plugboard"
+            }
+        },
+        {
+            "id": 287,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Ringstellung"
+            }
+        },
+        {
+            "id": 288,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Classical cryptography"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

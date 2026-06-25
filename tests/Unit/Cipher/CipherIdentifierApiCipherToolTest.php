@@ -179,6 +179,7 @@ final class CipherIdentifierApiCipherToolTest extends TestCase
             new BifidApiCipherTool(new BifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
             new TrifidApiCipherTool(new TrifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
             new AlbertiApiCipherTool(new AlbertiCipherService()),
+            new \App\Cipher\EnigmaApiCipherTool(new \App\Cipher\EnigmaCipherService()),
         );
 
         $this->tool = new CipherIdentifierApiCipherTool($service, $this->registry);
