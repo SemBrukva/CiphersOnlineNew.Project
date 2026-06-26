@@ -11,6 +11,8 @@ use App\Console\Commands\CipherContentImportCommand;
 use App\Console\Commands\ConfigCacheCommand;
 use App\Console\Commands\ConfigClearCommand;
 use App\Console\Commands\DbImportSqliteCommand;
+use App\Console\Commands\DictionaryBuildCommand;
+use App\Console\Commands\DictionaryDownloadCommand;
 use App\Console\Commands\MailTestCommand;
 use App\Console\Commands\Make\MakeControllerCommand;
 use App\Console\Commands\Make\MakeJobCommand;
@@ -56,4 +58,6 @@ return [
     'cipher:content:import' => CipherContentImportCommand::class,
     'cipher:category:content:export' => CipherCategoryContentExportCommand::class,
     'cipher:category:content:import' => CipherCategoryContentImportCommand::class,
+    'dictionary:download' => DictionaryDownloadCommand::class,
+    'dictionary:build'    => DictionaryBuildCommand::class,
 ];

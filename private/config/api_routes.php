@@ -219,6 +219,13 @@ return [
         'name'       => 'api.tools.enigma',
     ],
 
+    'POST /tools/anagram-solver' => [
+        'controller' => GuestController::class,
+        'method'     => 'anagramSolver',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.anagram_solver',
+    ],
+
     'POST /tools/cipher-identifier' => [
         'controller' => GuestController::class,
         'method'     => 'cipherIdentifier',

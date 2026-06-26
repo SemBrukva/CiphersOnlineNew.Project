@@ -546,6 +546,19 @@ final class GuestController
     }
 
     /**
+     * Ищет анаграммы, подмножества букв, шаблоны и многословные перестановки.
+     *
+     * POST /api/tools/anagram-solver
+     */
+    #[ApiOperation(summary: 'Anagram Solver', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Список найденных слов или фраз')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function anagramSolver(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'anagram-solver');
+    }
+
+    /**
      * Выполняет полнотекстовый поиск инструментов по запросу.
      *
      * GET /api/tools/search?q=caesar&locale=ru

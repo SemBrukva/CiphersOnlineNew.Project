@@ -246,6 +246,31 @@ final readonly class CipherController
             $toolUi['enigmaVisualReset']     = trans('ENIGMA_VISUAL_RESET_LABEL');
             $toolUi['enigmaVisualRandom']    = trans('ENIGMA_VISUAL_RANDOM_LABEL');
         }
+        if ($cipherAlias === 'anagram-solver') {
+            $toolUi['anagramMode']            = true;
+            $toolUi['disableLiveMode']        = true;
+            $toolUi['inputMaxLength']         = \App\Cipher\AnagramSolverApiCipherTool::MAX_TEXT_LENGTH;
+            $toolUi['tabEncode']              = trans('ANAGRAM_TAB_SOLVE');
+            $toolUi['placeholderEncode']      = trans('ANAGRAM_PLACEHOLDER');
+            $toolUi['anagramEmptyLabel']      = trans('ANAGRAM_EMPTY');
+            $toolUi['anagramNoMatchesLabel']  = trans('ANAGRAM_NO_MATCHES');
+            $toolUi['anagramFoundLabel']      = trans('ANAGRAM_FOUND');
+            $toolUi['anagramTruncatedLabel']  = trans('ANAGRAM_TRUNCATED');
+            $toolUi['anagramCopyLabel']       = trans('ANAGRAM_COPY');
+            $toolUi['anagramAdvancedLabel']   = trans('ANAGRAM_ADVANCED');
+            $toolUi['anagramAnyLabel']        = trans('ANAGRAM_ANY');
+            $toolUi['anagramMinLengthLabel']  = trans('ANAGRAM_MIN_LENGTH');
+            $toolUi['anagramMaxLengthLabel']  = trans('ANAGRAM_MAX_LENGTH');
+            $toolUi['anagramStartsWithLabel'] = trans('ANAGRAM_STARTS_WITH');
+            $toolUi['anagramEndsWithLabel']   = trans('ANAGRAM_ENDS_WITH');
+            $toolUi['anagramContainsLabel']   = trans('ANAGRAM_CONTAINS');
+            $toolUi['anagramMaxResultsLabel'] = trans('ANAGRAM_MAX_RESULTS');
+            $toolUi['anagramMaxWordsLabel']   = trans('ANAGRAM_MAX_WORDS');
+            $toolUi['anagramSortLabel']       = trans('ANAGRAM_SORT');
+            $toolUi['anagramSortLength']      = trans('ANAGRAM_SORT_LENGTH');
+            $toolUi['anagramSortScore']       = trans('ANAGRAM_SORT_SCORE');
+            $toolUi['anagramSortAlpha']       = trans('ANAGRAM_SORT_ALPHA');
+        }
         if ($cipherAlias === 'cipher-identifier') {
             $toolUi['identifierMode']            = true;
             $toolUi['disableLiveMode']           = true;
@@ -417,6 +442,22 @@ final readonly class CipherController
         if ($toolSlug === 'classical-ciphers/trifid' && locale() === 'ru') {
             foreach ($examples as &$example) {
                 $example['alphabet'] = 'en';
+            }
+            unset($example);
+        }
+
+        if ($toolSlug === 'codes-and-alphabets/anagram-solver') {
+            foreach ($examples as &$example) {
+                $input = (string) ($example['input'] ?? '');
+                if (str_contains($input, '?')) {
+                    $example['anagram_mode'] = 'pattern';
+                } elseif (preg_match('/\s/u', $input) === 1) {
+                    $example['anagram_mode'] = 'multi-word';
+                } elseif (mb_strlen($input) >= 8) {
+                    $example['anagram_mode'] = 'word-finder';
+                } else {
+                    $example['anagram_mode'] = 'anagram';
+                }
             }
             unset($example);
         }

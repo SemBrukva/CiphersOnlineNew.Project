@@ -1,0 +1,1836 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "анаграмма онлайн",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/codes-and-alphabets/anagram-solver.csv",
+        "imported_at": "2026-06-26T15:47:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/anagram-solver",
+        "url": "/ru/codes-and-alphabets/anagram-solver",
+        "content_file": "private/storage/content/codes-and-alphabets/anagram-solver/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 41271,
+        "primary_terms": [
+            "анаграмма онлайн",
+            "анаграмма",
+            "анаграммы",
+            "анаграмма из букв",
+            "составить слово из букв",
+            "составить анаграмму",
+            "решение анаграмм",
+            "решить анаграмму",
+            "разгадать анаграмму",
+            "анаграмма помощник",
+            "генератор анаграмм",
+            "анаграмматор онлайн"
+        ],
+        "modifiers": [
+            "онлайн",
+            "из букв",
+            "составить слово",
+            "решение",
+            "решить",
+            "разгадать",
+            "расшифровка",
+            "бесплатно",
+            "без регистрации",
+            "на русском языке",
+            "на английском",
+            "помощник",
+            "генератор",
+            "опечатки: аннаграмматор/аннограмма"
+        ],
+        "intents": {
+            "online": 77,
+            "word_finder": 72,
+            "decode": 56,
+            "russian": 20,
+            "tool": 11,
+            "helper": 10,
+            "generate": 7,
+            "typo": 6,
+            "english": 4
+        },
+        "content_recommendations": [
+            "В meta_title и H1 закрепить точный primary «анаграмма онлайн», потому что он совпадает с кластером и имеет высокий online-спрос.",
+            "В первом экране естественно покрыть head-запросы «анаграмма», «анаграммы», «анаграмма из букв», «составить анаграмму» и «решение анаграмм» без перечисления ключей подряд.",
+            "Основной блок должен объяснить сценарий «составить слово из букв»: строгая анаграмма использует все буквы, Word Finder подбирает слова из части набора.",
+            "В FAQ покрыть формулировки «решить», «разгадать» и «расшифровать анаграмму», уточнив, что расшифровка здесь означает подбор слов по буквам, а не криптографический дешифратор.",
+            "Отдельно указать, что сервис работает онлайн, бесплатно и без регистрации, если это соответствует продуктовой политике страницы.",
+            "Для запросов «на русском языке» подчеркнуть выбор русского словаря и то, что результаты зависят от выбранного языка.",
+            "Для запросов «на английском» добавить короткий FAQ о переключении языка словаря на English.",
+            "Опечатки и разговорные формы вроде «анаграмайзер», «аннаграмматор», «аннограмма» не выносить в title; покрывать только естественным текстом/FAQ при необходимости."
+        ],
+        "query_groups": [
+            {
+                "name": "Главный онлайн-сервис",
+                "intent": [
+                    "online",
+                    "tool"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "анаграмма онлайн",
+                    "анаграммы онлайн",
+                    "онлайн анаграмма"
+                ]
+            },
+            {
+                "name": "Анаграмма из букв и составление слов",
+                "intent": [
+                    "word_finder"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "анаграмма из букв",
+                    "анаграмма из букв составить слово",
+                    "анаграммы из букв составить слово",
+                    "составить слово из заданных букв"
+                ]
+            },
+            {
+                "name": "Решение и разгадывание",
+                "intent": [
+                    "decode"
+                ],
+                "priority": "secondary",
+                "target": "faq",
+                "representative_queries": [
+                    "решение анаграмм",
+                    "решить анаграмму",
+                    "разгадать анаграмму по буквам",
+                    "расшифровать анаграмму"
+                ]
+            },
+            {
+                "name": "Бесплатно и без регистрации",
+                "intent": [
+                    "online"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "анаграмма онлайн бесплатно",
+                    "анаграммы онлайн решать бесплатно",
+                    "анаграммы онлайн решать бесплатно без регистрации"
+                ]
+            },
+            {
+                "name": "Помощник и решатель",
+                "intent": [
+                    "helper"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "анаграмма помощник",
+                    "помощник анаграмм",
+                    "решатель анаграмм",
+                    "помощник решения анаграмм"
+                ]
+            },
+            {
+                "name": "Генератор анаграмм",
+                "intent": [
+                    "generate"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "генератор анаграмм",
+                    "создать анаграмму",
+                    "сделать анаграмму онлайн"
+                ]
+            },
+            {
+                "name": "Языковые модификаторы",
+                "intent": [
+                    "russian",
+                    "english"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "анаграмма составить слова из букв на русском языке",
+                    "анаграмма онлайн английский",
+                    "анаграммы на английском онлайн"
+                ]
+            },
+            {
+                "name": "Опечатки и смешанные формулировки",
+                "intent": [
+                    "typo"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "аннаграмматориз букв составить слово",
+                    "аннограмма из букв",
+                    "составить слово тз букв"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "анаграмма",
+            "score": 15933,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "анаграммы",
+            "score": 6328,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "анаграмма онлайн",
+            "score": 5328,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "online"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "анаграммы онлайн",
+            "score": 1686,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "анаграмма к слову",
+            "score": 1022,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы онлайн решение",
+            "score": 803,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма из букв",
+            "score": 786,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "составить анаграмму",
+            "score": 690,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "анаграмма из букв составить слово",
+            "score": 583,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "решение анаграмм",
+            "score": 479,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "решить анаграмму",
+            "score": 458,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "анаграммы из букв составить слово",
+            "score": 410,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма онлайн бесплатно",
+            "score": 372,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма онлайн составить",
+            "score": 312,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы онлайн решать бесплатно",
+            "score": 304,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма из букв онлайн",
+            "score": 262,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "разгадываем анаграммы онлайн",
+            "score": 256,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма онлайн составить слова из букв",
+            "score": 204,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "анаграмма составить",
+            "score": 188,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма из букв составить онлайн",
+            "score": 178,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма из букв составить слова",
+            "score": 155,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решить анаграмму онлайн",
+            "score": 152,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма помощник",
+            "score": 130,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы решать",
+            "score": 117,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "помощник анаграмм",
+            "score": 106,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма составить слово из букв",
+            "score": 104,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "анаграммы по уровням сложности",
+            "score": 102,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "аннаграмматориз букв составить слово",
+            "score": 101,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "typo"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "аннограмма из букв",
+            "score": 95,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "typo"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы онлайн решать бесплатно без регистрации",
+            "score": 91,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы разгадать",
+            "score": 89,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы решить",
+            "score": 88,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "найти анаграммы",
+            "score": 86,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма составить слова из букв на русском языке",
+            "score": 85,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "russian"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "анаграммы онлайн решение анаграмм",
+            "score": 82,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы онлайн решать бесплатно без регистрации на русском языке",
+            "score": 79,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма составить слова",
+            "score": 73,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решение анаграмм онлайн",
+            "score": 72,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор анаграмм",
+            "score": 71,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "generate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма онлайн решить",
+            "score": 70,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма онлайн расшифровка анаграмм составить слова из букв",
+            "score": 69,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "decode"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "анаграмма онлайн составить слова",
+            "score": 67,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы составить слова из букв из заданных букв",
+            "score": 65,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "решить анаграмму онлайн помощник",
+            "score": 65,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "отгадывать анаграммы",
+            "score": 64,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма онлайн бесплатно составить слова",
+            "score": 64,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма-решение анаграмм онлайн",
+            "score": 59,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы решать онлайн бесплатно",
+            "score": 53,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма онлайн из букв",
+            "score": 47,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма решить онлайн",
+            "score": 46,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы из букв онлайн",
+            "score": 45,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмайзер онлайн на русском языке",
+            "score": 43,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровать анаграмму",
+            "score": 42,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма онлайн английский",
+            "score": 41,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "решить анаграмму из букв",
+            "score": 40,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма расшифровка",
+            "score": 39,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "составить анаграмму из букв",
+            "score": 39,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "онлайн анаграмма",
+            "score": 39,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы из букв составить слово онлайн",
+            "score": 38,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "anagram poncy",
+            "score": 37,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "собрать слова из букв онлайн помощник на русском языке",
+            "score": 36,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "helper",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "решение анаграммы",
+            "score": 35,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы из букв составить слово на русском языке",
+            "score": 34,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы из букв составить",
+            "score": 32,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "создать анаграмму",
+            "score": 32,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "generate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "составить анаграмму из букв онлайн",
+            "score": 32,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы анобьтвм",
+            "score": 31,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы онлайн решать",
+            "score": 31,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решение анаграмм онлайн по буквам",
+            "score": 31,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма из букв составить слово онлайн на русском",
+            "score": 30,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма на английском",
+            "score": 29,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма понси",
+            "score": 29,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма слов из букв",
+            "score": 29,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "отгадать анаграммы",
+            "score": 29,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмму решить",
+            "score": 28,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "составление анаграмм онлайн",
+            "score": 28,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы разгадать онлайн",
+            "score": 27,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма на английском онлайн",
+            "score": 26,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "помощник решения анаграмм",
+            "score": 25,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "слова отгадать по буквам ответы",
+            "score": 25,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "слово из анаграммы",
+            "score": 25,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма онлайн бесплатно из букв",
+            "score": 25,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "составить анаграмму онлайн",
+            "score": 25,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмайзер онлайн",
+            "score": 24,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы онлайн решать бесплатно без регистрации на русском",
+            "score": 24,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма из букв составить слова онлайн",
+            "score": 23,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "аннаграмматориз букв",
+            "score": 22,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "typo"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма из букв составить слово онлайн на русском языке бесплатно",
+            "score": 22,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма разгадать онлайн бесплатно",
+            "score": 22,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "найти анаграмму",
+            "score": 21,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы онлайн составить",
+            "score": 21,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы решать онлайн",
+            "score": 21,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решение анаграмм онлайн бесплатно",
+            "score": 20,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "решить анаграммы",
+            "score": 19,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "поиск анаграмм онлайн",
+            "score": 19,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решение анаграммы из букв онлайн",
+            "score": 19,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма из букв слова",
+            "score": 18,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма расшифровать",
+            "score": 18,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сделать анаграмму",
+            "score": 18,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "generate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решатель анаграмм",
+            "score": 18,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма-решение анаграмм онлайн бесплатно",
+            "score": 18,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "создать анаграмму онлайн",
+            "score": 18,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "generate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы решение",
+            "score": 17,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы помощник",
+            "score": 17,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма составь слова из букв",
+            "score": 17,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решить анаграмму из букв онлайн бесплатно",
+            "score": 17,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровка анаграмм онлайн на русском",
+            "score": 17,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма онлайн составить слова из букв на русском языке бесплатно",
+            "score": 17,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "russian"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "составить слово тз букв",
+            "score": 16,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "typo"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма отгадать слово по заданным буквам",
+            "score": 16,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы разгадывать",
+            "score": 16,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма к слову из букв",
+            "score": 16,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма разгадать онлайн",
+            "score": 15,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "составить анаграмму из заданных букв онлайн бесплатно",
+            "score": 15,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы на английском онлайн",
+            "score": 15,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма онлайн расшифровка",
+            "score": 15,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма из букв составить слово онлайн",
+            "score": 15,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма помощник для составления слов",
+            "score": 14,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмма слово из букв",
+            "score": 14,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграммы составить",
+            "score": 14,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "составить анаграмму из заданных букв онлайн",
+            "score": 14,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма онлайн составить из букв слова",
+            "score": 14,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "разгадать анаграмму онлайн на русском",
+            "score": 14,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы онлайн составить слово из букв",
+            "score": 14,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "составить слово из заданных букв на русском бесплатно анаграмма",
+            "score": 13,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "russian"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "анаграмма онлайн составить слова из букв на русском языке",
+            "score": 13,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "russian"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "сделать анаграмму онлайн",
+            "score": 13,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "generate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решатель анаграмм онлайн",
+            "score": 13,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "helper"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "аннаграмматориз букв составить",
+            "score": 12,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "typo"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "составить анаграммы",
+            "score": 12,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "аннаграмматориз букв составить слово на русском языке",
+            "score": 12,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "russian",
+                "typo"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "составить слово из заданных букв на русском языке из",
+            "score": 12,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "russian"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "анаграмма составить слово из заданных букв",
+            "score": 12,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "разгадать анаграммы",
+            "score": 12,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "генератор анаграмм онлайн",
+            "score": 12,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "generate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решить анаграмму онлайн помощник русский язык",
+            "score": 12,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "helper",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "создать анаграмму онлайн из своих слов",
+            "score": 12,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "generate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "собрать анаграмму из букв",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "из набора букв составить слово",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "составить анаграммы из букв",
+            "score": 11,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма слова из букв составить",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "поиск слов по анаграмме",
+            "score": 11,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "решение анаграммы из букв",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "понси анаграмма",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "разгадать анаграмму по буквам",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "разгадать анаграмму онлайн",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "решать анаграммы онлайн",
+            "score": 11,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "подбор анаграмм онлайн",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмайзер онлайн на русском",
+            "score": 10,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграмматор онлайн",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "составление анаграмм из букв",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "word_finder"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "анаграмма онлайн из букв составить слово на русском",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы из букв составить слово на русском языке бесплатно онлайн",
+            "score": 10,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "word_finder",
+                "russian"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "анаграммы решать онлайн бесплатно без регистрации на русском языке",
+            "score": 10,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "online",
+                "decode",
+                "russian"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Reviewed after deterministic import. All 154 raw queries are preserved; priorities, targets, intents, and query_groups are curated for the Russian anagram-solver page. The linked RU content file is expected at private/storage/content/codes-and-alphabets/anagram-solver/ru.json; create/export it before semantic:validate or semantic:sync if it is still absent."
+}

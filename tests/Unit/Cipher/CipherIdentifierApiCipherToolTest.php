@@ -180,6 +180,19 @@ final class CipherIdentifierApiCipherToolTest extends TestCase
             new TrifidApiCipherTool(new TrifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
             new AlbertiApiCipherTool(new AlbertiCipherService()),
             new \App\Cipher\EnigmaApiCipherTool(new \App\Cipher\EnigmaCipherService()),
+            new \App\Cipher\AnagramSolverApiCipherTool(
+                new \App\Cipher\AnagramSolver\AnagramEngine(
+                    new \App\Cipher\Dictionary\DictionaryRepository(
+                        sys_get_temp_dir() . '/anagram-cidt-' . uniqid('', true),
+                    ),
+                    new \App\Cipher\Dictionary\WordSignature($catalog),
+                    new \App\Cipher\AnagramSolver\ScrabbleScorer(),
+                ),
+                new \App\Cipher\Dictionary\DictionaryRepository(
+                    sys_get_temp_dir() . '/anagram-cidt-' . uniqid('', true),
+                ),
+                $scorer,
+            ),
         );
 
         $this->tool = new CipherIdentifierApiCipherTool($service, $this->registry);

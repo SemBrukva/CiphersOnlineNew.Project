@@ -48,7 +48,8 @@ final readonly class ToolRegistry
         private TrifidCipherService $trifidCipher,
         private AlbertiCipherService $albertiCipher,
         private EnigmaCipherService $enigmaCipher,
-        private CipherIdentifierService $cipherIdentifier
+        private CipherIdentifierService $cipherIdentifier,
+        private AnagramSolverService $anagramSolver
     ) {
     }
 
@@ -299,6 +300,12 @@ final readonly class ToolRegistry
                 ['label' => 'Caesar',  'value' => 'KHOOR ZRUOG',                                 'alphabet' => 'en'],
                 ['label' => 'Hamlet',  'value' => 'To be or not to be that is the question',     'alphabet' => 'en'],
             ],
+            'codes-and-alphabets/anagram-solver' => [
+                ['label' => 'Listen',       'value' => 'listen',       'alphabet' => 'en', 'anagram_mode' => 'anagram'],
+                ['label' => 'Word Finder',  'value' => 'cipher',       'alphabet' => 'en', 'anagram_mode' => 'word-finder'],
+                ['label' => 'Pattern',      'value' => 'h?ll?',        'alphabet' => 'en', 'anagram_mode' => 'pattern'],
+                ['label' => 'Multi-word',   'value' => 'silent ten',   'alphabet' => 'en', 'anagram_mode' => 'multi-word'],
+            ],
             'codes-and-alphabets/numbers-to-letters' => [
                 ['label' => 'A1Z26',    'value' => '8 5 12 12 15',      'direction' => 'encrypt', 'encoding' => 'positional-1', 'delimiter' => 'space', 'alphabet' => 'en'],
                 ['label' => 'ASCII',    'value' => '72 101 108 108 111', 'direction' => 'encrypt', 'encoding' => 'ascii',        'delimiter' => 'space'],
@@ -342,6 +349,7 @@ final readonly class ToolRegistry
             'classical-ciphers/xor-cipher' => 'xor',
             'codes-and-alphabets/morse-code' => null,
             'codes-and-alphabets/numbers-to-letters' => null,
+            'codes-and-alphabets/anagram-solver' => 'anagram-solver',
             'encoding/html-encode' => null,
             'encoding/json-formatter' => null,
             'encoding/timestamp-converter' => null,
@@ -390,6 +398,7 @@ final readonly class ToolRegistry
             'classical-ciphers/xor-cipher' => $this->xorCipher->getToolSettings(),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
+            'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getToolSettings(),
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
             'encoding/json-formatter' => $this->jsonFormatter->getToolSettings(),
             'encoding/timestamp-converter' => $this->timestampConverter->getToolSettings(),
@@ -436,6 +445,7 @@ final readonly class ToolRegistry
             'classical-ciphers/xor-cipher' => $this->xorCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
+            'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),
             'text-analysis/affine-brute-force'  => $this->affineBruteForce->getTrustItems($calculationMode),

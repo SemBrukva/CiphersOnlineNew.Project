@@ -52,6 +52,10 @@ return [
         );
     },
 
+    App\Cipher\Dictionary\DictionaryRepository::class => static function (): App\Cipher\Dictionary\DictionaryRepository {
+        return new App\Cipher\Dictionary\DictionaryRepository(STORAGE_PATH . '/dictionaries');
+    },
+
     HttpClient::class => static fn (): HttpClient => new HttpClient(config('http_client', [])),
 
     HttpClientInterface::class => static function (Container $container): HttpClientInterface {
@@ -476,6 +480,7 @@ return [
             $container->get(App\Cipher\TrifidApiCipherTool::class),
             $container->get(App\Cipher\AlbertiApiCipherTool::class),
             $container->get(App\Cipher\EnigmaApiCipherTool::class),
+            $container->get(App\Cipher\AnagramSolverApiCipherTool::class),
         );
         $registry->register(new App\Cipher\CipherIdentifierApiCipherTool(
             $container->get(App\Cipher\CipherIdentifierService::class),

@@ -6597,3 +6597,204 @@ a:focus .nav-fav-count {
     flex-wrap: wrap;
   }
 }
+
+/* ── Anagram Solver ─────────────────────────────────────────────────── */
+/* Контейнер .ciphers-visual-output расположен внутри тёмно-синего градиента
+   .ciphers-unified, поэтому здесь намеренно используем светлые цвета поверх
+   полупрозрачных подложек — по аналогии со стилями .brute-* и .cid-*. */
+.anagram-advanced {
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px 12px;
+}
+.anagram-advanced__summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: 0.02em;
+}
+.anagram-advanced__summary::marker,
+.anagram-advanced__summary::-webkit-details-marker {
+  color: rgba(255, 255, 255, 0.5);
+}
+.anagram-advanced[open] .anagram-advanced__summary {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.92);
+}
+.anagram-advanced__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px 12px;
+}
+.anagram-advanced__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+.anagram-advanced__field > span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.anagram-advanced__field input,
+.anagram-advanced__field select {
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.22);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.88rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.anagram-advanced__field input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.anagram-advanced__field input:focus,
+.anagram-advanced__field select:focus {
+  outline: none;
+  border-color: rgba(193, 255, 0, 0.55);
+  background: rgba(0, 0, 0, 0.32);
+  box-shadow: 0 0 0 2px rgba(193, 255, 0, 0.12);
+}
+.anagram-advanced__field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(255,255,255,0.55)' d='M0 0l5 6 5-6z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 26px;
+}
+.anagram-advanced__field select option {
+  background: #001a30;
+  color: #fff;
+}
+.anagram-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+  padding: 8px 0 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.anagram-summary__count {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+}
+.anagram-summary__truncated {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: rgba(255, 193, 7, 0.14);
+  color: rgba(255, 220, 100, 0.95);
+  border: 1px solid rgba(255, 193, 7, 0.30);
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.anagram-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+.anagram-rows::-webkit-scrollbar {
+  width: 8px;
+}
+.anagram-rows::-webkit-scrollbar-track {
+  background: transparent;
+}
+.anagram-rows::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 4px;
+}
+.anagram-rows::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.anagram-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.anagram-row:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+.anagram-row__word {
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  word-break: break-all;
+  line-height: 1.3;
+}
+.anagram-row__meta {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.anagram-row__copy {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.anagram-row__copy:hover {
+  background: rgba(193, 255, 0, 0.14);
+  border-color: rgba(193, 255, 0, 0.55);
+  color: var(--co-accent, #c1ff00);
+}
+.anagram-results {
+  margin-top: 8px;
+}
+.anagram-results .freq-empty {
+  margin: 0;
+  padding: 32px 16px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.88rem;
+}
+@media (max-width: 640px) {
+  .anagram-advanced__grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  .anagram-row {
+    grid-template-columns: 1fr auto;
+  }
+  .anagram-row__copy {
+    grid-column: span 2;
+    justify-self: end;
+  }
+}

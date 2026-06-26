@@ -9,6 +9,7 @@ import { initLetterFrequency } from './cipher-tool/letter-frequency.js'
 import { initBruteForce } from './cipher-tool/brute-force.js'
 import { initVigenereCracker } from './cipher-tool/vigenere-cracker.js'
 import { initCipherIdentifier } from './cipher-tool/cipher-identifier.js'
+import { initAnagramSolver } from './cipher-tool/anagram-solver.js'
 import { initMatrixControl } from './cipher-tool/matrix-control.js'
 import { initMorsePlayer } from './cipher-tool/morse-player.js'
 import { initCustomSelects } from './cipher-tool/custom-selects.js'
@@ -93,6 +94,8 @@ export function initCipherToolPage() {
   const isBruteForceTool = Boolean(ui.bruteForceMode)
   const isVigenereCrackerTool  = Boolean(ui.vigenereCrackerMode)
   const isIdentifierTool       = Boolean(ui.identifierMode)
+  const isAnagramTool          = Boolean(ui.anagramMode)
+  const anagramModeSelect      = document.getElementById('ciphers-anagram-mode')
   const isLetterFrequencyTool  = Boolean(ui.letterFrequencyMode)
   const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
   const isEnigmaTool           = Boolean(ui.enigmaMode)
@@ -137,6 +140,7 @@ export function initCipherToolPage() {
   let bruteForce = null
   let vigenereCracker = null
   let cipherIdentifier = null
+  let anagramSolver = null
   let matrixCtrl = null
   let albertiWheel = null
   let enigmaPanel = null
@@ -440,6 +444,7 @@ export function initCipherToolPage() {
       if (isBruteForceTool) bruteForce.showEmpty()
       if (isVigenereCrackerTool) vigenereCracker.showEmpty()
       if (isIdentifierTool) cipherIdentifier.showEmpty()
+      if (isAnagramTool) anagramSolver.showEmpty()
       if (isLetterFrequencyTool) letterFrequency.showEmpty()
       if (isJsonFormatterTool) jsonFormatter.showEmpty()
       if (isTimestampConverterTool) timestampConverter.showEmpty()
@@ -568,6 +573,11 @@ export function initCipherToolPage() {
         throw new Error(`Unknown API action: ${apiAction}`)
       }
 
+      const anagramSettings = isAnagramTool ? {
+        anagram_mode: String(anagramModeSelect?.value || 'anagram'),
+        ...(anagramSolver?.collectSettings() ?? {}),
+      } : {}
+
       const enigmaSettings = isEnigmaTool ? {
         enigma_reflector:    String(enigmaReflectorSelect?.value ?? 'B'),
         enigma_rotor_left:   String(enigmaRotorLeftSelect?.value ?? 'I'),
@@ -597,6 +607,7 @@ export function initCipherToolPage() {
             xor_key_format: xorKeyFormat,
             alberti_index: albertiIndex,
             ...enigmaSettings,
+            ...anagramSettings,
           }).filter(([, value]) => value !== '')
         ),
       }
@@ -614,6 +625,8 @@ export function initCipherToolPage() {
         vigenereCracker.handleApiResponse(response, alphabetSelect)
       } else if (isIdentifierTool) {
         cipherIdentifier.handleApiResponse(response)
+      } else if (isAnagramTool) {
+        anagramSolver.handleApiResponse(response)
       } else {
         if (isAlbertiWheelTool && albertiWheel && response?.inner_alphabet) {
           albertiWheel.update(String(response.inner_alphabet), Number(response.index_offset ?? 0))
@@ -645,6 +658,9 @@ export function initCipherToolPage() {
       }
       if (isIdentifierTool) {
         cipherIdentifier.showEmpty()
+      }
+      if (isAnagramTool) {
+        anagramSolver.showEmpty()
       }
       output.value = ''
       setOutputState(false)
@@ -770,6 +786,7 @@ export function initCipherToolPage() {
     const shift         = el.getAttribute('data-shift')
     const direction     = el.getAttribute('data-direction')     || ''
     const albertiIndex  = el.getAttribute('data-alberti-index') || ''
+    const anagramMode   = el.getAttribute('data-anagram-mode')  || ''
 
     if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
       alphabetSelect.value = alphabet
@@ -809,6 +826,10 @@ export function initCipherToolPage() {
     if (albertiIndex && albertiIndexSelect && albertiIndexSelect.value !== albertiIndex) {
       albertiIndexSelect.value = albertiIndex
       albertiIndexSelect.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+    if (anagramMode && anagramModeSelect && anagramModeSelect.value !== anagramMode) {
+      anagramModeSelect.value = anagramMode
+      anagramModeSelect.dispatchEvent(new Event('change', { bubbles: true }))
     }
 
     // ── Enigma: применяем настройки роторов, колец, позиций, рефлектора и plugboard.
@@ -1022,6 +1043,15 @@ export function initCipherToolPage() {
     cipherIdentifier = initCipherIdentifier({
       output, visualOutput, tabDecode, ui, input, setFeedback, setOutputState,
     })
+  }
+
+  if (isAnagramTool) {
+    anagramSolver = initAnagramSolver({
+      output, visualOutput, tabDecode, ui,
+      setFeedback, setOutputState,
+      onChange: () => scheduleApiRun(),
+    })
+    anagramModeSelect?.addEventListener('change', () => scheduleApiRun())
   }
 
   if (isLetterFrequencyTool) {

@@ -14,6 +14,9 @@ use App\Cipher\AlbertiApiCipherTool;
 use App\Cipher\AlbertiCipherService;
 use App\Cipher\AlphabetCatalog;
 use App\Cipher\AlphabetTool;
+use App\Cipher\AnagramSolver\AnagramEngine;
+use App\Cipher\AnagramSolver\ScrabbleScorer;
+use App\Cipher\AnagramSolverApiCipherTool;
 use App\Cipher\ApiCipherToolExecutorInterface;
 use App\Cipher\ApiCipherToolRegistry;
 use App\Cipher\AtbashApiCipherTool;
@@ -35,6 +38,8 @@ use App\Cipher\CipherIdentifierApiCipherTool;
 use App\Cipher\CipherIdentifierService;
 use App\Cipher\ColumnarTranspositionApiCipherTool;
 use App\Cipher\ColumnarTranspositionCipherService;
+use App\Cipher\Dictionary\DictionaryRepository;
+use App\Cipher\Dictionary\WordSignature;
 use App\Cipher\EnigmaApiCipherTool;
 use App\Cipher\EnigmaCipherService;
 use App\Cipher\GronsfeldApiCipherTool;
@@ -183,10 +188,27 @@ final class ApiCipherToolRegistryTest extends TestCase
             new TrifidApiCipherTool(new TrifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
             new AlbertiApiCipherTool(new AlbertiCipherService()),
             new EnigmaApiCipherTool(new EnigmaCipherService()),
+            $this->makeAnagramSolverTool(),
         );
 
         $registry->register($cipherIdentifierTool);
 
         return $registry;
+    }
+
+    /**
+     * Создаёт инструмент поиска анаграмм со словарным репозиторием,
+     * указывающим на временный каталог (никаких реальных файлов).
+     */
+    private function makeAnagramSolverTool(): AnagramSolverApiCipherTool
+    {
+        $catalog       = new AlphabetCatalog();
+        $signature     = new WordSignature($catalog);
+        $dictionaries  = new DictionaryRepository(
+            sys_get_temp_dir() . '/anagram-registry-' . uniqid('', true),
+        );
+        $engine = new AnagramEngine($dictionaries, $signature, new ScrabbleScorer());
+
+        return new AnagramSolverApiCipherTool($engine, $dictionaries, new LetterFrequencyScorer());
     }
 }
