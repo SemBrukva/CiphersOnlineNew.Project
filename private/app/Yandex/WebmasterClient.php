@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Yandex;
 
+use App\Http\Client\HttpException;
 use App\Http\Client\HttpClientInterface;
 use RuntimeException;
 
@@ -43,12 +44,16 @@ final readonly class WebmasterClient
             throw new RuntimeException('Не настроены YANDEX_WEBMASTER_TOKEN, YANDEX_WEBMASTER_USER_ID или YANDEX_WEBMASTER_HOST_ID.');
         }
 
-        $response = $this->http
-            ->withToken($this->token(), $this->tokenType())
-            ->withHeader('Accept', 'application/json')
-            ->retry(2, 500)
-            ->post($this->endpoint('/v4/user/' . rawurlencode($this->userId()) . '/hosts/' . rawurlencode($this->hostId()) . '/query-analytics/list'), $payload)
-            ->throw();
+        try {
+            $response = $this->http
+                ->withToken($this->token(), $this->tokenType())
+                ->withHeader('Accept', 'application/json')
+                ->retry(2, 500)
+                ->post($this->endpoint('/v4/user/' . rawurlencode($this->userId()) . '/hosts/' . rawurlencode($this->hostId()) . '/query-analytics/list'), $payload)
+                ->throw();
+        } catch (HttpException $e) {
+            throw new RuntimeException($this->errorMessage($e), 0, $e);
+        }
 
         $data = $response->json();
         if (!is_array($data)) {
@@ -98,5 +103,35 @@ final readonly class WebmasterClient
     private function hostId(): string
     {
         return trim((string) ($this->config['host_id'] ?? ''));
+    }
+
+    /**
+     * Формирует понятное сообщение об ошибке API.
+     */
+    private function errorMessage(HttpException $exception): string
+    {
+        $response = $exception->response();
+        $data = $response->json();
+        if (!is_array($data)) {
+            $body = trim($response->body());
+            if ($body === '') {
+                return 'API Яндекс Вебмастера вернул HTTP ' . $response->status() . ' без тела ответа.';
+            }
+
+            return 'API Яндекс Вебмастера вернул HTTP ' . $response->status() . ': ' . mb_substr($body, 0, 1000);
+        }
+
+        $parts = ['API Яндекс Вебмастера вернул HTTP ' . $response->status()];
+        foreach (['error_code', 'message', 'error_message', 'field_name', 'field_value'] as $key) {
+            if (isset($data[$key]) && $data[$key] !== '') {
+                $parts[] = $key . '=' . (is_scalar($data[$key]) ? (string) $data[$key] : json_encode($data[$key], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+            }
+        }
+
+        if (count($parts) === 1) {
+            $parts[] = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        }
+
+        return implode('; ', $parts);
     }
 }

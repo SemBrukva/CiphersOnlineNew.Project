@@ -12,7 +12,6 @@ return [
     'user_id' => env('YANDEX_WEBMASTER_USER_ID', ''),
     'host_id' => env('YANDEX_WEBMASTER_HOST_ID', ''),
     'device_type_indicator' => env('YANDEX_WEBMASTER_DEVICE_TYPE', 'ALL'),
-    'search_location' => env('YANDEX_WEBMASTER_SEARCH_LOCATION', 'WEB_LOCATION'),
     'region_ids' => array_values(array_filter(array_map(
         static fn (string $id): int => (int) trim($id),
         explode(',', (string) env('YANDEX_WEBMASTER_REGION_IDS', ''))

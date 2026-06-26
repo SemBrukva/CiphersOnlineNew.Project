@@ -171,7 +171,6 @@ final readonly class SemanticRankSnapshotService
             'limit' => $limit,
             'text_indicator' => 'QUERY',
             'device_type_indicator' => (string) ($this->config['device_type_indicator'] ?? 'ALL'),
-            'search_location' => (string) ($this->config['search_location'] ?? 'WEB_LOCATION'),
             'sort_by_date' => [
                 'date' => $date,
                 'statistic_field' => 'IMPRESSIONS',
