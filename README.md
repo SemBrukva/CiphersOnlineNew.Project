@@ -89,6 +89,7 @@ make docker-test      # phpunit в контейнере
 ```bash
 php bin/console                                  # список команд
 php bin/console migrate                          # миграции
+php bin/console migrate:one <migration>          # применить одну миграцию
 php bin/console queue:work [--queue=default]     # воркер очереди
 php bin/console openapi:generate                 # → public/openapi.json
 
@@ -100,6 +101,17 @@ php bin/console make:migration create_posts_table
 php bin/console make:repository PostRepository
 php bin/console make:job ProcessPaymentJob
 ```
+
+### Точечный запуск миграции
+
+Если нужно применить один конкретный файл из `private/database/migrations`, используйте `migrate:one`:
+
+```bash
+php bin/console migrate:one 2026_06_26_121343_seed_anagram_solver
+php bin/console migrate:one 2026_06_26_121343_seed_anagram_solver.php
+```
+
+Команда принимает имя миграции как с расширением `.php`, так и без него. После успешного запуска миграция записывается в таблицу `migrations` отдельным batch; если она уже была применена, повторно не выполняется.
 
 ### Импорт SQLite в MySQL
 

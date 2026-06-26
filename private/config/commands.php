@@ -20,6 +20,7 @@ use App\Console\Commands\Make\MakeMiddlewareCommand;
 use App\Console\Commands\Make\MakeMigrationCommand;
 use App\Console\Commands\Make\MakeRepositoryCommand;
 use App\Console\Commands\MigrateCommand;
+use App\Console\Commands\MigrateOneCommand;
 use App\Console\Commands\MigrateRollbackCommand;
 use App\Console\Commands\MigrateStatusCommand;
 use App\Console\Commands\OpenApiCommand;
@@ -34,6 +35,7 @@ use App\Console\Commands\SemanticValidateCommand;
 
 return [
     'migrate'           => MigrateCommand::class,
+    'migrate:one'       => MigrateOneCommand::class,
     'migrate:rollback'  => MigrateRollbackCommand::class,
     'migrate:status'    => MigrateStatusCommand::class,
     'mail:test'         => MailTestCommand::class,

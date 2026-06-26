@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Database;
 
+use InvalidArgumentException;
+
 /**
  * Управляет выполнением и откатом миграций базы данных.
  *
@@ -57,6 +59,37 @@ final class Migrator
         }
 
         return $ran;
+    }
+
+    /**
+     * Применяет одну указанную миграцию, если она ещё не была выполнена.
+     *
+     * @return bool true, если миграция была применена; false, если она уже выполнена.
+     *
+     * @throws InvalidArgumentException Если файл миграции не найден.
+     */
+    public function runOne(string $name): bool
+    {
+        $this->ensureTable();
+
+        $name = $this->normalizeName($name);
+
+        if (!in_array($name, $this->getAll(), true)) {
+            throw new InvalidArgumentException("Файл миграции не найден: {$name}.php");
+        }
+
+        if (in_array($name, $this->getRan(), true)) {
+            return false;
+        }
+
+        $this->resolve($name)->up();
+
+        $this->db->insert(
+            'INSERT INTO ' . self::TABLE . ' (migration, batch) VALUES (?, ?)',
+            [$name, $this->getNextBatch()]
+        );
+
+        return true;
     }
 
     /**
@@ -151,12 +184,20 @@ final class Migrator
      */
     private function getPending(): array
     {
-        $ran = array_column(
+        return array_values(array_diff($this->getAll(), $this->getRan()));
+    }
+
+    /**
+     * Возвращает список уже применённых миграций.
+     *
+     * @return string[]
+     */
+    private function getRan(): array
+    {
+        return array_column(
             $this->db->fetchAll('SELECT migration FROM ' . self::TABLE),
             'migration'
         );
-
-        return array_values(array_diff($this->getAll(), $ran));
     }
 
     /**
@@ -170,6 +211,20 @@ final class Migrator
         sort($files);
 
         return array_map(static fn (string $f): string => basename($f, '.php'), $files);
+    }
+
+    /**
+     * Нормализует имя миграции из аргумента консольной команды.
+     */
+    private function normalizeName(string $name): string
+    {
+        $name = trim($name);
+
+        if ($name === '') {
+            throw new InvalidArgumentException('Имя миграции не может быть пустым.');
+        }
+
+        return basename($name, '.php');
     }
 
     /**
