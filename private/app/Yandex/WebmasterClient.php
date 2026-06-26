@@ -1,0 +1,102 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Yandex;
+
+use App\Http\Client\HttpClientInterface;
+use RuntimeException;
+
+/**
+ * Клиент API Яндекс Вебмастера.
+ */
+final readonly class WebmasterClient
+{
+    /**
+     * Создаёт клиент API Вебмастера.
+     *
+     * @param array<string, mixed> $config Конфигурация yandex_webmaster.
+     */
+    public function __construct(
+        private HttpClientInterface $http,
+        private array $config,
+    ) {
+    }
+
+    /**
+     * Проверяет, достаточно ли настроек для обращения к API.
+     */
+    public function isConfigured(): bool
+    {
+        return $this->token() !== '' && $this->userId() !== '' && $this->hostId() !== '';
+    }
+
+    /**
+     * Возвращает список запросов и URL из query-analytics/list.
+     *
+     * @param  array<string, mixed> $payload Тело POST-запроса к API.
+     * @return array<string, mixed>          Декодированный JSON-ответ.
+     */
+    public function queryAnalyticsList(array $payload): array
+    {
+        if (!$this->isConfigured()) {
+            throw new RuntimeException('Не настроены YANDEX_WEBMASTER_TOKEN, YANDEX_WEBMASTER_USER_ID или YANDEX_WEBMASTER_HOST_ID.');
+        }
+
+        $response = $this->http
+            ->withToken($this->token(), $this->tokenType())
+            ->withHeader('Accept', 'application/json')
+            ->retry(2, 500)
+            ->post($this->endpoint('/v4/user/' . rawurlencode($this->userId()) . '/hosts/' . rawurlencode($this->hostId()) . '/query-analytics/list'), $payload)
+            ->throw();
+
+        $data = $response->json();
+        if (!is_array($data)) {
+            throw new RuntimeException('API Яндекс Вебмастера вернул невалидный JSON.');
+        }
+
+        return $data;
+    }
+
+    /**
+     * Возвращает полный URL API-метода.
+     */
+    private function endpoint(string $path): string
+    {
+        return rtrim((string) ($this->config['base_url'] ?? 'https://api.webmaster.yandex.net'), '/') . $path;
+    }
+
+    /**
+     * Возвращает OAuth-токен.
+     */
+    private function token(): string
+    {
+        return trim((string) ($this->config['token'] ?? ''));
+    }
+
+    /**
+     * Возвращает тип токена для заголовка Authorization.
+     */
+    private function tokenType(): string
+    {
+        $type = trim((string) ($this->config['token_type'] ?? 'OAuth'));
+
+        return $type !== '' ? $type : 'OAuth';
+    }
+
+    /**
+     * Возвращает ID пользователя Вебмастера.
+     */
+    private function userId(): string
+    {
+        return trim((string) ($this->config['user_id'] ?? ''));
+    }
+
+    /**
+     * Возвращает host_id сайта в Вебмастере.
+     */
+    private function hostId(): string
+    {
+        return trim((string) ($this->config['host_id'] ?? ''));
+    }
+}

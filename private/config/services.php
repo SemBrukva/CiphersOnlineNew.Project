@@ -103,6 +103,19 @@ return [
     App\Repository\SemanticCoreRepository::class => static function (Container $container): App\Repository\SemanticCoreRepository {
         return new App\Repository\SemanticCoreRepository($container->get(Database::class));
     },
+    App\Yandex\WebmasterClient::class => static function (Container $container): App\Yandex\WebmasterClient {
+        return new App\Yandex\WebmasterClient(
+            $container->get(HttpClientInterface::class),
+            config('yandex_webmaster', [])
+        );
+    },
+    App\Semantic\SemanticRankSnapshotService::class => static function (Container $container): App\Semantic\SemanticRankSnapshotService {
+        return new App\Semantic\SemanticRankSnapshotService(
+            $container->get(App\Repository\SemanticCoreRepository::class),
+            $container->get(App\Yandex\WebmasterClient::class),
+            config('yandex_webmaster', [])
+        );
+    },
     Session::class => static function (): Session {
         $config = config('session', []);
         $driver = $config['driver'] ?? 'file';

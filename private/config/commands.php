@@ -32,6 +32,7 @@ use App\Console\Commands\RouteListCommand;
 use App\Console\Commands\SemanticRawImportCommand;
 use App\Console\Commands\SemanticSyncCommand;
 use App\Console\Commands\SemanticValidateCommand;
+use App\Console\Commands\SemanticYandexRankCommand;
 
 return [
     'migrate'           => MigrateCommand::class,
@@ -56,6 +57,7 @@ return [
     'semantic:raw:import' => SemanticRawImportCommand::class,
     'semantic:sync' => SemanticSyncCommand::class,
     'semantic:validate' => SemanticValidateCommand::class,
+    'semantic:yandex:rank' => SemanticYandexRankCommand::class,
     'cipher:content:export' => CipherContentExportCommand::class,
     'cipher:content:import' => CipherContentImportCommand::class,
     'cipher:category:content:export' => CipherCategoryContentExportCommand::class,
