@@ -17,6 +17,6 @@ return [
         explode(',', (string) env('YANDEX_WEBMASTER_REGION_IDS', ''))
     ))),
     'page_size' => max(1, min(500, (int) env('YANDEX_WEBMASTER_PAGE_SIZE', 500))),
-    'max_pages' => max(1, (int) env('YANDEX_WEBMASTER_MAX_PAGES', 40)),
+    'max_pages' => max(1, (int) env('YANDEX_WEBMASTER_MAX_PAGES', 100)),
     'record_missing' => filter_var(env('YANDEX_WEBMASTER_RECORD_MISSING', true), FILTER_VALIDATE_BOOL),
 ];

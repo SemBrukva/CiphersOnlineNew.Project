@@ -53,9 +53,16 @@ final readonly class SemanticYandexRankCommand implements CommandInterface
         echo 'Queries: ' . $result['queries'] . PHP_EOL;
         echo 'API pages: ' . $result['api_pages'] . PHP_EOL;
         echo 'API records: ' . $result['api_records'] . PHP_EOL;
+        echo 'API total count: ' . $result['api_total_count'] . PHP_EOL;
         echo 'Matched: ' . $result['matched'] . PHP_EOL;
         echo 'Missing: ' . $result['missing'] . PHP_EOL;
         echo 'Saved: ' . $result['saved'] . PHP_EOL;
+
+        if ((int) ($options['sample_size'] ?? 0) > 0) {
+            $this->printSamples('Semantic-core samples', $result['semantic_samples'] ?? []);
+            $this->printSamples('Yandex Webmaster samples', $result['api_samples'] ?? []);
+            $this->printSamples('Missing semantic-core samples', $result['missing_samples'] ?? []);
+        }
 
         return 0;
     }
@@ -81,6 +88,11 @@ final readonly class SemanticYandexRankCommand implements CommandInterface
                 continue;
             }
 
+            if ($arg === '--debug-samples') {
+                $options['sample_size'] = 20;
+                continue;
+            }
+
             if (str_starts_with($arg, '--date=')) {
                 $options['date'] = substr($arg, 7);
                 continue;
@@ -93,9 +105,33 @@ final readonly class SemanticYandexRankCommand implements CommandInterface
 
             if (str_starts_with($arg, '--limit=')) {
                 $options['limit'] = max(1, (int) substr($arg, 8));
+                continue;
+            }
+
+            if (str_starts_with($arg, '--sample-size=')) {
+                $options['sample_size'] = max(1, (int) substr($arg, 14));
             }
         }
 
         return $options;
+    }
+
+    /**
+     * Печатает примеры запросов для диагностики сопоставления.
+     *
+     * @param mixed $samples Список строк.
+     */
+    private function printSamples(string $title, mixed $samples): void
+    {
+        echo PHP_EOL . $title . ':' . PHP_EOL;
+
+        if (!is_array($samples) || $samples === []) {
+            echo '  <empty>' . PHP_EOL;
+            return;
+        }
+
+        foreach ($samples as $sample) {
+            echo '  - ' . (string) $sample . PHP_EOL;
+        }
     }
 }

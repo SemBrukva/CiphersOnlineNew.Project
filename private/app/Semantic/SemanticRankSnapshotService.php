@@ -48,8 +48,11 @@ final readonly class SemanticRankSnapshotService
             isset($options['limit']) ? (int) $options['limit'] : null,
         );
 
+        $sampleSize = max(0, (int) ($options['sample_size'] ?? 0));
+        $semanticSamples = $this->querySamples($queries, $sampleSize);
+
         if ($queries === []) {
-            return $this->emptyResult($date, (bool) ($options['dry_run'] ?? false));
+            return $this->emptyResult($date, (bool) ($options['dry_run'] ?? false), $semanticSamples);
         }
 
         $requestedDate = $date;
@@ -127,9 +130,13 @@ final readonly class SemanticRankSnapshotService
             'queries' => count($queries),
             'api_records' => (int) $records['records'],
             'api_pages' => (int) $records['pages'],
+            'api_total_count' => (int) ($records['count'] ?? 0),
             'matched' => $matched,
             'missing' => $missing,
             'saved' => $saved,
+            'semantic_samples' => $semanticSamples,
+            'api_samples' => $sampleSize > 0 ? ($records['samples'] ?? []) : [],
+            'missing_samples' => $sampleSize > 0 ? $this->missingSamples($queries, $records['by_query'], $sampleSize) : [],
         ];
     }
 
@@ -155,7 +162,7 @@ final readonly class SemanticRankSnapshotService
     /**
      * Загружает страницы query-analytics/list и индексирует их по запросу.
      *
-     * @return array{by_query: array<string, array<string, mixed>>, records: int, pages: int}
+     * @return array{by_query: array<string, array<string, mixed>>, records: int, pages: int, count: int, samples: array<int, string>}
      */
     private function fetchYandexRecords(string $date): array
     {
@@ -163,12 +170,15 @@ final readonly class SemanticRankSnapshotService
         $maxPages = (int) ($this->config['max_pages'] ?? 40);
         $byQuery = [];
         $totalRecords = 0;
+        $count = 0;
         $pages = 0;
+        $samples = [];
 
         for ($page = 0; $page < $maxPages; $page++) {
             $payload = $this->payload($date, $page * $pageSize, $pageSize);
             $data = $this->webmaster->queryAnalyticsList($payload);
             $items = $this->items($data);
+            $count = max($count, isset($data['count']) ? (int) $data['count'] : 0);
 
             $pages++;
             $totalRecords += count($items);
@@ -180,6 +190,10 @@ final readonly class SemanticRankSnapshotService
                 }
 
                 $key = $this->normalizeQuery((string) $record['query']);
+                if (count($samples) < 25) {
+                    $samples[] = (string) $record['query'];
+                }
+
                 $current = $byQuery[$key] ?? null;
                 if ($current === null || $this->isBetterRecord($record, $current)) {
                     $byQuery[$key] = $record;
@@ -192,7 +206,7 @@ final readonly class SemanticRankSnapshotService
             }
         }
 
-        return ['by_query' => $byQuery, 'records' => $totalRecords, 'pages' => $pages];
+        return ['by_query' => $byQuery, 'records' => $totalRecords, 'pages' => $pages, 'count' => $count, 'samples' => $samples];
     }
 
     /**
@@ -403,9 +417,10 @@ final readonly class SemanticRankSnapshotService
     /**
      * Возвращает пустую сводку сбора.
      *
-     * @return array<string, int|string|bool>
+     * @param  array<int, string> $semanticSamples Примеры запросов из semantic-core.
+     * @return array<string, mixed>
      */
-    private function emptyResult(string $date, bool $dryRun): array
+    private function emptyResult(string $date, bool $dryRun, array $semanticSamples = []): array
     {
         return [
             'date' => $date,
@@ -415,9 +430,61 @@ final readonly class SemanticRankSnapshotService
             'queries' => 0,
             'api_records' => 0,
             'api_pages' => 0,
+            'api_total_count' => 0,
             'matched' => 0,
             'missing' => 0,
             'saved' => 0,
+            'semantic_samples' => $semanticSamples,
+            'api_samples' => [],
+            'missing_samples' => [],
         ];
+    }
+
+    /**
+     * Возвращает примеры запросов из semantic-core.
+     *
+     * @param array<int, array<string, mixed>> $queries Запросы semantic-core.
+     * @return array<int, string>
+     */
+    private function querySamples(array $queries, int $limit): array
+    {
+        if ($limit <= 0) {
+            return [];
+        }
+
+        $samples = [];
+        foreach ($queries as $query) {
+            $samples[] = (string) ($query['query'] ?? '');
+            if (count($samples) >= $limit) {
+                break;
+            }
+        }
+
+        return $samples;
+    }
+
+    /**
+     * Возвращает примеры semantic-core запросов, которых нет в ответе Вебмастера.
+     *
+     * @param array<int, array<string, mixed>>          $queries Запросы semantic-core.
+     * @param array<string, array<string, mixed>>       $records Записи Вебмастера по нормализованному запросу.
+     * @return array<int, string>
+     */
+    private function missingSamples(array $queries, array $records, int $limit): array
+    {
+        $samples = [];
+        foreach ($queries as $query) {
+            $text = (string) ($query['query'] ?? '');
+            if (isset($records[$this->normalizeQuery($text)])) {
+                continue;
+            }
+
+            $samples[] = $text;
+            if (count($samples) >= $limit) {
+                break;
+            }
+        }
+
+        return $samples;
     }
 }
