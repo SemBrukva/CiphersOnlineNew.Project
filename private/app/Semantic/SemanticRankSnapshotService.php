@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Semantic;
 
 use App\Repository\SemanticCoreRepository;
+use App\Yandex\WebmasterApiException;
 use App\Yandex\WebmasterClient;
 use DateTimeImmutable;
 use RuntimeException;
@@ -51,7 +52,21 @@ final readonly class SemanticRankSnapshotService
             return $this->emptyResult($date, (bool) ($options['dry_run'] ?? false));
         }
 
-        $records = $this->fetchYandexRecords($date);
+        $requestedDate = $date;
+        $dateAdjusted = false;
+        try {
+            $records = $this->fetchYandexRecords($date);
+        } catch (WebmasterApiException $e) {
+            $fallbackDate = $this->latestAllowedDate($e);
+            if (!((bool) ($options['auto_date'] ?? false)) || $fallbackDate === null || $fallbackDate === $date) {
+                throw $e;
+            }
+
+            $date = $fallbackDate;
+            $dateAdjusted = true;
+            $records = $this->fetchYandexRecords($date);
+        }
+
         $recordMissing = array_key_exists('record_missing', $options)
             ? (bool) $options['record_missing']
             : (bool) ($this->config['record_missing'] ?? true);
@@ -106,6 +121,8 @@ final readonly class SemanticRankSnapshotService
 
         return [
             'date' => $date,
+            'requested_date' => $requestedDate,
+            'date_adjusted' => $dateAdjusted,
             'dry_run' => $dryRun,
             'queries' => count($queries),
             'api_records' => (int) $records['records'],
@@ -114,6 +131,25 @@ final readonly class SemanticRankSnapshotService
             'missing' => $missing,
             'saved' => $saved,
         ];
+    }
+
+    /**
+     * Возвращает последнюю доступную дату из ошибки ограничения диапазона.
+     */
+    private function latestAllowedDate(WebmasterApiException $exception): ?string
+    {
+        if ($exception->errorCode() !== 'RESTRICTIONS_VIOLATED') {
+            return null;
+        }
+
+        if (!preg_match('/to \(inclusively\) (?<date>\d{4}-\d{2}-\d{2})/u', $exception->apiErrorMessage(), $matches)) {
+            return null;
+        }
+
+        $date = (string) $matches['date'];
+        $this->assertDate($date);
+
+        return $date;
     }
 
     /**
@@ -373,6 +409,8 @@ final readonly class SemanticRankSnapshotService
     {
         return [
             'date' => $date,
+            'requested_date' => $date,
+            'date_adjusted' => false,
             'dry_run' => $dryRun,
             'queries' => 0,
             'api_records' => 0,

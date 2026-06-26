@@ -30,7 +30,9 @@ final readonly class SemanticYandexRankCommand implements CommandInterface
     public function handle(array $args): int
     {
         $options = $this->parseOptions($args);
+        $hasExplicitDate = array_key_exists('date', $options);
         $date = (string) ($options['date'] ?? (new DateTimeImmutable('yesterday'))->format('Y-m-d'));
+        $options['auto_date'] = !$hasExplicitDate;
 
         try {
             $result = $this->snapshots->collectYandexWebmaster($date, $options);
@@ -44,6 +46,10 @@ final readonly class SemanticYandexRankCommand implements CommandInterface
             $result['date'],
             $result['dry_run'] ? ' dry-run' : ''
         );
+        if (($result['date_adjusted'] ?? false) === true) {
+            echo 'Requested date: ' . $result['requested_date'] . PHP_EOL;
+            echo 'Adjusted to latest available date: ' . $result['date'] . PHP_EOL;
+        }
         echo 'Queries: ' . $result['queries'] . PHP_EOL;
         echo 'API pages: ' . $result['api_pages'] . PHP_EOL;
         echo 'API records: ' . $result['api_records'] . PHP_EOL;

@@ -52,6 +52,16 @@ final readonly class WebmasterClient
                 ->post($this->endpoint('/v4/user/' . rawurlencode($this->userId()) . '/hosts/' . rawurlencode($this->hostId()) . '/query-analytics/list'), $payload)
                 ->throw();
         } catch (HttpException $e) {
+            $data = $e->response()->json();
+            if (is_array($data)) {
+                throw new WebmasterApiException(
+                    $e->response()->status(),
+                    $data,
+                    $this->errorMessage($e),
+                    $e
+                );
+            }
+
             throw new RuntimeException($this->errorMessage($e), 0, $e);
         }
 
