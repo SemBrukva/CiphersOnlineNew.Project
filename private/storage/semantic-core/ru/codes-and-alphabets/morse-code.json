@@ -1,0 +1,934 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "азбука морзе переводчик",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/codes-and-alphabets/morse-code.csv",
+        "imported_at": "2026-06-25T21:56:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/morse-code",
+        "url": "/ru/codes-and-alphabets/morse-code",
+        "content_file": "private/storage/content/codes-and-alphabets/morse-code/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 48862,
+        "primary_terms": [
+            "морзе",
+            "переводчик",
+            "азбука",
+            "азбуки",
+            "перевод",
+            "русский",
+            "азбуку",
+            "русского",
+            "код",
+            "перевести",
+            "морзянка",
+            "английский"
+        ],
+        "modifiers": [
+            "на русский",
+            "с русского",
+            "онлайн",
+            "на английский",
+            "русский язык",
+            "морзянка",
+            "в текст",
+            "по звуку",
+            "со звуком"
+        ],
+        "intents": {
+            "translate": 72,
+            "decode": 26,
+            "encode": 15,
+            "online": 7,
+            "english": 4,
+            "audio": 2
+        },
+        "content_recommendations": [
+            "В meta_title сохранить точную связку «азбука морзе переводчик» и не размывать её справочной формулировкой.",
+            "В первом экране явно назвать оба направления: перевод текста в азбуку Морзе и расшифровка Морзе обратно в русский текст.",
+            "В intro использовать естественные варианты «переводчик с азбуки Морзе на русский» и «переводчик с русского на азбуку Морзе» без перечисления всех дублей.",
+            "В FAQ покрыть аудио-сценарии: можно ли слушать Морзе, переводить по звуку, скачать или воспроизвести сигнал.",
+            "В отдельном FAQ или коротком блоке объяснить, что инструмент поддерживает кириллицу, латиницу и международный код Морзе.",
+            "Коллоквиальные формулировки «морзянка» использовать только в FAQ/тексте, не в title/H1."
+        ],
+        "query_groups": [
+            {
+                "name": "Главный переводчик",
+                "intent": [
+                    "translate"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "азбука морзе переводчик",
+                    "переводчик азбуки морзе",
+                    "морзе переводчик"
+                ]
+            },
+            {
+                "name": "Декодирование на русский",
+                "intent": [
+                    "translate",
+                    "decode"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "переводчик с азбуки морзе на русский",
+                    "перевод с азбуки морзе на русский",
+                    "переводчик с морзе на русский",
+                    "расшифровать азбуку морзе онлайн"
+                ]
+            },
+            {
+                "name": "Кодирование с русского",
+                "intent": [
+                    "translate",
+                    "encode"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "переводчик с русского на азбуку морзе",
+                    "переводчик на азбуку морзе с русского",
+                    "перевод текста в азбуку морзе"
+                ]
+            },
+            {
+                "name": "Онлайн-формулировки",
+                "intent": [
+                    "translate",
+                    "online"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "азбука морзе переводчик онлайн",
+                    "азбука морзе онлайн переводчик",
+                    "морзе онлайн"
+                ]
+            },
+            {
+                "name": "Звук и прослушивание",
+                "intent": [
+                    "translate",
+                    "audio"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "азбука морзе переводчик по звуку",
+                    "азбука морзе переводчик со звуком"
+                ]
+            },
+            {
+                "name": "Латиница и английский",
+                "intent": [
+                    "translate",
+                    "english"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "переводчик с азбуки морзе на английский",
+                    "азбука морзе переводчик на английский"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "азбука морзе переводчик",
+            "score": 15622,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "translate"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "переводчик азбуки морзе",
+            "score": 5146,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик с азбуки морзе",
+            "score": 3507,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик на азбуку морзе",
+            "score": 2297,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод с азбуки морзе",
+            "score": 2275,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод азбуки морзе",
+            "score": 2139,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик азбука морзе",
+            "score": 1966,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик с азбуки морзе на русский",
+            "score": 1511,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "морзе переводчик",
+            "score": 1364,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "азбука морзе переводчик на русский",
+            "score": 1265,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод на азбуку морзе",
+            "score": 1250,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод с азбуки морзе на русский",
+            "score": 1078,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик с морзе",
+            "score": 592,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик азбуки морзе на русский",
+            "score": 585,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод азбука морзе",
+            "score": 501,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "перевод азбуки морзе на русский",
+            "score": 420,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик с русского на азбуку морзе",
+            "score": 381,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик азбука морзе на русский",
+            "score": 377,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "код морзе переводчик",
+            "score": 364,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик на азбуку морзе с русского",
+            "score": 351,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик на морзе",
+            "score": 343,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод с азбуки морзе на русский язык",
+            "score": 319,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик с морзе на русский",
+            "score": 309,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "морзянка переводчик",
+            "score": 299,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод в азбуку морзе",
+            "score": 285,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "язык морзе переводчик",
+            "score": 271,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик с азбуки морзе на русский язык",
+            "score": 261,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик азбуки морзе на русский текст",
+            "score": 241,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе переводчик онлайн",
+            "score": 224,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик морзе на русский",
+            "score": 199,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе онлайн переводчик",
+            "score": 197,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "морзе онлайн",
+            "score": 183,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик в азбуку морзе",
+            "score": 173,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод с морзе на русский",
+            "score": 163,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод с русского на азбуку морзе",
+            "score": 163,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик азбуки морзе в текст",
+            "score": 154,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе переводчик на русский словами",
+            "score": 148,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевести азбуку морзе",
+            "score": 140,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровать азбуку морзе онлайн",
+            "score": 132,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе перевод на русский",
+            "score": 126,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик с языка морзе",
+            "score": 104,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик с азбуки морзе на английский",
+            "score": 91,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode",
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик на язык морзе",
+            "score": 84,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевести на азбуку морзе",
+            "score": 79,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе переводчик на английский",
+            "score": 77,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик морзянки",
+            "score": 67,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "азбука морзе перевести",
+            "score": 66,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик по азбуке морзе",
+            "score": 62,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик с русского на морзе",
+            "score": 59,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик на морзянку",
+            "score": 57,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик на азбука морзе",
+            "score": 54,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик с азбуки морзе на русский по тексту",
+            "score": 53,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик языка морзе",
+            "score": 46,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод текста в азбуку морзе",
+            "score": 45,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод с азбуки морзе на английский",
+            "score": 42,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode",
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "азбука морзе переводчик с русского на азбуку морзе",
+            "score": 41,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевести азбуку морзе на русский",
+            "score": 39,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе переводчик с русского",
+            "score": 38,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "перевод на морзянку",
+            "score": 38,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевести текст в азбуку морзе",
+            "score": 37,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе переводчик по звуку",
+            "score": 36,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "audio"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "с азбуки морзе на русский переводчик",
+            "score": 35,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе переводчик со звуком",
+            "score": 33,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "audio"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик азбуки морзе на английский",
+            "score": 31,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод из азбуки морзе",
+            "score": 31,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик азбуке морзе",
+            "score": 30,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "азбука морзе переводчик с морзе на русский",
+            "score": 30,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "азбука морзе перевод онлайн",
+            "score": 30,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "азбука морзе переводчик с морзе",
+            "score": 28,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод с азбуки морзе на русский онлайн",
+            "score": 27,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик на азбуку морзе онлайн",
+            "score": 26,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "переводчик с русского на азбука морзе",
+            "score": 25,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        }
+    ],
+    "notes": "Curated semantic core for the Russian Morse translator page. Use this file before editing private/storage/content/codes-and-alphabets/morse-code/ru.json; raw CSV remains the source signal, but this JSON is the reviewed semantic source of truth.",
+    "curation": {
+        "reviewed_at": "2026-06-26",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "Кластер оставлен единым: общий переводчик, декодирование в русский текст и кодирование с русского являются разными сценариями одного инструмента.",
+            "Аудио-запросы имеют низкий score, но важны продуктово, поэтому покрываются FAQ и описанием звукового режима.",
+            "Запросы про английский язык оставлены как long_tail: они подтверждают ожидание поддержки латиницы, но не должны менять русский primary intent."
+        ]
+    }
+}

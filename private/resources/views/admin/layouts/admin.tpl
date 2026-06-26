@@ -43,6 +43,12 @@
                 <i class="bi bi-shield-lock me-2"></i>Шифры
             </a>
         </li>
+        <li class="nav-item">
+            {assign var="semantic_core_prefix" value=$admin_path|cat:'/semantic-core'}
+            <a href="{$admin_path}/semantic-core" class="nav-link text-white{if $current_path|starts_with:$semantic_core_prefix} active{/if}">
+                <i class="bi bi-search me-2"></i>Семантика
+            </a>
+        </li>
         <li class="nav-item mt-auto">
             {assign var="settings_prefix" value=$admin_path|cat:'/settings'}
             <a href="{$admin_path}/settings" class="nav-link text-white{if $current_path|starts_with:$settings_prefix} active{/if}">

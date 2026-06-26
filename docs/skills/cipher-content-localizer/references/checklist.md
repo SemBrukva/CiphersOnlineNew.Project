@@ -9,3 +9,6 @@
 7. `output` values were recomputed from API, not translated.
 8. Semantic intent of each example preserved in localized version.
 9. JSON parses successfully.
+10. If a matching semantic-core file exists, it was read before writing target text.
+11. Primary/secondary semantic intents are naturally covered in SEO fields, intro, blocks, or FAQ.
+12. Semantic-core did not introduce claims beyond actual tool/API/UI functionality.

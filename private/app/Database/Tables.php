@@ -92,4 +92,13 @@ final class Tables
 
     /** @var string Таблица событий использования инструментов (аналитика). */
     public const string TOOL_USAGE_EVENTS = 'tool_usage_events';
+
+    /** @var string Таблица кластеров семантического ядра. */
+    public const string SEMANTIC_CLUSTERS = 'semantic_clusters';
+
+    /** @var string Таблица поисковых запросов семантического ядра. */
+    public const string SEMANTIC_QUERIES = 'semantic_queries';
+
+    /** @var string Таблица снимков поисковых позиций по запросам. */
+    public const string SEMANTIC_RANK_SNAPSHOTS = 'semantic_rank_snapshots';
 }

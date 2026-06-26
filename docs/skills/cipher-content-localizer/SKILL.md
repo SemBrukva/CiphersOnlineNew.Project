@@ -8,6 +8,8 @@ description: Use this skill when you need to localize cipher content JSON files 
 ## Overview
 This skill localizes cipher page JSON content from a source language (usually `en`) into a target locale while preserving schema integrity and semantic intent. It explicitly adapts example scenarios and recomputes `examples[].data.output` via `/api/tools/{cipher}` instead of translating examples literally.
 
+When a matching semantic-core file exists, this skill must use it as SEO and user-intent context for the target locale. Semantic-core complements the current tool behavior; it must not override, exaggerate, or replace what the service actually supports.
+
 ## When To Use
 Use this skill when all are true:
 - You already have a finalized source content JSON (typically `*.en.json`).
@@ -21,6 +23,10 @@ Required inputs:
 - Source JSON path (example: `private/storage/content/classical-ciphers/playfair/en.json`)
 - Target locale code (example: `ru`)
 - Target JSON path
+
+Optional but required when present:
+- Semantic-core JSON path derived from the target file:
+  `private/storage/semantic-core/{target_locale}/{category_alias}/{cipher_alias}.json`
 
 Runtime prerequisites:
 - Local API is available (usually `http://127.0.0.1:8080`)
@@ -36,22 +42,37 @@ A target file with the same schema:
 ## Workflow
 1. Duplicate source JSON into target JSON path.
 2. Update `meta.language` to target locale and keep `meta.default_language` unchanged.
-3. Localize text blocks with adaptation, not literal translation:
+3. If semantic-core exists for the target locale and tool, read it before writing localized text.
+4. Localize text blocks with adaptation, not literal translation:
 - `cipher_translation`
 - `blocks[].data.title/text`
 - `faq[].data.question/answer`
 - `tags[].data.tag`
 - `examples[].data.title/description`
-4. Adapt examples for target locale:
+5. Adapt examples for target locale:
 - Replace `input` with natural target-language text matching the educational goal of the example.
 - Replace `key` with a valid key for the same alphabet.
 - Preserve the teaching purpose of each example (basic encryption, repeated letters, etc.).
-5. Recompute every `examples[].data.output` via API using script `scripts/recompute_example_outputs.py`.
-6. Validate final JSON:
+6. Recompute every `examples[].data.output` via API using script `scripts/recompute_example_outputs.py`.
+7. Validate final JSON:
 - valid JSON
 - schema shape preserved
 - all examples contain non-empty `key/input/output`
 - API recomputation succeeded without unresolved examples
+
+## Semantic-Core Rules
+- Derive the semantic-core path from the target content path:
+  `private/storage/content/{category_alias}/{cipher_alias}/{locale}.json`
+  → `private/storage/semantic-core/{locale}/{category_alias}/{cipher_alias}.json`.
+- If the file exists, read `cluster`, `status`, `analysis.query_groups`, `analysis.content_recommendations`, `queries`, and `curation` before localizing.
+- Use semantic-core to shape wording, emphasis, SEO fields, FAQ coverage, and examples.
+- Do not promise features that the current tool, API, or UI does not provide. Existing functionality is the hard boundary; semantic-core is demand context.
+- Preserve the page's actual purpose. For example, if semantic-core contains audio queries but the tool can only play/generated Morse audio, mention listening/playback/download if supported, but do not claim audio recognition or uploading sound unless implemented.
+- Use `primary` queries for `meta_title`, main name/description, and first-screen wording. Usually keep the exact primary phrase in `meta_title` when natural.
+- Use `secondary` queries and `query_groups` for intro, descriptions, major blocks, and core FAQ.
+- Use `long_tail` queries for FAQ, examples, or short supporting explanations. Do not overload `meta_title`/H1 with long-tail variants.
+- Use `analysis.content_recommendations` as editorial guidance, not text to paste verbatim.
+- If semantic-core conflicts with source content or functionality, keep functionality correct and add a brief note in the final response describing the conflict.
 
 ## Localization Rules
 - Prioritize clarity and pedagogical value over literal phrasing.
@@ -59,6 +80,7 @@ A target file with the same schema:
 - For `blocks[].data.text`, keep HTML structure intact (`<p>`, optional multiple paragraphs, lists allowed).
 - Do not remove or alter entity `id` values.
 - Do not add new entities in non-default language files.
+- Avoid keyword stuffing. Semantic coverage means natural coverage of user intents, not mechanical repetition of all queries.
 
 ## Example Handling Rules
 - Never translate example `output` directly.

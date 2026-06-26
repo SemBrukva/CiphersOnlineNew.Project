@@ -1,0 +1,242 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "шифровальная машина энигма",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/classical-ciphers/enigma.csv",
+        "imported_at": "2026-06-26T13:11:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/enigma",
+        "url": "/ru/classical-ciphers/enigma",
+        "content_file": "private/storage/content/classical-ciphers/enigma/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 173,
+        "primary_terms": [
+            "энигма",
+            "машина",
+            "шифровальная",
+            "шифр",
+            "энигмы",
+            "расшифровка",
+            "зашифровать",
+            "дешифратор",
+            "шифратор"
+        ],
+        "modifiers": [
+            "онлайн",
+            "зашифровать",
+            "шифратор",
+            "расшифровка",
+            "дешифратор"
+        ],
+        "intents": {
+            "cipher": 9,
+            "online": 8,
+            "encode": 3,
+            "decode": 2
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить связку «шифровальная машина Энигма», но рядом показать, что это онлайн-симулятор Enigma I/M3.",
+            "В intro явно покрыть два сценария: зашифровать сообщение на Enigma и расшифровать шифртекст при той же известной конфигурации.",
+            "Не обещать взлом, криптоанализ, автоматический подбор роторов, ring settings, plugboard или восстановление неизвестного ключа.",
+            "В основном блоке объяснить, что онлайн-машина моделирует роторы I-V, рефлекторы UKW-B/C, кольца, стартовые позиции и коммутационную панель.",
+            "В FAQ покрыть запросы «дешифратор Энигмы онлайн» и «шифратор Энигма онлайн» через ограничение: это симулятор с ручными настройками, а не универсальный дешифратор без ключа."
+        ],
+        "query_groups": [
+            {
+                "name": "Шифровальная машина Enigma",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "шифровальная машина энигма",
+                    "шифровальная машина энигма онлайн"
+                ]
+            },
+            {
+                "name": "Онлайн-симулятор машины",
+                "intent": [
+                    "cipher",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "онлайн машина энигма",
+                    "машина энигма онлайн",
+                    "энигма шифровальная машина онлайн"
+                ]
+            },
+            {
+                "name": "Шифрование Enigma",
+                "intent": [
+                    "encode",
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "шифр энигмы зашифровать",
+                    "шифратор энигма онлайн",
+                    "энигма зашифровать"
+                ]
+            },
+            {
+                "name": "Расшифровка при известной конфигурации",
+                "intent": [
+                    "decode",
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "энигма шифр онлайн расшифровка",
+                    "дешифратор энигмы онлайн"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "шифровальная машина энигма",
+            "score": 128,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "онлайн машина энигма",
+            "score": 15,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр энигмы онлайн",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "энигма шифр онлайн расшифровка",
+            "score": 6,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр энигмы зашифровать",
+            "score": 4,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "энигма шифровальная машина онлайн",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "машина энигма онлайн",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифровальная машина энигма онлайн",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "дешифратор энигмы онлайн",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шифратор энигма онлайн",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "энигма зашифровать",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "encode",
+                "cipher"
+            ],
+            "target": "examples"
+        }
+    ],
+    "notes": "Curated semantic core for the Russian Enigma simulator page. Use this file before editing private/storage/content/classical-ciphers/enigma/ru.json; semantic demand should emphasize the online Enigma machine and encode/decode scenarios without promising Enigma cracking or unknown-key recovery.",
+    "curation": {
+        "reviewed_at": "2026-06-26",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "Кластер оставлен единым: запросы про шифровальную машину, онлайн-симулятор, шифрование и расшифровку относятся к одной странице Enigma I/M3.",
+            "Семантика не требует отдельной страницы для дешифратора: текущий симулятор поддерживает расшифрование только при известной конфигурации машины.",
+            "Нельзя обещать взлом Enigma, автоматический подбор ключей или восстановление неизвестных настроек: таких функций в инструменте нет."
+        ]
+    }
+}

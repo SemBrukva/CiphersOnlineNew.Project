@@ -6,6 +6,7 @@ use App\Controller\Admin\CipherCategoryController;
 use App\Controller\Admin\CipherController;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\RedirectController;
+use App\Controller\Admin\SemanticCoreController;
 use App\Controller\Admin\SettingsController;
 
 /**
@@ -38,6 +39,12 @@ return [
         'controller' => RedirectController::class,
         'method'     => 'index',
         'name'       => 'admin.redirects.index',
+    ],
+
+    'GET /semantic-core' => [
+        'controller' => SemanticCoreController::class,
+        'method'     => 'index',
+        'name'       => 'admin.semantic_core.index',
     ],
 
     'GET /redirects/create' => [

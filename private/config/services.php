@@ -89,6 +89,16 @@ return [
 
     Translator::class => static fn (): Translator => new Translator(config('locale', [])),
     View::class => static fn (): View => new View(config('view')),
+    App\Semantic\SemanticCoreRepository::class => static fn (): App\Semantic\SemanticCoreRepository => new App\Semantic\SemanticCoreRepository(
+        STORAGE_PATH . '/semantic-core'
+    ),
+    App\Semantic\SemanticRawImporter::class => static fn (): App\Semantic\SemanticRawImporter => new App\Semantic\SemanticRawImporter(
+        STORAGE_PATH . '/semantic-raw',
+        STORAGE_PATH . '/semantic-core'
+    ),
+    App\Repository\SemanticCoreRepository::class => static function (Container $container): App\Repository\SemanticCoreRepository {
+        return new App\Repository\SemanticCoreRepository($container->get(Database::class));
+    },
     Session::class => static function (): Session {
         $config = config('session', []);
         $driver = $config['driver'] ?? 'file';
@@ -305,6 +315,14 @@ return [
             $container->get(View::class),
             $container->get(Session::class),
             $container->get(CacheInterface::class),
+        );
+    },
+
+    App\Controller\Admin\SemanticCoreController::class => static function (Container $container): App\Controller\Admin\SemanticCoreController {
+        return new App\Controller\Admin\SemanticCoreController(
+            $container->get(View::class),
+            $container->get(App\Semantic\SemanticCoreRepository::class),
+            $container->get(App\Repository\SemanticCoreRepository::class),
         );
     },
 

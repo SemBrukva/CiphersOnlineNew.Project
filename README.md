@@ -180,6 +180,70 @@ php bin/console cipher:category:content:import private/storage/content/encoding/
 
 Подробный формат описан в [docs/cipher-category-content-json.md](docs/cipher-category-content-json.md).
 
+### Семантическое ядро
+
+Семантика хранится в два слоя:
+
+- `private/storage/semantic-raw/{locale}/{category}/{tool}.csv` — сырые данные из внешних источников.
+- `private/storage/semantic-core/{locale}/{category}/{tool}.json` — curated source of truth для агентов, админки и будущей синхронизации в БД.
+
+Raw CSV использует универсальный формат:
+
+```csv
+query;score;competitiveness
+азбука морзе переводчик;15622;AVERAGE
+```
+
+`score` — источникозависимый вес запроса, а не универсальная частотность. Его смысл описывается в соседнем meta-файле:
+
+```json
+{
+  "schema": "semantic-raw.v1",
+  "locale": "ru",
+  "source": "webmaster_yandex",
+  "score_metric": "yandex_demand",
+  "cluster": "азбука морзе переводчик",
+  "tool": "codes-and-alphabets/morse-code",
+  "imported_at": "2026-06-25T21:56:00+02:00"
+}
+```
+
+Импорт raw-группы в semantic-core JSON:
+
+```bash
+php bin/console semantic:raw:import private/storage/semantic-raw/ru/codes-and-alphabets/morse-code.csv --force
+
+# Импортировать все raw CSV
+php bin/console semantic:raw:import --all --force
+```
+
+Проверка технической валидности semantic-core:
+
+```bash
+php bin/console semantic:validate
+```
+
+Синхронизация curated JSON в БД для админки и аналитики:
+
+```bash
+php bin/console migrate
+php bin/console semantic:sync
+```
+
+Политика:
+
+- JSON в `semantic-core` — источник истины для curated-семантики.
+- БД должна синхронизироваться из `semantic-core`, а не из raw CSV.
+- Raw CSV не редактируется под контент вручную: он хранит исходный сигнал источника.
+- Semantic-core JSON может редактироваться агентом или человеком: там фиксируются `primary`, `secondary`, `long_tail`, интенты, целевые зоны страницы и рекомендации для контента.
+- Позиции, Search Console, CTR, история и другая динамическая аналитика должны жить в БД, а не в JSON.
+
+Для построения semantic-core из raw-групп используйте skill:
+
+- [docs/skills/semantic-core-builder/SKILL.md](docs/skills/semantic-core-builder/SKILL.md)
+
+Подробный формат semantic-core JSON описан в [docs/semantic-core-json.md](docs/semantic-core-json.md).
+
 ### Skill для локализации JSON
 
 В репозитории есть skill для локализации контента шифров с обязательной валидацией примеров через API:

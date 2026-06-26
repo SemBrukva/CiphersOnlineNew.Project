@@ -26,6 +26,9 @@ use App\Console\Commands\QueueWorkCommand;
 use App\Console\Commands\RouteCacheCommand;
 use App\Console\Commands\RouteClearCommand;
 use App\Console\Commands\RouteListCommand;
+use App\Console\Commands\SemanticRawImportCommand;
+use App\Console\Commands\SemanticSyncCommand;
+use App\Console\Commands\SemanticValidateCommand;
 
 return [
     'migrate'           => MigrateCommand::class,
@@ -46,6 +49,9 @@ return [
     'make:repository'   => MakeRepositoryCommand::class,
     'make:job'          => MakeJobCommand::class,
     'openapi:generate'  => OpenApiCommand::class,
+    'semantic:raw:import' => SemanticRawImportCommand::class,
+    'semantic:sync' => SemanticSyncCommand::class,
+    'semantic:validate' => SemanticValidateCommand::class,
     'cipher:content:export' => CipherContentExportCommand::class,
     'cipher:content:import' => CipherContentImportCommand::class,
     'cipher:category:content:export' => CipherCategoryContentExportCommand::class,
