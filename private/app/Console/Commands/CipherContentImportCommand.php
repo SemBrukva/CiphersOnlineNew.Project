@@ -403,10 +403,11 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $encoding  = $this->sanitizeEncoding((string) ($item['encoding'] ?? ''));
         $keyFormat = $this->sanitizeKeyFormat((string) ($item['key_format'] ?? ''));
         $albertiIndex = $this->readAlbertiIndex($item);
+        $settings  = $this->sanitizeSettings($item['settings'] ?? null);
 
         $this->db->execute(
-            'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, delimiter = ?, encoding = ?, key_format = ?, alberti_index = ?, updated_at = ? WHERE id = ?',
-            [$direction, $delimiter, $encoding, $keyFormat, $albertiIndex, $now, $exampleId]
+            'UPDATE ' . Tables::CIPHERS_EXAMPLES . ' SET direction = ?, delimiter = ?, encoding = ?, key_format = ?, alberti_index = ?, settings = ?, updated_at = ? WHERE id = ?',
+            [$direction, $delimiter, $encoding, $keyFormat, $albertiIndex, $settings, $now, $exampleId]
         );
     }
 
@@ -442,10 +443,11 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $encoding  = $this->sanitizeEncoding((string) ($item['encoding'] ?? ''));
         $keyFormat = $this->sanitizeKeyFormat((string) ($item['key_format'] ?? ''));
         $albertiIndex = $this->readAlbertiIndex($item);
+        $settings  = $this->sanitizeSettings($item['settings'] ?? null);
 
         $id = $this->db->insert(
-            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, delimiter, encoding, key_format, alberti_index, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            [$cipherId, $sortOrder, $published, $direction, $delimiter, $encoding, $keyFormat, $albertiIndex, $now, $now]
+            'INSERT INTO ' . Tables::CIPHERS_EXAMPLES . ' (app_id, sort_order, published, direction, delimiter, encoding, key_format, alberti_index, settings, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [$cipherId, $sortOrder, $published, $direction, $delimiter, $encoding, $keyFormat, $albertiIndex, $settings, $now, $now]
         );
 
         return (int) $id;
@@ -863,5 +865,38 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $value = strtoupper(trim($value));
 
         return in_array($value, range('A', 'Z'), true) ? $value : '';
+    }
+
+    /**
+     * Нормализует поле settings: ожидается объект «id поля формы → скалярное значение».
+     * Возвращает JSON-строку или NULL, если объект пустой / невалидный.
+     *
+     * @param mixed $value Сырое значение из JSON-файла (object/array или null).
+     */
+    private function sanitizeSettings(mixed $value): ?string
+    {
+        if (!is_array($value) || $value === []) {
+            return null;
+        }
+
+        $clean = [];
+
+        foreach ($value as $key => $val) {
+            if (!is_string($key) || $key === '') {
+                continue;
+            }
+            if (!is_scalar($val) && $val !== null) {
+                continue;
+            }
+            $clean[$key] = $val === null ? '' : (is_bool($val) ? ($val ? '1' : '0') : (string) $val);
+        }
+
+        if ($clean === []) {
+            return null;
+        }
+
+        $encoded = json_encode($clean, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+        return $encoded === false ? null : $encoded;
     }
 }

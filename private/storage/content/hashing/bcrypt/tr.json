@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-06-29T18:51:19+00:00",
+    "category_alias": "hashing",
+    "cipher_alias": "bcrypt",
+    "language": "tr",
+    "default_language": "en",
+    "cipher_id": 61,
+    "category_id": 5
+  },
+  "cipher_translation": {
+    "id": 61,
+    "data": {
+      "name": "bcrypt online - Parola hashing",
+      "name_short": "bcrypt",
+      "description": "bcrypt parola hashlerini tarayıcınızda çevrimiçi oluşturun ve doğrulayın. Bu bcrypt generator, yapılandırılabilir cost factor ile salt içeren $2b$ hashleri üretir; verifier ise verileri yüklemeden parolayı mevcut $2a$, $2b$ veya $2y$ hashleriyle karşılaştırır.",
+      "description_stort": "bcrypt parola hashlerini tarayıcınızda oluşturun veya doğrulayın.",
+      "meta_title": "bcrypt online - Parola hash generator ve verifier",
+      "meta_description": "Ücretsiz bcrypt generator ve verifier online. Salt içeren $2b$ hashleri oluşturun, cost factor ayarlayın ve bcrypt hashlerini tarayıcıda doğrulayın."
+    }
+  },
+  "blocks": [
+    {
+      "id": 212,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "bcrypt nedir?",
+        "text": "<p>bcrypt, Niels Provos ve David Mazières tarafından tasarlanıp 1999'da USENIX'te yayımlanan bir parola hashing fonksiyonudur. Blowfish şifresine dayanır, ancak genel dosya checksumları için değil parola saklama için tasarlanmıştır: her parola tahmini bilinçli olarak yavaşlatılır, benzersiz salt kullanır ve cost factor artırılarak daha pahalı hale getirilebilir.</p><p>Bir bcrypt parola hashi <code>$2b$12$...</code> gibi kendi kendine yeterli bir stringdir. Algoritma sürümünü, cost değerini, bcrypt'in özel Base64 alfabesiyle kodlanmış 128 bit saltı ve nihai hashi içerir. Bu yüzden veritabanında genellikle her parola için tek bir bcrypt stringi saklanır; doğrulama kütüphanesi parametreleri daha sonra bu stringden okur.</p><p>Bu bcrypt online aracını dokümantasyon, test verileri, geçiş kontrolleri veya cost factor denemeleri için bir bcrypt hash generator gerektiğinde kullanın. Elinizde mevcut bir bcrypt hashi varsa ve aday parolanın eşleşip eşleşmediğini kontrol etmek istiyorsanız Verify modunu kullanın.</p>"
+      }
+    },
+    {
+      "id": 213,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Cost factor açıklaması",
+        "text": "<p>bcrypt'in cost factor değeri bir üstür: cost 10 yaklaşık 2^10 iç iş birimi, cost 12 yaklaşık 2^12 anlamına gelir; her 1 artış hem saldırganlar hem de meşru girişler için işi iki katına çıkarır. Argon2id veya scrypt yoksa bcrypt için tutucu başlangıç 10 veya daha yüksek bir work factor değeridir; pratik değer gerçek kimlik doğrulamayı işleyecek sunucuda ölçülmelidir.</p><p>Bu araç 4 ile 31 arasında cost değerleri sunar ve varsayılan 12'dir. Düşük değerler yalnızca demolar ve hızlı testler içindir; production sistemleri, yük altında login doğrulamasını kabul edilebilir tutan en yüksek cost değerini seçmelidir. Pratikte hissedilir ama makul bir gecikme hedefleyin, login gecikmesini izleyin ve donanım geliştikçe cost değerini artırın.</p><p>Cost her bcrypt hashi içinde saklanır; bu nedenle politika değişse bile eski hashler doğrulanabilir. Yaygın yükseltme deseni şudur: login sırasında eski hashi doğrula, ardından aynı parolayı yeni cost ile yeniden hashle ve saklanan değeri değiştir.</p>"
+      }
+    },
+    {
+      "id": 238,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "title": "Generator ve doğrulama nasıl çalışır?",
+        "text": "<p>Generate modunda parola veya passphrase girin, cost factor seçin ve hesaplamayı çalıştırın. Tarayıcı otomatik olarak rastgele salt oluşturur ve <code>$2b$</code> ile başlayan bir bcrypt stringi döndürür. Aynı parola tekrar çalıştırıldığında farklı hashler üretmelidir, çünkü salt her seferinde değişir.</p><p>Verify modunda aday parolayı giriş alanına, saklanan bcrypt hashini ise doğrulama alanına yapıştırın. Araç saklanan hashten cost ve salt değerini okur, bcrypt'i aynı parametrelerle çalıştırır ve parolanın eşleşip eşleşmediğini bildirir. <code>$2a$</code>, <code>$2b$</code> veya <code>$2y$</code> ile başlayan modern bcrypt stringlerini tanır.</p><p>Her şey sayfanın kullandığı JavaScript bcrypt uygulamasıyla istemci tarafında çalışır. Parola ve hash sunucuya gönderilmez; bu da aracı örnekler ve hata ayıklama için kullanışlı yapar. Gerçek kullanıcı hesaplarında ise parolaları backend içinde bakımı süren bir sunucu kütüphanesi, rate limiting, audit logging ve güvenli dağıtım pratikleriyle hashleyip doğrulayın.</p>"
+      }
+    },
+    {
+      "id": 239,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "title": "Yaygın bcrypt kullanım alanları",
+        "text": "<p>Geliştiriciler bcrypt'e genellikle pratik işler için ihtiyaç duyar: test kullanıcısı için parola hashi oluşturmak, bir parolanın saklanan hash ile eşleşip eşleşmediğini doğrulamak, cost factor değerlerini karşılaştırmak, <code>$2b$</code> stringinin anlamını incelemek veya eski parola saklama düzeninden geçiş planlamak.</p><p>Bu sayfa bcrypt generator ve verifier hakkında yaygın soruları kapsar: çevrimiçi bcrypt hashi nasıl oluşturulur, bcrypt hashi nasıl doğrulanır, bcrypt salt nedir, cost factor nasıl çalışır, bcrypt Argon2 ile nasıl karşılaştırılır ve 72 byte sınırı neden önemlidir. Production deseni basittir: benzersiz salt içeren hash oluştur, tam bcrypt stringini sakla, bakımı süren bir kütüphane ile doğrula ve saklanan cost mevcut politikadan zayıf kaldığında yeniden hashle.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 421,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "72 byte sınırı nedir?",
+        "answer": "bcrypt giriş parolalarını içeride 72 byte ile sınırlar. 72. byte sonrasındaki kısım sessizce yok sayılır ve güvenliğe katkı sağlamaz. Yaygın bir çözüm, parolayı önce SHA-256 ile 32 byte'a hashleyip bu değeri bcrypt'e vermektir; başka bir seçenek de bu sınırı olmayan Argon2id kullanmaktır."
+      }
+    },
+    {
+      "id": 422,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "bcrypt mi Argon2id mi kullanmalıyım?",
+        "answer": "Yeni sistemler için Argon2id genellikle daha uygundur; memory-hard olduğu için GPU saldırılarını bcrypt'e göre daha pahalı yapar. Geniş kütüphane desteği, çok kararlı davranış veya halihazırda bcrypt hashleri saklayan platformlarla uyumluluk gerekiyorsa bcrypt seçin. Güçlü cost factor ile bcrypt hâlâ kabul edilebilir."
+      }
+    },
+    {
+      "id": 423,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "$2a$, $2b$ ve $2y$ farkı nedir?",
+        "answer": "Bunlar bcrypt kodlu formatının sürümleridir. $2a$ özgün sürümdür; $2y$, 2011'deki sign-extension hatasından sonra düzeltilmiş PHP uygulamalarını işaretlemek için ortaya çıktı; $2b$ ise OpenBSD uyumlu modern kütüphanelerin kullandığı standart formattır. Burada üretilen yeni hashler $2b$ kullanır; eski $2a$ ve $2y$ hashlerinin doğrulanması modern kütüphanelerde çalışır."
+      }
+    },
+    {
+      "id": 424,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Bu araç parolamı bir yere gönderir mi?",
+        "answer": "Hayır. bcrypt tamamen tarayıcınızda bcryptjs kütüphanesiyle çalışır; parolanız cihazınızdan çıkmaz. Ağ isteği, loglama veya sunucu tarafı işlem yoktur. Yine de gerçek production hesapları için güvenli rastgelelik, rate limiting ve izleme içeren sunucu tarafı kütüphane kullanın."
+      }
+    },
+    {
+      "id": 473,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "bcrypt hashi çözülebilir mi?",
+        "answer": "Hayır. bcrypt şifreleme değil, tek yönlü parola hashing fonksiyonudur. Orijinal parola hashten geri elde edilemez. Doğrulama, aday parolanın saklanan bcrypt stringindeki cost ve salt ile hashlenmesi ve sonucun karşılaştırılmasıyla çalışır."
+      }
+    },
+    {
+      "id": 474,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Aynı parola neden her seferinde farklı bcrypt hashi üretir?",
+        "answer": "bcrypt her üretilen hash için benzersiz rastgele salt kullanır. Salt çıktı stringinin içinde saklanır, bu yüzden doğrulama çalışır; ancak aynı parolaya sahip iki kullanıcının saklanan hashleri aynı olmamalıdır. Bu basit lookup table saldırılarını önler ve toplu kırmayı pahalılaştırır."
+      }
+    },
+    {
+      "id": 475,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Hangi cost factor değerini seçmeliyim?",
+        "answer": "bcrypt için en az 10 kullanın ve gerçek kimlik doğrulama sunucunuzda ölçüm yapın. Cost 12 modern uygulamalar için yaygın başlangıçtır; doğru değer ise login akışınızın, arka plan işlerinizin ve kötüye kullanım kontrollerinizin kabul edilemez gecikme olmadan kaldırabildiği en yüksek cost değeridir."
+      }
+    },
+    {
+      "id": 476,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "Salt değerini ayrı saklamalı mıyım?",
+        "answer": "Genellikle hayır. Standart bcrypt stringi zaten sürüm, cost, salt ve hashi içerir. Değeri üretildiği gibi tam olarak saklayın, örneğin $2b$12$... ile başlayan bir string, ve doğrulama sırasında bcrypt kütüphanenizin bunu ayrıştırmasına izin verin."
+      }
+    },
+    {
+      "id": 477,
+      "sort_order": 90,
+      "published": true,
+      "data": {
+        "question": "Burada $2a$, $2b$ ve $2y$ hashlerini doğrulayabilir miyim?",
+        "answer": "Evet. Verifier yaygın bcrypt önekleri $2a$, $2b$ ve $2y$ değerlerini kabul eder. Bu aracın ürettiği yeni hashler modern $2b$ formatını kullanır."
+      }
+    },
+    {
+      "id": 478,
+      "sort_order": 100,
+      "published": true,
+      "data": {
+        "question": "bcrypt yeni uygulamalar için güvenli mi?",
+        "answer": "bcrypt güçlü cost factor ile hâlâ kabul edilebilir; ancak mevcutsa yeni parola saklama için Argon2id tercih edilir, çünkü memory-hard yapıdadır. Geniş uyumluluk, platform desteği veya mevcut bcrypt parola veritabanını tutarlı biçimde taşımak gerekiyorsa bcrypt seçin."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 223,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "12"
+      },
+      "data": {
+        "title": "Yaygın parola",
+        "key": "",
+        "shift": 0,
+        "input": "parola123",
+        "output": "",
+        "description": "Tipik bir parola. Varsayılan cost factor ile salt içeren bcrypt hashi üretmek için Compute'a tıklayın."
+      }
+    },
+    {
+      "id": 224,
+      "sort_order": 20,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "12"
+      },
+      "data": {
+        "title": "Passphrase",
+        "key": "",
+        "shift": 0,
+        "input": "dogru at pil zimba",
+        "output": "",
+        "description": "Daha uzun passphrase örneği. bcrypt yalnızca ilk 72 byte'ı kullanır; bu yüzden çok uzun Unicode parolalar dikkatle ele alınmalıdır."
+      }
+    },
+    {
+      "id": 241,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "10"
+      },
+      "data": {
+        "title": "Hızlı uyumluluk cost değeri",
+        "key": "",
+        "shift": 0,
+        "input": "legacy-login-demo",
+        "output": "",
+        "description": "Varsayılanla karşılaştırmak için daha düşük uyumlu work factor olan cost 10 ile bcrypt hashi üretir."
+      }
+    },
+    {
+      "id": 242,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "14"
+      },
+      "data": {
+        "title": "Yüksek cost değerli admin parolası",
+        "key": "",
+        "shift": 0,
+        "input": "admin-kasa-passphrase-2026",
+        "output": "",
+        "description": "Güvenlik/performans dengesini göstermek için daha yüksek bcrypt cost kullanır. Üretme ve doğrulama belirgin şekilde daha yavaş olur."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 324,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "bcrypt"
+      }
+    },
+    {
+      "id": 325,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "KDF"
+      }
+    },
+    {
+      "id": 326,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Parola hashing"
+      }
+    },
+    {
+      "id": 336,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "tag": "bcrypt generator"
+      }
+    },
+    {
+      "id": 337,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "tag": "bcrypt verifier"
+      }
+    },
+    {
+      "id": 338,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "tag": "Parola hash verifier"
+      }
+    },
+    {
+      "id": 339,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "tag": "Cost factor"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data.",
+    "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+    "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+    "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+    "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+  ]
+}

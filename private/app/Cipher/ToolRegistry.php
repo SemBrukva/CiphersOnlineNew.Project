@@ -163,27 +163,44 @@ final readonly class ToolRegistry
                 ['label' => 'File',     'value' => 'PNG-CHUNK-DATA-1234567890'],
                 ['label' => 'Empty',    'value' => ''],
             ],
-            'hashing/hmac' => [
+            'hashing/hmac' => self::withSettings([
                 ['label' => 'Demo',     'value' => 'hello world', 'key' => 'secret'],
                 ['label' => 'Test',     'value' => 'hello',       'key' => 'key'],
                 ['label' => 'JWT-like', 'value' => 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0In0', 'key' => 'jwt-secret-256-bits'],
                 ['label' => 'Webhook',  'value' => '{"event":"order.created","id":42}', 'key' => 'webhook-key'],
-            ],
-            'hashing/pbkdf2' => [
+            ], [
+                'ciphers-hash-algorithm'  => 'hmac-sha-256',
+                'ciphers-hmac-key-format' => 'text',
+            ]),
+            'hashing/pbkdf2' => self::withSettings([
                 ['label' => 'Password', 'value' => 'password123'],
                 ['label' => 'Demo',     'value' => 'hello'],
                 ['label' => 'Long',     'value' => 'correct horse battery staple'],
-            ],
-            'hashing/bcrypt' => [
+            ], [
+                'ciphers-kdf-hash'       => 'SHA-256',
+                'ciphers-kdf-iterations' => '600000',
+                'ciphers-kdf-key-length' => '32',
+                'ciphers-kdf-salt'       => '',
+            ]),
+            'hashing/bcrypt' => self::withSettings([
                 ['label' => 'Password', 'value' => 'password123'],
                 ['label' => 'Short',    'value' => 'demo'],
                 ['label' => 'Passphrase','value' => 'correct horse battery staple'],
-            ],
-            'hashing/argon2' => [
+            ], [
+                'ciphers-kdf-cost' => '12',
+            ]),
+            'hashing/argon2' => self::withSettings([
                 ['label' => 'Password', 'value' => 'password123'],
                 ['label' => 'Demo',     'value' => 'hello'],
                 ['label' => 'Passphrase','value' => 'correct horse battery staple'],
-            ],
+            ], [
+                'ciphers-kdf-variant'     => 'argon2id',
+                'ciphers-kdf-memory'      => '19456',
+                'ciphers-kdf-iterations'  => '2',
+                'ciphers-kdf-parallelism' => '1',
+                'ciphers-kdf-key-length'  => '32',
+                'ciphers-kdf-salt'        => '',
+            ]),
             'classical-ciphers/playfair' => [
                 ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'MONARCHY'],
                 ['label' => 'Classic',  'value' => 'HELLO WORLD',          'alphabet' => 'en', 'key' => 'PLAYFAIR'],
@@ -648,5 +665,30 @@ final readonly class ToolRegistry
             'classical-ciphers/morse-code' => 'codes-and-alphabets/morse-code',
             default => $toolSlug,
         };
+    }
+
+    /**
+     * Дополняет каждый чип общим набором настроек инструмента (id поля формы → значение).
+     * Настройки сериализуются в JSON и пробрасываются как `data-settings` через виджет.
+     *
+     * @param  array<int, array<string, mixed>>  $chips
+     * @param  array<string, scalar>             $settings
+     * @return array<int, array<string, mixed>>
+     */
+    private static function withSettings(array $chips, array $settings): array
+    {
+        if ($settings === []) {
+            return $chips;
+        }
+
+        $settingsJson = (string) json_encode($settings, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+        foreach ($chips as &$chip) {
+            $chip['settings'] = $settings;
+            $chip['settings_json'] = $settingsJson;
+        }
+        unset($chip);
+
+        return $chips;
     }
 }

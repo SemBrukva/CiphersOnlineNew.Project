@@ -23,11 +23,18 @@
                             {/foreach}
                         </div>
                     </div>
-                    {elseif $example.key|default:''}
-                    <span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code>{if isset($example.key_format) && $example.key_format} ({$example.key_format|upper|escape}){/if}</span>
+                    {elseif $example.key|default:'' || $example.shift|default:0 || $example.alberti_index|default:'' || $example.settings_badges|default:false}
+                    <div class="b64-example-card__badges">
+                        {if $example.key|default:''}<span class="b64-example-card__key-badge">{$tool_ui.exampleKeyLabel|default:'Key'}: <code>{$example.key|escape}</code>{if isset($example.key_format) && $example.key_format} ({$example.key_format|upper|escape}){/if}</span>{/if}
+                        {if $example.shift|default:0}<span class="b64-example-card__key-badge">Shift: <code>{$example.shift|escape}</code></span>{/if}
+                        {if $example.alberti_index|default:''}<span class="b64-example-card__key-badge">Index: <code>{$example.alberti_index|escape}</code></span>{/if}
+                        {if $example.settings_badges|default:false}
+                            {foreach $example.settings_badges as $badge}
+                                <span class="b64-example-card__key-badge">{$badge.label|escape}: <code>{$badge.value|escape}</code></span>
+                            {/foreach}
+                        {/if}
+                    </div>
                     {/if}
-                    {if $example.shift|default:0}<span class="b64-example-card__key-badge">Shift: <code>{$example.shift|escape}</code></span>{/if}
-                    {if $example.alberti_index|default:''}<span class="b64-example-card__key-badge">Index: <code>{$example.alberti_index|escape}</code></span>{/if}
                     <div class="b64-example-card__row">
                         <div class="b64-example-card__slot">
                             <span class="b64-example-card__slot-tag">{$tool_ui.inputTag}</span>
@@ -67,7 +74,8 @@
                             {if isset($example.enigma_pos_middle)}data-enigma-pos-middle="{$example.enigma_pos_middle|escape:'html'}"{/if}
                             {if isset($example.enigma_pos_right)}data-enigma-pos-right="{$example.enigma_pos_right|escape:'html'}"{/if}
                             {if isset($example.enigma_plugboard)}data-enigma-plugboard="{$example.enigma_plugboard|escape:'html'}"{/if}
-                            {if isset($example.anagram_mode)}data-anagram-mode="{$example.anagram_mode|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
+                            {if isset($example.anagram_mode)}data-anagram-mode="{$example.anagram_mode|escape:'html'}"{/if}
+                            {if isset($example.settings_json)}data-settings="{$example.settings_json|escape:'html'}"{/if}>{$tool_ui.useExampleLabel}</button>
                 </article>
             {/foreach}
         </div>

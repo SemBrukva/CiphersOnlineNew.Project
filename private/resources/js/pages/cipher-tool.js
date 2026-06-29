@@ -453,7 +453,8 @@ export function initCipherToolPage() {
 
     // Для hash/HMAC пустой ввод — валидный кейс: SHA-256("") = e3b0c44…
     // Поэтому раннего выхода нет, чтобы decoder посчитал хеш пустой строки.
-    const allowEmptyInput = isHashTool || isHmacTool
+    // KDF (argon2/bcrypt/pbkdf2) — исключение: hash-wasm бросает на пустой password.
+    const allowEmptyInput = (isHashTool || isHmacTool) && !isKdfTool
 
     if (!value.trim() && !allowEmptyInput) {
       output.value = ''
@@ -880,6 +881,26 @@ export function initCipherToolPage() {
     const direction     = el.getAttribute('data-direction')     || ''
     const albertiIndex  = el.getAttribute('data-alberti-index') || ''
     const anagramMode   = el.getAttribute('data-anagram-mode')  || ''
+    const settingsAttr  = el.getAttribute('data-settings')
+
+    if (settingsAttr) {
+      try {
+        const settings = JSON.parse(settingsAttr)
+        if (settings && typeof settings === 'object') {
+          Object.entries(settings).forEach(([fieldId, value]) => {
+            const field = document.getElementById(fieldId)
+            if (!field) return
+            const stringValue = value == null ? '' : String(value)
+            if (field.value === stringValue) return
+            field.value = stringValue
+            const isSelect = field.tagName === 'SELECT'
+            field.dispatchEvent(new Event(isSelect ? 'change' : 'input', { bubbles: true }))
+          })
+        }
+      } catch (err) {
+        console.warn('Invalid data-settings JSON on example chip:', err)
+      }
+    }
 
     if (alphabet && alphabetSelect && alphabetSelect.value !== alphabet) {
       alphabetSelect.value = alphabet
@@ -1011,7 +1032,7 @@ export function initCipherToolPage() {
     updateCounter()
     setOutputState(false)
     setFeedback('')
-    if (isHashTool || isHmacTool) {
+    if ((isHashTool || isHmacTool) && !isKdfTool) {
       process()
     }
     const iconEl = clearBtn.querySelector('.bi')

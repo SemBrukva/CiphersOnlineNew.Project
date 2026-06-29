@@ -1,0 +1,299 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T18:34:08+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "argon2",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 62,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 62,
+        "data": {
+            "name": "Argon2 Online - hashing de contraseñas",
+            "name_short": "Argon2",
+            "description": "Genera o verifica hashes Argon2id de contraseñas en el navegador. Argon2 ganó la Password Hashing Competition de 2015, está estandarizado en RFC 9106 y OWASP lo recomienda para nuevos sistemas de almacenamiento de contraseñas. Configura memoria, iteraciones, paralelismo, longitud de salida, sal y variante.",
+            "description_stort": "Genera o verifica hashes Argon2 de contraseñas en el navegador.",
+            "meta_title": "Generador Argon2 online y verificador de contraseña | Ciphers Online",
+            "meta_description": "Generador Argon2id gratis y verificador de hash de contraseña online. Ajusta memoria, iteraciones, paralelismo, sal y salida PHC. Funciona en el navegador con WebAssembly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 214,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "¿Qué es Argon2?",
+                "text": "<p>Argon2 es una función de hashing de contraseñas y derivación de claves diseñada por Alex Biryukov, Daniel Dinu y Dmitry Khovratovich. Fue elegida ganadora de la Password Hashing Competition en 2015, está estandarizada en RFC 9106 y OWASP la recomienda para almacenar contraseñas en sistemas nuevos.</p><p>La familia Argon2 tiene tres variantes: Argon2d usa accesos a memoria dependientes de los datos y es rápida, pero no suele ser la opción adecuada para contraseñas web; Argon2i usa accesos independientes de los datos y resiste mejor ciertos canales laterales; Argon2id combina ambos enfoques y es el valor predeterminado recomendado para logins, SaaS, paneles de administración y otras aplicaciones con contraseñas de usuarios.</p>"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Memory-hardness y parámetros ajustables",
+                "text": "<p>Lo importante de Argon2 es su memory-hardness: cada intento de contraseña requiere una cantidad configurable de RAM, no solo trabajo de CPU. Esto importa en ataques offline tras una filtración de base de datos, porque GPUs y ASICs no pueden ejecutar millones de intentos baratos en paralelo si cada intento reserva memoria.</p><p>Esta herramienta Argon2 online expone los parámetros habituales: <strong>memory</strong> en KiB, <strong>iterations</strong> como coste temporal, <strong>parallelism</strong> como lanes, <strong>key length</strong> para la longitud de salida, una <strong>salt</strong> opcional y la variante de Argon2. Los valores por defecto usan Argon2id con 19.456 KiB de memoria, 2 iteraciones, 1 lane y salida de 32 bytes.</p><p>Si el login en producción es demasiado rápido, aumenta memoria o iteraciones; si es demasiado lento, elige un perfil aceptado con menor latencia y documenta el compromiso. Mide en servidores equivalentes a producción, no solo en el portátil de desarrollo.</p>"
+            }
+        },
+        {
+            "id": 236,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Salida PHC, sales y verificación",
+                "text": "<p>Los hashes Argon2 suelen almacenarse como una cadena PHC, por ejemplo <code>$argon2id$v=19$m=19456,t=2,p=1$...</code>. La cadena incluye variante, versión, coste de memoria, iteraciones, paralelismo, sal y hash derivado, de modo que el verificador no necesita columnas separadas para los parámetros.</p><p>Usa Generate para crear un nuevo hash Argon2 de contraseña para pruebas, documentación o comparación de parámetros. Usa Verify si ya tienes una cadena Argon2 almacenada y quieres comprobar si una contraseña candidata coincide. Para cuentas reales, genera una sal aleatoria única por contraseña y almacena la salida codificada completa producida por tu biblioteca del servidor.</p>"
+            }
+        },
+        {
+            "id": 237,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Casos de uso comunes de Argon2",
+                "text": "<p>Usa este generador Argon2 online cuando necesites un hash Argon2id rápido para documentación, fixtures de prueba, notas de migración o comparación de parámetros. También sirve como verificador Argon2: pega la contraseña candidata y un hash existente para comprobar si coinciden.</p><p>Las búsquedas habituales incluyen Argon2id generator, Argon2 password hash generator, verify Argon2 hash, PHC encoded Argon2 y comparaciones de Argon2 vs bcrypt o PBKDF2. La regla práctica es la misma: usa Argon2id con una sal única, guarda la cadena codificada completa y elige costes de memoria y tiempo sostenibles para tu flujo de login.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 425,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué variante de Argon2 debo usar?",
+                "answer": "Usa Argon2id para la mayoría de aplicaciones. Combina accesos a memoria dependientes e independientes de los datos, con la velocidad práctica de Argon2d y mejor resistencia a canales laterales como Argon2i. RFC 9106 y OWASP recomiendan Argon2id como predeterminado. Argon2i solo tiene sentido cuando los canales laterales son la preocupación principal; Argon2d, cuando esos ataques no son relevantes."
+            }
+        },
+        {
+            "id": 426,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Cómo elijo memoria, iteraciones y paralelismo?",
+                "answer": "OWASP lista combinaciones aceptables como 19 MiB / 2 / 1, 47 MiB / 1 / 1 o 9 MiB / 4 / 1. Elige la que tarde unos 100-500 ms en tu servidor. Si falta memoria, sube iteraciones; si falta CPU, sube memoria. Parallelism rara vez necesita ser mayor que 1 fuera de escenarios multinúcleo concretos."
+            }
+        },
+        {
+            "id": 427,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Por qué Argon2 es mejor que bcrypt o PBKDF2?",
+                "answer": "Argon2 es memory-hard: un atacante con GPU o ASIC no puede abaratar mucho el ataque solo paralelizando, porque cada intento necesita la memoria configurada. bcrypt usa solo 4 KiB de estado interno y PBKDF2 prácticamente no usa memoria. Con 19 MiB por intento, una GPU de 24 GiB solo puede ejecutar alrededor de 1200 intentos paralelos, no millones como con PBKDF2."
+            }
+        },
+        {
+            "id": 428,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Esta herramienta envía mi contraseña a algún servidor?",
+                "answer": "No. Argon2 se calcula completamente en tu navegador con hash-wasm y WebAssembly. La contraseña no sale de tu dispositivo: no hay procesamiento ni registro en servidor. Aun así, para contraseñas reales en producción usa una biblioteca del lado del servidor."
+            }
+        },
+        {
+            "id": 469,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Puedo usar esta herramienta Argon2 online para contraseñas reales?",
+                "answer": "Úsala para aprender, probar parámetros, crear ejemplos y comprobar hashes existentes. Para cuentas reales, hashea las contraseñas en el servidor de la aplicación con una biblioteca mantenida, aleatoriedad segura, limitación de tasa, monitorización y un plan de actualización de parámetros."
+            }
+        },
+        {
+            "id": 470,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Qué es la cadena PHC y debo almacenarla completa?",
+                "answer": "Sí. Una cadena Argon2 en formato PHC contiene variante, versión, coste de memoria, iteraciones, paralelismo, sal y hash en un solo valor. Guarda la cadena completa tal como se genera, por ejemplo una que empieza por $argon2id$v=19$..., para que la verificación pueda usar los mismos parámetros."
+            }
+        },
+        {
+            "id": 471,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "¿La sal debe ser secreta?",
+                "answer": "No. La sal debe ser única y aleatoria, pero no secreta. Su función es hacer que contraseñas iguales produzcan hashes distintos y evitar tablas precalculadas. Guarda la sal junto al hash Argon2, normalmente dentro de la cadena PHC."
+            }
+        },
+        {
+            "id": 472,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "¿Cuándo debo volver a hashear una contraseña Argon2?",
+                "answer": "Vuelve a hashear cuando los parámetros guardados sean más débiles que la política actual, cuando migres de Argon2i o Argon2d a Argon2id, o cuando el hardware haga que el coste antiguo sea demasiado barato. Un patrón común es verificar el hash antiguo al iniciar sesión y guardar después uno nuevo con parámetros actuales."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "19456",
+                "ciphers-kdf-iterations": "2",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
+            "data": {
+                "title": "Contraseña común",
+                "key": "",
+                "shift": 0,
+                "input": "password123",
+                "output": "",
+                "description": "Una contraseña típica. Pulsa Compute para generar un hash Argon2id con valores base recomendados."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "19456",
+                "ciphers-kdf-iterations": "2",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
+            "data": {
+                "title": "Frase de contraseña",
+                "key": "",
+                "shift": 0,
+                "input": "cuatro palabras faciles de recordar",
+                "output": "",
+                "description": "Una frase larga suele ser fácil de recordar y aporta más entropía que una contraseña corta."
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "47104",
+                "ciphers-kdf-iterations": "1",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
+            "data": {
+                "title": "Perfil de alta memoria",
+                "key": "",
+                "shift": 0,
+                "input": "admin-login-verano-2026",
+                "output": "",
+                "description": "Argon2id con 47 MiB de memoria y una iteración, útil para comparar un perfil de alta memoria con el valor predeterminado."
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "9216",
+                "ciphers-kdf-iterations": "4",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": "example-fixed-salt"
+            },
+            "data": {
+                "title": "Vector de prueba con sal fija",
+                "key": "",
+                "shift": 0,
+                "input": "password demo",
+                "output": "",
+                "description": "Usa una sal fija de ejemplo y el perfil 9 MiB / 4 iteraciones para facilitar la comparación entre ejecuciones. En producción usa sales aleatorias únicas."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 327,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Argon2"
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Argon2id"
+            }
+        },
+        {
+            "id": 329,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Recomendado por OWASP"
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Hashing de contraseñas"
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Formato PHC"
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "KDF memory-hard"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

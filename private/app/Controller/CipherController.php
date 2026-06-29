@@ -356,6 +356,8 @@ final readonly class CipherController
             trans('CIPHER_TOOL_ALL_IN_CATEGORY')
         );
 
+        $examples = $this->attachSettingsBadges($examples, $toolUi);
+
         $this->view
             ->setTitle($title)
             ->setMeta($metaDescription)
@@ -388,6 +390,14 @@ final readonly class CipherController
      */
     private function enrichExamples(string $toolSlug, array $examples): array
     {
+        foreach ($examples as &$example) {
+            $settings = $example['settings'] ?? null;
+            if (is_array($settings) && $settings !== []) {
+                $example['settings_json'] = (string) json_encode($settings, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            }
+        }
+        unset($example);
+
         if ($toolSlug === 'classical-ciphers/trifid' && locale() === 'ru') {
             foreach ($examples as &$example) {
                 $example['alphabet'] = 'en';
@@ -435,6 +445,61 @@ final readonly class CipherController
                 $rows
             );
         }
+
+        return $examples;
+    }
+
+    /**
+     * Добавляет к каждому примеру массив `settings_badges` (метка + значение) на основе
+     * `tool_ui.settings` (карта id → label). Используется для отрисовки бейджей в карточке примера.
+     *
+     * @param  array<int, array<string, mixed>> $examples
+     * @param  array<string, mixed>             $toolUi
+     * @return array<int, array<string, mixed>>
+     */
+    private function attachSettingsBadges(array $examples, array $toolUi): array
+    {
+        $idToLabel = [];
+
+        foreach ((array) ($toolUi['settings'] ?? []) as $setting) {
+            if (!is_array($setting)) {
+                continue;
+            }
+            $id = (string) ($setting['id'] ?? '');
+            $label = (string) ($setting['label'] ?? '');
+            if ($id !== '' && $label !== '') {
+                $idToLabel[$id] = $label;
+            }
+        }
+
+        if ($idToLabel === []) {
+            return $examples;
+        }
+
+        foreach ($examples as &$example) {
+            $settings = $example['settings'] ?? null;
+            if (!is_array($settings) || $settings === []) {
+                continue;
+            }
+
+            $badges = [];
+
+            foreach ($settings as $fieldId => $value) {
+                if (!isset($idToLabel[$fieldId])) {
+                    continue;
+                }
+                $scalar = is_scalar($value) ? (string) $value : '';
+                if ($scalar === '') {
+                    continue;
+                }
+                $badges[] = ['label' => $idToLabel[$fieldId], 'value' => $scalar];
+            }
+
+            if ($badges !== []) {
+                $example['settings_badges'] = $badges;
+            }
+        }
+        unset($example);
 
         return $examples;
     }

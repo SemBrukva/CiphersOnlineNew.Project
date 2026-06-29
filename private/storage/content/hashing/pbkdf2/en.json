@@ -1,7 +1,7 @@
 {
     "meta": {
         "schema": "cipher-content.v1",
-        "exported_at": "2026-06-28T13:11:25+00:00",
+        "exported_at": "2026-06-29T19:08:16+00:00",
         "category_alias": "hashing",
         "cipher_alias": "pbkdf2",
         "language": "en",
@@ -12,12 +12,12 @@
     "cipher_translation": {
         "id": 60,
         "data": {
-            "name": "PBKDF2 Online — Key Derivation",
+            "name": "PBKDF2 Online - Key Derivation",
             "name_short": "PBKDF2",
-            "description": "Derive a cryptographic key from a password using PBKDF2 (RFC 2898) directly in your browser. Configure hash function (SHA-256/SHA-512), iterations, key length, and salt. Includes a Verify mode to check a stored hash against a password.",
-            "description_stort": "Derive a key from password using PBKDF2 in your browser.",
-            "meta_title": "PBKDF2 Online Calculator with Verify | Ciphers Online",
-            "meta_description": "Free online PBKDF2 calculator. Derive keys with SHA-256/SHA-512, configurable iterations and salt — and verify passwords against stored hashes. 100% in your browser."
+            "description": "Derive a cryptographic key from a password using PBKDF2-HMAC directly in your browser. Configure the hash function (SHA-1, SHA-256, SHA-384, or SHA-512), iteration count, output key length, and salt. Use Verify mode to compare a candidate password with an existing PBKDF2 hex value.",
+            "description_stort": "Derive and verify PBKDF2-HMAC keys in your browser.",
+            "meta_title": "PBKDF2 Online Calculator - HMAC-SHA256 Key Derivation | Ciphers Online",
+            "meta_description": "Free PBKDF2 online calculator and verifier. Generate PBKDF2-HMAC-SHA256/SHA512 keys with salt, iterations and key length. Runs locally in your browser."
         }
     },
     "blocks": [
@@ -27,7 +27,7 @@
             "published": true,
             "data": {
                 "title": "What is PBKDF2?",
-                "text": "<p>PBKDF2 (Password-Based Key Derivation Function 2) is a key derivation function defined in RFC 2898 (2000) and standardized in NIST SP 800-132. It takes a password, a salt, and an iteration count, and derives a cryptographically strong key by applying a pseudo-random function (typically HMAC with SHA-256 or SHA-512) repeatedly.</p><p>PBKDF2 is intentionally slow: each iteration adds work. With enough iterations (OWASP 2024 recommends 600,000 for HMAC-SHA-256), the cost per password guess becomes high enough to defend against offline brute-force attacks. PBKDF2 is widely supported — it is part of Web Crypto, .NET, JVM, OpenSSL, and most operating systems.</p>"
+                "text": "<p>PBKDF2 (Password-Based Key Derivation Function 2) is a password-based key derivation algorithm defined in RFC 2898 and standardized in NIST SP 800-132. It takes a password, a salt, an iteration count, a pseudo-random function such as HMAC-SHA256, and an output length, then derives a deterministic cryptographic key.</p><p>The algorithm is intentionally expensive: each iteration repeats the HMAC work, so every password guess costs more time. This PBKDF2 online tool uses the browser Web Crypto API to derive a hex-encoded key locally, without sending the password or salt to the server.</p><p>PBKDF2 is common in password storage, encrypted file formats, wallet backups, API test fixtures, and compatibility-sensitive systems where PBKDF2-HMAC-SHA256 or PBKDF2-HMAC-SHA512 is required by an existing protocol.</p>"
             }
         },
         {
@@ -36,7 +36,25 @@
             "published": true,
             "data": {
                 "title": "PBKDF2 vs bcrypt vs Argon2",
-                "text": "<p>PBKDF2 is the most portable option — it works in every browser, every language, and many hardware tokens. Its weakness is that it is purely CPU-bound: attackers with GPUs and ASICs gain a large advantage over defenders running PBKDF2 on commodity servers.</p><p>bcrypt resists GPUs better thanks to its 4 KiB internal state. Argon2id is the modern choice (winner of the 2015 Password Hashing Competition, recommended by OWASP) — it is both memory-hard and parallel-tunable, making attacks expensive on GPUs and ASICs. If you can choose, prefer Argon2id; if you need maximum compatibility or work inside FIPS-validated systems, PBKDF2 is the safe answer.</p>"
+                "text": "<p>PBKDF2 is the most portable key derivation option: it is available in browsers, OpenSSL, Java, .NET, Python, Node.js, operating-system APIs, and many compliance-oriented environments. That makes it useful for interoperable password hashing, legacy migrations, and systems that need PBKDF2_HMAC or pbkdf2_sha256 compatibility.</p><p>Its weakness is that it is CPU-bound and has no meaningful memory cost. Attackers with GPUs and ASICs can parallelize PBKDF2 guesses far more efficiently than defenders running ordinary application servers.</p><p>bcrypt resists GPU attacks better than PBKDF2 because it has a small internal memory state. Argon2id is the modern default for new password storage because it is memory-hard and tunable. Choose Argon2id when you control the stack; choose PBKDF2 when compatibility, Web Crypto support, FIPS-aligned environments, or existing protocol requirements matter more.</p>"
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "PBKDF2 parameters: hash, salt, iterations, key length",
+                "text": "<p>This PBKDF2 generator exposes the parameters developers usually need. The hash setting selects the HMAC digest used as the pseudo-random function: SHA-256 is the practical default, SHA-512 is common for wider SHA-2 deployments, SHA-384 is available for compatibility, and SHA-1 should only be used when a legacy format requires it.</p><p>The salt should be unique for every password or derived key. It does not need to be secret; store it with the derived hash or encrypted data. For production systems, generate a random salt with a cryptographically secure random source. A fixed salt is useful only for repeatable examples and test vectors.</p><p>Iterations control cost. Higher values slow both legitimate verification and offline guessing. The default is 600,000 iterations for PBKDF2-HMAC-SHA256, matching the OWASP 2024 baseline. Key length is the output size in bytes: 32 bytes gives a 256-bit key and a 64-character hex result; 64 bytes gives a 512-bit output.</p>"
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Generate, verify, and store PBKDF2 values",
+                "text": "<p>Use Hash mode to generate a PBKDF2 hex value from a password and the selected parameters. Use Verify mode when you already have a stored PBKDF2 hex value: the tool derives the key again with the same salt, hash, iteration count, and key length, then reports whether the values match.</p><p>PBKDF2 cannot be decrypted. It is a one-way derivation function, so recovery works only by trying the candidate password with the original parameters and comparing the output. If any parameter changes - salt, hash function, iterations, or key length - the derived value changes too.</p><p>For real user accounts, do password hashing on your application server with a maintained library, rate limiting, monitoring, and a plan for parameter upgrades. This online PBKDF2 calculator is best for learning, debugging interoperability, documenting parameters, creating reproducible test vectors, and checking a hash during development.</p>"
             }
         }
     ],
@@ -76,6 +94,51 @@
                 "question": "Does this tool send my password anywhere?",
                 "answer": "No. PBKDF2 is computed entirely in your browser via the Web Crypto API (window.crypto.subtle.deriveBits). Your password and salt never leave your device — no network requests, no logging, no server-side processing."
             }
+        },
+        {
+            "id": 479,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can PBKDF2 be decrypted?",
+                "answer": "No. PBKDF2 is not encryption and has no decrypt operation. It is a one-way key derivation function. To check a password, derive PBKDF2 again with the same salt, hash function, iterations, and key length, then compare the new hex output with the stored value."
+            }
+        },
+        {
+            "id": 480,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Which PBKDF2 hash function should I choose?",
+                "answer": "Use PBKDF2-HMAC-SHA256 unless your protocol or existing database requires another option. PBKDF2-HMAC-SHA512 is also common, especially in systems already standardized on SHA-512. SHA-384 is available for compatibility. Avoid SHA-1 for new designs; keep it only for legacy formats that explicitly require PBKDF2-HMAC-SHA1."
+            }
+        },
+        {
+            "id": 481,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "What should I store with a PBKDF2 password hash?",
+                "answer": "Store the derived hash, salt, iteration count, hash function, and key length. PBKDF2 output alone is not enough to verify a password later because the verifier must repeat the exact same parameters. Many systems encode these fields into one string; others store them as separate columns."
+            }
+        },
+        {
+            "id": 482,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Is the salt secret?",
+                "answer": "No. The salt must be unique and preferably random, but it is not a secret key. Its purpose is to make equal passwords produce different PBKDF2 outputs and to prevent attackers from reusing precomputed tables. Store the salt next to the hash."
+            }
+        },
+        {
+            "id": 483,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Can I use this PBKDF2 online calculator for production passwords?",
+                "answer": "Use it for education, parameter comparison, interoperability checks, and test vectors. For production user accounts, compute and verify PBKDF2 on the server with secure random salts, rate limiting, monitoring, and controlled parameter upgrades. Browser-side hashing alone does not replace server-side password storage controls."
+            }
         }
     ],
     "examples": [
@@ -88,6 +151,12 @@
             "encoding": "",
             "key_format": "",
             "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-hash": "SHA-256",
+                "ciphers-kdf-iterations": "600000",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
             "data": {
                 "title": "Common password",
                 "key": "",
@@ -106,6 +175,12 @@
             "encoding": "",
             "key_format": "",
             "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-hash": "SHA-256",
+                "ciphers-kdf-iterations": "600000",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
             "data": {
                 "title": "Passphrase",
                 "key": "",
@@ -113,6 +188,54 @@
                 "input": "correct horse battery staple",
                 "output": "",
                 "description": "A long passphrase has high entropy and is easy to remember."
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-hash": "SHA-512",
+                "ciphers-kdf-iterations": "210000",
+                "ciphers-kdf-key-length": "64",
+                "ciphers-kdf-salt": "docs-example-salt"
+            },
+            "data": {
+                "title": "PBKDF2-HMAC-SHA512",
+                "key": "",
+                "shift": 0,
+                "input": "release-notes-secret",
+                "output": "",
+                "description": "Uses SHA-512, a 64-byte output, and a fixed example salt for repeatable documentation or interoperability testing."
+            }
+        },
+        {
+            "id": 244,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-hash": "SHA-256",
+                "ciphers-kdf-iterations": "1000000",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": "login-user-42-unique-salt"
+            },
+            "data": {
+                "title": "High-iteration check",
+                "key": "",
+                "shift": 0,
+                "input": "admin panel passphrase",
+                "output": "",
+                "description": "A one-million-iteration PBKDF2-HMAC-SHA256 run for comparing latency and verifying that the same parameters reproduce the same key."
             }
         }
     ],
@@ -139,6 +262,30 @@
             "published": true,
             "data": {
                 "tag": "Password hashing"
+            }
+        },
+        {
+            "id": 340,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "PBKDF2-HMAC-SHA256"
+            }
+        },
+        {
+            "id": 341,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Key derivation"
+            }
+        },
+        {
+            "id": 342,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Password verifier"
             }
         }
     ],

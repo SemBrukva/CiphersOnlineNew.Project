@@ -1,0 +1,268 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T21:24:58+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "hmac",
+        "language": "de",
+        "default_language": "en",
+        "cipher_id": 59,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 59,
+        "data": {
+            "name": "HMAC-Generator",
+            "name_short": "HMAC",
+            "description": "Erzeugen Sie einen HMAC (Hash-based Message Authentication Code) aus Text und einem geheimen Schlüssel. Der Online-Rechner unterstützt HMAC-SHA-1, HMAC-SHA-256, HMAC-SHA-384 und HMAC-SHA-512, verarbeitet Schlüssel als Text, Hex oder Base64 und gibt den Tag als kleingeschriebene Hex-Zeichenfolge aus. Die Berechnung erfolgt lokal im Browser.",
+            "description_stort": "HMAC aus Text und einem geheimen Schlüssel direkt im Browser erzeugen.",
+            "meta_title": "HMAC-Generator online – HMAC-SHA256-Rechner",
+            "meta_description": "HMAC-SHA256, SHA1, SHA384 oder SHA512 online berechnen. Schlüssel als Text, Hex oder Base64; die Berechnung erfolgt lokal im Browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 208,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Was ist HMAC?",
+                "text": "<p>HMAC (Hash-based Message Authentication Code) kombiniert eine kryptografische Hashfunktion mit einem geheimen Schlüssel. Der in RFC 2104 definierte Algorithmus erzeugt aus einer Nachricht beliebiger Länge einen Authentifizierungstag fester Länge. HMAC-SHA256 ist die häufigste moderne Variante; HMAC-SHA384 und HMAC-SHA512 liefern längere Tags, während HMAC-SHA1 noch in älteren Protokollen vorkommt.</p><p>Ein Empfänger mit demselben Schlüssel berechnet den HMAC erneut und vergleicht beide Tags. Eine Übereinstimmung belegt, dass die Nachricht nicht verändert wurde und von einer Partei mit Kenntnis des gemeinsamen Schlüssels stammt. HMAC ist ein symmetrischer Nachrichtenauthentifizierungscode, keine Verschlüsselung und keine digitale Signatur mit öffentlichem Schlüssel.</p>"
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "So funktioniert HMAC",
+                "text": "<p>Vereinfacht berechnet HMAC <code>H((K′ ⊕ opad) || H((K′ ⊕ ipad) || Nachricht))</code>. Der Schlüssel wird an die Blockgröße der Hashfunktion angepasst und mit zwei Konstanten für den inneren und äußeren Hash kombiniert. Dadurch wird das Length-Extension-Problem naiver Konstruktionen wie <code>hash(Schlüssel || Nachricht)</code> vermieden.</p><p>HMAC-SHA1 liefert 20 Byte (40 Hex-Zeichen), HMAC-SHA256 32 Byte (64), HMAC-SHA384 48 Byte (96) und HMAC-SHA512 64 Byte (128). Der Generator zeigt den vollständigen, nicht gekürzten Tag in kleingeschriebenem Hex an.</p>"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "HMAC-Generator verwenden",
+                "text": "<ol><li>Geben Sie die genaue Nachricht ein.</li><li>Wählen Sie HMAC-SHA256, HMAC-SHA1, HMAC-SHA384 oder HMAC-SHA512.</li><li>Wählen Sie das Schlüsselformat Text, Hex oder Base64.</li><li>Geben Sie den geheimen Schlüssel ein und kopieren Sie das Hex-Ergebnis.</li></ol><p>Die Nachricht wird immer als UTF-8 codiert. Im Textmodus gilt das auch für den Schlüssel; Hex und Base64 werden zuerst in Bytes decodiert. Leerzeichen, Zeilenumbrüche, Groß-/Kleinschreibung, Unicode, Algorithmus und Schlüsselformat beeinflussen das Ergebnis.</p>"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "HMAC für APIs, Webhooks und JWTs",
+                "text": "<p>HMAC authentifiziert häufig API-Anfragen, Webhook-Nutzlasten, Sitzungsdaten und Protokollnachrichten. Zur Prüfung wird der Tag über exakt dieselben Bytes mit demselben Geheimnis neu berechnet und zeitkonstant verglichen. Zeitstempel oder Nonces können zusätzlich Replay-Angriffe verhindern.</p><p>Beachten Sie immer die jeweilige Spezifikation: APIs verlangen oft eine kanonische Anfrage, Webhooks können den unveränderten HTTP-Body signieren und JWT HS256 verwendet Base64URL statt Hex. Dieses Werkzeug berechnet den HMAC des eingegebenen Textes; es erstellt keine anbieterspezifischen Zeichenfolgen, wandelt nicht in Base64URL um und prüft keinen vorhandenen Tag automatisch.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 413,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wann HMAC statt eines normalen Hashes verwenden?",
+                "answer": "HMAC eignet sich, wenn zwei Parteien ein Geheimnis teilen und absichtliche Änderungen oder einen Absender mit Kenntnis dieses Geheimnisses erkennen müssen. Einen normalen SHA-256-Hash kann dagegen jeder nach einer Änderung neu berechnen. Für öffentliche Prüfung ohne gemeinsames Geheimnis ist eine digitale Signatur erforderlich."
+            }
+        },
+        {
+            "id": 414,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Wie sollte ein HMAC-Schlüssel aussehen?",
+                "answer": "Für HMAC-SHA256 ist ein zufälliger Schlüssel mit 32 Byte eine gute Vorgabe. Erzeugen Sie ihn kryptografisch sicher und speichern Sie ihn geschützt, etwa in einem Secret Manager. Vermeiden Sie Passwörter, merkbare Phrasen, wiederverwendete Geheimnisse und Schlüssel im Clientcode."
+            }
+        },
+        {
+            "id": 415,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Warum gibt es Hex- und Base64-Schlüssel?",
+                "answer": "HMAC-Schlüssel sind Bytes, werden in Konfigurationen aber oft als Hex oder Base64 gespeichert. Text wird als UTF-8 codiert; Hex und Base64 werden in die ursprünglichen Bytes decodiert. „616263“, „YWJj“ und „abc“ stehen nur mit dem jeweils passenden Format für dieselben Bytes."
+            }
+        },
+        {
+            "id": 416,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Werden Nachricht oder Schlüssel an den Server gesendet?",
+                "answer": "Die HMAC-Berechnung läuft lokal über die Web Crypto API. Nachricht und Schlüssel werden nicht zur Berechnung an den Server übertragen. Bei erlaubter Einstellungsspeicherung kann das Schlüsselfeld im lokalen Browserspeicher verbleiben; löschen Sie auf gemeinsam genutzten Geräten Feld und Websitedaten."
+            }
+        },
+        {
+            "id": 484,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Welchen HMAC-Algorithmus soll ich wählen?",
+                "answer": "Verwenden Sie den vom Protokoll vorgeschriebenen Algorithmus. HMAC-SHA256 ist eine verbreitete Wahl für neue Integrationen; SHA384 und SHA512 sind sinnvoll, wenn die Spezifikation sie verlangt. SHA1 sollte nur aus Kompatibilitätsgründen genutzt werden."
+            }
+        },
+        {
+            "id": 485,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Kann man HMAC entschlüsseln oder umkehren?",
+                "answer": "Nein. HMAC ist eine Einwegfunktion. Zur Prüfung benötigt man die ursprüngliche Nachricht und denselben geheimen Schlüssel, berechnet den Tag erneut und vergleicht ihn mit dem erwarteten Wert."
+            }
+        },
+        {
+            "id": 486,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Wie prüfe ich einen HMAC?",
+                "answer": "Wählen Sie denselben Algorithmus und dasselbe Schlüsselformat, geben Sie Nachricht und Schlüssel exakt ein und vergleichen Sie die Tags. Verwenden Sie im Anwendungscode einen zeitkonstanten Bytevergleich. Dieser Rechner besitzt kein separates automatisches Prüffeld."
+            }
+        },
+        {
+            "id": 487,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Warum stimmen meine HMAC-Werte nicht überein?",
+                "answer": "Prüfen Sie Algorithmus, Schlüsselformat und -bytes, Zeichenkodierung, Groß-/Kleinschreibung, Leerzeichen, Zeilenumbrüche, JSON-Serialisierung und Unicode-Normalisierung. Bei APIs und Webhooks sind außerdem der exakt signierte Body beziehungsweise die kanonische Zeichenfolge und das Ausgabeformat wichtig."
+            }
+        },
+        {
+            "id": 488,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Sind HMAC-SHA256 und JWT HS256 identisch?",
+                "answer": "HS256 verwendet HMAC-SHA256, ein JWT signiert jedoch den Base64URL-codierten Header und Payload und codiert auch die Signatur als Base64URL ohne Padding. Dieses Werkzeug liefert Hex und erstellt daher kein vollständiges JWT."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 218,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "text"
+            },
+            "data": {
+                "title": "Leere Nachricht",
+                "key": "geheimnis",
+                "shift": 0,
+                "input": "",
+                "output": "c71c8f16b9013020a31fa06567e1030543aaeea63df411918eb5887a36720e25",
+                "description": "Auch eine leere Nachricht ist gültig. HMAC-SHA256 erzeugt mit dem Schlüssel „geheimnis“ einen 64-stelligen Hex-Tag."
+            }
+        },
+        {
+            "id": 219,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "text"
+            },
+            "data": {
+                "title": "Textschlüssel",
+                "key": "geheimnis",
+                "shift": 0,
+                "input": "Hallo Welt!",
+                "output": "29a35ef1c32e04d79f3f261ba50415701fc891974bad7804bc8e9ee74f3a6aaa",
+                "description": "HMAC-SHA256 für „Hallo Welt!“ mit dem UTF-8-Textschlüssel „geheimnis“."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "text"
+            },
+            "data": {
+                "title": "Andere Nachricht und anderer Schlüssel",
+                "key": "schluessel",
+                "shift": 0,
+                "input": "prüfung",
+                "output": "2cba702ae8128263caf49d782da5b7bf4edf8ddad9efb70f291680569ce7a1fe",
+                "description": "Schon eine Änderung der Nachricht oder des Schlüssels erzeugt einen völlig anderen HMAC-SHA256-Tag."
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "hex"
+            },
+            "data": {
+                "title": "HMAC-SHA256-Testvektor aus RFC 4231",
+                "key": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
+                "shift": 0,
+                "input": "Hi There",
+                "output": "b0344c61d8db38535ca8afceaf0bf12b881dc200c9833da726e9376c2e32cff7",
+                "description": "RFC 4231 Testfall 1 verwendet einen 20-Byte-Schlüssel in Hex und dient zur Prüfung von HMAC-SHA256-Implementierungen."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 318,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "HMAC"
+            }
+        },
+        {
+            "id": 319,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "HMAC-SHA256"
+            }
+        },
+        {
+            "id": 320,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Nachrichtenauthentifizierung"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

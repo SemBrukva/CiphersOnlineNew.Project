@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-06-29T18:51:19+00:00",
+    "category_alias": "hashing",
+    "cipher_alias": "bcrypt",
+    "language": "es",
+    "default_language": "en",
+    "cipher_id": 61,
+    "category_id": 5
+  },
+  "cipher_translation": {
+    "id": 61,
+    "data": {
+      "name": "bcrypt online - Hashing de contraseñas",
+      "name_short": "bcrypt",
+      "description": "Genera y verifica hashes bcrypt de contraseñas online en tu navegador. Este generador bcrypt crea hashes $2b$ con salt y factor de coste configurable, y el verificador compara una contraseña con hashes $2a$, $2b$ o $2y$ existentes sin subir datos.",
+      "description_stort": "Genera o verifica hashes bcrypt de contraseñas en tu navegador.",
+      "meta_title": "bcrypt online - Generador y verificador de hash de contraseña",
+      "meta_description": "Generador bcrypt y verificador online gratis. Crea hashes $2b$ con salt, ajusta el factor de coste y verifica hashes bcrypt en tu navegador."
+    }
+  },
+  "blocks": [
+    {
+      "id": 212,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "¿Qué es bcrypt?",
+        "text": "<p>bcrypt es una función de hashing de contraseñas diseñada por Niels Provos y David Mazières y publicada en USENIX en 1999. Se basa en el cifrado Blowfish, pero está pensada para almacenar contraseñas, no para checksums generales: cada intento de adivinar una contraseña es deliberadamente lento, usa un salt único y puede encarecerse aumentando el factor de coste.</p><p>Un hash bcrypt de contraseña es una cadena autosuficiente como <code>$2b$12$...</code>. Contiene la versión del algoritmo, el coste, un salt de 128 bits codificado en el Base64 propio de bcrypt y el hash final. Por eso normalmente se almacena una sola cadena bcrypt por contraseña; la biblioteca de verificación puede recuperar los parámetros desde esa cadena.</p><p>Usa esta herramienta bcrypt online cuando necesites un bcrypt hash generator para documentación, datos de prueba, comprobaciones de migración o experimentos rápidos con factores de coste. Usa el modo Verify si ya tienes un hash bcrypt y quieres comprobar si una contraseña candidata coincide.</p>"
+      }
+    },
+    {
+      "id": 213,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Factor de coste explicado",
+        "text": "<p>El factor de coste de bcrypt es un exponente: cost 10 equivale aproximadamente a 2^10 unidades de trabajo interno, cost 12 a 2^12, y cada incremento de 1 duplica el trabajo para atacantes y para inicios de sesión legítimos. Una base conservadora para bcrypt es un work factor de 10 o más cuando Argon2id o scrypt no están disponibles; el valor práctico debe medirse en el servidor que procesará la autenticación real.</p><p>Esta herramienta permite valores de cost de 4 a 31, con 12 por defecto. Los valores bajos solo sirven para demostraciones y pruebas rápidas; en producción conviene elegir el coste más alto que mantenga una verificación de login aceptable bajo carga. En la práctica, busca una demora visible pero razonable, monitoriza la latencia de inicio de sesión y sube el coste con el tiempo.</p><p>El coste se almacena dentro de cada hash bcrypt, así que los hashes antiguos siguen verificándose después de cambiar la política. Un patrón común es verificar el hash antiguo durante el login, volver a hashear la misma contraseña con el nuevo coste y reemplazar el valor guardado.</p>"
+      }
+    },
+    {
+      "id": 238,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "title": "Cómo funcionan el generador y el verificador",
+        "text": "<p>En modo Generate, introduce una contraseña o frase de contraseña, elige el factor de coste y ejecuta el cálculo. El navegador crea automáticamente un salt aleatorio y devuelve una cadena bcrypt que empieza por <code>$2b$</code>. La misma contraseña debería producir hashes distintos en ejecuciones repetidas porque el salt cambia cada vez.</p><p>En modo Verify, pega la contraseña candidata como entrada y el hash bcrypt guardado en el campo de verificación. La herramienta lee el coste y el salt del hash guardado, ejecuta bcrypt con los mismos parámetros y devuelve si la contraseña coincide. Reconoce cadenas bcrypt modernas que empiezan por <code>$2a$</code>, <code>$2b$</code> o <code>$2y$</code>.</p><p>Todo se ejecuta en el cliente con la implementación JavaScript de bcrypt usada por la página. La contraseña y el hash no se envían al servidor, lo que resulta cómodo para ejemplos y depuración. Para cuentas reales, hashea y verifica siempre en el backend con una biblioteca mantenida, rate limiting, registros de auditoría y prácticas seguras de despliegue.</p>"
+      }
+    },
+    {
+      "id": 239,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "title": "Casos de uso comunes de bcrypt",
+        "text": "<p>Los desarrolladores suelen necesitar bcrypt para tareas prácticas: crear un hash de contraseña para un usuario de prueba, verificar si una contraseña coincide con un hash guardado, comparar factores de coste, entender una cadena <code>$2b$</code> o planear una migración desde almacenamiento heredado.</p><p>Esta página cubre preguntas habituales sobre bcrypt generator y verifier: cómo generar un hash bcrypt online, cómo verificar un hash bcrypt, qué es un salt bcrypt, cómo funciona el factor de coste, cómo se compara bcrypt con Argon2 y por qué importa el límite de 72 bytes. El patrón de producción es sencillo: genera un hash con salt único, almacena la cadena bcrypt completa, verifica con una biblioteca mantenida y rehashea cuando el coste guardado quede por debajo de tu política actual.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 421,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "¿Qué significa el límite de 72 bytes?",
+        "answer": "bcrypt trunca internamente las contraseñas a 72 bytes. Todo lo que queda después del byte 72 se ignora en silencio y no aporta seguridad. Una solución común es hashear primero la contraseña con SHA-256 para obtener 32 bytes y pasar ese resultado a bcrypt; otra opción es usar Argon2id, que no tiene ese límite."
+      }
+    },
+    {
+      "id": 422,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "¿Debo usar bcrypt o Argon2id?",
+        "answer": "Para sistemas nuevos, Argon2id suele ser preferible porque es memory-hard y encarece los ataques con GPU frente a bcrypt. Elige bcrypt cuando necesites amplio soporte de bibliotecas, comportamiento muy estable o compatibilidad con plataformas que ya almacenan hashes bcrypt. bcrypt sigue siendo aceptable con un factor de coste fuerte."
+      }
+    },
+    {
+      "id": 423,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "¿En qué se diferencian $2a$, $2b$ y $2y$?",
+        "answer": "Son versiones del formato codificado de bcrypt. $2a$ es la original; $2y$ se introdujo en PHP para marcar implementaciones corregidas tras un bug de sign-extension de 2011; $2b$ es el formato estándar moderno usado por bibliotecas compatibles con OpenBSD. Los hashes nuevos aquí usan $2b$, y la verificación de hashes $2a$ y $2y$ antiguos funciona en bibliotecas modernas."
+      }
+    },
+    {
+      "id": 424,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "¿Esta herramienta envía mi contraseña a algún sitio?",
+        "answer": "No. bcrypt se ejecuta completamente en tu navegador con la biblioteca bcryptjs; tu contraseña no sale de tu dispositivo. No hay peticiones de red, registros ni procesamiento en servidor. Aun así, para cuentas reales en producción usa una biblioteca del lado del servidor con aleatoriedad segura, rate limiting y monitorización."
+      }
+    },
+    {
+      "id": 473,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "¿Se puede descifrar un hash bcrypt?",
+        "answer": "No. bcrypt es una función unidireccional de hashing de contraseñas, no cifrado. No puedes recuperar la contraseña original desde el hash. La verificación consiste en hashear una contraseña candidata con el coste y el salt incrustados en la cadena bcrypt guardada, y comparar el resultado."
+      }
+    },
+    {
+      "id": 474,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "¿Por qué la misma contraseña genera un hash bcrypt distinto cada vez?",
+        "answer": "bcrypt usa un salt aleatorio único para cada hash generado. El salt se guarda dentro de la salida, así que la verificación funciona, pero dos usuarios con la misma contraseña no deberían tener hashes almacenados idénticos. Esto evita tablas de búsqueda simples y encarece el cracking masivo."
+      }
+    },
+    {
+      "id": 475,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "¿Qué factor de coste debo elegir?",
+        "answer": "Usa al menos 10 para bcrypt y mide el rendimiento en tu servidor real de autenticación. Cost 12 es un punto de partida común para aplicaciones modernas, pero el valor correcto es el coste más alto que tu flujo de login, trabajos en segundo plano y controles de abuso puedan soportar sin una demora inaceptable."
+      }
+    },
+    {
+      "id": 476,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "¿Debo almacenar el salt por separado?",
+        "answer": "Normalmente no. Una cadena bcrypt estándar ya contiene versión, coste, salt y hash. Guarda el valor completo exactamente como se generó, por ejemplo una cadena que empiece por $2b$12$..., y deja que tu biblioteca bcrypt lo analice durante la verificación."
+      }
+    },
+    {
+      "id": 477,
+      "sort_order": 90,
+      "published": true,
+      "data": {
+        "question": "¿Puedo verificar aquí hashes $2a$, $2b$ y $2y$?",
+        "answer": "Sí. El verificador acepta los prefijos bcrypt comunes $2a$, $2b$ y $2y$. Los hashes nuevos generados por esta herramienta usan el formato moderno $2b$."
+      }
+    },
+    {
+      "id": 478,
+      "sort_order": 100,
+      "published": true,
+      "data": {
+        "question": "¿bcrypt es seguro para aplicaciones nuevas?",
+        "answer": "bcrypt sigue siendo aceptable si se configura con un factor de coste fuerte, pero Argon2id es preferible para almacenamiento nuevo de contraseñas cuando está disponible porque es memory-hard. Elige bcrypt si necesitas compatibilidad amplia, soporte de plataforma o coherencia al migrar una base existente de hashes bcrypt."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 223,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "12"
+      },
+      "data": {
+        "title": "Contraseña común",
+        "key": "",
+        "shift": 0,
+        "input": "contrasena123",
+        "output": "",
+        "description": "Una contraseña típica. Haz clic en Compute para generar un hash bcrypt con salt y el factor de coste por defecto."
+      }
+    },
+    {
+      "id": 224,
+      "sort_order": 20,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "12"
+      },
+      "data": {
+        "title": "Frase de contraseña",
+        "key": "",
+        "shift": 0,
+        "input": "caballo correcto bateria grapa",
+        "output": "",
+        "description": "Ejemplo de una frase de contraseña más larga. bcrypt solo usa los primeros 72 bytes, así que las contraseñas Unicode muy largas requieren cuidado."
+      }
+    },
+    {
+      "id": 241,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "10"
+      },
+      "data": {
+        "title": "Coste rápido compatible",
+        "key": "",
+        "shift": 0,
+        "input": "demo-login-legacy",
+        "output": "",
+        "description": "Genera un hash bcrypt con cost 10, útil para comparar un work factor compatible más bajo con el valor por defecto."
+      }
+    },
+    {
+      "id": 242,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-kdf-cost": "14"
+      },
+      "data": {
+        "title": "Contraseña admin con coste alto",
+        "key": "",
+        "shift": 0,
+        "input": "frase-admin-boveda-2026",
+        "output": "",
+        "description": "Usa un coste bcrypt más alto para mostrar el compromiso entre seguridad y rendimiento. La generación y verificación serán notablemente más lentas."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 324,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "bcrypt"
+      }
+    },
+    {
+      "id": 325,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "KDF"
+      }
+    },
+    {
+      "id": 326,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Hashing de contraseñas"
+      }
+    },
+    {
+      "id": 336,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "tag": "bcrypt generator"
+      }
+    },
+    {
+      "id": 337,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "tag": "bcrypt verifier"
+      }
+    },
+    {
+      "id": 338,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "tag": "Verificador de hash de contraseña"
+      }
+    },
+    {
+      "id": 339,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "tag": "Factor de coste"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data.",
+    "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+    "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+    "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+    "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+  ]
+}

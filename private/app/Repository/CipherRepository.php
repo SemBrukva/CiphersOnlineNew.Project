@@ -513,8 +513,8 @@ final class CipherRepository extends AbstractRepository
      */
     public function findExamplesByCipherIdWithTranslation(int $cipherId, string $language, string $defaultLanguage): array
     {
-        return $this->db->fetchAll(
-            'SELECT e.id, e.app_id, e.sort_order, e.published, e.direction, e.delimiter, e.encoding, e.key_format, e.alberti_index, '
+        $rows = $this->db->fetchAll(
+            'SELECT e.id, e.app_id, e.sort_order, e.published, e.direction, e.delimiter, e.encoding, e.key_format, e.alberti_index, e.settings, '
             .'COALESCE(et_cur.language, et_def.language, ?) AS language, '
             .'COALESCE(et_cur.title, et_def.title, \'\') AS label, '
             .'COALESCE(et_cur.input, et_def.input, \'\') AS input, '
@@ -531,6 +531,42 @@ final class CipherRepository extends AbstractRepository
             .'ORDER BY e.sort_order ASC, e.id ASC',
             [$defaultLanguage, $language, $defaultLanguage, $cipherId]
         );
+
+        foreach ($rows as &$row) {
+            $row['settings'] = $this->decodeSettings($row['settings'] ?? null);
+        }
+        unset($row);
+
+        return $rows;
+    }
+
+    /**
+     * Декодирует JSON-настройки примера в ассоциативный массив скалярных значений.
+     * NULL/невалидный JSON/не-объект → пустой массив.
+     *
+     * @return array<string, scalar>
+     */
+    private function decodeSettings(mixed $raw): array
+    {
+        if (!is_string($raw) || $raw === '') {
+            return [];
+        }
+
+        $decoded = json_decode($raw, true);
+
+        if (!is_array($decoded)) {
+            return [];
+        }
+
+        $result = [];
+
+        foreach ($decoded as $key => $value) {
+            if (is_string($key) && (is_scalar($value) || $value === null)) {
+                $result[$key] = $value ?? '';
+            }
+        }
+
+        return $result;
     }
 
     /**

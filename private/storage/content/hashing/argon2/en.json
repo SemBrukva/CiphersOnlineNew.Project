@@ -1,7 +1,7 @@
 {
     "meta": {
         "schema": "cipher-content.v1",
-        "exported_at": "2026-06-28T13:11:53+00:00",
+        "exported_at": "2026-06-29T18:34:08+00:00",
         "category_alias": "hashing",
         "cipher_alias": "argon2",
         "language": "en",
@@ -12,12 +12,12 @@
     "cipher_translation": {
         "id": 62,
         "data": {
-            "name": "Argon2 Online — Password Hashing",
+            "name": "Argon2 Online - Password Hashing",
             "name_short": "Argon2",
-            "description": "Generate or verify Argon2id password hashes in your browser. Argon2 is the winner of the Password Hashing Competition (2015), RFC 9106, OWASP-recommended. Memory-hard, resistant to GPU/ASIC attacks. Configure memory, iterations, parallelism, variant.",
+            "description": "Generate or verify Argon2id password hashes in your browser. Argon2 is the winner of the Password Hashing Competition (2015), standardized in RFC 9106, and recommended by OWASP for new password storage. Configure memory cost, iterations, parallelism, output length, salt, and variant.",
             "description_stort": "Generate or verify Argon2 password hashes in your browser.",
-            "meta_title": "Argon2 Online Generator and Verifier | Ciphers Online",
-            "meta_description": "Free online Argon2id generator and password verifier. OWASP-recommended defaults, configurable memory/iterations/parallelism, PHC encoded output. 100% in browser via WebAssembly."
+            "meta_title": "Argon2 Online Generator and Password Verifier | Ciphers Online",
+            "meta_description": "Free Argon2id password hash generator and verifier online. Tune memory, iterations, parallelism, salt and PHC output. Runs in your browser via WebAssembly."
         }
     },
     "blocks": [
@@ -27,7 +27,7 @@
             "published": true,
             "data": {
                 "title": "What is Argon2?",
-                "text": "<p>Argon2 is a password hashing function and key derivation function designed by Aumasson, Biryukov, and Khovratovich, and selected as the winner of the Password Hashing Competition in 2015. It is standardized in RFC 9106 (2021) and recommended by OWASP (2024) as the preferred algorithm for password hashing in new applications.</p><p>The Argon2 family has three variants: Argon2d (data-dependent memory access, fastest but vulnerable to side-channel attacks), Argon2i (data-independent, resistant to side-channel attacks but slightly slower), and Argon2id (a hybrid that combines both — recommended for general use). Argon2id is the right default.</p>"
+                "text": "<p>Argon2 is a password hashing function and key derivation function designed by Alex Biryukov, Daniel Dinu, and Dmitry Khovratovich, and selected as the winner of the Password Hashing Competition in 2015. It is standardized in RFC 9106 and recommended by OWASP for new password storage because it can make every password guess expensive in both CPU time and memory.</p><p>The Argon2 family has three variants: Argon2d uses data-dependent memory access and is fast, but it is not the usual choice for web password storage; Argon2i uses data-independent access and is designed to resist side-channel leakage; Argon2id combines both approaches and is the recommended default for login systems, SaaS products, admin panels, and other applications that store user passwords.</p>"
             }
         },
         {
@@ -36,7 +36,25 @@
             "published": true,
             "data": {
                 "title": "Memory-hardness and tunable parameters",
-                "text": "<p>What makes Argon2 special is memory-hardness: each iteration requires a configurable block of memory (default 19 MiB per OWASP 2024). Attackers using GPUs and ASICs are no longer 10–100× faster than CPUs — they pay the full memory cost. This shifts the economic equation back in defenders' favour.</p><p>Argon2 has three tunable parameters: <strong>memory</strong> (KiB, default 19,456 = 19 MiB), <strong>iterations</strong> (time cost, default 2), and <strong>parallelism</strong> (lanes, default 1). OWASP 2024 recommendations: 19 MiB / 2 iterations / 1 lane, or 47 MiB / 1 / 1, or 9 MiB / 4 / 1. Pick the combination that fits your CPU and latency budget.</p>"
+                "text": "<p>What makes Argon2 special is memory-hardness: each password guess requires a configurable block of RAM, not only repeated CPU work. That matters in offline attacks after a database leak, because GPUs and ASICs cannot cheaply run millions of guesses in parallel when each guess must reserve memory.</p><p>This Argon2 online tool exposes the parameters developers usually need: <strong>memory</strong> in KiB, <strong>iterations</strong> as the time cost, <strong>parallelism</strong> as lanes, <strong>key length</strong> for the hash output, an optional <strong>salt</strong>, and the Argon2 variant. The default settings use Argon2id with 19,456 KiB of memory, 2 iterations, 1 lane, and a 32-byte output, matching the common OWASP baseline for password hashing.</p><p>If login latency is too low on your production server, raise memory or iterations; if it is too high, choose one of the accepted lower-latency profiles and document the trade-off. Do not tune on a developer laptop only - benchmark on the same type of server that will process real sign-ins.</p>"
+            }
+        },
+        {
+            "id": 236,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "PHC output, salts, and verification",
+                "text": "<p>Argon2 hashes are usually stored as a PHC encoded string such as <code>$argon2id$v=19$m=19456,t=2,p=1$...</code>. The string stores the algorithm variant, version, memory cost, iteration count, parallelism, salt, and derived hash, so a verifier can check the password later without separate parameter columns.</p><p>Use Generate mode to create a new Argon2 password hash for testing, documentation, or comparing parameters. Use Verify mode when you already have a stored Argon2 string and need to check whether a candidate password matches it. For real user accounts, generate a unique random salt for every password and store the full encoded output exactly as produced by your server-side library.</p>"
+            }
+        },
+        {
+            "id": 237,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Common Argon2 use cases",
+                "text": "<p>Use this Argon2 online generator when you need a quick Argon2id password hash for documentation, test fixtures, migration notes, or comparing parameter choices. It is also useful as an Argon2 verifier: paste a candidate password and an existing encoded hash to confirm whether they match before debugging application code.</p><p>Developers commonly arrive here looking for an Argon2id generator, an Argon2 password hash generator, a way to verify an Argon2 hash, an explanation of PHC encoded Argon2 output, or a practical comparison of Argon2 vs bcrypt and PBKDF2. The important takeaway is the same in each case: use Argon2id with a unique salt, store the full encoded string, and choose memory and time costs that your production login flow can sustain.</p>"
             }
         }
     ],
@@ -76,6 +94,42 @@
                 "question": "Does this tool send my password anywhere?",
                 "answer": "No. Argon2 runs entirely in your browser using the hash-wasm library (WebAssembly) — your password never leaves your device. No network requests, no logging, no server-side processing. Still: do not use this tool for production hashing of real user accounts — use a server-side library."
             }
+        },
+        {
+            "id": 469,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can I use this Argon2 online tool for real user passwords?",
+                "answer": "Use it for learning, parameter testing, examples, and checking that a stored hash verifies correctly. For production user accounts, hash passwords on your application server with a maintained library, secure randomness, rate limiting, monitoring, and a migration plan for future parameter upgrades."
+            }
+        },
+        {
+            "id": 470,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What is the PHC string and should I store it whole?",
+                "answer": "Yes. A PHC encoded Argon2 string stores the variant, version, memory cost, iterations, parallelism, salt, and hash in one value. Store the full string exactly as generated, for example a value beginning with $argon2id$v=19$..., so the verifier can reproduce the same parameters later."
+            }
+        },
+        {
+            "id": 471,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Do I need to keep the salt secret?",
+                "answer": "No. A salt must be unique and random, but it is not a secret. Its job is to make identical passwords produce different hashes and to defeat precomputed lookup tables. Keep the salt with the Argon2 hash, usually inside the PHC encoded output."
+            }
+        },
+        {
+            "id": 472,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "When should I rehash an Argon2 password?",
+                "answer": "Rehash when your stored parameters are weaker than your current policy, when you switch from Argon2i or Argon2d to Argon2id, or when hardware improvements make your old login cost too cheap. A common pattern is to verify the old hash during login, then transparently store a new hash with current parameters after successful authentication."
+            }
         }
     ],
     "examples": [
@@ -88,6 +142,14 @@
             "encoding": "",
             "key_format": "",
             "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "19456",
+                "ciphers-kdf-iterations": "2",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
             "data": {
                 "title": "Common password",
                 "key": "",
@@ -106,6 +168,14 @@
             "encoding": "",
             "key_format": "",
             "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "19456",
+                "ciphers-kdf-iterations": "2",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
             "data": {
                 "title": "Passphrase",
                 "key": "",
@@ -113,6 +183,58 @@
                 "input": "correct horse battery staple",
                 "output": "",
                 "description": "A long passphrase with high entropy."
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "47104",
+                "ciphers-kdf-iterations": "1",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
+            "data": {
+                "title": "High-memory profile",
+                "key": "",
+                "shift": 0,
+                "input": "summer-2026-admin-login",
+                "output": "",
+                "description": "Argon2id with 47 MiB of memory and one iteration, useful for comparing an OWASP-listed high-memory profile against the default."
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "9216",
+                "ciphers-kdf-iterations": "4",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": "example-fixed-salt"
+            },
+            "data": {
+                "title": "Fixed-salt test vector",
+                "key": "",
+                "shift": 0,
+                "input": "demo password",
+                "output": "",
+                "description": "Uses a fixed example salt and 9 MiB / 4 iterations so repeated runs are easier to compare. Use random unique salts in production."
             }
         }
     ],
@@ -139,6 +261,30 @@
             "published": true,
             "data": {
                 "tag": "OWASP recommended"
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Password hashing"
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "PHC format"
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Memory-hard KDF"
             }
         }
     ],

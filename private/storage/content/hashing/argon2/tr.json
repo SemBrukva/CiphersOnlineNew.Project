@@ -1,0 +1,299 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T18:34:08+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "argon2",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 62,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 62,
+        "data": {
+            "name": "Argon2 Çevrimiçi - parola hashleme",
+            "name_short": "Argon2",
+            "description": "Tarayıcıda Argon2id parola hashleri üretin veya doğrulayın. Argon2, 2015 Password Hashing Competition kazananıdır, RFC 9106 ile standartlaştırılmıştır ve OWASP tarafından yeni parola saklama sistemleri için önerilir. Bellek maliyeti, iterasyon, paralellik, çıktı uzunluğu, salt ve varyant ayarlanabilir.",
+            "description_stort": "Tarayıcıda Argon2 parola hashleri üretin veya doğrulayın.",
+            "meta_title": "Argon2 Çevrimiçi Üretici ve Parola Doğrulama | Ciphers Online",
+            "meta_description": "Ücretsiz Argon2id üretici ve parola hash doğrulayıcı. Bellek, iterasyon, paralellik, salt ve PHC çıktısını ayarlayın. WebAssembly ile tarayıcıda çalışır."
+        }
+    },
+    "blocks": [
+        {
+            "id": 214,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Argon2 nedir?",
+                "text": "<p>Argon2, Alex Biryukov, Daniel Dinu ve Dmitry Khovratovich tarafından tasarlanan bir parola hashleme ve anahtar türetme fonksiyonudur. 2015 Password Hashing Competition yarışmasını kazanmış, RFC 9106 ile standartlaştırılmış ve OWASP tarafından modern parola saklama için önerilmiştir.</p><p>Argon2 ailesinde üç varyant vardır: Argon2d veriye bağlı bellek erişimi kullanır ve hızlıdır, ancak web parolaları için genelde ilk tercih değildir; Argon2i veriden bağımsız erişim kullanır ve yan kanal risklerine karşı daha uygundur; Argon2id iki yaklaşımı birleştirir ve giriş sistemleri, SaaS ürünleri, yönetim panelleri ve kullanıcı parolası saklayan uygulamalar için önerilen varsayılandır.</p>"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Memory-hardness ve ayarlanabilir parametreler",
+                "text": "<p>Argon2’nin temel gücü memory-hardness özelliğidir: Her parola denemesi yalnızca CPU işi değil, yapılandırılmış miktarda RAM de gerektirir. Bu, bir veritabanı sızıntısından sonra çevrimdışı saldırılarda önemlidir; GPU ve ASIC sistemleri her deneme için bellek ayırmak zorunda kaldığında milyonlarca paralel denemeyi ucuzca yürütemez.</p><p>Bu Argon2 çevrimiçi araç geliştiricilerin ihtiyaç duyduğu parametreleri sunar: KiB cinsinden <strong>memory</strong>, zaman maliyeti olarak <strong>iterations</strong>, lane sayısı olarak <strong>parallelism</strong>, çıktı uzunluğu için <strong>key length</strong>, isteğe bağlı <strong>salt</strong> ve Argon2 varyantı. Varsayılanlar Argon2id, 19.456 KiB bellek, 2 iterasyon, 1 lane ve 32 bayt çıktı kullanır.</p><p>Üretim sunucusunda doğrulama çok hızlıysa bellek veya iterasyonu artırın; çok yavaşsa daha düşük gecikmeli kabul edilebilir bir profil seçin ve ödünleşimi belgeleyin. Parametreleri yalnızca geliştirme makinesinde değil, üretime benzer sunucuda ölçün.</p>"
+            }
+        },
+        {
+            "id": 236,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "PHC çıktısı, salt ve doğrulama",
+                "text": "<p>Argon2 hashleri genellikle <code>$argon2id$v=19$m=19456,t=2,p=1$...</code> gibi PHC kodlu bir dize olarak saklanır. Bu dize algoritma varyantını, sürümü, bellek maliyetini, iterasyon sayısını, paralelliği, salt değerini ve türetilmiş hashi içerir; doğrulayıcı ayrı parametre sütunlarına ihtiyaç duymaz.</p><p>Test, dokümantasyon veya parametre karşılaştırması için yeni bir Argon2 parola hashi üretmek üzere Generate modunu kullanın. Elinizde kayıtlı bir Argon2 dizesi varsa ve aday parolanın eşleşip eşleşmediğini görmek istiyorsanız Verify modunu kullanın. Gerçek hesaplarda her parola için benzersiz rastgele salt üretin ve sunucu tarafı kütüphanenin verdiği tam kodlu çıktıyı saklayın.</p>"
+            }
+        },
+        {
+            "id": 237,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Yaygın Argon2 kullanım alanları",
+                "text": "<p>Bu Argon2 çevrimiçi üreticiyi dokümantasyon, test verisi, geçiş notları veya parametre karşılaştırması için hızlı bir Argon2id parola hashi gerektiğinde kullanabilirsiniz. Aynı zamanda Argon2 doğrulayıcı olarak da çalışır: aday parolayı ve mevcut hashi yapıştırıp eşleşmeyi kontrol edin.</p><p>Yaygın aramalar Argon2id generator, Argon2 password hash generator, verify Argon2 hash, PHC encoded Argon2 ve Argon2 vs bcrypt veya PBKDF2 karşılaştırmalarıdır. Pratik kural değişmez: Argon2id kullanın, benzersiz salt üretin, tam kodlu dizeyi saklayın ve üretim giriş akışının kaldırabileceği bellek ve zaman maliyetlerini seçin.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 425,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Hangi Argon2 varyantını kullanmalıyım?",
+                "answer": "Çoğu uygulamada Argon2id kullanın. Veriye bağlı ve veriden bağımsız bellek erişimini birleştirerek Argon2d’nin pratik hızını ve Argon2i’nin yan kanal direncini dengeler. RFC 9106 ve OWASP varsayılan olarak Argon2id önerir. Argon2i, yan kanallar temel risk olduğunda; Argon2d ise bu saldırıların ilgisiz olduğu ortamlarda uygundur."
+            }
+        },
+        {
+            "id": 426,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Bellek, iterasyon ve paralelliği nasıl seçerim?",
+                "answer": "OWASP 19 MiB / 2 / 1, 47 MiB / 1 / 1 veya 9 MiB / 4 / 1 gibi kabul edilebilir kombinasyonlar listeler. Sunucunuzda yaklaşık 100-500 ms süren profili seçin. Bellek kısıtlıysa iterasyonu artırın; CPU kısıtlıysa belleği artırın. Parallelism özel çok çekirdekli senaryolar dışında nadiren 1’den büyük olmalıdır."
+            }
+        },
+        {
+            "id": 427,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Argon2 neden bcrypt veya PBKDF2’den daha iyi?",
+                "answer": "Argon2 memory-hard bir tasarımdır: GPU veya ASIC kullanan saldırgan her deneme için yapılandırılmış belleği ayırmak zorunda olduğundan maliyeti sadece paralelleştirme ile kolayca düşüremez. bcrypt yalnızca 4 KiB iç duruma sahiptir, PBKDF2’de ise pratikte bellek maliyeti yoktur. Deneme başına 19 MiB ile 24 GiB belleğe sahip bir GPU milyonlar yerine yaklaşık 1200 paralel deneme çalıştırabilir."
+            }
+        },
+        {
+            "id": 428,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Bu araç parolamı herhangi bir yere gönderir mi?",
+                "answer": "Hayır. Argon2 tamamen tarayıcıda hash-wasm ve WebAssembly ile hesaplanır. Parolanız cihazınızdan ayrılmaz; sunucu tarafı işleme veya kayıt yoktur. Yine de gerçek üretim hesapları için sunucu tarafı bir kütüphane kullanın."
+            }
+        },
+        {
+            "id": 469,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Bu Argon2 çevrimiçi aracı gerçek kullanıcı parolaları için kullanabilir miyim?",
+                "answer": "Öğrenme, parametre testi, örnek hazırlama ve mevcut hashleri kontrol etme için kullanın. Gerçek hesaplarda parolaları uygulama sunucusunda, bakımı yapılan bir kütüphane, güvenli rastgelelik, rate limiting, izleme ve parametre yükseltme planıyla hashleyin."
+            }
+        },
+        {
+            "id": 470,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "PHC dizesi nedir ve tamamını saklamalı mıyım?",
+                "answer": "Evet. PHC kodlu Argon2 dizesi varyantı, sürümü, bellek maliyetini, iterasyonları, paralelliği, salt değerini ve hashi tek değerde taşır. Doğrulamanın aynı parametreleri kullanabilmesi için $argon2id$v=19$... ile başlayan değerler dahil tam dizeyi üretildiği gibi saklayın."
+            }
+        },
+        {
+            "id": 471,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Salt gizli tutulmalı mı?",
+                "answer": "Hayır. Salt benzersiz ve rastgele olmalıdır, ancak gizli değildir. Aynı parolaların farklı hash üretmesini sağlar ve önceden hesaplanmış tabloları etkisizleştirir. Salt değerini Argon2 hashiyle birlikte, genellikle PHC dizesinin içinde saklayın."
+            }
+        },
+        {
+            "id": 472,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Argon2 parolasını ne zaman yeniden hashlemeliyim?",
+                "answer": "Saklanan parametreler güncel politikanızdan zayıfsa, Argon2i veya Argon2d’den Argon2id’ye geçiyorsanız ya da donanım gelişmeleri eski maliyeti çok ucuz hale getirdiyse yeniden hashleyin. Yaygın yöntem, girişte eski hashi doğrulamak ve başarılı girişten sonra güncel parametrelerle yeni hashi sessizce kaydetmektir."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "19456",
+                "ciphers-kdf-iterations": "2",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
+            "data": {
+                "title": "Yaygın parola",
+                "key": "",
+                "shift": 0,
+                "input": "parola123",
+                "output": "",
+                "description": "Tipik bir zayıf parola. Önerilen temel ayarlarla Argon2id hashi üretmek için Compute düğmesine tıklayın."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "19456",
+                "ciphers-kdf-iterations": "2",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
+            "data": {
+                "title": "Parola ifadesi",
+                "key": "",
+                "shift": 0,
+                "input": "hatirlamasi kolay dort kelime",
+                "output": "",
+                "description": "Uzun bir parola ifadesi genellikle kolay hatırlanır ve kısa paroladan daha fazla entropi sağlar."
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "47104",
+                "ciphers-kdf-iterations": "1",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": ""
+            },
+            "data": {
+                "title": "Yüksek bellek profili",
+                "key": "",
+                "shift": 0,
+                "input": "admin-login-yaz-2026",
+                "output": "",
+                "description": "47 MiB bellek ve bir iterasyon kullanan Argon2id profili; yüksek bellekli profili varsayılanla karşılaştırmak için kullanışlıdır."
+            }
+        },
+        {
+            "id": 240,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-variant": "argon2id",
+                "ciphers-kdf-memory": "9216",
+                "ciphers-kdf-iterations": "4",
+                "ciphers-kdf-parallelism": "1",
+                "ciphers-kdf-key-length": "32",
+                "ciphers-kdf-salt": "example-fixed-salt"
+            },
+            "data": {
+                "title": "Sabit salt test vektörü",
+                "key": "",
+                "shift": 0,
+                "input": "demo parola",
+                "output": "",
+                "description": "Tekrarlanan çalıştırmaları karşılaştırmayı kolaylaştırmak için sabit örnek salt ve 9 MiB / 4 iterasyon profili kullanır. Üretimde rastgele benzersiz salt değerleri kullanın."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 327,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Argon2"
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Argon2id"
+            }
+        },
+        {
+            "id": 329,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "OWASP önerili"
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Parola hashleme"
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "PHC formatı"
+            }
+        },
+        {
+            "id": 335,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Memory-hard KDF"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

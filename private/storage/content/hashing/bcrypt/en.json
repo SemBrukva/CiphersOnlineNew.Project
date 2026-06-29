@@ -1,7 +1,7 @@
 {
     "meta": {
         "schema": "cipher-content.v1",
-        "exported_at": "2026-06-28T13:11:38+00:00",
+        "exported_at": "2026-06-29T18:51:19+00:00",
         "category_alias": "hashing",
         "cipher_alias": "bcrypt",
         "language": "en",
@@ -12,12 +12,12 @@
     "cipher_translation": {
         "id": 61,
         "data": {
-            "name": "bcrypt Online — Password Hashing",
+            "name": "bcrypt Online - Password Hashing",
             "name_short": "bcrypt",
-            "description": "Generate or verify bcrypt password hashes in your browser. bcrypt is a slow, salted password hashing function based on Blowfish (1999), widely used in Rails, Django, OpenBSD, and many web frameworks. Configurable cost factor.",
+            "description": "Generate and verify bcrypt password hashes online in your browser. This bcrypt generator creates salted $2b$ hashes with a configurable cost factor, and the verifier checks a password against existing $2a$, $2b$, or $2y$ hashes without uploading data.",
             "description_stort": "Generate or verify bcrypt password hashes in your browser.",
-            "meta_title": "bcrypt Online Generator and Verifier | Ciphers Online",
-            "meta_description": "Free online bcrypt generator and password verifier. Configurable cost factor, automatic salt, $2b$ output format. 100% in your browser — no upload, no server."
+            "meta_title": "bcrypt Generator Online and Password Hash Verifier",
+            "meta_description": "Free bcrypt generator and password verifier online. Create salted $2b$ hashes, tune cost factor, verify existing bcrypt hashes, and keep passwords in your browser."
         }
     },
     "blocks": [
@@ -27,7 +27,7 @@
             "published": true,
             "data": {
                 "title": "What is bcrypt?",
-                "text": "<p>bcrypt is a password hashing function designed by Niels Provos and David Mazières (USENIX 1999). It is based on the Blowfish cipher and was specifically built to resist brute-force attacks by being intentionally slow and configurable in cost. The output is a single self-contained string in the format <code>$2b$cost$22-char-salt+31-char-hash</code> — the salt, cost factor, and hash are all stored together.</p><p>bcrypt has been the workhorse of password storage for two decades. It is the default in Ruby on Rails, Django's legacy hasher, OpenBSD passwords, and countless web frameworks. Despite its age, it remains a solid choice when Argon2id is not available.</p>"
+                "text": "<p>bcrypt is a password hashing function designed by Niels Provos and David Mazières and published at USENIX in 1999. It is based on the Blowfish cipher and was built for password storage, not general file checksums: each password guess is intentionally slow, uses a unique salt, and can be made more expensive by raising the cost factor.</p><p>A bcrypt password hash is a self-contained string such as <code>$2b$12$...</code>. It stores the algorithm version, the cost, a 128-bit salt encoded in bcrypt's custom Base64 alphabet, and the final hash. Because the salt and cost are embedded, a database normally stores one bcrypt string per user password and the verification library can reproduce the same settings later.</p><p>Use this bcrypt online tool when you need a bcrypt hash generator for documentation, test fixtures, migration checks, or quick experiments with cost factors. Use the Verify mode when you have an existing bcrypt hash and want to check whether a candidate password matches it.</p>"
             }
         },
         {
@@ -36,7 +36,25 @@
             "published": true,
             "data": {
                 "title": "Cost factor explained",
-                "text": "<p>bcrypt's cost factor is an exponent: cost=10 means 2¹⁰ = 1024 iterations. Each increase by 1 doubles the work. OWASP 2024 recommends a cost of at least 10, with 12 being common for new applications. Cost=12 takes roughly 200–400 ms on a typical server in 2026 — slow enough to make brute-force costly, fast enough not to ruin login UX.</p><p>The cost factor is stored in the hash output, so increasing it later does not break existing hashes (existing hashes are verified with their original cost; new hashes can use the higher cost). Plan to bump the cost every 2–3 years as hardware improves.</p>"
+                "text": "<p>bcrypt's cost factor is an exponent: cost 10 means roughly 2^10 units of internal work, cost 12 means roughly 2^12, and each increase by 1 doubles the work needed for both attackers and legitimate logins. A conservative bcrypt baseline is a work factor of 10 or more when Argon2id or scrypt are not available, and the practical value should be benchmarked on the server that will handle real authentication.</p><p>This tool exposes cost values from 4 to 31, with 12 as the default. Lower values are useful only for demonstrations and fast tests; production systems should choose the highest cost that still keeps login verification responsive under load. As a rule of thumb, aim for a noticeable but acceptable delay, monitor sign-in latency, and raise the cost over time as hardware improves.</p><p>The cost is stored inside each bcrypt hash, so old hashes can still be verified after you change the policy. A common upgrade pattern is to verify the old hash during login, then rehash the same password with the newer cost and replace the stored value after successful authentication.</p>"
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How this bcrypt generator and verifier works",
+                "text": "<p>In Generate mode, enter a password or passphrase, choose the cost factor, and run the calculation. The browser creates a random salt automatically and returns a bcrypt string beginning with <code>$2b$</code>. Running the same password twice should produce different hashes because the salt is different every time.</p><p>In Verify mode, paste the candidate password as input and paste the stored bcrypt hash into the verification field. The tool reads the cost and salt from the stored hash, runs bcrypt with the same parameters, and returns whether the password matches. It recognizes modern bcrypt strings beginning with <code>$2a$</code>, <code>$2b$</code>, or <code>$2y$</code>.</p><p>Everything runs client-side with the JavaScript bcrypt implementation used by the page. The password and hash are not sent to the server, which makes the tool convenient for examples and debugging. For real user accounts, still hash and verify passwords inside your application backend using a maintained server-side library, rate limiting, audit logging, and secure deployment practices.</p>"
+            }
+        },
+        {
+            "id": 239,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Common bcrypt use cases",
+                "text": "<p>Developers usually need bcrypt for a few practical tasks: creating a bcrypt password hash for a test user, verifying whether a password matches a stored hash, comparing bcrypt cost factors, checking the meaning of a <code>$2b$</code> hash string, or planning a migration from legacy password storage.</p><p>This page covers common bcrypt generator and verifier questions: how to generate a bcrypt hash online, how to verify a bcrypt hash, what a bcrypt salt is, how the cost factor works, how bcrypt compares with Argon2, and why the 72-byte password limit matters. The important production pattern is simple: generate a unique salted hash, store the full bcrypt string, verify with a maintained library function, and rehash when the stored cost becomes weaker than your current policy.</p>"
             }
         }
     ],
@@ -56,7 +74,7 @@
             "published": true,
             "data": {
                 "question": "Should I use bcrypt or Argon2id?",
-                "answer": "For new systems, Argon2id is recommended by OWASP (2024). It is memory-hard, which makes GPU-based attacks much more expensive than against bcrypt. Choose bcrypt when you need broad library support, very stable behaviour, or compliance with platforms that require it. bcrypt remains acceptable when configured with cost ≥ 10."
+                "answer": "For new systems, Argon2id is generally preferred because it is memory-hard, which makes GPU-based attacks more expensive than against bcrypt. Choose bcrypt when you need broad library support, very stable behaviour, or compatibility with platforms that already store bcrypt hashes. bcrypt remains acceptable when configured with a strong cost factor."
             }
         },
         {
@@ -65,7 +83,7 @@
             "published": true,
             "data": {
                 "question": "How do $2a$, $2b$, $2y$ differ?",
-                "answer": "These are versions of the bcrypt encoded format. $2a$ is the original; $2y$ was introduced in PHP to mark fixed implementations after a 2011 sign-extension bug; $2b$ is the current standard format (used by OpenBSD and the canonical OpenBSD-style bcrypt libraries). For new hashes you will see $2b$. Verification of older $2a$ and $2y$ hashes still works in all modern libraries."
+                "answer": "These are versions of the bcrypt encoded format. $2a$ is the original; $2y$ was introduced in PHP to mark fixed implementations after a 2011 sign-extension bug; $2b$ is the current standard format used by modern OpenBSD-style bcrypt libraries. New hashes generated here use $2b$, while verification of older $2a$ and $2y$ hashes works in modern libraries."
             }
         },
         {
@@ -74,7 +92,61 @@
             "published": true,
             "data": {
                 "question": "Does this tool send my password anywhere?",
-                "answer": "No. bcrypt runs entirely in your browser using the bcryptjs library — your password never leaves your device. No network requests, no logging, no server-side processing. Still: do not use this tool for production password hashing of real user accounts — use a server-side library with proper salt management."
+                "answer": "No. bcrypt runs entirely in your browser using the bcryptjs library — your password never leaves your device. No network requests, no logging, no server-side processing. Still: do not use this tool for production password hashing of real user accounts — use a server-side library with secure randomness, rate limiting, and monitoring."
+            }
+        },
+        {
+            "id": 473,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can a bcrypt hash be decrypted?",
+                "answer": "No. bcrypt is a one-way password hashing function, not encryption. You cannot recover the original password from the hash. Verification works by hashing a candidate password with the cost and salt embedded in the stored bcrypt string, then comparing the result."
+            }
+        },
+        {
+            "id": 474,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does the same password generate a different bcrypt hash each time?",
+                "answer": "bcrypt uses a unique random salt for each generated hash. The salt is stored inside the output string, so verification still works, but two users with the same password should not have identical stored hashes. This prevents simple lookup tables and makes bulk cracking more expensive."
+            }
+        },
+        {
+            "id": 475,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "What cost factor should I choose?",
+                "answer": "Use at least 10 for bcrypt, and benchmark on your real authentication server. Cost 12 is a common starting point for modern applications, but the right value is the highest cost that your login flow, background jobs, and abuse controls can handle without unacceptable delay."
+            }
+        },
+        {
+            "id": 476,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Should I store the salt separately?",
+                "answer": "Usually no. A standard bcrypt string already contains the version, cost, salt, and hash. Store the full value exactly as generated, for example a string beginning with $2b$12$..., and let your bcrypt library parse it during verification."
+            }
+        },
+        {
+            "id": 477,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Can I verify $2a$, $2b$, and $2y$ hashes here?",
+                "answer": "Yes. The verifier accepts the common bcrypt prefixes $2a$, $2b$, and $2y$. New hashes generated by this tool use the modern $2b$ format."
+            }
+        },
+        {
+            "id": 478,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Is bcrypt safe for new applications?",
+                "answer": "bcrypt is still acceptable when configured with a strong cost factor, but Argon2id is the preferred choice for new password storage where available because it is memory-hard. Choose bcrypt when you need broad compatibility, platform support, or migration consistency with an existing bcrypt password database."
             }
         }
     ],
@@ -88,13 +160,16 @@
             "encoding": "",
             "key_format": "",
             "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-cost": "12"
+            },
             "data": {
                 "title": "Common password",
                 "key": "",
                 "shift": 0,
                 "input": "password123",
                 "output": "",
-                "description": "A typical password. Click Compute to generate a bcrypt hash with the configured cost."
+                "description": "A typical password. Click Compute to generate a salted bcrypt hash with the default cost factor."
             }
         },
         {
@@ -106,13 +181,58 @@
             "encoding": "",
             "key_format": "",
             "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-cost": "12"
+            },
             "data": {
                 "title": "Passphrase",
                 "key": "",
                 "shift": 0,
                 "input": "correct horse battery staple",
                 "output": "",
-                "description": "A long passphrase. bcrypt only uses the first 72 bytes of input."
+                "description": "A longer passphrase example. bcrypt uses only the first 72 bytes, so very long Unicode passwords need careful handling."
+            }
+        },
+        {
+            "id": 241,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-cost": "10"
+            },
+            "data": {
+                "title": "Fast compatibility cost",
+                "key": "",
+                "shift": 0,
+                "input": "legacy-login-demo",
+                "output": "",
+                "description": "Generates a bcrypt hash with cost 10, useful for comparing a lower compatibility work factor with the default."
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-kdf-cost": "14"
+            },
+            "data": {
+                "title": "Higher-cost admin password",
+                "key": "",
+                "shift": 0,
+                "input": "admin-vault-passphrase-2026",
+                "output": "",
+                "description": "Uses a higher bcrypt cost to demonstrate the security/performance trade-off. Expect noticeably slower generation and verification."
             }
         }
     ],
@@ -139,6 +259,38 @@
             "published": true,
             "data": {
                 "tag": "Password hashing"
+            }
+        },
+        {
+            "id": 336,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "bcrypt generator"
+            }
+        },
+        {
+            "id": 337,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "bcrypt verifier"
+            }
+        },
+        {
+            "id": 338,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "Password hash verifier"
+            }
+        },
+        {
+            "id": 339,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "tag": "Cost factor"
             }
         }
     ],

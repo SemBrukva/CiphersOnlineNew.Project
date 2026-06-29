@@ -1,0 +1,268 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T21:24:58+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "hmac",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 59,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 59,
+        "data": {
+            "name": "HMAC Oluşturucu",
+            "name_short": "HMAC",
+            "description": "Metin ve gizli anahtardan HMAC (hash tabanlı ileti kimlik doğrulama kodu) oluşturun. Çevrimiçi hesaplayıcı HMAC-SHA-1, HMAC-SHA-256, HMAC-SHA-384 ve HMAC-SHA-512 algoritmalarını ve metin, onaltılık veya Base64 anahtarları destekler; sonucu küçük harfli onaltılık etiket olarak verir. Hesaplama tarayıcıda yerel olarak yapılır.",
+            "description_stort": "Metin ve gizli anahtardan doğrudan tarayıcınızda HMAC oluşturun.",
+            "meta_title": "Çevrimiçi HMAC Oluşturucu – HMAC-SHA256 Hesaplayıcı",
+            "meta_description": "HMAC-SHA256, SHA1, SHA384 veya SHA512 hesaplayın. Metin, hex ve Base64 anahtar desteği; işlem tarayıcınızda yerel olarak yapılır."
+        }
+    },
+    "blocks": [
+        {
+            "id": 208,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "HMAC nedir?",
+                "text": "<p>HMAC (Hash-based Message Authentication Code), kriptografik bir hash işlevini gizli anahtarla birleştirir. RFC 2104 ile tanımlanan algoritma, her uzunluktaki iletiyi sabit uzunlukta kimlik doğrulama etiketine dönüştürür. HMAC-SHA256 en yaygın güncel türdür; HMAC-SHA384 ve HMAC-SHA512 daha uzun etiketler üretirken HMAC-SHA1 eski protokollerde bulunabilir.</p><p>Aynı anahtara sahip alıcı HMAC değerini yeniden hesaplayıp etiketleri karşılaştırabilir. Eşleşme, iletinin değişmediğini ve paylaşılan sırrı bilen biri tarafından oluşturulduğunu gösterir. HMAC simetrik bir ileti kimlik doğrulama kodudur; şifreleme veya açık anahtarlı dijital imza değildir.</p>"
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "HMAC nasıl çalışır?",
+                "text": "<p>Basitleştirilmiş gösterimde HMAC, <code>H((K′ ⊕ opad) || H((K′ ⊕ ipad) || ileti))</code> hesaplar. Anahtar hash işlevinin blok boyutuna uyarlanır ve iç/dış işlemlerde iki sabitle birleştirilir. Böylece <code>hash(anahtar || ileti)</code> gibi naif yapılardaki uzunluk genişletme sorunu önlenir.</p><p>HMAC-SHA1 20 bayt (40 hex karakter), HMAC-SHA256 32 bayt (64), HMAC-SHA384 48 bayt (96), HMAC-SHA512 ise 64 bayt (128) üretir. Oluşturucu tam etiketi kısaltmadan küçük harfli onaltılık biçimde gösterir.</p>"
+            }
+        },
+        {
+            "id": 242,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "HMAC oluşturucu nasıl kullanılır?",
+                "text": "<ol><li>İletiyi tam olarak girin.</li><li>HMAC-SHA256, HMAC-SHA1, HMAC-SHA384 veya HMAC-SHA512 seçin.</li><li>Anahtar biçimini seçin: metin, hex veya Base64.</li><li>Gizli anahtarı girip onaltılık sonucu kopyalayın.</li></ol><p>İleti her zaman UTF-8 olarak kodlanır. Metin modunda anahtar da UTF-8 kullanır; hex ve Base64 önce baytlara çözümlenir. Boşluklar, satır sonları, harf büyüklüğü, Unicode, algoritma ve anahtar biçimi sonucu değiştirir.</p>"
+            }
+        },
+        {
+            "id": 243,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "API, webhook ve JWT için HMAC",
+                "text": "<p>HMAC; API istekleri, webhook yükleri, oturum verileri ve protokol iletilerini doğrulamakta sık kullanılır. Doğrulamada etiket aynı baytlar ve paylaşılan sırla yeniden hesaplanıp sabit sürede karşılaştırılır. Zaman damgası veya nonce tekrar saldırılarını önleyebilir.</p><p>Her zaman ilgili belirtime uyun: API kanonik istek isteyebilir, webhook ham HTTP gövdesini imzalayabilir ve JWT HS256 hex yerine Base64URL kullanır. Bu araç girilen metnin HMAC değerini hesaplar; sağlayıcıya özel dize oluşturmaz, Base64URL’ye dönüştürmez ve mevcut etiketi otomatik doğrulamaz.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 413,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Normal hash yerine ne zaman HMAC kullanılmalı?",
+                "answer": "İki taraf bir sır paylaşıyor ve kasıtlı değişiklikleri ya da sırrı bilen göndericiyi doğrulamak istiyorsa HMAC kullanın. İletiyi değiştiren herkes normal SHA-256 değerini yeniden hesaplayabilir. Paylaşılan sır olmadan herkese açık doğrulama için dijital imza kullanın."
+            }
+        },
+        {
+            "id": 414,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "HMAC anahtarı nasıl olmalı?",
+                "answer": "HMAC-SHA256 için rastgele 32 baytlık anahtar iyi bir varsayımdır. Kriptografik olarak güvenli biçimde üretip sır yöneticisinde koruyun. Parola, tahmin edilebilir ifade, yeniden kullanılan sır ve istemci koduna gömülü anahtar kullanmayın."
+            }
+        },
+        {
+            "id": 415,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Hex ve Base64 anahtar biçimleri neden var?",
+                "answer": "HMAC anahtarı baytlardan oluşur ancak ayarlarda çoğunlukla hex veya Base64 metni olarak saklanır. Metin modu UTF-8 kodlar; hex ve Base64 özgün baytları çözer. “616263”, “YWJj” ve “abc” yalnızca karşılık gelen biçimlerde aynı baytları temsil eder."
+            }
+        },
+        {
+            "id": 416,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "İleti veya anahtar sunucuya gönderiliyor mu?",
+                "answer": "Hesaplama Web Crypto API ile yerel olarak yapılır; ileti ve anahtar hesaplama için sunucuya gönderilmez. Tercih depolamaya izin verilirse anahtar alanı tarayıcının yerel deposunda kalabilir. Paylaşılan cihazda alanı ve site verilerini temizleyin."
+            }
+        },
+        {
+            "id": 484,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Hangi HMAC algoritmasını seçmeliyim?",
+                "answer": "Protokolün istediği algoritmayı kullanın. HMAC-SHA256 yeni entegrasyonlarda yaygın bir seçimdir; belirtim gerektiriyorsa SHA384 veya SHA512 kullanın. SHA1 yalnızca uyumluluk için tutulmalıdır."
+            }
+        },
+        {
+            "id": 485,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "HMAC çözülebilir veya tersine çevrilebilir mi?",
+                "answer": "Hayır. HMAC tek yönlüdür. Doğrulamak için özgün ileti ve aynı anahtar gerekir: etiketi yeniden hesaplayıp beklenen değerle karşılaştırın."
+            }
+        },
+        {
+            "id": 486,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "HMAC nasıl doğrulanır?",
+                "answer": "Aynı algoritma ve anahtar biçimini seçip iletiyle anahtarı tam olarak girin ve etiketleri karşılaştırın. Uygulama kodunda sabit süreli bayt karşılaştırması kullanın. Hesaplayıcıda ayrı otomatik doğrulama alanı yoktur."
+            }
+        },
+        {
+            "id": 487,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "HMAC değerlerim neden eşleşmiyor?",
+                "answer": "Algoritmayı, anahtar biçimi ve baytlarını, kodlamayı, harf büyüklüğünü, boşlukları, satır sonlarını, JSON serileştirmeyi ve Unicode normalleştirmeyi kontrol edin. API ve webhook için tam ham gövde veya kanonik dizeyi ve hex, Base64 ya da Base64URL biçimini de doğrulayın."
+            }
+        },
+        {
+            "id": 488,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "HMAC-SHA256 ile JWT HS256 aynı mı?",
+                "answer": "HS256, HMAC-SHA256 kullanır ancak Base64URL kodlu başlık ve yükü imzalar ve imzayı dolgusuz Base64URL olarak kodlar. Bu araç hex döndürür ve tam JWT oluşturmaz."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 218,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "text"
+            },
+            "data": {
+                "title": "Boş ileti",
+                "key": "gizli",
+                "shift": 0,
+                "input": "",
+                "output": "1784bed7129398aa23e8d6a619f0cfac71d932d20ab7814ba794818c4452a442",
+                "description": "Boş ileti geçerli girdidir. HMAC-SHA256, “gizli” anahtarıyla 64 karakterlik bir hex etiket üretir."
+            }
+        },
+        {
+            "id": 219,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "text"
+            },
+            "data": {
+                "title": "Metin anahtarı",
+                "key": "gizli",
+                "shift": 0,
+                "input": "Merhaba dünya!",
+                "output": "6bebb7987fcd0e1c0323d86a907deadf066b1bd7d8a80e50ae59f69c53bd4c89",
+                "description": "UTF-8 metin anahtarı “gizli” ile “Merhaba dünya!” için HMAC-SHA256."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "text"
+            },
+            "data": {
+                "title": "Farklı ileti ve anahtar",
+                "key": "anahtar",
+                "shift": 0,
+                "input": "doğrulama",
+                "output": "fc16a76d234f569513466fdf13df8c31c0a0b28ddfd5d03930ed3d2fbca6d0a9",
+                "description": "İleti veya gizli anahtar değiştiğinde tamamen farklı HMAC-SHA256 etiketi oluşur."
+            }
+        },
+        {
+            "id": 245,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-hash-algorithm": "hmac-sha-256",
+                "ciphers-hmac-key-format": "hex"
+            },
+            "data": {
+                "title": "RFC 4231 HMAC-SHA256 test vektörü",
+                "key": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
+                "shift": 0,
+                "input": "Hi There",
+                "output": "b0344c61d8db38535ca8afceaf0bf12b881dc200c9833da726e9376c2e32cff7",
+                "description": "RFC 4231 test durumu 1, hex biçiminde 20 baytlık anahtar kullanır ve HMAC-SHA256 uygulamalarını denetlemeyi sağlar."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 318,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "HMAC"
+            }
+        },
+        {
+            "id": 319,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "HMAC-SHA256"
+            }
+        },
+        {
+            "id": 320,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "İleti kimlik doğrulama"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
