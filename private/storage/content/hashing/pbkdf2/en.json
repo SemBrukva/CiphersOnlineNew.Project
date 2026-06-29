@@ -1,0 +1,153 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-28T13:11:25+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "pbkdf2",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 60,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 60,
+        "data": {
+            "name": "PBKDF2 Online — Key Derivation",
+            "name_short": "PBKDF2",
+            "description": "Derive a cryptographic key from a password using PBKDF2 (RFC 2898) directly in your browser. Configure hash function (SHA-256/SHA-512), iterations, key length, and salt. Includes a Verify mode to check a stored hash against a password.",
+            "description_stort": "Derive a key from password using PBKDF2 in your browser.",
+            "meta_title": "PBKDF2 Online Calculator with Verify | Ciphers Online",
+            "meta_description": "Free online PBKDF2 calculator. Derive keys with SHA-256/SHA-512, configurable iterations and salt — and verify passwords against stored hashes. 100% in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 210,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is PBKDF2?",
+                "text": "<p>PBKDF2 (Password-Based Key Derivation Function 2) is a key derivation function defined in RFC 2898 (2000) and standardized in NIST SP 800-132. It takes a password, a salt, and an iteration count, and derives a cryptographically strong key by applying a pseudo-random function (typically HMAC with SHA-256 or SHA-512) repeatedly.</p><p>PBKDF2 is intentionally slow: each iteration adds work. With enough iterations (OWASP 2024 recommends 600,000 for HMAC-SHA-256), the cost per password guess becomes high enough to defend against offline brute-force attacks. PBKDF2 is widely supported — it is part of Web Crypto, .NET, JVM, OpenSSL, and most operating systems.</p>"
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "PBKDF2 vs bcrypt vs Argon2",
+                "text": "<p>PBKDF2 is the most portable option — it works in every browser, every language, and many hardware tokens. Its weakness is that it is purely CPU-bound: attackers with GPUs and ASICs gain a large advantage over defenders running PBKDF2 on commodity servers.</p><p>bcrypt resists GPUs better thanks to its 4 KiB internal state. Argon2id is the modern choice (winner of the 2015 Password Hashing Competition, recommended by OWASP) — it is both memory-hard and parallel-tunable, making attacks expensive on GPUs and ASICs. If you can choose, prefer Argon2id; if you need maximum compatibility or work inside FIPS-validated systems, PBKDF2 is the safe answer.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 417,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How many iterations should I use for PBKDF2?",
+                "answer": "OWASP 2024 recommends 600,000 iterations for PBKDF2-HMAC-SHA-256 and 210,000 for PBKDF2-HMAC-SHA-512. NIST SP 800-132 recommends at least 1,000 (a very low floor — modern systems should be far above this). The right number depends on your threat model and hardware: aim for hashing to take 100–500 ms on your server. Higher iterations slow attackers proportionally; lower iterations save user-facing latency."
+            }
+        },
+        {
+            "id": 418,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why do I need a salt?",
+                "answer": "A salt is a unique random value added to each password before hashing. Without a salt, identical passwords produce identical hashes — making rainbow-table attacks practical. With a unique salt per user, attackers must attack each hash separately. The salt does not need to be secret, only unique (16 random bytes is plenty). Store the salt alongside the hash."
+            }
+        },
+        {
+            "id": 419,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "When should I prefer PBKDF2 over Argon2?",
+                "answer": "Choose PBKDF2 when you need broad platform support, FIPS validation, or interoperability with legacy systems. Argon2id is generally better for new systems where it is available. PBKDF2 has no memory cost — attackers can parallelize it cheaply on GPUs. For high-security applications, Argon2id is the recommended choice."
+            }
+        },
+        {
+            "id": 420,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my password anywhere?",
+                "answer": "No. PBKDF2 is computed entirely in your browser via the Web Crypto API (window.crypto.subtle.deriveBits). Your password and salt never leave your device — no network requests, no logging, no server-side processing."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 221,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Common password",
+                "key": "",
+                "shift": 0,
+                "input": "password123",
+                "output": "",
+                "description": "A typical password. Click Compute to derive a key with the current settings."
+            }
+        },
+        {
+            "id": 222,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Passphrase",
+                "key": "",
+                "shift": 0,
+                "input": "correct horse battery staple",
+                "output": "",
+                "description": "A long passphrase has high entropy and is easy to remember."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 321,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "PBKDF2"
+            }
+        },
+        {
+            "id": 322,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "KDF"
+            }
+        },
+        {
+            "id": 323,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Password hashing"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-06-28T11:46:29+00:00",
+        "category_alias": "hashing",
+        "language": "en",
+        "default_language": "en",
+        "category_id": 5
+    },
+    "category_translation": {
+        "id": 5,
+        "data": {
+            "name": "Hashing & Password Security",
+            "name_short": "Hashing",
+            "description": "Generate hashes online with SHA-256, SHA-512, SHA-3, SHA-1, and MD5; create keyed HMAC values; and derive or verify password hashes with Argon2, bcrypt, and PBKDF2. All calculations run locally in your browser.",
+            "meta_title": "Online Hash Generators & Password Hashing Tools",
+            "meta_description": "Free online hash generators for SHA-256, SHA-512, SHA-3, SHA-1 and MD5, plus HMAC, Argon2, bcrypt and PBKDF2 tools. Calculate and verify in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 15,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is hashing?",
+                "text": "<p>Hashing transforms text into a fixed-length value called a hash, digest, fingerprint, or checksum. The same input and algorithm always produce the same output, while even a small change to the input normally produces a very different digest. This makes a hash calculator useful for comparing data, detecting accidental changes, building cache keys, and preparing values for cryptographic protocols.</p><p>A cryptographic hash is designed to work in one direction. It does not encrypt a message and does not contain a key that can be used to restore the original text. Instead of “decrypting” a hash, systems verify data by hashing a candidate value with the same settings and comparing the results.</p>"
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Choose the right hash algorithm",
+                "text": "<p>Use SHA-256 as a strong general-purpose default for integrity checks, identifiers, and modern integrations. SHA-512 provides a longer 512-bit digest, while SHA-3 offers a modern design based on the Keccak construction. Choose the exact algorithm required by the system or published checksum you need to match.</p><p>MD5 and SHA-1 remain useful for legacy compatibility, non-adversarial checksums, and reproducing existing identifiers, but both have known collision weaknesses and should not be chosen for new security-sensitive designs. A matching digest only has meaning when the algorithm, input bytes, character encoding, capitalization, whitespace, and line endings are identical.</p>"
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Hash, HMAC, and password hashing are different",
+                "text": "<p>A regular hash takes only the message as input. HMAC combines a message with a secret key, allowing two parties that share the key to detect changes and authenticate webhook payloads, API requests, and other signed messages. A plain SHA-256 digest cannot replace HMAC because anyone can calculate it.</p><p>Passwords need a deliberately slow, salted password hashing function rather than a fast general-purpose hash. Argon2id is memory-hard and suitable for modern password storage; bcrypt offers broad compatibility and an adjustable cost; PBKDF2 derives keys through repeated hashing and is useful where standards or platform support require it. These tools can generate test hashes and verify a password against an existing result.</p>"
+            }
+        },
+        {
+            "id": 18,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "How to use the online hashing tools",
+                "text": "<p>Open a hash generator, enter the text exactly as it should be processed, select an algorithm where available, and copy the hexadecimal result. To reproduce a checksum, preserve every space, newline, and character. For HMAC, also provide the shared secret and its format. For Argon2, bcrypt, or PBKDF2, configure the available salt and work-factor settings or switch to verification mode.</p><p>Calculations run locally in your browser, so the entered text, password, salt, and HMAC key are not sent to the server for processing. The tools are convenient for learning, development, interoperability checks, and debugging. For production credentials and signing secrets, use a reviewed server-side cryptographic library and your application’s secure secret-management workflow.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 13,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "sha256",
+            "data": {
+                "title": "Generate a SHA-256 hash",
+                "description": "Calculate a 256-bit digest for text, integrity checks, identifiers, and modern application workflows."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 20,
+            "published": true,
+            "cipher_alias": "md5",
+            "data": {
+                "title": "Calculate an MD5 checksum",
+                "description": "Reproduce legacy MD5 fingerprints for compatibility and non-security-critical data comparisons."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 30,
+            "published": true,
+            "cipher_alias": "hmac",
+            "data": {
+                "title": "Create a keyed HMAC",
+                "description": "Authenticate API requests, webhook payloads, and messages with HMAC-SHA-256 or another supported SHA variant."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 40,
+            "published": true,
+            "cipher_alias": "argon2",
+            "data": {
+                "title": "Generate or verify an Argon2 hash",
+                "description": "Test memory-hard password hashing with configurable parameters and verify passwords against encoded hashes."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 50,
+            "published": true,
+            "cipher_alias": "bcrypt",
+            "data": {
+                "title": "Generate or verify a bcrypt hash",
+                "description": "Create salted bcrypt password hashes with an adjustable cost factor or check an existing hash."
+            }
+        },
+        {
+            "id": 18,
+            "sort_order": 60,
+            "published": true,
+            "cipher_alias": "pbkdf2",
+            "data": {
+                "title": "Derive a key with PBKDF2",
+                "description": "Configure the salt, iterations, hash function, and key length, then derive or verify a password-based value."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 8,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "sha256",
+            "second_cipher_alias": "sha512",
+            "data": {
+                "title": "Compare SHA-256 and SHA-512 output lengths and match the algorithm required by an integration."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "sha256",
+            "second_cipher_alias": "hmac",
+            "data": {
+                "title": "Contrast an unkeyed SHA-256 digest with HMAC-SHA-256 authentication using a shared secret."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "argon2",
+            "second_cipher_alias": "bcrypt",
+            "data": {
+                "title": "Compare memory-hard Argon2 password hashing with the widely supported bcrypt format and cost model."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 40,
+            "published": true,
+            "first_cipher_alias": "pbkdf2",
+            "second_cipher_alias": "argon2",
+            "data": {
+                "title": "Evaluate a portable PBKDF2 derivation alongside memory-hard Argon2 for password-storage planning."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 26,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Can a hash be decrypted?",
+                "answer": "No. Hashing is a one-way transformation, not reversible encryption. A value can be tested by hashing the candidate with the same algorithm and settings, then comparing the resulting digest. Weak passwords may still be guessed through dictionary or brute-force attacks, which is why passwords need salts and slow password hashing functions."
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Which hash algorithm should I use?",
+                "answer": "Use SHA-256 as a practical default for new general-purpose integrity and fingerprinting tasks, unless a protocol requires SHA-512, SHA-3, or another specific algorithm. Use MD5 or SHA-1 only when compatibility requires them, not for collision-resistant security."
+            }
+        },
+        {
+            "id": 28,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why do two hashes of similar text look completely different?",
+                "answer": "Cryptographic hash functions are designed so that a tiny input change produces a substantially different digest. Spaces, capitalization, punctuation, Unicode representation, and line endings all count as input and can change the result."
+            }
+        },
+        {
+            "id": 29,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What is the difference between hashing and encryption?",
+                "answer": "Encryption is reversible with the correct key and is used to keep data confidential. Hashing produces a one-way fingerprint for comparison or verification. HMAC adds a secret key to provide message authentication, but it still does not encrypt the message."
+            }
+        },
+        {
+            "id": 30,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Should I hash passwords with SHA-256 or MD5?",
+                "answer": "No. Fast general-purpose hashes make large-scale password guessing too cheap. Use a salted password hashing function such as Argon2id, bcrypt, or PBKDF2 with an appropriate work factor, and rely on a maintained authentication library in production."
+            }
+        },
+        {
+            "id": 31,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What is a salt, and is it secret?",
+                "answer": "A salt is a unique random value combined with a password before password hashing. It prevents identical passwords from producing identical stored results and makes precomputed attacks less useful. A salt normally does not need to be secret and is commonly stored alongside the encoded password hash."
+            }
+        },
+        {
+            "id": 32,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "What is HMAC used for?",
+                "answer": "HMAC uses a hash function and a shared secret to authenticate a message and detect modification. Common uses include webhook verification, API request signing, and message authentication. It is not the same as a plain checksum or a digital signature based on public-key cryptography."
+            }
+        },
+        {
+            "id": 33,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Is my input uploaded to the server?",
+                "answer": "No. The hashing, HMAC, and password-hashing calculations in this category run locally in your browser. Even so, avoid pasting live production passwords or secret keys into general-purpose tools; use your application’s trusted cryptographic libraries and secret-management process."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

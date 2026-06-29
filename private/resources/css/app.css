@@ -1563,6 +1563,69 @@ details[open] > .faq-question::after {
   padding: 20px 32px 0;
 }
 
+/* Встроенная шапка категории внутри ciphers-unified (см. cipher_category/show.tpl) */
+.ciphers-unified__category-intro {
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ciphers-unified__category-title {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  color: #fff;
+}
+
+.ciphers-unified__category-desc {
+  margin: 0;
+  max-width: 760px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ciphers-unified__category-chips {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ciphers-unified__category-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(193, 255, 0, 0.42);
+  background: rgba(193, 255, 0, 0.12);
+  color: var(--co-accent);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--co-transition), border-color var(--co-transition);
+}
+
+.ciphers-unified__category-chip:hover {
+  background: rgba(193, 255, 0, 0.22);
+  border-color: rgba(193, 255, 0, 0.62);
+  color: var(--co-accent);
+}
+
+/* Когда внутри одного hero-блока есть и шапка категории, и калькулятор —
+   заголовок калькулятора подаём как подзаголовок, более компактным. */
+.ciphers-page--with-category-intro .ciphers-unified__title {
+  font-size: 20px;
+  letter-spacing: -0.3px;
+}
+
+.ciphers-page--with-category-intro .ciphers-unified__desc {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
 /* Кнопка «добавить в избранное» */
 .ciphers-unified__btn-favorite {
   padding: 6px 10px;
@@ -2968,6 +3031,13 @@ a:focus .nav-fav-count {
   color: #15803d;
 }
 
+.b64-example-card__code--empty {
+  color: var(--text-muted);
+  font-style: italic;
+  border-style: dashed;
+  background: transparent;
+}
+
 .b64-example-card__arrow {
   color: var(--text-muted);
   flex-shrink: 0;
@@ -3063,6 +3133,24 @@ a:focus .nav-fav-count {
   .ciphers-unified__desc {
     font-size: 13px;
     margin-bottom: 12px;
+  }
+
+  .ciphers-unified__category-intro {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
+  .ciphers-unified__category-title {
+    font-size: 22px;
+    letter-spacing: -0.3px;
+  }
+
+  .ciphers-unified__category-desc {
+    font-size: 13px;
+  }
+
+  .ciphers-page--with-category-intro .ciphers-unified__title {
+    font-size: 17px;
   }
 
   .ciphers-unified__body {

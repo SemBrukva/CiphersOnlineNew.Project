@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T10:09:05+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "sha512",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 54,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 54,
+        "data": {
+            "name": "SHA-512 Hash Generator",
+            "name_short": "SHA-512",
+            "description": "Generate a SHA-512 hash from text online. Type or paste a message to calculate its 512-bit digest as a 128-character lowercase hexadecimal string, then copy the result. Processing runs locally in your browser with the Web Crypto API, and the algorithm selector also lets you compare SHA-512 with other supported hash functions.",
+            "description_stort": "Calculate a SHA-512 hash from text locally in your browser.",
+            "meta_title": "SHA-512 Hash Generator Online – SHA512 Calculator",
+            "meta_description": "Calculate a SHA-512 hash from text with this free online SHA512 generator. Get a 128-character hex digest locally in your browser and copy it instantly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 198,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is SHA-512?",
+                "text": "<p>SHA-512 (Secure Hash Algorithm 512-bit) is a cryptographic hash function in the SHA-2 family. It converts input of any length into a fixed 512-bit (64-byte) digest, normally written as 128 hexadecimal characters. This online SHA-512 calculator displays the digest in lowercase hex.</p><p>SHA-512 is deterministic: identical input bytes always produce the same hash. It is also designed to be one-way and collision-resistant. The digest can identify or verify data, but it cannot be decrypted to recover the original text. SHA-512 is hashing, not encryption.</p>"
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "SHA-512 vs SHA-256",
+                "text": "<p>Both SHA-512 and SHA-256 are secure SHA-2 functions, but they have different output sizes and internal word sizes. SHA-512 returns 512 bits and offers an ideal collision-security level of 256 bits; SHA-256 returns 256 bits with an ideal collision-security level of 128 bits. Both margins are beyond practical brute-force attacks.</p><p>SHA-512 works with 64-bit words and 1024-bit blocks, so it can be faster than SHA-256 for large inputs on some 64-bit platforms. SHA-256 produces a result half as long and is often preferable for compact identifiers, URLs, and database fields. Interoperability matters most: use the algorithm required by the protocol, API, or published checksum.</p>"
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the SHA-512 hash generator",
+                "text": "<ol><li>Type or paste the text you want to hash into the input field.</li><li>Keep <strong>SHA-512</strong> selected in the algorithm menu.</li><li>The generator calculates the digest in your browser and shows a 128-character hexadecimal result.</li><li>Use the copy button to place the SHA-512 hash on your clipboard.</li></ol><p>The calculator hashes the exact UTF-8 bytes of your text. Letter case, spaces, punctuation, Unicode characters, and line endings are significant, so preserve them when reproducing or verifying a hash. An empty input is valid and produces the standard SHA-512 empty-string digest. You can also switch algorithms to compare the same text with SHA-256, SHA-3, BLAKE2, SHA-1, MD5, or CRC32.</p>"
+            }
+        },
+        {
+            "id": 221,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "How SHA-512 works and where it is used",
+                "text": "<p>SHA-512 encodes the message as bytes, appends padding and the original bit length, and divides the result into 1024-bit blocks. Each block passes through 80 rounds of 64-bit operations, modular additions, constants, and message-schedule values. The final internal state contains eight 64-bit words, which form the 512-bit digest.</p><p>Common uses include integrity checks, content identifiers, digital-signature workflows, certificate fingerprints, and software checksums. SHA-512 is also used inside HMAC-SHA-512 for message authentication and PBKDF2-HMAC-SHA-512 for key derivation. A plain SHA-512 digest does not provide authentication and is not a safe password-storage scheme by itself.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 393,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is SHA-512 more secure than SHA-256?",
+                "answer": "SHA-512 has a larger theoretical security margin, but both SHA-512 and SHA-256 are considered secure for current use and have no known practical preimage or collision attacks. For most applications SHA-256 already provides ample security. Choose SHA-512 when a protocol requires it, a 512-bit digest is useful, or its 64-bit implementation performs better on your platform."
+            }
+        },
+        {
+            "id": 394,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "When is SHA-512 actually faster than SHA-256?",
+                "answer": "SHA-512 can outperform SHA-256 for large inputs on some 64-bit systems because it uses 64-bit words and processes 1024-bit blocks. The result depends on the CPU, hardware acceleration, browser, and message size; for short text the difference is usually irrelevant. Benchmark the exact runtime and workload if performance determines your choice."
+            }
+        },
+        {
+            "id": 395,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Can I use SHA-512 for password hashing?",
+                "answer": "Do not store passwords with raw SHA-512. It is deliberately fast, which also makes large-scale password guessing fast. Use a maintained implementation of Argon2id, scrypt, bcrypt, or PBKDF2 with a unique random salt and an appropriately configured work factor."
+            }
+        },
+        {
+            "id": 396,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my input anywhere?",
+                "answer": "The SHA-512 calculation runs locally in your browser through the Web Crypto API; the text is not sent to the server for hashing. Avoid placing secrets into any website on a device or browser you do not trust."
+            }
+        },
+        {
+            "id": 437,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can SHA-512 be reversed or decrypted?",
+                "answer": "No. SHA-512 is a one-way function, so there is no SHA-512 decoder or decryption key that restores the original text. Someone can only guess a possible input, hash it, and compare the result. That can expose short or predictable values, but it does not reverse the algorithm."
+            }
+        },
+        {
+            "id": 438,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does my SHA-512 hash not match another calculator?",
+                "answer": "The two tools are probably hashing different bytes. Check letter case, leading or trailing spaces, tabs, line endings, Unicode normalization, and whether the other tool expects plain text, hex, Base64, or a file. This generator interprets the input as text and encodes it as UTF-8 before hashing."
+            }
+        },
+        {
+            "id": 439,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can this SHA512 generator calculate a file checksum?",
+                "answer": "This page hashes text entered in the input field; it does not read uploaded files. Pasting a filename hashes the filename itself, not the file contents. To verify a download, use a file checksum utility and compare its SHA-512 output with a checksum from a trusted source."
+            }
+        },
+        {
+            "id": 440,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "How can I verify a SHA-512 hash?",
+                "answer": "Hash the exact original text with SHA-512 and compare all 128 hexadecimal characters with the expected digest. Matching values show that the input bytes are the same with extremely high confidence. For protection against malicious changes, the expected hash must come from a trusted source; otherwise an attacker could replace both the data and its hash."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 203,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty string",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+                "description": "The SHA-512 hash of an empty input is a well-known constant."
+            }
+        },
+        {
+            "id": 204,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plain text",
+                "key": "",
+                "shift": 0,
+                "input": "hello world",
+                "output": "309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a9bcd3ca86d4cd86f989dd35bc5ff499670da34255b45b0cfd830e81f605dcf7dc5542e93ae9cd76f",
+                "description": "Short input produces a fixed 128-character hex string."
+            }
+        },
+        {
+            "id": 205,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Avalanche effect",
+                "key": "",
+                "shift": 0,
+                "input": "Hello world",
+                "output": "b7f783baed8297f0db917462184ff4f08e69c2d5e5f79a942600f9725f58ce1f29c18139bf80b06c0fff2bdd34738452ecf40c488c22a7e3d80cdf6f9c1c0d47",
+                "description": "A single bit change (lowercase h → uppercase H) completely transforms the output."
+            }
+        },
+        {
+            "id": 231,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Standard SHA-512 test vector",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "07e547d9586f6a73f73fbac0435ed76951218fb7d0c8d788a309d785436bbb642e93a252a954f23912547d1e8a3b5ed6e1bfd7097821233fa0538f3db854fee6",
+                "description": "A widely used test vector for checking that a SHA-512 implementation returns the expected digest."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 303,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "SHA-512"
+            }
+        },
+        {
+            "id": 304,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hash"
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "SHA-2"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

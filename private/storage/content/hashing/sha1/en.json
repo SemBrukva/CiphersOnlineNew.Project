@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T10:43:44+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "sha1",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 53,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 53,
+        "data": {
+            "name": "SHA-1 Hash Generator",
+            "name_short": "SHA-1",
+            "description": "Generate a SHA-1 hash from text online. Type or paste a message to calculate its 160-bit digest as a 40-character lowercase hexadecimal string, then copy the result. Processing runs locally in your browser with the Web Crypto API. SHA-1 remains useful for legacy compatibility but should not protect new security-sensitive systems.",
+            "description_stort": "Calculate a SHA-1 hash from text locally in your browser.",
+            "meta_title": "SHA-1 Hash Generator Online – SHA1 Calculator",
+            "meta_description": "Calculate a SHA-1 hash from text with this free online SHA1 generator. Get a 40-character hex digest locally in your browser for legacy compatibility."
+        }
+    },
+    "blocks": [
+        {
+            "id": 196,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is SHA-1?",
+                "text": "<p>SHA-1 (Secure Hash Algorithm 1) is a cryptographic hash function standardized in 1995. It converts input of any length into a fixed 160-bit (20-byte) digest, normally written as 40 hexadecimal characters. This online SHA-1 calculator displays the digest in lowercase hex.</p><p>SHA-1 is deterministic and one-way, but it is no longer collision-resistant enough for modern security. Practical collision attacks can create different inputs with the same SHA-1 digest. Use this generator for compatibility, testing, and non-adversarial identification—not for new signatures, certificates, or other collision-sensitive designs.</p>"
+            }
+        },
+        {
+            "id": 197,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Where SHA-1 is still used—and where it should not be",
+                "text": "<p>SHA-1 remains in legacy protocols, existing Git repositories, older HMAC-SHA-1 integrations, and data sets whose identifiers cannot be changed easily. It can also reproduce a published legacy checksum or help detect accidental corruption when no malicious actor is involved.</p><p>Do not choose SHA-1 for new digital signatures, certificate signatures, tamper-resistant checksums, or content identifiers exposed to hostile input. A collision attack does not reveal an original message, but it breaks the assumption that one digest uniquely identifies one input. Prefer SHA-256, SHA-512, SHA-3, or another modern algorithm when you control the format.</p>"
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the SHA-1 hash generator",
+                "text": "<ol><li>Type or paste the text you want to hash into the input field.</li><li>Keep <strong>SHA-1</strong> selected in the algorithm menu.</li><li>The generator calculates the digest in your browser and shows a 40-character hexadecimal result.</li><li>Use the copy button to place the SHA-1 hash on your clipboard.</li></ol><p>The calculator hashes the exact UTF-8 bytes of your text. Letter case, spaces, punctuation, Unicode characters, and line endings are significant, so preserve them when reproducing or verifying a hash. An empty input is valid and produces the standard SHA-1 empty-string digest. You can switch the menu to compare the same text with SHA-256, SHA-512, SHA-3, BLAKE2, MD5, or CRC32.</p>"
+            }
+        },
+        {
+            "id": 225,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "How the SHA-1 algorithm works",
+                "text": "<p>SHA-1 encodes the message as bytes, appends padding and the original bit length, and divides the result into 512-bit blocks. Each block passes through 80 rounds of 32-bit operations, modular additions, constants, and an expanded message schedule. Five 32-bit state words form the final 160-bit digest.</p><p>A small input change normally alters many output bits—the avalanche effect. However, collision resistance is a separate property, and practical chosen-prefix collision techniques make SHA-1 unsuitable when an attacker can craft both inputs. SHA-1 preimage attacks are still not practical, but that does not restore its safety for signatures or adversarial integrity checks.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 389,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is SHA-1 still safe to use?",
+                "answer": "Not for new security-sensitive designs that depend on collision resistance, such as digital signatures or attacker-resistant content identifiers. SHA-1 has practical collision attacks. It can still serve legacy compatibility and non-adversarial identification, but use SHA-256 or a modern alternative whenever you control the system."
+            }
+        },
+        {
+            "id": 390,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why does Git still use SHA-1?",
+                "answer": "Many existing Git repositories use SHA-1 object identifiers because changing an object format affects every identifier and integration. Git implementations also apply collision-detection defenses, and a SHA-256 repository format exists for migration. This does not make SHA-1 a good choice for a new general-purpose security design; it reflects compatibility requirements and Git-specific protections."
+            }
+        },
+        {
+            "id": 391,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Can SHA-1 be reversed?",
+                "answer": "No. SHA-1 is a one-way function, so there is no SHA-1 decoder or decryption key that restores the original text. Someone can only guess a possible input, hash it, and compare the result. That can expose short or predictable values, but it does not reverse the algorithm. Collision attacks and reversal are different problems."
+            }
+        },
+        {
+            "id": 392,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my input anywhere?",
+                "answer": "The SHA-1 calculation runs locally in your browser through the Web Crypto API; the text is not sent to the server for hashing. Avoid placing secrets into any website on a device or browser you do not trust."
+            }
+        },
+        {
+            "id": 445,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What is the difference between SHA-1, SHA-256, and MD5?",
+                "answer": "MD5 produces 128 bits and has practical collision attacks. SHA-1 produces 160 bits and also has practical collision attacks. SHA-256 produces 256 bits and has no known practical collision or preimage attack. Use the exact algorithm required for legacy compatibility, but prefer SHA-256 or stronger for new security-sensitive systems."
+            }
+        },
+        {
+            "id": 446,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can I use SHA-1 to hash passwords?",
+                "answer": "Do not store passwords with raw SHA-1. It is deliberately fast, which enables large-scale password guessing, and its collision weakness provides no benefit. Use a maintained implementation of Argon2id, scrypt, bcrypt, or PBKDF2 with a unique random salt and an appropriately configured work factor."
+            }
+        },
+        {
+            "id": 447,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Why does my SHA-1 hash not match another calculator?",
+                "answer": "The two tools are probably hashing different bytes. Check letter case, leading or trailing spaces, tabs, line endings, Unicode normalization, and whether the other tool expects plain text, hex, Base64, or a file. This generator interprets the input as text and encodes it as UTF-8 before hashing."
+            }
+        },
+        {
+            "id": 448,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can this SHA1 generator calculate or verify a file checksum?",
+                "answer": "This page hashes text entered in the input field; it does not read uploaded files. Pasting a filename hashes the filename itself, not the file contents. To check a legacy SHA-1 file checksum, use a utility that reads the file bytes and compare its 40-character result with a checksum from a trusted source. Prefer SHA-256 when a modern checksum is available."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 200,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty string",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+                "description": "The SHA-1 hash of empty input is a well-known constant."
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plain text",
+                "key": "",
+                "shift": 0,
+                "input": "hello world",
+                "output": "2aae6c35c94fcfb415dbe95f408b9ce91ee846ed",
+                "description": "Short input produces a fixed 40-character hex string."
+            }
+        },
+        {
+            "id": 202,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Avalanche effect",
+                "key": "",
+                "shift": 0,
+                "input": "Hello world",
+                "output": "7b502c3a1f48c8609ae212cdfb639dee39673f5e",
+                "description": "A single bit flip (lowercase h → uppercase H) yields a completely different hash."
+            }
+        },
+        {
+            "id": 233,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Standard SHA-1 test vector",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "2fd4e1c67a2d28fced849ee1bb76e7391b93eb12",
+                "description": "A widely used test vector for checking that a SHA-1 implementation returns the expected digest."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "SHA-1"
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hash"
+            }
+        },
+        {
+            "id": 302,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Legacy"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

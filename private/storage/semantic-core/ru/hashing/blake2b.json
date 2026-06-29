@@ -1,0 +1,46 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "blake2b",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/blake2b.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/blake2b",
+        "url": "/ru/hashing/blake2b",
+        "content_file": "private/storage/content/hashing/blake2b/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 7,
+        "primary_terms": [
+            "blake2b"
+        ],
+        "modifiers": [],
+        "intents": {
+            "tool": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «blake2b»."
+        ]
+    },
+    "queries": [
+        {
+            "query": "blake2b",
+            "score": 7,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        }
+    ],
+    "notes": "Узкий кластер BLAKE2b; точную формулировку использовать в title и первом экране.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Спрос представлен одним точным запросом.", "Контент должен объяснять назначение и формат результата без расширения семантики искусственными ключами."]}
+}

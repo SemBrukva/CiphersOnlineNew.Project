@@ -1,0 +1,153 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-28T13:11:53+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "argon2",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 62,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 62,
+        "data": {
+            "name": "Argon2 Online — Password Hashing",
+            "name_short": "Argon2",
+            "description": "Generate or verify Argon2id password hashes in your browser. Argon2 is the winner of the Password Hashing Competition (2015), RFC 9106, OWASP-recommended. Memory-hard, resistant to GPU/ASIC attacks. Configure memory, iterations, parallelism, variant.",
+            "description_stort": "Generate or verify Argon2 password hashes in your browser.",
+            "meta_title": "Argon2 Online Generator and Verifier | Ciphers Online",
+            "meta_description": "Free online Argon2id generator and password verifier. OWASP-recommended defaults, configurable memory/iterations/parallelism, PHC encoded output. 100% in browser via WebAssembly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 214,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is Argon2?",
+                "text": "<p>Argon2 is a password hashing function and key derivation function designed by Aumasson, Biryukov, and Khovratovich, and selected as the winner of the Password Hashing Competition in 2015. It is standardized in RFC 9106 (2021) and recommended by OWASP (2024) as the preferred algorithm for password hashing in new applications.</p><p>The Argon2 family has three variants: Argon2d (data-dependent memory access, fastest but vulnerable to side-channel attacks), Argon2i (data-independent, resistant to side-channel attacks but slightly slower), and Argon2id (a hybrid that combines both — recommended for general use). Argon2id is the right default.</p>"
+            }
+        },
+        {
+            "id": 215,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Memory-hardness and tunable parameters",
+                "text": "<p>What makes Argon2 special is memory-hardness: each iteration requires a configurable block of memory (default 19 MiB per OWASP 2024). Attackers using GPUs and ASICs are no longer 10–100× faster than CPUs — they pay the full memory cost. This shifts the economic equation back in defenders' favour.</p><p>Argon2 has three tunable parameters: <strong>memory</strong> (KiB, default 19,456 = 19 MiB), <strong>iterations</strong> (time cost, default 2), and <strong>parallelism</strong> (lanes, default 1). OWASP 2024 recommendations: 19 MiB / 2 iterations / 1 lane, or 47 MiB / 1 / 1, or 9 MiB / 4 / 1. Pick the combination that fits your CPU and latency budget.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 425,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Which variant should I use?",
+                "answer": "Use Argon2id. It combines data-dependent and data-independent memory access in two passes, gaining the speed of Argon2d and the side-channel resistance of Argon2i. RFC 9106 and OWASP 2024 both recommend Argon2id as the default. Use Argon2i only when side-channel attacks are a primary concern; use Argon2d only when side-channels are guaranteed irrelevant (e.g. cryptocurrencies running on dedicated hardware)."
+            }
+        },
+        {
+            "id": 426,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How do I choose memory, iterations, and parallelism?",
+                "answer": "OWASP 2024 lists several acceptable combinations: 19 MiB / 2 / 1, 47 MiB / 1 / 1, or 9 MiB / 4 / 1. Pick the one that gives 100–500 ms on your server — that is slow enough to deter brute-force but fast enough not to ruin login UX. If memory budget is tight, raise iterations; if CPU is tight, raise memory. Parallelism rarely needs to be > 1 outside specific multi-core scenarios."
+            }
+        },
+        {
+            "id": 427,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why is Argon2 better than bcrypt or PBKDF2?",
+                "answer": "Argon2 is memory-hard: attackers using GPUs or ASICs cannot reduce their cost by parallelism since each guess still requires the configured amount of memory. bcrypt has only 4 KiB of internal state, and PBKDF2 has effectively none. With 19 MiB per guess (Argon2 default), a GPU with 24 GiB can only run ~1,200 guesses in parallel vs millions for PBKDF2 — a thousandfold defender's advantage."
+            }
+        },
+        {
+            "id": 428,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my password anywhere?",
+                "answer": "No. Argon2 runs entirely in your browser using the hash-wasm library (WebAssembly) — your password never leaves your device. No network requests, no logging, no server-side processing. Still: do not use this tool for production hashing of real user accounts — use a server-side library."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 225,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Common password",
+                "key": "",
+                "shift": 0,
+                "input": "password123",
+                "output": "",
+                "description": "A typical password. Click Compute to generate an Argon2id hash with OWASP-recommended defaults."
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Passphrase",
+                "key": "",
+                "shift": 0,
+                "input": "correct horse battery staple",
+                "output": "",
+                "description": "A long passphrase with high entropy."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 327,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Argon2"
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Argon2id"
+            }
+        },
+        {
+            "id": 329,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "OWASP recommended"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

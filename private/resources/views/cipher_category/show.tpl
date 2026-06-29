@@ -1,3 +1,17 @@
+{if $hero_cipher}
+    {include file="cipher/_tool_widget.tpl"
+        cipher=$hero_cipher
+        tool_slug=$hero_tool_slug
+        tool_ui=$hero_tool_ui
+        tool_ui_json=$hero_tool_ui_json
+        widget_heading_tag='h2'
+        category_intro=[
+            'name'        => $category.name,
+            'description' => ($category.description|default:''),
+            'alias'       => $category.alias,
+            'chips'       => $tools
+        ]}
+{else}
 <section class="ciphers-category-hub-hero">
     <div class="ciphers-category-hub-hero__inner">
         <h1 class="ciphers-category-hub-hero__title">{$category.name}</h1>
@@ -11,6 +25,7 @@
         {/if}
     </div>
 </section>
+{/if}
 
 {if $tools}
 <section class="panel ciphers-category-hub-panel" id="category-tools">

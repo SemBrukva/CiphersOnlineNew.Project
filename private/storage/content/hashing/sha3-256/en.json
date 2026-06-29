@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T11:55:16+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "sha3-256",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 56,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 56,
+        "data": {
+            "name": "SHA3-256 Hash Generator",
+            "name_short": "SHA3-256",
+            "description": "Generate a SHA3-256 hash from text online. Type or paste a message to calculate its 256-bit digest as a 64-character lowercase hexadecimal string, then copy the result. Processing runs locally in your browser with a JavaScript SHA-3 implementation, and the algorithm selector lets you compare SHA3-256 with SHA-256, SHA-512, other SHA-3 variants, BLAKE2, SHA-1, MD5, or CRC32.",
+            "description_stort": "Calculate a SHA3-256 hash from text locally in your browser.",
+            "meta_title": "SHA3-256 Hash Generator Online – SHA-3 Calculator",
+            "meta_description": "Calculate a SHA3-256 hash from text with this free online SHA-3 generator. Get a 64-character hex digest locally in your browser and copy it."
+        }
+    },
+    "blocks": [
+        {
+            "id": 202,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is SHA3-256?",
+                "text": "<p>SHA3-256 is a cryptographic hash function in the SHA-3 family, standardized by NIST in FIPS 202 in 2015. It converts input of any length into a fixed 256-bit (32-byte) digest, normally written as 64 hexadecimal characters. This online SHA3-256 calculator displays the result in lowercase hex.</p><p>SHA3-256 is deterministic and designed to be one-way and collision-resistant: identical input bytes produce the same digest, but the digest cannot be decrypted to recover the original text. SHA-3 is based on the Keccak-p[1600] permutation and a sponge construction, giving it a fundamentally different internal design from the SHA-2 family. No practical preimage or collision attack against SHA3-256 is known.</p>"
+            }
+        },
+        {
+            "id": 203,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "SHA3-256 vs SHA-256 and Keccak-256",
+                "text": "<p>SHA3-256 and SHA-256 both return 256-bit digests and provide an ideal generic collision-security level of 128 bits, but they are unrelated designs. SHA-256 uses a compression-function construction from the SHA-2 family, whereas SHA3-256 uses Keccak's sponge construction. SHA-256 often has wider protocol support and hardware acceleration; SHA3-256 offers design diversity and avoids the classic length-extension property of Merkle–Damgård hashes.</p><p>Keccak-256 is also not identical to standardized SHA3-256. They use the same underlying Keccak permutation but different domain-separation and padding suffixes, so the same input produces different output. Ethereum commonly uses Keccak-256, not FIPS 202 SHA3-256. Always select the exact algorithm required by a protocol, API, test vector, or published checksum.</p>"
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the SHA3-256 hash generator",
+                "text": "<ol><li>Type or paste the text you want to hash into the input field.</li><li>Keep <strong>SHA3-256</strong> selected in the algorithm menu.</li><li>The generator calculates the digest in your browser and shows a 64-character hexadecimal result.</li><li>Use the copy button to place the SHA3-256 hash on your clipboard.</li></ol><p>The calculator hashes the exact UTF-8 bytes of your text. Letter case, spaces, punctuation, Unicode characters, and line endings are significant, so preserve them when reproducing or verifying a hash. Empty input is valid and produces the standard SHA3-256 empty-string digest. You can switch algorithms to compare the same text with SHA-256, SHA-512, SHA3-384, SHA3-512, BLAKE2, SHA-1, MD5, or CRC32.</p>"
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "How SHA3-256 works and where it is used",
+                "text": "<p>SHA3-256 uses a 1600-bit sponge state. During the absorb phase, input blocks are mixed into a 1088-bit rate portion and the Keccak permutation updates the whole state; the remaining 512-bit capacity provides the security margin. After SHA-3 domain separation and padding, the squeeze phase reads 256 output bits. A tiny input change should alter many output bits—the avalanche effect shown in the examples below.</p><p>SHA3-256 can serve in integrity checks, content identifiers, digital-signature workflows, protocol-specific fingerprints, and cryptographic constructions that explicitly require SHA-3. A plain digest does not authenticate its source and is not a safe password-storage scheme. Use HMAC or KMAC when a secret key must authenticate data, and use Argon2id, scrypt, bcrypt, or PBKDF2 for passwords. SHAKE256 is a separate extendable-output function: unlike SHA3-256, it can produce a requested output length.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 401,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Should I migrate from SHA-256 to SHA3-256?",
+                "answer": "Not urgently. SHA-256 and SHA3-256 have no known practical preimage or collision attacks and both provide 256-bit output. SHA3-256 offers a different internal design, while SHA-256 is supported by more existing protocols and hardware. Use the exact algorithm required for interoperability; when designing a new system, either can be appropriate in a well-reviewed construction."
+            }
+        },
+        {
+            "id": 402,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the sponge construction?",
+                "answer": "A sponge function absorbs input blocks into part of a fixed-size internal state and applies a permutation between blocks. It then squeezes output from that state, applying more permutations if additional output is needed. SHA3-256 uses a 1600-bit state with a 1088-bit rate and 512-bit capacity, then returns a fixed 256-bit digest."
+            }
+        },
+        {
+            "id": 403,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is SHA3-256 used in Ethereum?",
+                "answer": "Ethereum commonly uses Keccak-256, not standardized FIPS 202 SHA3-256. The functions share the Keccak permutation but use different domain-separation and padding suffixes, so they return different hashes for identical input. Do not substitute this SHA3-256 calculator when an Ethereum library or protocol explicitly requires Keccak-256."
+            }
+        },
+        {
+            "id": 404,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my input anywhere?",
+                "answer": "The SHA3-256 calculation runs locally in your browser with a JavaScript implementation; the text is not sent to the server for hashing. Avoid placing secrets into any website on a device or browser you do not trust."
+            }
+        },
+        {
+            "id": 453,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can SHA3-256 be reversed, decrypted, or decoded?",
+                "answer": "No. SHA3-256 is a one-way hash function, so there is no SHA3-256 decoder or decryption key that restores the original text. Someone can only guess a possible input, hash it, and compare the result. Short or predictable values may be discovered by guessing, but that does not reverse the algorithm."
+            }
+        },
+        {
+            "id": 454,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does my SHA3-256 hash not match another calculator?",
+                "answer": "The tools may be hashing different bytes or even different algorithms. Check letter case, leading or trailing spaces, tabs, line endings, Unicode normalization, and whether the other tool expects plain text, hex, Base64, or file bytes. Also confirm that it uses FIPS 202 SHA3-256 rather than Keccak-256. This generator encodes text as UTF-8 and returns lowercase hexadecimal output."
+            }
+        },
+        {
+            "id": 455,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can this SHA3-256 generator calculate a file checksum?",
+                "answer": "This page hashes text entered in the input field; it does not upload or read files. Pasting a filename hashes the filename itself, not the file contents. To verify a file, use a checksum utility that reads its raw bytes and compare all 64 hexadecimal characters with a SHA3-256 value obtained from a trusted source."
+            }
+        },
+        {
+            "id": 456,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can I use SHA3-256 to hash passwords?",
+                "answer": "Do not store passwords with raw SHA3-256. It is a fast general-purpose hash, so attackers can test password guesses efficiently. Use a maintained password-hashing implementation such as Argon2id, scrypt, bcrypt, or PBKDF2 with a unique random salt and an appropriately configured work factor."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 209,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty string",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a",
+                "description": "The SHA3-256 hash of empty input differs from SHA-256's due to the different padding rules."
+            }
+        },
+        {
+            "id": 210,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plain text",
+                "key": "",
+                "shift": 0,
+                "input": "hello world",
+                "output": "644bcc7e564373040999aac89e7622f3ca71fba1d972fd94a31c3bfbf24e3938",
+                "description": "Same input as SHA-256 but completely different output — different internal design."
+            }
+        },
+        {
+            "id": 211,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Avalanche effect",
+                "key": "",
+                "shift": 0,
+                "input": "Hello world",
+                "output": "369183d3786773cef4e56c7b849e7ef5f742867510b676d6b38f8e38a222d8a2",
+                "description": "A single bit change yields an unrelated output, just like SHA-2."
+            }
+        },
+        {
+            "id": 235,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Standard SHA3-256 test vector",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "69070dda01975c8c120c3aada1b282394e7f032fa9cf32f4cb2259a0897dfc04",
+                "description": "A widely used test vector for confirming that an implementation uses standardized SHA3-256 rather than Keccak-256."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 309,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "SHA3-256"
+            }
+        },
+        {
+            "id": 310,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Keccak"
+            }
+        },
+        {
+            "id": 311,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Sponge"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

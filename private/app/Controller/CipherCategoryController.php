@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Cipher\BaseToolUiFactory;
+use App\Cipher\HashingToolUi;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -23,7 +25,8 @@ final readonly class CipherCategoryController
         private View $view,
         private CipherCategoryRepository $categories,
         private CipherRepository $ciphers,
-        private SystemPageRepository $pages
+        private SystemPageRepository $pages,
+        private BaseToolUiFactory $uiFactory
     ) {
     }
 
@@ -105,6 +108,10 @@ final readonly class CipherCategoryController
         }
         unset($task);
 
+        $hero = $alias === 'hashing'
+            ? $this->buildHashingHero()
+            : null;
+
         $this->view
             ->setTitle($title)
             ->setMeta($metaDescription)
@@ -119,9 +126,41 @@ final readonly class CipherCategoryController
                 'tasks' => $tasks,
                 'used_together' => $usedTogether,
                 'faq' => $faq,
+                'hero_cipher' => $hero['cipher'] ?? null,
+                'hero_tool_slug' => $hero['tool_slug'] ?? null,
+                'hero_tool_ui' => $hero['tool_ui'] ?? null,
+                'hero_tool_ui_json' => $hero['tool_ui_json'] ?? null,
             ]));
 
         return new Response($this->view->render());
+    }
+
+    /**
+     * Готовит данные hero-калькулятора для категории «hashing».
+     * Использует slug `hashing/sha256` (декодер уже зарегистрирован), но подменяет
+     * заголовок и описание на универсальные — чтобы пользователь видел «Hash Calculator»,
+     * а не SHA-256-специфичные тексты.
+     *
+     * @return array{cipher: array<string, mixed>, tool_slug: string, tool_ui: array<string, mixed>, tool_ui_json: string}
+     */
+    private function buildHashingHero(): array
+    {
+        $toolSlug  = 'hashing/sha256';
+        $cipherAlias = 'sha256';
+
+        $heroCipher = [
+            'name'        => trans('HASH_HERO_TITLE'),
+            'description' => trans('HASH_HERO_DESC'),
+        ];
+
+        $toolUi = HashingToolUi::apply($this->uiFactory->build($toolSlug, 'client'), $cipherAlias);
+
+        return [
+            'cipher'       => $heroCipher,
+            'tool_slug'    => $toolSlug,
+            'tool_ui'      => $toolUi,
+            'tool_ui_json' => (string) json_encode($toolUi, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+        ];
     }
 
     /**

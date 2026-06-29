@@ -82,6 +82,9 @@ export function initCipherToolPage() {
   const enigmaPosMiddleSelect  = document.getElementById('ciphers-enigma-pos-middle')
   const enigmaPosRightSelect   = document.getElementById('ciphers-enigma-pos-right')
   const enigmaPlugboardInput   = document.getElementById('ciphers-enigma-plugboard')
+  const hashAlgorithmSelect    = document.getElementById('ciphers-hash-algorithm')
+  const hmacKeyFormatSelect    = document.getElementById('ciphers-hmac-key-format')
+  const kdfVerifyHashInput     = document.getElementById('ciphers-kdf-verify-hash')
 
   if (!input || !output || !tabEncode || !tabDecode || !inputLabel || !counter) return
 
@@ -102,6 +105,12 @@ export function initCipherToolPage() {
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
+  const isOneWayTool = Boolean(ui.oneWayMode)
+  const isHashTool = slug.startsWith('hashing/')
+  const isHmacTool = Boolean(ui.hmacMode)
+  const isManualRunTool = Boolean(ui.manualRun)
+  const isKdfTool = Boolean(ui.kdfMode)
+  const isKdfVerifyMode = Boolean(ui.kdfVerifyMode)
   const apiAction = String(ui.apiAction || '').trim()
   const stateStorageKey = `cipher-tool:state:${slug}`
   let liveModeDebounceTimer = null
@@ -293,6 +302,7 @@ export function initCipherToolPage() {
   }
 
   const setMode = (nextMode) => {
+    if (isOneWayTool && nextMode !== 'encode') return
     mode = nextMode
     const isEncode = mode === 'encode'
     tabEncode.classList.toggle('ciphers-tab--active', isEncode)
@@ -303,6 +313,9 @@ export function initCipherToolPage() {
     input.placeholder = isEncode ? labels.placeholderEncode : labels.placeholderDecode
     document.querySelectorAll('[data-encode-only]').forEach((el) => {
       el.style.display = isEncode ? '' : 'none'
+    })
+    document.querySelectorAll('[data-decode-only]').forEach((el) => {
+      el.style.display = isEncode ? 'none' : ''
     })
     process()
   }
@@ -438,7 +451,11 @@ export function initCipherToolPage() {
     updateCounter()
     updateCoverCapacity()
 
-    if (!value.trim()) {
+    // Для hash/HMAC пустой ввод — валидный кейс: SHA-256("") = e3b0c44…
+    // Поэтому раннего выхода нет, чтобы decoder посчитал хеш пустой строки.
+    const allowEmptyInput = isHashTool || isHmacTool
+
+    if (!value.trim() && !allowEmptyInput) {
       output.value = ''
       if (isAnalysisTool) frequencyAnalysis.showEmpty()
       if (isBruteForceTool) bruteForce.showEmpty()
@@ -510,27 +527,66 @@ export function initCipherToolPage() {
         transformOpts.encoding = n2lTypeSelect?.value || 'positional-1'
         transformOpts.delimiter = delimiterSelect?.value || 'space'
       }
-      output.value = transform(value, mode, decoder, transformOpts)
-      setOutputState(true)
+      if (isHashTool) {
+        transformOpts.algorithm = hashAlgorithmSelect?.value || 'sha-256'
+      }
+      if (isHmacTool) {
+        transformOpts.key = keyInput?.value || ''
+        transformOpts.keyFormat = hmacKeyFormatSelect?.value || 'text'
+      }
+      if (isKdfTool) {
+        transformOpts.kdfParams = collectKdfParams()
+        if (mode === 'decode') {
+          transformOpts.verifyHash = kdfVerifyHashInput?.value || ''
+        }
+      }
+      const result = transform(value, mode, decoder, transformOpts)
+      const isPromise = result && typeof result.then === 'function'
+      if (isPromise && isManualRunTool && runBtn) {
+        runBtn.disabled = true
+        runBtn.classList.add('is-loading')
+      }
+      const finalize = (resolvedValue) => {
+        if (isManualRunTool && runBtn) {
+          runBtn.disabled = false
+          runBtn.classList.remove('is-loading')
+        }
+        output.value = resolvedValue
+        setOutputState(true)
 
-      if (isMorseTool) {
-        if (mode === 'encode') {
-          const unknown = getUnknownChars(value, effectiveLang)
-          if (unknown.length > 0) {
-            setFeedback(labels.morseWarnUnknownChars.replace(':chars', unknown.join(', ')), false, true)
+        if (isMorseTool) {
+          if (mode === 'encode') {
+            const unknown = getUnknownChars(value, effectiveLang)
+            if (unknown.length > 0) {
+              setFeedback(labels.morseWarnUnknownChars.replace(':chars', unknown.join(', ')), false, true)
+            } else {
+              setFeedback('')
+            }
+          } else if (output.value.includes('?')) {
+            setFeedback(labels.morseInfoDecodedUnknown, false, true)
           } else {
             setFeedback('')
           }
-        } else if (output.value.includes('?')) {
-          setFeedback(labels.morseInfoDecodedUnknown, false, true)
         } else {
           setFeedback('')
         }
-      } else {
-        setFeedback('')
+
+        sendAnalyticsBeacon(slug, mode)
       }
 
-      sendAnalyticsBeacon(slug, mode)
+      if (isPromise) {
+        result.then(finalize).catch((error) => {
+          if (isManualRunTool && runBtn) {
+            runBtn.disabled = false
+            runBtn.classList.remove('is-loading')
+          }
+          output.value = ''
+          setOutputState(false)
+          setFeedback(error?.message || labels.invalid, true)
+        })
+      } else {
+        finalize(result)
+      }
     } catch (error) {
       output.value = ''
       setOutputState(false)
@@ -687,7 +743,30 @@ export function initCipherToolPage() {
     }, 350)
   }
 
-  input.addEventListener('input', process)
+  /**
+   * Собирает значения всех KDF-параметров (salt, iterations, cost, memory и т.п.) из DOM.
+   * Каждый KDF использует своё подмножество — лишние пустые поля игнорирует декодер.
+   */
+  function collectKdfParams() {
+    return {
+      salt:        document.getElementById('ciphers-kdf-salt')?.value || '',
+      iterations:  document.getElementById('ciphers-kdf-iterations')?.value || '',
+      hash:        document.getElementById('ciphers-kdf-hash')?.value || '',
+      keyLength:   document.getElementById('ciphers-kdf-key-length')?.value || '',
+      cost:        document.getElementById('ciphers-kdf-cost')?.value || '',
+      memory:      document.getElementById('ciphers-kdf-memory')?.value || '',
+      parallelism: document.getElementById('ciphers-kdf-parallelism')?.value || '',
+      variant:     document.getElementById('ciphers-kdf-variant')?.value || '',
+    }
+  }
+
+  if (isManualRunTool) {
+    // Для manual-run инструментов вход триггерит только обновление счётчика,
+    // вычисление запускается только по клику на кнопку Compute.
+    input.addEventListener('input', updateCounter)
+  } else {
+    input.addEventListener('input', process)
+  }
 
   const fisherYatesShuffle = (str) => {
     const chars = [...str]
@@ -720,6 +799,16 @@ export function initCipherToolPage() {
     scheduleApiRun()
   })
 
+  hashAlgorithmSelect?.addEventListener('change', () => {
+    saveState()
+    process()
+  })
+
+  hmacKeyFormatSelect?.addEventListener('change', () => {
+    saveState()
+    process()
+  })
+
   xorKeyFormatSelect?.addEventListener('change', () => {
     saveState()
     scheduleApiRun()
@@ -750,7 +839,11 @@ export function initCipherToolPage() {
 
   keyInput?.addEventListener('input', () => {
     saveState()
-    scheduleApiRun()
+    if (isApiMode) {
+      scheduleApiRun()
+    } else if (isClientTool) {
+      process()
+    }
   })
 
   coverInput?.addEventListener('input', () => {
@@ -918,6 +1011,9 @@ export function initCipherToolPage() {
     updateCounter()
     setOutputState(false)
     setFeedback('')
+    if (isHashTool || isHmacTool) {
+      process()
+    }
     const iconEl = clearBtn.querySelector('.bi')
     if (iconEl) iconEl.className = 'bi bi-check-lg'
     clearBtn.classList.add('ciphers-unified__btn-ghost--copied')
@@ -981,7 +1077,20 @@ export function initCipherToolPage() {
   })
 
   runBtn?.addEventListener('click', async () => {
-    await runApiRequest()
+    if (isApiMode) {
+      await runApiRequest()
+    } else {
+      process()
+    }
+  })
+
+  kdfVerifyHashInput?.addEventListener('input', () => {
+    // В manual-run режиме сам по себе ввод не запускает вычисление, но если
+    // пользователь редактирует hash — стираем устаревший результат.
+    if (isManualRunTool && output.value) {
+      output.value = ''
+      setOutputState(false)
+    }
   })
 
   applySavedState()

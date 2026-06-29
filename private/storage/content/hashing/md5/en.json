@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T11:36:15+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "md5",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 55,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 55,
+        "data": {
+            "name": "MD5 Hash Generator",
+            "name_short": "MD5",
+            "description": "Generate an MD5 hash from text online. Type or paste a message to calculate its 128-bit digest as a 32-character lowercase hexadecimal string, then copy the result. Processing runs locally in your browser, and the algorithm selector lets you compare MD5 with SHA-256, SHA-512, SHA-3, BLAKE2, SHA-1, or CRC32. Use MD5 only for legacy compatibility and non-security checks.",
+            "description_stort": "Calculate an MD5 hash from text locally in your browser.",
+            "meta_title": "MD5 Hash Generator Online – Free MD5 Calculator",
+            "meta_description": "Calculate an MD5 hash from text with this free online MD5 generator. Get a 32-character lowercase hex digest instantly, locally in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 200,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is MD5?",
+                "text": "<p>MD5 (Message Digest Algorithm 5) is a hash function designed by Ronald Rivest and published in 1992. It converts input of any length into a fixed 128-bit (16-byte) digest, normally written as 32 hexadecimal characters. This online MD5 calculator displays the result in lowercase hex.</p><p>MD5 is deterministic and one-way: identical input bytes produce the same digest, but there is no decryption key that restores the original text. It is hashing, not encryption. MD5 is also cryptographically broken because practical collision attacks can create different inputs with the same digest, so it must not be used for digital signatures, certificates, passwords, or adversarial integrity checks.</p>"
+            }
+        },
+        {
+            "id": 201,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Where MD5 is still used—and where it should not be",
+                "text": "<p>MD5 remains useful when an existing system specifically requires it or when the goal is a fast, compact identifier rather than protection against an attacker. Examples include legacy integrations, cache keys, ETags, trusted-data deduplication, test fixtures, and reproducing an old MD5 checksum.</p><p>Do not use MD5 to prove that hostile content is authentic or unchanged. A malicious party may be able to construct colliding inputs, and a checksum is only trustworthy when the expected value comes through a trusted channel. Prefer SHA-256 or a modern alternative for new integrity-sensitive systems. For passwords, use a dedicated password-hashing function such as Argon2id, scrypt, bcrypt, or PBKDF2 with a unique salt and suitable cost.</p>"
+            }
+        },
+        {
+            "id": 226,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the MD5 hash generator",
+                "text": "<ol><li>Type or paste the text you want to hash into the input field.</li><li>Keep <strong>MD5</strong> selected in the algorithm menu.</li><li>The generator calculates the digest in your browser and shows a 32-character hexadecimal result.</li><li>Use the copy button to place the MD5 hash on your clipboard.</li></ol><p>The calculator hashes the exact UTF-8 bytes of your text. Letter case, spaces, punctuation, Unicode characters, and line endings are significant, so preserve them when reproducing or checking a hash. Empty input is valid and produces the standard MD5 empty-string digest. You can switch the menu to compare the same text with SHA-256, SHA-512, SHA-3, BLAKE2, SHA-1, or CRC32.</p>"
+            }
+        },
+        {
+            "id": 227,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "How the MD5 algorithm works",
+                "text": "<p>MD5 encodes the message as bytes, appends padding and the original bit length, and divides the result into 512-bit blocks. Each block passes through 64 steps arranged in four rounds of bitwise operations, modular additions, constants, and rotations. Four 32-bit state words form the final 128-bit digest.</p><p>A tiny input change normally produces a very different result—the avalanche effect shown in the examples below. That behavior does not make MD5 collision-resistant: researchers have developed efficient methods for deliberately constructing two different messages with the same digest. MD5 can still detect accidental changes in trusted data, but it is not a secure choice against intentional manipulation.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 397,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is MD5 secure or broken?",
+                "answer": "MD5 is cryptographically broken because practical collision attacks can create different inputs with the same hash. Do not use it for digital signatures, certificates, attacker-resistant checksums, or other security decisions. It remains usable for legacy compatibility and non-adversarial identifiers such as cache keys or deduplication fingerprints."
+            }
+        },
+        {
+            "id": 398,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Can I use MD5 for password storage?",
+                "answer": "No. Raw MD5 is intentionally fast, so attackers can test enormous numbers of password guesses efficiently. Adding a salt prevents precomputed lookup tables but does not make MD5 slow enough for password storage. Use a maintained implementation of Argon2id, scrypt, bcrypt, or PBKDF2 with a unique random salt and an appropriate work factor."
+            }
+        },
+        {
+            "id": 399,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why is MD5 still everywhere?",
+                "answer": "MD5 is fast, widely implemented, and produces a compact 32-character result. Existing protocols and databases may require it, while non-security tasks such as cache keys, ETags, test vectors, or trusted-data deduplication do not always need collision resistance. Its continued use does not make it suitable for new security-sensitive systems."
+            }
+        },
+        {
+            "id": 400,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my input anywhere?",
+                "answer": "The MD5 calculation runs locally in your browser with a JavaScript implementation; the text is not sent to the server for hashing. Avoid placing secrets into any website on a device or browser you do not trust."
+            }
+        },
+        {
+            "id": 449,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can an MD5 hash be reversed or decrypted?",
+                "answer": "No. MD5 is a one-way hash function, so there is no MD5 decoder or decryption key that recovers the original text. A person can guess candidate inputs, calculate each MD5 hash, and compare it with the target. Short, common, or predictable inputs may therefore be discovered, but the algorithm itself is not being reversed."
+            }
+        },
+        {
+            "id": 450,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does my MD5 hash not match another generator?",
+                "answer": "The tools are probably hashing different bytes. Check uppercase and lowercase letters, leading or trailing spaces, tabs, line endings, Unicode normalization, and whether the other tool expects plain text, hex, Base64, or file bytes. This MD5 generator interprets the input as text, encodes it as UTF-8, and returns lowercase hexadecimal output."
+            }
+        },
+        {
+            "id": 451,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can this MD5 generator calculate a file checksum?",
+                "answer": "This page hashes text entered in the input field; it does not upload or read files. Pasting a filename hashes the filename itself, not the file contents. To check a file, use an MD5 checksum utility that reads its raw bytes, then compare all 32 hexadecimal characters with a value from a trusted source. For security-sensitive downloads, prefer a published SHA-256 checksum."
+            }
+        },
+        {
+            "id": 452,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "What is the difference between MD5 and SHA-256?",
+                "answer": "MD5 produces a 128-bit digest written as 32 hexadecimal characters and has practical collision attacks. SHA-256 produces a 256-bit digest written as 64 hexadecimal characters and has no known practical collision or preimage attack. Use MD5 only when compatibility requires it; choose SHA-256 or another modern algorithm for new integrity-sensitive applications."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 206,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty string",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "d41d8cd98f00b204e9800998ecf8427e",
+                "description": "The MD5 hash of empty input is a well-known constant."
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plain text",
+                "key": "",
+                "shift": 0,
+                "input": "hello world",
+                "output": "5eb63bbbe01eeed093cb22bb8f5acdc3",
+                "description": "Short input produces a fixed 32-character hex string."
+            }
+        },
+        {
+            "id": 208,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Avalanche effect",
+                "key": "",
+                "shift": 0,
+                "input": "Hello world",
+                "output": "3e25960a79dbc69b674cd4ec67a72c62",
+                "description": "Changing lowercase h to uppercase H produces a completely different MD5 digest."
+            }
+        },
+        {
+            "id": 234,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Standard MD5 test vector",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "9e107d9d372bb6826bd81d3542a419d6",
+                "description": "A widely used test vector for checking that an MD5 implementation returns the expected digest."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 306,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "MD5"
+            }
+        },
+        {
+            "id": 307,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hash"
+            }
+        },
+        {
+            "id": 308,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Checksum"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

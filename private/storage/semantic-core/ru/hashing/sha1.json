@@ -1,0 +1,167 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "sha-1",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/sha1.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/sha1",
+        "url": "/ru/hashing/sha1",
+        "content_file": "private/storage/content/hashing/sha1/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 110,
+        "primary_terms": [
+            "sha",
+            "hash",
+            "online",
+            "получить",
+            "расшифровка",
+            "что",
+            "это",
+            "декриптор",
+            "проверить",
+            "хэш",
+            "сумму",
+            "файла"
+        ],
+        "modifiers": [
+            "расшифровка",
+            "онлайн"
+        ],
+        "intents": {
+            "tool": 8,
+            "decode": 2,
+            "cipher": 2,
+            "online": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «sha-1 hash».",
+            "В FAQ объяснить невозможность расшифровки SHA-1 и ограничить файловый интент фактической поддержкой интерфейса.",
+            "Подчеркнуть онлайн-сценарий в intro или основном блоке без перегрузки title вторичными формулировками."
+        ]
+    },
+    "queries": [
+        {
+            "query": "sha-1 hash",
+            "score": 63,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "sha-1",
+            "score": 20,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha-1 online",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "получить sha-1",
+            "score": 6,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 1",
+            "score": 4,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 1 online",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha-1 расшифровка",
+            "score": 2,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "sha-1 что это",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровка sha-1",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "sha-1 декриптор",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "проверить хэш сумму sha-1 файла онлайн",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер SHA-1 hash generator. Расшифровку объяснять в FAQ; файловую проверку не обещать без поддержки файлов.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Основной запрос — «sha-1 hash».", "Указать устаревший статус SHA-1 для collision-sensitive задач.", "Текущий UI рассчитывает текст, а не загруженные файлы."]}
+}

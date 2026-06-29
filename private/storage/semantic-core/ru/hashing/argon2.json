@@ -1,0 +1,68 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "argon2",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/argon2.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/argon2",
+        "url": "/ru/hashing/argon2",
+        "content_file": "private/storage/content/hashing/argon2/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 37,
+        "primary_terms": [
+            "argon2",
+            "online",
+            "описание"
+        ],
+        "modifiers": [],
+        "intents": {
+            "tool": 3
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «argon2»."
+        ]
+    },
+    "queries": [
+        {
+            "query": "argon2",
+            "score": 29,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "argon2 online",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "argon2 описание",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "notes": "Кластер для страницы генерации и проверки Argon2-хешей. Низкочастотный запрос «описание» покрыть объясняющим блоком.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Основной интент — Argon2 и онлайн-инструмент.", "Не обещать расшифровку; поддерживаются генерация и проверка."]}
+}

@@ -1,0 +1,296 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "sha-256",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/sha256.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/sha256",
+        "url": "/ru/hashing/sha256",
+        "content_file": "private/storage/content/hashing/sha256/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 287,
+        "primary_terms": [
+            256,
+            "sha",
+            "что",
+            "алгоритм",
+            "это",
+            "такое",
+            "online",
+            "хеширования",
+            "простыми",
+            "словами",
+            "хеш",
+            "hash"
+        ],
+        "modifiers": [
+            "онлайн",
+            "расшифровка"
+        ],
+        "intents": {
+            "tool": 16,
+            "online": 5,
+            "cipher": 3,
+            "decode": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «sha-256».",
+            "В intro и FAQ явно покрыть сценарий расшифровки или декодирования, не обещая функций, которых нет в инструменте.",
+            "Подчеркнуть онлайн-сценарий в intro или основном блоке без перегрузки title вторичными формулировками."
+        ]
+    },
+    "queries": [
+        {
+            "query": "sha-256",
+            "score": 83,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "sha 256",
+            "score": 59,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "алгоритм sha-256",
+            "score": 28,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 что это",
+            "score": 17,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 online",
+            "score": 14,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha-256 онлайн",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 онлайн",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "что такое алгоритм хеширования sha 256",
+            "score": 8,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha-256 online",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "что такое алгоритм sha 256 хеширования",
+            "score": 8,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 что это такое простыми словами",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha-256 что это",
+            "score": 6,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 что это такое простыми",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "хеш 256",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hash 256 online",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 алгоритм шифрования",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "хэш 256 онлайн",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha-256 алгоритм",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "хеш 256 sha онлайн",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 шифрование",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "sha-256 онлайн генератор",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha 256 калькулятор",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "sha 256 алгоритм хеширования",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "sha-256 расшифровка",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер SHA-256 объединяет генератор, онлайн-калькулятор и информационные запросы. Шифрование/расшифровка покрываются через корректирующий FAQ.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Основной запрос — «sha-256».", "В первом экране дать онлайн-расчёт, в блоке — простое объяснение алгоритма.", "Не обещать обратное преобразование: SHA-256 не шифрование."]}
+}

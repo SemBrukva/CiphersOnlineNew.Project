@@ -1,0 +1,47 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "sha3-512",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/sha3-512.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/sha3-512",
+        "url": "/ru/hashing/sha3-512",
+        "content_file": "private/storage/content/hashing/sha3-512/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 1,
+        "primary_terms": [
+            "sha3",
+            512
+        ],
+        "modifiers": [],
+        "intents": {
+            "tool": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «sha3-512»."
+        ]
+    },
+    "queries": [
+        {
+            "query": "sha3-512",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        }
+    ],
+    "notes": "Узкий кластер SHA3-512; не расширять искусственно при отсутствии дополнительного спроса.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Точную фразу SHA3-512 использовать в title и первом экране."]}
+}

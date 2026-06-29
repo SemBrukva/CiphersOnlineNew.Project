@@ -1,0 +1,141 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "pbkdf2",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/pbkdf2.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/pbkdf2",
+        "url": "/ru/hashing/pbkdf2",
+        "content_file": "private/storage/content/hashing/pbkdf2/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 40,
+        "primary_terms": [
+            "pbkdf2",
+            "hmac",
+            "sha256",
+            "дешифровка",
+            "алгоритм",
+            "хеширования",
+            "online",
+            "описание"
+        ],
+        "modifiers": [
+            "онлайн"
+        ],
+        "intents": {
+            "tool": 6,
+            "online": 2,
+            "decode": 1,
+            "cipher": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «pbkdf2».",
+            "В FAQ объяснить, что PBKDF2 не расшифровывается: значение повторно выводится с теми же параметрами или проверяется сравнением.",
+            "Подчеркнуть онлайн-сценарий в intro или основном блоке без перегрузки title вторичными формулировками."
+        ]
+    },
+    "queries": [
+        {
+            "query": "pbkdf2",
+            "score": 32,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "pbkdf2 дешифровка",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "pbkdf2-hmac-sha256 онлайн",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pbkdf2 алгоритм хеширования",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pbkdf2_sha256",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pbkdf2 online",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pbkdf2 описание",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pbkdf2_hmac",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pbkdf2 онлайн",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "notes": "Кластер PBKDF2: derivation/verify, HMAC-SHA256 и объяснение параметров. Дешифровка вынесена в FAQ как ошибочный интент.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Раскрыть salt, iterations, PRF/hash и длину ключа.", "PBKDF2 не расшифровывается; доступна повторная выработка и проверка."]}
+}

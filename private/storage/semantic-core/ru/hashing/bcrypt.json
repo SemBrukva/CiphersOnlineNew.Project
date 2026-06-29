@@ -1,0 +1,204 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "bcrypt",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/bcrypt.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/bcrypt",
+        "url": "/ru/hashing/bcrypt",
+        "content_file": "private/storage/content/hashing/bcrypt/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 384,
+        "primary_terms": [
+            "bcrypt",
+            "online",
+            "decoder",
+            "что",
+            "это",
+            "generator",
+            "python",
+            "расшифровка",
+            "расшифровать",
+            "дешифратор",
+            "как",
+            "бикрипт"
+        ],
+        "modifiers": [
+            "расшифровка",
+            "онлайн",
+            "дешифратор",
+            "шифратор"
+        ],
+        "intents": {
+            "decode": 8,
+            "tool": 6,
+            "cipher": 6,
+            "online": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «bcrypt online».",
+            "В FAQ объяснить, что bcrypt нельзя расшифровать: инструмент генерирует хеш и проверяет пароль сравнением.",
+            "Подчеркнуть онлайн-сценарий в intro или основном блоке без перегрузки title вторичными формулировками."
+        ]
+    },
+    "queries": [
+        {
+            "query": "bcrypt online",
+            "score": 131,
+            "competitiveness": "LOW",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "bcrypt",
+            "score": 131,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "bcrypt что это",
+            "score": 31,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "bcrypt decoder",
+            "score": 30,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "bcrypt generator",
+            "score": 20,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "bcrypt python",
+            "score": 13,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "bcrypt online decoder",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "bcrypt расшифровка онлайн",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровать bcrypt",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "bcrypt расшифровка",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "bcrypt дешифратор",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "bcrypt как расшифровать",
+            "score": 2,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровка bcrypt",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "бикрипт",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер для bcrypt generator/verifier. Decoder-запросы направлены в FAQ с пояснением необратимости.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Основной запрос — «bcrypt online».", "Запрос «bcrypt python» смежный и не должен обещать выполнение Python-кода.", "Расшифровка bcrypt невозможна; инструмент проверяет пароль сравнением."]}
+}

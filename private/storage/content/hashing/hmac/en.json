@@ -1,0 +1,171 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-28T13:10:17+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "hmac",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 59,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 59,
+        "data": {
+            "name": "HMAC Generator",
+            "name_short": "HMAC",
+            "description": "Generate an HMAC (Hash-based Message Authentication Code) of any message with a secret key. Supports HMAC-SHA-1, HMAC-SHA-256, HMAC-SHA-384, HMAC-SHA-512. Used in API signing (AWS), JWT HS256, webhook verification, and TLS.",
+            "description_stort": "Generate an HMAC of a message with a secret key.",
+            "meta_title": "HMAC Generator Online (SHA-256, SHA-512, …) | Ciphers Online",
+            "meta_description": "Free online HMAC generator. Compute HMAC-SHA-256, HMAC-SHA-1, HMAC-SHA-384, HMAC-SHA-512 with a secret key — for API signing, JWT, and webhook verification. All in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 208,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is HMAC?",
+                "text": "<p>HMAC (Hash-based Message Authentication Code) is a construction for authenticating messages using a cryptographic hash function and a secret key. Defined in RFC 2104 (1997), HMAC turns any hash function (SHA-256, SHA-512, …) into a message authentication code: it takes a message and a secret key and produces a fixed-length tag.</p><p>Only parties who know the key can compute or verify the tag. If an attacker modifies the message without knowing the key, the tag won't match — proving both integrity and authenticity. HMAC is the workhorse of API authentication (AWS request signing, JWT HS256, webhook signatures), TLS, IPsec, and countless protocols.</p>"
+            }
+        },
+        {
+            "id": 209,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "How HMAC works",
+                "text": "<p>HMAC computes <code>H(K' ⊕ opad || H(K' ⊕ ipad || message))</code>, where K' is the key (padded or hashed to block size), opad/ipad are constants, and H is the underlying hash. The double hashing structure is what gives HMAC its security: it remains secure even when the underlying hash has weaknesses like length-extension attacks.</p><p>Common variants are HMAC-SHA-256 (most popular for API authentication and JWT), HMAC-SHA-1 (legacy systems), HMAC-SHA-512 (when longer tags are desired). The output length equals the hash output: 32 bytes for SHA-256, 64 for SHA-512, etc.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 413,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "When should I use HMAC vs a plain hash?",
+                "answer": "Use HMAC when you need to authenticate a message — confirm both that it has not been modified and that it was created by someone with the secret key. A plain hash (SHA-256) only protects integrity against accidental corruption: anyone can compute or recompute the hash. HMAC ties the hash to a secret, making forgery infeasible without the key."
+            }
+        },
+        {
+            "id": 414,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What should the HMAC key look like?",
+                "answer": "A good HMAC key is a random sequence of bytes with at least 256 bits (32 bytes) of entropy for HMAC-SHA-256. Generate it with a cryptographic RNG (crypto.getRandomValues, /dev/urandom) and encode it as hex or base64 for storage. Never use passwords or guessable strings as HMAC keys — they have far less entropy than the key length implies."
+            }
+        },
+        {
+            "id": 415,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why does this tool support hex and base64 key formats?",
+                "answer": "In production, HMAC keys are random bytes — not text. They are usually stored as hex or base64 strings (e.g. in environment variables or config files). If you copy a real key from your system, choose the format it was encoded in. The \"text\" option treats the key as UTF-8 bytes directly, which is convenient for ad-hoc experimentation but not for production keys."
+            }
+        },
+        {
+            "id": 416,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my message or key anywhere?",
+                "answer": "No. HMAC is computed entirely in your browser via the Web Crypto API (window.crypto.subtle.sign). Your message and secret key never leave your device — no network requests, no logging, no server-side processing. Still: do not paste production keys into any web tool you do not fully trust."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 218,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty input",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "b613679a0814d9ec772f95d778c35fc5ff1697c493715653c6c712144292c5ad",
+                "description": "HMAC-SHA-256 of empty message with empty key. The key is a required input — keep it secret in production."
+            }
+        },
+        {
+            "id": 219,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Classic example",
+                "key": "secret",
+                "shift": 0,
+                "input": "hello world",
+                "output": "734cc62f32841568f45715aeb9f4d7891324e6d948e4c6c60c0621cdac48623a",
+                "description": "HMAC-SHA-256 of \"hello world\" with key \"secret\"."
+            }
+        },
+        {
+            "id": 220,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "RFC test vector",
+                "key": "key",
+                "shift": 0,
+                "input": "hello",
+                "output": "9307b3b915efb5171ff14d8cb55fbcc798c6c0ef1456d66ded1a6aa723a58b7b",
+                "description": "HMAC-SHA-256 of \"hello\" with key \"key\" — a common test vector for HMAC implementations."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 318,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "HMAC"
+            }
+        },
+        {
+            "id": 319,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "MAC"
+            }
+        },
+        {
+            "id": 320,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "API auth"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

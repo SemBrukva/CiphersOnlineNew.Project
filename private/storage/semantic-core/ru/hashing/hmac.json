@@ -1,0 +1,167 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "hmac",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/hmac.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/hmac",
+        "url": "/ru/hashing/hmac",
+        "content_file": "private/storage/content/hashing/hmac/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 119,
+        "primary_terms": [
+            "hmac",
+            "sha256",
+            "online",
+            "это",
+            "что",
+            "такое",
+            "generator",
+            "алгоритм"
+        ],
+        "modifiers": [
+            "онлайн"
+        ],
+        "intents": {
+            "tool": 11,
+            "online": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «hmac».",
+            "Подчеркнуть онлайн-сценарий в intro или основном блоке без перегрузки title вторичными формулировками."
+        ]
+    },
+    "queries": [
+        {
+            "query": "hmac",
+            "score": 78,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "hmac sha256 online",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hmac-sha256",
+            "score": 8,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hmac что это",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hmac-sha256 online",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hmac online",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hmac-sha256 онлайн",
+            "score": 2,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hmac sha256",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "hmac это",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "что такое hmac",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "hmac generator",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "алгоритм hmac",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер HMAC с отдельным акцентом на HMAC-SHA256 и онлайн-генератор.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["В intro объяснить роль секретного ключа.", "Покрыть HMAC-SHA256 и назначение для API/webhook без обещания цифровой подписи с открытым ключом."]}
+}

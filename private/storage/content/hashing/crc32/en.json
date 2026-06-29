@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T17:13:52+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "crc32",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 63,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 63,
+        "data": {
+            "name": "CRC32 Online Calculator",
+            "name_short": "CRC32",
+            "description": "Calculate the CRC32 checksum of text online. Type or paste a value to get the standard CRC-32/IEEE result as an 8-character lowercase hexadecimal string, then copy it. The calculator runs locally in your browser on the exact UTF-8 bytes of the text and can be compared with SHA-256, SHA-512, SHA-3, BLAKE2, MD5, or other hash algorithms from the selector.",
+            "description_stort": "Calculate a CRC32 checksum from text locally in your browser.",
+            "meta_title": "CRC32 Online Calculator – CRC-32 Checksum Generator",
+            "meta_description": "Calculate CRC32 checksums from text with this free online CRC-32 calculator. Get an 8-character hex result locally in your browser and copy it."
+        }
+    },
+    "blocks": [
+        {
+            "id": 216,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is CRC32?",
+                "text": "<p>CRC32, short for Cyclic Redundancy Check 32-bit, is a fast checksum algorithm used to detect accidental changes in data. The common CRC-32/IEEE variant used by Ethernet, ZIP, PNG, gzip and many tools uses the reversed polynomial <code>0xEDB88320</code>, which corresponds to the normal polynomial <code>0x04C11DB7</code>. It returns a 32-bit value normally written as 8 hexadecimal characters.</p><p>This CRC32 online calculator computes the checksum of the exact UTF-8 bytes of the text you enter and displays the result in lowercase hex. CRC32 is deterministic: the same bytes always produce the same checksum, while a small change in the input usually changes the output. It is intended for quick integrity checks, not for secrecy or cryptographic security.</p>"
+            }
+        },
+        {
+            "id": 217,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "CRC32 vs cryptographic hashes",
+                "text": "<p>CRC32 is not a cryptographic hash function. It is designed to catch accidental corruption from transmission errors, storage problems, or copy mistakes, not to resist a malicious attacker. Because CRC algorithms are linear, someone can deliberately modify data and adjust extra bytes so that the CRC32 value matches a chosen target.</p><p>Use CRC32 when you need a very fast checksum for non-adversarial integrity checks or compatibility with formats that already specify CRC-32/IEEE. Use SHA-256, SHA-512, BLAKE2, an HMAC, or a digital signature when you need tamper resistance, authentication, password storage, or any security-critical guarantee.</p>"
+            }
+        },
+        {
+            "id": 234,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the CRC32 online calculator",
+                "text": "<ol><li>Type or paste the text you want to check into the input field.</li><li>Keep <strong>CRC32</strong> selected in the algorithm menu.</li><li>The calculator computes the checksum locally in your browser and shows an 8-character hexadecimal result.</li><li>Use the copy button to place the CRC32 value on your clipboard.</li></ol><p>The calculator hashes the exact UTF-8 bytes of the text. Letter case, spaces, tabs, punctuation, Unicode characters, and line endings all affect the result. Empty input is valid and produces <code>00000000</code>. You can switch algorithms to compare the same text with SHA-256, SHA-512, SHA3-256, SHA3-512, BLAKE2b, BLAKE2s, SHA-1, or MD5.</p>"
+            }
+        },
+        {
+            "id": 235,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Text checksums, file checksums, and output format",
+                "text": "<p>This page calculates CRC32 for text entered in the input field. It does not upload, open, or read files directly. If you paste a filename such as <code>archive.zip</code>, the calculator returns the CRC32 of those filename characters, not the checksum of the file contents. To verify a real file, use a checksum tool that reads the file bytes and compare its CRC32 value with a trusted source.</p><p>The output is the standard 8-character lowercase hexadecimal form. Some tools may show the same 32-bit value in uppercase, decimal, little-endian byte order, or with a prefix such as <code>0x</code>. This calculator uses the common CRC-32/IEEE initialization and final XOR used by ZIP, PNG, gzip, and Ethernet, not CRC32C or another CRC variant.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 429,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why does my ZIP/PNG file use CRC32?",
+                "answer": "ZIP, PNG, gzip, Ethernet and similar formats use CRC32 because it is extremely fast and catches common accidental corruption well. Container formats often check many small records, such as ZIP entries or PNG chunks, so a lightweight checksum is useful on every read. CRC32 is not meant to prove authenticity; it only helps detect unintended changes."
+            }
+        },
+        {
+            "id": 430,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Is CRC32 the same as CRC32C?",
+                "answer": "No. CRC32/IEEE and CRC32C/Castagnoli use different polynomials and produce different outputs for the same input. This calculator uses the common CRC-32/IEEE variant with reversed polynomial 0xEDB88320, used by Ethernet, ZIP, PNG, and gzip. CRC32C is used in systems such as iSCSI, SCTP, Btrfs, and ext4 metadata."
+            }
+        },
+        {
+            "id": 431,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Can I use CRC32 to detect deliberate tampering?",
+                "answer": "No. CRC32 is mathematically linear, so an attacker can deliberately change data and compensate for the checksum. For any threat model where someone may intentionally modify data, use an HMAC, a digital signature, or a cryptographic hash inside a reviewed protocol instead of CRC32."
+            }
+        },
+        {
+            "id": 432,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my input anywhere?",
+                "answer": "The CRC32 calculation runs locally in your browser with a JavaScript lookup-table implementation; the text is not sent to the server for checksum calculation. Avoid placing secrets into any website on a device or browser you do not trust."
+            }
+        },
+        {
+            "id": 465,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can CRC32 be decoded, decrypted, or reversed?",
+                "answer": "No. CRC32 is a checksum, not an encoding or encryption scheme. An 8-character CRC32 value does not contain enough information to reconstruct the original text. Someone can only guess possible inputs, calculate their CRC32 values, and compare them. Many different inputs can share the same 32-bit checksum."
+            }
+        },
+        {
+            "id": 466,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does my CRC32 not match another calculator?",
+                "answer": "Check whether both tools use the same CRC variant and the same bytes. Differences can come from CRC32 vs CRC32C, UTF-8 text vs raw file bytes, uppercase vs lowercase output, decimal vs hexadecimal display, leading or trailing spaces, tabs, line endings, and Unicode normalization. This calculator uses CRC-32/IEEE on UTF-8 text and returns 8 lowercase hex characters."
+            }
+        },
+        {
+            "id": 467,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can this CRC32 calculator check a file?",
+                "answer": "This page calculates the CRC32 of text entered in the input field; it does not read file contents. Pasting a filename hashes the filename string, not the file bytes. To verify a ZIP, PNG, archive, or downloaded file, use a file checksum utility that reads the file bytes and compare the full 8-character CRC32 value."
+            }
+        },
+        {
+            "id": 468,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Is CRC32 enough for passwords, signatures, or API security?",
+                "answer": "No. CRC32 is not suitable for passwords, signatures, API tokens, tamper detection, or authentication. It is small, fast, and non-cryptographic. Use password-hashing algorithms such as Argon2id, scrypt, bcrypt, or PBKDF2 for passwords, and use HMAC or digital signatures when a secret key or authenticity proof is required."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 227,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty string",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "00000000",
+                "description": "The CRC32 of empty input is all zeros."
+            }
+        },
+        {
+            "id": 228,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plain text",
+                "key": "",
+                "shift": 0,
+                "input": "hello world",
+                "output": "0d4a1185",
+                "description": "A short message produces an 8-character hex string of fixed length."
+            }
+        },
+        {
+            "id": 229,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Pangram",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "414fa339",
+                "description": "A classic test pangram used in CRC32 and other checksum tests."
+            }
+        },
+        {
+            "id": 238,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Format-like data",
+                "key": "",
+                "shift": 0,
+                "input": "PNG-CHUNK-DATA-1234567890",
+                "output": "23618771",
+                "description": "A short technical string showing the fixed 8-character CRC32 output used for lightweight integrity checks."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 330,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "CRC32"
+            }
+        },
+        {
+            "id": 331,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Checksum"
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "IEEE 802.3"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T09:25:04+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "sha256",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 52,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 52,
+        "data": {
+            "name": "SHA-256 Hash Generator",
+            "name_short": "SHA-256",
+            "description": "Generate a SHA-256 hash from text online. Type or paste a message to calculate its 256-bit digest as a 64-character lowercase hexadecimal string, then copy the result. Processing runs locally in your browser with the Web Crypto API, and the algorithm selector also lets you compare SHA-256 with other supported hash functions.",
+            "description_stort": "Calculate a SHA-256 hash from text locally in your browser.",
+            "meta_title": "SHA-256 Hash Generator Online – SHA256 Calculator",
+            "meta_description": "Calculate a SHA-256 hash from text with this free online SHA256 generator. Get a 64-character hex digest locally in your browser and copy it instantly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 194,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is SHA-256?",
+                "text": "<p>SHA-256 (Secure Hash Algorithm 256-bit) is a cryptographic hash function in the SHA-2 family. It converts input of any length into a fixed 256-bit (32-byte) digest, normally written as 64 hexadecimal characters. This online SHA-256 calculator displays the digest in lowercase hex.</p><p>SHA-256 is deterministic: identical input bytes always produce the same hash. It is also designed to be one-way and collision-resistant. In practical terms, the digest can identify or verify data, but it cannot be decrypted to reveal the original text. SHA-256 is hashing, not encryption.</p>"
+            }
+        },
+        {
+            "id": 195,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Where SHA-256 is used",
+                "text": "<p>SHA-256 checks whether content changed by comparing a newly calculated digest with a trusted value. Common uses include software download checksums, content identifiers, digital-signature workflows, certificate fingerprints, and data deduplication. Bitcoin uses SHA-256 in proof-of-work and double-SHA-256 for several identifiers.</p><p>SHA-256 is also a component inside keyed and password-based constructions. HMAC-SHA-256 authenticates messages, API requests, and HS256 JWTs with a secret key; PBKDF2-HMAC-SHA-256 derives keys through repeated hashing. A plain SHA-256 digest does not provide those protections by itself and should not replace HMAC, a digital signature, or a password-hashing function.</p>"
+            }
+        },
+        {
+            "id": 218,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the SHA-256 hash generator",
+                "text": "<ol><li>Type or paste the text you want to hash into the input field.</li><li>Keep <strong>SHA-256</strong> selected in the algorithm menu.</li><li>The generator calculates the digest in your browser and shows a 64-character hexadecimal result.</li><li>Use the copy button to place the SHA-256 hash on your clipboard.</li></ol><p>The calculator hashes the exact UTF-8 bytes of your text. Letter case, spaces, punctuation, Unicode characters, and line endings are significant, so preserve them when reproducing or verifying a hash. You can switch the algorithm menu to compare the same text with SHA-512, SHA-3, BLAKE2, SHA-1, MD5, or CRC32.</p>"
+            }
+        },
+        {
+            "id": 219,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "How the SHA-256 algorithm works",
+                "text": "<p>SHA-256 first encodes the message as bytes, appends padding and the message length, and divides the result into 512-bit blocks. Each block passes through 64 rounds of bitwise operations, modular additions, constants, and message-schedule values. The final internal state consists of eight 32-bit words, which together form the 256-bit digest.</p><p>A tiny input change should alter roughly half of the output bits, a property called the avalanche effect. For an ideal 256-bit hash, generic preimage search requires about 2<sup>256</sup> attempts and generic collision search about 2<sup>128</sup>. SHA-256 remains suitable for modern integrity and cryptographic protocols when used in the correct construction.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 385,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is SHA-256 reversible?",
+                "answer": "No. SHA-256 is a one-way function, so there is no SHA-256 decoder or decryption key that restores the original text. Someone can only guess a possible input, hash it, and compare the result. That can expose short or predictable values, but it does not reverse the algorithm."
+            }
+        },
+        {
+            "id": 386,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How is SHA-256 different from MD5 and SHA-1?",
+                "answer": "MD5 produces 128 bits and SHA-1 produces 160 bits; both have practical collision attacks and should not protect security-sensitive data. SHA-256 produces 256 bits and has no known practical collision or preimage attack. Use the exact algorithm required by the protocol or published checksum, and prefer SHA-256 or a modern alternative for new designs."
+            }
+        },
+        {
+            "id": 387,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Can I use SHA-256 to hash passwords?",
+                "answer": "Do not store passwords with raw SHA-256. It is deliberately fast, which also makes large-scale password guessing fast. Use a maintained implementation of Argon2id, scrypt, bcrypt, or PBKDF2 with a unique random salt and an appropriately configured work factor."
+            }
+        },
+        {
+            "id": 388,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my input anywhere?",
+                "answer": "The SHA-256 calculation runs locally in your browser through the Web Crypto API; the text is not sent to the server for hashing. Avoid placing secrets into any website on a device or browser you do not trust."
+            }
+        },
+        {
+            "id": 433,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why does my SHA-256 hash not match another calculator?",
+                "answer": "The two tools are probably hashing different bytes. Check letter case, leading or trailing spaces, tabs, line endings, Unicode normalization, and whether the other tool expects plain text, hex, Base64, or a file. This generator interprets the input as text and encodes it as UTF-8 before hashing."
+            }
+        },
+        {
+            "id": 434,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can this SHA256 generator calculate a file checksum?",
+                "answer": "This page hashes text entered in the input field; it does not read uploaded files. Pasting a filename hashes the filename itself, not the file contents. To verify a download, use a file checksum utility that reads the file bytes and compare its SHA-256 output with a checksum from a trusted source."
+            }
+        },
+        {
+            "id": 435,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "How can I verify a SHA-256 hash?",
+                "answer": "Hash the exact original text with SHA-256 and compare all 64 hexadecimal characters with the expected digest. Matching values show that the input bytes are the same with extremely high confidence. For protection against a malicious change, the expected hash must come from a trusted source; otherwise an attacker could replace both the data and its hash."
+            }
+        },
+        {
+            "id": 436,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Is SHA-256 the same as encryption or HMAC-SHA-256?",
+                "answer": "No. Encryption is reversible with a key, while SHA-256 creates a one-way digest without a key. HMAC-SHA-256 combines SHA-256 with a secret key to authenticate a message. Use HMAC when recipients share a secret and must detect deliberate tampering; a plain hash alone cannot prove who created the message."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 197,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty string",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "description": "The SHA-256 hash of an empty input is a well-known constant."
+            }
+        },
+        {
+            "id": 198,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plain text",
+                "key": "",
+                "shift": 0,
+                "input": "hello world",
+                "output": "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9",
+                "description": "A short message produces a 64-character hex string of fixed length."
+            }
+        },
+        {
+            "id": 199,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Avalanche effect",
+                "key": "",
+                "shift": 0,
+                "input": "Hello world",
+                "output": "64ec88ca00b268e5ba1a35678a1b5316d212f4f366b2477232534a8aeca37f3c",
+                "description": "Changing one bit (lowercase h → uppercase H) completely changes the hash — the avalanche effect."
+            }
+        },
+        {
+            "id": 230,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Standard SHA-256 test vector",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592",
+                "description": "A widely used test vector for checking that a SHA-256 implementation returns the expected digest."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 297,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "SHA-256"
+            }
+        },
+        {
+            "id": 298,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Hash"
+            }
+        },
+        {
+            "id": 299,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Cryptography"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

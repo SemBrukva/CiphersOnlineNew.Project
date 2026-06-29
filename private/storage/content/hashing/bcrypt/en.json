@@ -1,0 +1,153 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-28T13:11:38+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "bcrypt",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 61,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 61,
+        "data": {
+            "name": "bcrypt Online — Password Hashing",
+            "name_short": "bcrypt",
+            "description": "Generate or verify bcrypt password hashes in your browser. bcrypt is a slow, salted password hashing function based on Blowfish (1999), widely used in Rails, Django, OpenBSD, and many web frameworks. Configurable cost factor.",
+            "description_stort": "Generate or verify bcrypt password hashes in your browser.",
+            "meta_title": "bcrypt Online Generator and Verifier | Ciphers Online",
+            "meta_description": "Free online bcrypt generator and password verifier. Configurable cost factor, automatic salt, $2b$ output format. 100% in your browser — no upload, no server."
+        }
+    },
+    "blocks": [
+        {
+            "id": 212,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is bcrypt?",
+                "text": "<p>bcrypt is a password hashing function designed by Niels Provos and David Mazières (USENIX 1999). It is based on the Blowfish cipher and was specifically built to resist brute-force attacks by being intentionally slow and configurable in cost. The output is a single self-contained string in the format <code>$2b$cost$22-char-salt+31-char-hash</code> — the salt, cost factor, and hash are all stored together.</p><p>bcrypt has been the workhorse of password storage for two decades. It is the default in Ruby on Rails, Django's legacy hasher, OpenBSD passwords, and countless web frameworks. Despite its age, it remains a solid choice when Argon2id is not available.</p>"
+            }
+        },
+        {
+            "id": 213,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Cost factor explained",
+                "text": "<p>bcrypt's cost factor is an exponent: cost=10 means 2¹⁰ = 1024 iterations. Each increase by 1 doubles the work. OWASP 2024 recommends a cost of at least 10, with 12 being common for new applications. Cost=12 takes roughly 200–400 ms on a typical server in 2026 — slow enough to make brute-force costly, fast enough not to ruin login UX.</p><p>The cost factor is stored in the hash output, so increasing it later does not break existing hashes (existing hashes are verified with their original cost; new hashes can use the higher cost). Plan to bump the cost every 2–3 years as hardware improves.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 421,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the 72-byte limit?",
+                "answer": "bcrypt internally truncates input passwords to 72 bytes. Longer passwords have their tail silently ignored — anything beyond byte 72 contributes nothing to security. A common workaround is to first hash the password with SHA-256 (giving 32 bytes) and feed the hash into bcrypt; alternatively, switch to Argon2id which has no such limit."
+            }
+        },
+        {
+            "id": 422,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Should I use bcrypt or Argon2id?",
+                "answer": "For new systems, Argon2id is recommended by OWASP (2024). It is memory-hard, which makes GPU-based attacks much more expensive than against bcrypt. Choose bcrypt when you need broad library support, very stable behaviour, or compliance with platforms that require it. bcrypt remains acceptable when configured with cost ≥ 10."
+            }
+        },
+        {
+            "id": 423,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do $2a$, $2b$, $2y$ differ?",
+                "answer": "These are versions of the bcrypt encoded format. $2a$ is the original; $2y$ was introduced in PHP to mark fixed implementations after a 2011 sign-extension bug; $2b$ is the current standard format (used by OpenBSD and the canonical OpenBSD-style bcrypt libraries). For new hashes you will see $2b$. Verification of older $2a$ and $2y$ hashes still works in all modern libraries."
+            }
+        },
+        {
+            "id": 424,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my password anywhere?",
+                "answer": "No. bcrypt runs entirely in your browser using the bcryptjs library — your password never leaves your device. No network requests, no logging, no server-side processing. Still: do not use this tool for production password hashing of real user accounts — use a server-side library with proper salt management."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 223,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Common password",
+                "key": "",
+                "shift": 0,
+                "input": "password123",
+                "output": "",
+                "description": "A typical password. Click Compute to generate a bcrypt hash with the configured cost."
+            }
+        },
+        {
+            "id": 224,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Passphrase",
+                "key": "",
+                "shift": 0,
+                "input": "correct horse battery staple",
+                "output": "",
+                "description": "A long passphrase. bcrypt only uses the first 72 bytes of input."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 324,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "bcrypt"
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "KDF"
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Password hashing"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

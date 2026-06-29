@@ -1,0 +1,243 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-06-29T16:59:02+00:00",
+        "category_alias": "hashing",
+        "cipher_alias": "blake2b",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 58,
+        "category_id": 5
+    },
+    "cipher_translation": {
+        "id": 58,
+        "data": {
+            "name": "BLAKE2b Hash Generator",
+            "name_short": "BLAKE2b",
+            "description": "Generate a BLAKE2b hash from text online. Type or paste a message to calculate the default 512-bit BLAKE2b digest as a 128-character lowercase hexadecimal string, then copy the result. Processing runs locally in your browser with the blakejs implementation, and the algorithm selector lets you compare BLAKE2b with BLAKE2s, SHA-256, SHA-512, SHA-3 variants, SHA-1, MD5, or CRC32.",
+            "description_stort": "Calculate a BLAKE2b hash from text locally in your browser.",
+            "meta_title": "BLAKE2b Hash Generator Online – Fast Hash Calculator",
+            "meta_description": "Calculate a BLAKE2b hash from text with this free online generator. Get the default 128-character hex digest locally in your browser and copy it."
+        }
+    },
+    "blocks": [
+        {
+            "id": 206,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is BLAKE2b?",
+                "text": "<p>BLAKE2b is a cryptographic hash function published by Aumasson, Neves, Wilcox-O'Hearn, and Winnerlein in 2012 and specified in RFC 7693. It is based on BLAKE, a SHA-3 competition finalist, and is optimized for 64-bit platforms. BLAKE2b can produce digest lengths from 1 to 64 bytes; this online BLAKE2b calculator uses the default 64-byte output, shown as 128 lowercase hexadecimal characters.</p><p>BLAKE2b is deterministic and one-way: the same input bytes produce the same digest, but the digest cannot be decrypted to recover the original text. It is designed to be fast in software while providing modern cryptographic security. BLAKE2b is used as a building block in Argon2, appears in systems such as Zcash, and is a practical choice for high-performance integrity checks and content fingerprints when a protocol allows it.</p>"
+            }
+        },
+        {
+            "id": 207,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "BLAKE2 family and parameters",
+                "text": "<p>The BLAKE2 family has two main variants: BLAKE2b and BLAKE2s. BLAKE2b is optimized for 64-bit CPUs and supports output up to 64 bytes. BLAKE2s is optimized for smaller 8-, 16-, and 32-bit platforms and supports output up to 32 bytes. In this hashing interface you can switch between BLAKE2b and BLAKE2s to compare how the same text hashes under each variant.</p><p>The BLAKE2 specification also supports optional parameters such as keyed hashing, salt, personalization, and tree hashing. This page intentionally exposes the simple text-hash mode only: no key, no salt, no personalization, and the default BLAKE2b digest length of 64 bytes. If a protocol asks for BLAKE2b-256 or BLAKE2b-384, it is asking for a shorter configured output length, not the default output generated here.</p>"
+            }
+        },
+        {
+            "id": 232,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the BLAKE2b hash generator",
+                "text": "<ol><li>Type or paste the text you want to hash into the input field.</li><li>Keep <strong>BLAKE2b</strong> selected in the algorithm menu.</li><li>The generator calculates the digest locally in your browser and shows a 128-character hexadecimal result.</li><li>Use the copy button to place the BLAKE2b hash on your clipboard.</li></ol><p>The calculator hashes the exact UTF-8 bytes of your text. Letter case, leading and trailing spaces, punctuation, Unicode characters, and line endings are significant. Empty input is valid and produces the standard default BLAKE2b digest for an empty string. You can switch algorithms to compare the same text with BLAKE2s, SHA-256, SHA-512, SHA3-256, SHA3-512, SHA-1, MD5, or CRC32.</p>"
+            }
+        },
+        {
+            "id": 233,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Where BLAKE2b fits and what this tool does not do",
+                "text": "<p>BLAKE2b is useful for fast data integrity checks, cache keys, content identifiers, deduplication fingerprints, and applications that need a modern hash function without the overhead of older constructions. Compared with SHA-256, it can be faster in pure software on 64-bit platforms; compared with MD5 or SHA-1, it is designed for modern cryptographic use rather than legacy compatibility.</p><p>A plain BLAKE2b digest does not prove who created a message, and it is not a password-storage scheme. Use the keyed mode of BLAKE2b, HMAC, or another reviewed MAC construction when a secret key must authenticate data. Use Argon2id, scrypt, bcrypt, or PBKDF2 for passwords. This page does not read files directly; it hashes the text you enter, so pasting a filename hashes the filename itself rather than the file contents.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 409,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "When should I prefer BLAKE2b over SHA-256?",
+                "answer": "BLAKE2b is a good choice when raw software speed matters and you control both the hashing and verification side. It is often faster than SHA-256 in pure software on 64-bit platforms. Use SHA-256 when a protocol, API, checksum source, or compliance requirement names SHA-256, or when hardware acceleration and broad interoperability matter more than changing algorithms."
+            }
+        },
+        {
+            "id": 410,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How does BLAKE2b differ from BLAKE2s?",
+                "answer": "BLAKE2b is optimized for 64-bit platforms with up to 64-byte output and a 128-byte block size. BLAKE2s is optimized for 8/16/32-bit platforms with up to 32-byte output and a 64-byte block size. On 64-bit hardware BLAKE2b is faster; on small embedded systems BLAKE2s uses less memory and may be faster. For desktop and server use BLAKE2b is the default."
+            }
+        },
+        {
+            "id": 411,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is BLAKE2b used in Argon2?",
+                "answer": "Yes. Argon2 uses BLAKE2b internally as a compression function, but that does not mean raw BLAKE2b should be used to store passwords. Argon2 adds memory hardness, time cost, parallelism, salts, and a reviewed password-hashing design. For password storage, use Argon2id, scrypt, bcrypt, or PBKDF2 rather than a plain BLAKE2b digest."
+            }
+        },
+        {
+            "id": 412,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Does this tool send my input anywhere?",
+                "answer": "The BLAKE2b calculation runs locally in your browser with the blakejs JavaScript library; the text is not sent to the server for hashing. Avoid placing secrets into any website on a device or browser you do not trust."
+            }
+        },
+        {
+            "id": 461,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can BLAKE2b be reversed, decrypted, or decoded?",
+                "answer": "No. BLAKE2b is a one-way hash function, so there is no BLAKE2b decoder or decryption key that restores the original text. Someone can only guess a possible input, hash it with the same parameters, and compare the result. Short or predictable values may be discovered by guessing, but that is not reversing the algorithm."
+            }
+        },
+        {
+            "id": 462,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why does my BLAKE2b hash not match another tool?",
+                "answer": "The tools may be hashing different bytes or using different BLAKE2b parameters. Check letter case, leading or trailing spaces, tabs, line endings, Unicode normalization, and whether the other tool expects plain text, hex, Base64, or file bytes. Also confirm the output length: this generator uses the default 64-byte BLAKE2b output shown as 128 lowercase hexadecimal characters."
+            }
+        },
+        {
+            "id": 463,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Does this generator support keyed BLAKE2b, salt, or personalization?",
+                "answer": "No. The current tool calculates the default unkeyed BLAKE2b hash of text. The BLAKE2 specification supports keyed mode, salt, personalization, and tree hashing, but those parameters are not exposed on this page. Use a dedicated library or protocol implementation if you need those options."
+            }
+        },
+        {
+            "id": 464,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can this BLAKE2b generator calculate a file checksum?",
+                "answer": "This page hashes text entered in the input field; it does not upload or read files. Pasting a filename hashes the filename itself, not the file contents. To verify a file, use a checksum utility that reads its raw bytes and compare all 128 hexadecimal characters when using default BLAKE2b output."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 215,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Empty string",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "786a02f742015903c6c6fd852552d272912f4740e15847618a86e217f71f5419d25e1031afee585313896444934eb04b903a685b1448b755d56f701afe9be2ce",
+                "description": "The BLAKE2b hash of empty input — the default 64-byte output."
+            }
+        },
+        {
+            "id": 216,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Plain text",
+                "key": "",
+                "shift": 0,
+                "input": "hello world",
+                "output": "021ced8799296ceca557832ab941a50b4a11f83478cf141f51f933f653ab9fbcc05a037cddbed06e309bf334942c4e58cdf1a46e237911ccd7fcf9787cbc7fd0",
+                "description": "A short message produces the full 128-character hex output."
+            }
+        },
+        {
+            "id": 217,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Avalanche effect",
+                "key": "",
+                "shift": 0,
+                "input": "Hello world",
+                "output": "6ff843ba685842aa82031d3f53c48b66326df7639a63d128974c5c14f31a0f33343a8c65551134ed1ae0f2b0dd2bb495dc81039e3eeb0aa1bb0388bbeac29183",
+                "description": "A single letter-case change yields an unrelated output, illustrating the avalanche effect."
+            }
+        },
+        {
+            "id": 237,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Standard BLAKE2b test vector",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog",
+                "output": "a8add4bdddfd93e4877d2746e62817b116364a1fa7bc148d95090bc7333b3673f82401cf7aa2e4cb1ecd90296e3f14cb5413f8ed77be73045b13914cdcd6a918",
+                "description": "A common test sentence for checking that an implementation returns the default 64-byte BLAKE2b digest."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 315,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "BLAKE2b"
+            }
+        },
+        {
+            "id": 316,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Fast"
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Argon2"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

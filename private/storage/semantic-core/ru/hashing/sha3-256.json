@@ -1,0 +1,71 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "sha3-256",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/sha3-256.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/sha3-256",
+        "url": "/ru/hashing/sha3-256",
+        "content_file": "private/storage/content/hashing/sha3-256/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 3,
+        "primary_terms": [
+            "sha3",
+            256,
+            "online",
+            "decoder"
+        ],
+        "modifiers": [],
+        "intents": {
+            "tool": 2,
+            "decode": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «sha3-256».",
+            "В FAQ объяснить, что SHA3-256 нельзя декодировать или расшифровать."
+        ]
+    },
+    "queries": [
+        {
+            "query": "sha3-256",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "sha3 256 online",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha3 256 decoder",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Узкий кластер SHA3-256. Decoder-интент покрывать FAQ с пояснением необратимости.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Сохранить точное написание SHA3-256.", "Не обещать декодирование хеша."]}
+}

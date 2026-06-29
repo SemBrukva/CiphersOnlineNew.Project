@@ -1,0 +1,217 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "md5",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/md5.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/md5",
+        "url": "/ru/hashing/md5",
+        "content_file": "private/storage/content/hashing/md5/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 1830,
+        "primary_terms": [
+            "md5",
+            "online",
+            "hash",
+            "создать",
+            "зашифровать",
+            "что",
+            "это",
+            "контрольная",
+            "сумма",
+            "шифрование",
+            "generator",
+            "алгоритм"
+        ],
+        "modifiers": [
+            "онлайн",
+            "зашифровать"
+        ],
+        "intents": {
+            "tool": 11,
+            "cipher": 3,
+            "online": 2,
+            "encode": 2
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «md5 online».",
+            "В FAQ перехватить формулировки про «шифрование MD5» и объяснить, что сервис вычисляет необратимый хеш.",
+            "Подчеркнуть онлайн-сценарий в intro или основном блоке без перегрузки title вторичными формулировками."
+        ]
+    },
+    "queries": [
+        {
+            "query": "md5 online",
+            "score": 526,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "md5",
+            "score": 495,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "md5 онлайн",
+            "score": 267,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "md5 hash создать",
+            "score": 185,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "md5 hash",
+            "score": 155,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "md5 что это",
+            "score": 49,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "зашифровать в md5",
+            "score": 29,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "зашифровать md5",
+            "score": 21,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "md5 hash online",
+            "score": 17,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "md5 шифрование",
+            "score": 14,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "md5 generator",
+            "score": 13,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "md5 алгоритм хеширования",
+            "score": 12,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "контрольная сумма md5",
+            "score": 12,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "контрольная сумма md5 онлайн",
+            "score": 12,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "md5 хэш",
+            "score": 12,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "генератор md5",
+            "score": 11,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер MD5 generator/checksum. Формулировки про шифрование покрывать только через пояснение, что MD5 — одностороннее хеширование.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Основной запрос — «md5 online».", "Не называть MD5 шифрованием и не обещать расшифровку.", "Указать ограничения MD5 для задач безопасности."]}
+}

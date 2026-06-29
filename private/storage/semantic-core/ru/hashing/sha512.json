@@ -1,0 +1,84 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "sha-512",
+    "intent": "tool",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/hashing/sha512.csv",
+        "imported_at": "2026-06-28T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "hashing/sha512",
+        "url": "/ru/hashing/sha512",
+        "content_file": "private/storage/content/hashing/sha512/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 10,
+        "primary_terms": [
+            "sha-512",
+            "sha 512"
+        ],
+        "modifiers": [
+            "расшифровка"
+        ],
+        "intents": {
+            "decode": 2,
+            "cipher": 2,
+            "tool": 2
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «sha-512».",
+            "В FAQ объяснить, что SHA-512 нельзя расшифровать; возможна только проверка кандидата повторным хешированием."
+        ]
+    },
+    "queries": [
+        {
+            "query": "sha 512 расшифровка",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "sha-512",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "sha 512",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "sha-512 расшифровка",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер SHA-512: точный алгоритмический запрос выбран primary, расшифровка перенесена в FAQ как невозможный сценарий.",
+    "curation": {"reviewed_at": "2026-06-28", "reviewed_by": "semantic-core-builder", "decision": "single_tool_cluster", "notes": ["Primary — «sha-512», а не запрос на расшифровку.", "Объяснить, что проверка выполняется повторным хешированием кандидата."]}
+}
