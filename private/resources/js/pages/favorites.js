@@ -60,7 +60,7 @@ export function toggleFavorite(slug) {
  */
 export function updateNavFavCount() {
     const count = getFavorites().length
-    document.querySelectorAll('a.site-header-link[href$="/favorites"], a.site-nav__link[href$="/favorites"]').forEach(link => {
+    document.querySelectorAll('a.site-header__fav-badge, a.site-nav__fav-link').forEach(link => {
         let badge = link.querySelector('.nav-fav-count')
         if (count > 0) {
             if (!badge) {

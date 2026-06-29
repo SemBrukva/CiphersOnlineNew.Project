@@ -18,6 +18,7 @@ return [
     'MENU_ENCODING'         => 'Data encoding',
     'MENU_CODES_AND_ALPHABETS' => 'Codes & alphabets',
     'MENU_TEXT_ANALYSIS'      => 'Text Analysis',
+    'MENU_HASHING'            => 'Hashing',
 
     // Авторизация
     'AUTH_SIGN_IN'          => 'Sign In',

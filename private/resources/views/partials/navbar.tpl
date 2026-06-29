@@ -55,7 +55,7 @@
                 {/foreach}
             </nav>
 
-            {* Десктопная правая панель: языки + авторизация (≥lg) *}
+            {* Десктопная правая панель: языки + избранное + авторизация (≥lg) *}
             <div class="d-none d-lg-flex align-items-center gap-2 ms-auto">
                 {if $multilang && $auth_user === null && $available_locales|@count > 1}
                     <div class="dropdown">
@@ -85,6 +85,14 @@
                         </ul>
                     </div>
                 {/if}
+
+                {* Бейдж избранного *}
+                <a href="{$locale_prefix}/favorites"
+                   class="site-header__fav-badge{if $current_path === '/favorites'} active{/if}"
+                   title="{$t.MENU_FAVORITES}"
+                   aria-label="{$t.MENU_FAVORITES}">
+                    <i class="bi bi-star-fill"></i>
+                </a>
 
                 {if $auth_user !== null}
                     {if $is_admin}
@@ -180,6 +188,15 @@
                 {/foreach}
             </ul>
         {/if}
+
+        {* Бейдж избранного в мобильном меню *}
+        <div class="px-3 mt-2">
+            <a href="{$locale_prefix}/favorites"
+               class="site-nav__fav-link{if $current_path === '/favorites'} active{/if}">
+                <i class="bi bi-star-fill"></i>
+                {$t.MENU_FAVORITES}
+            </a>
+        </div>
 
         <div class="px-3 mt-3 d-flex flex-column gap-2">
             {if $auth_user !== null}

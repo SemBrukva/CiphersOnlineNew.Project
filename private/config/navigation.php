@@ -32,9 +32,10 @@ return [
             'category_alias' => 'text-analysis',
         ],
         [
-            'title_key' => 'MENU_FAVORITES',
-            'url'       => '/favorites',
-            'icon'      => 'bi-star-fill',
+            'title_key'      => 'MENU_HASHING',
+            'url'            => '/hashing',
+            'icon'           => 'bi bi-hash',
+            'category_alias' => 'hashing',
         ],
     ],
 

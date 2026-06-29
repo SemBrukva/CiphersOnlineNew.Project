@@ -17,6 +17,7 @@ return [
     'MENU_ENCODING' => 'Encodage des données',
     'MENU_CODES_AND_ALPHABETS' => 'Codes et alphabets',
     'MENU_TEXT_ANALYSIS' => 'Analyse de texte',
+    'MENU_HASHING' => 'Hachage',
     'AUTH_SIGN_IN' => 'Se connecter',
     'AUTH_SIGN_OUT' => 'Se déconnecter',
     'AUTH_CABINET' => 'Mon compte',

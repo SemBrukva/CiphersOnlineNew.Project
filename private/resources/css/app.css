@@ -391,6 +391,103 @@
   gap: 8px;
 }
 
+/* === Favorites badge (desktop pill) === */
+.site-header__fav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.site-header__fav-badge:hover,
+.site-header__fav-badge:focus {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.07);
+  outline: none;
+}
+
+.site-header__fav-badge.active {
+  color: var(--co-accent);
+  border-color: rgba(193, 255, 0, 0.50);
+  background: rgba(193, 255, 0, 0.08);
+}
+
+/* Счётчик избранного на десктопном бейдже — пузырёк в правом верхнем углу */
+.site-header__fav-badge .nav-fav-count,
+.site-header__fav-badge:hover .nav-fav-count,
+.site-header__fav-badge:focus .nav-fav-count,
+.site-header__fav-badge.active .nav-fav-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  background: var(--co-accent);
+  color: var(--co-primary, #0d1b2a);
+  border: none;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 17px;
+  border-radius: 9px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* === Favorites link in mobile nav === */
+.site-nav__fav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  transition: color 0.15s ease;
+}
+
+.site-nav__fav-link:hover,
+.site-nav__fav-link.active {
+  color: var(--co-accent);
+}
+
+.site-nav__fav-link .bi {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* Счётчик избранного в мобильном меню — инлайн пилюля */
+.site-nav__fav-link .nav-fav-count,
+.site-nav__fav-link:hover .nav-fav-count,
+.site-nav__fav-link.active .nav-fav-count {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: var(--co-accent);
+  color: var(--co-primary, #0d1b2a);
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
 /* === Offcanvas Nav Drawer === */
 .site-nav {
   background-color: var(--co-primary);
