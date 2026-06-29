@@ -488,6 +488,78 @@
   text-align: center;
 }
 
+/* =============================================
+   Компактный хедер: 1200–1399px (xl)
+   Убираем иконки из пунктов nav, чуть уменьшаем лого и padding
+   ============================================= */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .site-header > .container > .d-flex {
+    gap: 12px !important;
+  }
+
+  .site-brand {
+    font-size: 18px;
+    gap: 6px;
+  }
+
+  .site-brand__icon {
+    font-size: 22px;
+  }
+
+  /* Скрываем иконки категорий в десктопных ссылках nav */
+  .site-header nav .site-header-link i {
+    display: none;
+  }
+
+  .site-header-link {
+    padding: 4px 9px;
+    font-size: 13px;
+  }
+}
+
+/* =============================================
+   Компактный хедер: 992–1199px (lg)
+   Только иконка лого, убираем иконки nav, максимально узкие пункты
+   ============================================= */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .site-header > .container > .d-flex {
+    gap: 10px !important;
+  }
+
+  /* Лого: только иконка, текст скрыт */
+  .site-brand__text {
+    display: none;
+  }
+
+  .site-brand__icon {
+    font-size: 26px;
+  }
+
+  /* Скрываем иконки категорий в ссылках nav */
+  .site-header nav .site-header-link i {
+    display: none;
+  }
+
+  .site-header-link {
+    padding: 4px 6px;
+    font-size: 12.5px;
+  }
+
+  /* Правая панель — сжимаем кнопки */
+  .site-header__btn,
+  .site-header__btn-admin {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  /* Избранное-бейдж чуть меньше */
+  .site-header__fav-badge {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+
 /* === Offcanvas Nav Drawer === */
 .site-nav {
   background-color: var(--co-primary);

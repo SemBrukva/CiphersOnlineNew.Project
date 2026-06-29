@@ -5,7 +5,7 @@
             {* Логотип — всегда виден *}
             <a class="site-brand flex-shrink-0" href="{$locale_prefix|default:'/'}">
                 <i class="bi bi-shield-lock-fill site-brand__icon"></i>
-                CiphersOnline
+                <span class="site-brand__text">CiphersOnline</span>
             </a>
 
             {* Десктопная навигация (≥lg) *}
