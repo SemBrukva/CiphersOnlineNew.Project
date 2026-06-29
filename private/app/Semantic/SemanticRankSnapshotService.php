@@ -33,7 +33,7 @@ final readonly class SemanticRankSnapshotService
      * Собирает снимок позиций из Яндекс Вебмастера за дату.
      *
      * @param  array<string, mixed> $options Опции: locale, limit, dry_run, record_missing.
-     * @return array<string, int|string|bool> Сводка результата.
+     * @return array<string, bool|int|string|array<int, string>> Сводка результата.
      */
     public function collectYandexWebmaster(string $date, array $options = []): array
     {
@@ -130,12 +130,12 @@ final readonly class SemanticRankSnapshotService
             'queries' => count($queries),
             'api_records' => (int) $records['records'],
             'api_pages' => (int) $records['pages'],
-            'api_total_count' => (int) ($records['count'] ?? 0),
+            'api_total_count' => (int) $records['count'],
             'matched' => $matched,
             'missing' => $missing,
             'saved' => $saved,
             'semantic_samples' => $semanticSamples,
-            'api_samples' => $sampleSize > 0 ? ($records['samples'] ?? []) : [],
+            'api_samples' => $sampleSize > 0 ? $records['samples'] : [],
             'missing_samples' => $sampleSize > 0 ? $this->missingSamples($queries, $records['by_query'], $sampleSize) : [],
         ];
     }

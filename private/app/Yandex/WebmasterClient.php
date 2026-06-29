@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Yandex;
 
-use App\Http\Client\HttpException;
 use App\Http\Client\HttpClientInterface;
+use App\Http\Client\HttpException;
 use RuntimeException;
 
 /**
