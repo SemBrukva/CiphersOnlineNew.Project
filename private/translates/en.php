@@ -867,6 +867,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Variant',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Memory (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Parallelism',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Based on the Conan Doyle cipher from "The Adventure of the Dancing Men"',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'No key required',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Visual output with stick figure symbols',
+    'DANCING_MEN_EMPTY'                => 'Enter text to see the dancing men figures',
+    'DANCING_MEN_PLACEHOLDER'          => 'Enter text to encrypt...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Some characters are not supported in the selected alphabet',
+    'DANCING_MEN_DOWNLOADED'           => 'Downloaded as PNG (clipboard does not support images)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'Download PNG',
+    'CIPHER_NAME_DANCING_MEN'          => 'Dancing Men Cipher',
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
 ];

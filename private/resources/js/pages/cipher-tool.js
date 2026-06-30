@@ -12,6 +12,7 @@ import { initCipherIdentifier } from './cipher-tool/cipher-identifier.js'
 import { initAnagramSolver } from './cipher-tool/anagram-solver.js'
 import { initMatrixControl } from './cipher-tool/matrix-control.js'
 import { initMorsePlayer } from './cipher-tool/morse-player.js'
+import { initDancingMen } from './cipher-tool/dancing-men.js'
 import { initCustomSelects } from './cipher-tool/custom-selects.js'
 import { sendAnalyticsBeacon } from './cipher-tool/analytics.js'
 
@@ -37,6 +38,7 @@ export function initCipherToolPage() {
   const counter = document.getElementById('ciphers-counter')
   const feedback = document.getElementById('ciphers-feedback')
   const copyBtn = document.getElementById('ciphers-copy')
+  const downloadBtn = document.getElementById('ciphers-dm-download')
   const shareBtn = document.getElementById('ciphers-share')
   const resultCard = document.getElementById('ciphers-result-card')
   const resultLabel = document.querySelector('.ciphers-unified__field-label--result')
@@ -105,6 +107,7 @@ export function initCipherToolPage() {
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
+  const isDancingMenTool = Boolean(ui.dancingMenMode)
   const isOneWayTool = Boolean(ui.oneWayMode)
   const isHashTool = slug.startsWith('hashing/')
   const isHmacTool = Boolean(ui.hmacMode)
@@ -150,6 +153,7 @@ export function initCipherToolPage() {
   let vigenereCracker = null
   let cipherIdentifier = null
   let anagramSolver = null
+  let dancingMen = null
   let matrixCtrl = null
   let albertiWheel = null
   let enigmaPanel = null
@@ -466,8 +470,14 @@ export function initCipherToolPage() {
       if (isLetterFrequencyTool) letterFrequency.showEmpty()
       if (isJsonFormatterTool) jsonFormatter.showEmpty()
       if (isTimestampConverterTool) timestampConverter.showEmpty()
+      if (isDancingMenTool) dancingMen.showEmpty()
       setOutputState(false)
       setFeedback('')
+      return
+    }
+
+    if (isDancingMenTool) {
+      dancingMen.run(value)
       return
     }
 
@@ -1190,6 +1200,14 @@ export function initCipherToolPage() {
       lfreqLangSelect, lfreqSortSelect,
       labels, setFeedback, setOutputState, sendAnalyticsBeacon, slug,
       onProcess: () => process(),
+    })
+  }
+
+  if (isDancingMenTool) {
+    dancingMen = initDancingMen({
+      output, visualOutput, tabDecode, downloadBtn,
+      ui, setFeedback, setOutputState,
+      sendAnalyticsBeacon, slug, alphabetSelect,
     })
   }
 

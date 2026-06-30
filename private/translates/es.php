@@ -844,6 +844,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Variante',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Memoria (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Paralelismo',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Basado en el cifrado de Conan Doyle de «La aventura de los bailarines»',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'No se requiere clave',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Salida visual con figuras de palitos',
+    'DANCING_MEN_EMPTY'                => 'Introduce texto para ver las figuras de bailarines',
+    'DANCING_MEN_PLACEHOLDER'          => 'Introduce texto para cifrar...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Algunos caracteres no son compatibles con el alfabeto seleccionado',
+    'DANCING_MEN_DOWNLOADED'           => 'Descargado como PNG (el portapapeles no admite imágenes)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'Descargar PNG',
+    'CIPHER_NAME_DANCING_MEN'          => 'Cifrado de los bailarines',
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de cifrado populares con la posibilidad de cifrar y descifrar texto en línea',
 ];

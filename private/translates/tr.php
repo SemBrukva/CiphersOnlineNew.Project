@@ -843,6 +843,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Varyant',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Bellek (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Paralellik',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Conan Doyle\'ın «Dans Eden Adamlar Macerası» adlı eserindeki şifre temel alınmıştır',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'Anahtar gerekmez',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Çöp adam sembolleriyle görsel çıktı',
+    'DANCING_MEN_EMPTY'                => 'Dans eden adam figürlerini görmek için metin girin',
+    'DANCING_MEN_PLACEHOLDER'          => 'Şifrelenecek metni girin...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Bazı karakterler seçilen alfabede desteklenmemektedir',
+    'DANCING_MEN_DOWNLOADED'           => 'PNG olarak indirildi (pano görüntüleri desteklemiyor)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'PNG İndir',
+    'CIPHER_NAME_DANCING_MEN'          => 'Dans Eden Adamlar Şifresi',
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
 ];

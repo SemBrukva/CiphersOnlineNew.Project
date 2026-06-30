@@ -844,6 +844,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Variante',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Speicher (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Parallelität',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Basiert auf der Conan-Doyle-Chiffre aus „Die tanzenden Männchen"',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'Kein Schlüssel erforderlich',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Visuelle Ausgabe mit Strichmännchen-Symbolen',
+    'DANCING_MEN_EMPTY'                => 'Text eingeben, um die tanzenden Männchen zu sehen',
+    'DANCING_MEN_PLACEHOLDER'          => 'Text zum Verschlüsseln eingeben...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Einige Zeichen werden im gewählten Alphabet nicht unterstützt',
+    'DANCING_MEN_DOWNLOADED'           => 'Als PNG heruntergeladen (Zwischenablage unterstützt keine Bilder)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'PNG herunterladen',
+    'CIPHER_NAME_DANCING_MEN'          => 'Tanzende Männchen Chiffre',
     // Footer
     'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',
 ];

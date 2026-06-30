@@ -843,6 +843,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Variante',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Memoria (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Parallelismo',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Basato sul cifrario di Conan Doyle da «L\'Avventura degli omini danzanti»',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'Nessuna chiave richiesta',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Output visivo con figurine di stecchini',
+    'DANCING_MEN_EMPTY'                => 'Inserisci del testo per vedere le figure degli omini danzanti',
+    'DANCING_MEN_PLACEHOLDER'          => 'Inserisci il testo da cifrare...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Alcuni caratteri non sono supportati nell\'alfabeto selezionato',
+    'DANCING_MEN_DOWNLOADED'           => 'Scaricato come PNG (gli appunti non supportano le immagini)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'Scarica PNG',
+    'CIPHER_NAME_DANCING_MEN'          => 'Cifrario degli omini danzanti',
     // Footer
     'FOOTER_DESC'                      => 'catalogo dei sistemi di crittografia più diffusi con la possibilità di cifrare e decifrare testo online',
 ];

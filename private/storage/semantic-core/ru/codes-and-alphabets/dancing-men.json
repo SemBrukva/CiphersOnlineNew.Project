@@ -1,0 +1,271 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "шрифт пляшущие человечки",
+    "intent": "cipher",
+    "status": "draft",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/codes-and-alphabets/dancing-men.csv",
+        "imported_at": "2026-06-30T21:56:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/dancing-men",
+        "url": "/ru/codes-and-alphabets/dancing-men",
+        "content_file": "private/storage/content/codes-and-alphabets/dancing-men/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 83,
+        "primary_terms": [
+            "пляшущие человечки шифр",
+            "шифр пляшущие человечки",
+            "алфавит пляшущих человечков",
+            "азбука пляшущих человечков",
+            "танцующие человечки шифр",
+            "шифр шерлока холмса",
+            "шифр в виде человечков"
+        ],
+        "modifiers": [
+            "зашифровать",
+            "онлайн",
+            "алфавит",
+            "азбука",
+            "каждая буква отдельно",
+            "для квеста",
+            "задания для детей",
+            "Шерлок Холмс"
+        ],
+        "intents": {
+            "cipher": 15,
+            "tool": 6,
+            "encode": 2,
+            "online": 1
+        },
+        "content_recommendations": [
+            "В meta_title использовать один точный primary «пляшущие человечки шифр»; перестановку «шифр пляшущие человечки» перенести в intro.",
+            "В первом экране явно сформулировать пользовательский сценарий: зашифровать текст онлайн и получить сообщение в виде фигурок; не обещать автоматическую расшифровку изображения.",
+            "В основном блоке естественно раскрыть варианты «танцующие человечки», «шифр в виде человечков» и «шифр Шерлока Холмса», связав их с рассказом Артура Конан Дойла.",
+            "Выделить самостоятельный справочный блок с полным алфавитом пляшущих человечков, где каждой букве соответствует отдельная фигурка, и пояснить, что таблица относится к реализации сервиса.",
+            "Сценарии «для квеста» и «задания для детей» раскрыть в примерах или FAQ как варианты применения, а не как основной интент страницы.",
+            "Запрос со словом «шрифт» покрыть пояснением в FAQ: сервис генерирует визуальные символы по фиксированному алфавиту, но не устанавливаемый шрифтовой файл."
+        ]
+    },
+    "queries": [
+        {
+            "query": "пляшущие человечки шифр",
+            "score": 27,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "шифр пляшущие человечки",
+            "score": 16,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр человечки",
+            "score": 5,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "алфавит пляшущие человечки",
+            "score": 4,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр пляшущие человечки отдельно каждая буква",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр пляшущие человечки зашифровать онлайн",
+            "score": 4,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр человечки для квеста",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "танцующие человечки шифр",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "азбука пляшущих человечков",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "пляшущие человечки алфавит",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр в виде человечков",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр шерлока холмса",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "алфавит пляшущих человечков",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "азбука танцующих человечков",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шрифт пляшущие человечки",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шифр танцующие человечки",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр пляшущие человечки зашифровать",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "encode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр пляшущие человечки задания для детей",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "шифр с человечками",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр пляшущих человечков",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "пляшущие человечки шифр шерлок холмс",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "notes": "Core вручную проанализирован после детерминированного импорта. Кластер тематически цельный и относится к онлайн-шифратору Dancing Men. Primary выбран по максимальному yandex_demand и точному совпадению с сущностью сервиса. Низкочастотные прикладные и вариативные формулировки распределены в long_tail; отдельную страницу под «шрифт» создавать по текущим данным нецелесообразно. Статус оставлен draft до проверки и подготовки русскоязычного content-файла."
+}

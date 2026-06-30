@@ -218,6 +218,15 @@ final readonly class CipherController
             $toolUi['jsonFormatterSortLabel']     = trans('JSON_FORMATTER_SORT_KEYS');
             $toolUi['jsonFormatterDownloadLabel'] = trans('JSON_FORMATTER_DOWNLOAD');
         }
+        if ($cipherAlias === 'dancing-men') {
+            $toolUi['dancingMenMode']          = true;
+            $toolUi['oneWayMode']              = true;
+            $toolUi['placeholderEncode']       = trans('DANCING_MEN_PLACEHOLDER');
+            $toolUi['dancingMenEmptyLabel']      = trans('DANCING_MEN_EMPTY');
+            $toolUi['dancingMenWarnUnsupported'] = trans('DANCING_MEN_WARN_UNSUPPORTED');
+            $toolUi['dancingMenDownloaded']      = trans('DANCING_MEN_DOWNLOADED');
+            $toolUi['dancingMenDownloadLabel']   = trans('DANCING_MEN_DOWNLOAD_BTN');
+        }
         if ($cipherAlias === 'morse-code') {
             $toolUi['placeholderEncode']  = trans('MORSE_PLACEHOLDER_ENCODE');
             $toolUi['placeholderDecode']  = trans('MORSE_PLACEHOLDER_DECODE');

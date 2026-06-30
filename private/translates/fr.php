@@ -844,6 +844,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Variante',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Mémoire (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Parallélisme',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Basé sur le chiffre de Conan Doyle dans «L\'Aventure des hommes qui dansent»',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'Aucune clé requise',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Sortie visuelle avec des personnages bâtons',
+    'DANCING_MEN_EMPTY'                => 'Entrez du texte pour voir les figures des hommes dansants',
+    'DANCING_MEN_PLACEHOLDER'          => 'Entrez le texte à chiffrer...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Certains caractères ne sont pas pris en charge dans l\'alphabet sélectionné',
+    'DANCING_MEN_DOWNLOADED'           => 'Téléchargé en PNG (le presse-papiers ne prend pas en charge les images)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'Télécharger PNG',
+    'CIPHER_NAME_DANCING_MEN'          => 'Chiffre des hommes dansants',
     // Footer
     'FOOTER_DESC'                      => 'catalogue des systèmes de chiffrement populaires avec la possibilité de chiffrer et déchiffrer du texte en ligne',
 ];

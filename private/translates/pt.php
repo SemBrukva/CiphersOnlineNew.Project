@@ -843,6 +843,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Variante',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Memória (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Paralelismo',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Baseado na cifra de Conan Doyle de «A Aventura dos Homenzinhos Dançantes»',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'Nenhuma chave necessária',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Saída visual com figuras de palito',
+    'DANCING_MEN_EMPTY'                => 'Insira texto para ver as figuras dos homenzinhos dançantes',
+    'DANCING_MEN_PLACEHOLDER'          => 'Insira o texto para cifrar...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Alguns caracteres não são suportados no alfabeto selecionado',
+    'DANCING_MEN_DOWNLOADED'           => 'Baixado como PNG (a área de transferência não suporta imagens)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'Baixar PNG',
+    'CIPHER_NAME_DANCING_MEN'          => 'Cifra dos Homenzinhos Dançantes',
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de criptografia populares com a possibilidade de criptografar e descriptografar texto online',
 ];

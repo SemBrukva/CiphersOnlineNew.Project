@@ -867,6 +867,16 @@ return [
     'KDF_ARGON2_VARIANT_LABEL'     => 'Вариант',
     'KDF_ARGON2_MEMORY_LABEL'      => 'Память (KiB)',
     'KDF_ARGON2_PARALLELISM_LABEL' => 'Параллелизм',
+    // Dancing Men
+    'DANCING_MEN_TRUST_SHERLOCK'       => 'Основан на шифре Конан Дойля из «Пляшущих человечков»',
+    'DANCING_MEN_TRUST_KEYLESS'        => 'Ключ не требуется',
+    'DANCING_MEN_TRUST_VISUAL'         => 'Визуальный вывод в виде фигурок человечков',
+    'DANCING_MEN_EMPTY'                => 'Введите текст, чтобы увидеть пляшущих человечков',
+    'DANCING_MEN_PLACEHOLDER'          => 'Введите текст для шифрования...',
+    'DANCING_MEN_WARN_UNSUPPORTED'     => 'Некоторые символы не поддерживаются в выбранном алфавите',
+    'DANCING_MEN_DOWNLOADED'           => 'Сохранено как PNG (буфер обмена не поддерживает изображения)',
+    'DANCING_MEN_DOWNLOAD_BTN'         => 'Скачать PNG',
+    'CIPHER_NAME_DANCING_MEN'          => 'Шифр «Пляшущие человечки»',
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
 ];
