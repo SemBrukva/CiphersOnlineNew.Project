@@ -73,7 +73,8 @@ final class NavigationBuilder
 
         if ($this->auth->check()) {
             // Приватный маршрут — языковой префикс не используется
-            $items[] = $this->makeItem('MENU_CABINET', '/cabinet', null, $currentPath, '');
+            // Пока не выводим
+            //$items[] = $this->makeItem('MENU_CABINET', '/cabinet', null, $currentPath, '');
         }
 
         return $items;
