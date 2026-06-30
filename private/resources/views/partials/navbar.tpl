@@ -100,12 +100,15 @@
                             <i class="bi bi-shield-lock me-1"></i>{$t.MENU_ADMIN}
                         </a>
                     {/if}
+                    {*
+                    Пока скрыл кнопку выхода
                     <form method="POST" action="{$locale_prefix}/logout" class="m-0">
                         <input type="hidden" name="_csrf_token" value="{$csrf_token}">
                         <button type="submit" class="btn btn-sm site-header__btn d-inline-flex align-items-center">
                             <i class="bi bi-box-arrow-right me-1"></i>{$t.AUTH_SIGN_OUT}
                         </button>
                     </form>
+                    *}
                 {else}
                     {if $registration_enabled}
                         <button type="button" class="btn btn-sm site-header__btn d-inline-flex align-items-center"
