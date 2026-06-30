@@ -75,7 +75,7 @@ final class ToolsOverviewController
 
         try {
             $saved = $this->runIndexationRefresh();
-            $this->session->flash('success', "Индексация обновлена: обработано {$saved} страниц из мониторинга Яндекса.");
+            $this->session->flash('success', "Индексация обновлена: обработано {$saved} страниц (данные из indexing/samples Яндекс Вебмастера).");
         } catch (Throwable $e) {
             $this->session->flash('error', 'Ошибка при запросе к Яндекс Вебмастер API: ' . $e->getMessage());
         }
@@ -84,7 +84,10 @@ final class ToolsOverviewController
     }
 
     /**
-     * Запрашивает список URL из мониторинга Яндекса, сопоставляет с инструментами и сохраняет статусы.
+     * Загружает индексные семплы Яндекса, сопоставляет с URL инструментов и сохраняет статусы.
+     *
+     * Использует /indexing/samples — список страниц, которые Яндекс проиндексировал.
+     * Страницы, найденные в семплах → INDEXED. Остальные помечаются NOT_INDEXED после полного обхода.
      *
      * @return int Количество сохранённых записей.
      */
@@ -95,55 +98,65 @@ final class ToolsOverviewController
         $isMultilang = (bool) config('locale.multilang', false);
         $defaultLocale = (string) config('locale.locale', 'en');
 
-        $toolsByCategoryAlias = $this->buildToolUrlMap($locales, $appUrl, $isMultilang, $defaultLocale);
+        $toolUrlMap = $this->buildToolUrlMap($locales, $appUrl, $isMultilang, $defaultLocale);
 
+        // Собираем все URL инструментов в обратный словарь url→{tool_slug, locale}
+        $urlToTool = [];
+        foreach ($toolUrlMap as $toolSlug => $localeUrls) {
+            foreach ($localeUrls as $locale => $fullUrl) {
+                $urlToTool[$fullUrl] = ['tool_slug' => $toolSlug, 'locale' => $locale];
+            }
+        }
+
+        // Постранично обходим indexing/samples
         $offset = 0;
         $limit = 100;
-        $urlIndexMap = [];
+        $indexedUrls = []; // url => {http_code, crawl_date}
 
         do {
-            $page = $this->webmaster->urlMonitoringList($limit, $offset);
-            $urls = is_array($page['urls'] ?? null) ? $page['urls'] : [];
+            $page = $this->webmaster->indexingSamples($limit, $offset);
+            $samples = is_array($page['samples'] ?? null) ? $page['samples'] : [];
 
-            foreach ($urls as $entry) {
-                $url = (string) ($entry['url'] ?? '');
+            foreach ($samples as $sample) {
+                $url = (string) ($sample['url'] ?? '');
                 if ($url === '') {
                     continue;
                 }
 
-                $urlIndexMap[$url] = [
-                    'indexing_status' => (string) ($entry['status'] ?? $entry['indexing_status'] ?? ''),
-                    'http_code'       => isset($entry['code']) ? (int) $entry['code'] : (isset($entry['http_code']) ? (int) $entry['http_code'] : null),
-                    'crawl_date'      => (string) ($entry['date'] ?? $entry['crawl_date'] ?? ''),
+                // Нормализуем URL: убираем trailing slash
+                $normalizedUrl = rtrim($url, '/');
+
+                $indexedUrls[$normalizedUrl] = [
+                    'http_code'  => isset($sample['http_code']) ? (int) $sample['http_code'] : null,
+                    'crawl_date' => (string) ($sample['ycrawler_show_date'] ?? $sample['crawl_date'] ?? ''),
                 ];
             }
 
-            $total = (int) ($page['count'] ?? 0);
+            $total = (int) ($page['count_total'] ?? $page['count'] ?? 0);
             $offset += $limit;
-        } while ($offset < $total && count($urls) === $limit);
+        } while ($offset < $total && count($samples) === $limit);
 
         $saved = 0;
 
-        foreach ($toolsByCategoryAlias as $toolSlug => $localeUrls) {
-            foreach ($localeUrls as $locale => $fullUrl) {
-                $match = $urlIndexMap[$fullUrl] ?? null;
+        foreach ($urlToTool as $fullUrl => $toolInfo) {
+            $normalizedToolUrl = rtrim($fullUrl, '/');
+            $match = $indexedUrls[$normalizedToolUrl] ?? null;
 
-                if ($match === null) {
-                    continue;
-                }
+            $status = $match !== null ? 'INDEXED' : 'NOT_INDEXED';
+            $httpCode = $match['http_code'] ?? null;
+            $crawlDate = ($match['crawl_date'] ?? '') !== '' ? $match['crawl_date'] : null;
 
-                $this->overviewRepo->upsertIndexation([
-                    'tool_slug'       => $toolSlug,
-                    'locale'          => $locale,
-                    'url'             => $fullUrl,
-                    'provider'        => 'yandex',
-                    'indexing_status' => $match['indexing_status'] !== '' ? $match['indexing_status'] : null,
-                    'http_code'       => $match['http_code'],
-                    'crawl_date'      => $match['crawl_date'] !== '' ? $match['crawl_date'] : null,
-                ]);
+            $this->overviewRepo->upsertIndexation([
+                'tool_slug'       => $toolInfo['tool_slug'],
+                'locale'          => $toolInfo['locale'],
+                'url'             => $fullUrl,
+                'provider'        => 'yandex',
+                'indexing_status' => $status,
+                'http_code'       => $httpCode,
+                'crawl_date'      => $crawlDate,
+            ]);
 
-                $saved++;
-            }
+            $saved++;
         }
 
         return $saved;
