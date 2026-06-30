@@ -17,6 +17,17 @@
             <div class="home-hero__search-results" id="homeSearchResults" role="listbox"></div>
         </form>
 
+        <a class="home-hero__identifier" href="{$locale_prefix}/text-analysis/cipher-identifier">
+            <span class="home-hero__identifier-icon" aria-hidden="true">
+                <i class="bi bi-stars"></i>
+            </span>
+            <span class="home-hero__identifier-body">
+                <strong>{$t.HOME_IDENTIFIER_CTA_TITLE}</strong>
+                <span>{$t.HOME_IDENTIFIER_CTA_TEXT}</span>
+            </span>
+            <i class="bi bi-arrow-right home-hero__identifier-arrow" aria-hidden="true"></i>
+        </a>
+
         {if $quick_access_tools}
         <div class="home-hero__quick">
             <span class="home-hero__quick-label">{$t.HOME_QUICK_ACCESS}</span>
@@ -33,6 +44,62 @@
         {/if}
     </div>
 </section>
+
+{* === POPULAR TASKS / USE CASES === *}
+{if $use_cases}
+<section class="home-section">
+    <div class="home-section__head">
+        <h2 class="home-section__title">{$t.HOME_USE_CASES_TITLE}</h2>
+        <p class="home-section__lead">{$t.HOME_USE_CASES_LEAD}</p>
+    </div>
+
+    <div class="home-usecase-grid">
+        {foreach $use_cases as $uc}
+        <a class="home-usecase-item" href="{$uc.url}">
+            <span class="home-usecase-item__icon">
+                <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+            </span>
+            <span class="home-usecase-item__body">
+                <strong class="home-usecase-item__title">{$uc.title}</strong>
+                <span class="home-usecase-item__desc">{$uc.description}</span>
+            </span>
+            <span class="home-usecase-item__tool">{$uc.tool_label}</span>
+        </a>
+        {/foreach}
+    </div>
+</section>
+{/if}
+
+{* === POPULAR TOOLS === *}
+{if $popular_tools}
+<section class="home-section">
+    <div class="home-section__head">
+        <h2 class="home-section__title">{$t.HOME_POPULAR_TOOLS_TITLE}</h2>
+        <p class="home-section__lead">{$t.HOME_POPULAR_TOOLS_LEAD}</p>
+    </div>
+
+    <div class="home-tools-grid">
+        {foreach $popular_tools as $tool}
+        <a class="home-tool-card" href="{$locale_prefix}/{$tool.category_alias}/{$tool.alias}">
+            <div class="home-tool-card__top">
+                <h3 class="home-tool-card__title">{$tool.name_short}</h3>
+                <span class="home-tool-card__arrow" aria-hidden="true">→</span>
+            </div>
+            {if $tool.description_short}
+                <p class="home-tool-card__desc">{$tool.description_short}</p>
+            {/if}
+            {if $tool.tags}
+            <div class="home-tool-card__badges">
+                {foreach $tool.tags as $tag}
+                    <span class="home-badge">{$tag}</span>
+                {/foreach}
+            </div>
+            {/if}
+        </a>
+        {/foreach}
+    </div>
+</section>
+{/if}
 
 {* === MAIN CATEGORIES === *}
 <section class="home-section">
@@ -89,62 +156,6 @@
     </div>
 </section>
 
-{* === POPULAR TOOLS === *}
-{if $popular_tools}
-<section class="home-section">
-    <div class="home-section__head">
-        <h2 class="home-section__title">{$t.HOME_POPULAR_TOOLS_TITLE}</h2>
-        <p class="home-section__lead">{$t.HOME_POPULAR_TOOLS_LEAD}</p>
-    </div>
-
-    <div class="home-tools-grid">
-        {foreach $popular_tools as $tool}
-        <a class="home-tool-card" href="{$locale_prefix}/{$tool.category_alias}/{$tool.alias}">
-            <div class="home-tool-card__top">
-                <h3 class="home-tool-card__title">{$tool.name_short}</h3>
-                <span class="home-tool-card__arrow" aria-hidden="true">→</span>
-            </div>
-            {if $tool.description_short}
-                <p class="home-tool-card__desc">{$tool.description_short}</p>
-            {/if}
-            {if $tool.tags}
-            <div class="home-tool-card__badges">
-                {foreach $tool.tags as $tag}
-                    <span class="home-badge">{$tag}</span>
-                {/foreach}
-            </div>
-            {/if}
-        </a>
-        {/foreach}
-    </div>
-</section>
-{/if}
-
-{* === POPULAR TASKS / USE CASES === *}
-{if $use_cases}
-<section class="home-section">
-    <div class="home-section__head">
-        <h2 class="home-section__title">{$t.HOME_USE_CASES_TITLE}</h2>
-        <p class="home-section__lead">{$t.HOME_USE_CASES_LEAD}</p>
-    </div>
-
-    <div class="home-usecase-grid">
-        {foreach $use_cases as $uc}
-        <a class="home-usecase-item" href="{$uc.url}">
-            <span class="home-usecase-item__icon">
-                <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
-            </span>
-            <span class="home-usecase-item__body">
-                <strong class="home-usecase-item__title">{$uc.title}</strong>
-                <span class="home-usecase-item__desc">{$uc.description}</span>
-            </span>
-            <span class="home-usecase-item__tool">{$uc.tool_label}</span>
-        </a>
-        {/foreach}
-    </div>
-</section>
-{/if}
-
 {* === EDUCATIONAL === *}
 <section class="home-section">
     <div class="home-section__head">
@@ -153,21 +164,30 @@
     </div>
 
     <div class="home-edu-grid">
-        <article class="home-edu-card">
+        <a class="home-edu-card" href="{$locale_prefix}/encoding">
             <span class="home-edu-card__num">01</span>
             <h3 class="home-edu-card__title">{$t.HOME_EDU_CARD_1_TITLE}</h3>
             <p class="home-edu-card__text">{$t.HOME_EDU_CARD_1_TEXT}</p>
-        </article>
-        <article class="home-edu-card">
+            <i class="bi bi-arrow-right home-edu-card__arrow" aria-hidden="true"></i>
+        </a>
+        <a class="home-edu-card" href="{$locale_prefix}/text-analysis/cipher-identifier">
             <span class="home-edu-card__num">02</span>
             <h3 class="home-edu-card__title">{$t.HOME_EDU_CARD_2_TITLE}</h3>
             <p class="home-edu-card__text">{$t.HOME_EDU_CARD_2_TEXT}</p>
-        </article>
-        <article class="home-edu-card">
+            <i class="bi bi-arrow-right home-edu-card__arrow" aria-hidden="true"></i>
+        </a>
+        <a class="home-edu-card" href="{$locale_prefix}/classical-ciphers">
             <span class="home-edu-card__num">03</span>
             <h3 class="home-edu-card__title">{$t.HOME_EDU_CARD_3_TITLE}</h3>
             <p class="home-edu-card__text">{$t.HOME_EDU_CARD_3_TEXT}</p>
-        </article>
+            <i class="bi bi-arrow-right home-edu-card__arrow" aria-hidden="true"></i>
+        </a>
+        <a class="home-edu-card" href="{$locale_prefix}/hashing">
+            <span class="home-edu-card__num">04</span>
+            <h3 class="home-edu-card__title">{$t.HOME_EDU_CARD_4_TITLE}</h3>
+            <p class="home-edu-card__text">{$t.HOME_EDU_CARD_4_TEXT}</p>
+            <i class="bi bi-arrow-right home-edu-card__arrow" aria-hidden="true"></i>
+        </a>
     </div>
 </section>
 

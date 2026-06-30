@@ -21,22 +21,32 @@ final readonly class HomeController
 {
     /** @var string[] Алиасы инструментов в hero-блоке быстрого доступа. */
     private const array QUICK_ACCESS_ALIASES = [
+        'cipher-identifier',
         'base64',
-        'jwt-decoder',
         'caesar',
-        'hex',
-        'url-encode',
-        'binary-converter',
+        'morse-code',
+        'jwt-decoder',
+        'sha256',
     ];
 
     /** @var string[] Алиасы инструментов в секции «Популярные инструменты». */
     private const array POPULAR_ALIASES = [
+        'cipher-identifier',
+        'vigenere-cracker',
+        'caesar',
+        'atbash',
+        'anagram-solver',
+        'morse-code',
+    ];
+
+    /** @var string[] Алиасы инструментов в секции задач. */
+    private const array USE_CASE_ALIASES = [
+        'cipher-identifier',
+        'vigenere-cracker',
+        'morse-code',
         'base64',
         'jwt-decoder',
-        'caesar',
-        'url-encode',
-        'hex',
-        'binary-converter',
+        'sha256',
     ];
 
     /** @var int Количество последних инструментов в секции «Каталог расширяется». */
@@ -64,8 +74,8 @@ final readonly class HomeController
         $language = locale();
         $defaultLanguage = (string) config('locale.locale', 'en');
 
-        /** @var array{categories_with_tools: array<mixed>, popular_tools: array<mixed>, recent_tools: array<mixed>, quick_access_tools: array<mixed>} $cached */
-        $cached = $this->cache->remember("home:{$language}", self::CACHE_TTL, function () use ($language, $defaultLanguage): array {
+        /** @var array{categories_with_tools: array<mixed>, popular_tools: array<mixed>, recent_tools: array<mixed>, quick_access_tools: array<mixed>, use_case_tools: array<mixed>} $cached */
+        $cached = $this->cache->remember("home:v2:{$language}", self::CACHE_TTL, function () use ($language, $defaultLanguage): array {
             $publishedCategories = $this->categories->findPublishedCategoriesForHome($language, $defaultLanguage);
 
             $categoriesWithTools = [];
@@ -104,15 +114,22 @@ final readonly class HomeController
                 $defaultLanguage,
             );
 
+            $useCaseTools = $this->ciphers->findPublishedByAliasesWithTranslation(
+                self::USE_CASE_ALIASES,
+                $language,
+                $defaultLanguage,
+            );
+
             return [
                 'categories_with_tools' => $categoriesWithTools,
                 'popular_tools'         => $popularTools,
                 'recent_tools'          => $recentTools,
                 'quick_access_tools'    => $quickAccessTools,
+                'use_case_tools'        => $useCaseTools,
             ];
         });
 
-        $useCases = $this->buildUseCases($cached['quick_access_tools']);
+        $useCases = $this->buildUseCases($cached['use_case_tools']);
 
         $this->view
             ->setTitle(trans('HOME_TITLE'))
@@ -139,12 +156,12 @@ final readonly class HomeController
         }
 
         $map = [
-            ['alias' => 'jwt-decoder',      'key' => 'HOME_USE_CASE_JWT'],
-            ['alias' => 'base64',           'key' => 'HOME_USE_CASE_BASE64'],
-            ['alias' => 'caesar',           'key' => 'HOME_USE_CASE_CAESAR'],
-            ['alias' => 'binary-converter', 'key' => 'HOME_USE_CASE_BINARY'],
-            ['alias' => 'url-encode',       'key' => 'HOME_USE_CASE_URL'],
-            ['alias' => 'hex',              'key' => 'HOME_USE_CASE_HEX'],
+            ['alias' => 'cipher-identifier', 'key' => 'HOME_USE_CASE_IDENTIFIER'],
+            ['alias' => 'vigenere-cracker',  'key' => 'HOME_USE_CASE_CRACK'],
+            ['alias' => 'morse-code',        'key' => 'HOME_USE_CASE_MORSE'],
+            ['alias' => 'base64',             'key' => 'HOME_USE_CASE_BASE64'],
+            ['alias' => 'jwt-decoder',        'key' => 'HOME_USE_CASE_JWT'],
+            ['alias' => 'sha256',             'key' => 'HOME_USE_CASE_HASH'],
         ];
 
         $cases = [];
@@ -157,7 +174,7 @@ final readonly class HomeController
                 'title' => trans($item['key'] . '_TITLE'),
                 'description' => trans($item['key'] . '_DESC'),
                 'tool_label' => (string) $tool['name_short'],
-                'url' => '/' . $tool['category_alias'] . '/' . $tool['alias'],
+                'url' => locale_url('/' . $tool['category_alias'] . '/' . $tool['alias']),
             ];
         }
 
