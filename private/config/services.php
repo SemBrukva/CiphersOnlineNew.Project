@@ -352,6 +352,7 @@ return [
             $container->get(View::class),
             $container->get(App\Repository\ToolsOverviewRepository::class),
             $container->get(App\Yandex\WebmasterClient::class),
+            $container->get(QueueManager::class),
             $container->get(Session::class),
         );
     },

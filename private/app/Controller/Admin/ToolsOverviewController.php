@@ -7,10 +7,11 @@ namespace App\Controller\Admin;
 use App\Http\Request;
 use App\Http\Response;
 use App\Http\Session;
+use App\Queue\Jobs\RefreshIndexationJob;
+use App\Queue\QueueManager;
 use App\Repository\ToolsOverviewRepository;
 use App\View\View;
 use App\Yandex\WebmasterClient;
-use Throwable;
 
 /**
  * Контроллер аналитического обзора инструментов в административной панели.
@@ -24,6 +25,7 @@ final class ToolsOverviewController
         private readonly View $view,
         private readonly ToolsOverviewRepository $overviewRepo,
         private readonly WebmasterClient $webmaster,
+        private readonly QueueManager $queue,
         private readonly Session $session,
     ) {
     }
@@ -62,7 +64,7 @@ final class ToolsOverviewController
     }
 
     /**
-     * Запускает обновление статусов индексации через Яндекс Вебмастер API.
+     * Ставит задачу обновления индексации в очередь и немедленно возвращает ответ.
      */
     public function refreshIndexation(Request $request): Response
     {
@@ -73,122 +75,18 @@ final class ToolsOverviewController
             return new Response('', 302, ['Location' => $adminPath . '/tools-overview']);
         }
 
-        try {
-            $saved = $this->runIndexationRefresh();
-            $this->session->flash('success', "Индексация обновлена: обработано {$saved} страниц (данные из indexing/samples Яндекс Вебмастера).");
-        } catch (Throwable $e) {
-            $this->session->flash('error', 'Ошибка при запросе к Яндекс Вебмастер API: ' . $e->getMessage());
-        }
+        $job = new RefreshIndexationJob(
+            locales: $this->locales(),
+            appUrl: rtrim((string) config('app.url', ''), '/'),
+            isMultilang: (bool) config('locale.multilang', false),
+            defaultLocale: (string) config('locale.locale', 'en'),
+        );
+
+        $this->queue->push($job);
+
+        $this->session->flash('success', 'Задание на обновление индексации поставлено в очередь. Результат появится через несколько секунд после обработки воркером.');
 
         return new Response('', 302, ['Location' => $adminPath . '/tools-overview']);
-    }
-
-    /**
-     * Загружает индексные семплы Яндекса, сопоставляет с URL инструментов и сохраняет статусы.
-     *
-     * Использует /indexing/samples — список страниц, которые Яндекс проиндексировал.
-     * Страницы, найденные в семплах → INDEXED. Остальные помечаются NOT_INDEXED после полного обхода.
-     *
-     * @return int Количество сохранённых записей.
-     */
-    private function runIndexationRefresh(): int
-    {
-        $locales = $this->locales();
-        $appUrl = rtrim((string) config('app.url', ''), '/');
-        $isMultilang = (bool) config('locale.multilang', false);
-        $defaultLocale = (string) config('locale.locale', 'en');
-
-        $toolUrlMap = $this->buildToolUrlMap($locales, $appUrl, $isMultilang, $defaultLocale);
-
-        // Собираем все URL инструментов в обратный словарь url→{tool_slug, locale}
-        $urlToTool = [];
-        foreach ($toolUrlMap as $toolSlug => $localeUrls) {
-            foreach ($localeUrls as $locale => $fullUrl) {
-                $urlToTool[$fullUrl] = ['tool_slug' => $toolSlug, 'locale' => $locale];
-            }
-        }
-
-        // Постранично обходим indexing/samples
-        $offset = 0;
-        $limit = 100;
-        $indexedUrls = []; // url => {http_code, crawl_date}
-
-        do {
-            $page = $this->webmaster->indexingSamples($limit, $offset);
-            $samples = is_array($page['samples'] ?? null) ? $page['samples'] : [];
-
-            foreach ($samples as $sample) {
-                $url = (string) ($sample['url'] ?? '');
-                if ($url === '') {
-                    continue;
-                }
-
-                // Нормализуем URL: убираем trailing slash
-                $normalizedUrl = rtrim($url, '/');
-
-                $indexedUrls[$normalizedUrl] = [
-                    'http_code'  => isset($sample['http_code']) ? (int) $sample['http_code'] : null,
-                    'crawl_date' => (string) ($sample['ycrawler_show_date'] ?? $sample['crawl_date'] ?? ''),
-                ];
-            }
-
-            $total = (int) ($page['count_total'] ?? $page['count'] ?? 0);
-            $offset += $limit;
-        } while ($offset < $total && count($samples) === $limit);
-
-        $saved = 0;
-
-        foreach ($urlToTool as $fullUrl => $toolInfo) {
-            $normalizedToolUrl = rtrim($fullUrl, '/');
-            $match = $indexedUrls[$normalizedToolUrl] ?? null;
-
-            $status = $match !== null ? 'INDEXED' : 'NOT_INDEXED';
-            $httpCode = $match['http_code'] ?? null;
-            $crawlDate = ($match['crawl_date'] ?? '') !== '' ? $match['crawl_date'] : null;
-
-            $this->overviewRepo->upsertIndexation([
-                'tool_slug'       => $toolInfo['tool_slug'],
-                'locale'          => $toolInfo['locale'],
-                'url'             => $fullUrl,
-                'provider'        => 'yandex',
-                'indexing_status' => $status,
-                'http_code'       => $httpCode,
-                'crawl_date'      => $crawlDate,
-            ]);
-
-            $saved++;
-        }
-
-        return $saved;
-    }
-
-    /**
-     * Строит карту tool_slug → [locale => full_url] для всех инструментов.
-     *
-     * @param  string[] $locales Список локалей.
-     * @return array<string, array<string, string>>
-     */
-    private function buildToolUrlMap(array $locales, string $appUrl, bool $isMultilang, string $defaultLocale): array
-    {
-        $rows = $this->overviewRepo->listPublishedWithCategoryAlias();
-
-        $result = [];
-
-        foreach ($rows as $row) {
-            $toolSlug = (string) ($row['tool_slug'] ?? '');
-            $catAlias = (string) ($row['category_alias'] ?? '');
-
-            if ($toolSlug === '' || $catAlias === '') {
-                continue;
-            }
-
-            foreach ($locales as $locale) {
-                $prefix = ($isMultilang && $locale !== $defaultLocale) ? '/' . $locale : '';
-                $result[$toolSlug][$locale] = $appUrl . $prefix . '/' . $catAlias . '/' . $toolSlug;
-            }
-        }
-
-        return $result;
     }
 
     /**
