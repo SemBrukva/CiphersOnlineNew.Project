@@ -44,6 +44,12 @@
             </a>
         </li>
         <li class="nav-item">
+            {assign var="tools_overview_prefix" value=$admin_path|cat:'/tools-overview'}
+            <a href="{$admin_path}/tools-overview" class="nav-link text-white{if $current_path|starts_with:$tools_overview_prefix} active{/if}">
+                <i class="bi bi-bar-chart-line me-2"></i>Обзор инструментов
+            </a>
+        </li>
+        <li class="nav-item">
             {assign var="semantic_core_prefix" value=$admin_path|cat:'/semantic-core'}
             <a href="{$admin_path}/semantic-core" class="nav-link text-white{if $current_path|starts_with:$semantic_core_prefix} active{/if}">
                 <i class="bi bi-search me-2"></i>Семантика

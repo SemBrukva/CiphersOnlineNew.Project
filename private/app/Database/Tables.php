@@ -101,4 +101,7 @@ final class Tables
 
     /** @var string Таблица снимков поисковых позиций по запросам. */
     public const string SEMANTIC_RANK_SNAPSHOTS = 'semantic_rank_snapshots';
+
+    /** @var string Таблица кеша индексации страниц инструментов в поисковых системах. */
+    public const string TOOL_INDEXATION_SNAPSHOTS = 'tool_indexation_snapshots';
 }

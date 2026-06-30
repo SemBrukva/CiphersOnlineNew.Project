@@ -8,6 +8,7 @@ use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\RedirectController;
 use App\Controller\Admin\SemanticCoreController;
 use App\Controller\Admin\SettingsController;
+use App\Controller\Admin\ToolsOverviewController;
 
 /**
  * Маршруты панели администратора.
@@ -39,6 +40,18 @@ return [
         'controller' => RedirectController::class,
         'method'     => 'index',
         'name'       => 'admin.redirects.index',
+    ],
+
+    'GET /tools-overview' => [
+        'controller' => ToolsOverviewController::class,
+        'method'     => 'index',
+        'name'       => 'admin.tools_overview.index',
+    ],
+
+    'POST /tools-overview/refresh-indexation' => [
+        'controller' => ToolsOverviewController::class,
+        'method'     => 'refreshIndexation',
+        'name'       => 'admin.tools_overview.refresh_indexation',
     ],
 
     'GET /semantic-core' => [

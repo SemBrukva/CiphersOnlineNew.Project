@@ -33,6 +33,95 @@ final readonly class WebmasterClient
     }
 
     /**
+     * Возвращает список URL из мониторинга с их статусами индексации.
+     *
+     * Яндекс Вебмастер API v4: GET /v4/user/{user-id}/hosts/{host-id}/urls/monitoring
+     *
+     * @param  int                  $limit  Максимум записей (1-100).
+     * @param  int                  $offset Смещение для пагинации.
+     * @return array<string, mixed>         Декодированный JSON-ответ (поле `urls`).
+     */
+    public function urlMonitoringList(int $limit = 100, int $offset = 0): array
+    {
+        if (!$this->isConfigured()) {
+            throw new RuntimeException('Не настроены YANDEX_WEBMASTER_TOKEN, YANDEX_WEBMASTER_USER_ID или YANDEX_WEBMASTER_HOST_ID.');
+        }
+
+        $path = '/v4/user/' . rawurlencode($this->userId()) . '/hosts/' . rawurlencode($this->hostId()) . '/urls/monitoring';
+        $url = $this->endpoint($path) . '?' . http_build_query(['offset' => $offset, 'limit' => min(100, max(1, $limit))]);
+
+        try {
+            $response = $this->http
+                ->withToken($this->token(), $this->tokenType())
+                ->withHeader('Accept', 'application/json')
+                ->retry(2, 500)
+                ->get($url)
+                ->throw();
+        } catch (HttpException $e) {
+            $data = $e->response()->json();
+            if (is_array($data)) {
+                throw new WebmasterApiException(
+                    $e->response()->status(),
+                    $data,
+                    $this->errorMessage($e),
+                    $e
+                );
+            }
+
+            throw new RuntimeException($this->errorMessage($e), 0, $e);
+        }
+
+        $data = $response->json();
+        if (!is_array($data)) {
+            throw new RuntimeException('API Яндекс Вебмастера вернул невалидный JSON.');
+        }
+
+        return $data;
+    }
+
+    /**
+     * Добавляет URL в мониторинг Яндекс Вебмастера.
+     *
+     * Яндекс Вебмастер API v4: PUT /v4/user/{user-id}/hosts/{host-id}/urls/monitoring
+     *
+     * @param  string[] $urls Список URL для добавления в мониторинг.
+     * @return array<string, mixed> Декодированный JSON-ответ.
+     */
+    public function addUrlsToMonitoring(array $urls): array
+    {
+        if (!$this->isConfigured()) {
+            throw new RuntimeException('Не настроены YANDEX_WEBMASTER_TOKEN, YANDEX_WEBMASTER_USER_ID или YANDEX_WEBMASTER_HOST_ID.');
+        }
+
+        $path = '/v4/user/' . rawurlencode($this->userId()) . '/hosts/' . rawurlencode($this->hostId()) . '/urls/monitoring';
+
+        try {
+            $response = $this->http
+                ->withToken($this->token(), $this->tokenType())
+                ->withHeader('Accept', 'application/json')
+                ->retry(2, 500)
+                ->put($this->endpoint($path), ['urls' => array_values($urls)])
+                ->throw();
+        } catch (HttpException $e) {
+            $data = $e->response()->json();
+            if (is_array($data)) {
+                throw new WebmasterApiException(
+                    $e->response()->status(),
+                    $data,
+                    $this->errorMessage($e),
+                    $e
+                );
+            }
+
+            throw new RuntimeException($this->errorMessage($e), 0, $e);
+        }
+
+        $data = $response->json();
+
+        return is_array($data) ? $data : [];
+    }
+
+    /**
      * Возвращает список запросов и URL из query-analytics/list.
      *
      * @param  array<string, mixed> $payload Тело POST-запроса к API.

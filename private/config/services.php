@@ -343,6 +343,19 @@ return [
         );
     },
 
+    App\Repository\ToolsOverviewRepository::class => static function (Container $container): App\Repository\ToolsOverviewRepository {
+        return new App\Repository\ToolsOverviewRepository($container->get(Database::class));
+    },
+
+    App\Controller\Admin\ToolsOverviewController::class => static function (Container $container): App\Controller\Admin\ToolsOverviewController {
+        return new App\Controller\Admin\ToolsOverviewController(
+            $container->get(View::class),
+            $container->get(App\Repository\ToolsOverviewRepository::class),
+            $container->get(App\Yandex\WebmasterClient::class),
+            $container->get(Session::class),
+        );
+    },
+
     FavoritesController::class => static function (Container $container): FavoritesController {
         return new FavoritesController($container->get(View::class));
     },
