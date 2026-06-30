@@ -36,6 +36,31 @@ services:
     networks:
       - skeleton
 
+  # ── Queue worker ─────────────────────────────────────────────────────────
+  worker:
+    build:
+      context: .
+      target: development
+    command: php bin/console queue:work --sleep=5
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+      - composer_cache:/root/.composer/cache
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+    env_file:
+      - ./private/.env
+    depends_on:
+      mysql:
+        condition: service_healthy
+        required: false
+      memcached:
+        condition: service_started
+        required: false
+    networks:
+      - skeleton
+
   # ── MySQL (профиль: mysql) ────────────────────────────────────────────────
   mysql:
     image: mysql:8.0

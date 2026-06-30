@@ -1,7 +1,8 @@
 .PHONY: install autoload serve test phpstan lint lint-fix db-setup migrate migrate-rollback migrate-status \
         config-cache config-clear route-cache route-clear route-list npm-install dev build \
+        worker \
         docker-build docker-up docker-down docker-restart docker-shell docker-logs \
-        docker-migrate docker-test docker-mysql docker-memcached docker-redis
+        docker-migrate docker-test docker-mysql docker-memcached docker-redis docker-worker-logs
 
 install:
 	composer install
@@ -24,6 +25,9 @@ build:
 
 autoload:
 	composer dump-autoload
+
+worker:
+	php bin/console queue:work --sleep=5
 
 serve:
 	@pids=$$(lsof -tiTCP:8080 -sTCP:LISTEN 2>/dev/null); \
@@ -108,3 +112,6 @@ docker-memcached:
 
 docker-redis:
 	docker compose --profile mysql --profile redis up -d
+
+docker-worker-logs:
+	docker compose logs -f worker
