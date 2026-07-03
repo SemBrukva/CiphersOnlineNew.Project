@@ -1,0 +1,751 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "text compare",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/text-analysis/text-diff.csv",
+        "imported_at": "2026-07-03T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "text-analysis/text-diff",
+        "url": "/en/text-analysis/text-diff",
+        "content_file": "private/storage/content/text-analysis/text-diff/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 1860000,
+        "primary_terms": [
+            "text compare",
+            "text to text comparison",
+            "text difference",
+            "compare text online",
+            "compare two texts",
+            "diff online",
+            "diff checker online",
+            "text diff checker",
+            "text comparison tool",
+            "compare text files",
+            "compare strings"
+        ],
+        "modifiers": [
+            "online",
+            "two / 2",
+            "diff",
+            "difference",
+            "checker",
+            "file / files",
+            "string / strings",
+            "tool",
+            "notepad",
+            "code",
+            "similar"
+        ],
+        "intents": {
+            "tool": 57,
+            "online": 24
+        },
+        "content_recommendations": [
+            "Use the exact primary query “text compare” once in the meta title; support the equally strong “text to text comparison” phrasing in the intro rather than placing two competing heads in the title.",
+            "On the first screen, state the core workflow plainly: paste two texts, compare them online, and see their differences.",
+            "Use “diff”, “difference checker”, and “text diff checker” as natural alternate names for the same comparison workflow.",
+            "Explain how additions, deletions, and changed fragments are presented, but do not promise a specific comparison mode or visualization unless the tool actually provides it.",
+            "Add a supporting block for comparing strings and text files. If direct file upload is unavailable, say that users can paste file or document contents instead of implying file import.",
+            "Treat “similar text checker” as an adjacent intent: explain the distinction between locating textual differences and calculating a similarity or plagiarism score.",
+            "Keep “code diff online” in FAQ-level coverage only and avoid claiming syntax-aware, language-aware, or repository diff features.",
+            "Use a short example with two near-identical passages to demonstrate how a changed word, an insertion, and a deletion are found."
+        ],
+        "query_groups": [
+            {
+                "name": "Core text comparison",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "text compare",
+                    "text to text comparison",
+                    "compare two texts"
+                ]
+            },
+            {
+                "name": "Online comparison",
+                "intent": [
+                    "tool",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "compare text online",
+                    "diff online",
+                    "compare two text online"
+                ]
+            },
+            {
+                "name": "Diff and difference checker",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "text difference",
+                    "diff checker online",
+                    "text diff checker"
+                ]
+            },
+            {
+                "name": "Text files and documents",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "compare two text files",
+                    "compare text documents",
+                    "compare notepad files"
+                ]
+            },
+            {
+                "name": "String comparison",
+                "intent": [
+                    "tool",
+                    "online"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "online compare string",
+                    "online compare two strings",
+                    "string diff online"
+                ]
+            },
+            {
+                "name": "Adjacent and edge-case expectations",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "similar text checker",
+                    "code diff online"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "text compare",
+            "score": 500000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "text to text comparison",
+            "score": 500000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "text difference",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare text online",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "compare two texts",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "diff online",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "compare 2 texts",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "check diff online",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "diff between text",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "diff checker online",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "diff online checker",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "diffchecker online",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "difference between text",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "online compare string",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "two text compare",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "text difference checker",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "similar text checker",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "text diff online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "text comparator",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "compare two text online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "text comparison tool",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "compare two text files",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "check text difference",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "check difference in text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "check for differences in text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "code diff online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "compare 2 string online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare 2 text file",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare 2 text online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "compare differences in text files",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare file online text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare file text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare file text online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare notepad",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare notepad files",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare online text files",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare text documents",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare text online tool",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "compare text tool online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "compare to text files",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare two files text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "compare two text file online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "different text online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "find diff in text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "find difference between text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "find difference between two text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "find the difference between two texts",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "find the differences between two texts",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "online compare text file",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "online compare text tool",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "online compare tool text",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "online compare two strings",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "string diff online",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "text by text comparison",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "text diff checker",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "text difference compare",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "text find difference",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-07-03",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "All 57 queries support one text comparison tool; no cluster split is recommended.",
+            "File, document, Notepad, string, similarity, and code wording is retained with expectation-setting guidance instead of being promoted as separate tool capabilities.",
+            "The source competitiveness labels are preserved verbatim from raw data even though their values are localized in Russian.",
+            "The linked English content file does not exist yet, so the cluster is reviewed but not mapped."
+        ]
+    },
+    "notes": "Manually curated after deterministic import. “text compare” is the single primary query; the equally weighted “text to text comparison” is assigned to the intro as a close alternate phrasing. Online, diff/checker, string, and text-file variants are retained as supporting groups. File upload, similarity scoring, and syntax-aware code diff must not be claimed unless implemented. Status is reviewed; creation and validation of the linked English content file are still required before mapped."
+}

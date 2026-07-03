@@ -7401,3 +7401,480 @@ a:focus .nav-fav-count {
   color: var(--text-muted);
   line-height: 1;
 }
+
+/* ============================================================
+   Split layout — переиспользуемая раскладка «две равные колонки»
+   для инструментов с двумя полями ввода бок о бок.
+   ============================================================ */
+.ciphers-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ciphers-split__col {
+  min-width: 0;
+}
+
+@media (max-width: 720px) {
+  .ciphers-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Text Diff / Compare
+   ============================================================ */
+.diff {
+  --diff-add-bg: rgba(46, 160, 67, 0.16);
+  --diff-add-strong: rgba(46, 160, 67, 0.42);
+  --diff-add-line: #56d364;
+  --diff-del-bg: rgba(248, 81, 73, 0.15);
+  --diff-del-strong: rgba(248, 81, 73, 0.42);
+  --diff-del-line: #f0857d;
+  --diff-mod: #e3b341;
+  --diff-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* Тулбар: селекты + чекбоксы-чипы */
+.diff__toolbar {
+  align-items: center;
+  row-gap: 12px;
+}
+
+.diff__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.diff__check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.diff__check:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.diff__check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.diff__check span {
+  position: relative;
+  padding-left: 20px;
+}
+
+.diff__check span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.diff__check:has(input:checked) {
+  background: rgba(193, 255, 0, 0.12);
+  border-color: rgba(193, 255, 0, 0.45);
+  color: #fff;
+}
+
+.diff__check:has(input:checked) span::before {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.diff__check:has(input:checked) span::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-60%) rotate(45deg);
+  width: 4px;
+  height: 8px;
+  border: solid var(--primary);
+  border-width: 0 2px 2px 0;
+}
+
+.diff__check:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.14);
+}
+
+/* Панели ввода */
+.diff__textarea {
+  width: 100%;
+  min-height: 200px;
+  font-size: 13px;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+}
+
+.diff__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Карточка результата */
+.diff__result-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.diff__statusbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.diff__stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  width: 100%;
+}
+
+.diff__stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid transparent;
+}
+
+.diff__stat b {
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.diff__stat--add {
+  background: var(--diff-add-bg);
+  border-color: rgba(46, 160, 67, 0.3);
+  color: var(--diff-add-line);
+}
+
+.diff__stat--add b { color: var(--diff-add-line); }
+
+.diff__stat--del {
+  background: var(--diff-del-bg);
+  border-color: rgba(248, 81, 73, 0.3);
+  color: var(--diff-del-line);
+}
+
+.diff__stat--del b { color: var(--diff-del-line); }
+
+.diff__stat--mod {
+  background: rgba(227, 179, 65, 0.14);
+  border-color: rgba(227, 179, 65, 0.3);
+  color: var(--diff-mod);
+}
+
+.diff__stat--mod b { color: var(--diff-mod); }
+
+.diff__similarity {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.diff__meter {
+  width: 84px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.diff__meter-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--diff-del-line), var(--diff-mod) 55%, var(--diff-add-line));
+  transition: width 0.25s ease;
+}
+
+.diff__similarity-val {
+  color: rgba(255, 255, 255, 0.92);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Навигация по изменениям (в шапке результата) */
+.diff__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.diff__hunk-pos {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  font-variant-numeric: tabular-nums;
+  min-width: 44px;
+  text-align: right;
+}
+
+.diff__nav-btn {
+  padding: 3px 9px !important;
+}
+
+/* Тело результата */
+.diff__result {
+  overflow: auto;
+  max-height: 620px;
+}
+
+.diff__empty,
+.diff__identical {
+  margin: 0;
+  padding: 34px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.diff__identical {
+  color: var(--diff-add-line);
+  font-weight: 600;
+}
+
+.diff__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--diff-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  table-layout: fixed;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.diff__table--split td.diff__cell {
+  width: calc(50% - 3.5ch);
+}
+
+.diff__ln {
+  width: 3.5ch;
+  padding: 1px 8px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.diff__cell {
+  padding: 1px 8px;
+  vertical-align: top;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.diff__cell--left {
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.diff__sign {
+  display: inline-block;
+  width: 1ch;
+  margin-right: 6px;
+  color: rgba(255, 255, 255, 0.3);
+  user-select: none;
+}
+
+.diff__row--delete .diff__cell,
+.diff__row--delete .diff__cell--left {
+  background: var(--diff-del-bg);
+}
+
+.diff__row--delete .diff__sign { color: var(--diff-del-line); }
+
+.diff__row--insert .diff__cell,
+.diff__row--insert .diff__cell--right {
+  background: var(--diff-add-bg);
+}
+
+.diff__row--insert .diff__sign { color: var(--diff-add-line); }
+
+.diff__row--modified .diff__cell--left { background: var(--diff-del-bg); }
+.diff__row--modified .diff__cell--right { background: var(--diff-add-bg); }
+
+.diff__chunk {
+  border-radius: 3px;
+  padding: 0 1px;
+  font-weight: 600;
+}
+
+.diff__chunk--del {
+  background: var(--diff-del-strong);
+  color: #ffd7d5;
+}
+
+.diff__chunk--ins {
+  background: var(--diff-add-strong);
+  color: #d7ffe0;
+}
+
+.diff__row--focus .diff__ln:first-child {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.diff__gap td {
+  padding: 4px 12px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: inherit;
+}
+
+@media (max-width: 720px) {
+  .diff__similarity {
+    margin-left: 0;
+  }
+
+  .diff__table--split {
+    font-size: 12px;
+  }
+
+  .diff__table--split td.diff__cell {
+    width: auto;
+  }
+}
+
+/* Блок примеров (светлая панель под виджетом) */
+.diff-ex-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.diff-ex-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.diff-ex-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-xs);
+}
+
+.diff-ex-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.diff-ex-card__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-base);
+}
+
+.diff-ex-card__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.diff-ex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.diff-ex-col__tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.diff-ex-col--a .diff-ex-col__tag { color: #c2410c; }
+.diff-ex-col--b .diff-ex-col__tag { color: #15803d; }
+
+.diff-ex-pre {
+  margin: 0;
+  padding: 8px 10px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--text-base);
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  max-height: 170px;
+  overflow: auto;
+}
+
+.diff-ex-col--a .diff-ex-pre { border-left: 2px solid #f4a48a; }
+.diff-ex-col--b .diff-ex-pre { border-left: 2px solid #86d3a3; }
+
+.diff-ex-card__desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .diff-ex-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .diff-ex-card__cols {
+    grid-template-columns: 1fr;
+  }
+}

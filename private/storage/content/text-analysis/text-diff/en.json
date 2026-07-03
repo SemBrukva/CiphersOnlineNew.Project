@@ -1,0 +1,260 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-03T22:14:09+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "text-diff",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 68,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 68,
+        "data": {
+            "name": "Text Diff / Compare",
+            "name_short": "Text Diff / Compare",
+            "description": "Paste two texts to compare them online and find every difference. Review added, removed and modified lines in a side-by-side or inline diff, highlight changes by word or character, and check the similarity score — privately in your browser.",
+            "description_stort": "Compare two texts online, highlight differences, and check similarity.",
+            "meta_title": "Text Compare — Compare Two Texts Online | Ciphers Online",
+            "meta_description": "Text compare and diff checker for two texts. Find added, removed and changed lines, words or characters online with private, instant results."
+        }
+    },
+    "blocks": [
+        {
+            "id": 253,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How to compare two texts online",
+                "text": "<p>Paste the original text into the left panel and the revised text into the right panel. The text-to-text comparison updates automatically as you type, so there is no upload or submit step. Added lines appear in green, removed lines in red, and paired edits are marked as modified.</p><ol><li>Enter or paste both versions of the text.</li><li>Choose word, character, or line highlighting.</li><li>Select a side-by-side or inline diff view.</li><li>Review the changes, use the previous and next controls to move between them, or copy the result as a unified diff.</li></ol><p>You can swap the original and changed versions at any time. Long runs of unchanged lines are collapsed to keep the differences easy to scan, while <strong>Only changes</strong> hides all unchanged context.</p>"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Read lines, words, characters, and similarity",
+                "text": "<p>This online diff checker first aligns both inputs line by line with the Myers difference algorithm. A line found only in the revised text is counted as added, a line found only in the original is counted as removed, and corresponding deleted and inserted lines are presented as one modification.</p><p><strong>By word</strong> highlights changed words and punctuation inside a modified line, which is useful for articles, contracts, and edited paragraphs. <strong>By character</strong> pinpoints individual letters, digits, spaces, or symbols in short strings and code. <strong>By line</strong> keeps the comparison at whole-line level.</p><p>The status bar reports added, removed, and modified line counts together with a similarity percentage. For ordinary inputs, similarity is calculated from the longest common subsequence of characters; very large inputs use a faster line-based approximation. Similarity describes shared content, not originality or plagiarism.</p>"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Control what counts as a text difference",
+                "text": "<p>Use the comparison options to remove noise before reviewing meaningful edits:</p><ul><li><strong>Ignore case</strong> treats uppercase and lowercase letters as equal.</li><li><strong>Ignore whitespace</strong> removes whitespace when lines are matched.</li><li><strong>Trim lines</strong> ignores whitespace only at the beginning and end of each line.</li><li><strong>Ignore empty lines</strong> excludes blank lines from the comparison.</li><li><strong>Sort lines</strong> compares sorted line sets, which helps with lists where order is not important.</li><li><strong>Only changes</strong> hides unchanged lines in the rendered result.</li></ul><p>Your selected options are saved in local browser storage for the next visit. The original input remains unchanged, and the copied unified diff reflects the currently prepared line comparison.</p>"
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Compare strings, documents, text files, and code",
+                "text": "<p>The tool can compare plain-text content from notes, Notepad files, drafts, configuration files, data lists, and source code. To compare two text files or documents, open them and paste their text into the two panels; direct file upload and document-format parsing are not provided.</p><p>For a short string diff, choose character highlighting to catch a changed digit, punctuation mark, identifier, or URL. For prose, word highlighting makes revisions easier to read. For logs, inventories, or line-oriented configuration, line mode and <strong>Sort lines</strong> can be more useful.</p><p>Code is compared as plain text. This makes the service useful for quick code changes, but it is not syntax-aware and does not inspect repositories, commits, formatting rules, or programming-language structure.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 510,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is my text uploaded anywhere?",
+                "answer": "No. The comparison runs locally in your browser with JavaScript, and the text is not sent to the application server. This makes the tool suitable for private notes, drafts, code, and configuration text, subject to the normal security of your device and browser."
+            }
+        },
+        {
+            "id": 511,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the difference between word and character highlighting?",
+                "answer": "All three modes align the inputs line by line. Word highlighting marks changed words and punctuation inside a modified line, making it a good choice for prose. Character highlighting pinpoints individual letters, digits, spaces, or symbols in strings and code. Line highlighting skips intra-line analysis and treats the whole edited line as changed."
+            }
+        },
+        {
+            "id": 512,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How is the similarity percentage calculated?",
+                "answer": "For ordinary inputs, similarity is based on the longest common subsequence of characters and is calculated as 2 × common length ÷ combined length. Very large inputs use a faster line-based approximation. A result of 100% means the compared content is identical under the active case option. This is a similarity indicator, not an originality or plagiarism score."
+            }
+        },
+        {
+            "id": 513,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can I compare two text files or Notepad files?",
+                "answer": "Yes, you can compare their plain-text content: open each file and paste one version into each panel. The service does not currently upload files or extract text from formatted Word or PDF documents, so formatting, images, and document metadata are not compared."
+            }
+        },
+        {
+            "id": 514,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can I use this as an online code diff checker?",
+                "answer": "Yes, for a quick plain-text code diff. Character mode can expose small symbol changes, while line or word mode works well for larger edits. The comparison is not syntax-aware and does not understand programming languages, repositories, branches, or commits."
+            }
+        },
+        {
+            "id": 515,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "What do Ignore whitespace and Trim lines do?",
+                "answer": "Ignore whitespace removes whitespace when deciding whether two lines match. Trim lines removes whitespace only from the beginning and end of each line. Neither option rewrites the text shown in the input panels; it changes how lines are matched for the diff."
+            }
+        },
+        {
+            "id": 516,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can I compare lists without considering line order?",
+                "answer": "Yes. Enable Sort lines to sort both inputs before comparison. This is useful for inventories, keyword lists, or configuration entries where order is irrelevant. Do not enable it when sequence or original line positions matter."
+            }
+        },
+        {
+            "id": 517,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "What is copied by the Copy diff button?",
+                "answer": "The button copies a plain-text unified-style result. Unchanged lines begin with two spaces, removed lines with a minus sign, and added lines with a plus sign. A modified line is copied as its old and new versions. It does not create or download a patch file."
+            }
+        },
+        {
+            "id": 518,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Is there a text size limit?",
+                "answer": "There is no server upload limit because processing happens in the browser. Practical speed and capacity depend on the input size, the number of differences, your browser, and your device. Very large comparisons may take longer, and their similarity percentage uses a line-based approximation."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 256,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Paragraph edit",
+                "key": "",
+                "shift": 0,
+                "input": "The quick brown fox jumps over the lazy dog.\nThis sentence stays exactly the same.\nThis line will be deleted.",
+                "output": "The quick brown cat jumps over the lazy dog.\nThis sentence stays exactly the same.",
+                "description": "One word changed and a whole line removed — watch the word-level highlighting."
+            }
+        },
+        {
+            "id": 257,
+            "sort_order": 20,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Code change",
+                "key": "",
+                "shift": 0,
+                "input": "function sum(a, b) {\n  return a + b\n}",
+                "output": "function sum(a, b, c) {\n  return a + b + c\n}",
+                "description": "A new parameter added to a function — compare by character to spot each edit."
+            }
+        },
+        {
+            "id": 258,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Version bump",
+                "key": "",
+                "shift": 0,
+                "input": "react: 18.2.0\nvite: 5.0.0\ntypescript: 5.3.3",
+                "output": "react: 18.3.1\nvite: 6.4.3\ntypescript: 5.3.3\nzod: 3.23.8",
+                "description": "Compare dependency versions line by line, including a newly added one."
+            }
+        },
+        {
+            "id": 259,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Reordered list",
+                "key": "",
+                "shift": 0,
+                "input": "alpha\nbeta\ngamma\ndelta",
+                "output": "delta\nalpha\ngamma\nbeta",
+                "description": "Enable Sort lines to compare the same list without treating its reordered entries as changes."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 353,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Text comparison"
+            }
+        },
+        {
+            "id": 354,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Diff checker"
+            }
+        },
+        {
+            "id": 355,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Compare two texts online"
+            }
+        },
+        {
+            "id": 356,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "Text difference checker"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

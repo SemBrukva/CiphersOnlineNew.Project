@@ -41,6 +41,7 @@ use App\Cipher\PortaCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
 use App\Cipher\SimpleSubstitutionCipherService;
+use App\Cipher\TextDiffService;
 use App\Cipher\TimestampConverterCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\TrifidCipherService;
@@ -178,7 +179,8 @@ final class ToolRegistryTest extends TestCase
             new CipherIdentifierService([], new LetterFrequencyScorer(), new IndexOfCoincidence(), new BigramFrequencyScorer()),
             new AnagramSolverService(),
             new DancingMenCipherService(),
-            new PigpenCipherService()
+            new PigpenCipherService(),
+            new TextDiffService()
         );
     }
 }

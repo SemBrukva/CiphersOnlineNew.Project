@@ -5,6 +5,7 @@ import { initContactsPage } from './pages/contacts.js'
 import { initRegistrationPage } from './pages/registration.js'
 import { initLoginForms } from './pages/login.js'
 import { initCipherToolPage } from './pages/cipher-tool.js'
+import { initTextDiffPage } from './pages/text-diff.js'
 import { initFavoriteButton, initFavoritesPage, updateNavFavCount } from './pages/favorites.js'
 import { initMobileNavSearch } from './pages/mobile-nav-search.js'
 import { initCookieConsent } from './pages/cookie-consent.js'
@@ -18,6 +19,7 @@ initRegistrationPage()
 initContactsPage()
 initLoginForms()
 initCipherToolPage()
+initTextDiffPage()
 updateNavFavCount()
 initFavoriteButton()
 initFavoritesPage()

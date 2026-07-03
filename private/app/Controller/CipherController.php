@@ -370,6 +370,41 @@ final readonly class CipherController
                 'CID_EV_FILE_SIGNATURE'            => trans('CID_EV_FILE_SIGNATURE'),
             ];
         }
+        if ($cipherAlias === 'text-diff') {
+            $toolUi['diffMode']                = true;
+            $toolUi['diffGranularityLabel']    = trans('DIFF_GRANULARITY_LABEL');
+            $toolUi['diffGranularityWord']     = trans('DIFF_GRANULARITY_WORD');
+            $toolUi['diffGranularityChar']     = trans('DIFF_GRANULARITY_CHAR');
+            $toolUi['diffGranularityLine']     = trans('DIFF_GRANULARITY_LINE');
+            $toolUi['diffViewLabel']           = trans('DIFF_VIEW_LABEL');
+            $toolUi['diffViewSplit']           = trans('DIFF_VIEW_SPLIT');
+            $toolUi['diffViewInline']          = trans('DIFF_VIEW_INLINE');
+            $toolUi['diffIgnoreCase']          = trans('DIFF_IGNORE_CASE');
+            $toolUi['diffIgnoreWhitespace']    = trans('DIFF_IGNORE_WHITESPACE');
+            $toolUi['diffTrim']                = trans('DIFF_TRIM');
+            $toolUi['diffIgnoreEmpty']         = trans('DIFF_IGNORE_EMPTY');
+            $toolUi['diffSortLines']           = trans('DIFF_SORT_LINES');
+            $toolUi['diffOnlyChanges']         = trans('DIFF_ONLY_CHANGES');
+            $toolUi['diffOriginalLabel']       = trans('DIFF_ORIGINAL_LABEL');
+            $toolUi['diffChangedLabel']        = trans('DIFF_CHANGED_LABEL');
+            $toolUi['diffLinesLabel']          = trans('DIFF_LINES_LABEL');
+            $toolUi['diffPlaceholderOriginal'] = trans('DIFF_PLACEHOLDER_ORIGINAL');
+            $toolUi['diffPlaceholderChanged']  = trans('DIFF_PLACEHOLDER_CHANGED');
+            $toolUi['diffSwapLabel']           = trans('DIFF_SWAP_LABEL');
+            $toolUi['diffCopyLabel']           = trans('DIFF_COPY_LABEL');
+            $toolUi['diffPrevLabel']           = trans('DIFF_PREV_LABEL');
+            $toolUi['diffNextLabel']           = trans('DIFF_NEXT_LABEL');
+            $toolUi['diffEmptyLabel']          = trans('DIFF_EMPTY_LABEL');
+            $toolUi['diffIdentical']           = trans('DIFF_IDENTICAL');
+            $toolUi['diffSimilarity']          = trans('DIFF_SIMILARITY');
+            $toolUi['diffStatAdded']           = trans('DIFF_STAT_ADDED');
+            $toolUi['diffStatRemoved']         = trans('DIFF_STAT_REMOVED');
+            $toolUi['diffStatModified']        = trans('DIFF_STAT_MODIFIED');
+            $toolUi['diffUnchangedGap']        = trans('DIFF_UNCHANGED_GAP');
+            $toolUi['diffChangePos']           = trans('DIFF_CHANGE_POS');
+            $toolUi['diffCopied']              = trans('DIFF_COPIED');
+            $toolUi['diffCopyFailed']          = trans('DIFF_COPY_FAILED');
+        }
         $allInCategoryLabel = str_replace(
             ':category',
             (string) ($category['name'] ?? $categoryAlias),

@@ -51,7 +51,8 @@ final readonly class ToolRegistry
         private CipherIdentifierService $cipherIdentifier,
         private AnagramSolverService $anagramSolver,
         private DancingMenCipherService $dancingMen,
-        private PigpenCipherService $pigpen
+        private PigpenCipherService $pigpen,
+        private TextDiffService $textDiff
     ) {
     }
 
@@ -509,6 +510,7 @@ final readonly class ToolRegistry
             'text-analysis/vigenere-cracker'    => $this->vigenereCracker->getToolSettings(),
             'text-analysis/letter-frequency'    => $this->letterFrequency->getToolSettings(),
             'text-analysis/cipher-identifier'   => $this->cipherIdentifier->getToolSettings(),
+            'text-analysis/text-diff'           => $this->textDiff->getToolSettings(),
             default => [],
         };
     }
@@ -555,6 +557,7 @@ final readonly class ToolRegistry
             'text-analysis/vigenere-cracker'    => $this->vigenereCracker->getTrustItems($calculationMode),
             'text-analysis/letter-frequency'    => $this->letterFrequency->getTrustItems($calculationMode),
             'text-analysis/cipher-identifier'   => $this->cipherIdentifier->getTrustItems($calculationMode),
+            'text-analysis/text-diff'           => $this->textDiff->getTrustItems($calculationMode),
             'encoding/html-encode' => $this->htmlEncode->getTrustItems($calculationMode),
             'encoding/json-formatter' => $this->jsonFormatter->getTrustItems($calculationMode),
             'encoding/timestamp-converter' => $this->timestampConverter->getTrustItems($calculationMode),

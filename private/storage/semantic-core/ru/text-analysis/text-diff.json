@@ -1,0 +1,634 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "сравнение текстов",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/text-analysis/text-diff.csv",
+        "imported_at": "2026-07-03T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "text-analysis/text-diff",
+        "url": "/ru/text-analysis/text-diff",
+        "content_file": "private/storage/content/text-analysis/text-diff/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 15365,
+        "primary_terms": [
+            "сравнение текстов онлайн",
+            "сравнение текстов",
+            "сравнить текст",
+            "сравнить два текста",
+            "сравнение текста онлайн",
+            "сравнение двух текстов на различия",
+            "найти отличия в тексте",
+            "сверка текстов онлайн",
+            "сравнение текстовых файлов онлайн",
+            "сравнить документы и найти отличия"
+        ],
+        "modifiers": [
+            "онлайн",
+            "два / двух / 2 / 2х",
+            "отличия / различия / разница",
+            "схожесть",
+            "идентичность",
+            "совпадения",
+            "с выделением",
+            "бесплатно",
+            "текстовые файлы",
+            "документы",
+            "редакции",
+            "online"
+        ],
+        "intents": {
+            "online": 34,
+            "tool": 16
+        },
+        "content_recommendations": [
+            "Использовать точный primary-запрос «сравнение текстов онлайн» один раз в meta title; сильные варианты «сравнение текстов» и «сравнить два текста» раскрыть в intro.",
+            "На первом экране ясно описать сценарий: вставить два текста, запустить сравнение и увидеть найденные отличия.",
+            "В основном блоке естественно покрыть формулировки «различия», «отличия», «разница» и «сверка текстов» как названия одного рабочего сценария.",
+            "Отдельно объяснить способ выделения добавленных, удалённых и изменённых фрагментов, но не обещать конкретный вид подсветки, если он не реализован.",
+            "Запросы о схожести, идентичности и совпадениях вынести в FAQ: различать поиск отличий и расчёт процента сходства, не обещать антиплагиат.",
+            "Для файлов, документов и редакций пояснить, что можно сравнить их текстовое содержимое; не заявлять загрузку файлов, если доступна только вставка текста.",
+            "Формулировки «бесплатно» использовать только при фактически свободном доступе без скрытых ограничений.",
+            "Добавить короткий пример с заменённым словом, вставленной строкой и удалённым фрагментом."
+        ],
+        "query_groups": [
+            {
+                "name": "Основное сравнение текстов",
+                "intent": [
+                    "tool",
+                    "online"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "сравнение текстов онлайн",
+                    "сравнение текстов",
+                    "сравнить два текста"
+                ]
+            },
+            {
+                "name": "Сравнение двух текстов онлайн",
+                "intent": [
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "сравнить два текста онлайн",
+                    "сравнение двух текстов онлайн",
+                    "сравнить 2 текста онлайн"
+                ]
+            },
+            {
+                "name": "Поиск отличий и различий",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "сравнение двух текстов на различия",
+                    "сравнить два текста и найти отличия",
+                    "найти отличия в тексте"
+                ]
+            },
+            {
+                "name": "Схожесть, идентичность и совпадения",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "сравнение текстов онлайн на схожесть",
+                    "сравнить текст онлайн на идентичность",
+                    "сравнение текста онлайн на совпадения"
+                ]
+            },
+            {
+                "name": "Выделение изменений",
+                "intent": [
+                    "online"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "сравнение текста онлайн с выделением",
+                    "сравнение текстов онлайн с выделением"
+                ]
+            },
+            {
+                "name": "Файлы, документы и редакции",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "сравнить документы и найти отличия",
+                    "сравнение текстовых файлов онлайн",
+                    "сравнить редакции онлайн"
+                ]
+            },
+            {
+                "name": "Бесплатное использование и редкие формулировки",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "сравнить тексты онлайн бесплатно",
+                    "сравнение текстов бесплатно",
+                    "сравнитель текста"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "сравнение текстов онлайн",
+            "score": 4306,
+            "competitiveness": "LOW",
+            "priority": "primary",
+            "intent": [
+                "online"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "сравнение текстов",
+            "score": 2118,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнить текст",
+            "score": 1690,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнить два текста",
+            "score": 1297,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнить два текста онлайн",
+            "score": 1250,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнение текста",
+            "score": 1151,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнение текста онлайн",
+            "score": 1135,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнить 2 текста онлайн",
+            "score": 617,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнение двух текстов на различия",
+            "score": 234,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнить два текста и найти отличия",
+            "score": 196,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнить текст онлайн на идентичность",
+            "score": 180,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сравнение двух текстов онлайн",
+            "score": 130,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сравнить документы и найти отличия",
+            "score": 122,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текстов онлайн на схожесть",
+            "score": 111,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сравнение 2 текстов онлайн",
+            "score": 74,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение 2 текстов",
+            "score": 60,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "проверить текст на схожесть",
+            "score": 54,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сверка текстов онлайн",
+            "score": 52,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "онлайн сравнение текстов",
+            "score": 48,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текстовых файлов онлайн",
+            "score": 48,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнить редакции онлайн",
+            "score": 40,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнить два текстовых файла онлайн",
+            "score": 36,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнитель текста",
+            "score": 34,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сравнить 2 текста онлайн на отличия",
+            "score": 32,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текста online",
+            "score": 30,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сравнить два текста на идентичность онлайн",
+            "score": 25,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сравнить тексты онлайн бесплатно",
+            "score": 25,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "найти отличия в тексте онлайн",
+            "score": 22,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "найти отличия в тексте",
+            "score": 20,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "онлайн сравнение текста",
+            "score": 19,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текста онлайн на совпадения",
+            "score": 19,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сравнение текста онлайн с выделением",
+            "score": 18,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текстов бесплатно",
+            "score": 18,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "найти различия в тексте онлайн",
+            "score": 17,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "сравнение текста онлайн бесплатно",
+            "score": 15,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнить тексты на схожесть онлайн",
+            "score": 15,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "разница в тексте онлайн",
+            "score": 15,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текстов онлайн на схожесть с выделением",
+            "score": 14,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "сравнение текстов онлайн с выделением",
+            "score": 13,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текста онлайн на отличия",
+            "score": 13,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение 2х текстов онлайн",
+            "score": 12,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение двух текстов на различия онлайн",
+            "score": 11,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнения текста онлайн",
+            "score": 8,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение два текста онлайн",
+            "score": 7,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение текст онлайн",
+            "score": 7,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сравнение 2 текста онлайн",
+            "score": 7,
+            "competitiveness": "LOW",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-07-03",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "46 из 47 raw-запросов относятся к одному инструменту сравнения текстов; разделение основного кластера не рекомендуется.",
+            "Запрос «сравнение тестов онлайн» исключён как тематически нерелевантный или ошибочный вариант, который не следует переносить в контент страницы.",
+            "Ложный intent decode, автоматически возникший из-за сочетаний «в тексте», исправлен на tool.",
+            "Запросы о схожести, идентичности и совпадениях сохранены как long-tail с обязательным разграничением diff и процентной оценки сходства.",
+            "Связанный русский content-файл пока отсутствует, поэтому кластер reviewed, но не mapped."
+        ]
+    },
+    "notes": "Ядро вручную отредактировано после детерминированного импорта. Единственный primary — «сравнение текстов онлайн»; сильные варианты без модификатора online и формулировки «сравнить два текста» направлены в intro. Запросы о различиях, выделении, файлах и редакциях распределены по supporting-блокам и examples. Нельзя обещать антиплагиат, процент сходства или загрузку файлов без соответствующей реализации. Перед статусом mapped требуется создать и проверить private/storage/content/text-analysis/text-diff/ru.json."
+}

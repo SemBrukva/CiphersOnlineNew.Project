@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-03T22:14:09+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "text-diff",
+        "language": "pt",
+        "default_language": "en",
+        "cipher_id": 68,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 68,
+        "data": {
+            "name": "Comparar textos / Text Diff",
+            "name_short": "Comparar textos",
+            "description": "Compare dois textos online e encontre todas as diferenças. Veja linhas adicionadas, removidas e alteradas lado a lado ou numa vista única, destaque mudanças por palavra ou caractere e consulte a percentagem de semelhança diretamente no navegador.",
+            "description_stort": "Compare dois textos online, destaque diferenças e verifique a semelhança.",
+            "meta_title": "Comparar dois textos online — Text Diff | Ciphers Online",
+            "meta_description": "Compare dois textos online e encontre diferenças em linhas, palavras ou caracteres. Destaques claros, percentagem de semelhança e processamento privado no navegador."
+        }
+    },
+    "blocks": [
+        {
+            "id": 253,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como comparar dois textos online",
+                "text": "<p>Cole o texto original no painel esquerdo e a versão revista no direito. A comparação é atualizada enquanto escreve: as linhas adicionadas aparecem a verde, as removidas a vermelho e as edições correspondentes são apresentadas como alteradas.</p><ol><li>Introduza ou cole as duas versões.</li><li>Escolha o destaque por palavra, caractere ou linha.</li><li>Selecione a vista lado a lado ou em linha.</li><li>Percorra as alterações ou copie o resultado como unified diff.</li></ol><p>Os trechos longos sem alterações são recolhidos. A opção <strong>Apenas alterações</strong> oculta todo o contexto idêntico.</p>"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Interpretar linhas, palavras, caracteres e semelhança",
+                "text": "<p>A ferramenta alinha os dois textos linha a linha com o algoritmo de diferenças de Myers e conta as linhas adicionadas, removidas e alteradas.</p><p>O modo <strong>Por palavra</strong> é indicado para prosa, <strong>Por caractere</strong> para cadeias curtas e código, e <strong>Por linha</strong> para alterações completas.</p><p>A barra de estado apresenta as diferenças e uma percentagem de semelhança. Textos normais usam a subsequência comum mais longa de caracteres; textos muito grandes usam uma aproximação por linhas. Este valor não é uma verificação de plágio.</p>"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Controlar o que conta como diferença",
+                "text": "<p>As opções permitem ignorar diferenças sem importância:</p><ul><li><strong>Ignorar maiúsculas e minúsculas</strong></li><li><strong>Ignorar espaços</strong></li><li><strong>Aparar linhas</strong></li><li><strong>Ignorar linhas vazias</strong></li><li><strong>Ordenar linhas</strong> quando a ordem não é relevante</li><li><strong>Apenas alterações</strong> para um resultado compacto</li></ul><p>As definições são guardadas localmente no navegador e não modificam os textos introduzidos.</p>"
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Comparar cadeias, documentos, ficheiros de texto e código",
+                "text": "<p>Pode comparar notas, conteúdos de ficheiros de texto, rascunhos, configurações, listas e código-fonte. Abra os dois ficheiros e cole o conteúdo nos painéis; não existe carregamento direto de ficheiros nem extração de documentos formatados.</p><p>Use caracteres para cadeias curtas, palavras para prosa e linhas para registos ou listas.</p><p>O código é comparado como texto simples. A ferramenta não interpreta sintaxe, repositórios, branches ou commits.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {"id": 510, "sort_order": 10, "published": true, "data": {"question": "O meu texto é enviado para algum servidor?", "answer": "Não. A comparação é executada localmente no navegador com JavaScript e o texto não é enviado para o servidor da aplicação."}},
+        {"id": 511, "sort_order": 20, "published": true, "data": {"question": "Qual é a diferença entre destacar palavras, caracteres e linhas?", "answer": "Todos os modos alinham primeiro os textos por linha. Palavra marca palavras e pontuação; caractere mostra letras, números, espaços e símbolos; linha marca toda a linha alterada."}},
+        {"id": 512, "sort_order": 30, "published": true, "data": {"question": "Como é calculada a percentagem de semelhança?", "answer": "As entradas normais usam a subsequência comum mais longa de caracteres e as muito grandes uma aproximação por linhas. Um resultado de 100% indica correspondência segundo a opção de maiúsculas e minúsculas. Não é uma avaliação de plágio."}},
+        {"id": 513, "sort_order": 40, "published": true, "data": {"question": "Posso comparar dois ficheiros de texto?", "answer": "Sim. Abra cada ficheiro e cole o respetivo texto num painel. A formatação, as imagens e os metadados de Word ou PDF não são comparados."}},
+        {"id": 514, "sort_order": 50, "published": true, "data": {"question": "Posso usar a ferramenta para comparar código online?", "answer": "Sim, para uma comparação rápida como texto simples. A ferramenta não reconhece a sintaxe das linguagens nem trabalha com repositórios ou commits."}},
+        {"id": 515, "sort_order": 60, "published": true, "data": {"question": "O que fazem «Ignorar espaços» e «Aparar linhas»?", "answer": "A primeira opção remove os espaços ao decidir se duas linhas correspondem. A segunda ignora apenas os espaços no início e no fim. Nenhuma altera os campos de entrada."}},
+        {"id": 516, "sort_order": 70, "published": true, "data": {"question": "Posso comparar listas sem considerar a ordem?", "answer": "Sim. Ative «Ordenar linhas». Não use esta opção quando a sequência ou os números de linha originais forem importantes."}},
+        {"id": 517, "sort_order": 80, "published": true, "data": {"question": "O que é copiado pelo botão «Copiar diff»?", "answer": "É copiado um resultado de texto ao estilo unified diff: linhas removidas começam com menos e linhas adicionadas com mais. Não é descarregado um ficheiro patch."}},
+        {"id": 518, "sort_order": 90, "published": true, "data": {"question": "Existe um limite de tamanho do texto?", "answer": "Não existe um limite de carregamento do servidor. O desempenho depende do tamanho, do número de diferenças, do navegador e do dispositivo. Comparações muito grandes podem demorar mais."}}
+    ],
+    "examples": [
+        {"id": 256, "sort_order": 10, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Edição de um parágrafo", "key": "", "shift": 0, "input": "A rápida raposa castanha salta sobre o cão preguiçoso.\nEsta frase permanece exatamente igual.\nEsta linha será eliminada.", "output": "A rápida raposa vermelha salta sobre o cão preguiçoso.\nEsta frase permanece exatamente igual.", "description": "Uma palavra foi alterada e uma linha inteira foi removida."}},
+        {"id": 257, "sort_order": 20, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Alteração de código", "key": "", "shift": 0, "input": "function sum(a, b) {\n  return a + b\n}", "output": "function sum(a, b, c) {\n  return a + b + c\n}", "description": "Foi adicionado um parâmetro; o modo por caractere mostra cada alteração."}},
+        {"id": 258, "sort_order": 30, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Atualização de versões", "key": "", "shift": 0, "input": "react: 18.2.0\nvite: 5.0.0\ntypescript: 5.3.3", "output": "react: 18.3.1\nvite: 6.4.3\ntypescript: 5.3.3\nzod: 3.23.8", "description": "Compare as versões das dependências e uma nova entrada linha a linha."}},
+        {"id": 259, "sort_order": 40, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Lista reordenada", "key": "", "shift": 0, "input": "alfa\nbeta\ngama\ndelta", "output": "delta\nalfa\ngama\nbeta", "description": "Ative «Ordenar linhas» para que os mesmos elementos noutra ordem não sejam considerados alterações."}}
+    ],
+    "tags": [
+        {"id": 353, "sort_order": 10, "published": true, "data": {"tag": "Comparação de textos"}},
+        {"id": 354, "sort_order": 20, "published": true, "data": {"tag": "Verificador de diferenças"}},
+        {"id": 355, "sort_order": 30, "published": true, "data": {"tag": "Comparar dois textos online"}},
+        {"id": 356, "sort_order": 40, "published": true, "data": {"tag": "Encontrar alterações no texto"}}
+    ]
+}

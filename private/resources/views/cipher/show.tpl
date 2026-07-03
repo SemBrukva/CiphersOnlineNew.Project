@@ -1,4 +1,8 @@
+{if $tool_ui.diffMode|default:false}
+{include file="cipher/_diff_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
+{else}
 {include file="cipher/_tool_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
+{/if}
 
 {include file="partials/ad_block.tpl" position="after_hero"}
 
@@ -8,6 +12,31 @@
         <div class="panel-title">{$tool_ui.examplesTitle}</div>
     </div>
     <div class="panel-content">
+        {if $tool_ui.diffMode|default:false}
+        <div class="diff-ex-grid">
+            {foreach $examples as $example}
+                <article class="diff-ex-card">
+                    <div class="diff-ex-card__head">
+                        {if $example.label}<span class="diff-ex-card__label">{$example.label}</span>{/if}
+                        <button class="b64-example-card__use diff-example" type="button"
+                                data-diff-a="{$example.input|escape:'html'}"
+                                data-diff-b="{$example.output|escape:'html'}">{$tool_ui.useExampleLabel}</button>
+                    </div>
+                    <div class="diff-ex-card__cols">
+                        <div class="diff-ex-col diff-ex-col--a">
+                            <span class="diff-ex-col__tag">{$tool_ui.diffOriginalLabel}</span>
+                            <pre class="diff-ex-pre">{$example.input|escape}</pre>
+                        </div>
+                        <div class="diff-ex-col diff-ex-col--b">
+                            <span class="diff-ex-col__tag">{$tool_ui.diffChangedLabel}</span>
+                            <pre class="diff-ex-pre">{$example.output|escape}</pre>
+                        </div>
+                    </div>
+                    {if $example.desc}<p class="diff-ex-card__desc">{$example.desc|escape}</p>{/if}
+                </article>
+            {/foreach}
+        </div>
+        {else}
         <div class="b64-examples-grid">
             {foreach $examples as $example}
                 <article class="b64-example-card">
@@ -79,6 +108,7 @@
                 </article>
             {/foreach}
         </div>
+        {/if}
     </div>
 </section>
 {/if}

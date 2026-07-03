@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-03T22:14:09+00:00",
+        "category_alias": "text-analysis",
+        "cipher_alias": "text-diff",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 68,
+        "category_id": 4
+    },
+    "cipher_translation": {
+        "id": 68,
+        "data": {
+            "name": "Metin Karşılaştırma / Text Diff",
+            "name_short": "Metin Karşılaştırma",
+            "description": "İki metni çevrimiçi karşılaştırın ve tüm farkları bulun. Eklenen, silinen ve değiştirilen satırları yan yana veya tek görünümde inceleyin, değişiklikleri sözcük ya da karakter düzeyinde vurgulayın ve benzerlik yüzdesini doğrudan tarayıcınızda görün.",
+            "description_stort": "İki metni çevrimiçi karşılaştırın, farkları vurgulayın ve benzerliği ölçün.",
+            "meta_title": "İki Metni Çevrimiçi Karşılaştırma — Text Diff | Ciphers Online",
+            "meta_description": "İki metni çevrimiçi karşılaştırın; satır, sözcük veya karakter farklarını bulun. Açık vurgulama, benzerlik yüzdesi ve tarayıcıda özel işlem."
+        }
+    },
+    "blocks": [
+        {
+            "id": 253,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "İki metin çevrimiçi nasıl karşılaştırılır?",
+                "text": "<p>Özgün metni sol alana, düzenlenmiş sürümü sağ alana yapıştırın. Karşılaştırma siz yazarken yenilenir: eklenen satırlar yeşil, silinenler kırmızı gösterilir; birbiriyle ilişkili düzenlemeler değiştirilmiş olarak eşleştirilir.</p><ol><li>Her iki metin sürümünü girin.</li><li>Sözcük, karakter veya satır vurgulamasını seçin.</li><li>Yan yana ya da satır içi görünüme geçin.</li><li>Değişiklikler arasında gezinin veya sonucu unified diff olarak kopyalayın.</li></ol><p>Uzun değişmemiş bölümler daraltılır. <strong>Yalnızca değişiklikler</strong> seçeneği aynı kalan bağlamı tamamen gizler.</p>"
+            }
+        },
+        {
+            "id": 254,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Satır, sözcük, karakter ve benzerlik sonuçlarını okuma",
+                "text": "<p>Araç, Myers fark algoritmasıyla iki metni satır satır hizalar ve eklenen, silinen ve değiştirilen satırları sayar.</p><p><strong>Sözcüğe göre</strong> düzyazı için, <strong>karaktere göre</strong> kısa dizeler ve kod için, <strong>satıra göre</strong> ise tüm satır değişiklikleri için uygundur.</p><p>Durum çubuğu değişiklik sayılarını ve benzerlik yüzdesini gösterir. Normal metinlerde en uzun ortak karakter alt dizisi, çok büyük metinlerde daha hızlı satır tabanlı bir yaklaşım kullanılır. Bu değer intihal denetimi değildir.</p>"
+            }
+        },
+        {
+            "id": 255,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Nelerin metin farkı sayılacağını belirleme",
+                "text": "<p>Önemsiz farkları elemek için şu seçenekleri kullanabilirsiniz:</p><ul><li><strong>Büyük/küçük harfi yoksay</strong></li><li><strong>Boşlukları yoksay</strong></li><li><strong>Satırları kırp</strong></li><li><strong>Boş satırları yoksay</strong></li><li>Sıra önemli değilse <strong>Satırları sırala</strong></li><li>Kısa sonuç için <strong>Yalnızca değişiklikler</strong></li></ul><p>Seçenekler tarayıcıda yerel olarak saklanır ve giriş metinlerini değiştirmez.</p>"
+            }
+        },
+        {
+            "id": 256,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Dize, belge, metin dosyası ve kod karşılaştırma",
+                "text": "<p>Notları, metin dosyası içeriklerini, taslakları, yapılandırmaları, listeleri ve kaynak kodunu karşılaştırabilirsiniz. İki dosyayı açıp içeriklerini alanlara yapıştırın; doğrudan dosya yükleme veya biçimlendirilmiş belgelerden metin çıkarma desteklenmez.</p><p>Kısa dizelerde karakter, düzyazıda sözcük, günlük ve listelerde satır modunu kullanın.</p><p>Kod düz metin olarak karşılaştırılır. Araç programlama dili sözdizimini, depoları, dalları veya commit'leri analiz etmez.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {"id": 510, "sort_order": 10, "published": true, "data": {"question": "Metnim bir sunucuya yükleniyor mu?", "answer": "Hayır. Karşılaştırma JavaScript ile tarayıcınızda yerel olarak yapılır ve metin uygulama sunucusuna gönderilmez."}},
+        {"id": 511, "sort_order": 20, "published": true, "data": {"question": "Sözcük, karakter ve satır vurgulaması arasındaki fark nedir?", "answer": "Tüm modlar önce metinleri satır satır hizalar. Sözcük modu sözcükleri ve noktalama işaretlerini, karakter modu tek tek harfleri, sayıları, boşlukları ve simgeleri, satır modu ise değişen satırın tamamını vurgular."}},
+        {"id": 512, "sort_order": 30, "published": true, "data": {"question": "Benzerlik yüzdesi nasıl hesaplanır?", "answer": "Normal girdiler en uzun ortak karakter alt dizisini, çok büyük girdiler satır tabanlı bir yaklaşımı kullanır. %100, büyük/küçük harf seçeneğine göre eşleşme anlamına gelir. Bu bir özgünlük veya intihal puanı değildir."}},
+        {"id": 513, "sort_order": 40, "published": true, "data": {"question": "İki metin dosyasını karşılaştırabilir miyim?", "answer": "Evet. Her dosyayı açın ve metnini ayrı bir alana yapıştırın. Word veya PDF biçimlendirmesi, görselleri ve meta verileri karşılaştırılmaz."}},
+        {"id": 514, "sort_order": 50, "published": true, "data": {"question": "Bu aracı çevrimiçi kod karşılaştırmak için kullanabilir miyim?", "answer": "Evet, kodu düz metin olarak hızlıca karşılaştırabilirsiniz. Araç dil sözdizimini anlamaz ve depolarla ya da commit'lerle çalışmaz."}},
+        {"id": 515, "sort_order": 60, "published": true, "data": {"question": "“Boşlukları yoksay” ve “Satırları kırp” ne yapar?", "answer": "İlk seçenek satır eşleşmesinde boşlukları kaldırır. İkincisi yalnızca satır başı ve sonundaki boşlukları yoksayar. Hiçbiri giriş alanlarını yeniden yazmaz."}},
+        {"id": 516, "sort_order": 70, "published": true, "data": {"question": "Listeleri satır sırasını dikkate almadan karşılaştırabilir miyim?", "answer": "Evet. “Satırları sırala” seçeneğini açın. Sıra veya özgün satır numaraları önemliyse bu seçeneği kullanmayın."}},
+        {"id": 517, "sort_order": 80, "published": true, "data": {"question": "“Diff'i kopyala” düğmesi neyi kopyalar?", "answer": "Unified diff benzeri bir düz metin sonucu kopyalar: silinen satırlar eksi, eklenenler artı işaretiyle başlar. Bir yama dosyası indirilmez."}},
+        {"id": 518, "sort_order": 90, "published": true, "data": {"question": "Metin boyutu sınırı var mı?", "answer": "Sunucu yükleme sınırı yoktur. Gerçek performans metin boyutuna, fark sayısına, tarayıcıya ve cihaza bağlıdır. Çok büyük karşılaştırmalar daha uzun sürebilir."}}
+    ],
+    "examples": [
+        {"id": 256, "sort_order": 10, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Paragraf düzenleme", "key": "", "shift": 0, "input": "Hızlı kahverengi tilki tembel köpeğin üzerinden atlar.\nBu cümle tamamen aynı kalır.\nBu satır silinecek.", "output": "Hızlı kızıl tilki tembel köpeğin üzerinden atlar.\nBu cümle tamamen aynı kalır.", "description": "Bir sözcük değiştirilmiş ve bir satır tamamen silinmiştir."}},
+        {"id": 257, "sort_order": 20, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Kod değişikliği", "key": "", "shift": 0, "input": "function sum(a, b) {\n  return a + b\n}", "output": "function sum(a, b, c) {\n  return a + b + c\n}", "description": "Yeni bir parametre eklenmiştir; karakter modu her düzenlemeyi gösterir."}},
+        {"id": 258, "sort_order": 30, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Sürüm güncellemesi", "key": "", "shift": 0, "input": "react: 18.2.0\nvite: 5.0.0\ntypescript: 5.3.3", "output": "react: 18.3.1\nvite: 6.4.3\ntypescript: 5.3.3\nzod: 3.23.8", "description": "Bağımlılık sürümlerini ve yeni eklenen kaydı satır satır karşılaştırın."}},
+        {"id": 259, "sort_order": 40, "published": true, "direction": "encrypt", "delimiter": "", "encoding": "", "key_format": "", "alberti_index": "", "data": {"title": "Yeniden sıralanmış liste", "key": "", "shift": 0, "input": "alfa\nbeta\ngama\ndelta", "output": "delta\nalfa\ngama\nbeta", "description": "Aynı öğelerin farklı sırasını değişiklik saymamak için “Satırları sırala” seçeneğini açın."}}
+    ],
+    "tags": [
+        {"id": 353, "sort_order": 10, "published": true, "data": {"tag": "Metin karşılaştırma"}},
+        {"id": 354, "sort_order": 20, "published": true, "data": {"tag": "Fark denetleyici"}},
+        {"id": 355, "sort_order": 30, "published": true, "data": {"tag": "İki metni çevrimiçi karşılaştırma"}},
+        {"id": 356, "sort_order": 40, "published": true, "data": {"tag": "Metin değişikliklerini bulma"}}
+    ]
+}
