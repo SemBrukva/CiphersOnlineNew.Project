@@ -405,9 +405,9 @@ final readonly class ToolRegistry
                 ['label' => 'Hello',    'value' => 'HELLO WORLD',     'alphabet' => 'en'],
             ],
             'codes-and-alphabets/pigpen' => [
-                ...self::withSettings([['label' => 'Standard',    'value' => 'PIGPEN CIPHER']],  ['ciphers-pigpen-variant' => 'standard']),
+                ...self::withSettings([['label' => 'Standard',    'value' => 'PIGPEN CIPHER']], ['ciphers-pigpen-variant' => 'standard']),
                 ...self::withSettings([['label' => 'Variant',     'value' => 'SECRET MESSAGE']], ['ciphers-pigpen-variant' => 'variant']),
-                ...self::withSettings([['label' => 'Rosicrucian', 'value' => 'HELLO WORLD']],    ['ciphers-pigpen-variant' => 'rosicrucian']),
+                ...self::withSettings([['label' => 'Rosicrucian', 'value' => 'HELLO WORLD']], ['ciphers-pigpen-variant' => 'rosicrucian']),
             ],
             default => [],
         };

@@ -125,7 +125,7 @@ final class ToolsOverviewRepository extends AbstractRepository
             'SELECT MAX(checked_at) AS max_date FROM ' . Tables::SEMANTIC_RANK_SNAPSHOTS
         );
 
-        if ($latestDate === null || $latestDate['max_date'] === null) {
+        if ($latestDate === false || $latestDate['max_date'] === null) {
             return [];
         }
 
@@ -220,7 +220,7 @@ final class ToolsOverviewRepository extends AbstractRepository
             [(string) ($data['tool_slug'] ?? ''), (string) ($data['locale'] ?? ''), (string) ($data['provider'] ?? 'yandex')]
         );
 
-        if ($existing !== null) {
+        if ($existing !== false) {
             $this->db->execute(
                 'UPDATE ' . Tables::TOOL_INDEXATION_SNAPSHOTS . '
                  SET url = ?, indexing_status = ?, http_code = ?, crawl_date = ?, checked_at = ?, updated_at = ?

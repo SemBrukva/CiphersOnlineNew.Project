@@ -130,8 +130,8 @@ final class RefreshIndexationJob implements ContainerAwareJobInterface
         $result = [];
 
         foreach ($rows as $row) {
-            $toolSlug = (string) ($row['tool_slug'] ?? '');
-            $catAlias = (string) ($row['category_alias'] ?? '');
+            $toolSlug = (string) $row['tool_slug'];
+            $catAlias = (string) $row['category_alias'];
 
             if ($toolSlug === '' || $catAlias === '') {
                 continue;
