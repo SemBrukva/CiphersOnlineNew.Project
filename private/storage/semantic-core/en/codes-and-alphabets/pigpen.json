@@ -1,0 +1,366 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "pigpen cipher",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/codes-and-alphabets/pigpen.csv",
+        "imported_at": "2026-07-03T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/pigpen",
+        "url": "/en/codes-and-alphabets/pigpen",
+        "content_file": "private/storage/content/codes-and-alphabets/pigpen/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 163050,
+        "primary_terms": [
+            "pigpen cipher",
+            "pigpen cypher",
+            "freemason's cipher",
+            "pigpen cipher decoder",
+            "pigpen cipher translator",
+            "masonic pigpen cipher",
+            "pigpen alphabet"
+        ],
+        "modifiers": [
+            "decoder",
+            "translator",
+            "encoder",
+            "generator",
+            "alphabet",
+            "key",
+            "puzzles",
+            "masonic",
+            "freemason"
+        ],
+        "intents": {
+            "cipher": 16,
+            "tool": 3,
+            "decode": 3,
+            "encode": 4,
+            "translate": 2
+        },
+        "content_recommendations": [
+            "Use the exact primary query “pigpen cipher” once in the meta title; cover “pigpen cypher” as an alternate spelling in body copy rather than competing in the title.",
+            "In the intro, promise both supported workflows precisely: encode A–Z text into Pigpen symbols and manually decode a symbol message with the on-screen Pigpen alphabet.",
+            "Do not imply image upload, OCR, or automatic symbol recognition when covering the strong “decoder” and “translator” queries.",
+            "Explain that “Freemason's cipher”, “Masonic cipher”, and “Masonic Pigpen cipher” are names for the same geometric substitution system.",
+            "Include a clear Pigpen alphabet/key reference and explain how grids, crosses, and dots distinguish letters.",
+            "Use an examples block for a short encode/decode walkthrough and a simple Pigpen puzzle; mention PNG download only as an output feature.",
+            "Use FAQ for low-score wording variants such as generator, encoder, encryption, code, and key without keyword-stuffing the intro."
+        ],
+        "query_groups": [
+            {
+                "name": "Canonical cipher name",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "pigpen cipher",
+                    "pigpen cypher"
+                ]
+            },
+            {
+                "name": "Freemason and Masonic names",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "freemason's cipher",
+                    "masonic pigpen cipher",
+                    "the masonic cipher"
+                ]
+            },
+            {
+                "name": "Decode and translate",
+                "intent": [
+                    "decode",
+                    "translate"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "pigpen cipher decoder",
+                    "pigpen cipher translator",
+                    "masonic cipher decoder"
+                ]
+            },
+            {
+                "name": "Encode and generate",
+                "intent": [
+                    "encode"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "pigpen cipher encoder",
+                    "masonic cipher generator",
+                    "pigpen generator"
+                ]
+            },
+            {
+                "name": "Alphabet and key",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "pigpen alphabet",
+                    "masonic cipher alphabet",
+                    "masonic cipher key"
+                ]
+            },
+            {
+                "name": "Puzzles and examples",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "long_tail",
+                "target": "examples",
+                "representative_queries": [
+                    "pigpen cipher puzzles"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "pigpen cipher",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "freemason's cipher",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "pigpen cypher",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pigpen cipher decoder",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "pigpen cipher translator",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "masonic cipher decoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "masonic cipher generator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "masonic pigpen cipher",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pigpen alphabet",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pigpen cipher encoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "alphabet pigpen",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "freemason cipher decoder",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "masonic cipher alphabet",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "masonic cipher code",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "masonic cipher key",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "masonic cipher translator",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "pigpen cipher puzzles",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "pigpen encoder",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "encode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "pigpen encryption",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "encode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "pigpen generator",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "the masonic cipher",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-07-03",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "All queries belong to one Pigpen/Freemason cipher tool; no split is recommended.",
+            "The source competitiveness labels are preserved verbatim from raw data even though their values are localized in Russian.",
+            "The linked English content file does not exist yet, so the cluster is reviewed but not mapped."
+        ]
+    },
+    "notes": "Manually curated after deterministic import. “pigpen cipher” is the single primary despite equal source scores for “pigpen cypher” and “freemason's cipher”, because it is the canonical English entity name and exact tool match. Decoder and translator demand is retained as a major secondary group but must describe the current manual symbol-keyboard workflow, not image recognition. Status is reviewed; creation and validation of the linked English content file are still required before mapped."
+}

@@ -1,0 +1,277 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "масонский шифр",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/codes-and-alphabets/pigpen.csv",
+        "imported_at": "2026-06-26T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/pigpen",
+        "url": "/ru/codes-and-alphabets/pigpen",
+        "content_file": "private/storage/content/codes-and-alphabets/pigpen/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 103,
+        "primary_terms": [
+            "масонский шифр",
+            "шифр масонов",
+            "шифр свинопаса",
+            "масонский алфавит",
+            "Pigpen шифр",
+            "шифр свинарника"
+        ],
+        "modifiers": [
+            "онлайн",
+            "зашифровать",
+            "разгадать",
+            "расшифровать",
+            "на русском",
+            "на русский алфавит",
+            "шрифт"
+        ],
+        "intents": {
+            "cipher": 12,
+            "decode": 3,
+            "online": 3,
+            "tool": 2,
+            "encode": 1
+        },
+        "content_recommendations": [
+            "В meta_title использовать один точный primary «масонский шифр»; вариант «шифр масонов» естественно включить в intro.",
+            "На первом экране явно описать оба доступных сценария: зашифровать латинский текст A–Z в символы онлайн и вручную расшифровать сообщение с помощью экранного алфавита.",
+            "В основном блоке связать названия «шифр свинопаса», «шифр свинарника» и Pigpen с масонским шифром как вариантами названия одной системы.",
+            "Отдельно показать масонский алфавит и объяснить принцип геометрической замены по решёткам и точкам.",
+            "В FAQ честно пояснить запросы «на русском» и «на русский алфавит»: страница имеет русский интерфейс, но текущая реализация кодирует латинские буквы A–Z и не поддерживает кириллицу.",
+            "Запрос «масонский шрифт» покрыть в FAQ: сервис создаёт визуальные символы и позволяет скачать PNG, но не предоставляет устанавливаемый файл шрифта."
+        ],
+        "query_groups": [
+            {
+                "name": "Основное название",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "масонский шифр",
+                    "шифр масонов"
+                ]
+            },
+            {
+                "name": "Шифрование онлайн",
+                "intent": [
+                    "encode",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "шифр масонов онлайн зашифровать",
+                    "масонский шифр онлайн",
+                    "шифр масонов онлайн"
+                ]
+            },
+            {
+                "name": "Расшифровка",
+                "intent": [
+                    "decode"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "разгадать масонский шифр",
+                    "pigpen шифр как расшифровать"
+                ]
+            },
+            {
+                "name": "Альтернативные названия",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "шифр свинопаса",
+                    "шифр свинарника",
+                    "pigpen шифр"
+                ]
+            },
+            {
+                "name": "Русский язык и алфавит",
+                "intent": [
+                    "decode"
+                ],
+                "priority": "secondary",
+                "target": "faq",
+                "representative_queries": [
+                    "масонский шифр на русском",
+                    "масонский шифр на русский алфавит"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "масонский шифр",
+            "score": 30,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "шифр масонов",
+            "score": 28,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "разгадать масонский шифр",
+            "score": 10,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "масонский шифр на русском",
+            "score": 8,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шифр свинопаса",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "масонский шифр онлайн",
+            "score": 4,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "масонский алфавит",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр масонов онлайн зашифровать",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "encode",
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "масонский шифр на русский алфавит",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шифр масонов онлайн",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр свинарника",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "масонский шрифт",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "pigpen шифр как расшифровать",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "pigpen шифр",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-07-03",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "Связанный русскоязычный content-файл пока отсутствует, поэтому кластер ещё не готов к статусу mapped."
+        ]
+    },
+    "notes": "Core вручную проанализирован после детерминированного импорта. Кластер тематически цельный и относится к онлайн-инструменту Pigpen; primary выбран по максимальному yandex_demand и точному соответствию русскому названию сущности. «Шифр свинопаса», «шифр свинарника» и Pigpen сохранены как альтернативные названия, отдельные страницы по текущему спросу нецелесообразны. Русскоязычные запросы требуют явного пояснения ограничения реализации латиницей A–Z. Статус reviewed отражает завершённую смысловую проверку; до mapped не хватает связанного русскоязычного content-файла."
+}

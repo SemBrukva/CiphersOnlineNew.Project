@@ -22,7 +22,9 @@ Use this skill when creating or updating files under:
    ```
 
 3. Review the generated JSON:
-   - `status` should remain `draft` until a human/agent has reviewed priorities and targets.
+   - Keep `status: draft` only while priorities, intents, targets, and recommendations have not yet been semantically reviewed.
+   - When the human/agent review is complete, change `status` to `reviewed` in the same task and add `curation.reviewed_at`, `curation.reviewed_by`, and `curation.decision`.
+   - Do not keep `draft` merely because the linked content file has not been created yet; missing content blocks `mapped`, not `reviewed`.
    - Keep JSON as the curated source of truth. Database sync must consume this JSON, not raw CSV.
 4. Run:
 

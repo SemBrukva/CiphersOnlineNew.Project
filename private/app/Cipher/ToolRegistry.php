@@ -50,7 +50,8 @@ final readonly class ToolRegistry
         private EnigmaCipherService $enigmaCipher,
         private CipherIdentifierService $cipherIdentifier,
         private AnagramSolverService $anagramSolver,
-        private DancingMenCipherService $dancingMen
+        private DancingMenCipherService $dancingMen,
+        private PigpenCipherService $pigpen
     ) {
     }
 
@@ -403,6 +404,11 @@ final readonly class ToolRegistry
                 ['label' => 'Sherlock', 'value' => 'SHERLOCK HOLMES', 'alphabet' => 'en'],
                 ['label' => 'Hello',    'value' => 'HELLO WORLD',     'alphabet' => 'en'],
             ],
+            'codes-and-alphabets/pigpen' => [
+                ...self::withSettings([['label' => 'Standard',    'value' => 'PIGPEN CIPHER']],  ['ciphers-pigpen-variant' => 'standard']),
+                ...self::withSettings([['label' => 'Variant',     'value' => 'SECRET MESSAGE']], ['ciphers-pigpen-variant' => 'variant']),
+                ...self::withSettings([['label' => 'Rosicrucian', 'value' => 'HELLO WORLD']],    ['ciphers-pigpen-variant' => 'rosicrucian']),
+            ],
             default => [],
         };
     }
@@ -441,6 +447,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/morse-code' => null,
             'codes-and-alphabets/numbers-to-letters' => null,
             'codes-and-alphabets/dancing-men' => null,
+            'codes-and-alphabets/pigpen' => null,
             'codes-and-alphabets/anagram-solver' => 'anagram-solver',
             'encoding/html-encode' => null,
             'encoding/json-formatter' => null,
@@ -491,6 +498,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/morse-code' => $this->morseCipher->getToolSettings(),
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getToolSettings(),
+            'codes-and-alphabets/pigpen' => $this->pigpen->getToolSettings(),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getToolSettings(),
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
             'encoding/json-formatter' => $this->jsonFormatter->getToolSettings(),
@@ -539,6 +547,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/morse-code' => $this->morseCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getTrustItems($calculationMode),
+            'codes-and-alphabets/pigpen' => $this->pigpen->getTrustItems($calculationMode),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),

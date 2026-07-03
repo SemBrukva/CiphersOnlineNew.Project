@@ -13,6 +13,7 @@ import { initAnagramSolver } from './cipher-tool/anagram-solver.js'
 import { initMatrixControl } from './cipher-tool/matrix-control.js'
 import { initMorsePlayer } from './cipher-tool/morse-player.js'
 import { initDancingMen } from './cipher-tool/dancing-men.js'
+import { initPigpen } from './cipher-tool/pigpen.js'
 import { initCustomSelects } from './cipher-tool/custom-selects.js'
 import { sendAnalyticsBeacon } from './cipher-tool/analytics.js'
 
@@ -66,6 +67,7 @@ export function initCipherToolPage() {
   const lfreqSortSelect = document.getElementById('ciphers-lfreq-sort')
   const visualOutput = document.getElementById('ciphers-visual-output')
   const n2lTypeSelect = document.getElementById('ciphers-n2l-type')
+  const pigpenVariantSelect = document.getElementById('ciphers-pigpen-variant')
   const jsonIndentSelect = document.getElementById('ciphers-json-indent')
   const jsonSortKeysBtn  = document.getElementById('ciphers-json-sort')
   const jsonDownloadBtn  = document.getElementById('ciphers-json-download')
@@ -108,6 +110,7 @@ export function initCipherToolPage() {
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
   const isDancingMenTool = Boolean(ui.dancingMenMode)
+  const isPigpenTool = Boolean(ui.pigpenMode)
   const isOneWayTool = Boolean(ui.oneWayMode)
   const isHashTool = slug.startsWith('hashing/')
   const isHmacTool = Boolean(ui.hmacMode)
@@ -154,6 +157,7 @@ export function initCipherToolPage() {
   let cipherIdentifier = null
   let anagramSolver = null
   let dancingMen = null
+  let pigpen = null
   let matrixCtrl = null
   let albertiWheel = null
   let enigmaPanel = null
@@ -321,6 +325,7 @@ export function initCipherToolPage() {
     document.querySelectorAll('[data-decode-only]').forEach((el) => {
       el.style.display = isEncode ? 'none' : ''
     })
+    if (isPigpenTool && pigpen) pigpen.setMode(mode)
     process()
   }
 
@@ -451,6 +456,10 @@ export function initCipherToolPage() {
   }
 
   const process = () => {
+    // В режиме decode вывод Pigpen формируется только кликами по клавиатуре символов,
+    // поэтому обычный конвейер (который очищал бы output при пустом вводе) пропускаем.
+    if (isPigpenTool && mode === 'decode') return
+
     const value = input.value || ''
     updateCounter()
     updateCoverCapacity()
@@ -471,6 +480,7 @@ export function initCipherToolPage() {
       if (isJsonFormatterTool) jsonFormatter.showEmpty()
       if (isTimestampConverterTool) timestampConverter.showEmpty()
       if (isDancingMenTool) dancingMen.showEmpty()
+      if (isPigpenTool) pigpen.showEmpty()
       setOutputState(false)
       setFeedback('')
       return
@@ -478,6 +488,11 @@ export function initCipherToolPage() {
 
     if (isDancingMenTool) {
       dancingMen.run(value)
+      return
+    }
+
+    if (isPigpenTool) {
+      pigpen.run(value)
       return
     }
 
@@ -1209,6 +1224,16 @@ export function initCipherToolPage() {
       ui, setFeedback, setOutputState,
       sendAnalyticsBeacon, slug, alphabetSelect,
     })
+  }
+
+  if (isPigpenTool) {
+    pigpen = initPigpen({
+      input, output, visualOutput, tabDecode, downloadBtn,
+      ui, setFeedback, setOutputState,
+      sendAnalyticsBeacon, slug, variantSelect: pigpenVariantSelect,
+      getMode: () => mode,
+    })
+    pigpenVariantSelect?.addEventListener('change', () => process())
   }
 
   setMode('encode')

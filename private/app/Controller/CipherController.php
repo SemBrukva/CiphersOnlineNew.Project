@@ -227,6 +227,17 @@ final readonly class CipherController
             $toolUi['dancingMenDownloaded']      = trans('DANCING_MEN_DOWNLOADED');
             $toolUi['dancingMenDownloadLabel']   = trans('DANCING_MEN_DOWNLOAD_BTN');
         }
+        if ($cipherAlias === 'pigpen') {
+            $toolUi['pigpenMode']            = true;
+            $toolUi['placeholderEncode']     = trans('PIGPEN_PLACEHOLDER');
+            $toolUi['pigpenEmptyLabel']      = trans('PIGPEN_EMPTY');
+            $toolUi['pigpenWarnUnsupported'] = trans('PIGPEN_WARN_UNSUPPORTED');
+            $toolUi['visualDownloadLabel']   = trans('PIGPEN_DOWNLOAD_BTN');
+            $toolUi['pigpenKeyboardHint']    = trans('PIGPEN_KEYBOARD_HINT');
+            $toolUi['pigpenSpaceLabel']      = trans('PIGPEN_SPACE');
+            $toolUi['pigpenBackspaceLabel']  = trans('PIGPEN_BACKSPACE');
+            $toolUi['pigpenClearLabel']      = trans('PIGPEN_CLEAR');
+        }
         if ($cipherAlias === 'morse-code') {
             $toolUi['placeholderEncode']  = trans('MORSE_PLACEHOLDER_ENCODE');
             $toolUi['placeholderDecode']  = trans('MORSE_PLACEHOLDER_DECODE');
@@ -469,6 +480,7 @@ final readonly class CipherController
     private function attachSettingsBadges(array $examples, array $toolUi): array
     {
         $idToLabel = [];
+        $idToOptionLabels = [];
 
         foreach ((array) ($toolUi['settings'] ?? []) as $setting) {
             if (!is_array($setting)) {
@@ -478,6 +490,16 @@ final readonly class CipherController
             $label = (string) ($setting['label'] ?? '');
             if ($id !== '' && $label !== '') {
                 $idToLabel[$id] = $label;
+            }
+            foreach ((array) ($setting['options'] ?? []) as $option) {
+                if (!is_array($option)) {
+                    continue;
+                }
+                $optionValue = (string) ($option['value'] ?? '');
+                $optionLabel = (string) ($option['label'] ?? '');
+                if ($id !== '' && $optionValue !== '' && $optionLabel !== '') {
+                    $idToOptionLabels[$id][$optionValue] = $optionLabel;
+                }
             }
         }
 
@@ -501,7 +523,8 @@ final readonly class CipherController
                 if ($scalar === '') {
                     continue;
                 }
-                $badges[] = ['label' => $idToLabel[$fieldId], 'value' => $scalar];
+                $display = $idToOptionLabels[$fieldId][$scalar] ?? $scalar;
+                $badges[] = ['label' => $idToLabel[$fieldId], 'value' => $display];
             }
 
             if ($badges !== []) {

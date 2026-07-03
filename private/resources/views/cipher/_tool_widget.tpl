@@ -246,8 +246,11 @@
                 <div class="ciphers-unified__field-header">
                     <span class="ciphers-unified__field-label ciphers-unified__field-label--result">{$tool_ui.resultLabel}</span>
                     <div class="ciphers-unified__output-actions">
-                        {if isset($tool_ui.dancingMenMode) && $tool_ui.dancingMenMode}
-                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-dm-download"><i class="bi bi-download"></i>{$tool_ui.dancingMenDownloadLabel}</button>
+                        {if $tool_ui.pigpenMode|default:false}
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-dm-download" data-encode-only><i class="bi bi-download"></i>{$tool_ui.visualDownloadLabel|default:'Download'}</button>
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy" data-decode-only><i class="bi bi-clipboard"></i>{$tool_ui.copyLabel}</button>
+                        {elseif $tool_ui.dancingMenMode|default:false}
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-dm-download"><i class="bi bi-download"></i>{$tool_ui.dancingMenDownloadLabel|default:$tool_ui.visualDownloadLabel|default:'Download'}</button>
                         {else}
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy"><i class="bi bi-clipboard"></i>{$tool_ui.copyLabel}</button>
                         {/if}

@@ -7,6 +7,7 @@ import { transformUnicode, looksLikeUnicode } from './decoders/unicode.js'
 import { transformUrl, looksLikeUrl } from './decoders/url.js'
 import { transformMorse, looksLikeMorse } from './decoders/morse.js'
 import { transformDancingMen, looksLikeDancingMen } from './decoders/dancing-men.js'
+import { transformPigpen, looksLikePigpen } from './decoders/pigpen.js'
 import { transformFrequency, looksLikeText } from './decoders/frequency.js'
 import { transformLetterFrequency, looksLikeLetterFreqText } from './decoders/letter-frequency.js'
 import { transformNumbersToLetters, looksLikeNumbersToLetters } from './decoders/numbers-to-letters.js'
@@ -31,6 +32,7 @@ const DECODER_BY_SLUG = {
   'encoding/jwt-decoder': { transform: transformJwt, looksLikeEncoded: looksLikeJwt },
   'codes-and-alphabets/morse-code': { transform: transformMorse, looksLikeEncoded: looksLikeMorse },
   'codes-and-alphabets/dancing-men': { transform: transformDancingMen, looksLikeEncoded: looksLikeDancingMen },
+  'codes-and-alphabets/pigpen': { transform: transformPigpen, looksLikeEncoded: looksLikePigpen },
   'text-analysis/frequency-analysis': { transform: transformFrequency, looksLikeEncoded: looksLikeText },
   'text-analysis/letter-frequency': { transform: transformLetterFrequency, looksLikeEncoded: looksLikeLetterFreqText },
   'codes-and-alphabets/numbers-to-letters': { transform: transformNumbersToLetters, looksLikeEncoded: looksLikeNumbersToLetters },

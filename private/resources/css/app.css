@@ -7171,6 +7171,150 @@ a:focus .nav-fav-count {
   font-family: monospace;
 }
 
+/* ── Pigpen (шифр масонов) ─────────────────────────────────────────────── */
+
+.pp-output {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 8px 4px;
+}
+
+.pp-word {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pp-space {
+  display: inline-block;
+  width: 18px;
+}
+
+.pp-char {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pp-figure {
+  width: 34px;
+  height: 34px;
+  color: rgba(255, 255, 255, 0.88);
+  flex-shrink: 0;
+}
+
+.pp-char--unknown {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: monospace;
+}
+
+/* ── Pigpen: клавиатура декодирования ─────────────────────────────────── */
+
+.pp-keyboard-wrap {
+  margin-bottom: 14px;
+}
+
+.pp-keyboard-hint {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 10px;
+}
+
+.pp-keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pp-key {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 46px;
+  padding: 7px 4px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.05s;
+}
+
+.pp-key:hover {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pp-key:active {
+  transform: scale(0.94);
+}
+
+.pp-key svg {
+  width: 28px;
+  height: 28px;
+  color: currentColor;
+}
+
+.pp-key-letter {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1;
+}
+
+.pp-keyboard-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pp-key-ctrl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.pp-key-ctrl:hover {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pp-key-ctrl--space {
+  flex: 1;
+  min-width: 140px;
+}
+
+@media (max-width: 480px) {
+  .pp-key {
+    width: 40px;
+  }
+
+  .pp-key svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 .dm-ref-grid {
   display: flex;
   flex-wrap: wrap;
@@ -7202,6 +7346,56 @@ a:focus .nav-fav-count {
 }
 
 .dm-ref-letter {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+/* ── Pigpen: справочные сетки символов ─────────────────────────────────── */
+
+.pp-ref-section {
+  margin-bottom: 18px;
+}
+
+.pp-ref-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-base);
+  margin: 0 0 8px;
+}
+
+.pp-ref-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 4px;
+  padding: 4px 0;
+}
+
+.pp-ref-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 50px;
+  padding: 8px 4px 6px;
+  border: 1px solid var(--border-light, rgba(0, 0, 0, 0.1));
+  border-radius: 8px;
+  background: var(--surface-2, rgba(0, 0, 0, 0.03));
+  transition: border-color 0.15s;
+}
+
+.pp-ref-cell:hover {
+  border-color: var(--primary);
+}
+
+.pp-ref-cell svg {
+  width: 32px;
+  height: 32px;
+  color: var(--text-base);
+}
+
+.pp-ref-letter {
   font-size: 12px;
   font-weight: 700;
   color: var(--text-muted);

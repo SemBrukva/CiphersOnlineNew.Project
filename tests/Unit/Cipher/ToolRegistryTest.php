@@ -12,6 +12,7 @@ use App\Cipher\AlphabetCatalog;
 use App\Cipher\AlphabetTool;
 use App\Cipher\AnagramSolverService;
 use App\Cipher\DancingMenCipherService;
+use App\Cipher\PigpenCipherService;
 use App\Cipher\AtbashCipherService;
 use App\Cipher\AutokeyCipherService;
 use App\Cipher\BaconCipherService;
@@ -176,7 +177,8 @@ final class ToolRegistryTest extends TestCase
             new EnigmaCipherService(),
             new CipherIdentifierService([], new LetterFrequencyScorer(), new IndexOfCoincidence(), new BigramFrequencyScorer()),
             new AnagramSolverService(),
-            new DancingMenCipherService()
+            new DancingMenCipherService(),
+            new PigpenCipherService()
         );
     }
 }
