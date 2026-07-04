@@ -34,6 +34,29 @@
     </div>
 </section>
 
+{if $glossary_terms}
+<section class="panel">
+    <div class="panel-content">
+        <div class="sitemap-grid">
+            <div class="sitemap-category sitemap-category--wide">
+                <div class="sitemap-category__header">
+                    <i class="bi bi-book sitemap-category__icon"></i>
+                    <div class="sitemap-category__name">
+                        <a href="{$locale_prefix}/glossary">{$t.MENU_GLOSSARY}</a>
+                    </div>
+                    <span class="sitemap-category__count">{$glossary_terms|count}</span>
+                </div>
+                <div class="sitemap-category__tools">
+                    {foreach $glossary_terms as $term}
+                    <a class="sitemap-tool-link" href="{$term.url}">{$term.name}</a>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{/if}
+
 <div class="text-center mb-4">
     <a href="/sitemap.xml" class="text-muted small">
         <i class="bi bi-filetype-xml me-1"></i>XML Sitemap

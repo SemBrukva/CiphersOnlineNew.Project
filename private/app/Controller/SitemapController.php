@@ -61,6 +61,8 @@ final readonly class SitemapController
             }
         }
 
+        $glossaryTerms = $this->glossary->index($language);
+
         $this->view
             ->setTitle(trans('SITEMAP_TITLE'))
             ->setMeta(trans('SITEMAP_META'))
@@ -68,7 +70,8 @@ final readonly class SitemapController
                 ['label' => trans('SITEMAP_TITLE')],
             ])
             ->setContent($this->view->fetch('sitemap/html.tpl', [
-                'categories' => $categoriesWithTools,
+                'categories'     => $categoriesWithTools,
+                'glossary_terms' => $glossaryTerms,
             ]));
 
         return new Response($this->view->render());
