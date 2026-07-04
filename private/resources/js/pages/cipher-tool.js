@@ -455,6 +455,93 @@ export function initCipherToolPage() {
     }
   }
 
+  // ── Sharable permalink со state ──────────────────────────────────────────
+  // Состояние (ввод + режим + настройки) кодируется в hash-фрагмент `#s=...`.
+  // Фрагмент не отправляется на сервер, поэтому не плодит дублей и не индексируется.
+  const SHARE_URL_MAX = 8000
+
+  /** Устанавливает значение поля по id и диспатчит событие, чтобы синхронизировать контроллеры. */
+  const setShareField = (id, value) => {
+    const field = document.getElementById(id)
+    if (!field) return
+    if (field.type === 'checkbox') {
+      const flag = value === true || value === 'true' || value === 1 || value === '1'
+      if (field.checked !== flag) {
+        field.checked = flag
+        field.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      return
+    }
+    const stringValue = value == null ? '' : String(value)
+    if (field.value === stringValue) return
+    if (field.tagName === 'SELECT') {
+      const hasOption = Array.from(field.options).some((option) => option.value === stringValue)
+      if (!hasOption) return
+      field.value = stringValue
+      field.dispatchEvent(new Event('change', { bubbles: true }))
+    } else {
+      field.value = stringValue
+      field.dispatchEvent(new Event('input', { bubbles: true }))
+    }
+  }
+
+  /** Собирает текущее состояние инструмента для кодирования в permalink. */
+  const collectShareState = () => {
+    const fields = {}
+    SHAREABLE_FIELD_IDS.forEach((id) => {
+      const field = document.getElementById(id)
+      if (!field) return
+      if (field.type === 'checkbox') {
+        if (field.checked) fields[id] = true
+        return
+      }
+      if (field.value != null && field.value !== '') fields[id] = field.value
+    })
+    const state = { v: 1, m: mode, f: fields }
+    const text = input.value || ''
+    if (text) state.i = text
+    return state
+  }
+
+  /** Строит абсолютный URL с закодированным состоянием в hash-фрагменте. */
+  const buildShareUrl = () => {
+    const base = window.location.href.split('#')[0]
+    const state = collectShareState()
+    let url = `${base}#s=${encodeShareState(state)}`
+    if (url.length > SHARE_URL_MAX && 'i' in state) {
+      // Слишком длинный ввод — делимся только настройками, без текста.
+      delete state.i
+      url = `${base}#s=${encodeShareState(state)}`
+    }
+    return url
+  }
+
+  /** Восстанавливает состояние из permalink при загрузке страницы. Возвращает true, если применено. */
+  const applyShareState = () => {
+    const match = window.location.hash.match(/(?:^#|[#&])s=([^&]+)/)
+    if (!match) return false
+
+    const state = decodeShareState(match[1])
+    if (!state || state.v !== 1) return false
+
+    if (state.f && typeof state.f === 'object') {
+      Object.entries(state.f).forEach(([id, value]) => setShareField(id, value))
+    }
+
+    if (typeof state.i === 'string') {
+      input.value = state.i
+    }
+
+    setMode(state.m === 'decode' ? 'decode' : 'encode')
+
+    if (isApiMode) {
+      if (liveModeInput && !liveModeInput.checked) liveModeInput.checked = true
+      void runApiRequest()
+    }
+
+    return true
+  }
+
   const process = () => {
     // В режиме decode вывод Pigpen формируется только кликами по клавиатуре символов,
     // поэтому обычный конвейер (который очищал бы output при пустом вводе) пропускаем.
@@ -1089,8 +1176,11 @@ export function initCipherToolPage() {
   })
 
   shareBtn?.addEventListener('click', async () => {
+    const shareUrl = buildShareUrl()
     try {
-      await navigator.clipboard.writeText(window.location.href)
+      await navigator.clipboard.writeText(shareUrl)
+      // Синхронизируем адресную строку со скопированной ссылкой.
+      window.history.replaceState(null, '', shareUrl)
       const iconEl = shareBtn.querySelector('.bi')
       if (iconEl) iconEl.className = 'bi bi-check-lg'
       shareBtn.classList.add('ciphers-unified__btn-ghost--copied')
@@ -1319,6 +1409,10 @@ export function initCipherToolPage() {
     delimiterSelect?.addEventListener('change', () => process())
   }
 
+  // Восстанавливаем состояние из permalink (#s=...) последним — оно перекрывает
+  // и сохранённые настройки, и carry-over ввод.
+  applyShareState()
+
 }
 function parseJson(raw) {
   try {
@@ -1344,5 +1438,79 @@ function looksLikeEncoded(text, decoder) {
   if (!value) return false
   if (!decoder) return false
   return decoder.looksLikeEncoded(value)
+}
+
+/**
+ * Идентификаторы DOM-полей настроек, состояние которых кодируется в sharable-permalink.
+ * Несуществующие на конкретном инструменте поля просто пропускаются.
+ */
+const SHAREABLE_FIELD_IDS = [
+  'ciphers-live-mode',
+  'ciphers-shift',
+  'ciphers-key',
+  'ciphers-alphabet',
+  'ciphers-delimiter',
+  'ciphers-key-length',
+  'ciphers-cover',
+  'ciphers-n2l-type',
+  'ciphers-pigpen-variant',
+  'ciphers-json-indent',
+  'ciphers-ts-unit',
+  'ciphers-xor-key-format',
+  'ciphers-alberti-index',
+  'ciphers-hash-algorithm',
+  'ciphers-hmac-key-format',
+  'ciphers-anagram-mode',
+  'ciphers-freq-scope',
+  'ciphers-freq-sort',
+  'ciphers-freq-lang',
+  'ciphers-lfreq-lang',
+  'ciphers-lfreq-sort',
+  'ciphers-enigma-reflector',
+  'ciphers-enigma-rotor-left',
+  'ciphers-enigma-rotor-middle',
+  'ciphers-enigma-rotor-right',
+  'ciphers-enigma-ring-left',
+  'ciphers-enigma-ring-middle',
+  'ciphers-enigma-ring-right',
+  'ciphers-enigma-pos-left',
+  'ciphers-enigma-pos-middle',
+  'ciphers-enigma-pos-right',
+  'ciphers-enigma-plugboard',
+  'ciphers-kdf-salt',
+  'ciphers-kdf-iterations',
+  'ciphers-kdf-hash',
+  'ciphers-kdf-key-length',
+  'ciphers-kdf-cost',
+  'ciphers-kdf-memory',
+  'ciphers-kdf-parallelism',
+  'ciphers-kdf-variant',
+  'ciphers-kdf-verify-hash',
+]
+
+/**
+ * Кодирует объект состояния в компактную URL-безопасную строку (base64url от UTF-8 JSON).
+ */
+function encodeShareState(state) {
+  const json = JSON.stringify(state)
+  const bytes = new TextEncoder().encode(json)
+  let binary = ''
+  bytes.forEach((byte) => { binary += String.fromCharCode(byte) })
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+}
+
+/**
+ * Декодирует строку permalink обратно в объект состояния; при ошибке возвращает null.
+ */
+function decodeShareState(encoded) {
+  try {
+    const normalized = encoded.replace(/-/g, '+').replace(/_/g, '/')
+    const binary = atob(normalized)
+    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0))
+    const parsed = JSON.parse(new TextDecoder().decode(bytes))
+    return parsed && typeof parsed === 'object' ? parsed : null
+  } catch {
+    return null
+  }
 }
 
