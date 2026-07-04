@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "transposition-cipher", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Cifrario a trasposizione",
+        "aliases": ["cifrario a permutazione"],
+        "short": "Un cifrario a trasposizione riordina i simboli del testo in chiaro secondo una chiave senza sostituirli.",
+        "meta_title": "Cifrario a trasposizione — Definizione | CiphersOnline",
+        "meta_description": "Come la trasposizione riordina il testo, come funzionano i metodi colonnare e Rail Fence e come differisce dalla sostituzione."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definizione", "html": "<p>Un cifrario a trasposizione sposta i simboli con una permutazione reversibile. I simboli restano invariati, quindi le loro frequenze nel testo in chiaro e cifrato sono di solito identiche.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Come funziona", "html": "<p>Rail Fence distribuisce il testo su righe e lo legge in un altro ordine. La trasposizione colonnare usa una griglia e ordina le colonne con una parola o chiave numerica. La decifratura applica la permutazione inversa.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Crittoanalisi", "html": "<p>La trasposizione semplice conserva le frequenze. Provando griglie candidate possono emergere frammenti riconoscibili. I metodi classici non offrono sicurezza moderna.</p>"}
+    ],
+    "faq": [
+        {"question": "La trasposizione cambia le lettere?", "answer": "<p>No, cambia solo le posizioni; può aggiungere caratteri di riempimento.</p>"},
+        {"question": "Come differisce dalla sostituzione?", "answer": "<p>La trasposizione riordina i simboli; la sostituzione li rimpiazza.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "cipher", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/columnar-transposition", "label": "Trasposizione colonnare"},
+        {"slug": "classical-ciphers/rail-fence", "label": "Cifrario Rail Fence"}
+    ],
+    "tags": ["crittografia classica", "trasposizione", "permutazione"],
+    "category": "classical"
+}

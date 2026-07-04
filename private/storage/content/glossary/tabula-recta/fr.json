@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "tabula-recta", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Table de Vigenère",
+        "aliases": ["tabula recta", "carré de Vigenère"],
+        "short": "La table de Vigenère est un tableau carré dont les lignes contiennent des décalages successifs d'un alphabet.",
+        "meta_title": "Table de Vigenère (tabula recta) expliquée | CiphersOnline",
+        "meta_description": "Comment la table organise les alphabets décalés, comment Vigenère l'utilise et pourquoi elle ne constitue pas seule un chiffre."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>La tabula recta est un carré alphabétique : la première ligne contient l'alphabet et chaque ligne suivante le décale cycliquement d'une position. Pour <em>n</em> symboles, elle compte <em>n</em> lignes et colonnes.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Utilisation avec Vigenère", "html": "<p>Selon une convention courante, la lettre de clé choisit une ligne et la lettre claire une colonne ; leur intersection donne la lettre chiffrée. Le déchiffrement inverse la recherche. Permuter lignes et colonnes ne change pas l'addition modulaire sous-jacente.</p>"},
+        {"sort_order": 30, "type": "scope", "title": "Un outil, pas un chiffre", "html": "<p>La table représente des décalages de César sans définir quand choisir chaque ligne. Vigenère, Beaufort et Gronsfeld ajoutent des règles de clé ou des calculs différents : ils ne deviennent pas le même chiffre parce qu'ils emploient une table proche.</p>"}
+    ],
+    "faq": [
+        {"question": "La tabula recta est-elle le chiffre de Vigenère ?", "answer": "<p>Non. C'est une table de consultation ; Vigenère définit aussi la sélection des décalages par la clé.</p>"},
+        {"question": "Doit-elle utiliser l'alphabet latin ?", "answer": "<p>Non. Elle peut être construite pour tout ensemble ordonné de symboles.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "substitution-cipher", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Chiffre de Vigenère"},
+        {"slug": "classical-ciphers/beaufort", "label": "Chiffre de Beaufort"},
+        {"slug": "classical-ciphers/gronsfeld", "label": "Chiffre de Gronsfeld"}
+    ],
+    "tags": ["tabula recta", "table de Vigenère", "alphabets décalés"],
+    "category": "classical"
+}

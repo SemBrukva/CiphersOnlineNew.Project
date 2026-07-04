@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "polyalphabetic-cipher", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Çok alfabeli şifre",
+        "aliases": ["çok alfabeli yerine koyma şifresi"],
+        "short": "Çok alfabeli şifre, mesajı işlerken birden fazla yerine koyma alfabesi arasında geçiş yapar.",
+        "meta_title": "Çok Alfabeli Şifre — Tanım ve Analiz | CiphersOnline",
+        "meta_description": "Değişen alfabelerin nasıl çalıştığını, Vigenère'in anahtar akışını nasıl kullandığını ve tekrarlanan anahtarların neden zayıf olduğunu öğrenin."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>Çok alfabeli şifre birden fazla yerine koyma alfabesi kullanır. Anahtar akışı her konum için alfabeyi veya kaydırmayı seçer; böylece aynı açık metin harfi farklı şifreli harflere dönüşebilir.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Nasıl çalışır?", "html": "<p>Vigenère bir anahtar sözcüğü tekrarlayıp akış oluşturur ve tabula recta'nın ilgili satırlarını kullanır. Autokey kısa anahtarı mesajla uzatır; Beaufort ise anahtar, açık metin ve şifreli metin arasındaki aritmetik ilişkiyi değiştirir.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Kriptoanaliz", "html": "<p>Alfabe değişimi tek alfabeli sıklık dağılımını gizler. Ancak kısa ve tekrarlanan anahtar periyodik yapı üretir: Kasiski incelemesi ve rastlaşma indeksi uzunluğu tahmin edip konum sınıflarını ayrı incelemeye yardım eder.</p>"}
+    ],
+    "faq": [
+        {"question": "Vigenère çok alfabeli midir?", "answer": "<p>Evet. Anahtar akışındaki her simge farklı bir kaydırılmış alfabe seçer.</p>"},
+        {"question": "Çok alfabeli olmak güvenli olmak mıdır?", "answer": "<p>Hayır. Tekrarlanan veya öngörülebilen akış kullanan klasik sistemler modern koruma sağlamaz.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "keystream", "tabula-recta", "kasiski-examination", "index-of-coincidence"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère şifresi"},
+        {"slug": "classical-ciphers/autokey", "label": "Autokey şifresi"},
+        {"slug": "classical-ciphers/beaufort", "label": "Beaufort şifresi"}
+    ],
+    "tags": ["klasik kriptografi", "çok alfabeli", "yerine koyma"],
+    "category": "classical"
+}

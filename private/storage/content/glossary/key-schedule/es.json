@@ -1,0 +1,16 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "key-schedule", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Programación de claves", "aliases": ["expansión de clave"], "short": "La programación de claves deriva claves de ronda o subclaves a partir de la clave entregada al cifrado.", "meta_title": "Programación de claves — Definición | CiphersOnline", "meta_description": "Cómo una clave maestra se expande en claves de ronda, cómo difiere de un flujo de clave y por qué el diseño afecta a la seguridad."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>La programación transforma la clave suministrada en subclaves para las rondas o etapas del cifrado. Puede rotar, sustituir, mezclar o añadir constantes al material de clave.</p>"},
+        {"sort_order": 20, "type": "security", "title": "Finalidad y seguridad", "html": "<p>Las claves de ronda deben diferir de forma que resista ataques estructurales y de claves relacionadas. La programación forma parte del cifrado, no fortalece contraseñas, y sus subclaves no son un flujo combinado posición por posición con el mensaje.</p>"}
+    ],
+    "faq": [
+        {"question": "¿Es lo mismo que un flujo de clave?", "answer": "<p>No. La programación alimenta las rondas; el flujo se combina secuencialmente con el mensaje.</p>"},
+        {"question": "¿La expansión aumenta la entropía?", "answer": "<p>No. Deriva material de forma determinista y no añade secreto independiente.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "block-cipher", "encryption", "decryption", "keystream"],
+    "related_tools": [],
+    "tags": ["programación de claves", "expansión de clave", "clave de ronda"],
+    "category": "classical"
+}

@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "keystream", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Flusso di chiave",
+        "aliases": ["keystream"],
+        "short": "Un flusso di chiave è la sequenza di valori combinati in successione con le unità del testo in chiaro.",
+        "meta_title": "Flusso di chiave — Definizione e riuso | CiphersOnline",
+        "meta_description": "Differenza tra chiave e flusso, uso nei cifrari classici e a flusso e motivo per cui il riuso può essere pericoloso."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definizione", "html": "<p>Un flusso di chiave è una sequenza ordinata i cui elementi trasformano il messaggio uno alla volta. I cifrari classici possono sommare spostamenti modulo l'alfabeto; quelli digitali a flusso combinano di solito bit o byte con XOR.</p>"},
+        {"sort_order": 20, "type": "generation", "title": "Chiave e flusso", "html": "<p>La chiave segreta è un input compatto; il flusso è la sequenza per posizione che ne deriva, spesso insieme a un nonce. Vigenère ripete una parola chiave; i generatori moderni mirano a sequenze lunghe e imprevedibili.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Riuso", "html": "<p>Riutilizzare lo stesso flusso per messaggi diversi può rivelare relazioni tra i testi in chiaro, specialmente con XOR. Un cifrario di Vernam perfetto richiede un flusso casuale, lungo quanto il messaggio, segreto e mai riusato.</p>"}
+    ],
+    "faq": [
+        {"question": "Il flusso coincide con la chiave?", "answer": "<p>No. La chiave è un input; il flusso è la sequenza consumata durante cifratura e decifratura.</p>"},
+        {"question": "Un flusso può essere riutilizzato?", "answer": "<p>I sistemi sicuri impongono regole rigorose per nonce e riuso. Ripetere il flusso può compromettere la riservatezza.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "stream-cipher", "nonce", "initialization-vector", "polyalphabetic-cipher", "tabula-recta"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Cifrario di Vigenère"},
+        {"slug": "classical-ciphers/vernam", "label": "Cifrario di Vernam"},
+        {"slug": "classical-ciphers/xor-cipher", "label": "Cifrario XOR"}
+    ],
+    "tags": ["flusso di chiave", "cifrario a flusso", "materiale di chiave"],
+    "category": "classical"
+}

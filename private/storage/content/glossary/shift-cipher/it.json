@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "shift-cipher", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Cifrario a scorrimento", "aliases": ["spostamento di Cesare"], "short": "Un cifrario a scorrimento sostituisce ogni simbolo con quello a distanza fissa in un alfabeto ordinato.", "meta_title": "Cifrario a scorrimento — Definizione | CiphersOnline", "meta_description": "Come uno spostamento modulare cifra il testo, come Cesare e ROT13 rientrano nella famiglia e perché la forza bruta la viola facilmente."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definizione", "html": "<p>L'indice <em>x</em> diventa <em>x + k</em> modulo la dimensione dell'alfabeto, con <em>k</em> come chiave. Per decifrare si sottrae lo stesso spostamento.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "Cesare e ROT13", "html": "<p>Cesare è il metodo generale a spostamento fisso. ROT13 sposta di 13 posti nell'alfabeto latino di 26 lettere; applicarlo due volte ripristina il testo.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Perché è debole", "html": "<p>Le chiavi possibili sono poche e le frequenze restano invariate. Provare ogni spostamento o riconoscere schemi linguistici rivela presto il testo.</p>"}
+    ],
+    "faq": [
+        {"question": "Ogni scorrimento è un cifrario di Cesare?", "answer": "<p>I nomi indicano comunemente la stessa famiglia di rotazioni fisse.</p>"},
+        {"question": "Dipende dall'alfabeto?", "answer": "<p>Sì. Il calcolo scorre ciclicamente nell'insieme ordinato scelto.</p>"}
+    ],
+    "related_terms": ["monoalphabetic-cipher", "substitution-cipher", "cryptographic-key", "brute-force-attack", "frequency-analysis"],
+    "related_tools": [{"slug": "classical-ciphers/caesar", "label": "Cifrario di Cesare"}, {"slug": "classical-ciphers/rot13", "label": "ROT13"}],
+    "tags": ["scorrimento", "Cesare", "aritmetica modulare"],
+    "category": "classical"
+}

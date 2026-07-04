@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "keystream", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Flujo de clave",
+        "aliases": ["secuencia de clave"],
+        "short": "Un flujo de clave es la secuencia de valores que se combina sucesivamente con las unidades del texto plano.",
+        "meta_title": "Flujo de clave — Definición y reutilización | CiphersOnline",
+        "meta_description": "En qué se diferencian flujo y clave, cómo lo usan los cifrados clásicos y de flujo y por qué reutilizarlo puede ser peligroso."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>Un flujo de clave es una secuencia ordenada cuyos elementos transforman el mensaje uno a uno. Los cifrados clásicos pueden sumar desplazamientos módulo el alfabeto; los cifrados de flujo digitales suelen combinar bits o bytes mediante XOR.</p>"},
+        {"sort_order": 20, "type": "generation", "title": "Clave y flujo de clave", "html": "<p>La clave secreta es una entrada compacta; el flujo es la secuencia por posiciones derivada de ella, a menudo también de un nonce. Vigenère repite una palabra clave; los generadores modernos buscan secuencias largas e impredecibles.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Reutilización", "html": "<p>Usar el mismo flujo en mensajes distintos puede revelar relaciones entre sus textos planos, sobre todo con XOR. Una libreta de un solo uso solo es segura si el flujo es aleatorio, tan largo como el mensaje, secreto y nunca reutilizado.</p>"}
+    ],
+    "faq": [
+        {"question": "¿El flujo de clave es la propia clave?", "answer": "<p>No. La clave es una entrada; el flujo es la secuencia consumida al cifrar o descifrar.</p>"},
+        {"question": "¿Puede reutilizarse un flujo?", "answer": "<p>Los diseños seguros imponen reglas estrictas de nonce y reutilización. Repetir el flujo puede romper la confidencialidad.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "stream-cipher", "nonce", "initialization-vector", "polyalphabetic-cipher", "tabula-recta"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Cifrado Vigenère"},
+        {"slug": "classical-ciphers/vernam", "label": "Cifrado Vernam"},
+        {"slug": "classical-ciphers/xor-cipher", "label": "Cifrado XOR"}
+    ],
+    "tags": ["flujo de clave", "cifrado de flujo", "material de clave"],
+    "category": "classical"
+}

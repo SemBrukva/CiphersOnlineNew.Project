@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "transposition-cipher", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Cifrado por transposición",
+        "aliases": ["cifrado por permutación"],
+        "short": "Un cifrado por transposición reorganiza los símbolos del texto plano según una clave sin sustituirlos.",
+        "meta_title": "Cifrado por transposición — Definición | CiphersOnline",
+        "meta_description": "Cómo se reordena el texto, cómo funcionan la transposición columnar y Rail Fence y en qué se diferencia de la sustitución."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>Un cifrado por transposición cambia las posiciones de los símbolos mediante una permutación reversible. Los símbolos no cambian, por lo que sus frecuencias suelen ser iguales en el texto plano y el cifrado.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Cómo funciona", "html": "<p>Rail Fence distribuye el texto entre filas y lo lee en otro orden. La transposición columnar lo escribe en una cuadrícula y lee las columnas según una palabra o clave numérica. El descifrado aplica la permutación inversa.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Criptoanálisis", "html": "<p>La transposición simple conserva las frecuencias. Al probar dimensiones candidatas pueden aparecer fragmentos reconocibles. Los métodos clásicos no ofrecen seguridad moderna.</p>"}
+    ],
+    "faq": [
+        {"question": "¿La transposición cambia las letras?", "answer": "<p>No, solo cambia sus posiciones; puede añadir relleno para completar la cuadrícula.</p>"},
+        {"question": "¿Cómo se diferencia de la sustitución?", "answer": "<p>La transposición reordena símbolos; la sustitución los reemplaza.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "cipher", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/columnar-transposition", "label": "Transposición columnar"},
+        {"slug": "classical-ciphers/rail-fence", "label": "Cifrado Rail Fence"}
+    ],
+    "tags": ["criptografía clásica", "transposición", "permutación"],
+    "category": "classical"
+}

@@ -112,7 +112,7 @@
 ### A4. Технические SEO-докрутки ▫️
 
 - **Per-tool OG-изображения** (сейчас один `og-image.jpg`): генерировать динамически (PHP GD/Imagick или headless-скрин) → лучше CTR в соцсетях/выдаче. Кэшировать в `public/`.
-- **Self-host шрифта Inter** (сейчас render-blocking Google Fonts) → Core Web Vitals / LCP.
+- ✅ **Self-host шрифта Inter** — вариативный `@fontsource-variable/inter`, бандлится через Vite в `public/build/assets/` (same-origin woff2, `unicode-range` по subset'ам), Google Fonts `<link>`/`preconnect` убраны из `main.tpl`/`embed.tpl`, CSP сужен (без `fonts.googleapis.com`/`gstatic.com`). Устранён render-blocking внешний запрос → LCP.
 - **`HowTo` / `SoftwareApplication` schema** для инструментов с пошаговыми примерами (у вас уже есть `examples`-блоки — можно мапить в `HowTo`).
 - **Хлебные крошки на категориях** уже есть; добавить `SearchAction` (sitelinks searchbox) — поиск по инструментам уже есть (`/api/tools/search`).
 - **Sitemap: приоритеты и lastmod** по данным индексации из `tools-overview`.
@@ -234,7 +234,7 @@ Rate limit + аккаунты = естественный gate. Pro-ценнос�
 ### Фаза 0 — Быстрые победы (1 мес.) ⚡
 Максимальный ROI при малом усилии.
 - [x] **Permalink со state** (C1) — виральность.
-- [ ] **Self-host Inter + аудит Core Web Vitals** (A4) — фундамент под весь SEO-рост.
+- [x] **Self-host Inter** (A4) — фундамент под весь SEO-рост. _(аудит Core Web Vitals — отдельно, после деплоя)_
 - [ ] **Семантика + переоптимизация meta для de/es/fr/it/pt/tr** (A2) — разблокировать уже написанный контент.
 - [ ] **Per-tool OG-изображения** (A4).
 - [ ] Включить `HowTo`/`SoftwareApplication` schema там, где есть `examples` (A4).

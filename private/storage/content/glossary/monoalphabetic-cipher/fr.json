@@ -1,0 +1,28 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "monoalphabetic-cipher", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Chiffrement monoalphabétique",
+        "aliases": ["substitution monoalphabétique"],
+        "short": "Un chiffrement monoalphabétique emploie une correspondance de substitution fixe pour tout le message.",
+        "meta_title": "Chiffrement monoalphabétique — Définition | CiphersOnline",
+        "meta_description": "Comment un alphabet fixe chiffre un message, quels chiffres sont monoalphabétiques et pourquoi l'analyse fréquentielle peut les casser."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Un chiffrement monoalphabétique associe à chaque symbole en clair un symbole chiffré fixe pendant tout le message. Une lettre répétée est normalement remplacée de la même façon.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "Exemples et espace de clés", "html": "<p>César, le chiffre affine, Atbash et la substitution simple sont monoalphabétiques. Un alphabet librement mélangé offre plus de clés que César, mais conserve la structure statistique de la langue.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Pourquoi il est vulnérable", "html": "<p>La correspondance fixe préserve fréquences, répétitions et formes des mots. L'analyse fréquentielle, aidée des mots et digrammes courants, peut retrouver un long message ; un texte court peut rester ambigu.</p>"}
+    ],
+    "faq": [
+        {"question": "Le chiffre de César est-il monoalphabétique ?", "answer": "<p>Oui. Le même alphabet décalé sert pendant tout le message.</p>"},
+        {"question": "Un alphabet de substitution aléatoire est-il sûr ?", "answer": "<p>Il possède beaucoup de clés, mais les longs textes naturels révèlent toujours des motifs statistiques.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "transposition-cipher", "frequency-analysis", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Substitution simple"},
+        {"slug": "classical-ciphers/caesar", "label": "Chiffre de César"},
+        {"slug": "classical-ciphers/affine", "label": "Chiffre affine"},
+        {"slug": "classical-ciphers/atbash", "label": "Chiffre Atbash"}
+    ],
+    "tags": ["cryptographie classique", "monoalphabétique", "substitution"],
+    "category": "classical"
+}

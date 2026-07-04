@@ -26,9 +26,58 @@ return [
         'substitution-cipher',
         'monoalphabetic-cipher',
     ],
+    'classical-ciphers/rot13' => [
+        'shift-cipher',
+        'substitution-cipher',
+        'monoalphabetic-cipher',
+    ],
+    'classical-ciphers/simple-substitution' => [
+        'substitution-cipher',
+        'monoalphabetic-cipher',
+    ],
+    'classical-ciphers/affine' => [
+        'substitution-cipher',
+        'monoalphabetic-cipher',
+    ],
+    'classical-ciphers/atbash' => [
+        'substitution-cipher',
+        'monoalphabetic-cipher',
+    ],
+    'classical-ciphers/columnar-transposition' => [
+        'transposition-cipher',
+    ],
+    'classical-ciphers/rail-fence' => [
+        'transposition-cipher',
+    ],
     'classical-ciphers/vigenere' => [
         'polyalphabetic-cipher',
         'tabula-recta',
         'keystream',
+        'running-key-cipher',
+    ],
+    'classical-ciphers/autokey' => [
+        'polyalphabetic-cipher',
+        'keystream',
+    ],
+    'classical-ciphers/beaufort' => [
+        'polyalphabetic-cipher',
+        'tabula-recta',
+        'keystream',
+    ],
+    'classical-ciphers/gronsfeld' => [
+        'polyalphabetic-cipher',
+        'tabula-recta',
+        'keystream',
+    ],
+    'classical-ciphers/vernam' => [
+        'keystream',
+    ],
+    'classical-ciphers/xor-cipher' => [
+        'keystream',
+    ],
+    'classical-ciphers/enigma' => [
+        'rotor-machine',
+        'polyalphabetic-cipher',
+        'substitution-cipher',
     ],
 ];

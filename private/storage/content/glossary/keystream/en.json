@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "keystream", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Keystream",
+        "aliases": ["key stream"],
+        "short": "A keystream is the sequence of values combined with successive plaintext units during encryption.",
+        "meta_title": "Keystream — Definition, Generation, and Reuse | CiphersOnline",
+        "meta_description": "Learn how a keystream differs from a key, how classical and stream ciphers combine it with plaintext, and why reuse can be dangerous."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A keystream is an ordered sequence used one element at a time to transform a message. Classical ciphers may add letter shifts modulo the alphabet; digital stream ciphers usually combine bits or bytes with XOR.</p>"},
+        {"sort_order": 20, "type": "generation", "title": "Key versus keystream", "html": "<p>The secret key is compact input to a cipher, while the keystream is the position-by-position sequence derived from it, often together with a nonce. In Vigenère, repeating the keyword produces a simple keystream; modern generators aim for a long unpredictable sequence.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Reuse and predictability", "html": "<p>Reusing the same keystream for different messages can expose relations between their plaintexts, especially with XOR. A one-time pad is secure only when its keystream is truly random, as long as the message, secret, and never reused.</p>"}
+    ],
+    "faq": [
+        {"question": "Is a keystream the same as a key?", "answer": "<p>No. The key is an input; the keystream is the sequence consumed while encrypting or decrypting.</p>"},
+        {"question": "Can a keystream be reused?", "answer": "<p>Secure designs impose strict nonce and reuse rules. Repeating the same stream across messages can reveal information or fully break confidentiality.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "stream-cipher", "nonce", "initialization-vector", "polyalphabetic-cipher", "tabula-recta"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère cipher"},
+        {"slug": "classical-ciphers/vernam", "label": "Vernam cipher"},
+        {"slug": "classical-ciphers/xor-cipher", "label": "XOR cipher"}
+    ],
+    "tags": ["keystream", "stream cipher", "key material"],
+    "category": "classical"
+}

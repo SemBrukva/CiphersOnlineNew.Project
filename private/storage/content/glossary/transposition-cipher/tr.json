@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "transposition-cipher", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Yer değiştirme şifresi",
+        "aliases": ["transpozisyon şifresi"],
+        "short": "Yer değiştirme şifresi, açık metin simgelerini değiştirmeden bir anahtara göre yeniden sıralar.",
+        "meta_title": "Yer Değiştirme Şifresi — Tanım ve Örnekler | CiphersOnline",
+        "meta_description": "Yer değiştirme şifrelerinin metni nasıl sıraladığını, sütunlu ve Rail Fence yöntemlerini ve yerine koymadan farkını öğrenin."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>Yer değiştirme şifresi, açık metin simgelerinin konumlarını tersine çevrilebilir bir permütasyonla değiştirir. Simgeler aynı kaldığı için açık ve şifreli metindeki sıklıkları genellikle eşittir.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Nasıl çalışır?", "html": "<p>Rail Fence metni satırlara dağıtır ve farklı sırada okur. Sütunlu yer değiştirme metni tabloya yazar; sütunlar bir sözcük veya sayı anahtarına göre okunur. Çözme işlemi ters permütasyonu uygular.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Kriptoanaliz", "html": "<p>Basit yer değiştirme harf sıklıklarını korur. Olası tablo boyutları denenince tanınabilir parçalar ortaya çıkabilir. Klasik yöntemler modern güvenlik sağlamaz.</p>"}
+    ],
+    "faq": [
+        {"question": "Yer değiştirme harfleri değiştirir mi?", "answer": "<p>Hayır, yalnızca konumlarını değiştirir; tabloyu doldurmak için ek simgeler kullanılabilir.</p>"},
+        {"question": "Yerine koymadan farkı nedir?", "answer": "<p>Yer değiştirme simgeleri sıralar; yerine koyma onları başka simgelerle değiştirir.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "cipher", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/columnar-transposition", "label": "Sütunlu yer değiştirme"},
+        {"slug": "classical-ciphers/rail-fence", "label": "Rail Fence şifresi"}
+    ],
+    "tags": ["klasik kriptografi", "yer değiştirme", "permütasyon"],
+    "category": "classical"
+}

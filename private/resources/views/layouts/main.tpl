@@ -42,10 +42,7 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {vite entry="private/resources/js/app.js" type="preload"}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     {vite entry="private/resources/js/app.js" type="css"}
     {if $structured_data}
         {foreach $structured_data as $schema}
@@ -53,7 +50,7 @@
         {/foreach}
     {/if}
 </head>
-<body class="d-flex flex-column min-vh-100" style="font-family:'Inter',system-ui,sans-serif;">
+<body class="d-flex flex-column min-vh-100" style="font-family:'Inter Variable','Inter',system-ui,sans-serif;">
 
 {include file="partials/navbar.tpl"}
 

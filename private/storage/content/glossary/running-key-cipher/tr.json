@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "running-key-cipher", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Akan anahtar şifresi", "aliases": ["akan anahtarlı Vigenère"], "short": "Akan anahtar şifresi, çok alfabeli yerine koyma için uzun ve tekrarlanmayan bir metni anahtar akışı olarak kullanır.", "meta_title": "Akan Anahtar Şifresi — Tanım ve Zayıflıklar | CiphersOnline", "meta_description": "Uzun metnin Vigenère türü akışı nasıl sağladığını, Autokey'den farkını ve doğal dil anahtarlarının neden zayıf kaldığını öğrenin."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>Şifre, açık metni en az mesaj kadar uzun bir anahtar dizisiyle birleştirir. Yaygın biçimde bir kitap parçasının harfleri, kısa sözcüğü tekrarlamak yerine ardışık Vigenère kaydırmalarını seçer.</p>"},
+        {"sort_order": 20, "type": "distinction", "title": "Akan anahtar ve Autokey", "html": "<p>Akan anahtar dışarıdaki uzun bir kaynaktan gelir. Autokey kısa gizli başlangıcı açık veya şifreli metinle uzatır. Herkese açık kitapta baskı, parça ve başlangıç konumu gizli kalmalıdır.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Güvenlik sınırları", "html": "<p>Doğal dil rastgele değildir; sıklık ve bağıntıları mesaj yapısıyla birleşir. İstatistiksel saldırılar bu düzeni kullanır, dolayısıyla yöntem modern güvenlik sağlamaz.</p>"}
+    ],
+    "faq": [
+        {"question": "Akan anahtar tek kullanımlık şerit midir?", "answer": "<p>Hayır. Bunun için eş dağılımlı rastgele, gizli ve tekrarlanmayan malzeme gerekir; kitap metni uygun değildir.</p>"},
+        {"question": "Anahtar metni tekrar kullanılabilir mi?", "answer": "<p>Tekrar mesajlar arasında ilişki kurar ve kriptoanalizi kolaylaştırır.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "tabula-recta", "cryptographic-key", "kasiski-examination"],
+    "related_tools": [{"slug": "classical-ciphers/vigenere", "label": "Vigenère şifresi"}],
+    "tags": ["akan anahtar", "çok alfabeli şifre", "kitap anahtarı"],
+    "category": "classical"
+}

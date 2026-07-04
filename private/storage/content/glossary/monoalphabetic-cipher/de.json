@@ -1,0 +1,28 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "monoalphabetic-cipher", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Monoalphabetische Chiffre",
+        "aliases": ["monoalphabetische Substitutionschiffre"],
+        "short": "Eine monoalphabetische Chiffre verwendet für die gesamte Nachricht eine feste Substitutionszuordnung.",
+        "meta_title": "Monoalphabetische Chiffre — Definition | CiphersOnline",
+        "meta_description": "Wie ein festes Substitutionsalphabet Nachrichten chiffriert, welche Verfahren monoalphabetisch sind und warum Häufigkeitsanalyse sie brechen kann."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Eine monoalphabetische Chiffre ordnet jedem Klartextzeichen während der gesamten Nachricht ein festes Geheimtextzeichen zu. Ein wiederholter Buchstabe wird gewöhnlich immer gleich ersetzt.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "Beispiele und Schlüsselraum", "html": "<p>Caesar, affine Chiffre, Atbash und einfache Substitution sind monoalphabetisch. Ein frei gemischtes Alphabet bietet mehr Schlüssel als Caesar, verbirgt aber nicht die Sprachstatistik.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Warum sie angreifbar ist", "html": "<p>Die feste Zuordnung bewahrt Häufigkeiten, Wiederholungsmuster und Wortformen. Häufigkeitsanalyse kann mit typischen Wörtern und Buchstabenpaaren lange gewöhnliche Texte lösen; kurze Texte können mehrdeutig bleiben.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist die Caesar-Chiffre monoalphabetisch?", "answer": "<p>Ja. Ein einziges verschobenes Alphabet gilt unverändert für die ganze Nachricht.</p>"},
+        {"question": "Ist ein zufälliges Substitutionsalphabet sicher?", "answer": "<p>Es hat viele Schlüssel, doch lange natürliche Texte verraten weiterhin statistische Muster.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "transposition-cipher", "frequency-analysis", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Einfache Substitutionschiffre"},
+        {"slug": "classical-ciphers/caesar", "label": "Caesar-Chiffre"},
+        {"slug": "classical-ciphers/affine", "label": "Affine Chiffre"},
+        {"slug": "classical-ciphers/atbash", "label": "Atbash-Chiffre"}
+    ],
+    "tags": ["klassische Kryptografie", "monoalphabetisch", "Substitution"],
+    "category": "classical"
+}

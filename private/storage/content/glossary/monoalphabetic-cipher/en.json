@@ -1,0 +1,28 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "monoalphabetic-cipher", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Monoalphabetic cipher",
+        "aliases": ["monoalphabetic substitution cipher"],
+        "short": "A monoalphabetic cipher uses one fixed substitution mapping for the entire message.",
+        "meta_title": "Monoalphabetic Cipher — Definition and Analysis | CiphersOnline",
+        "meta_description": "Learn how one fixed substitution alphabet encrypts a message, which ciphers are monoalphabetic, and why frequency analysis can break them."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A monoalphabetic cipher assigns each plaintext symbol one fixed ciphertext counterpart for the whole message. If a plaintext letter appears several times, it is normally replaced by the same ciphertext letter each time.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "Examples and key space", "html": "<p>Caesar, affine, Atbash, and simple substitution are monoalphabetic ciphers. A freely shuffled alphabet has a much larger key space than Caesar, but key-space size alone does not remove the statistical structure of language.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Why it is vulnerable", "html": "<p>The fixed mapping preserves frequency ranks, repeated-letter patterns, and word shapes. Frequency analysis combined with common words and digrams can recover long ordinary messages, although short or unusual texts may remain ambiguous.</p>"}
+    ],
+    "faq": [
+        {"question": "Is the Caesar cipher monoalphabetic?", "answer": "<p>Yes. Its single shifted alphabet is used unchanged throughout the message.</p>"},
+        {"question": "Is a random substitution alphabet secure?", "answer": "<p>It has many possible keys, but long natural-language messages still leak patterns that enable cryptanalysis.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "transposition-cipher", "frequency-analysis", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Simple substitution cipher"},
+        {"slug": "classical-ciphers/caesar", "label": "Caesar cipher"},
+        {"slug": "classical-ciphers/affine", "label": "Affine cipher"},
+        {"slug": "classical-ciphers/atbash", "label": "Atbash cipher"}
+    ],
+    "tags": ["classical cryptography", "monoalphabetic", "substitution"],
+    "category": "classical"
+}

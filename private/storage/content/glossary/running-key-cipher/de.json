@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "running-key-cipher", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Running-Key-Chiffre", "aliases": ["Vigenère mit laufendem Schlüssel"], "short": "Eine Running-Key-Chiffre nutzt einen langen, nicht wiederholten Text als Schlüsselstrom für polyalphabetische Substitution.", "meta_title": "Running-Key-Chiffre — Definition und Schwächen | CiphersOnline", "meta_description": "Wie langer Text einen Vigenère-Schlüsselstrom liefert, wie Running Key von Autokey abweicht und warum natürliche Sprache angreifbar bleibt."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Die Running-Key-Chiffre kombiniert Klartext mit einer Schlüsselfolge, die mindestens so lang wie die Nachricht ist. Häufig bestimmen Buchstaben einer Buchpassage aufeinanderfolgende Vigenère-Verschiebungen statt eines wiederholten Kurzworts.</p>"},
+        {"sort_order": 20, "type": "distinction", "title": "Running Key und Autokey", "html": "<p>Running Key stammt aus einer externen langen Quelle. Autokey beginnt mit einem kurzen geheimen Startschlüssel und verlängert ihn mit Klar- oder Geheimtext. Bei einem öffentlichen Buch müssen Ausgabe, Passage und Startposition geheim bleiben.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Sicherheitsgrenzen", "html": "<p>Natürlicher Text ist nicht zufällig und enthält Häufigkeiten und Abhängigkeiten. Statistische Angriffe können diese mit der Klartextstruktur überlagerten Muster nutzen; moderne Sicherheit entsteht nicht.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist Running Key ein One-Time-Pad?", "answer": "<p>Nein. Dafür wäre gleichverteilt zufälliges, geheimes und nie wiederverwendetes Material nötig; Buchtext erfüllt dies nicht.</p>"},
+        {"question": "Darf der Schlüsseltext wiederverwendet werden?", "answer": "<p>Wiederverwendung schafft Beziehungen zwischen Nachrichten und erleichtert die Analyse.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "tabula-recta", "cryptographic-key", "kasiski-examination"],
+    "related_tools": [{"slug": "classical-ciphers/vigenere", "label": "Vigenère-Chiffre"}],
+    "tags": ["Running Key", "polyalphabetische Chiffre", "Buchschlüssel"],
+    "category": "classical"
+}

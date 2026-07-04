@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "transposition-cipher", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Chiffrement par transposition",
+        "aliases": ["chiffre par permutation"],
+        "short": "Un chiffrement par transposition réordonne les symboles du texte en clair selon une clé sans les remplacer.",
+        "meta_title": "Chiffrement par transposition — Définition | CiphersOnline",
+        "meta_description": "Comment la transposition réordonne le texte, comment fonctionnent les méthodes par colonnes et Rail Fence, et sa différence avec la substitution."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Un chiffrement par transposition déplace les symboles selon une permutation réversible. Ils restent identiques : leurs effectifs sont donc généralement les mêmes dans le texte en clair et le texte chiffré.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Fonctionnement", "html": "<p>Rail Fence répartit le texte sur des lignes puis le lit autrement. La transposition par colonnes écrit le texte dans une grille et lit les colonnes selon un mot-clé ou des nombres. Le déchiffrement applique la permutation inverse.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Cryptanalyse", "html": "<p>La transposition simple conserve les fréquences. Tester des grilles possibles peut faire apparaître des fragments reconnaissables. Les méthodes classiques n'assurent pas une sécurité moderne.</p>"}
+    ],
+    "faq": [
+        {"question": "La transposition change-t-elle les lettres ?", "answer": "<p>Non, seulement leurs positions ; des caractères de remplissage peuvent compléter la grille.</p>"},
+        {"question": "Quelle différence avec la substitution ?", "answer": "<p>La transposition réordonne les symboles ; la substitution les remplace.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "cipher", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/columnar-transposition", "label": "Transposition par colonnes"},
+        {"slug": "classical-ciphers/rail-fence", "label": "Chiffre Rail Fence"}
+    ],
+    "tags": ["cryptographie classique", "transposition", "permutation"],
+    "category": "classical"
+}

@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "running-key-cipher", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Chiffre à clé courante", "aliases": ["Vigenère à clé courante"], "short": "Un chiffre à clé courante emploie un texte long non répété comme suite chiffrante d'une substitution polyalphabétique.", "meta_title": "Chiffre à clé courante — Définition | CiphersOnline", "meta_description": "Comment un long texte fournit une suite de type Vigenère, sa différence avec Autokey et les faiblesses des clés en langue naturelle."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Le chiffre combine le texte clair avec une séquence au moins aussi longue que le message. Souvent, les lettres d'un passage de livre choisissent les décalages Vigenère successifs au lieu de répéter un mot court.</p>"},
+        {"sort_order": 20, "type": "distinction", "title": "Clé courante et Autokey", "html": "<p>La clé courante vient d'une longue source externe. Autokey part d'une amorce secrète puis la prolonge par le texte clair ou chiffré. Avec un livre public, édition, passage et position initiale doivent rester secrets.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Limites", "html": "<p>La langue naturelle n'est pas aléatoire : ses fréquences et corrélations se combinent à celles du message. Des attaques statistiques exploitent cette structure ; la méthode n'offre pas de sécurité moderne.</p>"}
+    ],
+    "faq": [
+        {"question": "Est-ce un masque jetable ?", "answer": "<p>Non. Un masque jetable exige une clé uniformément aléatoire, secrète et jamais réutilisée ; un livre ne convient pas.</p>"},
+        {"question": "Peut-on réutiliser le texte-clé ?", "answer": "<p>Sa réutilisation relie les messages et facilite la cryptanalyse.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "tabula-recta", "cryptographic-key", "kasiski-examination"],
+    "related_tools": [{"slug": "classical-ciphers/vigenere", "label": "Chiffre de Vigenère"}],
+    "tags": ["clé courante", "chiffre polyalphabétique", "clé de livre"],
+    "category": "classical"
+}

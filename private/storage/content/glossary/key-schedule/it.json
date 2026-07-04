@@ -1,0 +1,16 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "key-schedule", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Espansione della chiave", "aliases": ["schedulazione della chiave"], "short": "L'espansione della chiave deriva chiavi di round o sottochiavi dalla chiave fornita al cifrario.", "meta_title": "Espansione della chiave — Definizione | CiphersOnline", "meta_description": "Come una chiave principale genera chiavi di round, come differisce da un flusso di chiave e perché il progetto influisce sulla sicurezza."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definizione", "html": "<p>L'espansione trasforma la chiave fornita in sottochiavi per i round o gli stadi del cifrario. Può ruotare, sostituire, mescolare o aggiungere costanti al materiale.</p>"},
+        {"sort_order": 20, "type": "security", "title": "Scopo e sicurezza", "html": "<p>Le chiavi di round devono differire in modo da ostacolare attacchi strutturali e a chiavi correlate. L'espansione fa parte del cifrario, non rafforza password e le sue sottochiavi non sono un flusso combinato col messaggio.</p>"}
+    ],
+    "faq": [
+        {"question": "È la stessa cosa del flusso di chiave?", "answer": "<p>No. L'espansione alimenta i round; il flusso viene combinato in sequenza con il messaggio.</p>"},
+        {"question": "L'espansione aumenta l'entropia?", "answer": "<p>No. Deriva materiale deterministicamente senza aggiungere segreto indipendente.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "block-cipher", "encryption", "decryption", "keystream"],
+    "related_tools": [],
+    "tags": ["espansione della chiave", "chiave di round", "sottochiave"],
+    "category": "classical"
+}

@@ -1,0 +1,16 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "key-schedule", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Cadencement de clé", "aliases": ["expansion de clé"], "short": "Le cadencement de clé dérive les clés de ronde ou sous-clés à partir de la clé fournie au chiffre.", "meta_title": "Cadencement de clé — Définition | CiphersOnline", "meta_description": "Comment une clé principale produit des clés de ronde, en quoi cela diffère d'une suite chiffrante et pourquoi le procédé compte pour la sécurité."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Le cadencement transforme la clé fournie en sous-clés destinées aux rondes ou étapes du chiffre. Il peut effectuer rotations, substitutions, mélanges ou ajouts de constantes.</p>"},
+        {"sort_order": 20, "type": "security", "title": "Rôle et sécurité", "html": "<p>Les clés de ronde doivent différer de façon à résister aux attaques structurelles et par clés apparentées. Ce procédé appartient au chiffre, ne renforce pas un mot de passe et ne produit pas la suite combinée au message position par position.</p>"}
+    ],
+    "faq": [
+        {"question": "Est-ce une suite chiffrante ?", "answer": "<p>Non. Le cadencement alimente les rondes ; une suite chiffrante se combine successivement au message.</p>"},
+        {"question": "L'expansion augmente-t-elle l'entropie ?", "answer": "<p>Non. Elle dérive le matériel de façon déterministe sans ajouter de secret indépendant.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "block-cipher", "encryption", "decryption", "keystream"],
+    "related_tools": [],
+    "tags": ["cadencement de clé", "expansion de clé", "clé de ronde"],
+    "category": "classical"
+}

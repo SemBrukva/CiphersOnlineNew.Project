@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "tabula-recta", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Tabula recta",
+        "aliases": ["Vigenère square", "Vigenère table"],
+        "short": "A tabula recta is a square table whose rows contain successively shifted versions of an alphabet.",
+        "meta_title": "Tabula Recta — Vigenère Table Explained | CiphersOnline",
+        "meta_description": "Learn how a tabula recta arranges shifted alphabets, how Vigenère uses its rows and columns, and why the table is not a cipher by itself."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A tabula recta is an alphabet square: the first row contains the alphabet, and each following row is cyclically shifted by one position. For an alphabet of <em>n</em> symbols, the table has <em>n</em> rows and columns.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Use in Vigenère", "html": "<p>In a common convention, the key letter selects a row and the plaintext letter selects a column; their intersection gives the ciphertext letter. Decryption reverses that lookup. Equivalent tables may swap rows and columns without changing the underlying modular addition.</p>"},
+        {"sort_order": 30, "type": "scope", "title": "A tool, not a cipher", "html": "<p>The table visualizes a family of Caesar shifts but does not define when each row is chosen. Vigenère, Beaufort, and Gronsfeld supply different key rules or arithmetic, so sharing a similar table does not make them the same cipher.</p>"}
+    ],
+    "faq": [
+        {"question": "Is a tabula recta the same as the Vigenère cipher?", "answer": "<p>No. It is a lookup table; Vigenère also defines how a key selects shifts across the message.</p>"},
+        {"question": "Must the table use the Latin alphabet?", "answer": "<p>No. It can be built for any ordered symbol set, with dimensions matching that set.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "substitution-cipher", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère cipher"},
+        {"slug": "classical-ciphers/beaufort", "label": "Beaufort cipher"},
+        {"slug": "classical-ciphers/gronsfeld", "label": "Gronsfeld cipher"}
+    ],
+    "tags": ["tabula recta", "Vigenère square", "shifted alphabets"],
+    "category": "classical"
+}

@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "running-key-cipher", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Running key cipher", "aliases": ["running-key Vigenère"], "short": "A running key cipher uses a long, nonrepeating text or sequence as the keystream for polyalphabetic substitution.", "meta_title": "Running Key Cipher — Definition and Weaknesses | CiphersOnline", "meta_description": "Learn how a long text supplies a Vigenère-like keystream, how running key differs from autokey, and why natural-language keys remain vulnerable."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A running key cipher combines plaintext with a key sequence that is normally at least as long as the message. In a common form, letters from a book passage select successive Vigenère shifts instead of repeating a short keyword.</p>"},
+        {"sort_order": 20, "type": "distinction", "title": "Running key and autokey", "html": "<p>A running key comes from an external long source. Autokey starts with a short secret primer and extends it with plaintext or ciphertext. If a public book is used, the edition, passage, and starting position must effectively remain secret.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Security limits", "html": "<p>Natural-language key text is not random: it has letter frequencies and correlations that combine with those of the plaintext. Specialized statistical attacks can exploit this structure, so the method does not provide modern security.</p>"}
+    ],
+    "faq": [
+        {"question": "Is a running key a one-time pad?", "answer": "<p>No. A one-time pad requires uniformly random, secret, nonreused key material; ordinary book text does not meet that requirement.</p>"},
+        {"question": "Can the key text be reused?", "answer": "<p>Reuse creates additional relationships between messages and makes cryptanalysis easier.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "tabula-recta", "cryptographic-key", "kasiski-examination"],
+    "related_tools": [{"slug": "classical-ciphers/vigenere", "label": "Vigenère cipher"}],
+    "tags": ["running key", "polyalphabetic cipher", "book cipher"],
+    "category": "classical"
+}

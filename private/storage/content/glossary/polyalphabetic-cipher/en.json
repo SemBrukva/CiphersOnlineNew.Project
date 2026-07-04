@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "polyalphabetic-cipher", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Polyalphabetic cipher",
+        "aliases": ["polyalphabetic substitution cipher"],
+        "short": "A polyalphabetic cipher switches among multiple substitution alphabets as it processes a message.",
+        "meta_title": "Polyalphabetic Cipher — Definition and Analysis | CiphersOnline",
+        "meta_description": "Learn how polyalphabetic ciphers select changing substitution alphabets, how Vigenère uses a keystream, and why repeated keys remain vulnerable."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A polyalphabetic cipher uses more than one substitution alphabet. A keystream selects the alphabet or shift for each position, so the same plaintext letter can encrypt to different ciphertext letters.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "How it works", "html": "<p>Vigenère repeats a keyword to form a keystream and applies the corresponding rows of a tabula recta. Autokey extends a short key with message material, while Beaufort changes the arithmetic relationship between key, plaintext, and ciphertext.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Cryptanalysis", "html": "<p>Changing alphabets obscures the simple frequency profile of monoalphabetic substitution. A short repeating key, however, creates periodic structure: Kasiski examination and the index of coincidence can estimate its length, after which each position class can be analyzed separately.</p>"}
+    ],
+    "faq": [
+        {"question": "Is Vigenère a polyalphabetic cipher?", "answer": "<p>Yes. Each keystream letter selects a different shifted substitution alphabet.</p>"},
+        {"question": "Does polyalphabetic mean secure?", "answer": "<p>No. Classical designs with repeated or predictable keystreams leak structure and are not suitable for modern protection.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "keystream", "tabula-recta", "kasiski-examination", "index-of-coincidence"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère cipher"},
+        {"slug": "classical-ciphers/autokey", "label": "Autokey cipher"},
+        {"slug": "classical-ciphers/beaufort", "label": "Beaufort cipher"}
+    ],
+    "tags": ["classical cryptography", "polyalphabetic", "substitution"],
+    "category": "classical"
+}

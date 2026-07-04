@@ -1,0 +1,16 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "key-schedule", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Agenda de chaves", "aliases": ["expansão de chave"], "short": "A agenda de chaves deriva chaves de rodada ou subchaves a partir da chave fornecida à cifra.", "meta_title": "Agenda de chaves — Definição e expansão | CiphersOnline", "meta_description": "Como uma chave principal gera chaves de rodada, como isso difere de um fluxo de chave e por que o projeto afeta a segurança."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>A agenda transforma a chave fornecida em subchaves para rodadas ou etapas da cifra. Ela pode girar, substituir, misturar ou acrescentar constantes ao material.</p>"},
+        {"sort_order": 20, "type": "security", "title": "Finalidade e segurança", "html": "<p>As chaves de rodada devem diferir de modo a resistir a ataques estruturais e de chaves relacionadas. A agenda faz parte da cifra, não fortalece senhas, e suas subchaves não são um fluxo combinado posição a posição com a mensagem.</p>"}
+    ],
+    "faq": [
+        {"question": "É o mesmo que fluxo de chave?", "answer": "<p>Não. A agenda alimenta as rodadas; o fluxo é combinado sequencialmente com a mensagem.</p>"},
+        {"question": "A expansão aumenta a entropia?", "answer": "<p>Não. Ela deriva material deterministicamente sem adicionar segredo independente.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "block-cipher", "encryption", "decryption", "keystream"],
+    "related_tools": [],
+    "tags": ["agenda de chaves", "expansão de chave", "chave de rodada"],
+    "category": "classical"
+}

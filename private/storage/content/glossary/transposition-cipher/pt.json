@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "transposition-cipher", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Cifra de transposição",
+        "aliases": ["cifra de permutação"],
+        "short": "Uma cifra de transposição reorganiza os símbolos do texto claro conforme uma chave sem substituí-los.",
+        "meta_title": "Cifra de transposição — Definição e exemplos | CiphersOnline",
+        "meta_description": "Como a transposição reorganiza o texto, como funcionam os métodos colunar e Rail Fence e como ela difere da substituição."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>Uma cifra de transposição muda as posições dos símbolos por uma permutação reversível. Os símbolos permanecem iguais, então suas frequências no texto claro e cifrado costumam coincidir.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Como funciona", "html": "<p>Rail Fence distribui o texto em linhas e o lê em outra ordem. A transposição colunar usa uma grade e lê colunas na ordem indicada por uma palavra ou números. A decifragem aplica a permutação inversa.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Criptoanálise", "html": "<p>A transposição simples preserva frequências. Testar grades candidatas pode revelar fragmentos reconhecíveis. Os métodos clássicos não oferecem segurança moderna.</p>"}
+    ],
+    "faq": [
+        {"question": "A transposição muda as letras?", "answer": "<p>Não, muda apenas as posições; pode incluir caracteres de preenchimento.</p>"},
+        {"question": "Como difere da substituição?", "answer": "<p>A transposição reorganiza símbolos; a substituição os troca.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "cipher", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/columnar-transposition", "label": "Transposição colunar"},
+        {"slug": "classical-ciphers/rail-fence", "label": "Cifra Rail Fence"}
+    ],
+    "tags": ["criptografia clássica", "transposição", "permutação"],
+    "category": "classical"
+}

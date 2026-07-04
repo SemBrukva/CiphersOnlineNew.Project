@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "tabula-recta", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Tabula recta",
+        "aliases": ["quadrado de Vigenère", "tabela de Vigenère"],
+        "short": "Uma tabula recta é uma tabela quadrada cujas linhas contêm versões do alfabeto deslocadas sucessivamente.",
+        "meta_title": "Tabula recta — Tabela de Vigenère explicada | CiphersOnline",
+        "meta_description": "Como a tabela organiza alfabetos deslocados, como Vigenère usa linhas e colunas e por que ela não é uma cifra por si só."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>Uma tabula recta é um quadrado alfabético: a primeira linha contém o alfabeto e cada linha seguinte o desloca ciclicamente uma posição. Com <em>n</em> símbolos, possui <em>n</em> linhas e colunas.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Uso em Vigenère", "html": "<p>Em uma convenção comum, a letra da chave escolhe uma linha e a letra clara uma coluna; a interseção fornece a letra cifrada. A decifragem inverte a busca. Trocar linhas e colunas não altera a adição modular subjacente.</p>"},
+        {"sort_order": 30, "type": "scope", "title": "Uma ferramenta, não uma cifra", "html": "<p>A tabela representa deslocamentos de César, mas não determina quando escolher cada linha. Vigenère, Beaufort e Gronsfeld acrescentam regras de chave ou cálculos diferentes e não são a mesma cifra.</p>"}
+    ],
+    "faq": [
+        {"question": "A tabula recta é a cifra de Vigenère?", "answer": "<p>Não. Ela é uma tabela de consulta; Vigenère também define como a chave escolhe os deslocamentos.</p>"},
+        {"question": "Ela precisa usar o alfabeto latino?", "answer": "<p>Não. Pode ser construída para qualquer conjunto ordenado de símbolos.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "substitution-cipher", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Cifra de Vigenère"},
+        {"slug": "classical-ciphers/beaufort", "label": "Cifra de Beaufort"},
+        {"slug": "classical-ciphers/gronsfeld", "label": "Cifra de Gronsfeld"}
+    ],
+    "tags": ["tabula recta", "quadrado de Vigenère", "alfabetos deslocados"],
+    "category": "classical"
+}

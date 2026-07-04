@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "keystream", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Anahtar akışı",
+        "aliases": ["keystream"],
+        "short": "Anahtar akışı, açık metin birimleriyle sırayla birleştirilen değerler dizisidir.",
+        "meta_title": "Anahtar Akışı — Tanım, Üretim ve Yeniden Kullanım | CiphersOnline",
+        "meta_description": "Anahtar ile anahtar akışının farkını, klasik ve akış şifrelerindeki kullanımını ve tekrarın neden tehlikeli olduğunu öğrenin."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>Anahtar akışı, elemanları mesajı sırayla dönüştüren düzenli bir dizidir. Klasik şifreler alfabe modunda harf kaydırmaları ekleyebilir; sayısal akış şifreleri bit veya baytları genellikle XOR ile birleştirir.</p>"},
+        {"sort_order": 20, "type": "generation", "title": "Anahtar ve anahtar akışı", "html": "<p>Gizli anahtar kısa bir girdidir; anahtar akışı ise ondan, çoğu zaman bir nonce ile birlikte, her konum için türetilen dizidir. Vigenère anahtar sözcüğü tekrarlar; modern üreteçler uzun ve öngörülemez diziler amaçlar.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Yeniden kullanım", "html": "<p>Aynı akışı farklı mesajlarda kullanmak, özellikle XOR ile, açık metinler arasındaki ilişkileri açığa çıkarabilir. Tek kullanımlık şerit yalnızca rastgele, mesaj kadar uzun, gizli ve hiç tekrarlanmayan akışla güvenlidir.</p>"}
+    ],
+    "faq": [
+        {"question": "Anahtar akışı anahtarın kendisi midir?", "answer": "<p>Hayır. Anahtar girdidir; akış şifreleme veya çözme sırasında eleman eleman tüketilen dizidir.</p>"},
+        {"question": "Anahtar akışı yeniden kullanılabilir mi?", "answer": "<p>Güvenli tasarımlar nonce ve tekrar için sıkı kurallar koyar. Aynı akışın tekrarı gizliliği bozabilir.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "stream-cipher", "nonce", "initialization-vector", "polyalphabetic-cipher", "tabula-recta"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère şifresi"},
+        {"slug": "classical-ciphers/vernam", "label": "Vernam şifresi"},
+        {"slug": "classical-ciphers/xor-cipher", "label": "XOR şifresi"}
+    ],
+    "tags": ["anahtar akışı", "akış şifresi", "anahtar malzemesi"],
+    "category": "classical"
+}

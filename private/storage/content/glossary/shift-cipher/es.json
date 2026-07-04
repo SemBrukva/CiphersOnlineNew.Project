@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "shift-cipher", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Cifrado por desplazamiento",
+        "aliases": ["desplazamiento César"],
+        "short": "Un cifrado por desplazamiento sustituye cada símbolo por otro situado a una distancia fija en un alfabeto ordenado.",
+        "meta_title": "Cifrado por desplazamiento — Definición | CiphersOnline",
+        "meta_description": "Cómo cifra un desplazamiento modular fijo, cómo encajan César y ROT13 y por qué la fuerza bruta rompe fácilmente este cifrado."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>El cifrado transforma el índice <em>x</em> en <em>x + k</em> módulo el tamaño del alfabeto, donde <em>k</em> es la clave. Para descifrar se resta el mismo desplazamiento.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "César y ROT13", "html": "<p>César es el método general de desplazamiento fijo. ROT13 desplaza 13 posiciones en el alfabeto latino de 26 letras; aplicarlo dos veces recupera el texto.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Por qué es débil", "html": "<p>Solo hay una clave por desplazamiento posible y se conservan las frecuencias. Probar todos los valores o reconocer patrones del idioma suele revelar pronto el texto.</p>"}
+    ],
+    "faq": [
+        {"question": "¿Todo desplazamiento es un cifrado César?", "answer": "<p>Los nombres suelen designar la misma familia de rotaciones fijas del alfabeto.</p>"},
+        {"question": "¿Depende del alfabeto?", "answer": "<p>Sí. La aritmética recorre cíclicamente el conjunto ordenado de símbolos elegido.</p>"}
+    ],
+    "related_terms": ["monoalphabetic-cipher", "substitution-cipher", "cryptographic-key", "brute-force-attack", "frequency-analysis"],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Cifrado César"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"}
+    ],
+    "tags": ["cifrado por desplazamiento", "César", "aritmética modular"],
+    "category": "classical"
+}

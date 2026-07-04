@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "polyalphabetic-cipher", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Cifrado polialfabético",
+        "aliases": ["sustitución polialfabética"],
+        "short": "Un cifrado polialfabético alterna varios alfabetos de sustitución mientras procesa el mensaje.",
+        "meta_title": "Cifrado polialfabético — Definición y análisis | CiphersOnline",
+        "meta_description": "Cómo cambian los alfabetos de sustitución, cómo Vigenère usa un flujo de clave y por qué las claves repetidas siguen siendo vulnerables."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>Un cifrado polialfabético usa más de un alfabeto de sustitución. Un flujo de clave selecciona el alfabeto o desplazamiento de cada posición, de modo que una misma letra puede producir letras cifradas distintas.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Cómo funciona", "html": "<p>Vigenère repite una palabra clave para formar el flujo y usa las filas correspondientes de una tabula recta. Autokey prolonga una clave corta con material del mensaje; Beaufort cambia la relación aritmética entre clave, texto plano y texto cifrado.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Criptoanálisis", "html": "<p>El cambio de alfabetos oculta la distribución simple de una sustitución monoalfabética. Una clave corta repetida crea periodicidad: el examen de Kasiski y el índice de coincidencia permiten estimar su longitud y analizar cada clase de posiciones.</p>"}
+    ],
+    "faq": [
+        {"question": "¿Vigenère es polialfabético?", "answer": "<p>Sí. Cada símbolo del flujo de clave selecciona un alfabeto desplazado distinto.</p>"},
+        {"question": "¿Polialfabético significa seguro?", "answer": "<p>No. Los diseños clásicos con flujos repetidos o predecibles no brindan protección moderna.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "keystream", "tabula-recta", "kasiski-examination", "index-of-coincidence"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Cifrado Vigenère"},
+        {"slug": "classical-ciphers/autokey", "label": "Cifrado Autokey"},
+        {"slug": "classical-ciphers/beaufort", "label": "Cifrado Beaufort"}
+    ],
+    "tags": ["criptografía clásica", "polialfabético", "sustitución"],
+    "category": "classical"
+}

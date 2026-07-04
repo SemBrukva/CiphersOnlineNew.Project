@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "keystream", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Suite chiffrante",
+        "aliases": ["flot de clé"],
+        "short": "Une suite chiffrante est la séquence de valeurs combinées successivement aux unités du texte en clair.",
+        "meta_title": "Suite chiffrante — Définition et réutilisation | CiphersOnline",
+        "meta_description": "Différence entre clé et suite chiffrante, emploi dans les chiffres classiques et par flot, et danger de la réutilisation."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Une suite chiffrante est une séquence ordonnée dont les éléments transforment le message un à un. Les chiffres classiques peuvent additionner des décalages modulo l'alphabet ; les chiffres par flot numériques combinent généralement bits ou octets par XOR.</p>"},
+        {"sort_order": 20, "type": "generation", "title": "Clé et suite chiffrante", "html": "<p>La clé secrète est une entrée compacte ; la suite est la séquence positionnelle qui en dérive, souvent aussi d'un nonce. Vigenère répète un mot-clé ; les générateurs modernes visent une longue séquence imprévisible.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Réutilisation", "html": "<p>Réutiliser la même suite pour plusieurs messages peut révéler des relations entre leurs textes clairs, surtout avec XOR. Un masque jetable n'est sûr que si la suite est aléatoire, aussi longue que le message, secrète et jamais réutilisée.</p>"}
+    ],
+    "faq": [
+        {"question": "La suite chiffrante est-elle la clé ?", "answer": "<p>Non. La clé est une entrée ; la suite est consommée élément par élément pendant le chiffrement ou le déchiffrement.</p>"},
+        {"question": "Peut-on réutiliser une suite ?", "answer": "<p>Les systèmes sûrs imposent des règles strictes de nonce et de réutilisation. Répéter la suite peut briser la confidentialité.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "stream-cipher", "nonce", "initialization-vector", "polyalphabetic-cipher", "tabula-recta"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Chiffre de Vigenère"},
+        {"slug": "classical-ciphers/vernam", "label": "Chiffre de Vernam"},
+        {"slug": "classical-ciphers/xor-cipher", "label": "Chiffre XOR"}
+    ],
+    "tags": ["suite chiffrante", "chiffrement par flot", "matériel de clé"],
+    "category": "classical"
+}

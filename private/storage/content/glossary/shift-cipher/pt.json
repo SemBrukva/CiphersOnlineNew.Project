@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "shift-cipher", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Cifra de deslocamento", "aliases": ["deslocamento de César"], "short": "Uma cifra de deslocamento troca cada símbolo pelo que está a uma distância fixa em um alfabeto ordenado.", "meta_title": "Cifra de deslocamento — Definição | CiphersOnline", "meta_description": "Como um deslocamento modular cifra texto, como César e ROT13 fazem parte da família e por que a força bruta a quebra facilmente."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>O índice <em>x</em> torna-se <em>x + k</em> módulo o tamanho do alfabeto, sendo <em>k</em> a chave. Para decifrar, subtrai-se o mesmo deslocamento.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "César e ROT13", "html": "<p>César é o método geral de deslocamento fixo. ROT13 desloca 13 posições no alfabeto latino de 26 letras; aplicá-lo duas vezes restaura o texto.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Por que é fraca", "html": "<p>Há poucas chaves e as frequências das letras permanecem. Testar todos os deslocamentos ou reconhecer padrões da língua costuma revelar o texto.</p>"}
+    ],
+    "faq": [
+        {"question": "Todo deslocamento é uma cifra de César?", "answer": "<p>Os nomes geralmente indicam a mesma família de rotações fixas.</p>"},
+        {"question": "O resultado depende do alfabeto?", "answer": "<p>Sim. O cálculo circula no conjunto ordenado de símbolos escolhido.</p>"}
+    ],
+    "related_terms": ["monoalphabetic-cipher", "substitution-cipher", "cryptographic-key", "brute-force-attack", "frequency-analysis"],
+    "related_tools": [{"slug": "classical-ciphers/caesar", "label": "Cifra de César"}, {"slug": "classical-ciphers/rot13", "label": "ROT13"}],
+    "tags": ["deslocamento", "César", "aritmética modular"],
+    "category": "classical"
+}

@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "polyalphabetic-cipher", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Polyalphabetische Chiffre",
+        "aliases": ["polyalphabetische Substitutionschiffre"],
+        "short": "Eine polyalphabetische Chiffre wechselt bei der Verarbeitung einer Nachricht zwischen mehreren Substitutionsalphabeten.",
+        "meta_title": "Polyalphabetische Chiffre — Definition | CiphersOnline",
+        "meta_description": "Wie wechselnde Substitutionsalphabete funktionieren, wie Vigenère einen Schlüsselstrom nutzt und warum wiederholte Schlüssel angreifbar bleiben."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Eine polyalphabetische Chiffre verwendet mehrere Substitutionsalphabete. Ein Schlüsselstrom wählt für jede Position das Alphabet oder die Verschiebung, sodass derselbe Klartextbuchstabe verschieden chiffriert werden kann.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Funktionsweise", "html": "<p>Vigenère wiederholt ein Schlüsselwort zum Schlüsselstrom und nutzt die passenden Zeilen einer Tabula recta. Autokey verlängert einen kurzen Schlüssel mit Nachrichtentext; Beaufort verknüpft Schlüssel, Klartext und Geheimtext rechnerisch anders.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Kryptoanalyse", "html": "<p>Der Alphabetwechsel verschleiert die einfache Häufigkeitsverteilung monoalphabetischer Substitution. Kurze wiederholte Schlüssel erzeugen jedoch Perioden: Kasiski-Test und Koinzidenzindex helfen, die Länge zu schätzen und Positionsklassen getrennt zu analysieren.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist Vigenère polyalphabetisch?", "answer": "<p>Ja. Jedes Zeichen des Schlüsselstroms wählt ein anderes verschobenes Alphabet.</p>"},
+        {"question": "Bedeutet polyalphabetisch automatisch sicher?", "answer": "<p>Nein. Klassische Verfahren mit wiederholtem oder vorhersagbarem Schlüsselstrom sind nicht modern sicher.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "keystream", "tabula-recta", "kasiski-examination", "index-of-coincidence"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère-Chiffre"},
+        {"slug": "classical-ciphers/autokey", "label": "Autokey-Chiffre"},
+        {"slug": "classical-ciphers/beaufort", "label": "Beaufort-Chiffre"}
+    ],
+    "tags": ["klassische Kryptografie", "polyalphabetisch", "Substitution"],
+    "category": "classical"
+}

@@ -1,0 +1,16 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "key-schedule", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Schlüsselplan", "aliases": ["Schlüsselexpansion"], "short": "Ein Schlüsselplan leitet aus dem eingegebenen Chiffrierschlüssel Rundenschlüssel oder Teilschlüssel ab.", "meta_title": "Schlüsselplan — Definition und Expansion | CiphersOnline", "meta_description": "Wie ein Hauptschlüssel zu Rundenschlüsseln erweitert wird, wie dies vom Schlüsselstrom abweicht und warum der Plan sicherheitsrelevant ist."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Ein Schlüsselplan erzeugt aus dem eingegebenen Schlüssel Teilschlüssel für einzelne Runden oder Stufen. Er kann Schlüsselteile rotieren, substituieren, mischen oder mit Konstanten verbinden.</p>"},
+        {"sort_order": 20, "type": "security", "title": "Zweck und Sicherheit", "html": "<p>Rundenschlüssel sollen sich so unterscheiden, dass verwandte Schlüssel und Strukturen nicht leicht ausnutzbar sind. Der Plan ist Teil der Chiffre, keine Passwortableitung; seine Teilschlüssel sind kein nachrichtenweiser Schlüsselstrom.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist der Schlüsselplan ein Schlüsselstrom?", "answer": "<p>Nein. Er liefert Rundenschlüssel; ein Schlüsselstrom wird fortlaufend mit Nachrichteneinheiten kombiniert.</p>"},
+        {"question": "Erhöht Expansion die Schlüsselentropie?", "answer": "<p>Nein. Sie leitet Material deterministisch ab und fügt kein unabhängiges Geheimnis hinzu.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "block-cipher", "encryption", "decryption", "keystream"],
+    "related_tools": [],
+    "tags": ["Schlüsselplan", "Schlüsselexpansion", "Rundenschlüssel"],
+    "category": "classical"
+}

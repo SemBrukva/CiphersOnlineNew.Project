@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "keystream", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Schlüsselstrom",
+        "aliases": ["Keystream"],
+        "short": "Ein Schlüsselstrom ist die Folge von Werten, die nacheinander mit den Klartexteinheiten kombiniert werden.",
+        "meta_title": "Schlüsselstrom — Definition und Wiederverwendung | CiphersOnline",
+        "meta_description": "Wie sich Schlüsselstrom und Schlüssel unterscheiden, wie klassische und Stromchiffren ihn verwenden und warum Wiederverwendung gefährlich ist."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Ein Schlüsselstrom ist eine geordnete Folge, deren Elemente nacheinander eine Nachricht transformieren. Klassische Chiffren addieren etwa Buchstabenverschiebungen modulo Alphabet; digitale Stromchiffren kombinieren meist Bits oder Bytes per XOR.</p>"},
+        {"sort_order": 20, "type": "generation", "title": "Schlüssel und Schlüsselstrom", "html": "<p>Der geheime Schlüssel ist eine kompakte Eingabe, der Schlüsselstrom die daraus positionsweise erzeugte Folge, häufig zusätzlich abhängig von einer Nonce. Vigenère wiederholt sein Schlüsselwort; moderne Generatoren sollen lange, unvorhersagbare Folgen liefern.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Wiederverwendung", "html": "<p>Derselbe Schlüsselstrom für mehrere Nachrichten kann Beziehungen zwischen Klartexten offenlegen, besonders bei XOR. Ein One-Time-Pad ist nur mit einer wirklich zufälligen, nachrichtenlangen, geheimen und nie wiederverwendeten Folge sicher.</p>"}
+    ],
+    "faq": [
+        {"question": "Sind Schlüsselstrom und Schlüssel dasselbe?", "answer": "<p>Nein. Der Schlüssel ist die Eingabe; der Schlüsselstrom wird elementweise bei der Ver- oder Entschlüsselung verbraucht.</p>"},
+        {"question": "Darf ein Schlüsselstrom wiederverwendet werden?", "answer": "<p>Sichere Verfahren haben strenge Nonce- und Wiederverwendungsregeln. Derselbe Strom kann die Vertraulichkeit brechen.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "stream-cipher", "nonce", "initialization-vector", "polyalphabetic-cipher", "tabula-recta"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère-Chiffre"},
+        {"slug": "classical-ciphers/vernam", "label": "Vernam-Chiffre"},
+        {"slug": "classical-ciphers/xor-cipher", "label": "XOR-Chiffre"}
+    ],
+    "tags": ["Schlüsselstrom", "Stromchiffre", "Schlüsselmaterial"],
+    "category": "classical"
+}

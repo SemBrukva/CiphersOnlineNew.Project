@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "shift-cipher", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Shift cipher",
+        "aliases": ["Caesar shift"],
+        "short": "A shift cipher replaces every plaintext symbol with the symbol a fixed number of positions away in an ordered alphabet.",
+        "meta_title": "Shift Cipher — Definition, Formula, and Examples | CiphersOnline",
+        "meta_description": "Learn how fixed modular shifts encrypt text, how Caesar and ROT13 fit the family, and why brute force easily breaks shift ciphers."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A shift cipher maps each alphabet index <em>x</em> to <em>x + k</em> modulo the alphabet size, where <em>k</em> is the key. Decryption subtracts the same shift.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "Caesar and ROT13", "html": "<p>The Caesar cipher is the general fixed-shift method. ROT13 is the special shift by 13 in the 26-letter Latin alphabet; applying it twice restores the original text.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Why it is weak", "html": "<p>Only one key exists per possible nonzero shift, and letter frequencies are preserved. Trying every shift or inspecting common language patterns usually reveals the plaintext quickly.</p>"}
+    ],
+    "faq": [
+        {"question": "Is every shift cipher a Caesar cipher?", "answer": "<p>The names are commonly used for the same family of fixed alphabet rotations.</p>"},
+        {"question": "Does the shift depend on the alphabet?", "answer": "<p>Yes. Arithmetic wraps around the exact ordered symbol set, so alphabet size and composition matter.</p>"}
+    ],
+    "related_terms": ["monoalphabetic-cipher", "substitution-cipher", "cryptographic-key", "brute-force-attack", "frequency-analysis"],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Caesar cipher"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"}
+    ],
+    "tags": ["shift cipher", "Caesar cipher", "modular arithmetic"],
+    "category": "classical"
+}

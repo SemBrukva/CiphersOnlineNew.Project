@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "transposition-cipher", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Transpositionschiffre",
+        "aliases": ["Permutationschiffre"],
+        "short": "Eine Transpositionschiffre verschlüsselt, indem sie Klartextzeichen nach einem Schlüssel neu anordnet, ohne sie zu ersetzen.",
+        "meta_title": "Transpositionschiffre — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Wie Transpositionschiffren Text umordnen, wie Spalten- und Gartenzaunverfahren funktionieren und wie sie sich von Substitution unterscheiden."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Eine Transpositionschiffre verändert die Positionen der Klartextzeichen durch eine umkehrbare Permutation. Die Zeichen selbst bleiben gleich; deshalb stimmen ihre Häufigkeiten in Klar- und Geheimtext gewöhnlich überein.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Funktionsweise", "html": "<p>Die Gartenzaun-Chiffre verteilt Text auf Zeilen und liest ihn anders aus. Bei der Spaltentransposition wird Text in ein Raster geschrieben; ein Wort oder Zahlenschlüssel bestimmt die Spaltenreihenfolge. Zur Entschlüsselung wird die inverse Permutation angewandt.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Kryptoanalyse", "html": "<p>Einfache Transposition bewahrt Buchstabenhäufigkeiten. Durch Testen möglicher Raster können typische Fragmente sichtbar werden. Klassische Varianten bieten keine moderne Sicherheit.</p>"}
+    ],
+    "faq": [
+        {"question": "Verändert Transposition die Buchstaben?", "answer": "<p>Nein, nur ihre Positionen; zum Füllen eines Rasters können Zusatzzeichen vorkommen.</p>"},
+        {"question": "Wie unterscheidet sie sich von Substitution?", "answer": "<p>Transposition ordnet Zeichen neu, Substitution ersetzt sie.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "cipher", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/columnar-transposition", "label": "Spaltentransposition"},
+        {"slug": "classical-ciphers/rail-fence", "label": "Gartenzaun-Chiffre"}
+    ],
+    "tags": ["klassische Kryptografie", "Transposition", "Permutation"],
+    "category": "classical"
+}

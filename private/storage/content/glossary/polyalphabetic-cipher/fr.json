@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "polyalphabetic-cipher", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Chiffrement polyalphabétique",
+        "aliases": ["substitution polyalphabétique"],
+        "short": "Un chiffrement polyalphabétique alterne plusieurs alphabets de substitution au fil du message.",
+        "meta_title": "Chiffrement polyalphabétique — Définition | CiphersOnline",
+        "meta_description": "Comment les alphabets de substitution alternent, comment Vigenère emploie une suite chiffrante et pourquoi les clés répétées restent vulnérables."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Un chiffrement polyalphabétique utilise plusieurs alphabets de substitution. Une suite chiffrante choisit l'alphabet ou le décalage à chaque position, si bien qu'une même lettre claire peut donner différentes lettres chiffrées.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Fonctionnement", "html": "<p>Vigenère répète un mot-clé pour former la suite et sélectionne les lignes d'une table de Vigenère. Autokey prolonge une clé courte avec le message ; Beaufort modifie la relation arithmétique entre clé, texte clair et texte chiffré.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Cryptanalyse", "html": "<p>L'alternance masque la distribution simple d'une substitution monoalphabétique. Une clé courte répétée crée toutefois une périodicité : le test de Kasiski et l'indice de coïncidence aident à estimer sa longueur puis à analyser chaque classe de positions.</p>"}
+    ],
+    "faq": [
+        {"question": "Vigenère est-il polyalphabétique ?", "answer": "<p>Oui. Chaque caractère de la suite chiffrante sélectionne un alphabet décalé.</p>"},
+        {"question": "Polyalphabétique signifie-t-il sûr ?", "answer": "<p>Non. Les systèmes classiques à suite répétée ou prévisible ne conviennent pas à la protection moderne.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "keystream", "tabula-recta", "kasiski-examination", "index-of-coincidence"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Chiffre de Vigenère"},
+        {"slug": "classical-ciphers/autokey", "label": "Chiffre Autokey"},
+        {"slug": "classical-ciphers/beaufort", "label": "Chiffre de Beaufort"}
+    ],
+    "tags": ["cryptographie classique", "polyalphabétique", "substitution"],
+    "category": "classical"
+}

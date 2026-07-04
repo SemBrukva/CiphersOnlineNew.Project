@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "tabula-recta", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Tabula recta",
+        "aliases": ["quadrato di Vigenère", "tavola di Vigenère"],
+        "short": "Una tabula recta è una tabella quadrata le cui righe contengono versioni dell'alfabeto traslate in successione.",
+        "meta_title": "Tabula recta — Tavola di Vigenère spiegata | CiphersOnline",
+        "meta_description": "Come dispone gli alfabeti traslati, come Vigenère usa righe e colonne e perché la tabella da sola non è un cifrario."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definizione", "html": "<p>Una tabula recta è un quadrato alfabetico: la prima riga contiene l'alfabeto e ogni riga successiva lo sposta ciclicamente di una posizione. Con <em>n</em> simboli ha <em>n</em> righe e colonne.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Uso in Vigenère", "html": "<p>In una convenzione comune, la lettera della chiave sceglie una riga e quella del testo in chiaro una colonna; l'intersezione dà la lettera cifrata. La decifratura inverte la ricerca. Scambiare righe e colonne non cambia l'addizione modulare.</p>"},
+        {"sort_order": 30, "type": "scope", "title": "Uno strumento, non un cifrario", "html": "<p>La tabella mostra gli spostamenti di Cesare, ma non stabilisce quando usare ogni riga. Vigenère, Beaufort e Gronsfeld aggiungono regole o calcoli diversi e non sono quindi lo stesso cifrario.</p>"}
+    ],
+    "faq": [
+        {"question": "La tabula recta è il cifrario di Vigenère?", "answer": "<p>No. È una tabella di consultazione; Vigenère definisce anche come la chiave seleziona gli spostamenti.</p>"},
+        {"question": "Deve usare l'alfabeto latino?", "answer": "<p>No. Può essere costruita per qualsiasi insieme ordinato di simboli.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "substitution-cipher", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Cifrario di Vigenère"},
+        {"slug": "classical-ciphers/beaufort", "label": "Cifrario di Beaufort"},
+        {"slug": "classical-ciphers/gronsfeld", "label": "Cifrario di Gronsfeld"}
+    ],
+    "tags": ["tabula recta", "quadrato di Vigenère", "alfabeti traslati"],
+    "category": "classical"
+}

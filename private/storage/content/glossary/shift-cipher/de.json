@@ -1,0 +1,26 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "shift-cipher", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Verschiebechiffre",
+        "aliases": ["Caesar-Verschiebung"],
+        "short": "Eine Verschiebechiffre ersetzt jedes Klartextzeichen durch das Zeichen in festem Abstand innerhalb eines geordneten Alphabets.",
+        "meta_title": "Verschiebechiffre — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Wie feste modulare Verschiebungen Text chiffrieren, wie Caesar und ROT13 zusammenhängen und warum Brute Force sie leicht bricht."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Die Verschiebechiffre bildet den Alphabetindex <em>x</em> auf <em>x + k</em> modulo Alphabetgröße ab; <em>k</em> ist der Schlüssel. Zur Entschlüsselung wird dieselbe Verschiebung subtrahiert.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "Caesar und ROT13", "html": "<p>Caesar bezeichnet das allgemeine Verfahren mit fester Verschiebung. ROT13 verschiebt im 26-buchstabigen lateinischen Alphabet um 13; zweimalige Anwendung stellt den Text wieder her.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Warum sie schwach ist", "html": "<p>Es gibt nur so viele Schlüssel wie mögliche Verschiebungen, und Buchstabenhäufigkeiten bleiben erhalten. Alle Schlüssel durchzuprobieren oder Sprachmuster zu prüfen, findet den Klartext meist schnell.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist jede Verschiebechiffre eine Caesar-Chiffre?", "answer": "<p>Die Namen werden meist für dieselbe Familie fester Alphabetrotationen verwendet.</p>"},
+        {"question": "Hängt die Verschiebung vom Alphabet ab?", "answer": "<p>Ja. Die Rechnung läuft im konkreten geordneten Zeichensatz zyklisch weiter.</p>"}
+    ],
+    "related_terms": ["monoalphabetic-cipher", "substitution-cipher", "cryptographic-key", "brute-force-attack", "frequency-analysis"],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Caesar-Chiffre"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"}
+    ],
+    "tags": ["Verschiebechiffre", "Caesar-Chiffre", "modulare Arithmetik"],
+    "category": "classical"
+}

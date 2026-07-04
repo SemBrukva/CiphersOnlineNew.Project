@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "shift-cipher", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Chiffrement par décalage", "aliases": ["décalage de César"], "short": "Un chiffrement par décalage remplace chaque symbole par celui situé à une distance fixe dans un alphabet ordonné.", "meta_title": "Chiffrement par décalage — Définition | CiphersOnline", "meta_description": "Comment un décalage modulaire chiffre le texte, comment César et ROT13 s'y rattachent et pourquoi la force brute le casse facilement."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>L'indice <em>x</em> devient <em>x + k</em> modulo la taille de l'alphabet, où <em>k</em> est la clé. Le déchiffrement soustrait le même décalage.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "César et ROT13", "html": "<p>César désigne la méthode générale à décalage fixe. ROT13 décale de 13 rangs dans l'alphabet latin de 26 lettres ; deux applications restituent le texte.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Pourquoi il est faible", "html": "<p>Le nombre de clés est minime et les fréquences restent visibles. Tester tous les décalages ou reconnaître des motifs linguistiques révèle généralement le texte.</p>"}
+    ],
+    "faq": [
+        {"question": "Tout décalage est-il un chiffre de César ?", "answer": "<p>Les deux noms désignent couramment la même famille de rotations fixes.</p>"},
+        {"question": "Le résultat dépend-il de l'alphabet ?", "answer": "<p>Oui. Le calcul boucle dans l'ensemble ordonné de symboles choisi.</p>"}
+    ],
+    "related_terms": ["monoalphabetic-cipher", "substitution-cipher", "cryptographic-key", "brute-force-attack", "frequency-analysis"],
+    "related_tools": [{"slug": "classical-ciphers/caesar", "label": "Chiffre de César"}, {"slug": "classical-ciphers/rot13", "label": "ROT13"}],
+    "tags": ["décalage", "César", "arithmétique modulaire"],
+    "category": "classical"
+}

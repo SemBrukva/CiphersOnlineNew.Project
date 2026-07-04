@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "keystream", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Fluxo de chave",
+        "aliases": ["sequência de chave"],
+        "short": "Um fluxo de chave é a sequência de valores combinados sucessivamente com as unidades do texto claro.",
+        "meta_title": "Fluxo de chave — Definição e reutilização | CiphersOnline",
+        "meta_description": "Diferença entre chave e fluxo, uso em cifras clássicas e de fluxo e por que a reutilização pode ser perigosa."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>Um fluxo de chave é uma sequência ordenada cujos elementos transformam a mensagem um a um. Cifras clássicas podem somar deslocamentos módulo alfabeto; cifras digitais de fluxo geralmente combinam bits ou bytes com XOR.</p>"},
+        {"sort_order": 20, "type": "generation", "title": "Chave e fluxo de chave", "html": "<p>A chave secreta é uma entrada compacta; o fluxo é a sequência por posição derivada dela, muitas vezes também de um nonce. Vigenère repete uma palavra-chave; geradores modernos buscam sequências longas e imprevisíveis.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Reutilização", "html": "<p>Usar o mesmo fluxo em mensagens distintas pode revelar relações entre os textos claros, sobretudo com XOR. Uma cifra de uso único só é segura com fluxo aleatório, do tamanho da mensagem, secreto e nunca reutilizado.</p>"}
+    ],
+    "faq": [
+        {"question": "O fluxo de chave é a própria chave?", "answer": "<p>Não. A chave é uma entrada; o fluxo é a sequência consumida ao cifrar ou decifrar.</p>"},
+        {"question": "Um fluxo pode ser reutilizado?", "answer": "<p>Projetos seguros impõem regras estritas de nonce e reutilização. Repetir o fluxo pode quebrar a confidencialidade.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "stream-cipher", "nonce", "initialization-vector", "polyalphabetic-cipher", "tabula-recta"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Cifra de Vigenère"},
+        {"slug": "classical-ciphers/vernam", "label": "Cifra de Vernam"},
+        {"slug": "classical-ciphers/xor-cipher", "label": "Cifra XOR"}
+    ],
+    "tags": ["fluxo de chave", "cifra de fluxo", "material de chave"],
+    "category": "classical"
+}

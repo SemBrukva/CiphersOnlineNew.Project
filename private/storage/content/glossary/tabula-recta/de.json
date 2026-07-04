@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "tabula-recta", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Tabula recta",
+        "aliases": ["Vigenère-Quadrat", "Vigenère-Tabelle"],
+        "short": "Eine Tabula recta ist eine quadratische Tabelle mit zeilenweise zyklisch verschobenen Alphabeten.",
+        "meta_title": "Tabula recta — Vigenère-Tabelle erklärt | CiphersOnline",
+        "meta_description": "Wie die Tabula recta verschobene Alphabete anordnet, wie Vigenère sie verwendet und warum die Tabelle allein keine Chiffre ist."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Eine Tabula recta ist ein Alphabetquadrat: Die erste Zeile enthält das Alphabet, jede weitere ist zyklisch um eine Position verschoben. Bei <em>n</em> Symbolen hat sie <em>n</em> Zeilen und Spalten.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Verwendung bei Vigenère", "html": "<p>Üblicherweise wählt der Schlüsselbuchstabe eine Zeile und der Klartextbuchstabe eine Spalte; ihr Schnittpunkt liefert den Geheimtext. Die Entschlüsselung kehrt die Suche um. Zeilen und Spalten können vertauscht werden, ohne die modulare Addition zu ändern.</p>"},
+        {"sort_order": 30, "type": "scope", "title": "Hilfsmittel statt Chiffre", "html": "<p>Die Tabelle zeigt Caesar-Verschiebungen, legt aber nicht fest, wann welche Zeile gilt. Vigenère, Beaufort und Gronsfeld nutzen unterschiedliche Schlüsselregeln oder Rechnungen und sind daher nicht dieselbe Chiffre.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist die Tabula recta die Vigenère-Chiffre?", "answer": "<p>Nein. Sie ist eine Nachschlagetabelle; Vigenère definiert zusätzlich die schlüsselgesteuerte Auswahl.</p>"},
+        {"question": "Muss sie das lateinische Alphabet verwenden?", "answer": "<p>Nein. Sie lässt sich für jede geordnete Symbolmenge aufbauen.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "substitution-cipher", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère-Chiffre"},
+        {"slug": "classical-ciphers/beaufort", "label": "Beaufort-Chiffre"},
+        {"slug": "classical-ciphers/gronsfeld", "label": "Gronsfeld-Chiffre"}
+    ],
+    "tags": ["Tabula recta", "Vigenère-Quadrat", "verschobene Alphabete"],
+    "category": "classical"
+}

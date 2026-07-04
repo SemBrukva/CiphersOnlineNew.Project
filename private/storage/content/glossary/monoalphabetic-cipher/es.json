@@ -1,0 +1,28 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "monoalphabetic-cipher", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Cifrado monoalfabético",
+        "aliases": ["sustitución monoalfabética"],
+        "short": "Un cifrado monoalfabético usa una única correspondencia de sustitución fija para todo el mensaje.",
+        "meta_title": "Cifrado monoalfabético — Definición y análisis | CiphersOnline",
+        "meta_description": "Cómo un alfabeto fijo cifra el mensaje, qué cifrados son monoalfabéticos y por qué el análisis de frecuencias puede romperlos."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>Un cifrado monoalfabético asigna a cada símbolo del texto plano un símbolo cifrado fijo durante todo el mensaje. Una letra repetida suele sustituirse siempre del mismo modo.</p>"},
+        {"sort_order": 20, "type": "examples", "title": "Ejemplos y espacio de claves", "html": "<p>César, afín, Atbash y sustitución simple son monoalfabéticos. Un alfabeto mezclado tiene más claves que César, pero no elimina la estructura estadística del idioma.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Por qué es vulnerable", "html": "<p>La correspondencia fija conserva frecuencias, repeticiones y formas de palabras. El análisis de frecuencias junto con palabras y dígrafos comunes puede recuperar mensajes largos, aunque los textos cortos pueden ser ambiguos.</p>"}
+    ],
+    "faq": [
+        {"question": "¿César es monoalfabético?", "answer": "<p>Sí. Usa el mismo alfabeto desplazado durante todo el mensaje.</p>"},
+        {"question": "¿Es seguro un alfabeto de sustitución aleatorio?", "answer": "<p>Tiene muchas claves, pero los textos naturales largos siguen revelando patrones estadísticos.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "transposition-cipher", "frequency-analysis", "cryptanalysis", "cryptographic-key"],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Sustitución simple"},
+        {"slug": "classical-ciphers/caesar", "label": "Cifrado César"},
+        {"slug": "classical-ciphers/affine", "label": "Cifrado afín"},
+        {"slug": "classical-ciphers/atbash", "label": "Cifrado Atbash"}
+    ],
+    "tags": ["criptografía clásica", "monoalfabético", "sustitución"],
+    "category": "classical"
+}

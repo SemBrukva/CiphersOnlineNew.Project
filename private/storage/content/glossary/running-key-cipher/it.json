@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "running-key-cipher", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Cifrario a chiave scorrevole", "aliases": ["Vigenère a chiave scorrevole"], "short": "Un cifrario a chiave scorrevole usa un testo lungo non ripetuto come flusso per una sostituzione polialfabetica.", "meta_title": "Cifrario a chiave scorrevole — Definizione | CiphersOnline", "meta_description": "Come un testo lungo fornisce un flusso tipo Vigenère, come differisce da Autokey e perché le chiavi linguistiche restano vulnerabili."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definizione", "html": "<p>Il cifrario combina il testo in chiaro con una sequenza almeno altrettanto lunga. Spesso le lettere di un brano scelgono gli spostamenti Vigenère successivi invece di ripetere una parola breve.</p>"},
+        {"sort_order": 20, "type": "distinction", "title": "Chiave scorrevole e Autokey", "html": "<p>La chiave scorrevole proviene da una lunga fonte esterna. Autokey parte da un breve seme segreto e lo estende con testo in chiaro o cifrato. Con un libro pubblico, edizione, brano e posizione iniziale devono restare segreti.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Limiti", "html": "<p>La lingua naturale non è casuale: frequenze e correlazioni si combinano con quelle del messaggio. Gli attacchi statistici sfruttano questa struttura, quindi il metodo non offre sicurezza moderna.</p>"}
+    ],
+    "faq": [
+        {"question": "È un cifrario perfetto di Vernam?", "answer": "<p>No. Servono materiale uniformemente casuale, segreto e mai riusato; un testo ordinario non basta.</p>"},
+        {"question": "Il testo chiave può essere riusato?", "answer": "<p>Il riuso crea relazioni tra messaggi e facilita la crittoanalisi.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "tabula-recta", "cryptographic-key", "kasiski-examination"],
+    "related_tools": [{"slug": "classical-ciphers/vigenere", "label": "Cifrario di Vigenère"}],
+    "tags": ["chiave scorrevole", "cifrario polialfabetico", "chiave da libro"],
+    "category": "classical"
+}

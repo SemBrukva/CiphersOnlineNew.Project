@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "running-key-cipher", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Cifrado de clave corriente", "aliases": ["Vigenère de clave corrida"], "short": "Un cifrado de clave corriente usa un texto o secuencia larga y no repetida como flujo de una sustitución polialfabética.", "meta_title": "Cifrado de clave corriente — Definición | CiphersOnline", "meta_description": "Cómo un texto largo aporta un flujo tipo Vigenère, cómo difiere de Autokey y por qué las claves en lenguaje natural siguen siendo vulnerables."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>El cifrado combina el texto plano con una secuencia de clave al menos tan larga como el mensaje. Una forma habitual usa letras de un pasaje de libro para elegir desplazamientos Vigenère sucesivos sin repetir una palabra corta.</p>"},
+        {"sort_order": 20, "type": "distinction", "title": "Clave corriente y Autokey", "html": "<p>La clave corriente procede de una fuente larga externa. Autokey parte de una semilla secreta corta y la prolonga con texto plano o cifrado. Si se usa un libro público, deben mantenerse secretos la edición, el pasaje y la posición inicial.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Límites de seguridad", "html": "<p>El lenguaje natural no es aleatorio: contiene frecuencias y correlaciones que se mezclan con las del mensaje. Los ataques estadísticos explotan esa estructura, por lo que el método no ofrece seguridad moderna.</p>"}
+    ],
+    "faq": [
+        {"question": "¿Es una libreta de un solo uso?", "answer": "<p>No. Una libreta exige material aleatorio uniforme, secreto y no reutilizado; un texto de libro no cumple esos requisitos.</p>"},
+        {"question": "¿Puede reutilizarse el texto clave?", "answer": "<p>Reutilizarlo relaciona los mensajes y facilita el criptoanálisis.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "tabula-recta", "cryptographic-key", "kasiski-examination"],
+    "related_tools": [{"slug": "classical-ciphers/vigenere", "label": "Cifrado Vigenère"}],
+    "tags": ["clave corriente", "cifrado polialfabético", "clave de libro"],
+    "category": "classical"
+}

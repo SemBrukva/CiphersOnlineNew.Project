@@ -8,13 +8,10 @@
     <meta name="robots" content="{$meta_robots|default:'noindex, nofollow'}">
     {if $meta_description}<meta name="description" content="{$meta_description}">{/if}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {vite entry="private/resources/js/app.js" type="preload"}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     {vite entry="private/resources/js/app.js" type="css"}
 </head>
-<body class="ciphers-embed-body" style="font-family:'Inter',system-ui,sans-serif;">
+<body class="ciphers-embed-body" style="font-family:'Inter Variable','Inter',system-ui,sans-serif;">
 
 <main class="ciphers-embed-main">
     {$content nofilter}

@@ -1,0 +1,27 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "polyalphabetic-cipher", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {
+        "name": "Cifrario polialfabetico",
+        "aliases": ["sostituzione polialfabetica"],
+        "short": "Un cifrario polialfabetico alterna più alfabeti di sostituzione durante l'elaborazione del messaggio.",
+        "meta_title": "Cifrario polialfabetico — Definizione | CiphersOnline",
+        "meta_description": "Come cambiano gli alfabeti sostitutivi, come Vigenère usa un flusso di chiave e perché le chiavi ripetute restano vulnerabili."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definizione", "html": "<p>Un cifrario polialfabetico usa più alfabeti di sostituzione. Un flusso di chiave seleziona l'alfabeto o lo spostamento per ogni posizione, quindi la stessa lettera può produrre lettere cifrate diverse.</p>"},
+        {"sort_order": 20, "type": "mechanism", "title": "Come funziona", "html": "<p>Vigenère ripete una parola chiave per formare il flusso e usa le righe corrispondenti di una tabula recta. Autokey estende una chiave breve con il messaggio; Beaufort cambia la relazione aritmetica tra chiave, testo in chiaro e cifrato.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Crittoanalisi", "html": "<p>Il cambio di alfabeti nasconde la semplice distribuzione monoalfabetica. Una chiave breve ripetuta crea però periodicità: l'esame di Kasiski e l'indice di coincidenza aiutano a stimarne la lunghezza e ad analizzare separatamente le posizioni.</p>"}
+    ],
+    "faq": [
+        {"question": "Vigenère è polialfabetico?", "answer": "<p>Sì. Ogni simbolo del flusso seleziona un diverso alfabeto traslato.</p>"},
+        {"question": "Polialfabetico significa sicuro?", "answer": "<p>No. I sistemi classici con flussi ripetuti o prevedibili non offrono sicurezza moderna.</p>"}
+    ],
+    "related_terms": ["substitution-cipher", "monoalphabetic-cipher", "keystream", "tabula-recta", "kasiski-examination", "index-of-coincidence"],
+    "related_tools": [
+        {"slug": "classical-ciphers/vigenere", "label": "Cifrario di Vigenère"},
+        {"slug": "classical-ciphers/autokey", "label": "Cifrario Autokey"},
+        {"slug": "classical-ciphers/beaufort", "label": "Cifrario di Beaufort"}
+    ],
+    "tags": ["crittografia classica", "polialfabetico", "sostituzione"],
+    "category": "classical"
+}

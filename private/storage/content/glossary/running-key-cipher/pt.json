@@ -1,0 +1,17 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "running-key-cipher", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Cifra de chave corrente", "aliases": ["Vigenère de chave corrente"], "short": "Uma cifra de chave corrente usa um texto longo não repetido como fluxo de uma substituição polialfabética.", "meta_title": "Cifra de chave corrente — Definição | CiphersOnline", "meta_description": "Como um texto longo fornece um fluxo tipo Vigenère, como difere de Autokey e por que chaves em linguagem natural continuam vulneráveis."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>A cifra combina o texto claro com uma sequência pelo menos tão longa quanto a mensagem. Uma forma comum usa letras de um trecho de livro para escolher deslocamentos Vigenère sucessivos sem repetir palavra curta.</p>"},
+        {"sort_order": 20, "type": "distinction", "title": "Chave corrente e Autokey", "html": "<p>A chave corrente vem de uma fonte longa externa. Autokey começa com uma semente secreta curta e a prolonga com texto claro ou cifrado. Em livro público, edição, trecho e posição inicial precisam permanecer secretos.</p>"},
+        {"sort_order": 30, "type": "security", "title": "Limites", "html": "<p>A linguagem natural não é aleatória: frequências e correlações se misturam às da mensagem. Ataques estatísticos exploram essa estrutura, portanto o método não oferece segurança moderna.</p>"}
+    ],
+    "faq": [
+        {"question": "É uma cifra de uso único?", "answer": "<p>Não. Ela exige material uniformemente aleatório, secreto e não reutilizado; texto de livro não atende a isso.</p>"},
+        {"question": "O texto-chave pode ser reutilizado?", "answer": "<p>A reutilização relaciona mensagens e facilita a criptoanálise.</p>"}
+    ],
+    "related_terms": ["polyalphabetic-cipher", "keystream", "tabula-recta", "cryptographic-key", "kasiski-examination"],
+    "related_tools": [{"slug": "classical-ciphers/vigenere", "label": "Cifra de Vigenère"}],
+    "tags": ["chave corrente", "cifra polialfabética", "chave de livro"],
+    "category": "classical"
+}

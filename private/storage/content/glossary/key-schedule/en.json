@@ -1,0 +1,16 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "key-schedule", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-04"},
+    "term": {"name": "Key schedule", "aliases": ["key expansion"], "short": "A key schedule is the algorithm that derives round keys or subkeys from a cipher's supplied key.", "meta_title": "Key Schedule — Definition and Key Expansion | CiphersOnline", "meta_description": "Learn how ciphers expand a master key into round keys, how this differs from a keystream, and why schedule design affects security."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A key schedule transforms the supplied key into the subkeys used by individual rounds or stages of a cipher. Depending on the design, it may rotate, substitute, mix, or add constants to key material.</p>"},
+        {"sort_order": 20, "type": "security", "title": "Purpose and security", "html": "<p>Round keys should differ in ways that resist related-key and structural attacks. A schedule is part of the cipher specification, not a password-strengthening function, and its subkeys are not the position-by-position output called a keystream.</p>"}
+    ],
+    "faq": [
+        {"question": "Is a key schedule the same as a keystream?", "answer": "<p>No. A schedule supplies subkeys to cipher rounds; a keystream is combined sequentially with message units.</p>"},
+        {"question": "Does key expansion increase key entropy?", "answer": "<p>No. It deterministically rearranges and derives material from the original key; it does not add independent secret information.</p>"}
+    ],
+    "related_terms": ["cryptographic-key", "block-cipher", "encryption", "decryption", "keystream"],
+    "related_tools": [],
+    "tags": ["key schedule", "key expansion", "round key"],
+    "category": "classical"
+}

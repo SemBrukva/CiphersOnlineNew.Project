@@ -40,12 +40,13 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
         $env        = (string) config('app.env', 'production');
         $isLocalEnv = in_array($env, ['local', 'dev'], true);
 
-        $fontSrc    = ["'self'", 'data:', 'https://fonts.gstatic.com'];
+        // Шрифты self-hosted (Inter через @fontsource) — внешние домены не нужны.
+        $fontSrc    = ["'self'", 'data:'];
         $connectSrc = ["'self'", 'ws:', 'wss:'];
         $frameSrc   = ["'self'"];
 
         // style-src: unsafe-inline нужен Bootstrap JS (inline style=".." атрибуты)
-        $styleSrc = ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'];
+        $styleSrc = ["'self'", "'unsafe-inline'"];
 
         if ($isLocalEnv) {
             // В dev-режиме Vite HMR вставляет динамические скрипты без nonce
