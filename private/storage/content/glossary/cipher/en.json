@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cipher",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cipher",
+        "aliases": [
+            "encryption algorithm",
+            "cryptographic cipher"
+        ],
+        "short": "A cipher is an algorithm that transforms data according to a key, typically between plaintext and ciphertext.",
+        "meta_title": "Cipher — Definition in Cryptography | CiphersOnline",
+        "meta_description": "Learn what a cipher is, how classical and modern ciphers use keys, and how a cipher differs from a code, encoding, protocol, or implementation."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A cipher is a defined algorithm for transforming plaintext into ciphertext and, with the required key, reversing that transformation. A secure design assumes the algorithm can be known publicly; secrecy resides in the key rather than in hiding the procedure.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Types of cipher",
+            "html": "<p>Classical ciphers include substitution and transposition systems. Modern symmetric ciphers process data as blocks or streams, while public-key ciphers use related public and private keys. A cipher is only one component: a complete scheme also specifies modes, nonces, padding, authentication, and message formatting.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "Cipher, code, and encoding",
+            "html": "<p>A traditional code replaces meaningful units such as words with code groups from a codebook. A cipher applies a systematic transformation to symbols or bits. Encoding such as Base64 or Morse changes representation for compatibility or communication and does not provide cryptographic secrecy.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is a cipher the same as encryption?",
+            "answer": "<p>A cipher is the algorithm; encryption is the act of applying it with a key and parameters to data.</p>"
+        },
+        {
+            "question": "Does a cipher algorithm need to be secret?",
+            "answer": "<p>No. Modern cryptography expects public algorithms and bases security on protected keys and well-studied designs.</p>"
+        },
+        {
+            "question": "Are all ciphers secure?",
+            "answer": "<p>No. Classical and obsolete ciphers are educational but easily broken today. Security also depends on mode, key size, implementation, and correct use.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "code"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        },
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        }
+    ],
+    "tags": [
+        "cryptography",
+        "cipher",
+        "algorithm"
+    ],
+    "category": "concepts"
+}

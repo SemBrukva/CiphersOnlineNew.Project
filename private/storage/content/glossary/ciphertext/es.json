@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Texto cifrado",
+        "aliases": [
+            "datos cifrados",
+            "criptograma"
+        ],
+        "short": "El texto cifrado son datos transformados mediante cifrado para ocultar su significado original sin la clave necesaria.",
+        "meta_title": "Texto cifrado — definición | CiphersOnline",
+        "meta_description": "Qué es el texto cifrado, cómo se genera, por qué puede variar y qué metadatos pueden seguir revelando los datos cifrados."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El texto cifrado es el resultado de transformar texto plano con un algoritmo y una clave. Puede ser binario o mostrarse en hexadecimal o Base64, pero esas representaciones no son cifrado. La clave correcta permite recuperar el texto plano.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Propiedades",
+            "html": "<p>Un texto cifrado moderno no debe mostrar patrones útiles del original. Un nonce o vector de inicialización suele hacer que el mismo texto plano produzca resultados distintos. Para detectar modificaciones se necesita además cifrado autenticado con una etiqueta.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Qué puede revelar",
+            "html": "<p>El texto cifrado puede viajar por canales no confiables mientras la clave permanezca secreta. Longitud, horario y participantes aún revelan metadatos. Los cifrados clásicos también pueden conservar frecuencias y repeticiones.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Debe mantenerse secreto el texto cifrado?",
+            "answer": "<p>Normalmente el secreto esencial es la clave. Un cifrado seguro resiste aunque se conozca el algoritmo y se observe el texto cifrado.</p>"
+        },
+        {
+            "question": "¿Base64 es texto cifrado?",
+            "answer": "<p>Base64 solo codifica bytes y no aporta confidencialidad por sí mismo.</p>"
+        },
+        {
+            "question": "¿El mismo texto plano genera siempre igual resultado?",
+            "answer": "<p>No con cifrado aleatorizado correcto. Un nonce o vector nuevo suele cambiar el texto cifrado.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifrados"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Análisis de frecuencias"
+        },
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrado César"
+        }
+    ],
+    "tags": [
+        "criptografía",
+        "texto cifrado",
+        "datos cifrados"
+    ],
+    "category": "concepts"
+}

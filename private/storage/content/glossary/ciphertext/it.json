@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Testo cifrato",
+        "aliases": [
+            "dati cifrati",
+            "crittogramma"
+        ],
+        "short": "Il testo cifrato è un dato trasformato mediante cifratura affinché il significato originale resti inaccessibile senza la chiave.",
+        "meta_title": "Testo cifrato — definizione | CiphersOnline",
+        "meta_description": "Che cos’è il testo cifrato, come viene prodotto, perché può variare e quali metadati possono restare visibili."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Il testo cifrato è il risultato della trasformazione del testo in chiaro con algoritmo e chiave. Può essere binario o mostrato in esadecimale o Base64, ma queste rappresentazioni non sono cifratura. La chiave corretta recupera il testo in chiaro.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Proprietà",
+            "html": "<p>Un testo cifrato moderno non dovrebbe esporre schemi utili dell’originale. Un nonce o vettore di inizializzazione fa spesso variare il risultato a parità di dati. La cifratura autenticata aggiunge un tag per rilevare le modifiche.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Che cosa può rivelare",
+            "html": "<p>Il testo cifrato può attraversare canali non fidati se la chiave resta segreta. Lunghezza, orario e interlocutori possono comunque rivelare metadati. I cifrari classici conservano talvolta frequenze e ripetizioni.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Il testo cifrato deve restare segreto?",
+            "answer": "<p>Di norma il segreto essenziale è la chiave. Un cifrario sicuro resiste anche se algoritmo e testo cifrato sono noti.</p>"
+        },
+        {
+            "question": "Base64 è testo cifrato?",
+            "answer": "<p>Base64 è solo una codifica e non offre riservatezza da sola.</p>"
+        },
+        {
+            "question": "Lo stesso testo produce sempre lo stesso risultato?",
+            "answer": "<p>Non con una cifratura correttamente randomizzata. Un nonce o vettore nuovo cambia normalmente il testo cifrato.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificatore di cifrari"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Analisi di frequenza"
+        },
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrario di Cesare"
+        }
+    ],
+    "tags": [
+        "crittografia",
+        "testo cifrato",
+        "dati cifrati"
+    ],
+    "category": "concepts"
+}

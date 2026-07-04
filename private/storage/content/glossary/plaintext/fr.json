@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "plaintext",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Texte en clair",
+        "aliases": [
+            "données non chiffrées",
+            "message en clair"
+        ],
+        "short": "Le texte en clair désigne les données d’origine non chiffrées fournies au chiffrement ou restituées intactes par le déchiffrement.",
+        "meta_title": "Texte en clair — définition | CiphersOnline",
+        "meta_description": "Ce que signifie texte en clair en cryptographie, sa différence avec le texte chiffré et les endroits où les données restent exposées."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le texte en clair correspond aux données avant leur chiffrement ou après un déchiffrement réussi. Un algorithme de chiffrement combine ces données avec une clé pour produire un texte chiffré ; l’opération inverse doit restituer exactement les données d’origine.</p><p>Malgré le mot <em>texte</em>, il ne s’agit pas nécessairement d’une phrase lisible. Une image, un enregistrement audio, une ligne de base de données, une archive compressée ou toute autre suite d’octets peut constituer le texte en clair d’une opération cryptographique.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cryptographic_role",
+            "title": "Rôle en cryptographie",
+            "html": "<p>Les applications encodent généralement l’information en octets avant de la chiffrer. Le chiffre opère sur ces octets, non sur le sens visuel d’une phrase ou d’un fichier. Selon l’algorithme et le mode, le système peut aussi ajouter du bourrage, un nonce ou vecteur d’initialisation et une étiquette d’authentification ; ces éléments ne font pas partie du texte en clair d’origine.</p><p>Avec un chiffrement authentifié, l’intégrité est vérifiée avant que les données déchiffrées soient remises à l’application. Si cette vérification échoue, le résultat doit être rejeté.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Exemple",
+            "html": "<p>Supposons qu’une application chiffre le message <code>RENDEZ-VOUS À MIDI</code>. Les octets qui représentent cette phrase sont le texte en clair. L’algorithme et la clé les transforment en texte chiffré, qui n’affiche plus directement les mots ; un chiffrement moderne robuste masque aussi les motifs exploitables. Le destinataire muni de la bonne clé récupère les mêmes octets et les décode pour retrouver le message.</p><p>Base64 ne fait que représenter ces octets avec un autre jeu de caractères. C’est un encodage, pas un chiffrement, et il peut être inversé sans clé secrète.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "security",
+            "title": "Considérations de sécurité",
+            "html": "<p>Le chiffrement ne protège les données qu’à l’intérieur de la frontière cryptographique prévue. Le texte en clair peut subsister dans la mémoire de l’application, les journaux, fichiers temporaires, sauvegardes, l’historique du navigateur, les rapports d’incident ou sur un terminal compromis. TLS protège le transport réseau, mais les extrémités voient normalement le contenu déchiffré.</p><p>Un système sûr conserve le texte en clair le moins longtemps possible, évite d’inscrire des secrets dans les journaux ou les URL, limite les accès et efface les tampons sensibles lorsque c’est possible. Le chiffrement ne corrige pas une manipulation dangereuse avant ou après l’opération cryptographique.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Quelle différence entre texte en clair et texte chiffré ?",
+            "answer": "<p>Le texte en clair contient les données d’origine sous une forme non chiffrée. Le texte chiffré est le résultat transformé et ne doit pas révéler son contenu sans la clé requise, même si l’algorithme est public.</p>"
+        },
+        {
+            "question": "Le texte en clair est-il forcément un fichier texte ?",
+            "answer": "<p>Non. Un fichier texte contient des caractères sans mise en forme riche. En cryptographie, le texte en clair peut être toute donnée avant chiffrement, y compris un fichier binaire ou un enregistrement structuré.</p>"
+        },
+        {
+            "question": "Des données encodées en Base64 sont-elles du texte en clair ?",
+            "answer": "<p>Base64 n’apporte aucune confidentialité. Si les données ne sont pas aussi chiffrées, chacun peut les décoder ; elles ne doivent donc pas être considérées comme un texte chiffré protégé.</p>"
+        },
+        {
+            "question": "Du texte en clair existe-t-il avec une connexion HTTPS ?",
+            "answer": "<p>Oui. HTTPS chiffre les données entre les extrémités du réseau, mais le navigateur et le serveur les déchiffrent pour les traiter. Le contenu existe donc en clair à ces extrémités et doit toujours être protégé.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Chiffre de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Chiffre de Vigenère"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Analyse de fréquence"
+        }
+    ],
+    "tags": [
+        "cryptographie",
+        "texte en clair",
+        "sécurité des données"
+    ],
+    "category": "concepts"
+}

@@ -909,4 +909,25 @@ return [
 
     // Footer
     'FOOTER_DESC'                      => 'catalogue des systèmes de chiffrement populaires avec la possibilité de chiffrer et déchiffrer du texte en ligne',
+
+    // Глоссарий
+    'MENU_GLOSSARY' => 'Glossaire',
+    'GLOSSARY_BREADCRUMB' => 'Glossaire',
+    'GLOSSARY_INDEX_TITLE' => 'Glossaire de cryptographie — termes de chiffrement et d’encodage',
+    'GLOSSARY_INDEX_META' => 'Définitions claires des termes de cryptographie, chiffrement, encodage et hachage : du texte en clair et des clés à l’analyse fréquentielle.',
+    'GLOSSARY_INDEX_HEADING' => 'Glossaire de cryptographie',
+    'GLOSSARY_INDEX_INTRO' => 'Définitions en langage clair : chiffrements, codes, encodages et termes de cryptanalyse utilisés sur le site.',
+    'GLOSSARY_SEARCH_PLACEHOLDER' => 'Rechercher des termes…',
+    'GLOSSARY_SEARCH_EMPTY' => 'Aucun terme ne correspond à votre recherche.',
+    'GLOSSARY_FAQ_TITLE' => 'Questions fréquentes',
+    'GLOSSARY_RELATED_TERMS' => 'Termes associés',
+    'GLOSSARY_RELATED_TOOLS' => 'Outils associés',
+    'GLOSSARY_BACK_TO_INDEX' => 'Retour au glossaire',
+    'GLOSSARY_CAT_CONCEPTS' => 'Notions de base',
+    'GLOSSARY_CAT_CLASSICAL' => 'Chiffrements classiques',
+    'GLOSSARY_CAT_CRYPTANALYSIS' => 'Cryptanalyse',
+    'GLOSSARY_CAT_ENCODING' => 'Encodage',
+    'GLOSSARY_CAT_HASHING' => 'Hachage',
+    'GLOSSARY_FROM_TITLE' => 'Depuis le glossaire',
+    'GLOSSARY_SEE_ALSO' => 'Voir aussi',
 ];

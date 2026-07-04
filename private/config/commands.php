@@ -13,6 +13,7 @@ use App\Console\Commands\ConfigClearCommand;
 use App\Console\Commands\DbImportSqliteCommand;
 use App\Console\Commands\DictionaryBuildCommand;
 use App\Console\Commands\DictionaryDownloadCommand;
+use App\Console\Commands\GlossaryValidateCommand;
 use App\Console\Commands\MailTestCommand;
 use App\Console\Commands\Make\MakeControllerCommand;
 use App\Console\Commands\Make\MakeJobCommand;
@@ -64,4 +65,5 @@ return [
     'cipher:category:content:import' => CipherCategoryContentImportCommand::class,
     'dictionary:download' => DictionaryDownloadCommand::class,
     'dictionary:build'    => DictionaryBuildCommand::class,
+    'glossary:validate'   => GlossaryValidateCommand::class,
 ];

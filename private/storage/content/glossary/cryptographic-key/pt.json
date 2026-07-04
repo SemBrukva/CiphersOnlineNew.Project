@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptographic-key",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chave",
+        "aliases": [
+            "chave criptográfica",
+            "chave de criptografia"
+        ],
+        "short": "Uma chave criptográfica controla uma transformação e determina quem pode criptografar, descriptografar ou autenticar dados.",
+        "meta_title": "Chave criptográfica — definição | CiphersOnline",
+        "meta_description": "O que é uma chave criptográfica, como diferem chaves secretas, públicas e privadas e por que a gestão segura é essencial."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Uma chave criptográfica é um parâmetro do algoritmo que seleciona uma transformação. O algoritmo pode ser público. Sistemas simétricos compartilham uma chave secreta; os assimétricos usam um par relacionado de chave pública e privada.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Chaves e senhas",
+            "html": "<p>Uma chave normalmente é uma sequência aleatória de bytes do tamanho exigido. Uma senha humana é transformada com uma função de derivação e salt. Nonce, vetor de inicialização e salt têm outras funções.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Gestão de chaves",
+            "html": "<p>Geração, armazenamento, acesso, rotação, revogação e destruição devem ser protegidos. Chaves públicas podem circular, mas sua autenticidade deve ser verificada; chaves privadas e simétricas permanecem secretas.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Uma senha é uma chave?",
+            "answer": "<p>Não. A senha é escolhida por uma pessoa; a chave normalmente é um dado binário de alta entropia. Uma KDF pode derivá-la.</p>"
+        },
+        {
+            "question": "Uma chave maior é sempre melhor?",
+            "answer": "<p>Somente dentro do mesmo algoritmo. Tamanhos de famílias diferentes não são diretamente comparáveis.</p>"
+        },
+        {
+            "question": "O vetor de inicialização deve ser secreto?",
+            "answer": "<p>Geralmente não, mas precisa ser único ou imprevisível conforme o modo.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifra de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifra de Vigenère"
+        }
+    ],
+    "tags": [
+        "criptografia",
+        "chave",
+        "gestão de chaves"
+    ],
+    "category": "concepts"
+}

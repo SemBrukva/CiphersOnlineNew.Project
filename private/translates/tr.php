@@ -908,4 +908,25 @@ return [
 
     // Footer
     'FOOTER_DESC'                      => 'metni çevrimiçi şifreleme ve şifre çözme imkânıyla popüler şifreleme sistemlerinin kataloğu',
+
+    // Глоссарий
+    'MENU_GLOSSARY' => 'Sözlük',
+    'GLOSSARY_BREADCRUMB' => 'Sözlük',
+    'GLOSSARY_INDEX_TITLE' => 'Kriptografi Sözlüğü — şifre ve kodlama terimleri',
+    'GLOSSARY_INDEX_META' => 'Kriptografi, şifreleme, kodlama ve hash terimlerinin anlaşılır tanımları: düz metin ve anahtarlardan frekans analizine.',
+    'GLOSSARY_INDEX_HEADING' => 'Kriptografi Sözlüğü',
+    'GLOSSARY_INDEX_INTRO' => 'Sitede kullanılan şifreler, kodlar, kodlamalar ve kriptoanaliz terimlerinin sade tanımları.',
+    'GLOSSARY_SEARCH_PLACEHOLDER' => 'Terim ara…',
+    'GLOSSARY_SEARCH_EMPTY' => 'Aramanızla eşleşen terim yok.',
+    'GLOSSARY_FAQ_TITLE' => 'Sık sorulan sorular',
+    'GLOSSARY_RELATED_TERMS' => 'İlgili terimler',
+    'GLOSSARY_RELATED_TOOLS' => 'İlgili araçlar',
+    'GLOSSARY_BACK_TO_INDEX' => 'Sözlüğe dön',
+    'GLOSSARY_CAT_CONCEPTS' => 'Temel kavramlar',
+    'GLOSSARY_CAT_CLASSICAL' => 'Klasik şifreler',
+    'GLOSSARY_CAT_CRYPTANALYSIS' => 'Kriptoanaliz',
+    'GLOSSARY_CAT_ENCODING' => 'Kodlama',
+    'GLOSSARY_CAT_HASHING' => 'Hash',
+    'GLOSSARY_FROM_TITLE' => 'Sözlükten',
+    'GLOSSARY_SEE_ALSO' => 'Ayrıca bakınız',
 ];

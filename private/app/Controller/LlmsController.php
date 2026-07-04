@@ -65,6 +65,7 @@ final readonly class LlmsController
             '## Core Pages',
             '',
             $this->linkLine('Home', $appUrl . '/', 'Main entry point for cipher and encoding tools.'),
+            $this->linkLine('Glossary', $appUrl . '/glossary', 'Definitions of cryptography, cipher, encoding and hashing terms.'),
             $this->linkLine('HTML Sitemap', $appUrl . '/sitemap', 'Human-readable list of published categories and tools.'),
             $this->linkLine('XML Sitemap', $appUrl . '/sitemap.xml', 'Complete crawl map with locale alternates.'),
             $this->linkLine('Contact', $appUrl . '/contacts', 'Contact page for site feedback and support requests.'),

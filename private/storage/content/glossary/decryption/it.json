@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "decryption",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Decifratura",
+        "aliases": [
+            "decodifica crittografica",
+            "recupero del testo in chiaro"
+        ],
+        "short": "La decifratura usa la chiave richiesta per invertire la cifratura e recuperare il testo in chiaro dal testo cifrato.",
+        "meta_title": "Decifratura — definizione e processo | CiphersOnline",
+        "meta_description": "Come la decifratura recupera il testo in chiaro, quali parametri richiede e perché l’autenticità va verificata prima dell’uso."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>La decifratura trasforma il testo cifrato in testo in chiaro con algoritmo e chiave appropriati. La crittografia simmetrica usa il segreto condiviso; la cifratura asimmetrica, di norma, la chiave privata del destinatario.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "process",
+            "title": "Processo",
+            "html": "<p>Possono servire testo cifrato, chiave, nonce o vettore, tag e parametri. Decodificare esadecimale o Base64 ripristina soltanto i byte. Uno schema autenticato verifica il tag prima di fornire il testo in chiaro.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Errori e sicurezza",
+            "html": "<p>Una chiave errata può causare un errore o byte privi di senso; gli schemi non autenticati non sempre lo rilevano. L’applicazione deve rifiutare dati alterati, limitare i dettagli dell’errore e proteggere il testo recuperato.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Si può decifrare senza chiave?",
+            "answer": "<p>La cifratura moderna robusta mira a renderlo impraticabile. Cifrari deboli, poche chiavi, difetti o chiavi rubate possono creare eccezioni.</p>"
+        },
+        {
+            "question": "Decodificare significa decifrare?",
+            "answer": "<p>No. La decodifica inverte una rappresentazione pubblica come Base64; la decifratura una protezione controllata da chiave.</p>"
+        },
+        {
+            "question": "Che cosa produce una chiave errata?",
+            "answer": "<p>La cifratura autenticata rifiuta i dati. Gli schemi più vecchi possono restituire contenuto privo di senso senza segnalare chiaramente l’errore.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "plaintext",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrario di Cesare"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrario di Vigenère"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificatore di cifrari"
+        }
+    ],
+    "tags": [
+        "crittografia",
+        "decifratura",
+        "testo in chiaro"
+    ],
+    "category": "concepts"
+}

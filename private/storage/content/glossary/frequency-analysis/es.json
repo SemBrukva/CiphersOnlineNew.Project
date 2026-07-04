@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "frequency-analysis",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Análisis de frecuencia",
+        "aliases": [
+            "ataque por frecuencia de letras"
+        ],
+        "short": "Un método criptoanalítico que compara frecuencias de símbolos y grupos de letras con patrones lingüísticos para interpretar cifrados clásicos.",
+        "meta_title": "Análisis de frecuencia — definición | CiphersOnline",
+        "meta_description": "Cómo usa el análisis de frecuencia letras, bigramas y perfiles lingüísticos para atacar cifrados clásicos, y cuáles son sus limitaciones."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El análisis de frecuencia examina la aparición de letras, símbolos, palabras o grupos como bigramas y trigramas en un texto. Las lenguas naturales presentan patrones estadísticos recurrentes: en español, <strong>E</strong>, <strong>A</strong> y <strong>O</strong> suelen estar entre las letras más frecuentes.</p><p>Muchos cifrados clásicos cambian los símbolos sin borrar por completo esos patrones. El criptoanalista compara la distribución observada en el texto cifrado con un perfil del idioma y propone posibles letras y secuencias del texto original. El resultado son hipótesis fundamentadas, no un descifrado automático.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Cómo funciona",
+            "html": "<p>Primero se normaliza el texto y se cuentan los símbolos individuales. Después se prueban varias correspondencias entre los símbolos frecuentes del texto cifrado y las letras comunes del idioma supuesto. Los bigramas, trigramas, palabras repetidas y formas de las palabras sirven para confirmar o descartar cada posibilidad.</p><p>En el cifrado César, todo el perfil de frecuencias se desplaza la misma cantidad; en una sustitución monoalfabética, se permuta. Para un cifrado polialfabético con clave repetida, como Vigenère, primero se estima el período mediante el índice de coincidencia o el examen de Kasiski y luego se analizan por separado las columnas correspondientes.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Ejemplo práctico",
+            "html": "<p>Supongamos que un símbolo domina un texto cifrado monoalfabético de longitud suficiente. Podría representar <strong>E</strong>, pero también <strong>A</strong>, <strong>O</strong>, un espacio o una letra favorecida por el tema. El criptoanalista prueba varias opciones y busca más indicios: combinaciones habituales, palabras repetidas verosímiles y fragmentos legibles. Una correspondencia resulta convincente solo cuando explica muchas observaciones a la vez.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Limitaciones",
+            "html": "<p>Las frecuencias son poco fiables en textos muy cortos. Los nombres, el vocabulario especializado, las convenciones ortográficas y un género poco habitual también pueden deformar el perfil lingüístico. La sustitución homofónica, los sistemas polialfabéticos, la compresión y el relleno intencionado debilitan aún más los patrones visibles.</p><p>El cifrado moderno está diseñado para ocultar estas regularidades. En una libreta de un solo uso correctamente empleada, una clave aleatoria e independiente hace que el texto cifrado sea estadísticamente independiente del original. Un texto cifrado concreto no tiene por qué mostrar una distribución perfectamente plana; lo importante es que sus frecuencias no revelan el mensaje.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Qué cifrados son vulnerables al análisis de frecuencia?",
+            "answer": "<p>Es especialmente útil contra César, el cifrado afín y otras sustituciones monoalfabéticas. También ayuda a atacar Vigenère con clave repetida si se determina antes el período y se dispone de suficiente texto cifrado.</p>"
+        },
+        {
+            "question": "¿Cuánto texto cifrado se necesita?",
+            "answer": "<p>No existe un mínimo universal. Las muestras largas producen distribuciones de letras y n-gramas más estables; un mensaje corto puede admitir varias correspondencias igual de plausibles. El tipo de texto y el diseño del cifrado importan tanto como la longitud.</p>"
+        },
+        {
+            "question": "¿Por qué falla con la libreta de un solo uso?",
+            "answer": "<p>Si la clave es realmente aleatoria, tan larga como el mensaje, secreta y usada una sola vez, cualquier texto original de igual longitud es compatible con el texto cifrado observado. Sus estadísticas no permiten saber cuál se envió.</p>"
+        },
+        {
+            "question": "¿Puede romper el cifrado moderno?",
+            "answer": "<p>No cuando un algoritmo moderno como AES está bien implementado y utilizado. Estos algoritmos difunden los patrones del texto original por todo el texto cifrado; los ataques se dirigen a claves, protocolos, implementaciones o usos incorrectos.</p>"
+        }
+    ],
+    "related_terms": [],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Herramienta de análisis de frecuencia"
+        },
+        {
+            "slug": "text-analysis/letter-frequency",
+            "label": "Frecuencia de letras"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Cracker de Vigenère"
+        }
+    ],
+    "tags": [
+        "criptoanálisis",
+        "análisis de frecuencia",
+        "cifrados clásicos"
+    ],
+    "category": "cryptanalysis"
+}

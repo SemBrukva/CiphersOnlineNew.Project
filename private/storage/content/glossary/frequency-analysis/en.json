@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "frequency-analysis",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Frequency Analysis",
+        "aliases": [
+            "letter frequency attack"
+        ],
+        "short": "A cryptanalytic method that compares symbol and letter-group frequencies with language patterns to infer plaintext in classical ciphers.",
+        "meta_title": "Frequency Analysis — Definition | CiphersOnline",
+        "meta_description": "Learn how frequency analysis uses letters, bigrams, and language profiles to attack classical ciphers, plus its limits on short and modern ciphertexts."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Frequency analysis examines how often letters, symbols, words, or groups such as bigrams and trigrams occur in a text. Natural languages have recurring statistical patterns: in English, for example, <strong>E</strong>, <strong>T</strong>, and <strong>A</strong> are usually among the most common letters.</p><p>Many classical ciphers change the symbols but preserve some of those patterns. A cryptanalyst compares the observed ciphertext distribution with a reference profile to propose likely plaintext letters and combinations. The result is evidence for candidate mappings, not an automatic decryption.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "How it works",
+            "html": "<p>First normalize the text and count individual symbols. Then test several mappings between frequent ciphertext symbols and common letters in the suspected language. Bigrams, trigrams, repeated words, and word shapes help confirm or reject each hypothesis.</p><p>A Caesar cipher shifts the entire frequency profile by the same amount, while a monoalphabetic substitution permutes it. With a repeating-key polyalphabetic cipher such as Vigenère, analysts first estimate the key period—often with the Index of Coincidence or Kasiski examination—and then analyze the corresponding ciphertext columns separately.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Practical example",
+            "html": "<p>Suppose one symbol dominates a sufficiently long monoalphabetic ciphertext. It may represent <strong>E</strong>, but it could also stand for <strong>T</strong>, <strong>A</strong>, a space, or a letter favored by the text’s topic. The analyst tests several candidates and looks for supporting patterns: common pairs such as <strong>TH</strong> and <strong>HE</strong>, plausible repeated words, and readable fragments. A mapping becomes convincing only when it explains many observations at once.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Limitations",
+            "html": "<p>Frequency analysis is unreliable on very short texts and can be distorted by names, specialized vocabulary, spelling conventions, or an unusual genre. Homophonic substitution, polyalphabetic systems, compression, and deliberate padding can weaken the visible language profile.</p><p>Modern encryption is designed to hide such regularities. A correctly used one-time pad goes further: its independent random key makes the ciphertext statistically independent of the plaintext. A particular ciphertext need not look perfectly flat; the crucial point is that its frequencies reveal no information about the original message.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Which ciphers are vulnerable to frequency analysis?",
+            "answer": "<p>It is most useful against Caesar, affine, and other monoalphabetic substitution ciphers. It can also assist attacks on repeating-key Vigenère when combined with key-period detection and enough ciphertext.</p>"
+        },
+        {
+            "question": "How much ciphertext is needed?",
+            "answer": "<p>There is no universal minimum. Longer samples produce more stable letter and n-gram distributions, while short messages may support several equally plausible mappings. Text type and cipher design matter as much as raw length.</p>"
+        },
+        {
+            "question": "Why does it fail on the one-time pad?",
+            "answer": "<p>When the key is truly random, as long as the message, used only once, and kept secret, every possible plaintext is compatible with the ciphertext. Its statistics therefore reveal nothing about which plaintext was sent.</p>"
+        },
+        {
+            "question": "Can frequency analysis break modern encryption?",
+            "answer": "<p>Not when modern encryption such as AES is implemented and used correctly. These algorithms diffuse plaintext patterns throughout the ciphertext; attacks instead target keys, protocols, implementations, or misuse.</p>"
+        }
+    ],
+    "related_terms": [],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis tool"
+        },
+        {
+            "slug": "text-analysis/letter-frequency",
+            "label": "Letter Frequency"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Cracker"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "frequency analysis",
+        "classical ciphers"
+    ],
+    "category": "cryptanalysis"
+}

@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Şifreli metin",
+        "aliases": [
+            "şifrelenmiş veri",
+            "kriptogram"
+        ],
+        "short": "Şifreli metin, gerekli anahtar olmadan özgün anlamı anlaşılamasın diye şifrelemeyle dönüştürülen veridir.",
+        "meta_title": "Şifreli metin — tanım | CiphersOnline",
+        "meta_description": "Şifreli metnin ne olduğunu, nasıl üretildiğini, neden değişebildiğini ve hangi üst verileri açığa çıkarabildiğini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Şifreli metin, düz metnin algoritma ve anahtarla dönüştürülmesi sonucu oluşur. İkili veri olabilir ya da on altılık veya Base64 biçiminde gösterilebilir; bu gösterimler şifreleme değildir. Doğru anahtar düz metni geri getirir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Özellikler",
+            "html": "<p>Modern şifreli metin özgün verinin kullanılabilir örüntülerini göstermemelidir. Nonce veya başlatma vektörü aynı verinin farklı sonuçlar üretmesini sağlar. Kimliği doğrulanmış şifreleme değişiklikleri algılamak için bir etiket ekler.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Neleri açığa çıkarabilir?",
+            "html": "<p>Anahtar gizli kaldığı sürece şifreli metin güvenilmeyen kanallardan geçebilir. Uzunluk, zaman ve taraflar yine de üst veri sızdırabilir. Klasik şifreler frekansları ve tekrarları koruyabilir.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Şifreli metin gizli tutulmalı mı?",
+            "answer": "<p>Asıl sır genellikle anahtardır. Güvenli bir şifre, algoritma ve şifreli metin bilinse de dayanıklı olmalıdır.</p>"
+        },
+        {
+            "question": "Base64 şifreli metin midir?",
+            "answer": "<p>Base64 yalnızca kodlamadır ve tek başına gizlilik sağlamaz.</p>"
+        },
+        {
+            "question": "Aynı düz metin her zaman aynı sonucu mu verir?",
+            "answer": "<p>Doğru rastgeleleştirilmiş şifrelemede hayır. Yeni nonce veya başlatma vektörü sonucu değiştirir.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Şifre Tanımlayıcı"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frekans Analizi"
+        },
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Sezar Şifresi"
+        }
+    ],
+    "tags": [
+        "kriptografi",
+        "şifreli metin",
+        "şifrelenmiş veri"
+    ],
+    "category": "concepts"
+}

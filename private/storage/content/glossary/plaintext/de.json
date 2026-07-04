@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "plaintext",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Klartext",
+        "aliases": [
+            "unverschlüsselte Daten",
+            "Ausgangsdaten"
+        ],
+        "short": "Klartext bezeichnet die ursprünglichen unverschlüsselten Daten vor der Verschlüsselung oder nach erfolgreicher Entschlüsselung.",
+        "meta_title": "Klartext — Definition in der Kryptografie | CiphersOnline",
+        "meta_description": "Was Klartext in der Kryptografie bedeutet, wie er sich von Geheimtext und einer reinen Textdatei unterscheidet und wo Daten ungeschützt bleiben."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Klartext sind die Daten vor der Verschlüsselung oder nach einer erfolgreichen Entschlüsselung. Ein Verschlüsselungsverfahren erzeugt mithilfe eines Schlüssels aus dem Klartext einen Geheimtext; die zugehörige Entschlüsselung soll die ursprünglichen Daten exakt wiederherstellen.</p><p>Trotz des Wortes <em>Text</em> muss Klartext keine lesbare Schrift sein. Auch ein Bild, eine Audioaufnahme, ein Datenbankeintrag, ein komprimiertes Archiv oder jede andere Bytefolge kann als Klartext in eine kryptografische Operation eingehen.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cryptographic_role",
+            "title": "Rolle in der Kryptografie",
+            "html": "<p>Anwendungen kodieren Informationen vor der Verschlüsselung gewöhnlich als Bytes. Die Chiffre verarbeitet diese Bytes, nicht die sichtbare Bedeutung eines Satzes oder Dateiformats. Je nach Verfahren und Betriebsart kommen Auffüllung, Nonce oder Initialisierungsvektor sowie ein Authentifizierungstag hinzu; sie gehören nicht zum ursprünglichen Klartext.</p><p>Bei authentifizierter Verschlüsselung wird die Integrität geprüft, bevor der entschlüsselte Klartext an die Anwendung weitergegeben wird. Schlägt die Prüfung fehl, muss das Ergebnis verworfen werden.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Beispiel",
+            "html": "<p>Eine Anwendung soll die Nachricht <code>TREFFEN UM ZWÖLF</code> verschlüsseln. Die kodierten Bytes dieser Nachricht sind der Klartext. Algorithmus und Schlüssel verwandeln sie in einen Geheimtext, der die Wörter nicht mehr unmittelbar zeigt; starke moderne Verschlüsselung verbirgt zusätzlich verwertbare Muster. Mit dem richtigen Schlüssel gewinnt der Empfänger dieselben Bytes zurück und dekodiert daraus die Nachricht.</p><p>Base64 stellt diese Bytes lediglich mit einem anderen Zeichensatz dar. Das ist Kodierung, keine Verschlüsselung, und kann ohne geheimen Schlüssel rückgängig gemacht werden.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "security",
+            "title": "Sicherheitsaspekte",
+            "html": "<p>Verschlüsselung schützt Daten nur innerhalb der vorgesehenen kryptografischen Grenze. Klartext kann weiterhin im Anwendungsspeicher, in Protokollen, temporären Dateien, Sicherungskopien, im Browserverlauf, in Absturzberichten oder auf einem kompromittierten Endgerät auftreten. TLS schützt die Übertragung, doch die beteiligten Endpunkte sehen normalerweise den entschlüsselten Inhalt.</p><p>Sichere Systeme bewahren Klartext möglichst kurz auf, schreiben Geheimnisse nicht in Protokolle oder URLs, beschränken den Zugriff und löschen sensible Puffer, soweit dies praktikabel ist. Verschlüsselung behebt keinen unsicheren Umgang mit Daten vor oder nach der kryptografischen Operation.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Was ist der Unterschied zwischen Klartext und Geheimtext?",
+            "answer": "<p>Klartext sind die ursprünglichen Daten in unverschlüsselter Form. Geheimtext ist das Ergebnis der Verschlüsselung und soll ohne den erforderlichen Schlüssel unverständlich sein, selbst wenn der Algorithmus öffentlich bekannt ist.</p>"
+        },
+        {
+            "question": "Ist Klartext dasselbe wie eine reine Textdatei?",
+            "answer": "<p>Nein. Eine reine Textdatei enthält Zeichen ohne aufwendige Formatierung. Kryptografischer Klartext kann jede Art von Daten vor der Verschlüsselung sein, einschließlich Binärdateien und strukturierter Datensätze.</p>"
+        },
+        {
+            "question": "Sind Base64-kodierte Daten Klartext?",
+            "answer": "<p>Base64 bietet keine Vertraulichkeit. Wurden die Daten nicht zusätzlich verschlüsselt, kann sie jeder dekodieren; sie dürfen daher nicht als geschützter Geheimtext behandelt werden.</p>"
+        },
+        {
+            "question": "Kann Klartext bei einer HTTPS-Verbindung vorkommen?",
+            "answer": "<p>Ja. HTTPS verschlüsselt Daten zwischen Netzwerkendpunkten, Browser und Server entschlüsseln sie jedoch zur Verarbeitung. An diesen Endpunkten liegt der Inhalt als Klartext vor und muss weiterhin geschützt werden.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar-Chiffre"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère-Chiffre"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Häufigkeitsanalyse"
+        }
+    ],
+    "tags": [
+        "Kryptografie",
+        "Klartext",
+        "Datensicherheit"
+    ],
+    "category": "concepts"
+}

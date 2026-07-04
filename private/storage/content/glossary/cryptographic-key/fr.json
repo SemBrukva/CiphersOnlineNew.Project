@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptographic-key",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Clé",
+        "aliases": [
+            "clé cryptographique",
+            "clé de chiffrement"
+        ],
+        "short": "Une clé cryptographique contrôle une transformation et détermine qui peut chiffrer, déchiffrer ou authentifier des données.",
+        "meta_title": "Clé cryptographique — définition | CiphersOnline",
+        "meta_description": "Ce qu’est une clé cryptographique, la différence entre clés secrètes, publiques et privées et pourquoi leur gestion doit être sûre."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Une clé cryptographique est un paramètre de l’algorithme qui sélectionne une transformation. L’algorithme peut être public. Les systèmes symétriques partagent une clé secrète ; les systèmes asymétriques utilisent une paire publique-privée liée.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Clés et mots de passe",
+            "html": "<p>Une clé est généralement une suite aléatoire d’octets de la taille requise. Un mot de passe humain est transformé avec une fonction de dérivation et un sel. Nonce, vecteur d’initialisation et sel ont d’autres rôles.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Gestion des clés",
+            "html": "<p>Génération, stockage, accès, rotation, révocation et destruction doivent être protégés. Une clé publique peut circuler mais son authenticité doit être vérifiée ; les clés privées et symétriques restent secrètes.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Un mot de passe est-il une clé ?",
+            "answer": "<p>Non. Le mot de passe est choisi par une personne ; la clé est normalement une donnée binaire à forte entropie. Une KDF peut la dériver.</p>"
+        },
+        {
+            "question": "Une clé plus longue est-elle toujours meilleure ?",
+            "answer": "<p>Seulement dans la conception d’un même algorithme. Les tailles de familles différentes ne se comparent pas directement.</p>"
+        },
+        {
+            "question": "Le vecteur d’initialisation doit-il être secret ?",
+            "answer": "<p>Généralement non, mais il doit être unique ou imprévisible selon le mode.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Chiffre de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Chiffre de Vigenère"
+        }
+    ],
+    "tags": [
+        "cryptographie",
+        "clé",
+        "gestion des clés"
+    ],
+    "category": "concepts"
+}

@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "frequency-analysis",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Häufigkeitsanalyse",
+        "aliases": [
+            "Buchstabenhäufigkeitsangriff"
+        ],
+        "short": "Eine kryptanalytische Methode, die Symbol- und Buchstabengruppenhäufigkeiten mit Sprachmustern vergleicht, um klassische Geheimtexte zu erschließen.",
+        "meta_title": "Häufigkeitsanalyse — Definition | CiphersOnline",
+        "meta_description": "Wie die Häufigkeitsanalyse Buchstaben, Bigramme und Sprachprofile für Angriffe auf klassische Chiffren nutzt — einschließlich ihrer Grenzen."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Die Häufigkeitsanalyse untersucht, wie oft Buchstaben, Symbole, Wörter oder Gruppen wie Bigramme und Trigramme in einem Text vorkommen. Natürliche Sprachen weisen wiederkehrende statistische Muster auf: Im Deutschen zählen <strong>E</strong>, <strong>N</strong> und <strong>I</strong> gewöhnlich zu den häufigsten Buchstaben.</p><p>Viele klassische Chiffren verändern die Zeichen, beseitigen diese Muster aber nicht vollständig. Ein Kryptoanalytiker vergleicht die beobachtete Verteilung des Geheimtexts mit einem Sprachprofil und leitet daraus mögliche Klartextbuchstaben und -folgen ab. Das liefert Hypothesen, keine automatische Entschlüsselung.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "So funktioniert es",
+            "html": "<p>Zuerst wird der Text normalisiert und die Häufigkeit einzelner Zeichen gezählt. Anschließend prüft man mehrere Zuordnungen zwischen häufigen Geheimtextzeichen und verbreiteten Buchstaben der vermuteten Sprache. Bigramme, Trigramme, wiederkehrende Wörter und Wortmuster helfen, jede Vermutung zu bestätigen oder zu verwerfen.</p><p>Bei einer Caesar-Chiffre ist das gesamte Häufigkeitsprofil um denselben Betrag verschoben, bei einer monoalphabetischen Substitution ist es umgeordnet. Für eine polyalphabetische Chiffre mit wiederholtem Schlüssel wie Vigenère wird zunächst die Schlüsselperiode geschätzt—etwa mit dem Koinzidenzindex oder dem Kasiski-Test—und danach werden die entsprechenden Spalten getrennt analysiert.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Praktisches Beispiel",
+            "html": "<p>Angenommen, ein Zeichen dominiert einen ausreichend langen monoalphabetischen Geheimtext. Es könnte für <strong>E</strong> stehen, aber ebenso für <strong>N</strong>, <strong>I</strong>, ein Leerzeichen oder einen im Thema besonders häufigen Buchstaben. Der Kryptoanalytiker testet mehrere Kandidaten und sucht nach zusätzlichen Hinweisen: typischen Buchstabenpaaren, plausiblen Wortwiederholungen und lesbaren Fragmenten. Eine Zuordnung überzeugt erst, wenn sie viele Beobachtungen zugleich erklärt.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Grenzen",
+            "html": "<p>Bei sehr kurzen Texten sind Häufigkeiten unzuverlässig. Namen, Fachwortschatz, Rechtschreibkonventionen und ungewöhnliche Textsorten können das Sprachprofil ebenfalls verzerren. Homophone Substitution, polyalphabetische Systeme, Kompression und absichtliche Füllzeichen schwächen die erkennbaren Muster zusätzlich.</p><p>Moderne Verschlüsselung ist darauf ausgelegt, solche Regelmäßigkeiten zu verbergen. Beim korrekt verwendeten One-Time-Pad macht ein unabhängiger Zufallsschlüssel den Geheimtext statistisch unabhängig vom Klartext. Ein einzelner Geheimtext muss nicht vollkommen gleichmäßig verteilt aussehen; entscheidend ist, dass seine Häufigkeiten nichts über die ursprüngliche Nachricht verraten.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Welche Chiffren sind für Häufigkeitsanalyse anfällig?",
+            "answer": "<p>Besonders nützlich ist sie gegen Caesar-, affine und andere monoalphabetische Substitutionschiffren. Bei Vigenère mit wiederholtem Schlüssel kann sie helfen, wenn zuvor die Schlüsselperiode bestimmt wurde und genügend Geheimtext vorliegt.</p>"
+        },
+        {
+            "question": "Wie viel Geheimtext wird benötigt?",
+            "answer": "<p>Eine allgemeingültige Mindestlänge gibt es nicht. Längere Texte liefern stabilere Buchstaben- und N-Gramm-Verteilungen; kurze Nachrichten können mehrere gleich plausible Zuordnungen zulassen. Textsorte und Chiffre sind ebenso wichtig wie die Länge.</p>"
+        },
+        {
+            "question": "Warum versagt sie beim One-Time-Pad?",
+            "answer": "<p>Ist der Schlüssel wirklich zufällig, so lang wie die Nachricht, geheim und nur einmal verwendet, passt jeder mögliche Klartext gleicher Länge zum beobachteten Geheimtext. Dessen Statistik verrät deshalb nicht, welcher Klartext gesendet wurde.</p>"
+        },
+        {
+            "question": "Kann Häufigkeitsanalyse moderne Verschlüsselung brechen?",
+            "answer": "<p>Nicht, wenn ein modernes Verfahren wie AES korrekt implementiert und eingesetzt wird. Solche Algorithmen verteilen Klartextmuster über den gesamten Geheimtext; Angriffe richten sich stattdessen gegen Schlüssel, Protokolle, Implementierungen oder Fehlbedienung.</p>"
+        }
+    ],
+    "related_terms": [],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Häufigkeitsanalyse-Tool"
+        },
+        {
+            "slug": "text-analysis/letter-frequency",
+            "label": "Buchstabenhäufigkeit"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère-Knacker"
+        }
+    ],
+    "tags": [
+        "Kryptoanalyse",
+        "Häufigkeitsanalyse",
+        "klassische Chiffren"
+    ],
+    "category": "cryptanalysis"
+}

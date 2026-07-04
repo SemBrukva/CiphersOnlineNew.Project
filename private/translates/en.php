@@ -932,4 +932,25 @@ return [
 
     // Footer
     'FOOTER_DESC'                      => 'catalog of popular encryption systems with the ability to encrypt and decrypt text online',
+
+    // Глоссарий
+    'MENU_GLOSSARY' => 'Glossary',
+    'GLOSSARY_BREADCRUMB' => 'Glossary',
+    'GLOSSARY_INDEX_TITLE' => 'Cryptography Glossary — Cipher & Encoding Terms',
+    'GLOSSARY_INDEX_META' => 'Clear definitions of cryptography, cipher, encoding and hashing terms — from plaintext and keys to frequency analysis.',
+    'GLOSSARY_INDEX_HEADING' => 'Cryptography Glossary',
+    'GLOSSARY_INDEX_INTRO' => 'Plain-language definitions of the ciphers, codes, encodings and cryptanalysis terms used across the site.',
+    'GLOSSARY_SEARCH_PLACEHOLDER' => 'Search terms…',
+    'GLOSSARY_SEARCH_EMPTY' => 'No terms match your search.',
+    'GLOSSARY_FAQ_TITLE' => 'Frequently asked questions',
+    'GLOSSARY_RELATED_TERMS' => 'Related terms',
+    'GLOSSARY_RELATED_TOOLS' => 'Related tools',
+    'GLOSSARY_BACK_TO_INDEX' => 'Back to glossary',
+    'GLOSSARY_CAT_CONCEPTS' => 'Core concepts',
+    'GLOSSARY_CAT_CLASSICAL' => 'Classical ciphers',
+    'GLOSSARY_CAT_CRYPTANALYSIS' => 'Cryptanalysis',
+    'GLOSSARY_CAT_ENCODING' => 'Encoding',
+    'GLOSSARY_CAT_HASHING' => 'Hashing',
+    'GLOSSARY_FROM_TITLE' => 'From the glossary',
+    'GLOSSARY_SEE_ALSO' => 'See also',
 ];

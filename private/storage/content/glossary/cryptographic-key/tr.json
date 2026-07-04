@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptographic-key",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Anahtar",
+        "aliases": [
+            "kriptografik anahtar",
+            "şifreleme anahtarı"
+        ],
+        "short": "Kriptografik anahtar, dönüşümü denetler ve veriyi kimin şifreleyebileceğini, çözebileceğini veya doğrulayabileceğini belirler.",
+        "meta_title": "Kriptografik anahtar — tanım | CiphersOnline",
+        "meta_description": "Kriptografik anahtarın ne olduğunu, gizli, açık ve özel anahtarların farkını ve güvenli anahtar yönetiminin önemini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Kriptografik anahtar, algoritmada belirli bir dönüşümü seçen parametredir. Algoritma açık olabilir. Simetrik sistemler ortak gizli anahtar, asimetrik sistemler ilişkili açık ve özel anahtar çifti kullanır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Anahtarlar ve parolalar",
+            "html": "<p>Anahtar genellikle gereken uzunlukta rastgele baytlardır. İnsan parolası, tuzla birlikte anahtar türetme işlevinden geçirilir. Nonce, başlatma vektörü ve tuz farklı amaçlara hizmet eder.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Anahtar yönetimi",
+            "html": "<p>Üretim, saklama, erişim, yenileme, iptal ve yok etme korunmalıdır. Açık anahtar dağıtılabilir ancak gerçekliği doğrulanmalıdır; özel ve simetrik anahtarlar gizli kalır.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Parola ile anahtar aynı mı?",
+            "answer": "<p>Hayır. Parolayı insan seçer; anahtar genellikle yüksek entropili ikili veridir. KDF paroladan anahtar türetebilir.</p>"
+        },
+        {
+            "question": "Daha uzun anahtar her zaman daha mı güvenli?",
+            "answer": "<p>Yalnızca aynı algoritmanın tasarımı içinde. Farklı ailelerin boyutları doğrudan karşılaştırılmaz.</p>"
+        },
+        {
+            "question": "Başlatma vektörü gizli olmalı mı?",
+            "answer": "<p>Genellikle hayır, ancak kipe göre benzersiz veya öngörülemez olmalıdır.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Sezar Şifresi"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Şifresi"
+        }
+    ],
+    "tags": [
+        "kriptografi",
+        "anahtar",
+        "anahtar yönetimi"
+    ],
+    "category": "concepts"
+}

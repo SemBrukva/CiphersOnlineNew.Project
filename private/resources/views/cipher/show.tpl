@@ -179,3 +179,18 @@
     </div>
 </section>
 {/if}
+
+{if $glossary_links}
+<section class="panel ciphers-hub-panel">
+    <div class="panel-heading">
+        <div class="panel-title">{$t.GLOSSARY_FROM_TITLE}</div>
+    </div>
+    <div class="panel-content">
+        <div class="glossary-related-links">
+            {foreach $glossary_links as $link}
+            <a class="glossary-related-link" href="{$link.url}"><i class="bi bi-book"></i>{$link.name}</a>
+            {/foreach}
+        </div>
+    </div>
+</section>
+{/if}

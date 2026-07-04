@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "encryption",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifrado",
+        "aliases": [
+            "cifrado de datos",
+            "encriptación"
+        ],
+        "short": "El cifrado es una transformación criptográfica reversible que usa una clave para convertir texto plano en texto cifrado.",
+        "meta_title": "Cifrado — definición y finalidad | CiphersOnline",
+        "meta_description": "Cómo protege el cifrado la confidencialidad, en qué difieren los sistemas simétricos y asimétricos y por qué importa la autenticación."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El cifrado convierte texto plano en texto cifrado mediante un algoritmo y una clave para impedir su lectura no autorizada. Es reversible con la clave correcta. Codificar solo cambia la representación y el hash suele ser unidireccional.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Cómo funciona",
+            "html": "<p>El cifrado simétrico comparte una clave secreta. El asimétrico relaciona una clave pública con otra privada; los sistemas reales suelen combinar ambos. Los esquemas modernos también usan nonce o vector de inicialización y, con frecuencia, una etiqueta de autenticación.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Limitaciones",
+            "html": "<p>La seguridad depende de la clave, no de ocultar el algoritmo. Claves robadas, nonces reutilizados, extremos comprometidos o texto plano registrado anulan incluso un cifrado robusto. La longitud y el momento del mensaje pueden seguir visibles.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Cifrado o hash?",
+            "answer": "<p>El cifrado se revierte con la clave correcta. Un hash produce un resumen fijo pensado para no invertirse.</p>"
+        },
+        {
+            "question": "¿Simétrico o asimétrico?",
+            "answer": "<p>El simétrico comparte una clave secreta; el asimétrico separa una clave pública de otra privada relacionada.</p>"
+        },
+        {
+            "question": "¿El cifrado evita modificaciones?",
+            "answer": "<p>No por sí solo. El cifrado autenticado detecta cambios antes de entregar el texto plano.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "decryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrado César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrado Vigenère"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifrados"
+        }
+    ],
+    "tags": [
+        "criptografía",
+        "cifrado",
+        "protección de datos"
+    ],
+    "category": "concepts"
+}

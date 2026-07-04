@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "encryption",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifratura",
+        "aliases": [
+            "cifratura dei dati",
+            "crittazione"
+        ],
+        "short": "La cifratura è una trasformazione crittografica reversibile che converte il testo in chiaro in testo cifrato usando una chiave.",
+        "meta_title": "Cifratura — definizione e scopo | CiphersOnline",
+        "meta_description": "Come la cifratura protegge la riservatezza, la differenza tra sistemi simmetrici e asimmetrici e il ruolo dell’autenticazione."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>La cifratura trasforma il testo in chiaro con algoritmo e chiave per impedirne la lettura non autorizzata. È reversibile con la chiave corretta. La codifica cambia solo la rappresentazione, mentre l’hashing è normalmente unidirezionale.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Come funziona",
+            "html": "<p>La cifratura simmetrica condivide una chiave segreta. Quella asimmetrica collega una chiave pubblica a una privata; i sistemi pratici spesso combinano entrambe. Gli schemi moderni usano anche nonce o vettore di inizializzazione e spesso un tag di autenticazione.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Limiti",
+            "html": "<p>La sicurezza dipende dalla chiave, non dalla segretezza dell’algoritmo. Chiavi rubate, nonce riutilizzati, dispositivi compromessi o testo in chiaro nei log aggirano anche una cifratura robusta. Lunghezza e orario possono restare visibili.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Cifratura o hashing?",
+            "answer": "<p>La cifratura è reversibile con la chiave corretta. L’hash produce un digest fisso progettato per non essere invertito.</p>"
+        },
+        {
+            "question": "Simmetrica o asimmetrica?",
+            "answer": "<p>La simmetrica condivide una chiave segreta; l’asimmetrica separa una chiave pubblica da una privata correlata.</p>"
+        },
+        {
+            "question": "La cifratura impedisce le modifiche?",
+            "answer": "<p>Non da sola. La cifratura autenticata rileva le alterazioni prima di restituire il testo in chiaro.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "decryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrario di Cesare"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrario di Vigenère"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificatore di cifrari"
+        }
+    ],
+    "tags": [
+        "crittografia",
+        "cifratura",
+        "protezione dei dati"
+    ],
+    "category": "concepts"
+}

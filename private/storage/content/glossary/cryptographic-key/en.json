@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptographic-key",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Key",
+        "aliases": [
+            "cryptographic key",
+            "encryption key"
+        ],
+        "short": "A cryptographic key is a value that controls a cipher’s transformation and determines who can encrypt, decrypt, or authenticate data.",
+        "meta_title": "Cryptographic Key — Definition | CiphersOnline",
+        "meta_description": "Learn what a cryptographic key is, how secret, public, and private keys differ, and why secure generation, storage, rotation, and length matter."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A cryptographic key is a parameter supplied to a cryptographic algorithm. The algorithm may be public, while the key selects a particular transformation. Symmetric systems share a secret key; asymmetric systems use a mathematically related public and private key pair.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Keys and passwords",
+            "html": "<p>A key is normally random bytes of the size required by the algorithm. A human password has less predictable entropy and should be converted into a key with a password-based key derivation function and salt. Nonces, initialization vectors, and salts serve different purposes and are not interchangeable with keys.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Key management",
+            "html": "<p>Strong algorithms cannot compensate for exposed or poorly generated keys. Secure systems control key generation, storage, access, backup, rotation, revocation, and destruction. Public keys may be distributed openly, but private and symmetric keys must remain secret and authentic public keys must be verified.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is a password the same as a cryptographic key?",
+            "answer": "<p>No. A password is human-chosen input; a key is usually high-entropy binary data. A KDF can derive a suitable key from a password.</p>"
+        },
+        {
+            "question": "Does a longer key always mean better security?",
+            "answer": "<p>Only within the design of the algorithm. Key sizes are not directly comparable across different cipher families, and an oversized key cannot fix a weak algorithm or implementation.</p>"
+        },
+        {
+            "question": "Must an initialization vector be secret?",
+            "answer": "<p>Usually no. Its required property is often uniqueness or unpredictability, depending on the mode. Reusing it incorrectly can still destroy security.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        }
+    ],
+    "tags": [
+        "cryptography",
+        "key",
+        "key management"
+    ],
+    "category": "concepts"
+}

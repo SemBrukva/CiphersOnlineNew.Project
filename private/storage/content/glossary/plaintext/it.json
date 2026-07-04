@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "plaintext",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Testo in chiaro",
+        "aliases": [
+            "dati non cifrati",
+            "messaggio in chiaro"
+        ],
+        "short": "Il testo in chiaro è il dato originale non cifrato fornito alla cifratura o recuperato intatto mediante la decifratura.",
+        "meta_title": "Testo in chiaro — definizione | CiphersOnline",
+        "meta_description": "Che cosa significa testo in chiaro in crittografia, come differisce dal testo cifrato e dove i dati non protetti possono rimanere esposti."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Il testo in chiaro è il dato che esiste prima della cifratura o dopo una decifratura riuscita. Un algoritmo di cifratura combina il testo in chiaro con una chiave e produce il testo cifrato; il processo inverso deve ricostruire esattamente i dati originali.</p><p>Nonostante la parola <em>testo</em>, non deve necessariamente trattarsi di una frase leggibile. Un’immagine, una registrazione audio, una riga di database, un archivio compresso o qualsiasi altra sequenza di byte può essere il testo in chiaro di un’operazione crittografica.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cryptographic_role",
+            "title": "Ruolo nella crittografia",
+            "html": "<p>Di norma, le applicazioni codificano le informazioni in byte prima di cifrarle. Il cifrario opera su questi byte, non sul significato visivo di una frase o di un file. A seconda dell’algoritmo e della modalità, il sistema può aggiungere padding, un nonce o vettore di inizializzazione e un tag di autenticazione; questi valori non appartengono al testo in chiaro originale.</p><p>Con la cifratura autenticata, l’integrità viene verificata prima di consegnare i dati decifrati all’applicazione. Se la verifica fallisce, il risultato deve essere rifiutato.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Esempio",
+            "html": "<p>Supponiamo che un’applicazione cifri il messaggio <code>CI VEDIAMO A MEZZOGIORNO</code>. I byte che rappresentano la frase sono il testo in chiaro. L’algoritmo e la chiave li trasformano in testo cifrato, che non mostra più direttamente le parole; una cifratura moderna robusta nasconde anche gli schemi sfruttabili. Il destinatario con la chiave corretta recupera gli stessi byte e li decodifica nel messaggio originale.</p><p>Base64 rappresenta soltanto quei byte con un diverso insieme di caratteri. È una codifica, non una cifratura, e può essere invertita senza una chiave segreta.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "security",
+            "title": "Aspetti di sicurezza",
+            "html": "<p>La cifratura protegge i dati solo all’interno del confine crittografico previsto. Il testo in chiaro può comparire nella memoria dell’applicazione, nei log, nei file temporanei, nei backup, nella cronologia del browser, nei rapporti di errore o su un dispositivo compromesso. TLS protegge il transito in rete, ma gli endpoint vedono normalmente il contenuto decifrato.</p><p>I sistemi sicuri riducono il tempo di conservazione del testo in chiaro, evitano di scrivere segreti nei log o negli URL, limitano gli accessi e cancellano i buffer sensibili quando possibile. La cifratura non corregge una gestione insicura prima o dopo l’operazione crittografica.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Qual è la differenza tra testo in chiaro e testo cifrato?",
+            "answer": "<p>Il testo in chiaro contiene i dati originali in forma non cifrata. Il testo cifrato è il risultato trasformato e non dovrebbe rivelare il contenuto senza la chiave necessaria, anche quando l’algoritmo è pubblico.</p>"
+        },
+        {
+            "question": "Il testo in chiaro è sempre un semplice file di testo?",
+            "answer": "<p>No. Un file di testo contiene caratteri senza formattazione avanzata. In crittografia, il testo in chiaro può essere qualsiasi dato prima della cifratura, inclusi file binari e record strutturati.</p>"
+        },
+        {
+            "question": "I dati in Base64 sono testo in chiaro?",
+            "answer": "<p>Base64 non offre riservatezza. Se i dati non sono anche cifrati, chiunque può decodificarli; non devono quindi essere considerati testo cifrato protetto.</p>"
+        },
+        {
+            "question": "Può esistere testo in chiaro durante una connessione HTTPS?",
+            "answer": "<p>Sì. HTTPS cifra i dati tra gli endpoint di rete, ma browser e server li decifrano per elaborarli. Il contenuto esiste quindi in chiaro sugli endpoint e deve comunque essere protetto.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrario di Cesare"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrario di Vigenère"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Analisi di frequenza"
+        }
+    ],
+    "tags": [
+        "crittografia",
+        "testo in chiaro",
+        "sicurezza dei dati"
+    ],
+    "category": "concepts"
+}

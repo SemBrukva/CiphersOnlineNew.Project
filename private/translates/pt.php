@@ -908,4 +908,25 @@ return [
 
     // Footer
     'FOOTER_DESC'                      => 'catálogo de sistemas de criptografia populares com a possibilidade de criptografar e descriptografar texto online',
+
+    // Глоссарий
+    'MENU_GLOSSARY' => 'Glossário',
+    'GLOSSARY_BREADCRUMB' => 'Glossário',
+    'GLOSSARY_INDEX_TITLE' => 'Glossário de criptografia — termos de cifragem e codificação',
+    'GLOSSARY_INDEX_META' => 'Definições claras de termos de criptografia, cifragem, codificação e hash: do texto claro e chaves à análise de frequência.',
+    'GLOSSARY_INDEX_HEADING' => 'Glossário de criptografia',
+    'GLOSSARY_INDEX_INTRO' => 'Definições em linguagem simples: cifras, códigos, codificações e termos de criptoanálise usados no site.',
+    'GLOSSARY_SEARCH_PLACEHOLDER' => 'Pesquisar termos…',
+    'GLOSSARY_SEARCH_EMPTY' => 'Nenhum termo corresponde à sua pesquisa.',
+    'GLOSSARY_FAQ_TITLE' => 'Perguntas frequentes',
+    'GLOSSARY_RELATED_TERMS' => 'Termos relacionados',
+    'GLOSSARY_RELATED_TOOLS' => 'Ferramentas relacionadas',
+    'GLOSSARY_BACK_TO_INDEX' => 'Voltar ao glossário',
+    'GLOSSARY_CAT_CONCEPTS' => 'Conceitos básicos',
+    'GLOSSARY_CAT_CLASSICAL' => 'Cifras clássicas',
+    'GLOSSARY_CAT_CRYPTANALYSIS' => 'Criptoanálise',
+    'GLOSSARY_CAT_ENCODING' => 'Codificação',
+    'GLOSSARY_CAT_HASHING' => 'Hash',
+    'GLOSSARY_FROM_TITLE' => 'Do glossário',
+    'GLOSSARY_SEE_ALSO' => 'Veja também',
 ];

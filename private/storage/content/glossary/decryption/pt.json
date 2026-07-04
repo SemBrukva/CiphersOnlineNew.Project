@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "decryption",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Descriptografia",
+        "aliases": [
+            "decifragem",
+            "recuperação do texto claro"
+        ],
+        "short": "A descriptografia usa a chave necessária para reverter a criptografia e recuperar texto claro a partir de texto cifrado.",
+        "meta_title": "Descriptografia — definição e processo | CiphersOnline",
+        "meta_description": "Como a descriptografia recupera o texto claro, quais parâmetros exige e por que a autenticidade deve ser verificada antes do uso."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>A descriptografia transforma texto cifrado em texto claro com algoritmo e chave adequados. A criptografia simétrica usa o segredo compartilhado; a assimétrica normalmente usa a chave privada do destinatário.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "process",
+            "title": "Processo",
+            "html": "<p>Podem ser necessários texto cifrado, chave, nonce ou vetor, etiqueta e parâmetros. Decodificar hexadecimal ou Base64 apenas recupera os bytes. Um esquema autenticado verifica a etiqueta antes de fornecer texto claro.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Falhas e segurança",
+            "html": "<p>Uma chave errada pode causar erro ou bytes sem sentido; esquemas não autenticados nem sempre detectam isso. O aplicativo deve rejeitar dados alterados, limitar detalhes da falha e proteger o texto recuperado.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "É possível descriptografar sem chave?",
+            "answer": "<p>A criptografia moderna robusta busca tornar isso inviável. Cifras fracas, poucas chaves, falhas ou chaves roubadas podem permitir exceções.</p>"
+        },
+        {
+            "question": "Decodificar é descriptografar?",
+            "answer": "<p>Não. Decodificação reverte uma representação pública como Base64; descriptografia reverte uma proteção controlada por chave.</p>"
+        },
+        {
+            "question": "O que ocorre com uma chave errada?",
+            "answer": "<p>A criptografia autenticada rejeita os dados. Sistemas antigos podem produzir conteúdo sem sentido sem indicar claramente o erro.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "plaintext",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifra de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifra de Vigenère"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifras"
+        }
+    ],
+    "tags": [
+        "criptografia",
+        "descriptografia",
+        "texto claro"
+    ],
+    "category": "concepts"
+}

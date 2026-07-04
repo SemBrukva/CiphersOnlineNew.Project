@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "frequency-analysis",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Analyse fréquentielle",
+        "aliases": [
+            "attaque par fréquence des lettres"
+        ],
+        "short": "Une méthode de cryptanalyse qui compare les fréquences des symboles et groupes de lettres aux profils linguistiques pour interpréter les chiffrements classiques.",
+        "meta_title": "Analyse fréquentielle — définition | CiphersOnline",
+        "meta_description": "Comment l’analyse fréquentielle exploite lettres, bigrammes et profils linguistiques contre les chiffrements classiques, avec ses limites."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>L’analyse fréquentielle étudie la fréquence des lettres, symboles, mots ou groupes tels que les bigrammes et trigrammes dans un texte. Les langues naturelles présentent des régularités statistiques : en français, <strong>E</strong>, <strong>A</strong> et <strong>S</strong> figurent généralement parmi les lettres les plus fréquentes.</p><p>De nombreux chiffrements classiques modifient les symboles sans effacer totalement ces régularités. Le cryptanalyste compare la distribution observée dans le texte chiffré à un profil linguistique afin de proposer des lettres et séquences plausibles du texte clair. Cette comparaison fournit des hypothèses, pas un déchiffrement automatique.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Fonctionnement",
+            "html": "<p>On normalise d’abord le texte et on compte chaque symbole. On teste ensuite plusieurs correspondances entre les symboles fréquents du texte chiffré et les lettres courantes de la langue supposée. Les bigrammes, trigrammes, répétitions de mots et formes lexicales permettent de confirmer ou d’écarter chaque hypothèse.</p><p>Avec le chiffre de César, tout le profil fréquentiel est décalé de la même valeur ; avec une substitution monoalphabétique, il est permuté. Pour un chiffrement polyalphabétique à clé répétée comme Vigenère, on estime d’abord la période—souvent avec l’indice de coïncidence ou l’examen de Kasiski—puis on analyse séparément les colonnes correspondantes.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Exemple pratique",
+            "html": "<p>Supposons qu’un symbole domine un texte chiffré monoalphabétique suffisamment long. Il peut représenter <strong>E</strong>, mais aussi <strong>A</strong>, <strong>S</strong>, une espace ou une lettre favorisée par le sujet. Le cryptanalyste essaie plusieurs candidats et recherche des indices concordants : groupes de lettres courants, répétitions de mots plausibles et fragments lisibles. Une correspondance ne devient convaincante que si elle explique de nombreuses observations à la fois.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Limites",
+            "html": "<p>Les fréquences sont peu fiables sur les textes très courts. Les noms propres, le vocabulaire spécialisé, les conventions orthographiques et un genre inhabituel peuvent aussi déformer le profil linguistique. La substitution homophonique, les systèmes polyalphabétiques, la compression et le bourrage volontaire atténuent encore les motifs visibles.</p><p>Le chiffrement moderne est conçu pour masquer ces régularités. Avec un masque jetable correctement utilisé, une clé aléatoire indépendante rend le texte chiffré statistiquement indépendant du texte clair. Un échantillon particulier ne doit pas forcément présenter une distribution parfaitement uniforme ; l’essentiel est que ses fréquences ne révèlent rien sur le message d’origine.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Quels chiffrements sont vulnérables à l’analyse fréquentielle ?",
+            "answer": "<p>Elle est surtout utile contre César, le chiffrement affine et les autres substitutions monoalphabétiques. Elle peut aussi aider contre Vigenère à clé répétée si la période est déterminée et si le texte chiffré est suffisamment long.</p>"
+        },
+        {
+            "question": "Quelle longueur de texte chiffré faut-il ?",
+            "answer": "<p>Il n’existe pas de minimum universel. Les textes longs donnent des distributions de lettres et de n-grammes plus stables, tandis qu’un message court peut autoriser plusieurs correspondances aussi plausibles. Le type de texte et le chiffrement comptent autant que la longueur.</p>"
+        },
+        {
+            "question": "Pourquoi échoue-t-elle sur le masque jetable ?",
+            "answer": "<p>Si la clé est véritablement aléatoire, aussi longue que le message, secrète et utilisée une seule fois, tout texte clair de même longueur est compatible avec le texte chiffré observé. Ses statistiques ne permettent donc pas d’identifier le message envoyé.</p>"
+        },
+        {
+            "question": "L’analyse fréquentielle peut-elle casser un chiffrement moderne ?",
+            "answer": "<p>Non lorsqu’un algorithme moderne tel qu’AES est correctement implémenté et utilisé. Ces algorithmes diffusent les motifs du texte clair dans tout le texte chiffré ; les attaques visent plutôt les clés, protocoles, implémentations ou erreurs d’utilisation.</p>"
+        }
+    ],
+    "related_terms": [],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Outil d’analyse fréquentielle"
+        },
+        {
+            "slug": "text-analysis/letter-frequency",
+            "label": "Fréquence des lettres"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Casseur Vigenère"
+        }
+    ],
+    "tags": [
+        "cryptanalyse",
+        "analyse fréquentielle",
+        "chiffrements classiques"
+    ],
+    "category": "cryptanalysis"
+}

@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "decryption",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Şifre çözme",
+        "aliases": [
+            "deşifre etme",
+            "düz metni geri kazanma"
+        ],
+        "short": "Şifre çözme, gerekli anahtarla şifrelemeyi tersine çevirerek şifreli metinden düz metni geri kazanır.",
+        "meta_title": "Şifre çözme — tanım ve süreç | CiphersOnline",
+        "meta_description": "Şifre çözmenin düz metni nasıl geri kazandığını, hangi parametreleri gerektirdiğini ve sonucun neden doğrulanması gerektiğini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Şifre çözme, uygun algoritma ve anahtarla şifreli metni düz metne dönüştürür. Simetrik kriptografide ortak gizli anahtar, asimetrik şifrelemede ise genellikle alıcının özel anahtarı kullanılır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "process",
+            "title": "Süreç",
+            "html": "<p>Şifreli metin ve anahtarın yanında nonce veya vektör, etiket ve parametreler gerekebilir. On altılık veya Base64 kodunu çözmek yalnızca baytları geri getirir. Kimliği doğrulanmış şema düz metni vermeden önce etiketi denetler.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Hatalar ve güvenlik",
+            "html": "<p>Yanlış anahtar hata veya anlamsız baytlar üretebilir; doğrulanmamış şemalar bunu her zaman fark etmez. Uygulama değiştirilmiş veriyi reddetmeli, hata ayrıntılarını sınırlamalı ve geri kazanılan düz metni korumalıdır.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Anahtar olmadan şifre çözülebilir mi?",
+            "answer": "<p>Güçlü modern şifreleme bunu uygulanamaz kılmayı amaçlar. Zayıf şifre, küçük anahtar alanı, hata veya çalınan anahtar istisna oluşturabilir.</p>"
+        },
+        {
+            "question": "Kod çözme ile şifre çözme aynı mı?",
+            "answer": "<p>Hayır. Kod çözme Base64 gibi açık bir gösterimi; şifre çözme ise anahtarla denetlenen korumayı tersine çevirir.</p>"
+        },
+        {
+            "question": "Yanlış anahtar ne üretir?",
+            "answer": "<p>Kimliği doğrulanmış şifreleme veriyi reddeder. Eski şemalar hatayı açıkça bildirmeden anlamsız çıktı verebilir.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "plaintext",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Sezar Şifresi"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Şifresi"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Şifre Tanımlayıcı"
+        }
+    ],
+    "tags": [
+        "kriptografi",
+        "şifre çözme",
+        "düz metin"
+    ],
+    "category": "concepts"
+}

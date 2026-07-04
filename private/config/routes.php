@@ -10,6 +10,7 @@ use App\Controller\CipherCategoryController;
 use App\Controller\CipherController;
 use App\Controller\ContactsController;
 use App\Controller\FavoritesController;
+use App\Controller\GlossaryController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
 use App\Controller\LlmsController;
@@ -89,6 +90,19 @@ return [
         'controller' => FavoritesController::class,
         'method'     => 'index',
         'name'       => 'favorites.index',
+    ],
+
+    // Глоссарий — ДО catch-all маршрутов инструментов/категорий, иначе будет перехвачен.
+    'GET /glossary' => [
+        'controller' => GlossaryController::class,
+        'method'     => 'index',
+        'name'       => 'glossary.index',
+    ],
+
+    'GET /glossary/{term:[a-z0-9-]+}' => [
+        'controller' => GlossaryController::class,
+        'method'     => 'show',
+        'name'       => 'glossary.show',
     ],
 
     'GET /{category:[a-z0-9-]+}/{cipher:[a-z0-9-]+}' => [

@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "decryption",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Déchiffrement",
+        "aliases": [
+            "déchiffrage",
+            "récupération du texte en clair"
+        ],
+        "short": "Le déchiffrement utilise la clé requise pour inverser le chiffrement et récupérer le texte en clair.",
+        "meta_title": "Déchiffrement — définition et processus | CiphersOnline",
+        "meta_description": "Comment le déchiffrement restitue le texte en clair, quels paramètres sont requis et pourquoi l’authenticité doit être vérifiée."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le déchiffrement transforme le texte chiffré en texte en clair avec l’algorithme et la clé appropriés. La cryptographie symétrique utilise le secret partagé ; le chiffrement asymétrique, généralement la clé privée du destinataire.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "process",
+            "title": "Processus",
+            "html": "<p>Il peut exiger texte chiffré, clé, nonce ou vecteur, étiquette et paramètres. Décoder l’hexadécimal ou Base64 ne fait que restituer les octets. Un schéma authentifié vérifie l’étiquette avant de livrer le texte en clair.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Erreurs et sécurité",
+            "html": "<p>Une mauvaise clé provoque une erreur ou des octets incohérents ; les anciens schémas ne le détectent pas toujours. L’application doit rejeter les données altérées, limiter les détails d’erreur et protéger le texte en clair récupéré.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Peut-on déchiffrer sans clé ?",
+            "answer": "<p>Un chiffrement moderne robuste vise à rendre cela irréalisable. Faiblesse, petit espace de clés, défaut ou clé volée peuvent créer des exceptions.</p>"
+        },
+        {
+            "question": "Décoder signifie-t-il déchiffrer ?",
+            "answer": "<p>Non. Le décodage inverse une représentation publique comme Base64 ; le déchiffrement inverse une protection contrôlée par clé.</p>"
+        },
+        {
+            "question": "Que produit une mauvaise clé ?",
+            "answer": "<p>Un chiffrement authentifié rejette les données. Un ancien schéma peut produire du contenu incohérent sans signaler clairement l’erreur.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "plaintext",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Chiffre de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Chiffre de Vigenère"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificateur de chiffrement"
+        }
+    ],
+    "tags": [
+        "cryptographie",
+        "déchiffrement",
+        "texte en clair"
+    ],
+    "category": "concepts"
+}

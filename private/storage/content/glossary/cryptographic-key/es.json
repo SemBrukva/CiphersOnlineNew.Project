@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptographic-key",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Clave",
+        "aliases": [
+            "clave criptográfica",
+            "clave de cifrado"
+        ],
+        "short": "Una clave criptográfica controla la transformación y determina quién puede cifrar, descifrar o autenticar datos.",
+        "meta_title": "Clave criptográfica — definición | CiphersOnline",
+        "meta_description": "Qué es una clave criptográfica, cómo se diferencian las claves secretas, públicas y privadas y por qué importa gestionarlas de forma segura."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Una clave criptográfica es un parámetro del algoritmo que selecciona una transformación concreta. El algoritmo puede ser público. Los sistemas simétricos comparten una clave secreta; los asimétricos usan un par relacionado de clave pública y privada.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Claves y contraseñas",
+            "html": "<p>Una clave suele ser una secuencia aleatoria de bytes del tamaño exigido. Una contraseña humana se convierte en clave con una función de derivación y sal. Nonce, vector de inicialización y sal cumplen funciones distintas.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Gestión de claves",
+            "html": "<p>Generación, almacenamiento, acceso, rotación, revocación y destrucción deben protegerse. Las claves públicas pueden distribuirse, pero debe verificarse su autenticidad; las privadas y simétricas permanecen secretas.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Una contraseña es una clave?",
+            "answer": "<p>No. La contraseña la elige una persona; la clave suele contener datos binarios de alta entropía. Una KDF puede derivarla.</p>"
+        },
+        {
+            "question": "¿Una clave más larga siempre es más segura?",
+            "answer": "<p>Solo dentro del diseño del algoritmo. No se comparan directamente tamaños de familias diferentes.</p>"
+        },
+        {
+            "question": "¿El vector de inicialización debe ser secreto?",
+            "answer": "<p>Normalmente no, pero según el modo debe ser único o impredecible.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrado César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrado Vigenère"
+        }
+    ],
+    "tags": [
+        "criptografía",
+        "clave",
+        "gestión de claves"
+    ],
+    "category": "concepts"
+}

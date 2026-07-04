@@ -908,4 +908,25 @@ return [
 
     // Footer
     'FOOTER_DESC'                      => 'catalogo dei sistemi di crittografia più diffusi con la possibilità di cifrare e decifrare testo online',
+
+    // Глоссарий
+    'MENU_GLOSSARY' => 'Glossario',
+    'GLOSSARY_BREADCRUMB' => 'Glossario',
+    'GLOSSARY_INDEX_TITLE' => 'Glossario di crittografia — termini di cifratura e codifica',
+    'GLOSSARY_INDEX_META' => 'Definizioni chiare dei termini di crittografia, cifratura, codifica e hashing: dal testo in chiaro e le chiavi all’analisi delle frequenze.',
+    'GLOSSARY_INDEX_HEADING' => 'Glossario di crittografia',
+    'GLOSSARY_INDEX_INTRO' => 'Definizioni in linguaggio semplice: cifrari, codici, codifiche e termini di crittoanalisi usati nel sito.',
+    'GLOSSARY_SEARCH_PLACEHOLDER' => 'Cerca termini…',
+    'GLOSSARY_SEARCH_EMPTY' => 'Nessun termine corrisponde alla ricerca.',
+    'GLOSSARY_FAQ_TITLE' => 'Domande frequenti',
+    'GLOSSARY_RELATED_TERMS' => 'Termini correlati',
+    'GLOSSARY_RELATED_TOOLS' => 'Strumenti correlati',
+    'GLOSSARY_BACK_TO_INDEX' => 'Torna al glossario',
+    'GLOSSARY_CAT_CONCEPTS' => 'Concetti di base',
+    'GLOSSARY_CAT_CLASSICAL' => 'Cifrari classici',
+    'GLOSSARY_CAT_CRYPTANALYSIS' => 'Crittoanalisi',
+    'GLOSSARY_CAT_ENCODING' => 'Codifica',
+    'GLOSSARY_CAT_HASHING' => 'Hashing',
+    'GLOSSARY_FROM_TITLE' => 'Dal glossario',
+    'GLOSSARY_SEE_ALSO' => 'Vedi anche',
 ];

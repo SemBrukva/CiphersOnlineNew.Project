@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptographic-key",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Schlüssel",
+        "aliases": [
+            "kryptografischer Schlüssel",
+            "Chiffrierschlüssel"
+        ],
+        "short": "Ein kryptografischer Schlüssel steuert die Transformation eines Verfahrens und legt fest, wer Daten ver- oder entschlüsseln darf.",
+        "meta_title": "Kryptografischer Schlüssel — Definition | CiphersOnline",
+        "meta_description": "Was ein kryptografischer Schlüssel ist, wie geheime, öffentliche und private Schlüssel sich unterscheiden und warum sichere Verwaltung wichtig ist."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Ein kryptografischer Schlüssel ist ein Parameter eines Algorithmus und wählt eine konkrete Transformation. Der Algorithmus darf öffentlich sein. Symmetrische Systeme teilen einen geheimen Schlüssel, asymmetrische verwenden ein zusammengehöriges öffentliches und privates Schlüsselpaar.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Schlüssel und Passwörter",
+            "html": "<p>Ein Schlüssel besteht normalerweise aus zufälligen Bytes der geforderten Länge. Ein menschliches Passwort wird mit einer passwortbasierten Ableitungsfunktion und Salt in einen Schlüssel umgewandelt. Nonce, Initialisierungsvektor und Salt erfüllen andere Aufgaben.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Schlüsselverwaltung",
+            "html": "<p>Erzeugung, Speicherung, Zugriff, Rotation, Widerruf und Vernichtung müssen geschützt werden. Öffentliche Schlüssel dürfen verteilt werden, ihre Echtheit muss jedoch geprüft werden. Private und symmetrische Schlüssel bleiben geheim.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Ist ein Passwort ein Schlüssel?",
+            "answer": "<p>Nein. Ein Passwort ist menschliche Eingabe; ein Schlüssel gewöhnlich binäre Daten mit hoher Entropie. Eine KDF verbindet beide.</p>"
+        },
+        {
+            "question": "Ist ein längerer Schlüssel immer sicherer?",
+            "answer": "<p>Nur innerhalb desselben Verfahrens. Größen verschiedener Familien sind nicht direkt vergleichbar.</p>"
+        },
+        {
+            "question": "Muss ein Initialisierungsvektor geheim sein?",
+            "answer": "<p>Meist nicht, muss je nach Modus aber einzigartig oder unvorhersehbar sein.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar-Chiffre"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère-Chiffre"
+        }
+    ],
+    "tags": [
+        "Kryptografie",
+        "Schlüssel",
+        "Schlüsselverwaltung"
+    ],
+    "category": "concepts"
+}

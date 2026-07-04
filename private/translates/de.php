@@ -909,4 +909,25 @@ return [
 
     // Footer
     'FOOTER_DESC'                      => 'Katalog beliebter Verschlüsselungssysteme mit der Möglichkeit, Texte online zu ver- und entschlüsseln',
+
+    // Глоссарий
+    'MENU_GLOSSARY' => 'Glossar',
+    'GLOSSARY_BREADCRUMB' => 'Glossar',
+    'GLOSSARY_INDEX_TITLE' => 'Kryptografie-Glossar — Begriffe zu Chiffren und Kodierung',
+    'GLOSSARY_INDEX_META' => 'Verständliche Definitionen von Begriffen der Kryptografie, Verschlüsselung, Kodierung und Hashing — von Klartext und Schlüsseln bis zur Häufigkeitsanalyse.',
+    'GLOSSARY_INDEX_HEADING' => 'Kryptografie-Glossar',
+    'GLOSSARY_INDEX_INTRO' => 'Definitionen in klarer Sprache: Chiffren, Codes, Kodierungen und Begriffe der Kryptoanalyse, die auf der Website verwendet werden.',
+    'GLOSSARY_SEARCH_PLACEHOLDER' => 'Begriffe suchen…',
+    'GLOSSARY_SEARCH_EMPTY' => 'Keine passenden Begriffe gefunden.',
+    'GLOSSARY_FAQ_TITLE' => 'Häufige Fragen',
+    'GLOSSARY_RELATED_TERMS' => 'Verwandte Begriffe',
+    'GLOSSARY_RELATED_TOOLS' => 'Verwandte Werkzeuge',
+    'GLOSSARY_BACK_TO_INDEX' => 'Zurück zum Glossar',
+    'GLOSSARY_CAT_CONCEPTS' => 'Grundbegriffe',
+    'GLOSSARY_CAT_CLASSICAL' => 'Klassische Chiffren',
+    'GLOSSARY_CAT_CRYPTANALYSIS' => 'Kryptoanalyse',
+    'GLOSSARY_CAT_ENCODING' => 'Kodierung',
+    'GLOSSARY_CAT_HASHING' => 'Hashing',
+    'GLOSSARY_FROM_TITLE' => 'Aus dem Glossar',
+    'GLOSSARY_SEE_ALSO' => 'Siehe auch',
 ];

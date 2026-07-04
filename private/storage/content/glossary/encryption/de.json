@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "encryption",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Verschlüsselung",
+        "aliases": [
+            "Datenverschlüsselung",
+            "Chiffrierung"
+        ],
+        "short": "Verschlüsselung ist eine umkehrbare kryptografische Transformation von Klartext in Geheimtext mithilfe eines Schlüssels.",
+        "meta_title": "Verschlüsselung — Definition und Zweck | CiphersOnline",
+        "meta_description": "Wie Verschlüsselung Vertraulichkeit schützt, wie sich symmetrische und asymmetrische Verfahren unterscheiden und warum Authentifizierung wichtig ist."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Verschlüsselung wandelt Klartext mit Algorithmus und Schlüssel in Geheimtext um, damit Unbefugte die Daten nicht verstehen. Mit dem passenden Schlüssel ist sie umkehrbar. Kodierung ändert nur die Darstellung; Hashing ist gewöhnlich nicht umkehrbar.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Funktionsweise",
+            "html": "<p>Symmetrische Verschlüsselung nutzt einen gemeinsamen geheimen Schlüssel. Asymmetrische Verfahren verbinden öffentlichen und privaten Schlüssel; praktische Systeme kombinieren häufig beide. Moderne Verfahren verwenden außerdem Nonce oder Initialisierungsvektor und oft ein Authentifizierungs-Tag.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Grenzen",
+            "html": "<p>Sicherheit muss vom Schlüssel abhängen, nicht von einem geheimen Algorithmus. Gestohlene Schlüssel, wiederverwendete Nonces, kompromittierte Endgeräte oder protokollierter Klartext umgehen selbst starke Verschlüsselung. Metadaten wie Länge und Zeitpunkt können sichtbar bleiben.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Verschlüsselung oder Hashing?",
+            "answer": "<p>Verschlüsselung ist mit dem richtigen Schlüssel umkehrbar. Ein Hash erzeugt einen festen, grundsätzlich nicht rückrechenbaren Prüfwert.</p>"
+        },
+        {
+            "question": "Symmetrisch oder asymmetrisch?",
+            "answer": "<p>Symmetrische Verfahren teilen einen geheimen Schlüssel; asymmetrische trennen einen öffentlichen von einem zugehörigen privaten Schlüssel.</p>"
+        },
+        {
+            "question": "Verhindert Verschlüsselung Manipulation?",
+            "answer": "<p>Nicht automatisch. Authentifizierte Verschlüsselung erkennt Änderungen, bevor Klartext ausgegeben wird.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "decryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar-Chiffre"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère-Chiffre"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Chiffren-Erkennung"
+        }
+    ],
+    "tags": [
+        "Kryptografie",
+        "Verschlüsselung",
+        "Datenschutz"
+    ],
+    "category": "concepts"
+}

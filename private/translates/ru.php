@@ -932,4 +932,25 @@ return [
 
     // Footer
     'FOOTER_DESC'                      => 'каталог популярных систем шифрования с возможностью шифровать и расшифровывать текст онлайн',
+
+    // Глоссарий
+    'MENU_GLOSSARY' => 'Глоссарий',
+    'GLOSSARY_BREADCRUMB' => 'Глоссарий',
+    'GLOSSARY_INDEX_TITLE' => 'Глоссарий криптографии — термины шифров и кодирования',
+    'GLOSSARY_INDEX_META' => 'Понятные определения терминов криптографии, шифрования, кодирования и хеширования — от открытого текста и ключей до частотного анализа.',
+    'GLOSSARY_INDEX_HEADING' => 'Глоссарий криптографии',
+    'GLOSSARY_INDEX_INTRO' => 'Определения простым языком: шифры, коды, кодировки и термины криптоанализа, используемые на сайте.',
+    'GLOSSARY_SEARCH_PLACEHOLDER' => 'Поиск терминов…',
+    'GLOSSARY_SEARCH_EMPTY' => 'Ничего не найдено.',
+    'GLOSSARY_FAQ_TITLE' => 'Частые вопросы',
+    'GLOSSARY_RELATED_TERMS' => 'Связанные термины',
+    'GLOSSARY_RELATED_TOOLS' => 'Связанные инструменты',
+    'GLOSSARY_BACK_TO_INDEX' => 'Назад к глоссарию',
+    'GLOSSARY_CAT_CONCEPTS' => 'Основные понятия',
+    'GLOSSARY_CAT_CLASSICAL' => 'Классические шифры',
+    'GLOSSARY_CAT_CRYPTANALYSIS' => 'Криптоанализ',
+    'GLOSSARY_CAT_ENCODING' => 'Кодирование',
+    'GLOSSARY_CAT_HASHING' => 'Хеширование',
+    'GLOSSARY_FROM_TITLE' => 'Из глоссария',
+    'GLOSSARY_SEE_ALSO' => 'См. также',
 ];

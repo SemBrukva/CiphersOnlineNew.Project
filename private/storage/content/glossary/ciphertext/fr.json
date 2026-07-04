@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Texte chiffré",
+        "aliases": [
+            "données chiffrées",
+            "cryptogramme"
+        ],
+        "short": "Le texte chiffré est une donnée transformée afin que son sens d’origine reste inaccessible sans la clé requise.",
+        "meta_title": "Texte chiffré — définition | CiphersOnline",
+        "meta_description": "Ce qu’est un texte chiffré, comment il est produit, pourquoi il peut varier et quelles métadonnées restent parfois visibles."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le texte chiffré résulte de la transformation du texte en clair par un algorithme et une clé. Il peut être binaire ou affiché en hexadécimal ou Base64, mais ces représentations ne constituent pas un chiffrement. La bonne clé restitue le texte en clair.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Propriétés",
+            "html": "<p>Un texte chiffré moderne ne doit pas exposer de motifs exploitables. Un nonce ou vecteur d’initialisation permet souvent d’obtenir des résultats différents à partir des mêmes données. Un chiffrement authentifié ajoute une étiquette pour détecter les modifications.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Ce qu’il peut révéler",
+            "html": "<p>Le texte chiffré peut circuler sur un canal non fiable si la clé reste secrète. Sa longueur, son horaire et ses interlocuteurs peuvent néanmoins révéler des métadonnées. Les chiffres classiques conservent aussi parfois fréquences et répétitions.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Le texte chiffré doit-il rester secret ?",
+            "answer": "<p>La clé est généralement le secret essentiel. Un chiffre sûr résiste même si l’algorithme et le texte chiffré sont connus.</p>"
+        },
+        {
+            "question": "Base64 est-il du texte chiffré ?",
+            "answer": "<p>Base64 est seulement un encodage et n’apporte aucune confidentialité.</p>"
+        },
+        {
+            "question": "Un même texte donne-t-il toujours le même résultat ?",
+            "answer": "<p>Pas avec un chiffrement correctement aléatoire. Un nonce ou vecteur neuf modifie normalement le résultat.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificateur de chiffrement"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Analyse de fréquence"
+        },
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Chiffre de César"
+        }
+    ],
+    "tags": [
+        "cryptographie",
+        "texte chiffré",
+        "données chiffrées"
+    ],
+    "category": "concepts"
+}

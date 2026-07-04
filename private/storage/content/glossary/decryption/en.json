@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "decryption",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Decryption",
+        "aliases": [
+            "deciphering",
+            "plaintext recovery"
+        ],
+        "short": "Decryption uses the required key to reverse encryption and recover plaintext from ciphertext.",
+        "meta_title": "Decryption — Definition and Process | CiphersOnline",
+        "meta_description": "Learn how decryption recovers plaintext, which key and parameters it needs, and why authentication must be checked before using the result."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Decryption is the authorized process that transforms ciphertext back into plaintext with the appropriate algorithm and key. In symmetric cryptography it uses the shared secret key; in asymmetric encryption it normally uses the recipient’s private key.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "process",
+            "title": "How decryption works",
+            "html": "<p>The decryptor may need the ciphertext, key, nonce or initialization vector, authentication tag, and algorithm parameters. Decoding hexadecimal or Base64 only restores the stored bytes and is not decryption. Authenticated schemes verify the tag before returning plaintext.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Failures and safe handling",
+            "html": "<p>A wrong key may produce an error or meaningless bytes; unauthenticated designs cannot always detect the mistake. Applications should reject altered ciphertext, avoid exposing detailed failure information, and protect recovered plaintext in memory, logs, and temporary storage.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Can ciphertext be decrypted without the key?",
+            "answer": "<p>Proper modern encryption is intended to make that computationally infeasible. Weak ciphers, small key spaces, implementation flaws, or stolen keys can make recovery possible.</p>"
+        },
+        {
+            "question": "Is decoding the same as decryption?",
+            "answer": "<p>No. Decoding reverses a public representation such as Base64. Decryption reverses a key-controlled security transformation.</p>"
+        },
+        {
+            "question": "What happens when the decryption key is wrong?",
+            "answer": "<p>Authenticated encryption rejects the data because verification fails. Older or unauthenticated schemes may instead return meaningless output without reliably signaling the error.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "plaintext",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        }
+    ],
+    "tags": [
+        "cryptography",
+        "decryption",
+        "plaintext recovery"
+    ],
+    "category": "concepts"
+}

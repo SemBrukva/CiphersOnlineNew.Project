@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "encryption",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Encryption",
+        "aliases": [
+            "data encryption",
+            "encipherment"
+        ],
+        "short": "Encryption is a reversible cryptographic transformation that uses a key to convert plaintext into ciphertext.",
+        "meta_title": "Encryption — Definition and Purpose | CiphersOnline",
+        "meta_description": "Learn how encryption protects confidentiality, how symmetric and asymmetric encryption differ, and why keys, nonces, and authentication matter."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Encryption converts plaintext into ciphertext with a cryptographic algorithm and key so unauthorized parties cannot understand the data. It is designed to be reversible for someone with the proper key. Encoding changes representation, while hashing is normally one-way; neither is a synonym for encryption.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "How encryption works",
+            "html": "<p>Symmetric encryption uses the same secret key for encryption and decryption. Asymmetric encryption uses a public key and a related private key; practical systems often combine both approaches. Modern schemes also use a nonce or initialization vector, and authenticated encryption adds an integrity tag.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "What encryption does not solve",
+            "html": "<p>Security should depend on secret keys, not a hidden algorithm. Strong encryption still fails if keys are stolen, nonces are reused incorrectly, endpoints are compromised, or plaintext is logged. It may also leave metadata such as message length and communication timing visible.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "What is the difference between encryption and hashing?",
+            "answer": "<p>Encryption is reversible with the correct key. A cryptographic hash is intended to be one-way and produces a fixed-size digest rather than decryptable ciphertext.</p>"
+        },
+        {
+            "question": "What is symmetric versus asymmetric encryption?",
+            "answer": "<p>Symmetric encryption shares one secret key. Asymmetric encryption separates a public encryption or verification key from a private decryption or signing key.</p>"
+        },
+        {
+            "question": "Does encryption prevent tampering?",
+            "answer": "<p>Confidentiality alone does not. Use authenticated encryption, such as an AEAD mode, so unauthorized changes are detected before plaintext is released.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "decryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        }
+    ],
+    "tags": [
+        "cryptography",
+        "encryption",
+        "data protection"
+    ],
+    "category": "concepts"
+}

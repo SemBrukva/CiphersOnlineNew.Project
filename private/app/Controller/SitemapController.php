@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Cache\CacheInterface;
+use App\Glossary\GlossaryRepository;
 use App\Http\Request;
 use App\Http\Response;
 use App\I18n\Translator;
@@ -32,6 +33,7 @@ final readonly class SitemapController
         private CipherRepository         $ciphers,
         private Translator               $translator,
         private CacheInterface           $cache,
+        private GlossaryRepository       $glossary,
     ) {
     }
 
@@ -107,6 +109,26 @@ final readonly class SitemapController
                         'priority'   => '0.9',
                         'changefreq' => 'monthly',
                         'lastmod'    => $this->formatLastmod($tool['updated_at'], $today),
+                    ];
+                }
+            }
+
+            // Глоссарий: страница-индекс и опубликованные термины (файловый контент, без БД).
+            $glossarySlugs = $this->glossary->publishedSlugs();
+            if ($glossarySlugs !== []) {
+                $paths[] = [
+                    'path'       => '/glossary',
+                    'priority'   => '0.6',
+                    'changefreq' => 'weekly',
+                    'lastmod'    => $today,
+                ];
+
+                foreach ($glossarySlugs as $slug) {
+                    $paths[] = [
+                        'path'       => '/glossary/' . $slug,
+                        'priority'   => '0.5',
+                        'changefreq' => 'monthly',
+                        'lastmod'    => $today,
                     ];
                 }
             }

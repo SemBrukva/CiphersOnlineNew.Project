@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "plaintext",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Texto plano",
+        "aliases": [
+            "texto en claro",
+            "datos sin cifrar"
+        ],
+        "short": "El texto plano son los datos originales sin cifrar que recibe el cifrado o que se recuperan intactos mediante el descifrado.",
+        "meta_title": "Texto plano — definición criptográfica | CiphersOnline",
+        "meta_description": "Qué significa texto plano en criptografía, cómo se diferencia del texto cifrado y dónde pueden quedar expuestos los datos sin cifrar."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El texto plano son los datos que existen antes del cifrado o después de un descifrado correcto. Un algoritmo de cifrado combina el texto plano con una clave y produce texto cifrado; el proceso inverso debe recuperar exactamente los datos originales.</p><p>A pesar de la palabra <em>texto</em>, no tiene que ser una frase legible. Una imagen, una grabación de audio, una fila de base de datos, un archivo comprimido o cualquier otra secuencia de bytes puede ser el texto plano de una operación criptográfica.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cryptographic_role",
+            "title": "Función en la criptografía",
+            "html": "<p>Las aplicaciones suelen codificar la información como bytes antes de cifrarla. El cifrado opera sobre esos bytes, no sobre el significado visual de una oración o un archivo. Según el algoritmo y el modo, el sistema también puede añadir relleno, un nonce o vector de inicialización y una etiqueta de autenticación; estos valores no forman parte del texto plano original.</p><p>Con cifrado autenticado, la integridad se verifica antes de entregar los datos descifrados a la aplicación. Si la verificación falla, el resultado debe rechazarse en lugar de tratarse como texto plano fiable.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Ejemplo",
+            "html": "<p>Supongamos que una aplicación cifra el mensaje <code>NOS VEMOS AL MEDIODÍA</code>. Los bytes que representan la frase son el texto plano. El algoritmo y la clave los transforman en texto cifrado, que ya no muestra directamente las palabras; un cifrado moderno robusto también oculta los patrones aprovechables. El destinatario con la clave correcta recupera los mismos bytes y los decodifica de nuevo como mensaje.</p><p>Base64 solo representa esos bytes con otro conjunto de caracteres. Es una codificación, no un cifrado, y puede revertirse sin una clave secreta.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "security",
+            "title": "Consideraciones de seguridad",
+            "html": "<p>El cifrado protege los datos únicamente mientras se mantiene el límite criptográfico adecuado. El texto plano puede aparecer en la memoria de la aplicación, registros, archivos temporales, copias de seguridad, historial del navegador, informes de fallos o en un dispositivo comprometido. TLS protege el tránsito por la red, pero los extremos normalmente ven el contenido descifrado.</p><p>Los sistemas seguros reducen el tiempo de conservación del texto plano, evitan guardar secretos en registros o URL, restringen el acceso y borran los búferes sensibles cuando es posible. Cifrar no corrige una gestión insegura antes del cifrado o después del descifrado.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Qué diferencia hay entre texto plano y texto cifrado?",
+            "answer": "<p>El texto plano contiene los datos originales sin cifrar. El texto cifrado es el resultado transformado y no debería revelar su contenido sin la clave necesaria, aunque el algoritmo sea público.</p>"
+        },
+        {
+            "question": "¿Texto plano significa necesariamente un archivo de texto?",
+            "answer": "<p>No. Un archivo de texto contiene caracteres sin formato enriquecido. En criptografía, el texto plano puede ser cualquier dato previo al cifrado, incluidos archivos binarios y registros estructurados.</p>"
+        },
+        {
+            "question": "¿Los datos en Base64 son texto plano?",
+            "answer": "<p>Base64 no aporta confidencialidad. Si los datos no están además cifrados, cualquiera puede decodificarlos, por lo que no deben considerarse texto cifrado protegido.</p>"
+        },
+        {
+            "question": "¿Puede existir texto plano cuando se usa HTTPS?",
+            "answer": "<p>Sí. HTTPS cifra los datos entre extremos de red, pero el navegador y el servidor los descifran para procesarlos. El contenido existe como texto plano en esos extremos y todavía debe protegerse.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrado César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrado Vigenère"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Análisis de frecuencias"
+        }
+    ],
+    "tags": [
+        "criptografía",
+        "texto plano",
+        "seguridad de datos"
+    ],
+    "category": "concepts"
+}

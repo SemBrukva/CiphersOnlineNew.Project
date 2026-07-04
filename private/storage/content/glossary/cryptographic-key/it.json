@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptographic-key",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chiave",
+        "aliases": [
+            "chiave crittografica",
+            "chiave di cifratura"
+        ],
+        "short": "Una chiave crittografica controlla una trasformazione e determina chi può cifrare, decifrare o autenticare i dati.",
+        "meta_title": "Chiave crittografica — definizione | CiphersOnline",
+        "meta_description": "Che cos’è una chiave crittografica, come differiscono chiavi segrete, pubbliche e private e perché la gestione sicura è essenziale."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Una chiave crittografica è un parametro dell’algoritmo che seleziona una trasformazione. L’algoritmo può essere pubblico. I sistemi simmetrici condividono una chiave segreta; quelli asimmetrici usano una coppia correlata pubblica e privata.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Chiavi e password",
+            "html": "<p>Una chiave è di norma una sequenza casuale di byte della dimensione richiesta. Una password umana viene trasformata con una funzione di derivazione e un salt. Nonce, vettore di inizializzazione e salt hanno scopi diversi.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Gestione delle chiavi",
+            "html": "<p>Generazione, conservazione, accesso, rotazione, revoca e distruzione devono essere protetti. Le chiavi pubbliche possono circolare ma vanno autenticate; le chiavi private e simmetriche restano segrete.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Una password è una chiave?",
+            "answer": "<p>No. La password è scelta da una persona; la chiave è normalmente un dato binario ad alta entropia. Una KDF può derivarla.</p>"
+        },
+        {
+            "question": "Una chiave più lunga è sempre migliore?",
+            "answer": "<p>Solo all’interno dello stesso algoritmo. Le dimensioni di famiglie diverse non sono direttamente confrontabili.</p>"
+        },
+        {
+            "question": "Il vettore di inizializzazione deve essere segreto?",
+            "answer": "<p>Di solito no, ma deve essere unico o imprevedibile secondo la modalità.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrario di Cesare"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrario di Vigenère"
+        }
+    ],
+    "tags": [
+        "crittografia",
+        "chiave",
+        "gestione delle chiavi"
+    ],
+    "category": "concepts"
+}

@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "plaintext",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Plaintext",
+        "aliases": [
+            "cleartext",
+            "unencrypted data"
+        ],
+        "short": "Plaintext is the original unencrypted data supplied to encryption or recovered intact by decryption.",
+        "meta_title": "Plaintext — Definition in Cryptography | CiphersOnline",
+        "meta_description": "Learn what plaintext means in cryptography, how it differs from ciphertext and plain text files, and where unencrypted data remains exposed."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Plaintext is the data that exists before encryption or after successful decryption. An encryption algorithm combines plaintext with a key and produces ciphertext; the matching decryption process should recover the original plaintext exactly.</p><p>Despite the word <em>text</em>, plaintext does not have to be readable writing. It may be an image, an audio recording, a database row, a compressed archive, or any other sequence of bytes that is presented to a cryptographic operation.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cryptographic_role",
+            "title": "Role in cryptography",
+            "html": "<p>Applications usually encode information into bytes before encryption. The cipher operates on those bytes, not on the visual meaning of a sentence or file. Depending on the algorithm and mode, the system may also add padding, a nonce or initialization vector, and an authentication tag; these values are not part of the original plaintext.</p><p>With authenticated encryption, integrity is verified before decrypted plaintext is released to the application. If verification fails, the result must be rejected rather than treated as trustworthy data.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Example",
+            "html": "<p>Suppose an application encrypts the message <code>MEET AT NOON</code>. Its encoded bytes are the plaintext. The encryption algorithm and key transform them into ciphertext that no longer displays the words directly; strong modern encryption also conceals exploitable patterns. A recipient with the correct key decrypts the ciphertext and obtains the same bytes, which the application can decode back into the message.</p><p>Base64 would only represent those bytes with a different set of characters. It is encoding, not encryption, so Base64 data remains recoverable without a secret key.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "security",
+            "title": "Security considerations",
+            "html": "<p>Encryption protects data only while the correct cryptographic boundary is in place. Plaintext can still appear in application memory, logs, temporary files, backups, browser history, crash reports, or on a compromised endpoint. TLS protects traffic in transit, but the communicating endpoints normally see the decrypted content.</p><p>Secure systems minimize how long plaintext is retained, avoid writing secrets to logs or URLs, restrict access, and erase sensitive buffers when practical. Encryption does not repair unsafe plaintext handling before encryption or after decryption.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "What is the difference between plaintext and ciphertext?",
+            "answer": "<p>Plaintext is the original data in an unencrypted form. Ciphertext is the transformed output of encryption and should be unintelligible without the required key, even when the algorithm is publicly known.</p>"
+        },
+        {
+            "question": "Is plaintext the same as a plain text file?",
+            "answer": "<p>No. A plain text file is a document format containing character data without rich formatting. In cryptography, plaintext means any data before encryption, including binary files and structured records.</p>"
+        },
+        {
+            "question": "Is Base64-encoded data plaintext?",
+            "answer": "<p>Base64 does not provide secrecy. If Base64 data has not also been encrypted, anyone can decode it, so it should be treated as exposed data rather than protected ciphertext.</p>"
+        },
+        {
+            "question": "Can plaintext exist while a connection uses HTTPS?",
+            "answer": "<p>Yes. HTTPS encrypts data between network endpoints, but browsers and servers decrypt it for processing. The content therefore exists as plaintext at those endpoints and must still be handled securely.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis"
+        }
+    ],
+    "tags": [
+        "cryptography",
+        "plaintext",
+        "data security"
+    ],
+    "category": "concepts"
+}

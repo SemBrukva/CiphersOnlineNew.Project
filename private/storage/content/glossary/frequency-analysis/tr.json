@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "frequency-analysis",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Frekans analizi",
+        "aliases": [
+            "harf frekansı saldırısı"
+        ],
+        "short": "Klasik şifreli metinleri yorumlamak için sembol ve harf grubu sıklıklarını dil örüntüleriyle karşılaştıran bir kriptoanaliz yöntemidir.",
+        "meta_title": "Frekans analizi — tanım | CiphersOnline",
+        "meta_description": "Frekans analizinin klasik şifrelere karşı harfleri, bigramları ve dil profillerini nasıl kullandığını ve yöntemin sınırlarını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Frekans analizi; bir metindeki harflerin, sembollerin, sözcüklerin veya bigram ve trigram gibi grupların ne sıklıkta geçtiğini inceler. Doğal diller yinelenen istatistiksel örüntülere sahiptir: Türkçede <strong>A</strong>, <strong>E</strong> ve <strong>İ</strong> genellikle en sık harfler arasındadır.</p><p>Birçok klasik şifre sembolleri değiştirir, ancak bu örüntüleri bütünüyle ortadan kaldırmaz. Kriptoanalist, şifreli metinde gözlenen dağılımı bir dil profiliyle karşılaştırarak olası açık metin harfleri ve dizileri için hipotezler kurar. Bu karşılaştırma otomatik çözüm değil, kanıta dayalı ipuçları sağlar.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Nasıl çalışır",
+            "html": "<p>Önce metin normalleştirilir ve tek tek semboller sayılır. Ardından şifreli metindeki sık semboller ile tahmin edilen dilin yaygın harfleri arasında farklı eşleştirmeler denenir. Bigramlar, trigramlar, yinelenen sözcükler ve sözcük kalıpları her hipotezi doğrulamak veya elemek için kullanılır.</p><p>Sezar şifresinde frekans profilinin tamamı aynı miktarda kayar; tek alfabeli yerine koymada ise profil yeniden sıralanır. Vigenère gibi yinelenen anahtarlı çok alfabeli bir şifrede önce çakışma indeksi veya Kasiski incelemesiyle anahtar periyodu tahmin edilir, ardından ilgili şifreli metin sütunları ayrı ayrı analiz edilir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Pratik örnek",
+            "html": "<p>Yeterince uzun tek alfabeli bir şifreli metinde bir sembolün belirgin biçimde öne çıktığını düşünün. Bu sembol <strong>A</strong> olabilir; ancak <strong>E</strong>, <strong>İ</strong>, boşluk veya metnin konusuna özgü sık bir harf de olabilir. Kriptoanalist birkaç adayı dener ve yaygın harf çiftleri, olası sözcük tekrarları ve okunabilir parçalar gibi ek kanıtlar arar. Bir eşleştirme ancak birçok gözlemi aynı anda açıkladığında güçlü hâle gelir.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Sınırlamalar",
+            "html": "<p>Çok kısa metinlerde frekanslar güvenilir değildir. Özel adlar, teknik söz varlığı, yazım tercihleri ve sıra dışı metin türleri de dil profilini bozabilir. Eşsesli yerine koyma, çok alfabeli sistemler, sıkıştırma ve kasıtlı dolgu görünür örüntüleri daha da zayıflatır.</p><p>Modern şifreleme bu düzenlilikleri gizlemek üzere tasarlanır. Doğru kullanılan tek kullanımlık bloknotta bağımsız ve rastgele anahtar, şifreli metni açık metinden istatistiksel olarak bağımsız kılar. Belirli bir şifreli metnin dağılımı kusursuz biçimde düz görünmek zorunda değildir; önemli olan frekansların özgün mesaj hakkında bilgi vermemesidir.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Hangi şifreler frekans analizine karşı savunmasızdır?",
+            "answer": "<p>Yöntem özellikle Sezar, afin ve diğer tek alfabeli yerine koyma şifrelerinde yararlıdır. Anahtar periyodu belirlendiğinde ve yeterli şifreli metin bulunduğunda, yinelenen anahtarlı Vigenère saldırılarına da yardımcı olabilir.</p>"
+        },
+        {
+            "question": "Ne kadar şifreli metin gerekir?",
+            "answer": "<p>Evrensel bir alt sınır yoktur. Uzun örnekler daha kararlı harf ve n-gram dağılımları üretirken kısa bir mesaj birden fazla eşit derecede olası eşleştirmeye izin verebilir. Metnin türü ve şifrenin yapısı da uzunluk kadar önemlidir.</p>"
+        },
+        {
+            "question": "Tek kullanımlık bloknotta neden başarısız olur?",
+            "answer": "<p>Anahtar gerçekten rastgele, mesajla aynı uzunlukta, gizli ve yalnızca bir kez kullanılmışsa aynı uzunluktaki her açık metin gözlenen şifreli metinle uyumludur. Bu nedenle şifreli metnin istatistiği hangi mesajın gönderildiğini göstermez.</p>"
+        },
+        {
+            "question": "Frekans analizi modern şifrelemeyi kırabilir mi?",
+            "answer": "<p>AES gibi modern bir algoritma doğru uygulanıp kullanıldığında hayır. Bu algoritmalar açık metin örüntülerini şifreli metnin tamamına yayar; saldırılar bunun yerine anahtarlara, protokollere, uygulamalara veya kullanım hatalarına yönelir.</p>"
+        }
+    ],
+    "related_terms": [],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frekans analizi aracı"
+        },
+        {
+            "slug": "text-analysis/letter-frequency",
+            "label": "Harf frekansı"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère kırıcı"
+        }
+    ],
+    "tags": [
+        "kriptoanaliz",
+        "frekans analizi",
+        "klasik şifreler"
+    ],
+    "category": "cryptanalysis"
+}

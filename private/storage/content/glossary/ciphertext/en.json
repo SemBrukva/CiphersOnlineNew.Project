@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ciphertext",
+        "aliases": [
+            "encrypted data",
+            "cryptogram"
+        ],
+        "short": "Ciphertext is data transformed by encryption so that its original meaning is unavailable without the required key.",
+        "meta_title": "Ciphertext — Definition in Cryptography | CiphersOnline",
+        "meta_description": "Learn what ciphertext is, how encryption creates it, why it may change between runs, and what metadata encrypted data can still reveal."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Ciphertext is the output produced when encryption transforms plaintext with an algorithm and key. It may be binary data or displayed as hexadecimal or Base64, but those display encodings are not encryption themselves. Decryption with the correct key recovers the plaintext.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Properties",
+            "html": "<p>Secure modern ciphertext should not expose useful plaintext patterns. A nonce or initialization vector often makes the same plaintext encrypt differently on separate runs. Ciphertext alone does not guarantee integrity: authenticated encryption also produces a tag that detects modification before plaintext is accepted.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "What ciphertext can reveal",
+            "html": "<p>Ciphertext can usually be stored or transmitted over an untrusted channel while the key remains secret. Its length, timing, sender, recipient, and access pattern may still reveal metadata. Classical ciphers can also preserve letter frequencies or repetitions, which is why frequency analysis works against some of them.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Does ciphertext need to be kept secret?",
+            "answer": "<p>Usually the key, not the ciphertext, is the essential secret. A secure cipher is designed to remain safe when an attacker knows the algorithm and sees the ciphertext.</p>"
+        },
+        {
+            "question": "Is Base64 ciphertext?",
+            "answer": "<p>Base64 is only an encoding. It can represent ciphertext, plaintext, or any bytes, but it adds no confidentiality by itself.</p>"
+        },
+        {
+            "question": "Does the same plaintext always produce the same ciphertext?",
+            "answer": "<p>Not with properly randomized encryption. A fresh nonce or initialization vector normally changes the ciphertext even when the plaintext and key are unchanged.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis"
+        },
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher"
+        }
+    ],
+    "tags": [
+        "cryptography",
+        "ciphertext",
+        "encrypted data"
+    ],
+    "category": "concepts"
+}

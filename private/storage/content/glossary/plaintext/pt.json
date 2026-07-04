@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "plaintext",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Texto claro",
+        "aliases": [
+            "dados não criptografados",
+            "mensagem em claro"
+        ],
+        "short": "Texto claro é o dado original não criptografado fornecido à criptografia ou recuperado intacto pela descriptografia.",
+        "meta_title": "Texto claro — definição em criptografia | CiphersOnline",
+        "meta_description": "O que significa texto claro em criptografia, como ele difere do texto cifrado e onde dados não protegidos ainda podem ficar expostos."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Texto claro é o dado que existe antes da criptografia ou depois de uma descriptografia bem-sucedida. Um algoritmo combina o texto claro com uma chave e produz texto cifrado; o processo inverso deve recuperar exatamente os dados originais.</p><p>Apesar da palavra <em>texto</em>, não é necessário que o conteúdo seja uma frase legível. Uma imagem, uma gravação de áudio, uma linha de banco de dados, um arquivo compactado ou qualquer outra sequência de bytes pode ser o texto claro de uma operação criptográfica.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cryptographic_role",
+            "title": "Papel na criptografia",
+            "html": "<p>Os aplicativos normalmente codificam as informações em bytes antes de criptografá-las. A cifra opera sobre esses bytes, não sobre o significado visual de uma frase ou arquivo. Conforme o algoritmo e o modo, o sistema também pode adicionar preenchimento, um nonce ou vetor de inicialização e uma etiqueta de autenticação; esses valores não fazem parte do texto claro original.</p><p>Na criptografia autenticada, a integridade é verificada antes que os dados descriptografados sejam entregues ao aplicativo. Se a verificação falhar, o resultado deve ser rejeitado.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Exemplo",
+            "html": "<p>Suponha que um aplicativo criptografe a mensagem <code>ENCONTRO AO MEIO-DIA</code>. Os bytes que representam essa frase são o texto claro. O algoritmo e a chave os transformam em texto cifrado, que já não mostra diretamente as palavras; uma criptografia moderna robusta também oculta padrões exploráveis. O destinatário com a chave correta recupera os mesmos bytes e os decodifica de volta para a mensagem.</p><p>Base64 apenas representa esses bytes com outro conjunto de caracteres. É uma codificação, não criptografia, e pode ser revertida sem uma chave secreta.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "security",
+            "title": "Cuidados de segurança",
+            "html": "<p>A criptografia protege os dados somente dentro do limite criptográfico previsto. O texto claro ainda pode aparecer na memória do aplicativo, em logs, arquivos temporários, backups, histórico do navegador, relatórios de falha ou em um dispositivo comprometido. O TLS protege o tráfego em trânsito, mas os pontos finais normalmente veem o conteúdo descriptografado.</p><p>Sistemas seguros reduzem o tempo de retenção do texto claro, evitam gravar segredos em logs ou URLs, restringem o acesso e apagam buffers sensíveis quando possível. A criptografia não corrige o tratamento inseguro dos dados antes ou depois da operação criptográfica.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Qual é a diferença entre texto claro e texto cifrado?",
+            "answer": "<p>Texto claro contém os dados originais em forma não criptografada. Texto cifrado é o resultado transformado e não deve revelar o conteúdo sem a chave necessária, mesmo quando o algoritmo é público.</p>"
+        },
+        {
+            "question": "Texto claro é sempre um arquivo de texto simples?",
+            "answer": "<p>Não. Um arquivo de texto simples contém caracteres sem formatação avançada. Em criptografia, texto claro pode ser qualquer dado antes da criptografia, incluindo arquivos binários e registros estruturados.</p>"
+        },
+        {
+            "question": "Dados em Base64 são texto claro?",
+            "answer": "<p>Base64 não fornece confidencialidade. Se os dados não estiverem também criptografados, qualquer pessoa poderá decodificá-los; portanto, eles não devem ser tratados como texto cifrado protegido.</p>"
+        },
+        {
+            "question": "Pode haver texto claro durante uma conexão HTTPS?",
+            "answer": "<p>Sim. O HTTPS criptografa os dados entre os pontos finais da rede, mas navegador e servidor os descriptografam para processamento. O conteúdo existe em claro nesses pontos e ainda precisa ser protegido.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifra de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifra de Vigenère"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Análise de frequência"
+        }
+    ],
+    "tags": [
+        "criptografia",
+        "texto claro",
+        "segurança de dados"
+    ],
+    "category": "concepts"
+}

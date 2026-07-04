@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "encryption",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chiffrement",
+        "aliases": [
+            "chiffrement des données",
+            "cryptage"
+        ],
+        "short": "Le chiffrement est une transformation cryptographique réversible qui convertit un texte en clair en texte chiffré à l’aide d’une clé.",
+        "meta_title": "Chiffrement — définition et rôle | CiphersOnline",
+        "meta_description": "Comment le chiffrement protège la confidentialité, la différence entre symétrique et asymétrique et l’importance de l’authentification."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le chiffrement transforme un texte en clair avec un algorithme et une clé afin d’empêcher sa lecture non autorisée. Il est réversible avec la bonne clé. L’encodage change seulement la représentation et le hachage est normalement à sens unique.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Fonctionnement",
+            "html": "<p>Le chiffrement symétrique partage une clé secrète. L’asymétrique associe clé publique et clé privée ; les systèmes pratiques combinent souvent les deux. Les schémas modernes utilisent aussi un nonce ou vecteur d’initialisation et souvent une étiquette d’authentification.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Limites",
+            "html": "<p>La sécurité dépend de la clé, pas du secret de l’algorithme. Clé volée, nonce réutilisé, terminal compromis ou texte en clair journalisé contournent même un chiffrement robuste. Longueur et horaire peuvent rester visibles.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Chiffrement ou hachage ?",
+            "answer": "<p>Le chiffrement est réversible avec une clé. Le hachage produit une empreinte fixe conçue pour ne pas être inversée.</p>"
+        },
+        {
+            "question": "Symétrique ou asymétrique ?",
+            "answer": "<p>Le symétrique partage une clé secrète ; l’asymétrique sépare une clé publique d’une clé privée liée.</p>"
+        },
+        {
+            "question": "Le chiffrement empêche-t-il la modification ?",
+            "answer": "<p>Pas seul. Le chiffrement authentifié détecte les changements avant de restituer le texte en clair.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "decryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Chiffre de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Chiffre de Vigenère"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificateur de chiffrement"
+        }
+    ],
+    "tags": [
+        "cryptographie",
+        "chiffrement",
+        "protection des données"
+    ],
+    "category": "concepts"
+}

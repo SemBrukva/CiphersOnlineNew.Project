@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "plaintext",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Düz metin",
+        "aliases": [
+            "açık metin",
+            "şifrelenmemiş veri"
+        ],
+        "short": "Düz metin, şifrelemeye verilen veya şifre çözme sonucunda eksiksiz geri kazanılan özgün şifrelenmemiş veridir.",
+        "meta_title": "Düz metin — kriptografik tanım | CiphersOnline",
+        "meta_description": "Kriptografide düz metnin anlamını, şifreli metinden ve düz metin dosyasından farkını, şifrelenmemiş verinin nerede açık kaldığını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Düz metin, şifrelemeden önce veya başarılı bir şifre çözme işleminden sonra var olan veridir. Şifreleme algoritması düz metni bir anahtarla birlikte işleyerek şifreli metin üretir; karşılık gelen şifre çözme işlemi özgün veriyi eksiksiz geri getirmelidir.</p><p>Adında <em>metin</em> geçmesine rağmen içeriğin okunabilir bir yazı olması gerekmez. Bir görüntü, ses kaydı, veritabanı satırı, sıkıştırılmış arşiv veya başka herhangi bir bayt dizisi kriptografik işlemin düz metni olabilir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cryptographic_role",
+            "title": "Kriptografideki rolü",
+            "html": "<p>Uygulamalar bilgiyi şifrelemeden önce genellikle baytlara kodlar. Şifre, cümlenin veya dosyanın görsel anlamı üzerinde değil bu baytlar üzerinde çalışır. Algoritma ve çalışma kipine göre sistem dolgu, nonce veya başlatma vektörü ve bir kimlik doğrulama etiketi de ekleyebilir; bunlar özgün düz metnin parçası değildir.</p><p>Kimliği doğrulanmış şifrelemede, çözülen düz metin uygulamaya verilmeden önce bütünlük denetlenir. Denetim başarısız olursa sonuç güvenilir veri olarak kullanılmamalı ve reddedilmelidir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Örnek",
+            "html": "<p>Bir uygulamanın <code>ÖĞLEN BULUŞALIM</code> mesajını şifrelediğini düşünün. Bu mesajı temsil eden baytlar düz metindir. Algoritma ve anahtar, baytları sözcükleri artık doğrudan göstermeyen şifreli metne dönüştürür; güçlü modern şifreleme kullanılabilir örüntüleri de gizler. Doğru anahtara sahip alıcı aynı baytları geri kazanır ve yeniden mesaja dönüştürür.</p><p>Base64 ise bu baytları yalnızca farklı bir karakter kümesiyle temsil eder. Kodlamadır, şifreleme değildir ve gizli anahtar olmadan tersine çevrilebilir.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "security",
+            "title": "Güvenlik açısından",
+            "html": "<p>Şifreleme, veriyi yalnızca doğru kriptografik sınır korunduğu sürece güvenceye alır. Düz metin uygulama belleğinde, günlüklerde, geçici dosyalarda, yedeklerde, tarayıcı geçmişinde, çökme raporlarında veya ele geçirilmiş bir uç cihazda bulunabilir. TLS ağ aktarımını korur, ancak iletişim uçları genellikle çözülmüş içeriği görür.</p><p>Güvenli sistemler düz metni olabildiğince kısa süre tutar, sırları günlüklere veya URL’lere yazmaz, erişimi sınırlar ve mümkün olduğunda hassas bellek alanlarını temizler. Şifreleme, işlemden önce veya sonra verinin güvensiz kullanılmasını düzeltmez.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Düz metin ile şifreli metin arasındaki fark nedir?",
+            "answer": "<p>Düz metin özgün veriyi şifrelenmemiş biçimde içerir. Şifreli metin, algoritma herkesçe bilinse bile gerekli anahtar olmadan içeriği göstermemesi gereken dönüştürülmüş veridir.</p>"
+        },
+        {
+            "question": "Düz metin her zaman biçimlendirmesiz bir metin dosyası mıdır?",
+            "answer": "<p>Hayır. Biçimlendirmesiz metin dosyası yalnızca karakter verisi içeren bir dosya türüdür. Kriptografide düz metin, ikili dosyalar ve yapılandırılmış kayıtlar dâhil şifreleme öncesindeki her türlü veri olabilir.</p>"
+        },
+        {
+            "question": "Base64 ile kodlanan veri düz metin midir?",
+            "answer": "<p>Base64 gizlilik sağlamaz. Veri ayrıca şifrelenmemişse herkes tarafından çözülebilir; bu nedenle korunan şifreli metin olarak değerlendirilmemelidir.</p>"
+        },
+        {
+            "question": "HTTPS kullanılırken düz metin bulunabilir mi?",
+            "answer": "<p>Evet. HTTPS veriyi ağ uçları arasında şifreler, ancak tarayıcı ve sunucu işlemek için verinin şifresini çözer. İçerik bu uçlarda düz metin olarak bulunur ve yine güvenli biçimde ele alınmalıdır.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Sezar Şifresi"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Şifresi"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frekans Analizi"
+        }
+    ],
+    "tags": [
+        "kriptografi",
+        "düz metin",
+        "veri güvenliği"
+    ],
+    "category": "concepts"
+}

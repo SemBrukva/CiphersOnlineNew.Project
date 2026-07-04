@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Geheimtext",
+        "aliases": [
+            "verschlüsselte Daten",
+            "Kryptogramm"
+        ],
+        "short": "Geheimtext sind durch Verschlüsselung umgewandelte Daten, deren ursprüngliche Bedeutung ohne den erforderlichen Schlüssel verborgen bleibt.",
+        "meta_title": "Geheimtext — Definition | CiphersOnline",
+        "meta_description": "Was Geheimtext ist, wie Verschlüsselung ihn erzeugt, warum er sich ändern kann und welche Metadaten verschlüsselte Daten weiterhin verraten."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Geheimtext entsteht, wenn ein Algorithmus Klartext mit einem Schlüssel verschlüsselt. Er kann binär vorliegen oder hexadezimal beziehungsweise als Base64 angezeigt werden; diese Darstellungen sind selbst keine Verschlüsselung. Der richtige Schlüssel stellt den Klartext wieder her.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Eigenschaften",
+            "html": "<p>Moderner Geheimtext soll keine verwertbaren Klartextmuster zeigen. Nonce oder Initialisierungsvektor sorgen oft dafür, dass derselbe Klartext unterschiedlich verschlüsselt wird. Für Integrität ist zusätzlich authentifizierte Verschlüsselung mit einem Prüf-Tag nötig.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Was Geheimtext verraten kann",
+            "html": "<p>Geheimtext darf meist über unsichere Kanäle übertragen werden, solange der Schlüssel geheim bleibt. Länge, Zeitpunkt und Kommunikationspartner können dennoch Metadaten offenlegen. Klassische Chiffren bewahren zudem oft Häufigkeiten und Wiederholungen.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Muss Geheimtext geheim bleiben?",
+            "answer": "<p>Üblicherweise ist der Schlüssel das entscheidende Geheimnis. Ein sicheres Verfahren bleibt auch bei bekanntem Algorithmus und sichtbarem Geheimtext sicher.</p>"
+        },
+        {
+            "question": "Ist Base64 Geheimtext?",
+            "answer": "<p>Base64 ist nur eine Kodierung und kann beliebige Bytes darstellen. Es bietet allein keine Vertraulichkeit.</p>"
+        },
+        {
+            "question": "Erzeugt gleicher Klartext immer gleichen Geheimtext?",
+            "answer": "<p>Bei korrekt randomisierter Verschlüsselung nein. Ein frischer Nonce oder Initialisierungsvektor verändert normalerweise das Ergebnis.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "encryption",
+        "decryption",
+        "frequency-analysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Chiffren-Erkennung"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Häufigkeitsanalyse"
+        },
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar-Chiffre"
+        }
+    ],
+    "tags": [
+        "Kryptografie",
+        "Geheimtext",
+        "verschlüsselte Daten"
+    ],
+    "category": "concepts"
+}

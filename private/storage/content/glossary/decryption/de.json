@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "decryption",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Entschlüsselung",
+        "aliases": [
+            "Dechiffrierung",
+            "Klartextwiederherstellung"
+        ],
+        "short": "Entschlüsselung kehrt die Verschlüsselung mit dem erforderlichen Schlüssel um und gewinnt Klartext aus Geheimtext zurück.",
+        "meta_title": "Entschlüsselung — Definition und Ablauf | CiphersOnline",
+        "meta_description": "Wie Entschlüsselung Klartext zurückgewinnt, welche Parameter sie benötigt und warum die Authentizität vor der Nutzung geprüft werden muss."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Entschlüsselung verwandelt Geheimtext mit passendem Algorithmus und Schlüssel wieder in Klartext. Symmetrische Kryptografie nutzt den gemeinsamen geheimen Schlüssel, asymmetrische Verschlüsselung gewöhnlich den privaten Schlüssel des Empfängers.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "process",
+            "title": "Ablauf",
+            "html": "<p>Neben Geheimtext und Schlüssel können Nonce oder Initialisierungsvektor, Authentifizierungs-Tag und Parameter nötig sein. Hexadezimal- oder Base64-Dekodierung stellt nur Bytes wieder her. Authentifizierte Verfahren prüfen den Tag vor der Klartextausgabe.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Fehler und Sicherheit",
+            "html": "<p>Ein falscher Schlüssel liefert einen Fehler oder bedeutungslose Bytes; nicht authentifizierte Verfahren erkennen dies nicht immer. Anwendungen müssen veränderten Geheimtext ablehnen, Fehlerdetails begrenzen und den gewonnenen Klartext schützen.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Ist Entschlüsselung ohne Schlüssel möglich?",
+            "answer": "<p>Starke moderne Verschlüsselung soll dies praktisch unmöglich machen. Schwache Verfahren, kleine Schlüsselräume, Implementierungsfehler oder gestohlene Schlüssel können Ausnahmen schaffen.</p>"
+        },
+        {
+            "question": "Ist Dekodierung dasselbe?",
+            "answer": "<p>Nein. Dekodierung kehrt eine öffentliche Darstellung wie Base64 um; Entschlüsselung eine schlüsselgesteuerte Schutztransformation.</p>"
+        },
+        {
+            "question": "Was geschieht mit einem falschen Schlüssel?",
+            "answer": "<p>Authentifizierte Verschlüsselung lehnt die Daten ab. Ältere Verfahren können unbemerkt bedeutungslose Ausgabe erzeugen.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "plaintext",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar-Chiffre"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère-Chiffre"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Chiffren-Erkennung"
+        }
+    ],
+    "tags": [
+        "Kryptografie",
+        "Entschlüsselung",
+        "Klartext"
+    ],
+    "category": "concepts"
+}

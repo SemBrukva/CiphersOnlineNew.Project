@@ -79,6 +79,7 @@
         <p>&copy; {$current_year} CiphersOnline &mdash; {$t.FOOTER_DESC}.</p>
         <ul class="footer-nav">
             <li><a href="{$locale_prefix}/contacts">{$t.MENU_CONTACTS|default:'Contacts'}</a></li>
+            <li><a href="{$locale_prefix}/glossary">{$t.MENU_GLOSSARY|default:'Glossary'}</a></li>
             {foreach $nav_pages as $pg}
                 <li><a href="{$locale_prefix}/{$pg.alias}">{$pg.name}</a></li>
             {/foreach}

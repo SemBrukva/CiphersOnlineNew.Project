@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "frequency-analysis",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Analisi delle frequenze",
+        "aliases": [
+            "attacco per frequenza delle lettere"
+        ],
+        "short": "Un metodo crittoanalitico che confronta le frequenze di simboli e gruppi di lettere con i profili linguistici per interpretare i cifrari classici.",
+        "meta_title": "Analisi delle frequenze — definizione | CiphersOnline",
+        "meta_description": "Come l’analisi delle frequenze usa lettere, bigrammi e profili linguistici contro i cifrari classici, e quali sono i suoi limiti."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>L’analisi delle frequenze esamina quanto spesso lettere, simboli, parole o gruppi come bigrammi e trigrammi compaiono in un testo. Le lingue naturali presentano regolarità statistiche ricorrenti: in italiano <strong>E</strong>, <strong>A</strong> e <strong>I</strong> sono generalmente tra le lettere più frequenti.</p><p>Molti cifrari classici cambiano i simboli senza cancellare del tutto queste regolarità. Il crittoanalista confronta la distribuzione osservata nel testo cifrato con un profilo linguistico e formula ipotesi sulle lettere e sequenze del testo in chiaro. Il confronto fornisce indizi, non una decifrazione automatica.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Come funziona",
+            "html": "<p>Per prima cosa si normalizza il testo e si contano i singoli simboli. Poi si provano diverse corrispondenze tra i simboli frequenti del testo cifrato e le lettere comuni della lingua presunta. Bigrammi, trigrammi, parole ripetute e forme delle parole aiutano a confermare o scartare ogni ipotesi.</p><p>Nel cifrario di Cesare l’intero profilo delle frequenze è traslato dello stesso valore; in una sostituzione monoalfabetica è permutato. Per un cifrario polialfabetico a chiave ripetuta come Vigenère, si stima prima il periodo con l’indice di coincidenza o l’esame di Kasiski, quindi si analizzano separatamente le colonne corrispondenti.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Esempio pratico",
+            "html": "<p>Supponiamo che un simbolo domini un testo cifrato monoalfabetico abbastanza lungo. Potrebbe rappresentare <strong>E</strong>, ma anche <strong>A</strong>, <strong>I</strong>, uno spazio o una lettera favorita dall’argomento. Il crittoanalista prova più candidati e cerca conferme: coppie di lettere comuni, ripetizioni di parole plausibili e frammenti leggibili. Una corrispondenza diventa convincente solo quando spiega molte osservazioni contemporaneamente.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Limiti",
+            "html": "<p>Le frequenze sono poco affidabili nei testi molto brevi. Nomi propri, lessico specialistico, convenzioni ortografiche e generi insoliti possono deformare il profilo linguistico. La sostituzione omofonica, i sistemi polialfabetici, la compressione e il riempimento intenzionale attenuano ulteriormente gli schemi visibili.</p><p>La crittografia moderna è progettata per nascondere queste regolarità. In un cifrario a blocco monouso (one-time pad) usato correttamente, una chiave casuale e indipendente rende il testo cifrato statisticamente indipendente dal testo in chiaro. Un singolo testo cifrato non deve apparire perfettamente uniforme: ciò che conta è che le sue frequenze non rivelino informazioni sul messaggio originale.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Quali cifrari sono vulnerabili all’analisi delle frequenze?",
+            "answer": "<p>È particolarmente utile contro Cesare, il cifrario affine e altre sostituzioni monoalfabetiche. Può aiutare anche contro Vigenère a chiave ripetuta, dopo averne stimato il periodo e con una quantità sufficiente di testo cifrato.</p>"
+        },
+        {
+            "question": "Quanto testo cifrato serve?",
+            "answer": "<p>Non esiste una lunghezza minima universale. I campioni lunghi producono distribuzioni di lettere e n-grammi più stabili; un messaggio breve può ammettere più corrispondenze ugualmente plausibili. Il genere del testo e il cifrario contano quanto la lunghezza.</p>"
+        },
+        {
+            "question": "Perché fallisce con il cifrario a blocco monouso?",
+            "answer": "<p>Se la chiave è davvero casuale, lunga quanto il messaggio, segreta e usata una sola volta, qualsiasi testo in chiaro della stessa lunghezza è compatibile con il testo cifrato osservato. Le sue statistiche non indicano quale messaggio sia stato inviato.</p>"
+        },
+        {
+            "question": "Può violare la crittografia moderna?",
+            "answer": "<p>No, se un algoritmo moderno come AES è implementato e usato correttamente. Questi algoritmi diffondono gli schemi del testo in chiaro nell’intero testo cifrato; gli attacchi mirano invece a chiavi, protocolli, implementazioni o errori d’uso.</p>"
+        }
+    ],
+    "related_terms": [],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Strumento di analisi delle frequenze"
+        },
+        {
+            "slug": "text-analysis/letter-frequency",
+            "label": "Frequenza delle lettere"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Cracker Vigenère"
+        }
+    ],
+    "tags": [
+        "crittoanalisi",
+        "analisi delle frequenze",
+        "cifrari classici"
+    ],
+    "category": "cryptanalysis"
+}

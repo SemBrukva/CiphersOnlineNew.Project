@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "encryption",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Şifreleme",
+        "aliases": [
+            "veri şifreleme",
+            "kriptografik şifreleme"
+        ],
+        "short": "Şifreleme, düz metni bir anahtar kullanarak şifreli metne dönüştüren tersine çevrilebilir kriptografik işlemdir.",
+        "meta_title": "Şifreleme — tanım ve amaç | CiphersOnline",
+        "meta_description": "Şifrelemenin gizliliği nasıl koruduğunu, simetrik ve asimetrik yöntemlerin farkını ve kimlik doğrulamanın önemini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Şifreleme, yetkisiz kişilerin okuyamaması için düz metni algoritma ve anahtarla şifreli metne dönüştürür. Doğru anahtarla geri çevrilebilir. Kodlama yalnızca gösterimi değiştirir; özetleme ise genellikle tek yönlüdür.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Nasıl çalışır?",
+            "html": "<p>Simetrik şifreleme ortak gizli anahtar kullanır. Asimetrik şifreleme açık ve özel anahtarı ilişkilendirir; gerçek sistemler ikisini sıkça birleştirir. Modern şemalar nonce veya başlatma vektörü ve çoğu zaman kimlik doğrulama etiketi de kullanır.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Sınırlar",
+            "html": "<p>Güvenlik algoritmanın gizliliğine değil anahtara dayanır. Çalınan anahtar, yinelenen nonce, ele geçirilmiş uç veya günlüğe yazılan düz metin güçlü şifrelemeyi bile aşar. Uzunluk ve zaman bilgisi görünür kalabilir.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Şifreleme mi, özetleme mi?",
+            "answer": "<p>Şifreleme doğru anahtarla geri çevrilebilir. Kriptografik özet sabit uzunluklu ve tersine çevrilmesi amaçlanmayan bir değer üretir.</p>"
+        },
+        {
+            "question": "Simetrik mi, asimetrik mi?",
+            "answer": "<p>Simetrik yöntemde gizli anahtar paylaşılır; asimetrik yöntemde açık ve ilişkili özel anahtar ayrılır.</p>"
+        },
+        {
+            "question": "Şifreleme değişikliği önler mi?",
+            "answer": "<p>Tek başına hayır. Kimliği doğrulanmış şifreleme, düz metni vermeden önce değişiklikleri algılar.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "decryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Sezar Şifresi"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Şifresi"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Şifre Tanımlayıcı"
+        }
+    ],
+    "tags": [
+        "kriptografi",
+        "şifreleme",
+        "veri koruma"
+    ],
+    "category": "concepts"
+}

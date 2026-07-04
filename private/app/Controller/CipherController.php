@@ -11,6 +11,7 @@ use App\Cipher\HmacToolUi;
 use App\Cipher\KdfToolUi;
 use App\Cipher\ToolRegistry;
 use App\Cipher\VigenereCrackerApiCipherTool;
+use App\Glossary\GlossaryRepository;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -30,8 +31,38 @@ final readonly class CipherController
         private CipherRepository $ciphers,
         private CipherCategoryRepository $categories,
         private ToolRegistry $toolRegistry,
-        private BaseToolUiFactory $uiFactory
+        private BaseToolUiFactory $uiFactory,
+        private GlossaryRepository $glossary
     ) {
+    }
+
+    /**
+     * Возвращает связанные термины глоссария для инструмента (из config/glossary_related.php).
+     * Резолвит slug'и в пары {name, url} по опубликованному индексу; отсутствующие пропускает.
+     *
+     * @return array<int, array{name: string, url: string}>
+     */
+    private function buildGlossaryLinks(string $toolSlug, string $language): array
+    {
+        $slugs = (array) (config('glossary_related.' . $toolSlug) ?? []);
+        if ($slugs === []) {
+            return [];
+        }
+
+        $bySlug = [];
+        foreach ($this->glossary->index($language) as $term) {
+            $bySlug[$term['slug']] = $term;
+        }
+
+        $links = [];
+        foreach ($slugs as $slug) {
+            $slug = (string) $slug;
+            if (isset($bySlug[$slug])) {
+                $links[] = ['name' => $bySlug[$slug]['name'], 'url' => $bySlug[$slug]['url']];
+            }
+        }
+
+        return $links;
     }
 
     /**
@@ -432,6 +463,7 @@ final readonly class CipherController
                 'tool_ui' => $toolUi,
                 'tool_ui_json' => (string) json_encode($toolUi, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
                 'all_in_category_label' => $allInCategoryLabel,
+                'glossary_links' => $this->buildGlossaryLinks($toolSlug, $language),
             ]));
 
         return new Response($this->view->render());

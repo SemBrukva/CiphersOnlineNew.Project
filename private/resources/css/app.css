@@ -7878,3 +7878,208 @@ a:focus .nav-fav-count {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Glossary
+   ========================================================================== */
+
+/* --- Hero (страница термина) --- */
+.glossary-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #001a30 0%, var(--co-primary) 52%, #013d6b 100%);
+  box-shadow: 0 6px 32px rgba(0, 35, 64, 0.28), 0 2px 8px rgba(0, 35, 64, 0.16);
+  margin-bottom: 20px;
+}
+
+.glossary-hero::before {
+  content: '';
+  position: absolute;
+  top: -35%;
+  right: -8%;
+  width: 52%;
+  height: 180%;
+  background: radial-gradient(ellipse at center, rgba(193, 255, 0, 0.09) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.glossary-hero__inner {
+  position: relative;
+  z-index: 1;
+  padding: 30px 34px 34px;
+}
+
+.glossary-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--co-accent);
+}
+
+.glossary-hero__title {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  color: #fff;
+}
+
+.glossary-hero__aliases {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.glossary-hero__alias {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.glossary-hero__lead {
+  margin: 18px 0 0;
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* --- Тело статьи термина --- */
+.glossary-article__h {
+  margin: 28px 0 12px;
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--text-base);
+}
+
+.glossary-term__body > .glossary-article__h:first-child {
+  margin-top: 0;
+}
+
+.glossary-term__body a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition);
+}
+
+.glossary-term__body a:hover {
+  color: var(--primary-hover);
+}
+
+/* --- Блок «См. также» / связанные ссылки --- */
+.glossary-seealso {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.glossary-seealso__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.glossary-seealso__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.glossary-related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.glossary-related-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color var(--transition), background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.glossary-related-link i {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.glossary-related-link:hover {
+  border-color: var(--primary);
+  background: #f3f7fc;
+  color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* --- Ссылка «Назад к глоссарию» --- */
+.glossary-term__back {
+  margin-top: 4px;
+}
+
+.glossary-term__back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.glossary-term__back a:hover {
+  color: var(--primary);
+}
+
+/* --- Индекс: поиск --- */
+.glossary-search-wrap {
+  max-width: 460px;
+}
+
+.glossary-search-wrap .form-control {
+  border-radius: 999px;
+  padding: 10px 18px;
+}
+
+.glossary-empty {
+  padding: 24px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .glossary-hero__inner {
+    padding: 22px 20px 24px;
+  }
+
+  .glossary-hero__title {
+    font-size: 25px;
+    letter-spacing: -0.3px;
+  }
+
+  .glossary-hero__lead {
+    font-size: 15px;
+  }
+}

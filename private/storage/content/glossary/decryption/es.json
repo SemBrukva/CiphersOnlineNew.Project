@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "decryption",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Descifrado",
+        "aliases": [
+            "desciframiento",
+            "recuperación del texto plano"
+        ],
+        "short": "El descifrado usa la clave necesaria para invertir el cifrado y recuperar texto plano a partir de texto cifrado.",
+        "meta_title": "Descifrado — definición y proceso | CiphersOnline",
+        "meta_description": "Cómo recupera el descifrado el texto plano, qué parámetros necesita y por qué debe verificarse la autenticidad antes de usarlo."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El descifrado transforma texto cifrado de nuevo en texto plano con el algoritmo y la clave adecuados. En criptografía simétrica usa el secreto compartido; en cifrado asimétrico, normalmente la clave privada del destinatario.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "process",
+            "title": "Proceso",
+            "html": "<p>Puede requerir texto cifrado, clave, nonce o vector, etiqueta y parámetros. Decodificar hexadecimal o Base64 solo recupera bytes. Un esquema autenticado verifica la etiqueta antes de devolver texto plano.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Errores y seguridad",
+            "html": "<p>Una clave incorrecta puede causar error o bytes sin sentido; los diseños no autenticados no siempre lo detectan. La aplicación debe rechazar datos alterados, limitar detalles del fallo y proteger el texto plano recuperado.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Se puede descifrar sin clave?",
+            "answer": "<p>El cifrado moderno robusto pretende hacerlo inviable. Cifrados débiles, claves pequeñas, fallos o claves robadas pueden permitirlo.</p>"
+        },
+        {
+            "question": "¿Decodificar es descifrar?",
+            "answer": "<p>No. Decodificar revierte una representación pública como Base64; descifrar revierte una protección controlada por clave.</p>"
+        },
+        {
+            "question": "¿Qué ocurre con una clave incorrecta?",
+            "answer": "<p>El cifrado autenticado rechaza los datos. Los sistemas antiguos pueden devolver basura sin señalar el error.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "plaintext",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrado César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrado Vigenère"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifrados"
+        }
+    ],
+    "tags": [
+        "criptografía",
+        "descifrado",
+        "recuperación de datos"
+    ],
+    "category": "concepts"
+}
