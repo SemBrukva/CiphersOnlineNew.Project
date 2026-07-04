@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "known-plaintext-attack",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Known-Plaintext-Angriff",
+        "aliases": [
+            "Angriff mit bekanntem Klartext",
+            "KPA"
+        ],
+        "short": "Ein Known-Plaintext-Angriff nutzt passende Klartext-Geheimtext-Paare, um Schlüssel oder Verschlüsselungsprozess zu untersuchen.",
+        "meta_title": "Known-Plaintext-Angriff — Definition | CiphersOnline",
+        "meta_description": "Welche Daten der Angreifer kennt, wie passende Paare alte Chiffren schwächen und warum moderne Verschlüsselung solchen Angriffen widerstehen muss."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Der Analyst kennt zu einem Geheimtext den entsprechenden Klartext ganz oder teilweise. Ziel sind Schlüssel, interne Struktur oder weitere Nachrichten unter verwandten Bedingungen.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Quellen",
+            "html": "<p>Dateiköpfe, Protokollfelder, Vorlagen und veröffentlichte Nachrichten liefern Paare. Der Angreifer wählt die Eingabe nicht selbst; das wäre ein Chosen-Plaintext-Angriff.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Widerstand",
+            "html": "<p>Klassische Substitution und wiederholter Schlüsselstrom können schnell Beziehungen verraten. Moderne Verfahren müssen auch mit vielen bekannten Paaren sicher bleiben.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Verrät bekannter Klartext den Schlüssel?",
+            "answer": "<p>Nicht bei einer sicheren modernen Chiffre; schwache Verfahren oder Fehler können betroffen sein.</p>"
+        },
+        {
+            "question": "Ist ein geratenes Wort bekannter Klartext?",
+            "answer": "<p>Nein, es ist ein Crib, also eine Hypothese.</p>"
+        },
+        {
+            "question": "Unterschied zu Chosen Plaintext?",
+            "answer": "<p>Dort darf der Angreifer eigene Eingaben verschlüsseln lassen.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "brute-force-attack",
+        "chosen-plaintext-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Chiffren-Erkennung"
+        },
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Caesar-Brute-Force"
+        }
+    ],
+    "tags": [
+        "Kryptoanalyse",
+        "bekannter Klartext",
+        "Angriffsmodell"
+    ],
+    "category": "cryptanalysis"
+}

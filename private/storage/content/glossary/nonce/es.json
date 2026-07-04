@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "nonce",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Nonce",
+        "aliases": [
+            "número de un solo uso",
+            "valor criptográfico único"
+        ],
+        "short": "Un nonce es un valor que no debe repetirse dentro del ámbito definido por el protocolo, habitualmente bajo una clave.",
+        "meta_title": "Nonce — definición criptográfica | CiphersOnline",
+        "meta_description": "Qué es un nonce, cuándo debe ser único o impredecible, cómo difiere de clave, IV y sal y por qué reutilizarlo puede romper la seguridad."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Un nonce se usa una vez en un contexto definido, a menudo por cada cifrado bajo una clave. Separa operaciones iguales para evitar repetir estado interno o secuencia de clave.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Único no siempre significa aleatorio",
+            "html": "<p>Puede ser contador, valor aleatorio con colisión improbable o secuencia estructurada. Algunos sistemas solo exigen unicidad; otros también imprevisibilidad.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "Nonce, IV, sal y clave",
+            "html": "<p>Suele ser público y no es una clave. El IV inicializa un modo y puede tener requisitos distintos; a veces ambos coinciden. La sal separa derivaciones de contraseñas.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Qué ocurre si se reutiliza?",
+            "answer": "<p>Puede revelar relaciones entre textos, permitir falsificaciones o destruir confidencialidad e integridad.</p>"
+        },
+        {
+            "question": "¿Debe ser aleatorio?",
+            "answer": "<p>No siempre. Un contador sirve si garantiza unicidad.</p>"
+        },
+        {
+            "question": "¿Cómo se transmite?",
+            "answer": "<p>Suele enviarse junto al texto cifrado porque no necesita ser secreto.</p>"
+        }
+    ],
+    "related_terms": [
+        "initialization-vector",
+        "stream-cipher",
+        "block-cipher",
+        "cryptographic-key",
+        "entropy"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografía",
+        "nonce",
+        "valor único"
+    ],
+    "category": "concepts"
+}

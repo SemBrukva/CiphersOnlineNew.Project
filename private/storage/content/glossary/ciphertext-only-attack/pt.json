@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext-only-attack",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de somente texto cifrado",
+        "aliases": [
+            "ataque apenas com texto cifrado",
+            "COA"
+        ],
+        "short": "O ataque tenta recuperar texto claro ou chaves usando somente texto cifrado capturado e metadados observáveis.",
+        "meta_title": "Ataque de somente texto cifrado | CiphersOnline",
+        "meta_description": "O que o atacante observa, como frequências, padrões e busca de chaves ajudam e por que a criptografia moderna deve resistir."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Não há pares confirmados nem entradas escolhidas; apenas textos cifrados e metadados. Busca-se texto claro, chave ou propriedades.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "methods",
+            "title": "Métodos",
+            "html": "<p>Contra cifras clássicas usam-se frequências, repetições, idioma, IC, Kasiski e busca. Nonces reutilizados acrescentam evidência.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Segurança moderna",
+            "html": "<p>Texto cifrado moderno deve parecer aleatório fora os metadados. Sucesso costuma vir de chave fraca, nonce repetido ou falha.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Análise de frequência faz parte?",
+            "answer": "<p>Sim, quando usa apenas estatísticas cifradas e perfil linguístico.</p>"
+        },
+        {
+            "question": "O algoritmo pode ser conhecido?",
+            "answer": "<p>Sim. O modelo descreve os dados disponíveis.</p>"
+        },
+        {
+            "question": "Um texto cifrado basta?",
+            "answer": "<p>Às vezes para cifras clássicas fracas, não para esquemas modernos seguros.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "frequency-analysis",
+        "index-of-coincidence",
+        "kasiski-examination",
+        "brute-force-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifras"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Análise de frequência"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Quebrador de Vigenère"
+        }
+    ],
+    "tags": [
+        "criptoanálise",
+        "somente texto cifrado",
+        "modelo de ataque"
+    ],
+    "category": "cryptanalysis"
+}

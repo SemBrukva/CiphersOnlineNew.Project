@@ -8083,3 +8083,96 @@ a:focus .nav-fav-count {
     font-size: 15px;
   }
 }
+
+/* ── Встраиваемый виджет (/embed) ─────────────────────────────────────── */
+.ciphers-embed-body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-base);
+}
+
+.ciphers-embed-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.ciphers-embed-brand {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.ciphers-embed-brand a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.ciphers-embed-brand a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* ── Диалог «Встроить» ────────────────────────────────────────────────── */
+.ciphers-embed-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 1080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.ciphers-embed-dialog[hidden] {
+  display: none;
+}
+
+.ciphers-embed-dialog__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.ciphers-embed-dialog__panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+}
+
+.ciphers-embed-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.ciphers-embed-dialog__title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.ciphers-embed-dialog__hint {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.ciphers-embed-dialog__code {
+  width: 100%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  resize: vertical;
+}
+
+.ciphers-embed-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}

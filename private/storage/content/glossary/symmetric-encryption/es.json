@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "symmetric-encryption",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifrado simétrico",
+        "aliases": [
+            "cifrado de clave secreta",
+            "cifrado de clave compartida"
+        ],
+        "short": "El cifrado simétrico usa la misma clave secreta, o claves derivadas, para cifrar y descifrar datos.",
+        "meta_title": "Cifrado simétrico — definición | CiphersOnline",
+        "meta_description": "Cómo funciona el cifrado de clave compartida, por qué es rápido y por qué importan el intercambio de claves, los nonces y la autenticación."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El cifrado simétrico usa un secreto compartido por emisor y receptor para transformar texto plano y recuperarlo. AES y ChaCha20 son ejemplos modernos. Los cifrados clásicos también son simétricos.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Uso",
+            "html": "<p>Es rápido y adecuado para archivos, discos y tráfico de red. Un nonce o vector evita repeticiones peligrosas; los modos autenticados también detectan modificaciones antes de entregar el texto plano.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Distribución de claves",
+            "html": "<p>Todas las partes autorizadas necesitan el secreto, así que intercambiarlo y rotarlo con seguridad es el principal reto. Los protocolos suelen establecer una clave de sesión simétrica mediante criptografía asimétrica.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Por qué es rápido?",
+            "answer": "<p>Sus operaciones están optimizadas para grandes volúmenes y evitan la costosa matemática de clave pública.</p>"
+        },
+        {
+            "question": "¿Ambas partes usan la misma clave?",
+            "answer": "<p>Normalmente sí; algunas construcciones derivan varias claves secretas de un secreto común.</p>"
+        },
+        {
+            "question": "¿Una contraseña es una clave simétrica?",
+            "answer": "<p>No directamente. Debe procesarse con una KDF para contraseñas y sal.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "asymmetric-encryption",
+        "block-cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrado César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrado Vigenère"
+        }
+    ],
+    "tags": [
+        "criptografía",
+        "cifrado simétrico",
+        "clave secreta"
+    ],
+    "category": "concepts"
+}

@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "initialization-vector",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Başlatma vektörü",
+        "aliases": [
+            "IV",
+            "başlatma değeri"
+        ],
+        "short": "Başlatma vektörü, şifre kipini başlatan ve tehlikeli şifreli metin tekrarlarını önleyen gizli olmayan girdidir.",
+        "meta_title": "Başlatma vektörü (IV) — tanım | CiphersOnline",
+        "meta_description": "IV’nin görevini, CBC ve CTR koşullarının farkını ve neden anahtar ya da her zaman nonce ile aynı olmadığını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Başlatma vektörü bir şifre kipinin ilk durumunu ayarlar ve aynı düz metin ile anahtarın farklı sonuçlar üretmesini sağlar.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "requirements",
+            "title": "Kipe göre koşullar",
+            "html": "<p>IV genellikle şifreli metinle gönderilir ve gizli değildir. CBC yeni ve öngörülemez IV; CTR ise öncelikle benzersiz sayaç veya nonce ister.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "IV ve nonce",
+            "html": "<p>Nonce tekrarlamamayı, IV kipin başlangıç girdisini vurgular. Kavramlar örtüşür ancak her zaman eş anlamlı değildir.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Şifreli metinle saklanabilir mi?",
+            "answer": "<p>Evet. Önemli olan gizlemek değil benzersizlik veya öngörülemezlik kuralıdır.</p>"
+        },
+        {
+            "question": "Aynı anahtarla tekrar kullanılabilir mi?",
+            "answer": "<p>Genellikle hayır; zarar kipe bağlıdır.</p>"
+        },
+        {
+            "question": "Paroladan türetilmeli mi?",
+            "answer": "<p>İncelenmiş protokol aksini söylemedikçe kip kurallarına göre bağımsız üretilmelidir.</p>"
+        }
+    ],
+    "related_terms": [
+        "nonce",
+        "block-cipher",
+        "symmetric-encryption",
+        "cryptographic-key",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "kriptografi",
+        "başlatma vektörü",
+        "IV"
+    ],
+    "category": "concepts"
+}

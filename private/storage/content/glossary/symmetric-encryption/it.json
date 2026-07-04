@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "symmetric-encryption",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifratura simmetrica",
+        "aliases": [
+            "cifratura a chiave segreta",
+            "cifratura a chiave condivisa"
+        ],
+        "short": "La cifratura simmetrica usa la stessa chiave segreta, o chiavi derivate, per cifrare e decifrare i dati.",
+        "meta_title": "Cifratura simmetrica — definizione | CiphersOnline",
+        "meta_description": "Come funziona la chiave condivisa, perché questa cifratura è veloce e perché scambio delle chiavi, nonce e autenticazione sono importanti."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>La cifratura simmetrica usa un segreto condiviso tra mittente e destinatario per trasformare e recuperare i dati. AES e ChaCha20 sono esempi moderni; anche i cifrari classici sono simmetrici.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Utilizzo",
+            "html": "<p>È veloce e adatta a file, dischi e traffico di rete. Un nonce o vettore evita ripetizioni pericolose; le modalità autenticate rilevano anche le modifiche prima di restituire il testo in chiaro.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Distribuzione delle chiavi",
+            "html": "<p>Tutte le parti autorizzate devono ricevere il segreto, quindi scambio e rotazione sono la difficoltà principale. I protocolli stabiliscono spesso una chiave di sessione simmetrica mediante crittografia asimmetrica.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Perché è veloce?",
+            "answer": "<p>Le operazioni sono ottimizzate per grandi volumi ed evitano i calcoli costosi della chiave pubblica.</p>"
+        },
+        {
+            "question": "Le parti usano la stessa chiave?",
+            "answer": "<p>Di solito sì; alcuni schemi derivano più chiavi segrete da un segreto comune.</p>"
+        },
+        {
+            "question": "Una password è una chiave simmetrica?",
+            "answer": "<p>Non direttamente. Una KDF con salt deve derivare la chiave dalla password.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "asymmetric-encryption",
+        "block-cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Cifrario di Cesare"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrario di Vigenère"
+        }
+    ],
+    "tags": [
+        "crittografia",
+        "cifratura simmetrica",
+        "chiave segreta"
+    ],
+    "category": "concepts"
+}

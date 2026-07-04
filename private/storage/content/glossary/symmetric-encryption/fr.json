@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "symmetric-encryption",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chiffrement symétrique",
+        "aliases": [
+            "chiffrement à clé secrète",
+            "chiffrement à clé partagée"
+        ],
+        "short": "Le chiffrement symétrique utilise la même clé secrète, ou des clés dérivées, pour chiffrer et déchiffrer les données.",
+        "meta_title": "Chiffrement symétrique — définition | CiphersOnline",
+        "meta_description": "Comment fonctionne la clé partagée, pourquoi ce chiffrement est rapide et pourquoi échange de clés, nonces et authentification comptent."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le chiffrement symétrique emploie un secret partagé par l’émetteur et le destinataire pour transformer puis restituer les données. AES et ChaCha20 sont modernes ; les chiffres classiques sont eux aussi symétriques.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Utilisation",
+            "html": "<p>Rapide, il convient aux fichiers, disques et réseaux. Un nonce ou vecteur évite les répétitions dangereuses ; les modes authentifiés détectent aussi les modifications.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Distribution des clés",
+            "html": "<p>Toutes les parties autorisées doivent recevoir le secret. Son échange et sa rotation sont donc le principal défi. Les protocoles établissent souvent une clé de session symétrique par cryptographie asymétrique.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Pourquoi est-il rapide ?",
+            "answer": "<p>Ses opérations sont optimisées pour de grands volumes et évitent les calculs coûteux des clés publiques.</p>"
+        },
+        {
+            "question": "Les deux parties utilisent-elles la même clé ?",
+            "answer": "<p>Généralement oui ; certains schémas dérivent plusieurs clés secrètes d’un secret commun.</p>"
+        },
+        {
+            "question": "Un mot de passe est-il une clé symétrique ?",
+            "answer": "<p>Pas directement. Une KDF avec sel doit en dériver une clé.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "asymmetric-encryption",
+        "block-cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Chiffre de César"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Chiffre de Vigenère"
+        }
+    ],
+    "tags": [
+        "cryptographie",
+        "chiffrement symétrique",
+        "clé secrète"
+    ],
+    "category": "concepts"
+}

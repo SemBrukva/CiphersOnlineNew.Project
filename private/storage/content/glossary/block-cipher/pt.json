@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "block-cipher",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifra de bloco",
+        "aliases": [
+            "algoritmo de cifra de bloco",
+            "permutação de blocos com chave"
+        ],
+        "short": "Uma cifra de bloco é um algoritmo simétrico que transforma blocos de dados de tamanho fixo sob uma chave secreta.",
+        "meta_title": "Cifra de bloco — definição e modos | CiphersOnline",
+        "meta_description": "Como cifras como AES transformam blocos fixos, como os modos tratam mensagens longas e por que ECB ou reutilizar nonce é perigoso."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Uma cifra de bloco mapeia cada bloco claro de tamanho fixo para outro cifrado do mesmo tamanho. AES usa blocos de 128 bits e vários tamanhos de chave. Tamanho do bloco e da chave são propriedades distintas.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "modes",
+            "title": "Modos de operação",
+            "html": "<p>A primitiva processa apenas um bloco. CBC, CTR e GCM definem mensagens longas ou parciais. Alguns exigem preenchimento, outros funcionam como fluxo; GCM também autentica.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Uso seguro",
+            "html": "<p>ECB cifra blocos iguais do mesmo modo e revela padrões. Outros modos impõem regras para nonce ou vetor. Reutilização, falta de autenticação ou preenchimento incorreto comprometem a segurança.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Tamanho do bloco e da chave são iguais?",
+            "answer": "<p>Não. AES sempre usa blocos de 128 bits e chaves de 128, 192 ou 256 bits.</p>"
+        },
+        {
+            "question": "Todas precisam de preenchimento?",
+            "answer": "<p>Não. CBC costuma precisar; CTR e muitos modos autenticados tratam um bloco final parcial.</p>"
+        },
+        {
+            "question": "Por que evitar ECB?",
+            "answer": "<p>Blocos claros iguais produzem blocos cifrados iguais e revelam estrutura.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografia",
+        "cifra de bloco",
+        "criptografia simétrica"
+    ],
+    "category": "concepts"
+}

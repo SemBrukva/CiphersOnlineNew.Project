@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "block-cipher",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifrado por bloques",
+        "aliases": [
+            "algoritmo de cifrado por bloques",
+            "permutación de bloques con clave"
+        ],
+        "short": "Un cifrado por bloques es un algoritmo simétrico que transforma bloques de datos de tamaño fijo bajo una clave secreta.",
+        "meta_title": "Cifrado por bloques — definición y modos | CiphersOnline",
+        "meta_description": "Cómo cifras como AES transforman bloques fijos, cómo los modos procesan mensajes largos y por qué ECB y reutilizar nonces es inseguro."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Un cifrado por bloques asigna cada bloque plano de tamaño fijo a otro cifrado igual de grande. AES usa bloques de 128 bits y varias longitudes de clave. Tamaño de bloque y clave son propiedades distintas.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "modes",
+            "title": "Modos de operación",
+            "html": "<p>El primitivo solo procesa un bloque. CBC, CTR y GCM definen mensajes largos o parciales. Algunos requieren relleno; otros funcionan como flujo. GCM también autentica.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Uso seguro",
+            "html": "<p>ECB cifra bloques iguales de forma idéntica y revela patrones. Otros modos exigen nonces o vectores correctos. Reutilizarlos, omitir autenticación o fallar con el relleno compromete la seguridad.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Tamaño de bloque y clave son iguales?",
+            "answer": "<p>No. AES siempre usa bloques de 128 bits y claves de 128, 192 o 256 bits.</p>"
+        },
+        {
+            "question": "¿Todos necesitan relleno?",
+            "answer": "<p>No. CBC suele necesitarlo; CTR y muchos modos autenticados procesan bloques finales parciales.</p>"
+        },
+        {
+            "question": "¿Por qué se desaconseja ECB?",
+            "answer": "<p>Bloques planos iguales producen bloques cifrados iguales y revelan estructura.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografía",
+        "cifrado por bloques",
+        "cifrado simétrico"
+    ],
+    "category": "concepts"
+}

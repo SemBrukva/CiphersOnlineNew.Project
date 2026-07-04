@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "asymmetric-encryption",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chiffrement asymétrique",
+        "aliases": [
+            "chiffrement à clé publique",
+            "cryptographie à clé publique"
+        ],
+        "short": "Le chiffrement asymétrique emploie une clé publique pour chiffrer et la clé privée liée pour déchiffrer.",
+        "meta_title": "Chiffrement asymétrique — définition | CiphersOnline",
+        "meta_description": "Comment clés publique et privée chiffrent sans secret partagé, pourquoi leur authenticité compte et pourquoi le chiffrement hybride domine."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le chiffrement asymétrique utilise une paire de clés. La clé publique chiffre pour son propriétaire ; la privée reste secrète et déchiffre. Déduire la privée depuis la publique doit être impraticable.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Chiffrement hybride",
+            "html": "<p>Les opérations à clé publique sont lentes et limitées en taille. Elles protègent donc souvent une clé de session aléatoire, puis le contenu est chiffré symétriquement. Les certificats associent la clé publique à son propriétaire.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Chiffrement et signature",
+            "html": "<p>Les signatures utilisent aussi une paire de clés mais garantissent l’authenticité, pas la confidentialité. Les appeler « chiffrement avec la clé privée » est trompeur.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Chacun peut-il chiffrer avec la clé publique ?",
+            "answer": "<p>Oui, mais seule la clé privée correspondante doit déchiffrer. Il faut vérifier l’identité du propriétaire.</p>"
+        },
+        {
+            "question": "Pourquoi ne pas chiffrer directement tout un fichier ?",
+            "answer": "<p>C’est plus lent et souvent limité aux petites entrées. Le modèle hybride ajoute un chiffrement symétrique.</p>"
+        },
+        {
+            "question": "Une clé privée perdue est-elle récupérable ?",
+            "answer": "<p>Généralement non. Sans sauvegarde, les données peuvent devenir inaccessibles.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptographie",
+        "chiffrement asymétrique",
+        "clé publique"
+    ],
+    "category": "concepts"
+}

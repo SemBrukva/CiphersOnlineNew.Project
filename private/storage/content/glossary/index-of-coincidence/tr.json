@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "index-of-coincidence",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Rastlaşma indeksi",
+        "aliases": [
+            "IC",
+            "çakışma indeksi"
+        ],
+        "short": "Rastlaşma indeksi, bir metinden seçilen iki harfin aynı olma olasılığını ölçer.",
+        "meta_title": "Rastlaşma indeksi — formül ve kullanım | CiphersOnline",
+        "meta_description": "Rastlaşma indeksi formülünü, dil ile tekdüze dağılım farkını ve Vigenère anahtar uzunluğu tahmininde kullanımını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım ve formül",
+            "html": "<p>IC, yerine koymadan seçilen iki harfin eşleşme olasılığıdır. Frekanslar <code>nᵢ</code> ve toplam <code>N</code> için: <code>IC = Σ nᵢ(nᵢ−1) / N(N−1)</code>.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "interpretation",
+            "title": "Yorumlama",
+            "html": "<p>Doğal diller eşit olmayan frekanslara ve tekdüze alfabeden genellikle yüksek IC’ye sahiptir. Tek alfabeli yerine koyma IC’yi korur; çok alfabeli şifreleme çoğu zaman düşürür.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "application",
+            "title": "Anahtar periyodu",
+            "html": "<p>Vigenère periyodunu sınamak için metin sütunlara ayrılır ve IC ortalaması alınır. Dile benzeyen sütunlar adayı destekler. Dil, alfabe ve uzunluk sonucu etkiler.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Yüksek IC ne gösterir?",
+            "answer": "<p>Dil veya tek alfabeli yerine koymayla uyumlu düzensiz dağılımı gösterir, ancak şifreyi tek başına belirlemez.</p>"
+        },
+        {
+            "question": "Kesin anahtar uzunluğunu verir mi?",
+            "answer": "<p>Hayır. Katlar, bölenler ve gürültü farklı adaylar üretebilir.</p>"
+        },
+        {
+            "question": "Kısa metinde güvenilir mi?",
+            "answer": "<p>Pek değil; birkaç harf frekansı tahmine fazla etki eder.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "kasiski-examination",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frekans Analizi"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Kırıcı"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Şifresi"
+        }
+    ],
+    "tags": [
+        "kriptoanaliz",
+        "rastlaşma indeksi",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

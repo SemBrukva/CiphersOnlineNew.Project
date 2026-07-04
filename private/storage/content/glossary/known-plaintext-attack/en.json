@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "known-plaintext-attack",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Known-plaintext attack",
+        "aliases": [
+            "KPA",
+            "known plaintext cryptanalysis"
+        ],
+        "short": "A known-plaintext attack uses one or more matching plaintext and ciphertext samples to learn about a key or encryption process.",
+        "meta_title": "Known-Plaintext Attack — Definition | CiphersOnline",
+        "meta_description": "Learn what information a known-plaintext attacker has, how matched plaintext–ciphertext pairs weaken old ciphers, and why modern encryption must resist them."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>In a known-plaintext attack, the analyst possesses ciphertext and knows the corresponding plaintext for part or all of one or more messages. The goal may be to recover the key, infer internal structure, or decrypt other ciphertext protected under related conditions.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Where known plaintext comes from",
+            "html": "<p>File headers, protocol fields, standard greetings, predictable templates, and previously disclosed messages can provide pairs. A known-plaintext attack does not mean the attacker chose the input; that stronger capability belongs to a chosen-plaintext attack.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Resistance",
+            "html": "<p>Classical substitution and poorly designed reused keystream systems may reveal mappings quickly. Modern encryption is expected to remain secure even with many known pairs. Random nonces and authenticated, reviewed schemes prevent repeated samples from exposing the key.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Does knowing plaintext reveal the key?",
+            "answer": "<p>Not for a secure modern cipher. It may reveal weak classical mappings or implementation mistakes, but key recovery is not automatic.</p>"
+        },
+        {
+            "question": "Is a guessed word known plaintext?",
+            "answer": "<p>A probable word is a crib, not confirmed known plaintext, although it can be tested as a hypothesis.</p>"
+        },
+        {
+            "question": "How is it different from chosen plaintext?",
+            "answer": "<p>Known-plaintext attackers observe existing pairs; chosen-plaintext attackers can request encryption of inputs they select.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "brute-force-attack",
+        "chosen-plaintext-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        },
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Caesar Brute Force"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "known plaintext",
+        "attack model"
+    ],
+    "category": "cryptanalysis"
+}

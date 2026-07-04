@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "known-plaintext-attack",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de texto plano conocido",
+        "aliases": [
+            "ataque con texto conocido",
+            "KPA"
+        ],
+        "short": "Este ataque usa pares coincidentes de texto plano y cifrado para conocer la clave o el proceso de cifrado.",
+        "meta_title": "Ataque de texto plano conocido | CiphersOnline",
+        "meta_description": "Qué información posee el atacante, cómo los pares debilitan cifrados antiguos y por qué el cifrado moderno debe resistirlos."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El analista conoce el texto plano correspondiente a una parte de uno o varios textos cifrados. Busca recuperar la clave, inferir estructura o descifrar otros mensajes.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Fuentes",
+            "html": "<p>Cabeceras, campos de protocolo, plantillas y mensajes publicados aportan pares. El atacante no elige la entrada; eso sería texto plano elegido.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Resistencia",
+            "html": "<p>Sustituciones clásicas y flujos reutilizados pueden revelar relaciones. El cifrado moderno debe seguir seguro con muchos pares conocidos.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Revela la clave?",
+            "answer": "<p>No en un cifrado moderno seguro; sí puede descubrir diseños débiles o fallos.</p>"
+        },
+        {
+            "question": "¿Una palabra probable cuenta?",
+            "answer": "<p>No, es un crib o hipótesis.</p>"
+        },
+        {
+            "question": "¿Diferencia con texto elegido?",
+            "answer": "<p>En ese modelo el atacante solicita cifrar entradas propias.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "brute-force-attack",
+        "chosen-plaintext-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifrados"
+        },
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Fuerza Bruta César"
+        }
+    ],
+    "tags": [
+        "criptoanálisis",
+        "texto plano conocido",
+        "modelo de ataque"
+    ],
+    "category": "cryptanalysis"
+}

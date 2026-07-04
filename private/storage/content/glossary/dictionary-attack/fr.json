@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "dictionary-attack",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attaque par dictionnaire",
+        "aliases": [
+            "attaque par liste de mots",
+            "dictionnaire de mots de passe"
+        ],
+        "short": "Une attaque par dictionnaire teste une liste priorisée de mots de passe, clés ou phrases probables plutôt que toutes les possibilités.",
+        "meta_title": "Attaque par dictionnaire — définition | CiphersOnline",
+        "meta_description": "Différence avec la force brute, risque des essais hors ligne et défense par sel, mots de passe forts et KDF lente."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Les listes réunissent mots de passe courants, mots, fuites, noms et variantes. Elles privilégient les secrets humains probables.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "online_offline",
+            "title": "En ligne et hors ligne",
+            "html": "<p>Le serveur limite l’en ligne. Avec des hachés volés, l’attaquant teste hors ligne et en parallèle.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Défense",
+            "html": "<p>Utiliser des mots de passe longs uniques, un sel par compte et une KDF résistante à la mémoire. Le sel ne renforce pas un faible mot de passe.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Différence avec force brute ?",
+            "answer": "<p>Le dictionnaire priorise mais peut manquer un secret inhabituel.</p>"
+        },
+        {
+            "question": "Les substitutions aident-elles ?",
+            "answer": "<p>Peu, les listes modernes les incluent.</p>"
+        },
+        {
+            "question": "Le sel bloque-t-il l’attaque ?",
+            "answer": "<p>Non, il impose un travail séparé.</p>"
+        }
+    ],
+    "related_terms": [
+        "brute-force-attack",
+        "cryptographic-key",
+        "entropy",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptanalyse",
+        "attaque par dictionnaire",
+        "devinette de mot de passe"
+    ],
+    "category": "cryptanalysis"
+}

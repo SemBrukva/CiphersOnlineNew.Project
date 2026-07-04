@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "stream-cipher",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifrario a flusso",
+        "aliases": [
+            "cifrario a flusso di chiave",
+            "cifratura a flusso"
+        ],
+        "short": "Un cifrario a flusso combina il testo in chiaro con un flusso pseudocasuale generato da chiave segreta e nonce.",
+        "meta_title": "Cifrario a flusso — definizione e sicurezza | CiphersOnline",
+        "meta_description": "Come genera il flusso di chiave, perché chiave e nonce non vanno riutilizzati e perché la cifratura deve anche autenticare i dati."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Un cifrario a flusso genera una sequenza pseudocasuale da chiave e di solito nonce, poi la combina al testo, spesso con XOR. La stessa sequenza decifra. ChaCha20 è un esempio moderno.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Riutilizzo",
+            "html": "<p>Lo stesso flusso non deve cifrare due messaggi. Ripetere chiave e nonce rivela la relazione XOR tra i testi e può consentirne il recupero.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Integrità",
+            "html": "<p>Il cifrario base non rileva modifiche. I sistemi moderni usano costruzioni autenticate come ChaCha20-Poly1305.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Flusso e blocchi sono uguali?",
+            "answer": "<p>No. Il primo genera un flusso; il secondo permuta blocchi fissi. Alcune modalità a blocchi si comportano come flusso.</p>"
+        },
+        {
+            "question": "Il nonce può essere pubblico?",
+            "answer": "<p>Di solito sì, ma deve essere unico per la chiave.</p>"
+        },
+        {
+            "question": "Perché il riutilizzo è grave?",
+            "answer": "<p>Il flusso si annulla confrontando i testi cifrati e collega direttamente quelli in chiaro.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "block-cipher",
+        "cryptographic-key",
+        "nonce",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "crittografia",
+        "cifrario a flusso",
+        "flusso di chiave"
+    ],
+    "category": "concepts"
+}

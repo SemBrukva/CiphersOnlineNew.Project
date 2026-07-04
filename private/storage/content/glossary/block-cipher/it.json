@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "block-cipher",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifrario a blocchi",
+        "aliases": [
+            "algoritmo di cifratura a blocchi",
+            "permutazione a blocchi con chiave"
+        ],
+        "short": "Un cifrario a blocchi è un algoritmo simmetrico che trasforma blocchi di dati di dimensione fissa sotto una chiave segreta.",
+        "meta_title": "Cifrario a blocchi — definizione e modalità | CiphersOnline",
+        "meta_description": "Come cifrari come AES trasformano blocchi fissi, come le modalità gestiscono messaggi lunghi e perché ECB o il riuso del nonce sono pericolosi."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Un cifrario a blocchi associa ogni blocco in chiaro di dimensione fissa a un blocco cifrato uguale. AES usa blocchi da 128 bit e diverse lunghezze di chiave. Dimensione del blocco e della chiave sono proprietà distinte.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "modes",
+            "title": "Modalità operative",
+            "html": "<p>La primitiva elabora un solo blocco. CBC, CTR e GCM definiscono messaggi lunghi o parziali. Alcune richiedono padding, altre funzionano come un flusso; GCM autentica anche il risultato.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Uso sicuro",
+            "html": "<p>ECB cifra blocchi uguali nello stesso modo e rivela schemi. Le altre modalità impongono regole per nonce o vettori. Riuso, autenticazione assente o padding errato compromettono la sicurezza.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Dimensione del blocco e della chiave coincidono?",
+            "answer": "<p>No. AES ha sempre blocchi da 128 bit e chiavi da 128, 192 o 256 bit.</p>"
+        },
+        {
+            "question": "Tutti richiedono padding?",
+            "answer": "<p>No. CBC spesso sì; CTR e molte modalità autenticate gestiscono blocchi finali parziali.</p>"
+        },
+        {
+            "question": "Perché evitare ECB?",
+            "answer": "<p>Blocchi in chiaro identici producono blocchi cifrati identici e rivelano la struttura.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher"
+    ],
+    "related_tools": [],
+    "tags": [
+        "crittografia",
+        "cifrario a blocchi",
+        "cifratura simmetrica"
+    ],
+    "category": "concepts"
+}

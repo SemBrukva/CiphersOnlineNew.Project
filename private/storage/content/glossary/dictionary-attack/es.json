@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "dictionary-attack",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de diccionario",
+        "aliases": [
+            "ataque por lista de palabras",
+            "diccionario de contraseñas"
+        ],
+        "short": "Un ataque de diccionario prueba una lista priorizada de contraseñas, claves o frases probables en vez de todas las posibilidades.",
+        "meta_title": "Ataque de diccionario — definición y defensa | CiphersOnline",
+        "meta_description": "Diferencia con fuerza bruta, riesgo del ataque offline y defensa mediante sal, contraseñas fuertes y KDF lentas."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Las listas reúnen contraseñas comunes, palabras, filtraciones, nombres y variaciones. Sacrifican cobertura para encontrar antes secretos humanos.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "online_offline",
+            "title": "Online y offline",
+            "html": "<p>El servidor limita el online. Con hashes robados se prueba offline y en paralelo; formato y coste fijan la velocidad.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Defensa",
+            "html": "<p>Use contraseñas largas únicas, sal individual y KDF resistente a memoria. La sal no fortalece una contraseña débil.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Diferencia con fuerza bruta?",
+            "answer": "<p>Prioriza candidatos pero puede omitir secretos inusuales.</p>"
+        },
+        {
+            "question": "¿Ayuda cambiar letras por números?",
+            "answer": "<p>Poco; las listas modernas lo incluyen.</p>"
+        },
+        {
+            "question": "¿La sal detiene el ataque?",
+            "answer": "<p>No, obliga a trabajar por separado.</p>"
+        }
+    ],
+    "related_terms": [
+        "brute-force-attack",
+        "cryptographic-key",
+        "entropy",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptoanálisis",
+        "ataque de diccionario",
+        "adivinación de contraseñas"
+    ],
+    "category": "cryptanalysis"
+}

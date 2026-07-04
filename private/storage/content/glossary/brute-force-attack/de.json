@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "brute-force-attack",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Brute-Force-Angriff",
+        "aliases": [
+            "vollständige Schlüsselsuche",
+            "erschöpfende Suche"
+        ],
+        "short": "Ein Brute-Force-Angriff prüft systematisch Schlüssel oder Geheimnisse, bis ein Kandidat ein gültiges Ergebnis liefert.",
+        "meta_title": "Brute-Force-Angriff — Definition | CiphersOnline",
+        "meta_description": "Wie vollständige Schlüsselsuche arbeitet, was ihre Kosten bestimmt, wie Treffer geprüft werden und warum zufällige moderne Schlüssel widerstehen."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Brute Force testet Kandidaten ohne kryptografische Abkürzung: Schlüssel oder Passwörter werden aus einem Suchraum probiert. Erfolg setzt voraus, dass ein richtiges Ergebnis erkennbar ist.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cost",
+            "title": "Kosten",
+            "html": "<p>Entropie, Aufwand je Versuch, Parallelhardware und Limits bestimmen die Kosten. Jedes echte Zufallsbit verdoppelt den schlimmsten Suchraum; 128 zufällige Bit sind praktisch nicht vollständig durchsuchbar.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Andere Suchangriffe",
+            "html": "<p>Wörterbuch- und kryptanalytische Angriffe priorisieren wahrscheinliche Werte oder nutzen Struktur. Kleine klassische Schlüsselräume und schwache Passwörter machen Suche praktikabel.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Findet Brute Force immer den Schlüssel?",
+            "answer": "<p>Nur wenn er im Suchraum liegt, Ressourcen genügen und Treffer prüfbar sind.</p>"
+        },
+        {
+            "question": "Wie viele Versuche im Mittel?",
+            "answer": "<p>Bei gleichverteilten Schlüsseln etwa die Hälfte des Raums, schlimmstenfalls alles.</p>"
+        },
+        {
+            "question": "Ist Wörterbuchsuche dasselbe?",
+            "answer": "<p>Nein. Sie testet wahrscheinliche menschliche Werte zuerst.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "ciphertext",
+        "cipher",
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "dictionary-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Caesar-Brute-Force"
+        },
+        {
+            "slug": "text-analysis/affine-brute-force",
+            "label": "Affine-Chiffre-Solver"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Chiffren-Erkennung"
+        }
+    ],
+    "tags": [
+        "Kryptoanalyse",
+        "Brute Force",
+        "Schlüsselsuche"
+    ],
+    "category": "cryptanalysis"
+}

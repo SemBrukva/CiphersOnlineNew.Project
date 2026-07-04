@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "kasiski-examination",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Test de Kasiski",
+        "aliases": [
+            "examen de Kasiski",
+            "méthode de Kasiski"
+        ],
+        "short": "Le test de Kasiski estime la période d’un chiffrement polyalphabétique à clé répétée grâce aux distances entre séquences répétées.",
+        "meta_title": "Test de Kasiski — définition et méthode | CiphersOnline",
+        "meta_description": "Comment les séquences répétées et les facteurs de distance révèlent des longueurs possibles de clé Vigenère et pourquoi il faut les confirmer."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le test de Kasiski attaque Vigenère et les chiffres proches à clé répétée. Un même fragment clair aux mêmes positions de clé peut produire la même séquence chiffrée ; leur distance est souvent multiple de la longueur de clé.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "procedure",
+            "title": "Méthode",
+            "html": "<p>On repère des groupes répétés d’au moins trois caractères, mesure et factorise leurs distances. Les facteurs communs ou leur PGCD deviennent candidats, puis les colonnes sont soumises à l’analyse fréquentielle.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Limites",
+            "html": "<p>Les répétitions peuvent être fortuites ou absentes d’un texte court. Un facteur peut être diviseur ou multiple de la période réelle. L’indice de coïncidence confirme les candidats.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Pourquoi des trigrammes répétés ?",
+            "answer": "<p>Ils sont moins souvent fortuits que lettres ou paires tout en restant observables.</p>"
+        },
+        {
+            "question": "Le test retrouve-t-il la clé ?",
+            "answer": "<p>Pas directement. Il propose des longueurs, puis l’analyse des colonnes cherche les caractères.</p>"
+        },
+        {
+            "question": "Fonctionne-t-il toujours sur Vigenère ?",
+            "answer": "<p>Non. Texte court, clé longue ou non répétée peuvent laisser trop peu d’indices.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "index-of-coincidence",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Casseur Vigenère"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Analyse de fréquence"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Chiffre de Vigenère"
+        }
+    ],
+    "tags": [
+        "cryptanalyse",
+        "test de Kasiski",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "chosen-plaintext-attack",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attacco con testo in chiaro scelto",
+        "aliases": [
+            "attacco a testo scelto",
+            "CPA"
+        ],
+        "short": "L’attacco ottiene testi cifrati per testi in chiaro scelti e usa le risposte per verificare lo schema.",
+        "meta_title": "Attacco con testo in chiaro scelto | CiphersOnline",
+        "meta_description": "Quale accesso possiede l’attaccante, come funzionano le richieste adattive e perché la cifratura casuale deve resistere a CPA."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>L’attaccante invia testi scelti a un oracolo di cifratura e osserva le risposte per cercare chiave, relazioni o distinzione.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Richieste adattive",
+            "html": "<p>Le non adattive sono decise prima; le adattive dipendono dalle risposte. API e dispositivi possono fungere da oracolo.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Sicurezza CPA",
+            "html": "<p>La cifratura probabilistica deve nascondere quale messaggio scelto è stato cifrato. Nonce nuovi e casualità sono essenziali.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "È più forte del testo noto?",
+            "answer": "<p>Sì, l’attaccante controlla gli input.</p>"
+        },
+        {
+            "question": "Rivela la chiave?",
+            "answer": "<p>Non in uno schema sicuro contro CPA.</p>"
+        },
+        {
+            "question": "Una API è pericolosa?",
+            "answer": "<p>Non se il protocollo gestisce in sicurezza input scelti.</p>"
+        }
+    ],
+    "related_terms": [
+        "known-plaintext-attack",
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "crittoanalisi",
+        "testo in chiaro scelto",
+        "modello di attacco"
+    ],
+    "category": "cryptanalysis"
+}

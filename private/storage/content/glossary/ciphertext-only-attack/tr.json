@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext-only-attack",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Yalnızca şifreli metin saldırısı",
+        "aliases": [
+            "sadece şifreli metin saldırısı",
+            "COA"
+        ],
+        "short": "Saldırı yalnızca ele geçirilen şifreli metin ve gözlenebilir üst verilerle düz metni veya anahtarı geri kazanmaya çalışır.",
+        "meta_title": "Yalnızca şifreli metin saldırısı | CiphersOnline",
+        "meta_description": "Saldırganın ne gördüğünü, frekans, örüntü ve anahtar aramanın nasıl yardımcı olduğunu ve modern şifrelemenin neden dayanması gerektiğini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Doğrulanmış çift veya seçilebilir girdi yoktur; yalnızca şifreli metin ve uzunluk ya da zaman gibi üst veriler vardır. Düz metin, anahtar veya özellik aranır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "methods",
+            "title": "Yöntemler",
+            "html": "<p>Klasik şifrelerde frekans, tekrar, dil, IC, Kasiski ve arama kullanılır. Yinelenen nonce ek kanıt sağlar.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Modern güvenlik",
+            "html": "<p>Modern şifreli metin üst veri dışında rastgele görünmelidir. Başarı genellikle zayıf anahtar, nonce tekrarı veya uygulama hatasından gelir.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Frekans analizi bu modele girer mi?",
+            "answer": "<p>Yalnızca şifreli istatistik ve dil profili kullanıyorsa evet.</p>"
+        },
+        {
+            "question": "Algoritma bilinebilir mi?",
+            "answer": "<p>Evet. Model mevcut mesaj verisini tanımlar.</p>"
+        },
+        {
+            "question": "Tek şifreli metin yeter mi?",
+            "answer": "<p>Zayıf klasik şifrede bazen; güvenli modern şemada genellikle hayır.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "frequency-analysis",
+        "index-of-coincidence",
+        "kasiski-examination",
+        "brute-force-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Şifre Tanımlayıcı"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frekans Analizi"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Kırıcı"
+        }
+    ],
+    "tags": [
+        "kriptoanaliz",
+        "yalnızca şifreli metin",
+        "saldırı modeli"
+    ],
+    "category": "cryptanalysis"
+}

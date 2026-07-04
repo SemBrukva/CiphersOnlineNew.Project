@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "brute-force-attack",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Brute-force attack",
+        "aliases": [
+            "exhaustive key search",
+            "brute force"
+        ],
+        "short": "A brute-force attack systematically tests candidate keys or secrets until it finds one that produces a valid result.",
+        "meta_title": "Brute-Force Attack — Definition | CiphersOnline",
+        "meta_description": "Learn how exhaustive key search works, what determines its cost, how candidates are verified, and why modern high-entropy keys resist brute force."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A brute-force attack tries candidates without exploiting a shortcut in the cryptographic design. For encryption it may enumerate every key; for passwords it tests guesses from a chosen search space. The attack succeeds only if the correct result can be recognized.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cost",
+            "title": "What determines the cost",
+            "html": "<p>Cost depends on effective key entropy, work per attempt, available parallel hardware, rate limits, and the fraction of the space searched. Adding one truly random key bit doubles the worst-case search space. A 128-bit random key is beyond realistic exhaustive search with known computing technology.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Brute force and smarter attacks",
+            "html": "<p>Dictionary and cryptanalytic attacks prioritize likely candidates or exploit structure, so they are not pure exhaustive search. Weak passwords, small classical key spaces, leaked verification data, and offline attacks make brute force practical; strong keys and deliberately expensive password hashing raise its cost.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Does brute force always find the key?",
+            "answer": "<p>Only if the key is in the searched space, enough resources are available, and a correct candidate can be verified.</p>"
+        },
+        {
+            "question": "How many attempts are needed on average?",
+            "answer": "<p>For a uniformly random key and a full unordered search, about half of the key space on average and the entire space in the worst case.</p>"
+        },
+        {
+            "question": "Is brute force the same as a dictionary attack?",
+            "answer": "<p>No. A dictionary attack tests likely human choices first; brute force systematically covers a defined space.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "ciphertext",
+        "cipher",
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "dictionary-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Caesar Brute Force"
+        },
+        {
+            "slug": "text-analysis/affine-brute-force",
+            "label": "Affine Cipher Solver"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "brute force",
+        "key search"
+    ],
+    "category": "cryptanalysis"
+}

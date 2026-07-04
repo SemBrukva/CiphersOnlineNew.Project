@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "nonce",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Nonce",
+        "aliases": [
+            "bir kez kullanılan sayı",
+            "benzersiz kriptografik değer"
+        ],
+        "short": "Nonce, protokolün tanımladığı kapsamda, çoğunlukla aynı anahtar altında tekrarlanmaması gereken değerdir.",
+        "meta_title": "Nonce — kriptografik tanım | CiphersOnline",
+        "meta_description": "Nonce’ın ne olduğunu, ne zaman benzersiz veya öngörülemez olması gerektiğini, anahtar, IV ve tuzdan farkını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Nonce tanımlı bağlamda bir kez, çoğunlukla anahtar başına her şifrelemede kullanılır. Aynı işlemlerin iç durumu veya anahtar akışını tekrarlamasını önler.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Benzersiz her zaman rastgele değildir",
+            "html": "<p>Sayaç, çakışma riski düşük rastgele değer veya yapılı dizi olabilir. Bazı şemalar yalnızca benzersizlik, bazıları öngörülemezlik de ister.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "Nonce, IV, tuz ve anahtar",
+            "html": "<p>Nonce genellikle açıktır ve anahtar değildir. IV bir kipi başlatır ve farklı koşulları olabilir; bazen aynıdırlar. Tuz parola türetimlerini ayırır.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Tekrar edilirse ne olur?",
+            "answer": "<p>İlişkiler açığa çıkabilir, sahtecilik mümkün olabilir veya gizlilik ve bütünlük tamamen bozulabilir.</p>"
+        },
+        {
+            "question": "Rastgele olmalı mı?",
+            "answer": "<p>Her zaman değil. Benzersizlik garantiliyse sayaç uygundur.</p>"
+        },
+        {
+            "question": "Nasıl iletilir?",
+            "answer": "<p>Genellikle gizli olmadığı için şifreli metnin yanında gönderilir.</p>"
+        }
+    ],
+    "related_terms": [
+        "initialization-vector",
+        "stream-cipher",
+        "block-cipher",
+        "cryptographic-key",
+        "entropy"
+    ],
+    "related_tools": [],
+    "tags": [
+        "kriptografi",
+        "nonce",
+        "benzersiz değer"
+    ],
+    "category": "concepts"
+}

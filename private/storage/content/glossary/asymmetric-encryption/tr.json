@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "asymmetric-encryption",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Asimetrik şifreleme",
+        "aliases": [
+            "açık anahtarlı şifreleme",
+            "açık anahtar kriptografisi"
+        ],
+        "short": "Asimetrik şifreleme, şifrelemek için açık anahtar ve çözmek için ilişkili özel anahtar kullanır.",
+        "meta_title": "Asimetrik şifreleme — tanım | CiphersOnline",
+        "meta_description": "Açık ve özel anahtarların ortak sır olmadan nasıl şifrelediğini, doğrulamanın önemini ve hibrit şifrelemenin neden kullanıldığını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Asimetrik şifreleme bir anahtar çifti kullanır. Açık anahtar sahibi için şifreler; özel anahtar gizli kalır ve çözer. Açık anahtardan özel anahtarı türetmek uygulanamaz olmalıdır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Hibrit şifreleme",
+            "html": "<p>Açık anahtar işlemleri yavaş ve boyutça sınırlıdır. Bu nedenle çoğunlukla rastgele oturum anahtarını korur, veriler simetrik şifrelenir. Sertifikalar açık anahtarı sahibine bağlar.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Şifreleme ve imza",
+            "html": "<p>Dijital imzalar da anahtar çifti kullanır ancak gizlilik değil özgünlük sağlar. İmzayı «özel anahtarla şifreleme» diye tanımlamak yanıltıcıdır.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Herkes açık anahtarla şifreleyebilir mi?",
+            "answer": "<p>Evet, ancak yalnızca eşleşen özel anahtar çözmelidir. Önce açık anahtarın sahibi doğrulanmalıdır.</p>"
+        },
+        {
+            "question": "Neden tüm dosya doğrudan şifrelenmez?",
+            "answer": "<p>Daha yavaştır ve çoğunlukla kısa girdiler alır. Hibrit yöntem simetrik şifrelemeyle birleştirir.</p>"
+        },
+        {
+            "question": "Kayıp özel anahtar geri getirilebilir mi?",
+            "answer": "<p>Genellikle hayır. Yedek yoksa veriler erişilemez kalabilir.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "kriptografi",
+        "asimetrik şifreleme",
+        "açık anahtar"
+    ],
+    "category": "concepts"
+}

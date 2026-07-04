@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "asymmetric-encryption",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifrado asimétrico",
+        "aliases": [
+            "cifrado de clave pública",
+            "criptografía de clave pública"
+        ],
+        "short": "El cifrado asimétrico usa una clave pública para cifrar y una clave privada relacionada para descifrar.",
+        "meta_title": "Cifrado asimétrico — definición | CiphersOnline",
+        "meta_description": "Cómo permiten cifrar las claves pública y privada sin secreto compartido, por qué se autentican y por qué se usa cifrado híbrido."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El cifrado asimétrico usa un par de claves. La pública cifra para su propietario; la privada permanece secreta y descifra. Derivar la privada desde la pública debe ser computacionalmente inviable.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Cifrado híbrido",
+            "html": "<p>Las operaciones de clave pública son lentas y admiten mensajes limitados. Por eso suelen proteger una clave de sesión aleatoria y el contenido se cifra simétricamente. Los certificados vinculan la clave pública con su dueño.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Cifrado y firma",
+            "html": "<p>Las firmas digitales también usan pares de claves, pero aportan autenticidad, no confidencialidad. Describirlas como «cifrado con clave privada» resulta engañoso.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Cualquiera puede cifrar con la clave pública?",
+            "answer": "<p>Sí, pero solo la clave privada correspondiente debe descifrar. Antes hay que verificar al propietario.</p>"
+        },
+        {
+            "question": "¿Por qué no cifrar archivos completos directamente?",
+            "answer": "<p>Es más lento y suele aceptar entradas cortas. El cifrado híbrido lo combina con uno simétrico.</p>"
+        },
+        {
+            "question": "¿Puede recuperarse una clave privada perdida?",
+            "answer": "<p>Normalmente no. Sin copia de seguridad, los datos pueden quedar inaccesibles.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografía",
+        "cifrado asimétrico",
+        "clave pública"
+    ],
+    "category": "concepts"
+}

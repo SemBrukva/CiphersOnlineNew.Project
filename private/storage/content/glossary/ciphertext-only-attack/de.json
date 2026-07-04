@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext-only-attack",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ciphertext-only-Angriff",
+        "aliases": [
+            "Angriff nur mit Geheimtext",
+            "COA"
+        ],
+        "short": "Ein Ciphertext-only-Angriff versucht Klartext oder Schlüssel nur aus erfasstem Geheimtext und Metadaten zu gewinnen.",
+        "meta_title": "Ciphertext-only-Angriff — Definition | CiphersOnline",
+        "meta_description": "Was ein Angreifer beobachten kann, wie Häufigkeit, Muster und Schlüsselsuche helfen und warum moderne Verschlüsselung diesem Modell widerstehen soll."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Es gibt keine bestätigten Klartextpaare und keine wählbaren Eingaben; verfügbar sind Geheimtexte sowie Länge oder Zeit. Gesucht werden Klartext, Schlüsselhinweise oder Nachrichteneigenschaften.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "methods",
+            "title": "Methoden",
+            "html": "<p>Bei klassischen Chiffren helfen Häufigkeiten, Wiederholungen, Sprachmodelle, Koinzidenzindex, Kasiski und Schlüsselsuche. Wiederverwendete Nonces liefern zusätzliche Hinweise.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Moderne Sicherheit",
+            "html": "<p>Moderner Geheimtext soll abgesehen von Metadaten wie Zufall wirken. Erfolg beruht meist auf schwachen Schlüsseln, Nonce-Wiederholung, Protokoll- oder Implementierungsfehlern.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Ist Häufigkeitsanalyse ein solcher Angriff?",
+            "answer": "<p>Ja, wenn nur Geheimtextstatistik und Sprachprofile verwendet werden.</p>"
+        },
+        {
+            "question": "Darf der Algorithmus bekannt sein?",
+            "answer": "<p>Ja. Das Modell beschreibt Nachrichtendaten, nicht Designwissen.</p>"
+        },
+        {
+            "question": "Reicht ein Geheimtext?",
+            "answer": "<p>Bei schwachen klassischen Chiffren manchmal; moderne Verfahren geben oft nur Metadaten preis.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "frequency-analysis",
+        "index-of-coincidence",
+        "kasiski-examination",
+        "brute-force-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Chiffren-Erkennung"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Häufigkeitsanalyse"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère-Knacker"
+        }
+    ],
+    "tags": [
+        "Kryptoanalyse",
+        "Ciphertext-only",
+        "Angriffsmodell"
+    ],
+    "category": "cryptanalysis"
+}

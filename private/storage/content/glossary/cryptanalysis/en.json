@@ -1,0 +1,81 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "cryptanalysis",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cryptanalysis",
+        "aliases": [
+            "codebreaking",
+            "cryptanalytic analysis"
+        ],
+        "short": "Cryptanalysis studies cryptographic systems to recover protected information, keys, or weaknesses without using the intended secret.",
+        "meta_title": "Cryptanalysis — Definition and Methods | CiphersOnline",
+        "meta_description": "Learn what cryptanalysis studies, how attack models differ, which goals analysts pursue, and why implementation and protocol flaws matter as much as algorithms."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Cryptanalysis examines cryptographic constructions and their use to determine what an unauthorized observer can learn or manipulate. Goals include recovering plaintext or keys, distinguishing ciphertext from random data, forging authentication, or proving that an attack is impractical.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "models",
+            "title": "Attack models",
+            "html": "<p>Models describe available information and capabilities: ciphertext only, known plaintext, chosen plaintext, chosen ciphertext, side-channel observations, or fault injection. A stronger model gives the analyst more access and sets a higher security standard.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "scope",
+            "title": "From classical patterns to modern systems",
+            "html": "<p>Classical attacks exploit letter frequencies, repetitions, and small key spaces. Modern analysis also studies mathematical structure, protocols, randomness, implementations, timing, power use, and misuse. Finding an application flaw is not the same as breaking its underlying cipher.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is cryptanalysis the same as hacking?",
+            "answer": "<p>No. It is a technical discipline used by researchers and defenders as well as attackers.</p>"
+        },
+        {
+            "question": "Does cryptanalysis always decrypt the message?",
+            "answer": "<p>No. A result may only distinguish a scheme, reduce key search, recover partial information, or demonstrate a weakness.</p>"
+        },
+        {
+            "question": "Can secure modern encryption be analyzed?",
+            "answer": "<p>Yes. Analysis establishes confidence, bounds attacks, and often finds implementation or protocol errors even when the primitive remains sound.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "brute-force-attack",
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "chosen-plaintext-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Cracker"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "cryptography",
+        "attack model"
+    ],
+    "category": "cryptanalysis"
+}

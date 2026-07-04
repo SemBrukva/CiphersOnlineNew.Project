@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "nonce",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Nonce",
+        "aliases": [
+            "numero usato una volta",
+            "valore crittografico unico"
+        ],
+        "short": "Un nonce è un valore che non deve ripetersi nell’ambito definito dal protocollo, spesso sotto una stessa chiave.",
+        "meta_title": "Nonce — definizione crittografica | CiphersOnline",
+        "meta_description": "Che cos’è un nonce, quando deve essere unico o imprevedibile, come differisce da chiave, IV e salt e perché il riuso è pericoloso."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Un nonce viene usato una volta in un contesto definito, spesso per ogni cifratura con una chiave. Separa operazioni uguali per non ripetere stato interno o flusso di chiave.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Unico non significa sempre casuale",
+            "html": "<p>Può essere contatore, valore casuale a bassa collisione o sequenza strutturata. Alcuni schemi richiedono solo unicità, altri anche imprevedibilità.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "Nonce, IV, salt e chiave",
+            "html": "<p>Il nonce è solitamente pubblico e non è una chiave. L’IV inizializza una modalità e può avere requisiti diversi; talvolta coincidono. Il salt separa le derivazioni da password.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Che cosa causa il riutilizzo?",
+            "answer": "<p>Può rivelare relazioni, consentire falsificazioni o distruggere riservatezza e integrità.</p>"
+        },
+        {
+            "question": "Deve essere casuale?",
+            "answer": "<p>Non sempre. Un contatore va bene se l’unicità è garantita.</p>"
+        },
+        {
+            "question": "Come viene trasmesso?",
+            "answer": "<p>Di solito insieme al testo cifrato, perché non deve restare segreto.</p>"
+        }
+    ],
+    "related_terms": [
+        "initialization-vector",
+        "stream-cipher",
+        "block-cipher",
+        "cryptographic-key",
+        "entropy"
+    ],
+    "related_tools": [],
+    "tags": [
+        "crittografia",
+        "nonce",
+        "valore unico"
+    ],
+    "category": "concepts"
+}

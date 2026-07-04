@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "asymmetric-encryption",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Asymmetric encryption",
+        "aliases": [
+            "public-key encryption",
+            "public-key cryptography"
+        ],
+        "short": "Asymmetric encryption uses a public key to encrypt and a mathematically related private key to decrypt.",
+        "meta_title": "Asymmetric Encryption — Definition | CiphersOnline",
+        "meta_description": "Learn how public and private keys enable encryption without a shared secret, why authentication is essential, and why hybrid encryption is common."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Asymmetric encryption uses a key pair. The public key may be distributed and encrypts data for its owner; the private key is kept secret and decrypts it. Knowing the public key should not make deriving the private key computationally feasible.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Public keys and hybrid encryption",
+            "html": "<p>Public-key operations are slower and handle limited message sizes, so systems usually encrypt a random symmetric session key and use symmetric authenticated encryption for the actual data. Certificates or another trusted mechanism bind a public key to the intended owner.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Encryption is not signing",
+            "html": "<p>Digital signatures also use public and private keys, but serve authenticity rather than confidentiality. Calling a signature “encryption with the private key” is misleading. Secure schemes define separate algorithms, padding, and key uses, and private keys must never be exposed.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Can anyone encrypt with the public key?",
+            "answer": "<p>Yes, but only the holder of the matching private key should be able to decrypt. The sender must first verify that the public key belongs to the intended recipient.</p>"
+        },
+        {
+            "question": "Why not encrypt every file directly with public-key cryptography?",
+            "answer": "<p>It is slower and often accepts only short inputs. Hybrid encryption combines public-key key establishment with fast symmetric data encryption.</p>"
+        },
+        {
+            "question": "Can a lost private key be recovered?",
+            "answer": "<p>Normally no. Without a backup or recovery design, ciphertext for that key may become permanently inaccessible.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptography",
+        "asymmetric encryption",
+        "public key"
+    ],
+    "category": "concepts"
+}

@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "chosen-plaintext-attack",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chosen-plaintext attack",
+        "aliases": [
+            "CPA",
+            "encryption-oracle attack"
+        ],
+        "short": "A chosen-plaintext attack lets an attacker obtain ciphertexts for plaintexts they select and use the results to test the encryption scheme.",
+        "meta_title": "Chosen-Plaintext Attack — Definition | CiphersOnline",
+        "meta_description": "Learn what access a chosen-plaintext attacker has, how adaptive queries work, and why secure randomized encryption is designed for CPA resistance."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>In a chosen-plaintext attack, an attacker can submit selected plaintexts to an encryption oracle and observe the ciphertexts. The goal may be key recovery, learning relationships, or distinguishing the scheme from ideal randomized encryption.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Adaptive and non-adaptive access",
+            "html": "<p>A non-adaptive attacker chooses all queries in advance. An adaptive attacker selects each new plaintext after seeing earlier results. Real APIs, devices, and protocols can unintentionally provide such an oracle.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "CPA security",
+            "html": "<p>Modern probabilistic encryption should hide which of two chosen messages was encrypted, provided the allowed conditions are met. Fresh nonces or randomness are essential; deterministic pattern leakage or nonce reuse can violate this goal.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is chosen plaintext stronger than known plaintext?",
+            "answer": "<p>Yes. The attacker controls test inputs instead of merely observing existing pairs.</p>"
+        },
+        {
+            "question": "Does CPA access reveal the key?",
+            "answer": "<p>Not for a CPA-secure scheme, but weak classical ciphers and flawed modes may leak useful structure.</p>"
+        },
+        {
+            "question": "Is an encryption API always dangerous?",
+            "answer": "<p>No, but its protocol must remain secure even when users can submit chosen data.</p>"
+        }
+    ],
+    "related_terms": [
+        "known-plaintext-attack",
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptanalysis",
+        "chosen plaintext",
+        "attack model"
+    ],
+    "category": "cryptanalysis"
+}

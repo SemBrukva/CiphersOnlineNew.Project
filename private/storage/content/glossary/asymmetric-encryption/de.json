@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "asymmetric-encryption",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Asymmetrische Verschlüsselung",
+        "aliases": [
+            "Public-Key-Verschlüsselung",
+            "Kryptografie mit öffentlichem Schlüssel"
+        ],
+        "short": "Asymmetrische Verschlüsselung nutzt einen öffentlichen Schlüssel zum Verschlüsseln und den zugehörigen privaten zum Entschlüsseln.",
+        "meta_title": "Asymmetrische Verschlüsselung — Definition | CiphersOnline",
+        "meta_description": "Wie öffentliche und private Schlüssel ohne gemeinsames Geheimnis verschlüsseln, warum Authentizität zählt und weshalb hybride Verfahren üblich sind."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Asymmetrische Verschlüsselung verwendet ein Schlüsselpaar. Der öffentliche Schlüssel verschlüsselt für seinen Besitzer; der private bleibt geheim und entschlüsselt. Aus dem öffentlichen Schlüssel darf sich der private praktisch nicht berechnen lassen.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Hybride Verschlüsselung",
+            "html": "<p>Public-Key-Operationen sind langsamer und auf kurze Eingaben begrenzt. Daher schützen sie meist einen zufälligen Sitzungsschlüssel, während symmetrische authentifizierte Verschlüsselung die Daten verarbeitet. Zertifikate binden den öffentlichen Schlüssel an seinen Besitzer.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Verschlüsselung und Signatur",
+            "html": "<p>Digitale Signaturen nutzen ebenfalls Schlüsselpaare, dienen aber der Echtheit statt Vertraulichkeit. „Verschlüsselung mit dem privaten Schlüssel“ ist dafür eine irreführende Beschreibung.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Darf jeder mit dem öffentlichen Schlüssel verschlüsseln?",
+            "answer": "<p>Ja, aber nur der private Schlüssel soll entschlüsseln. Die Echtheit des öffentlichen Schlüssels muss vorher geprüft werden.</p>"
+        },
+        {
+            "question": "Warum nicht ganze Dateien direkt damit verschlüsseln?",
+            "answer": "<p>Es ist langsamer und akzeptiert oft nur kurze Eingaben. Hybride Verfahren kombinieren es mit symmetrischer Verschlüsselung.</p>"
+        },
+        {
+            "question": "Lässt sich ein verlorener privater Schlüssel wiederherstellen?",
+            "answer": "<p>Normalerweise nicht. Ohne Sicherung können zugehörige Daten dauerhaft unzugänglich werden.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptografie",
+        "asymmetrische Verschlüsselung",
+        "öffentlicher Schlüssel"
+    ],
+    "category": "concepts"
+}

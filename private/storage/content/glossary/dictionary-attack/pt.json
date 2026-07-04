@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "dictionary-attack",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de dicionário",
+        "aliases": [
+            "ataque por lista de palavras",
+            "dicionário de senhas"
+        ],
+        "short": "Um ataque de dicionário testa uma lista priorizada de senhas, chaves ou frases prováveis em vez de todas as possibilidades.",
+        "meta_title": "Ataque de dicionário — definição e defesa | CiphersOnline",
+        "meta_description": "Diferença da força bruta, risco de tentativas offline e defesa com salt, senhas fortes e KDF lenta."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Listas reúnem senhas comuns, palavras, vazamentos, nomes e variações. Sacrificam cobertura para achar cedo segredos humanos.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "online_offline",
+            "title": "Online e offline",
+            "html": "<p>O servidor limita o online. Com hashes roubados, o atacante testa offline e em paralelo.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Defesa",
+            "html": "<p>Use senhas longas únicas, salt individual e KDF resistente à memória. Salt não fortalece senha fraca.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Diferença da força bruta?",
+            "answer": "<p>Prioriza candidatos, mas pode omitir segredo incomum.</p>"
+        },
+        {
+            "question": "Trocar letras por números ajuda?",
+            "answer": "<p>Pouco; listas modernas incluem isso.</p>"
+        },
+        {
+            "question": "Salt impede o ataque?",
+            "answer": "<p>Não, exige trabalho separado.</p>"
+        }
+    ],
+    "related_terms": [
+        "brute-force-attack",
+        "cryptographic-key",
+        "entropy",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptoanálise",
+        "ataque de dicionário",
+        "tentativa de senha"
+    ],
+    "category": "cryptanalysis"
+}

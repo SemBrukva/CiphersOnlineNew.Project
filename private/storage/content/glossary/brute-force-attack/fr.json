@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "brute-force-attack",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attaque par force brute",
+        "aliases": [
+            "recherche exhaustive de clé",
+            "force brute"
+        ],
+        "short": "Une attaque par force brute teste systématiquement des clés ou secrets jusqu’à obtenir un résultat valide reconnaissable.",
+        "meta_title": "Attaque par force brute — définition | CiphersOnline",
+        "meta_description": "Comment fonctionne la recherche exhaustive, ce qui détermine son coût et pourquoi les clés modernes aléatoires y résistent."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>La force brute teste des candidats sans raccourci cryptanalytique. Elle énumère clés ou mots de passe et doit reconnaître le bon résultat.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cost",
+            "title": "Coût",
+            "html": "<p>Entropie, coût d’un essai, parallélisme et limites déterminent l’effort. Chaque bit aléatoire double le pire espace ; 128 bits aléatoires sont impraticables.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Autres recherches",
+            "html": "<p>Dictionnaires et cryptanalyse priorisent des valeurs ou exploitent une structure. Petits espaces classiques et mots de passe faibles rendent la force brute réaliste.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Trouve-t-elle toujours la clé ?",
+            "answer": "<p>Seulement si elle est dans l’espace, les ressources suffisent et le résultat est vérifiable.</p>"
+        },
+        {
+            "question": "Combien d’essais en moyenne ?",
+            "answer": "<p>Environ la moitié d’un espace uniforme, tout l’espace au pire.</p>"
+        },
+        {
+            "question": "Est-ce une attaque par dictionnaire ?",
+            "answer": "<p>Non, le dictionnaire privilégie des choix humains probables.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "ciphertext",
+        "cipher",
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "dictionary-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Force Brute César"
+        },
+        {
+            "slug": "text-analysis/affine-brute-force",
+            "label": "Solveur de chiffrement affine"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificateur de chiffrement"
+        }
+    ],
+    "tags": [
+        "cryptanalyse",
+        "force brute",
+        "recherche de clé"
+    ],
+    "category": "cryptanalysis"
+}

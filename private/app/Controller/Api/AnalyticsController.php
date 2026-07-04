@@ -28,7 +28,7 @@ final readonly class AnalyticsController
      *
      * POST /api/analytics/use
      *
-     * Тело запроса: { "tool": "encoding/base64", "mode": "encode" }
+     * Тело запроса: { "tool": "encoding/base64", "mode": "encode", "source": "local" }
      */
     public function record(Request $request): Response
     {
@@ -39,6 +39,7 @@ final readonly class AnalyticsController
 
         $tool = trim((string) ($payload['tool'] ?? ''));
         $mode = trim((string) ($payload['mode'] ?? 'encode'));
+        $source = trim((string) ($payload['source'] ?? 'local'));
 
         if ($tool === '') {
             return Response::json(['ok' => true]);
@@ -48,7 +49,7 @@ final readonly class AnalyticsController
         $ipHash = hash('sha256', $ip);
         $userId = $this->auth->id() !== null ? (int) $this->auth->id() : null;
 
-        $this->analytics->recordUse($tool, $userId, $ipHash, $mode);
+        $this->analytics->recordUse($tool, $userId, $ipHash, $mode, $source);
 
         return Response::json(['ok' => true]);
     }

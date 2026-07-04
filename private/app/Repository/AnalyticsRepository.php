@@ -23,13 +23,14 @@ final class AnalyticsRepository extends AbstractRepository
     /**
      * Записывает событие использования инструмента.
      */
-    public function record(string $toolSlug, string $mode, ?int $userId, string $ipHash): void
+    public function record(string $toolSlug, string $mode, ?int $userId, string $ipHash, string $source = 'local'): void
     {
         $this->insert([
             'tool_slug'  => $toolSlug,
             'mode'       => $mode,
             'user_id'    => $userId,
             'ip_hash'    => $ipHash,
+            'source'     => $source,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
     }
@@ -37,7 +38,7 @@ final class AnalyticsRepository extends AbstractRepository
     /**
      * Возвращает топ инструментов по числу использований за последние N дней.
      *
-     * @return array<int, array{tool_slug: string, total: int, encodes: int, decodes: int}>
+     * @return array<int, array{tool_slug: string, total: int, encodes: int, decodes: int, locals: int, embeds: int}>
      */
     public function topTools(int $limit = 10, int $days = 30): array
     {
@@ -48,7 +49,9 @@ final class AnalyticsRepository extends AbstractRepository
                 tool_slug,
                 COUNT(*) AS total,
                 SUM(CASE WHEN mode = \'encode\' THEN 1 ELSE 0 END) AS encodes,
-                SUM(CASE WHEN mode = \'decode\' THEN 1 ELSE 0 END) AS decodes
+                SUM(CASE WHEN mode = \'decode\' THEN 1 ELSE 0 END) AS decodes,
+                SUM(CASE WHEN source = \'embed\' THEN 1 ELSE 0 END) AS embeds,
+                SUM(CASE WHEN source = \'embed\' THEN 0 ELSE 1 END) AS locals
              FROM ' . Tables::TOOL_USAGE_EVENTS . '
              WHERE created_at >= ?
              GROUP BY tool_slug
@@ -56,6 +59,33 @@ final class AnalyticsRepository extends AbstractRepository
              LIMIT ?',
             [$since, $limit]
         );
+    }
+
+    /**
+     * Возвращает число событий за последние N дней в разбивке по источнику.
+     *
+     * @return array{local: int, embed: int}
+     */
+    public function totalCountBySource(int $days = 30): array
+    {
+        $since = date('Y-m-d H:i:s', strtotime("-{$days} days"));
+
+        $rows = $this->db->fetchAll(
+            'SELECT source, COUNT(*) AS cnt
+             FROM ' . Tables::TOOL_USAGE_EVENTS . '
+             WHERE created_at >= ?
+             GROUP BY source',
+            [$since]
+        );
+
+        $result = ['local' => 0, 'embed' => 0];
+        foreach ($rows as $row) {
+            $source = (string) ($row['source'] ?? 'local');
+            $key = $source === 'embed' ? 'embed' : 'local';
+            $result[$key] += (int) $row['cnt'];
+        }
+
+        return $result;
     }
 
     /**

@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "entropy",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Entropy",
+        "aliases": [
+            "cryptographic entropy",
+            "randomness uncertainty"
+        ],
+        "short": "Entropy measures uncertainty in a value and limits how difficult it is for an attacker to guess cryptographic secrets.",
+        "meta_title": "Entropy in Cryptography — Definition | CiphersOnline",
+        "meta_description": "Learn what entropy means for keys, passwords, nonces, and random generators, why bit length is not entropy, and how weak randomness breaks security."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Entropy quantifies uncertainty in a random variable, commonly expressed in bits. A uniformly random 128-bit key has 128 bits of entropy; a 128-character value chosen by a predictable process may have far less. Entropy describes the generation process, not how random one sample looks.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Sources and generators",
+            "html": "<p>Operating systems collect uncertainty from hardware and events, then seed a cryptographically secure pseudorandom number generator. The generator can expand a small high-quality seed into many unpredictable values, but cannot create security from a compromised or guessable seed.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Keys and passwords",
+            "html": "<p>Key strength cannot exceed the entropy used to generate the key. Human passwords usually have much less entropy than random keys, so password hashing deliberately slows guesses but does not add missing uncertainty. Statistical tests alone cannot prove cryptographic unpredictability.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is entropy the same as key length?",
+            "answer": "<p>No. Length sets the possible representation space; entropy measures how unpredictably the value was selected.</p>"
+        },
+        {
+            "question": "Can software create true entropy?",
+            "answer": "<p>Deterministic software expands a seed but does not create new physical uncertainty. It relies on operating-system or hardware entropy sources.</p>"
+        },
+        {
+            "question": "How much entropy is enough?",
+            "answer": "<p>It depends on the threat model and algorithm. Modern random keys commonly target at least 128 bits of effective security.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "nonce",
+        "encryption",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptography",
+        "entropy",
+        "randomness"
+    ],
+    "category": "concepts"
+}

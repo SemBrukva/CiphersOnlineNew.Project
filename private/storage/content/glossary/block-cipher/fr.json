@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "block-cipher",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chiffrement par bloc",
+        "aliases": [
+            "algorithme de chiffrement par blocs",
+            "permutation de blocs à clé"
+        ],
+        "short": "Un chiffrement par bloc est un algorithme symétrique qui transforme des blocs de données de taille fixe sous une clé secrète.",
+        "meta_title": "Chiffrement par bloc — définition et modes | CiphersOnline",
+        "meta_description": "Comment AES transforme des blocs fixes, comment les modes traitent les messages longs et pourquoi ECB ou la réutilisation d’un nonce est dangereuse."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Un chiffre par blocs associe chaque bloc clair de taille fixe à un bloc chiffré de même taille. AES utilise des blocs de 128 bits et plusieurs tailles de clé. Taille de bloc et taille de clé sont distinctes.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "modes",
+            "title": "Modes d’opération",
+            "html": "<p>La primitive ne traite qu’un bloc. CBC, CTR et GCM définissent les messages longs ou partiels. Certains exigent un bourrage, d’autres fonctionnent comme un flux ; GCM authentifie aussi.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Utilisation sûre",
+            "html": "<p>ECB chiffre pareillement les blocs identiques et révèle les motifs. Les autres modes imposent leurs règles de nonce ou de vecteur. Réutilisation, absence d’authentification ou mauvais bourrage compromettent la sécurité.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Taille de bloc et de clé sont-elles identiques ?",
+            "answer": "<p>Non. AES garde des blocs de 128 bits avec des clés de 128, 192 ou 256 bits.</p>"
+        },
+        {
+            "question": "Tous exigent-ils un bourrage ?",
+            "answer": "<p>Non. CBC en exige souvent ; CTR et de nombreux modes authentifiés traitent un dernier bloc partiel.</p>"
+        },
+        {
+            "question": "Pourquoi éviter ECB ?",
+            "answer": "<p>Des blocs clairs identiques produisent des blocs chiffrés identiques et révèlent la structure.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptographie",
+        "chiffrement par bloc",
+        "chiffrement symétrique"
+    ],
+    "category": "concepts"
+}

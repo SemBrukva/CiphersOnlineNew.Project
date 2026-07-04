@@ -9,6 +9,7 @@ use App\Controller\CabinetController;
 use App\Controller\CipherCategoryController;
 use App\Controller\CipherController;
 use App\Controller\ContactsController;
+use App\Controller\EmbedController;
 use App\Controller\FavoritesController;
 use App\Controller\GlossaryController;
 use App\Controller\HealthController;
@@ -103,6 +104,13 @@ return [
         'controller' => GlossaryController::class,
         'method'     => 'show',
         'name'       => 'glossary.show',
+    ],
+
+    // Встраиваемый (iframe) виджет инструмента — ДО catch-all маршрутов инструментов.
+    'GET /embed/{category:[a-z0-9-]+}/{cipher:[a-z0-9-]+}' => [
+        'controller' => EmbedController::class,
+        'method'     => 'show',
+        'name'       => 'embed.show',
     ],
 
     'GET /{category:[a-z0-9-]+}/{cipher:[a-z0-9-]+}' => [

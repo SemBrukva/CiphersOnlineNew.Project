@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "brute-force-attack",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de força bruta",
+        "aliases": [
+            "busca exaustiva de chaves",
+            "força bruta"
+        ],
+        "short": "Um ataque de força bruta testa sistematicamente chaves ou segredos até encontrar um resultado válido reconhecível.",
+        "meta_title": "Ataque de força bruta — definição | CiphersOnline",
+        "meta_description": "Como funciona a busca exaustiva, o que determina seu custo e por que chaves modernas aleatórias resistem."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>A força bruta testa candidatos sem atalho criptoanalítico. Enumera chaves ou senhas e precisa reconhecer o resultado correto.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cost",
+            "title": "Custo",
+            "html": "<p>Entropia, custo por tentativa, paralelismo e limites definem o esforço. Cada bit aleatório dobra o pior espaço; 128 bits aleatórios são impraticáveis.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Outros ataques",
+            "html": "<p>Dicionários e criptoanálise priorizam valores ou estrutura. Espaços clássicos pequenos e senhas fracas tornam a força bruta viável.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Sempre encontra a chave?",
+            "answer": "<p>Somente se estiver no espaço, houver recursos e o resultado puder ser verificado.</p>"
+        },
+        {
+            "question": "Quantas tentativas em média?",
+            "answer": "<p>Cerca de metade do espaço uniforme; todo ele no pior caso.</p>"
+        },
+        {
+            "question": "É igual a ataque de dicionário?",
+            "answer": "<p>Não. O dicionário prioriza escolhas humanas prováveis.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "ciphertext",
+        "cipher",
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "dictionary-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Força Bruta César"
+        },
+        {
+            "slug": "text-analysis/affine-brute-force",
+            "label": "Solucionador da cifra afim"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifras"
+        }
+    ],
+    "tags": [
+        "criptoanálise",
+        "força bruta",
+        "busca de chaves"
+    ],
+    "category": "cryptanalysis"
+}

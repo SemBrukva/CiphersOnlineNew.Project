@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "symmetric-encryption",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Symmetrische Verschlüsselung",
+        "aliases": [
+            "Secret-Key-Verschlüsselung",
+            "Verschlüsselung mit gemeinsamem Schlüssel"
+        ],
+        "short": "Symmetrische Verschlüsselung nutzt denselben geheimen Schlüssel oder direkt abgeleitete Schlüssel zum Ver- und Entschlüsseln.",
+        "meta_title": "Symmetrische Verschlüsselung — Definition | CiphersOnline",
+        "meta_description": "Wie Verschlüsselung mit gemeinsamem Schlüssel arbeitet, warum sie schnell ist und weshalb Schlüsselaustausch, Nonces und Authentifizierung wichtig sind."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Symmetrische Verschlüsselung nutzt ein gemeinsames Geheimnis von Sender und Empfänger für beide Richtungen. Moderne Beispiele sind AES und ChaCha20. Auch klassische Chiffren sind symmetrisch, weil ihr Schlüssel Ver- und Entschlüsselung ermöglicht.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Einsatz",
+            "html": "<p>Symmetrische Algorithmen sind schnell und eignen sich für Dateien, Datenträger und Netzwerkverkehr. Nonce oder Initialisierungsvektor verhindert gefährliche Wiederholungen; authentifizierte Modi erkennen außerdem Veränderungen.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Schlüsselverteilung",
+            "html": "<p>Alle berechtigten Parteien benötigen das Geheimnis. Deshalb sind sicherer Austausch und Rotation die zentrale Schwierigkeit. Protokolle handeln häufig asymmetrisch einen temporären symmetrischen Sitzungsschlüssel aus.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Warum ist symmetrische Verschlüsselung schnell?",
+            "answer": "<p>Ihre Operationen sind für große Datenmengen optimiert und vermeiden teure Public-Key-Mathematik.</p>"
+        },
+        {
+            "question": "Nutzen beide Seiten denselben Schlüssel?",
+            "answer": "<p>Meist ja; manche Konstruktionen leiten mehrere geheime Teilschlüssel aus einem gemeinsamen Geheimnis ab.</p>"
+        },
+        {
+            "question": "Ist ein Passwort ein symmetrischer Schlüssel?",
+            "answer": "<p>Nicht direkt. Eine passwortbasierte KDF mit Salt sollte daraus einen Schlüssel ableiten.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "asymmetric-encryption",
+        "block-cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar-Chiffre"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère-Chiffre"
+        }
+    ],
+    "tags": [
+        "Kryptografie",
+        "symmetrische Verschlüsselung",
+        "geheimer Schlüssel"
+    ],
+    "category": "concepts"
+}

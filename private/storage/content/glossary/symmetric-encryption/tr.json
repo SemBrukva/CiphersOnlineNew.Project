@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "symmetric-encryption",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Simetrik şifreleme",
+        "aliases": [
+            "gizli anahtarlı şifreleme",
+            "paylaşılan anahtarlı şifreleme"
+        ],
+        "short": "Simetrik şifreleme, veriyi şifrelemek ve çözmek için aynı gizli anahtarı veya türetilmiş gizli anahtarları kullanır.",
+        "meta_title": "Simetrik şifreleme — tanım | CiphersOnline",
+        "meta_description": "Paylaşılan anahtarın nasıl çalıştığını, neden hızlı olduğunu ve güvenli anahtar değişimi, nonce ve doğrulamanın önemini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Simetrik şifreleme, gönderici ve alıcının paylaştığı sırla veriyi dönüştürür ve geri getirir. AES ve ChaCha20 modern örneklerdir; klasik şifreler de simetriktir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Kullanım",
+            "html": "<p>Hızlıdır; dosya, disk ve ağ trafiğine uygundur. Nonce veya başlatma vektörü tehlikeli tekrarları önler; doğrulanmış kipler değişiklikleri de algılar.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Anahtar dağıtımı",
+            "html": "<p>Tüm yetkili taraflar sırra ihtiyaç duyar; güvenli değişim ve yenileme temel zorluktur. Protokoller çoğu zaman asimetrik kriptografiyle geçici simetrik oturum anahtarı kurar.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Neden hızlıdır?",
+            "answer": "<p>İşlemleri büyük veri hacimleri için iyileştirilmiştir ve açık anahtar matematiğinin maliyetini taşımaz.</p>"
+        },
+        {
+            "question": "Taraflar aynı anahtarı mı kullanır?",
+            "answer": "<p>Genellikle evet; bazı yapılar ortak sırdan birden fazla gizli anahtar türetir.</p>"
+        },
+        {
+            "question": "Parola simetrik anahtar mıdır?",
+            "answer": "<p>Doğrudan değildir. Tuzlu parola KDF’siyle anahtar türetilmelidir.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "asymmetric-encryption",
+        "block-cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Sezar Şifresi"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Şifresi"
+        }
+    ],
+    "tags": [
+        "kriptografi",
+        "simetrik şifreleme",
+        "gizli anahtar"
+    ],
+    "category": "concepts"
+}

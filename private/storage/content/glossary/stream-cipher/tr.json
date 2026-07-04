@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "stream-cipher",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Akış şifresi",
+        "aliases": [
+            "anahtar akışı şifresi",
+            "akış şifreleme algoritması"
+        ],
+        "short": "Akış şifresi, düz metni gizli anahtar ve nonce ile üretilen sözde rastgele anahtar akışıyla birleştirir.",
+        "meta_title": "Akış şifresi — tanım ve güvenlik | CiphersOnline",
+        "meta_description": "Anahtar akışının nasıl üretildiğini, anahtar ve nonce tekrarının neden tehlikeli olduğunu ve verinin neden doğrulanması gerektiğini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Akış şifresi, anahtar ve genellikle nonce ile sözde rastgele bir akış üretir ve bunu çoğunlukla XOR ile düz metne uygular. Aynı akış şifreyi çözer. ChaCha20 modern örnektir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Yeniden kullanım",
+            "html": "<p>Aynı akış iki mesajı şifrelememelidir. Anahtar ve nonce tekrarı düz metinlerin XOR ilişkisini açığa çıkarır ve geri kazanılmalarına yol açabilir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Bütünlük",
+            "html": "<p>Temel akış şifresi değişiklikleri algılamaz. Modern sistemler ChaCha20-Poly1305 gibi doğrulanmış yapılar kullanır.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Akış ve blok şifre aynı mı?",
+            "answer": "<p>Hayır. Akış şifresi dizi üretir; blok şifre sabit blokları dönüştürür. Bazı blok kipleri akış gibi davranır.</p>"
+        },
+        {
+            "question": "Nonce açık olabilir mi?",
+            "answer": "<p>Genellikle evet, ancak anahtar altında benzersiz olmalıdır.</p>"
+        },
+        {
+            "question": "Tekrar neden tehlikelidir?",
+            "answer": "<p>Akış karşılaştırmada yok olur ve düz metinleri doğrudan ilişkilendirir.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "block-cipher",
+        "cryptographic-key",
+        "nonce",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "kriptografi",
+        "akış şifresi",
+        "anahtar akışı"
+    ],
+    "category": "concepts"
+}

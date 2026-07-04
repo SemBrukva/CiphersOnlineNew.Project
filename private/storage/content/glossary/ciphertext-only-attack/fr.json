@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext-only-attack",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attaque à texte chiffré seul",
+        "aliases": [
+            "attaque avec texte chiffré seul",
+            "COA"
+        ],
+        "short": "Cette attaque tente de récupérer texte clair ou clé avec seulement du texte chiffré capturé et ses métadonnées.",
+        "meta_title": "Attaque à texte chiffré seul | CiphersOnline",
+        "meta_description": "Ce que l’attaquant observe, comment fréquences, motifs et recherche de clés aident et pourquoi le chiffrement moderne doit résister."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Aucune paire confirmée ni entrée choisie : seulement textes chiffrés, longueur et temps. Le but est d’inférer texte clair, clé ou propriétés.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "methods",
+            "title": "Méthodes",
+            "html": "<p>Contre les chiffres classiques : fréquences, répétitions, modèles de langue, IC, Kasiski et recherche. Les nonces réutilisés ajoutent des indices.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Sécurité moderne",
+            "html": "<p>Le texte chiffré moderne doit paraître aléatoire hors métadonnées. Les succès viennent souvent d’une clé faible, d’un nonce répété ou d’un défaut.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "L’analyse fréquentielle en fait-elle partie ?",
+            "answer": "<p>Oui, si elle emploie uniquement statistiques chiffrées et profil linguistique.</p>"
+        },
+        {
+            "question": "L’algorithme peut-il être connu ?",
+            "answer": "<p>Oui. Le modèle décrit les données disponibles.</p>"
+        },
+        {
+            "question": "Un seul texte suffit-il ?",
+            "answer": "<p>Parfois pour un chiffre classique faible, rarement pour un schéma moderne sûr.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "frequency-analysis",
+        "index-of-coincidence",
+        "kasiski-examination",
+        "brute-force-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificateur de chiffrement"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Analyse de fréquence"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Casseur Vigenère"
+        }
+    ],
+    "tags": [
+        "cryptanalyse",
+        "texte chiffré seul",
+        "modèle d’attaque"
+    ],
+    "category": "cryptanalysis"
+}

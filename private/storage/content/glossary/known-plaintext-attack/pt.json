@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "known-plaintext-attack",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de texto claro conhecido",
+        "aliases": [
+            "ataque com texto conhecido",
+            "KPA"
+        ],
+        "short": "O ataque usa pares correspondentes de texto claro e cifrado para obter informações sobre a chave ou o processo.",
+        "meta_title": "Ataque de texto claro conhecido | CiphersOnline",
+        "meta_description": "Quais dados o atacante possui, como pares enfraquecem cifras antigas e por que a criptografia moderna deve resistir."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>O analista conhece o texto claro correspondente a parte de um ou mais textos cifrados e busca chave, estrutura ou outras mensagens.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Fontes",
+            "html": "<p>Cabeçalhos, campos de protocolo, modelos e mensagens divulgadas fornecem pares. O atacante não escolhe a entrada.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Resistência",
+            "html": "<p>Substituições clássicas e fluxos reutilizados podem ceder. Uma cifra moderna deve permanecer segura com muitos pares conhecidos.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "O texto conhecido revela a chave?",
+            "answer": "<p>Não em uma cifra moderna segura; pode revelar fraquezas ou erros.</p>"
+        },
+        {
+            "question": "Uma palavra provável conta?",
+            "answer": "<p>Não, é um crib ou hipótese.</p>"
+        },
+        {
+            "question": "Diferença do texto escolhido?",
+            "answer": "<p>Nesse modelo mais forte o atacante solicita a criptografia de entradas próprias.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "brute-force-attack",
+        "chosen-plaintext-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifras"
+        },
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Força Bruta César"
+        }
+    ],
+    "tags": [
+        "criptoanálise",
+        "texto claro conhecido",
+        "modelo de ataque"
+    ],
+    "category": "cryptanalysis"
+}

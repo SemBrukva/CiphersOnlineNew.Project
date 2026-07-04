@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "kasiski-examination",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Kasiski incelemesi",
+        "aliases": [
+            "Kasiski testi",
+            "Kasiski yöntemi"
+        ],
+        "short": "Kasiski incelemesi, yinelenen anahtarlı çok alfabeli şifrenin periyodunu tekrar eden şifreli dizilerin uzaklıklarından tahmin eder.",
+        "meta_title": "Kasiski incelemesi — tanım ve yöntem | CiphersOnline",
+        "meta_description": "Tekrarlanan dizilerin ve uzaklık çarpanlarının Vigenère anahtar uzunluğu adaylarını nasıl gösterdiğini ve neden doğrulama gerektiğini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Kasiski incelemesi, yinelenen anahtarlı Vigenère ve benzer şifrelere saldırır. Aynı düz metin parçası aynı anahtar konumlarına denk gelirse aynı şifreli diziyi üretebilir; uzaklık çoğu zaman anahtar uzunluğunun katıdır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "procedure",
+            "title": "Yöntem",
+            "html": "<p>Üç veya daha uzun tekrarlanan gruplar bulunur, uzaklıklar ölçülüp çarpanlarına ayrılır. Ortak çarpanlar veya EBOB aday olur; ardından sütun frekansları incelenir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Sınırlamalar",
+            "html": "<p>Tekrarlar rastlantısal olabilir veya kısa metinde bulunmayabilir. Çarpan gerçek periyodun böleni ya da katı olabilir. Çakışma indeksi ve frekans analizi adayları doğrular.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Neden tekrarlanan trigramlar aranır?",
+            "answer": "<p>Harf veya ikililerden daha az rastlantısaldır ve uzun metinde yine de görülür.</p>"
+        },
+        {
+            "question": "Yöntem anahtarı bulur mu?",
+            "answer": "<p>Doğrudan değil. Uzunluğu tahmin eder; sonra sütun analizi karakterleri arar.</p>"
+        },
+        {
+            "question": "Her Vigenère metninde çalışır mı?",
+            "answer": "<p>Hayır. Kısa metin, uzun veya yinelenmeyen anahtar yetersiz kanıt bırakabilir.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "index-of-coincidence",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Kırıcı"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frekans Analizi"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Şifresi"
+        }
+    ],
+    "tags": [
+        "kriptoanaliz",
+        "Kasiski incelemesi",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

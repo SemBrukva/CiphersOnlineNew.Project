@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "chosen-plaintext-attack",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chosen-Plaintext-Angriff",
+        "aliases": [
+            "Angriff mit gewähltem Klartext",
+            "CPA"
+        ],
+        "short": "Ein Chosen-Plaintext-Angriff erhält Geheimtexte für frei gewählte Klartexte und prüft damit das Verschlüsselungsverfahren.",
+        "meta_title": "Chosen-Plaintext-Angriff — Definition | CiphersOnline",
+        "meta_description": "Welchen Zugriff der Angreifer hat, wie adaptive Anfragen arbeiten und warum randomisierte Verschlüsselung CPA-sicher sein soll."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Der Angreifer sendet gewählte Klartexte an ein Verschlüsselungsorakel und beobachtet die Geheimtexte. Ziel sind Schlüssel, Beziehungen oder Unterscheidung vom idealen Verfahren.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Adaptive Anfragen",
+            "html": "<p>Nicht adaptive Anfragen stehen vorher fest; adaptive folgen aus früheren Antworten. APIs und Geräte können ein solches Orakel bieten.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "CPA-Sicherheit",
+            "html": "<p>Moderne probabilistische Verschlüsselung soll verbergen, welche gewählte Nachricht verschlüsselt wurde. Frische Nonces oder Zufall sind entscheidend.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Stärker als bekannter Klartext?",
+            "answer": "<p>Ja, der Angreifer kontrolliert die Testeingaben.</p>"
+        },
+        {
+            "question": "Verrät CPA den Schlüssel?",
+            "answer": "<p>Nicht bei einem CPA-sicheren Verfahren.</p>"
+        },
+        {
+            "question": "Ist eine Verschlüsselungs-API gefährlich?",
+            "answer": "<p>Nicht, wenn das Protokoll gewählte Eingaben sicher verarbeitet.</p>"
+        }
+    ],
+    "related_terms": [
+        "known-plaintext-attack",
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptoanalyse",
+        "gewählter Klartext",
+        "Angriffsmodell"
+    ],
+    "category": "cryptanalysis"
+}

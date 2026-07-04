@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "index-of-coincidence",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Índice de coincidência",
+        "aliases": [
+            "IC",
+            "índice de coincidência de letras"
+        ],
+        "short": "O índice de coincidência mede a probabilidade de duas letras escolhidas de um texto serem iguais.",
+        "meta_title": "Índice de coincidência — fórmula e uso | CiphersOnline",
+        "meta_description": "Fórmula do índice de coincidência, diferença entre distribuições linguística e uniforme e uso para estimar o tamanho da chave Vigenère."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição e fórmula",
+            "html": "<p>O IC é a probabilidade de duas letras retiradas sem reposição coincidirem. Com frequências <code>nᵢ</code> e total <code>N</code>: <code>IC = Σ nᵢ(nᵢ−1) / N(N−1)</code>.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "interpretation",
+            "title": "Interpretação",
+            "html": "<p>As línguas têm frequências desiguais e IC geralmente maior que um alfabeto uniforme. A substituição monoalfabética preserva o IC; a criptografia polialfabética costuma reduzi-lo.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "application",
+            "title": "Período da chave",
+            "html": "<p>Para testar um período Vigenère, divide-se o texto em colunas e calcula-se a média do IC. Colunas semelhantes ao idioma apoiam o candidato. Idioma, alfabeto e comprimento influenciam.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "O que significa IC alto?",
+            "answer": "<p>Distribuição desigual compatível com idioma ou substituição monoalfabética, mas não identifica sozinho a cifra.</p>"
+        },
+        {
+            "question": "Ele fornece o tamanho exato?",
+            "answer": "<p>Não. Múltiplos, divisores e ruído criam candidatos concorrentes.</p>"
+        },
+        {
+            "question": "É confiável em texto curto?",
+            "answer": "<p>Pouco; algumas frequências dominam a estimativa.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "kasiski-examination",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Análise de frequência"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Quebrador de Vigenère"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifra de Vigenère"
+        }
+    ],
+    "tags": [
+        "criptoanálise",
+        "índice de coincidência",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext-only-attack",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ciphertext-only attack",
+        "aliases": [
+            "COA",
+            "ciphertext-only cryptanalysis"
+        ],
+        "short": "A ciphertext-only attack attempts to recover plaintext or keys using only captured ciphertext and observable metadata.",
+        "meta_title": "Ciphertext-Only Attack — Definition | CiphersOnline",
+        "meta_description": "Learn what a ciphertext-only attacker can observe, how frequency, repetition, format, and key search help, and why modern encryption should resist this model."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A ciphertext-only attacker has no confirmed plaintext pairs and cannot choose inputs; the main evidence is one or more ciphertexts plus metadata such as length and timing. The objective is to infer plaintext, key information, or useful properties of the messages.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "methods",
+            "title": "Available methods",
+            "html": "<p>Against classical ciphers, analysts use letter frequencies, repeated patterns, language models, Index of Coincidence, Kasiski examination, and key search. Multiple messages encrypted with related keys or reused nonces can provide far more evidence than a single sample.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Modern security",
+            "html": "<p>Modern encryption is expected to make ciphertext computationally indistinguishable from random data apart from unavoidable metadata. Success often depends on weak keys, nonce reuse, protocol leakage, implementation flaws, or predictable plaintext rather than breaking the primitive itself.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is frequency analysis a ciphertext-only attack?",
+            "answer": "<p>Yes when it uses only ciphertext statistics and an expected language profile, without confirmed plaintext.</p>"
+        },
+        {
+            "question": "Can an attacker know the algorithm?",
+            "answer": "<p>Yes. Attack models normally assume the algorithm is public; ciphertext-only describes available message data, not ignorance of the design.</p>"
+        },
+        {
+            "question": "Does one ciphertext provide enough data?",
+            "answer": "<p>Sometimes for weak classical ciphers, but short samples and secure modern schemes may reveal nothing useful beyond metadata.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "frequency-analysis",
+        "index-of-coincidence",
+        "kasiski-examination",
+        "brute-force-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Cracker"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "ciphertext-only attack",
+        "attack model"
+    ],
+    "category": "cryptanalysis"
+}

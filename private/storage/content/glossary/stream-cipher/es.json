@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "stream-cipher",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifrado de flujo",
+        "aliases": [
+            "cifrado de secuencia",
+            "cifrado con flujo de clave"
+        ],
+        "short": "Un cifrado de flujo combina el texto plano con una secuencia pseudoaleatoria generada desde una clave secreta y un nonce.",
+        "meta_title": "Cifrado de flujo — definición y seguridad | CiphersOnline",
+        "meta_description": "Cómo genera la secuencia de clave, por qué no debe repetirse clave y nonce y por qué el cifrado también debe autenticar los datos."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Un cifrado de flujo genera una secuencia pseudoaleatoria desde clave y normalmente nonce, y la combina con el texto plano, a menudo mediante XOR. La misma secuencia descifra. ChaCha20 es un ejemplo moderno.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Reutilización",
+            "html": "<p>Una secuencia nunca debe cifrar dos mensajes. Repetir clave y nonce revela la relación XOR entre textos y puede permitir recuperarlos.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Integridad",
+            "html": "<p>El cifrado básico no detecta modificaciones. Los sistemas modernos usan construcciones autenticadas como ChaCha20-Poly1305.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Es igual que un cifrado por bloques?",
+            "answer": "<p>No. El de flujo genera secuencia; el de bloques permuta bloques fijos. Algunos modos de bloque se comportan como flujo.</p>"
+        },
+        {
+            "question": "¿El nonce puede ser público?",
+            "answer": "<p>Normalmente sí, pero debe ser único para la clave.</p>"
+        },
+        {
+            "question": "¿Por qué es grave reutilizarlo?",
+            "answer": "<p>La secuencia se cancela al comparar textos cifrados y relaciona directamente los textos planos.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "block-cipher",
+        "cryptographic-key",
+        "nonce",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografía",
+        "cifrado de flujo",
+        "secuencia de clave"
+    ],
+    "category": "concepts"
+}

@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "nonce",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Nonce",
+        "aliases": [
+            "number used once",
+            "unique cryptographic value"
+        ],
+        "short": "A nonce is a value that must not repeat within the scope defined by a cryptographic protocol, commonly under one key.",
+        "meta_title": "Nonce — Definition in Cryptography | CiphersOnline",
+        "meta_description": "Learn what a nonce is, when it must be unique or unpredictable, how it differs from a key, IV, and salt, and why reuse can break security."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A nonce is a value used once within a defined cryptographic context, often once per encryption under a particular key. It separates otherwise identical operations so they do not reuse the same internal state or keystream.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Unique does not always mean random",
+            "html": "<p>A nonce may be a counter, a randomly generated value with negligible collision risk, or a structured sequence. Some schemes require only uniqueness; others also require unpredictability. The algorithm or protocol defines the rule.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "Nonce, IV, salt, and key",
+            "html": "<p>A nonce is normally public and is not a secret key. An initialization vector initializes a mode and may have stricter unpredictability requirements; in some schemes the IV is the nonce. A salt separates password derivations and may be reused only according to different rules.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "What happens if a nonce is reused?",
+            "answer": "<p>The effect depends on the scheme, but it may reveal plaintext relationships, enable forgery, or completely destroy confidentiality and integrity.</p>"
+        },
+        {
+            "question": "Must a nonce be random?",
+            "answer": "<p>Not always. A counter can be ideal when uniqueness is guaranteed. Follow the exact requirements of the algorithm.</p>"
+        },
+        {
+            "question": "How is a nonce transmitted?",
+            "answer": "<p>It is commonly stored or sent alongside the ciphertext because the recipient needs it and it usually need not be secret.</p>"
+        }
+    ],
+    "related_terms": [
+        "initialization-vector",
+        "stream-cipher",
+        "block-cipher",
+        "cryptographic-key",
+        "entropy"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptography",
+        "nonce",
+        "unique value"
+    ],
+    "category": "concepts"
+}

@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "chosen-plaintext-attack",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de texto plano elegido",
+        "aliases": [
+            "ataque con texto elegido",
+            "CPA"
+        ],
+        "short": "El ataque obtiene textos cifrados para textos planos elegidos por el atacante y usa los resultados para probar el esquema.",
+        "meta_title": "Ataque de texto plano elegido | CiphersOnline",
+        "meta_description": "Qué acceso posee el atacante, cómo funcionan consultas adaptativas y por qué el cifrado aleatorio debe resistir CPA."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El atacante envía textos elegidos a un oráculo de cifrado y observa resultados. Busca clave, relaciones o distinguir el esquema del ideal.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Consultas adaptativas",
+            "html": "<p>Las no adaptativas se fijan antes; las adaptativas dependen de respuestas previas. API y dispositivos pueden actuar como oráculos.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Seguridad CPA",
+            "html": "<p>El cifrado probabilístico debe ocultar cuál de dos mensajes elegidos se cifró. Nonces nuevos o aleatoriedad son esenciales.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Es más fuerte que texto conocido?",
+            "answer": "<p>Sí, el atacante controla las entradas.</p>"
+        },
+        {
+            "question": "¿Revela la clave?",
+            "answer": "<p>No en un esquema seguro frente a CPA.</p>"
+        },
+        {
+            "question": "¿Una API de cifrado es peligrosa?",
+            "answer": "<p>No si el protocolo soporta datos elegidos.</p>"
+        }
+    ],
+    "related_terms": [
+        "known-plaintext-attack",
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptoanálisis",
+        "texto plano elegido",
+        "modelo de ataque"
+    ],
+    "category": "cryptanalysis"
+}

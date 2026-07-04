@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "brute-force-attack",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de fuerza bruta",
+        "aliases": [
+            "búsqueda exhaustiva de claves",
+            "fuerza bruta"
+        ],
+        "short": "Un ataque de fuerza bruta prueba sistemáticamente claves o secretos hasta hallar un resultado válido reconocible.",
+        "meta_title": "Ataque de fuerza bruta — definición | CiphersOnline",
+        "meta_description": "Cómo funciona la búsqueda exhaustiva, qué determina su coste, cómo se verifican candidatos y por qué las claves modernas aleatorias resisten."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>La fuerza bruta prueba candidatos sin aprovechar un atajo criptográfico. Enumera claves o contraseñas de un espacio y necesita reconocer el resultado correcto.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cost",
+            "title": "Coste",
+            "html": "<p>Depende de entropía, trabajo por intento, paralelismo y límites. Cada bit aleatorio duplica el peor espacio; una clave aleatoria de 128 bits es impracticable.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Otros ataques",
+            "html": "<p>Diccionarios y criptoanálisis priorizan valores probables o estructura. Claves clásicas pequeñas y contraseñas débiles sí permiten fuerza bruta.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Siempre encuentra la clave?",
+            "answer": "<p>Solo si está en el espacio, hay recursos y puede verificarse.</p>"
+        },
+        {
+            "question": "¿Intentos medios?",
+            "answer": "<p>Aproximadamente la mitad del espacio uniforme; todo en el peor caso.</p>"
+        },
+        {
+            "question": "¿Es igual a un diccionario?",
+            "answer": "<p>No. El diccionario prioriza elecciones humanas probables.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "ciphertext",
+        "cipher",
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "dictionary-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Fuerza Bruta César"
+        },
+        {
+            "slug": "text-analysis/affine-brute-force",
+            "label": "Solver del cifrado afín"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifrados"
+        }
+    ],
+    "tags": [
+        "criptoanálisis",
+        "fuerza bruta",
+        "búsqueda de claves"
+    ],
+    "category": "cryptanalysis"
+}

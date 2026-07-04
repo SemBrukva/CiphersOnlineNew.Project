@@ -43,6 +43,9 @@ final class DashboardController
                 'analytics_total_30' => config('analytics.enabled', true) ? $this->analyticsRepo->totalCount(30) : 0,
                 'analytics_total_7'  => config('analytics.enabled', true) ? $this->analyticsRepo->totalCount(7) : 0,
                 'analytics_tools_30' => config('analytics.enabled', true) ? $this->analyticsRepo->uniqueToolsCount(30) : 0,
+                'analytics_source_30' => config('analytics.enabled', true)
+                    ? $this->analyticsRepo->totalCountBySource(30)
+                    : ['local' => 0, 'embed' => 0],
                 'analytics_daily_json' => config('analytics.enabled', true)
                     ? (string) json_encode($this->analyticsRepo->dailyUsage(30), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
                     : '{}',

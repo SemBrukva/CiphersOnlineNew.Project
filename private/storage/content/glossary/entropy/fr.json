@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "entropy",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Entropie",
+        "aliases": [
+            "entropie cryptographique",
+            "mesure d’incertitude"
+        ],
+        "short": "L’entropie mesure l’incertitude d’une valeur et limite la difficulté de deviner les secrets cryptographiques.",
+        "meta_title": "Entropie en cryptographie — définition | CiphersOnline",
+        "meta_description": "Ce que signifie l’entropie pour clés, mots de passe, nonces et générateurs, pourquoi longueur et entropie diffèrent et comment un faible aléa nuit."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>L’entropie quantifie l’incertitude en bits. Une clé uniforme de 128 bits possède 128 bits d’entropie ; une longue valeur prévisible beaucoup moins. Elle décrit le processus de génération, non l’apparence d’un échantillon.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Sources et générateurs",
+            "html": "<p>Le système collecte de l’incertitude matérielle et événementielle pour amorcer un générateur cryptographique. Celui-ci étend une bonne graine, mais ne sauve pas une graine devinable.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Clés et mots de passe",
+            "html": "<p>La force d’une clé ne dépasse pas l’entropie de sa création. Le hachage lent freine les essais de mots de passe mais n’ajoute pas l’incertitude manquante.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Entropie et longueur de clé sont-elles identiques ?",
+            "answer": "<p>Non. La longueur fixe l’espace de représentation ; l’entropie mesure l’imprévisibilité du choix.</p>"
+        },
+        {
+            "question": "Un logiciel crée-t-il de la vraie entropie ?",
+            "answer": "<p>Un programme déterministe étend une graine et dépend de sources physiques ou système.</p>"
+        },
+        {
+            "question": "Combien d’entropie suffit ?",
+            "answer": "<p>Cela dépend de la menace et de l’algorithme ; les clés modernes visent souvent au moins 128 bits de sécurité.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "nonce",
+        "encryption",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptographie",
+        "entropie",
+        "aléa"
+    ],
+    "category": "concepts"
+}

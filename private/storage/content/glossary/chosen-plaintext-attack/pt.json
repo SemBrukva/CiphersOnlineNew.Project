@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "chosen-plaintext-attack",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de texto claro escolhido",
+        "aliases": [
+            "ataque com texto escolhido",
+            "CPA"
+        ],
+        "short": "O ataque obtém textos cifrados para textos claros escolhidos pelo atacante e usa as respostas para testar o esquema.",
+        "meta_title": "Ataque de texto claro escolhido | CiphersOnline",
+        "meta_description": "Qual acesso o atacante possui, como consultas adaptativas funcionam e por que a criptografia aleatória deve resistir a CPA."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>O atacante envia textos escolhidos a um oráculo e observa os resultados para buscar chave, relações ou distinção.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Consultas adaptativas",
+            "html": "<p>As não adaptativas são definidas antes; as adaptativas dependem das respostas. APIs e dispositivos podem servir de oráculo.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Segurança CPA",
+            "html": "<p>A criptografia probabilística deve ocultar qual mensagem escolhida foi cifrada. Nonces novos e aleatoriedade são essenciais.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "É mais forte que texto conhecido?",
+            "answer": "<p>Sim, o atacante controla as entradas.</p>"
+        },
+        {
+            "question": "Revela a chave?",
+            "answer": "<p>Não em um esquema seguro contra CPA.</p>"
+        },
+        {
+            "question": "Uma API é perigosa?",
+            "answer": "<p>Não se o protocolo suporta entradas escolhidas.</p>"
+        }
+    ],
+    "related_terms": [
+        "known-plaintext-attack",
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptoanálise",
+        "texto claro escolhido",
+        "modelo de ataque"
+    ],
+    "category": "cryptanalysis"
+}

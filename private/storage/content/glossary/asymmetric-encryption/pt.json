@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "asymmetric-encryption",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Criptografia assimétrica",
+        "aliases": [
+            "criptografia de chave pública",
+            "cifra de chave pública"
+        ],
+        "short": "A criptografia assimétrica usa uma chave pública para criptografar e a chave privada relacionada para descriptografar.",
+        "meta_title": "Criptografia assimétrica — definição | CiphersOnline",
+        "meta_description": "Como chaves pública e privada criptografam sem segredo compartilhado, por que a autenticidade importa e por que se usa criptografia híbrida."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>A criptografia assimétrica usa um par de chaves. A pública criptografa para seu proprietário; a privada permanece secreta e descriptografa. Derivar a privada da pública deve ser inviável.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Criptografia híbrida",
+            "html": "<p>Operações de chave pública são lentas e limitadas em tamanho. Por isso, geralmente protegem uma chave de sessão aleatória e os dados são criptografados simetricamente. Certificados vinculam a chave pública ao proprietário.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Criptografia e assinatura",
+            "html": "<p>Assinaturas digitais também usam pares de chaves, mas fornecem autenticidade, não confidencialidade. Chamá-las de «criptografia com chave privada» é enganoso.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Qualquer pessoa pode usar a chave pública para criptografar?",
+            "answer": "<p>Sim, mas somente a chave privada correspondente deve descriptografar. É preciso verificar o proprietário.</p>"
+        },
+        {
+            "question": "Por que não criptografar o arquivo inteiro diretamente?",
+            "answer": "<p>É mais lento e costuma aceitar entradas curtas. O modelo híbrido combina criptografia simétrica.</p>"
+        },
+        {
+            "question": "Uma chave privada perdida pode ser recuperada?",
+            "answer": "<p>Normalmente não. Sem backup, os dados podem ficar inacessíveis.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografia",
+        "criptografia assimétrica",
+        "chave pública"
+    ],
+    "category": "concepts"
+}

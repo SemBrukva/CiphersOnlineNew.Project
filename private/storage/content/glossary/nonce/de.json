@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "nonce",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Nonce",
+        "aliases": [
+            "einmal verwendeter Wert",
+            "kryptografischer Einmalwert"
+        ],
+        "short": "Ein Nonce darf sich im vom Protokoll definierten Bereich, häufig unter einem Schlüssel, nicht wiederholen.",
+        "meta_title": "Nonce — kryptografische Definition | CiphersOnline",
+        "meta_description": "Was ein Nonce ist, wann er einzigartig oder unvorhersehbar sein muss, wie er sich von Schlüssel, IV und Salt unterscheidet und warum Wiederholung schadet."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Ein Nonce wird in einem definierten Kontext einmal verwendet, häufig pro Verschlüsselung unter einem Schlüssel. Er trennt gleiche Operationen, damit interner Zustand oder Schlüsselstrom nicht wiederholt werden.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Einzigartig ist nicht immer zufällig",
+            "html": "<p>Ein Nonce kann Zähler, Zufallswert mit geringem Kollisionsrisiko oder strukturierte Folge sein. Manche Verfahren verlangen nur Einzigartigkeit, andere auch Unvorhersehbarkeit.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "Nonce, IV, Salt und Schlüssel",
+            "html": "<p>Der Nonce ist meist öffentlich und kein Schlüssel. Ein IV initialisiert einen Modus und kann strengere Regeln haben; manchmal sind beide identisch. Salt trennt Passwortableitungen.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Was bewirkt Nonce-Wiederholung?",
+            "answer": "<p>Je nach Verfahren werden Klartextbeziehungen sichtbar, Fälschungen möglich oder Vertraulichkeit und Integrität zerstört.</p>"
+        },
+        {
+            "question": "Muss ein Nonce zufällig sein?",
+            "answer": "<p>Nicht immer. Ein garantiert einzigartiger Zähler kann ideal sein.</p>"
+        },
+        {
+            "question": "Wie wird er übertragen?",
+            "answer": "<p>Üblicherweise zusammen mit dem Geheimtext, da er nicht geheim sein muss.</p>"
+        }
+    ],
+    "related_terms": [
+        "initialization-vector",
+        "stream-cipher",
+        "block-cipher",
+        "cryptographic-key",
+        "entropy"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptografie",
+        "Nonce",
+        "Einmalwert"
+    ],
+    "category": "concepts"
+}

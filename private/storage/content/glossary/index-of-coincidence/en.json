@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "index-of-coincidence",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Index of coincidence",
+        "aliases": [
+            "IC",
+            "coincidence index"
+        ],
+        "short": "The Index of Coincidence measures the probability that two letters selected from a text are identical.",
+        "meta_title": "Index of Coincidence — Definition and Formula | CiphersOnline",
+        "meta_description": "Learn the Index of Coincidence formula, how it distinguishes language-like from flatter distributions, and how it helps estimate Vigenère key length."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition and formula",
+            "html": "<p>The Index of Coincidence (IC) is the probability that two letters drawn without replacement from a text are the same. For counts <code>nᵢ</code> and total letter count <code>N</code>, <code>IC = Σ nᵢ(nᵢ−1) / N(N−1)</code>. Spaces and punctuation are normally excluded consistently.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "interpretation",
+            "title": "How to interpret it",
+            "html": "<p>Natural languages have uneven letter frequencies, so their IC is generally higher than that of a uniform random alphabet. Monoalphabetic substitution preserves the frequency counts and therefore the IC. Polyalphabetic encryption mixes several distributions and often lowers the overall value.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "application",
+            "title": "Estimating a key period",
+            "html": "<p>To test a candidate Vigenère period, divide the ciphertext into columns at that interval and average their IC values. Columns that each resemble one shifted language distribution support the candidate. Expected values depend on language, alphabet, normalization, and text length, so IC is evidence rather than proof.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "What does a high IC mean?",
+            "answer": "<p>It indicates an uneven distribution with repeated letters, often compatible with natural language or monoalphabetic substitution, but it does not identify the cipher by itself.</p>"
+        },
+        {
+            "question": "Can IC determine the exact key length?",
+            "answer": "<p>It suggests likely periods. Multiples, divisors, and statistical noise can produce competing peaks, so other tests should confirm the result.</p>"
+        },
+        {
+            "question": "Is IC reliable for short text?",
+            "answer": "<p>It becomes noisy on short samples because a few letter counts dominate the estimate. Longer ciphertext provides more stable evidence.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "kasiski-examination",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Cracker"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "index of coincidence",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

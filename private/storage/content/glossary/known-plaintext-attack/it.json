@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "known-plaintext-attack",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attacco con testo in chiaro noto",
+        "aliases": [
+            "attacco a testo noto",
+            "KPA"
+        ],
+        "short": "L’attacco usa coppie corrispondenti di testo in chiaro e cifrato per studiare la chiave o il processo.",
+        "meta_title": "Attacco con testo in chiaro noto | CiphersOnline",
+        "meta_description": "Quali dati possiede l’attaccante, come le coppie indeboliscono vecchi cifrari e perché la cifratura moderna deve resistere."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>L’analista conosce il testo in chiaro corrispondente a parte di uno o più testi cifrati e cerca chiave, struttura o altri messaggi.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Fonti",
+            "html": "<p>Intestazioni, campi di protocollo, modelli e messaggi divulgati forniscono coppie. L’attaccante non sceglie l’input.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Resistenza",
+            "html": "<p>Sostituzioni classiche e flussi riutilizzati possono cedere. Un cifrario moderno deve restare sicuro con molte coppie note.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Il testo noto rivela la chiave?",
+            "answer": "<p>Non in un cifrario moderno sicuro; può rivelare debolezze o errori.</p>"
+        },
+        {
+            "question": "Una parola probabile conta?",
+            "answer": "<p>No, è un crib, cioè un’ipotesi.</p>"
+        },
+        {
+            "question": "Differenza dal testo scelto?",
+            "answer": "<p>Lì l’attaccante può far cifrare input propri.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "brute-force-attack",
+        "chosen-plaintext-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificatore di cifrari"
+        },
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Forza Bruta Cesare"
+        }
+    ],
+    "tags": [
+        "crittoanalisi",
+        "testo in chiaro noto",
+        "modello di attacco"
+    ],
+    "category": "cryptanalysis"
+}

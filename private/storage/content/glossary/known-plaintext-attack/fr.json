@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "known-plaintext-attack",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attaque à texte clair connu",
+        "aliases": [
+            "attaque avec texte clair connu",
+            "KPA"
+        ],
+        "short": "Cette attaque utilise des paires texte clair–texte chiffré correspondantes pour étudier la clé ou le procédé.",
+        "meta_title": "Attaque à texte clair connu | CiphersOnline",
+        "meta_description": "Ce que connaît l’attaquant, comment les paires affaiblissent les anciens chiffres et pourquoi le chiffrement moderne doit leur résister."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>L’analyste connaît le texte clair correspondant à une partie d’un ou plusieurs textes chiffrés. Il cherche clé, structure ou autres messages.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Sources",
+            "html": "<p>En-têtes, champs de protocole, modèles et messages divulgués fournissent des paires. L’entrée n’est pas choisie par l’attaquant.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Résistance",
+            "html": "<p>Substitutions classiques et suites réutilisées peuvent céder. Un chiffrement moderne doit rester sûr malgré de nombreuses paires connues.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Le texte connu révèle-t-il la clé ?",
+            "answer": "<p>Pas pour un chiffre moderne sûr, mais il peut révéler une faiblesse ou une erreur.</p>"
+        },
+        {
+            "question": "Un mot probable compte-t-il ?",
+            "answer": "<p>Non, c’est un crib, donc une hypothèse.</p>"
+        },
+        {
+            "question": "Différence avec texte choisi ?",
+            "answer": "<p>Dans ce modèle plus fort, l’attaquant fait chiffrer ses propres entrées.</p>"
+        }
+    ],
+    "related_terms": [
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "brute-force-attack",
+        "chosen-plaintext-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificateur de chiffrement"
+        },
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Force Brute César"
+        }
+    ],
+    "tags": [
+        "cryptanalyse",
+        "texte clair connu",
+        "modèle d’attaque"
+    ],
+    "category": "cryptanalysis"
+}

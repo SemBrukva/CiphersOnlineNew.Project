@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "dictionary-attack",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Wörterbuchangriff",
+        "aliases": [
+            "Wortlistenangriff",
+            "Passwortwörterbuch"
+        ],
+        "short": "Ein Wörterbuchangriff testet eine priorisierte Liste wahrscheinlicher Passwörter, Schlüssel oder Phrasen statt aller Möglichkeiten.",
+        "meta_title": "Wörterbuchangriff — Definition und Schutz | CiphersOnline",
+        "meta_description": "Unterschied zu Brute Force, Gefahr der Offline-Passwortsuche und Schutz durch Salt, starke Passwörter und langsame KDFs."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Wortlisten enthalten häufige Passwörter, Wörter, Leaks, Namen und typische Abwandlungen. Vollständigkeit wird gegen frühe Treffer bei menschlichen Geheimnissen getauscht.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "online_offline",
+            "title": "Online und offline",
+            "html": "<p>Online begrenzen Server und Sperren. Mit erbeuteten Hashes wird offline und parallel geprüft; Format und Kosten bestimmen das Tempo.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Schutz",
+            "html": "<p>Einzigartige lange Passwörter, eigenes Salt und eine speicherharte KDF sind nötig. Salt macht schwache Passwörter nicht stark.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Unterschied zu Brute Force?",
+            "answer": "<p>Wörterbücher priorisieren Wahrscheinliches, können ungewöhnliche Werte aber verpassen.</p>"
+        },
+        {
+            "question": "Helfen Zahlensubstitutionen?",
+            "answer": "<p>Kaum, moderne Listen enthalten sie.</p>"
+        },
+        {
+            "question": "Stoppt Salt den Angriff?",
+            "answer": "<p>Nein, es erzwingt nur getrennte Arbeit je Salt.</p>"
+        }
+    ],
+    "related_terms": [
+        "brute-force-attack",
+        "cryptographic-key",
+        "entropy",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptoanalyse",
+        "Wörterbuchangriff",
+        "Passwortsuche"
+    ],
+    "category": "cryptanalysis"
+}

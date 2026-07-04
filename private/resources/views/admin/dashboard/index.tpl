@@ -60,6 +60,38 @@
 </div>
 
 {if $analytics_enabled}
+{assign var="src_total" value=$analytics_source_30.local + $analytics_source_30.embed}
+<div class="row g-3 mb-4">
+    <div class="col-sm-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="admin-stat-icon bg-primary bg-opacity-10 text-primary rounded-3 p-3">
+                    <i class="bi bi-window fs-4"></i>
+                </div>
+                <div>
+                    <div class="text-muted small">Основной сайт (30 дн.)</div>
+                    <div class="fs-4 fw-bold">{$analytics_source_30.local}</div>
+                    <div class="text-muted small">{if $src_total > 0}{($analytics_source_30.local * 100 / $src_total)|string_format:"%.1f"}%{else}—{/if} от всех</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="admin-stat-icon bg-secondary bg-opacity-10 text-secondary rounded-3 p-3">
+                    <i class="bi bi-code-square fs-4"></i>
+                </div>
+                <div>
+                    <div class="text-muted small">Встраиваемые виджеты / embed (30 дн.)</div>
+                    <div class="fs-4 fw-bold">{$analytics_source_30.embed}</div>
+                    <div class="text-muted small">{if $src_total > 0}{($analytics_source_30.embed * 100 / $src_total)|string_format:"%.1f"}%{else}—{/if} от всех</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="card border-0 shadow-sm mb-4">
     <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
         <h5 class="mb-0"><i class="bi bi-graph-up me-2 text-primary"></i>Использование сервисов — 30 дней</h5>
@@ -86,6 +118,8 @@
                         <th class="ps-4">#</th>
                         <th>Инструмент</th>
                         <th class="text-end">Всего</th>
+                        <th class="text-end">Локально</th>
+                        <th class="text-end">Embed</th>
                         <th class="text-end">Шифрований</th>
                         <th class="text-end">Дешифрований</th>
                     </tr>
@@ -96,6 +130,8 @@
                         <td class="ps-4 text-muted small">{$i+1}</td>
                         <td class="fw-medium font-monospace">{$row.tool_slug}</td>
                         <td class="text-end fw-bold">{$row.total}</td>
+                        <td class="text-end text-muted">{$row.locals}</td>
+                        <td class="text-end">{if $row.embeds > 0}<span class="badge bg-secondary bg-opacity-10 text-secondary">{$row.embeds}</span>{else}<span class="text-muted">0</span>{/if}</td>
                         <td class="text-end text-muted">{$row.encodes}</td>
                         <td class="text-end text-muted">{$row.decodes}</td>
                     </tr>

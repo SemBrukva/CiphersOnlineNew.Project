@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "block-cipher",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Blok şifre",
+        "aliases": [
+            "blok şifreleme algoritması",
+            "anahtarlı blok permütasyonu"
+        ],
+        "short": "Blok şifre, sabit boyutlu veri bloklarını gizli anahtar altında dönüştüren simetrik algoritmadır.",
+        "meta_title": "Blok şifre — tanım ve kipler | CiphersOnline",
+        "meta_description": "AES gibi blok şifrelerin sabit blokları nasıl dönüştürdüğünü, kiplerin uzun mesajları nasıl işlediğini ve ECB’nin neden güvensiz olduğunu öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Blok şifre, sabit boyutlu her düz metin bloğunu aynı boyutta şifreli bloğa eşler. AES 128 bit blok ve farklı anahtar boyutları kullanır. Blok ile anahtar boyutu ayrı özelliklerdir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "modes",
+            "title": "Çalışma kipleri",
+            "html": "<p>İlkel yalnızca bir bloğu işler. CBC, CTR ve GCM uzun veya kısmi mesajları tanımlar. Bazıları dolgu ister, bazıları akış gibi çalışır; GCM ayrıca doğrular.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Güvenli kullanım",
+            "html": "<p>ECB aynı blokları aynı biçimde şifreler ve örüntü sızdırır. Diğer kiplerin nonce veya vektör kuralları vardır. Tekrar, doğrulama eksikliği veya hatalı dolgu güvenliği bozar.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Blok ve anahtar boyutu aynı mı?",
+            "answer": "<p>Hayır. AES’in bloğu daima 128 bit, anahtarları 128, 192 veya 256 bittir.</p>"
+        },
+        {
+            "question": "Her blok şifre dolgu ister mi?",
+            "answer": "<p>Hayır. CBC çoğunlukla ister; CTR ve birçok doğrulanmış kip kısmi son bloğu işler.</p>"
+        },
+        {
+            "question": "ECB neden önerilmez?",
+            "answer": "<p>Aynı düz metin blokları aynı şifreli blokları üretir ve yapıyı açığa çıkarır.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher"
+    ],
+    "related_tools": [],
+    "tags": [
+        "kriptografi",
+        "blok şifre",
+        "simetrik şifreleme"
+    ],
+    "category": "concepts"
+}

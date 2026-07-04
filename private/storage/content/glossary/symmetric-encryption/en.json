@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "symmetric-encryption",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Symmetric encryption",
+        "aliases": [
+            "secret-key encryption",
+            "shared-key encryption"
+        ],
+        "short": "Symmetric encryption uses the same secret key, or directly related secret keys, to encrypt and decrypt data.",
+        "meta_title": "Symmetric Encryption — Definition | CiphersOnline",
+        "meta_description": "Learn how shared-key encryption works, why it is efficient for bulk data, and why secure key exchange, nonces, and authentication matter."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Symmetric encryption uses a secret shared by sender and recipient to transform plaintext into ciphertext and back. Modern examples include AES and ChaCha20. Classical ciphers are also symmetric because anyone who knows their key can perform both directions.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "How it is used",
+            "html": "<p>Symmetric algorithms are fast and well suited to files, disks, databases, and network traffic. A nonce or initialization vector prevents repeated messages from producing unsafe repetitions. Authenticated encryption modes also detect modification before releasing plaintext.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Key distribution",
+            "html": "<p>Every authorized party needs the secret key, so distributing and rotating it safely is the central challenge. Real protocols often use asymmetric cryptography to authenticate parties and establish a temporary symmetric session key, then use that key for bulk data.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Why is symmetric encryption fast?",
+            "answer": "<p>Its operations are designed for efficient processing of large data volumes and avoid the expensive mathematics used by public-key algorithms.</p>"
+        },
+        {
+            "question": "Do both parties use exactly the same key?",
+            "answer": "<p>Usually yes. Some constructions derive separate encryption and authentication keys from one shared secret, but all must remain secret.</p>"
+        },
+        {
+            "question": "Is a password a symmetric key?",
+            "answer": "<p>Not directly. A password should be processed by a password-based KDF with a salt before it is used to derive an encryption key.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "asymmetric-encryption",
+        "block-cipher"
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        }
+    ],
+    "tags": [
+        "cryptography",
+        "symmetric encryption",
+        "secret key"
+    ],
+    "category": "concepts"
+}

@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext-only-attack",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attacco con solo testo cifrato",
+        "aliases": [
+            "attacco solo ciphertext",
+            "COA"
+        ],
+        "short": "L’attacco tenta di recuperare testo in chiaro o chiavi usando soltanto testo cifrato catturato e metadati.",
+        "meta_title": "Attacco con solo testo cifrato | CiphersOnline",
+        "meta_description": "Che cosa osserva l’attaccante, come aiutano frequenze, schemi e ricerca di chiavi e perché la cifratura moderna deve resistere."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Nessuna coppia confermata né input scelto: solo testi cifrati e metadati. Si cercano testo in chiaro, chiave o proprietà.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "methods",
+            "title": "Metodi",
+            "html": "<p>Contro cifrari classici si usano frequenze, ripetizioni, lingua, IC, Kasiski e ricerca. Nonce riutilizzati aggiungono indizi.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Sicurezza moderna",
+            "html": "<p>Il testo cifrato moderno deve apparire casuale salvo metadati. Il successo deriva spesso da chiavi deboli, nonce ripetuti o difetti.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "L’analisi delle frequenze rientra nel modello?",
+            "answer": "<p>Sì, se usa solo statistiche cifrate e profilo linguistico.</p>"
+        },
+        {
+            "question": "L’algoritmo può essere noto?",
+            "answer": "<p>Sì. Il modello descrive i dati disponibili.</p>"
+        },
+        {
+            "question": "Basta un solo testo?",
+            "answer": "<p>A volte per cifrari classici deboli, non per schemi moderni sicuri.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "frequency-analysis",
+        "index-of-coincidence",
+        "kasiski-examination",
+        "brute-force-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificatore di cifrari"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Analisi di frequenza"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Cracker Vigenère"
+        }
+    ],
+    "tags": [
+        "crittoanalisi",
+        "solo testo cifrato",
+        "modello di attacco"
+    ],
+    "category": "cryptanalysis"
+}

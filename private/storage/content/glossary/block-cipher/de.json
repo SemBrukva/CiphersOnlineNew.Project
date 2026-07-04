@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "block-cipher",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Blockchiffre",
+        "aliases": [
+            "Blockverschlüsselungsalgorithmus",
+            "schlüsselabhängige Blockpermutation"
+        ],
+        "short": "Eine Blockchiffre ist ein symmetrischer Algorithmus, der Datenblöcke fester Größe unter einem geheimen Schlüssel transformiert.",
+        "meta_title": "Blockchiffre — Definition und Modi | CiphersOnline",
+        "meta_description": "Wie Blockchiffren wie AES feste Blöcke transformieren, wie Betriebsarten längere Nachrichten verarbeiten und warum ECB unsicher ist."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Eine Blockchiffre bildet jeden Klartextblock fester Größe unter einem Schlüssel auf einen gleich großen Geheimtextblock ab. AES hat 128-Bit-Blöcke und mehrere Schlüsselgrößen. Block- und Schlüsselgröße sind verschieden.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "modes",
+            "title": "Betriebsarten",
+            "html": "<p>Das Grundverfahren verarbeitet nur einen Block. CBC, CTR und GCM regeln lange und unvollständige Nachrichten. Manche benötigen Padding, andere arbeiten stromähnlich; GCM authentifiziert zusätzlich.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Sicherer Einsatz",
+            "html": "<p>ECB verschlüsselt gleiche Blöcke gleich und verrät Muster. Andere Modi verlangen korrekte Nonces oder IVs. Wiederverwendung, fehlende Authentifizierung oder Paddingfehler können die Sicherheit zerstören.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Sind Block- und Schlüsselgröße gleich?",
+            "answer": "<p>Nein. AES hat stets 128-Bit-Blöcke, aber Schlüssel mit 128, 192 oder 256 Bit.</p>"
+        },
+        {
+            "question": "Braucht jede Blockchiffre Padding?",
+            "answer": "<p>Nein. CBC meist schon, CTR und viele authentifizierte Modi nicht in klassischer Form.</p>"
+        },
+        {
+            "question": "Warum wird ECB abgeraten?",
+            "answer": "<p>Gleiche Klartextblöcke ergeben gleiche Geheimtextblöcke und legen Struktur offen.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptografie",
+        "Blockchiffre",
+        "symmetrische Verschlüsselung"
+    ],
+    "category": "concepts"
+}

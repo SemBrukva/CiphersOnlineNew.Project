@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "initialization-vector",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Initialisierungsvektor",
+        "aliases": [
+            "IV",
+            "Initialisierungswert"
+        ],
+        "short": "Ein Initialisierungsvektor ist ein nicht geheimer Eingang, der einen Chiffrenmodus initialisiert und gefährliche Wiederholungen verhindert.",
+        "meta_title": "Initialisierungsvektor (IV) — Definition | CiphersOnline",
+        "meta_description": "Welche Aufgabe ein IV hat, wie CBC- und CTR-Anforderungen sich unterscheiden und warum IV, Schlüssel und Nonce nicht immer dasselbe sind."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Ein Initialisierungsvektor setzt den Anfangszustand eines Chiffrenmodus. So kann gleicher Klartext unter demselben Schlüssel unterschiedlichen Geheimtext ergeben.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "requirements",
+            "title": "Modusabhängige Anforderungen",
+            "html": "<p>Der IV wird meist mitgesendet und ist nicht geheim. CBC verlangt einen frischen unvorhersehbaren IV; CTR-artige Modi vor allem einen einzigartigen Zähler oder Nonce.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "IV und Nonce",
+            "html": "<p>Nonce betont Nichtwiederholung, IV den Initialisierungseingang eines Modus. Die Begriffe überlappen, sind aber keine universellen Synonyme.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Darf der IV beim Geheimtext stehen?",
+            "answer": "<p>Ja. Entscheidend ist die Einhaltung der Einzigartigkeits- oder Unvorhersehbarkeitsregel.</p>"
+        },
+        {
+            "question": "Darf ein IV wiederholt werden?",
+            "answer": "<p>Mit demselben Schlüssel gewöhnlich nicht; der Schaden hängt vom Modus ab.</p>"
+        },
+        {
+            "question": "Soll der IV aus dem Passwort stammen?",
+            "answer": "<p>Er sollte nach den Regeln des Modus unabhängig erzeugt werden, sofern kein geprüftes Protokoll anderes vorgibt.</p>"
+        }
+    ],
+    "related_terms": [
+        "nonce",
+        "block-cipher",
+        "symmetric-encryption",
+        "cryptographic-key",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptografie",
+        "Initialisierungsvektor",
+        "IV"
+    ],
+    "category": "concepts"
+}

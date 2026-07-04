@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "dictionary-attack",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Dictionary attack",
+        "aliases": [
+            "wordlist attack",
+            "password dictionary attack"
+        ],
+        "short": "A dictionary attack tests a prioritized list of likely passwords, keys, or phrases instead of exhaustively enumerating every possibility.",
+        "meta_title": "Dictionary Attack — Definition and Defense | CiphersOnline",
+        "meta_description": "Learn how wordlist attacks differ from brute force, why offline password guessing is dangerous, and how salts, strong passwords, and slow KDFs defend."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A dictionary attack tries candidates from wordlists built from common passwords, words, leaks, names, and predictable variations. It sacrifices complete coverage for a high chance of finding human-chosen secrets early.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "online_offline",
+            "title": "Online and offline attacks",
+            "html": "<p>Online guessing is limited by server rate controls and lockouts. Offline attackers who obtain password hashes can test candidates without contacting the service, often in parallel. The hash format and cost strongly affect speed.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Defense",
+            "html": "<p>Use unique long passwords or generated secrets, a unique salt per password, and a modern memory-hard password KDF. Salts do not make weak passwords strong, but prevent one precomputed result from testing many accounts.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "How does a dictionary attack differ from brute force?",
+            "answer": "<p>A dictionary prioritizes likely candidates but may miss unusual secrets; exhaustive search covers its entire defined space.</p>"
+        },
+        {
+            "question": "Does changing letters to numbers help?",
+            "answer": "<p>Only slightly. Modern wordlists include common substitutions and appended digits.</p>"
+        },
+        {
+            "question": "Does a salt stop dictionary attacks?",
+            "answer": "<p>No. It forces separate work for each salt; a slow KDF and strong password are still required.</p>"
+        }
+    ],
+    "related_terms": [
+        "brute-force-attack",
+        "cryptographic-key",
+        "entropy",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptanalysis",
+        "dictionary attack",
+        "password guessing"
+    ],
+    "category": "cryptanalysis"
+}

@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "kasiski-examination",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Kasiski-Test",
+        "aliases": [
+            "Kasiski-Untersuchung",
+            "Kasiski-Methode"
+        ],
+        "short": "Der Kasiski-Test schätzt die Periode einer polyalphabetischen Chiffre mit wiederholtem Schlüssel aus Abständen wiederholter Geheimtextfolgen.",
+        "meta_title": "Kasiski-Test — Definition und Methode | CiphersOnline",
+        "meta_description": "Wie wiederholte Geheimtextfolgen und Abstandsfaktoren mögliche Vigenère-Schlüssellängen zeigen und warum das Ergebnis bestätigt werden muss."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Der Kasiski-Test greift Vigenère und verwandte Chiffren mit wiederholtem Schlüssel an. Gleicher Klartext an gleichen Schlüsselpositionen kann gleichen Geheimtext erzeugen; der Abstand ist dann oft ein Vielfaches der Schlüssellänge.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "procedure",
+            "title": "Vorgehen",
+            "html": "<p>Wiederholte Gruppen ab etwa drei Zeichen finden, Abstände messen und faktorisieren. Gemeinsame Faktoren oder der größte gemeinsame Teiler werden Kandidaten. Danach teilt man den Geheimtext in Spalten und prüft deren Häufigkeiten.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Grenzen",
+            "html": "<p>Wiederholungen können zufällig sein oder in kurzen Texten fehlen. Ein Faktor kann Teiler oder Vielfaches der echten Periode sein. Koinzidenzindex und Häufigkeitsanalyse bestätigen die Kandidaten.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Warum wiederholte Trigramme?",
+            "answer": "<p>Sie sind seltener zufällig als Einzelzeichen oder Paare und erscheinen in langen Texten dennoch oft genug.</p>"
+        },
+        {
+            "question": "Gewinnt der Test den Schlüssel?",
+            "answer": "<p>Nicht direkt. Er schätzt Längen; Spaltenanalyse sucht anschließend die Schlüsselzeichen.</p>"
+        },
+        {
+            "question": "Funktioniert er immer bei Vigenère?",
+            "answer": "<p>Nein. Kurze Texte, lange oder nicht wiederholte Schlüssel können zu wenig Hinweise liefern.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "index-of-coincidence",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère-Knacker"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Häufigkeitsanalyse"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère-Chiffre"
+        }
+    ],
+    "tags": [
+        "Kryptoanalyse",
+        "Kasiski-Test",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

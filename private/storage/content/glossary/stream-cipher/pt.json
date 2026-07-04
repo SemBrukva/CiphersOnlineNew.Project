@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "stream-cipher",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifra de fluxo",
+        "aliases": [
+            "cifra de fluxo de chave",
+            "criptografia de fluxo"
+        ],
+        "short": "Uma cifra de fluxo combina o texto claro com um fluxo pseudoaleatório gerado por uma chave secreta e um nonce.",
+        "meta_title": "Cifra de fluxo — definição e segurança | CiphersOnline",
+        "meta_description": "Como o fluxo de chave é gerado, por que chave e nonce não podem ser reutilizados e por que a criptografia também deve autenticar os dados."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Uma cifra de fluxo gera uma sequência pseudoaleatória a partir da chave e normalmente de um nonce, e a combina com o texto claro, muitas vezes por XOR. A mesma sequência descriptografa. ChaCha20 é um exemplo moderno.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Reutilização",
+            "html": "<p>O mesmo fluxo nunca deve criptografar duas mensagens. Repetir chave e nonce revela a relação XOR entre os textos e pode permitir sua recuperação.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Integridade",
+            "html": "<p>A cifra básica não detecta alterações. Sistemas modernos usam construções autenticadas como ChaCha20-Poly1305.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Fluxo e bloco são iguais?",
+            "answer": "<p>Não. A cifra de fluxo gera sequência; a de bloco permuta blocos fixos. Alguns modos de bloco se comportam como fluxo.</p>"
+        },
+        {
+            "question": "O nonce pode ser público?",
+            "answer": "<p>Normalmente sim, mas deve ser único para a chave.</p>"
+        },
+        {
+            "question": "Por que a reutilização é grave?",
+            "answer": "<p>O fluxo se cancela ao comparar textos cifrados e relaciona diretamente os textos claros.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "block-cipher",
+        "cryptographic-key",
+        "nonce",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografia",
+        "cifra de fluxo",
+        "fluxo de chave"
+    ],
+    "category": "concepts"
+}

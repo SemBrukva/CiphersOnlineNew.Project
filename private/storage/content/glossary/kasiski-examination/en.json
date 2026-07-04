@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "kasiski-examination",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Kasiski examination",
+        "aliases": [
+            "Kasiski test",
+            "Kasiski method"
+        ],
+        "short": "The Kasiski examination estimates the period of a repeating-key polyalphabetic cipher from distances between repeated ciphertext sequences.",
+        "meta_title": "Kasiski Examination — Definition and Method | CiphersOnline",
+        "meta_description": "Learn how repeated ciphertext sequences and distance factors reveal candidate Vigenère key lengths, and why Kasiski analysis needs confirmation."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>The Kasiski examination is a classical method for attacking Vigenère and related ciphers with a repeating key. When the same plaintext sequence appears at positions encrypted by the same key positions, it can produce the same ciphertext sequence. The distance between those occurrences is then often a multiple of the key length.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "procedure",
+            "title": "How it works",
+            "html": "<p>Find repeated ciphertext groups, commonly three or more characters, record the distances between their positions, and factor those distances. Factors shared by several distances—or their greatest common divisor—become candidate key lengths. For each candidate, split the ciphertext into columns and test their frequency profiles.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Limitations",
+            "html": "<p>Repetitions may be accidental, short texts may contain too few, and the strongest factor may be a divisor or multiple of the actual period. The method assumes a repeated key and is not a general attack on modern encryption. Index of Coincidence and frequency analysis are used to confirm the candidates.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Why are repeated trigrams useful?",
+            "answer": "<p>Three-character repeats are less likely to occur by chance than single letters or pairs while still appearing often enough in longer ciphertexts.</p>"
+        },
+        {
+            "question": "Does the Kasiski examination recover the key?",
+            "answer": "<p>Not directly. It estimates candidate key lengths; frequency analysis of the resulting columns is then used to infer key characters.</p>"
+        },
+        {
+            "question": "Does it work on every Vigenère ciphertext?",
+            "answer": "<p>No. Short messages, long keys, few repeated plaintext fragments, or a nonrepeating key can leave insufficient evidence.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "index-of-coincidence",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Cracker"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère Cipher"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "Kasiski examination",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

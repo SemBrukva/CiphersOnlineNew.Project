@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "asymmetric-encryption",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Cifratura asimmetrica",
+        "aliases": [
+            "cifratura a chiave pubblica",
+            "crittografia a chiave pubblica"
+        ],
+        "short": "La cifratura asimmetrica usa una chiave pubblica per cifrare e la chiave privata correlata per decifrare.",
+        "meta_title": "Cifratura asimmetrica — definizione | CiphersOnline",
+        "meta_description": "Come chiavi pubblica e privata cifrano senza segreto condiviso, perché l’autenticità è essenziale e perché si usa la cifratura ibrida."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>La cifratura asimmetrica usa una coppia di chiavi. La pubblica cifra per il proprietario; la privata resta segreta e decifra. Ricavare la privata dalla pubblica deve essere impraticabile.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Cifratura ibrida",
+            "html": "<p>Le operazioni a chiave pubblica sono lente e limitate nella dimensione. Di solito proteggono una chiave di sessione casuale, mentre i dati sono cifrati simmetricamente. I certificati associano la chiave pubblica al proprietario.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Cifratura e firma",
+            "html": "<p>Le firme digitali usano anch’esse coppie di chiavi, ma forniscono autenticità, non riservatezza. Definirle «cifratura con la chiave privata» è fuorviante.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Chiunque può cifrare con la chiave pubblica?",
+            "answer": "<p>Sì, ma solo la chiave privata corrispondente deve decifrare. Prima va verificato il proprietario.</p>"
+        },
+        {
+            "question": "Perché non cifrare direttamente un intero file?",
+            "answer": "<p>È più lento e spesso accetta input brevi. Lo schema ibrido aggiunge la cifratura simmetrica.</p>"
+        },
+        {
+            "question": "Una chiave privata persa si può recuperare?",
+            "answer": "<p>Normalmente no. Senza backup i dati possono diventare inaccessibili.</p>"
+        }
+    ],
+    "related_terms": [
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "crittografia",
+        "cifratura asimmetrica",
+        "chiave pubblica"
+    ],
+    "category": "concepts"
+}

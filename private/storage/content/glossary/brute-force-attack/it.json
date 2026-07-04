@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "brute-force-attack",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attacco a forza bruta",
+        "aliases": [
+            "ricerca esaustiva della chiave",
+            "forza bruta"
+        ],
+        "short": "Un attacco a forza bruta prova sistematicamente chiavi o segreti finché trova un risultato valido riconoscibile.",
+        "meta_title": "Attacco a forza bruta — definizione | CiphersOnline",
+        "meta_description": "Come funziona la ricerca esaustiva, cosa ne determina il costo e perché le chiavi moderne casuali resistono."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>La forza bruta prova candidati senza scorciatoie crittoanalitiche. Enumera chiavi o password e deve riconoscere il risultato corretto.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "cost",
+            "title": "Costo",
+            "html": "<p>Entropia, costo per prova, parallelismo e limiti determinano lo sforzo. Ogni bit casuale raddoppia lo spazio peggiore; 128 bit casuali sono impraticabili.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Altri attacchi",
+            "html": "<p>Dizionari e crittoanalisi priorizzano valori o struttura. Piccoli spazi classici e password deboli rendono pratico il metodo.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Trova sempre la chiave?",
+            "answer": "<p>Solo se è nello spazio, le risorse bastano e il risultato è verificabile.</p>"
+        },
+        {
+            "question": "Tentativi medi?",
+            "answer": "<p>Circa metà dello spazio uniforme; tutto nel caso peggiore.</p>"
+        },
+        {
+            "question": "È uguale al dizionario?",
+            "answer": "<p>No. Il dizionario prova prima scelte umane probabili.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "ciphertext",
+        "cipher",
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "dictionary-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Forza Bruta Cesare"
+        },
+        {
+            "slug": "text-analysis/affine-brute-force",
+            "label": "Solver del cifrario affine"
+        },
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificatore di cifrari"
+        }
+    ],
+    "tags": [
+        "crittoanalisi",
+        "forza bruta",
+        "ricerca della chiave"
+    ],
+    "category": "cryptanalysis"
+}

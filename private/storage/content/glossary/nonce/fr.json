@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "nonce",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Nonce",
+        "aliases": [
+            "nombre utilisé une fois",
+            "valeur cryptographique unique"
+        ],
+        "short": "Un nonce est une valeur qui ne doit pas se répéter dans le périmètre défini par le protocole, souvent sous une même clé.",
+        "meta_title": "Nonce — définition cryptographique | CiphersOnline",
+        "meta_description": "Ce qu’est un nonce, quand il doit être unique ou imprévisible, sa différence avec clé, IV et sel et pourquoi sa réutilisation est dangereuse."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Un nonce est utilisé une fois dans un contexte défini, souvent pour chaque chiffrement sous une clé. Il sépare des opérations identiques afin de ne pas répéter état interne ou suite chiffrante.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "generation",
+            "title": "Unique ne signifie pas toujours aléatoire",
+            "html": "<p>Il peut être compteur, valeur aléatoire à faible risque de collision ou séquence structurée. Certains schémas exigent seulement l’unicité, d’autres aussi l’imprévisibilité.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "Nonce, IV, sel et clé",
+            "html": "<p>Le nonce est généralement public et n’est pas une clé. L’IV initialise un mode et peut avoir d’autres exigences ; parfois ils coïncident. Le sel sépare les dérivations de mots de passe.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Que provoque sa réutilisation ?",
+            "answer": "<p>Selon le schéma, elle révèle des relations, permet des falsifications ou détruit confidentialité et intégrité.</p>"
+        },
+        {
+            "question": "Doit-il être aléatoire ?",
+            "answer": "<p>Pas toujours. Un compteur convient si son unicité est garantie.</p>"
+        },
+        {
+            "question": "Comment est-il transmis ?",
+            "answer": "<p>Souvent avec le texte chiffré puisqu’il n’a généralement pas besoin d’être secret.</p>"
+        }
+    ],
+    "related_terms": [
+        "initialization-vector",
+        "stream-cipher",
+        "block-cipher",
+        "cryptographic-key",
+        "entropy"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptographie",
+        "nonce",
+        "valeur unique"
+    ],
+    "category": "concepts"
+}

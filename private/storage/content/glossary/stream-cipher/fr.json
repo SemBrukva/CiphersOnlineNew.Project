@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "stream-cipher",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Chiffrement par flot",
+        "aliases": [
+            "chiffre à flot",
+            "chiffrement par suite chiffrante"
+        ],
+        "short": "Un chiffrement par flot combine le texte en clair avec une suite pseudoaléatoire issue d’une clé secrète et d’un nonce.",
+        "meta_title": "Chiffrement par flot — définition | CiphersOnline",
+        "meta_description": "Comment une suite chiffrante est produite, pourquoi clé et nonce ne doivent jamais être réutilisés et pourquoi l’authentification est nécessaire."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Un chiffre par flot génère une suite pseudoaléatoire depuis une clé et généralement un nonce, puis la combine au texte en clair, souvent par XOR. La même suite déchiffre. ChaCha20 est un exemple moderne.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Réutilisation",
+            "html": "<p>Une même suite ne doit jamais protéger deux messages. Réutiliser clé et nonce révèle la relation XOR entre les textes et peut permettre leur récupération.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Intégrité",
+            "html": "<p>Le chiffre seul ne détecte pas les modifications. Les systèmes modernes utilisent une construction authentifiée comme ChaCha20-Poly1305.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Flot ou bloc ?",
+            "answer": "<p>Le flot génère une suite ; le bloc permute des blocs fixes. Certains modes par blocs se comportent comme un flot.</p>"
+        },
+        {
+            "question": "Le nonce peut-il être public ?",
+            "answer": "<p>Oui en général, mais il doit être unique pour la clé.</p>"
+        },
+        {
+            "question": "Pourquoi la réutilisation est-elle grave ?",
+            "answer": "<p>La suite s’annule lors de la comparaison et relie directement les textes en clair.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "block-cipher",
+        "cryptographic-key",
+        "nonce",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptographie",
+        "chiffrement par flot",
+        "suite chiffrante"
+    ],
+    "category": "concepts"
+}

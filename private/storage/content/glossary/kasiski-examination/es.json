@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "kasiski-examination",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Examen de Kasiski",
+        "aliases": [
+            "prueba de Kasiski",
+            "método de Kasiski"
+        ],
+        "short": "El examen de Kasiski estima el período de un cifrado polialfabético con clave repetida mediante distancias entre secuencias repetidas.",
+        "meta_title": "Examen de Kasiski — definición y método | CiphersOnline",
+        "meta_description": "Cómo las secuencias repetidas y los factores de sus distancias revelan longitudes candidatas de la clave Vigenère y por qué deben confirmarse."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El examen de Kasiski ataca Vigenère y cifrados afines con clave repetida. Un mismo fragmento plano en las mismas posiciones de clave puede generar la misma secuencia cifrada; su distancia suele ser múltiplo de la clave.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "procedure",
+            "title": "Procedimiento",
+            "html": "<p>Se buscan grupos repetidos de tres o más símbolos, se miden y factorizan las distancias. Factores comunes o su máximo común divisor se vuelven candidatos. Después se analizan por frecuencia las columnas.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Limitaciones",
+            "html": "<p>Puede haber repeticiones casuales o ninguna en textos cortos. El factor puede ser divisor o múltiplo del período real. El índice de coincidencia y el análisis de frecuencia confirman candidatos.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Por qué usar trigramas repetidos?",
+            "answer": "<p>Son menos casuales que letras o pares y aparecen con suficiente frecuencia en textos largos.</p>"
+        },
+        {
+            "question": "¿Recupera la clave?",
+            "answer": "<p>No directamente. Estima longitudes; luego se infieren caracteres por columnas.</p>"
+        },
+        {
+            "question": "¿Funciona siempre con Vigenère?",
+            "answer": "<p>No. Texto corto, clave larga o no repetida pueden dejar pocos indicios.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "index-of-coincidence",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Cracker de Vigenère"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Análisis de frecuencias"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Cifrado Vigenère"
+        }
+    ],
+    "tags": [
+        "criptoanálisis",
+        "examen de Kasiski",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

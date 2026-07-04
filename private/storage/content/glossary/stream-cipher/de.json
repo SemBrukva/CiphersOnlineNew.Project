@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "stream-cipher",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Stromchiffre",
+        "aliases": [
+            "Schlüsselstromchiffre",
+            "Stromverschlüsselung"
+        ],
+        "short": "Eine Stromchiffre kombiniert Klartext mit einem pseudorandomisierten Schlüsselstrom aus geheimem Schlüssel und Nonce.",
+        "meta_title": "Stromchiffre — Definition und Sicherheit | CiphersOnline",
+        "meta_description": "Wie Stromchiffren Schlüsselstrom erzeugen, warum Schlüssel und Nonce nie wiederholt werden dürfen und weshalb Authentifizierung nötig ist."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Eine Stromchiffre erzeugt aus Schlüssel und meist einem Nonce einen pseudorandomisierten Schlüsselstrom und verknüpft ihn gewöhnlich per XOR mit dem Klartext. Derselbe Strom entschlüsselt den Geheimtext. ChaCha20 ist ein modernes Beispiel.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Wiederverwendung",
+            "html": "<p>Derselbe Schlüsselstrom darf nie zwei Nachrichten schützen. Ein wiederholtes Schlüssel-Nonce-Paar legt die XOR-Beziehung der Klartexte offen und kann beide Nachrichten gefährden.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Integrität",
+            "html": "<p>Eine reine Stromchiffre erkennt keine Änderungen. Moderne Systeme verwenden authentifizierte Konstruktionen wie ChaCha20-Poly1305 und prüfen den Tag vor der Ausgabe.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Strom- oder Blockchiffre?",
+            "answer": "<p>Stromchiffren erzeugen Schlüsselstrom; Blockchiffren permutieren feste Blöcke. Manche Blockmodi arbeiten stromähnlich.</p>"
+        },
+        {
+            "question": "Darf der Nonce öffentlich sein?",
+            "answer": "<p>Meist ja. Unter demselben Schlüssel muss er einzigartig sein.</p>"
+        },
+        {
+            "question": "Warum ist Wiederverwendung katastrophal?",
+            "answer": "<p>Der Schlüsselstrom hebt sich beim Vergleich der Geheimtexte auf und verbindet die Klartexte direkt.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "block-cipher",
+        "cryptographic-key",
+        "nonce",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptografie",
+        "Stromchiffre",
+        "Schlüsselstrom"
+    ],
+    "category": "concepts"
+}

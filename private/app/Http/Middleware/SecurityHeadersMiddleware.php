@@ -32,7 +32,7 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
      * с Vite HMR. В prod использует строгий nonce-only для script-src.
      * Домены внешних трекеров добавляются динамически по конфигурации.
      */
-    private function buildCspPolicy(): string
+    private function buildCspPolicy(bool $allowFraming = false): string
     {
         $nonce      = $this->cspNonce->get();
         $nonceSrc   = "'nonce-{$nonce}'";
@@ -109,14 +109,28 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
             $connectSrc = array_merge($connectSrc, ['https://yandex.ru']);
         }
 
+        // Для встраиваемых виджетов (/embed) разрешаем фрейминг на любых сайтах —
+        // это и есть цель фичи (беклинки). Для остальных страниц framing запрещён.
+        $frameAncestors = $allowFraming ? '*' : "'self'";
+
         return sprintf(
-            "default-src 'self'; script-src %s; style-src %s; img-src 'self' data: https:; font-src %s; connect-src %s; frame-src %s;",
+            "default-src 'self'; script-src %s; style-src %s; img-src 'self' data: https:; font-src %s; connect-src %s; frame-src %s; frame-ancestors %s;",
             implode(' ', array_unique($scriptSrc)),
             implode(' ', array_unique($styleSrc)),
             implode(' ', array_unique($fontSrc)),
             implode(' ', array_unique($connectSrc)),
-            implode(' ', array_unique($frameSrc))
+            implode(' ', array_unique($frameSrc)),
+            $frameAncestors
         );
+    }
+
+    /**
+     * Определяет, относится ли запрос к встраиваемому (iframe) виджету /embed
+     * с учётом возможного языкового префикса (например, /de/embed/...).
+     */
+    private function isEmbedRequest(Request $request): bool
+    {
+        return preg_match('~^(?:/[a-z]{2})?/embed/~', $request->path()) === 1;
     }
 
     /**
@@ -124,10 +138,16 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
      */
     public function process(Request $request, callable $next): Response
     {
+        $allowFraming = $this->isEmbedRequest($request);
+
         header('X-Content-Type-Options: nosniff');
-        header('X-Frame-Options: SAMEORIGIN');
+        // Для /embed заголовок X-Frame-Options не ставим — иначе legacy-браузеры
+        // заблокируют встраивание на сторонних доменах (framing разрешает CSP frame-ancestors).
+        if (!$allowFraming) {
+            header('X-Frame-Options: SAMEORIGIN');
+        }
         header('Referrer-Policy: strict-origin-when-cross-origin');
-        header('Content-Security-Policy: ' . $this->buildCspPolicy());
+        header('Content-Security-Policy: ' . $this->buildCspPolicy($allowFraming));
 
         return $next($request);
     }

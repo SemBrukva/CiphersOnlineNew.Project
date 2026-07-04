@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "block-cipher",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Block cipher",
+        "aliases": [
+            "block encryption algorithm",
+            "keyed block permutation"
+        ],
+        "short": "A block cipher is a symmetric algorithm that transforms fixed-size blocks of data under a secret key.",
+        "meta_title": "Block Cipher — Definition and Modes | CiphersOnline",
+        "meta_description": "Learn how block ciphers such as AES transform fixed-size blocks, how modes handle longer messages, and why ECB and nonce reuse are unsafe."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A block cipher maps each fixed-size plaintext block to a ciphertext block of the same size under a key, and reverses that mapping for decryption. AES uses 128-bit blocks with several supported key sizes. Block size and key size are separate properties.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "modes",
+            "title": "Modes of operation",
+            "html": "<p>A bare block cipher handles only one block. Modes such as CBC, CTR, and GCM define how to process longer or partial messages. Some modes require padding; others turn the block cipher into a stream-like construction. GCM also authenticates the result.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Safe use",
+            "html": "<p>ECB independently encrypts equal blocks to equal outputs and leaks visible patterns, so it is unsuitable for ordinary structured data. Other modes have their own nonce or IV requirements. Reuse, missing authentication, or incorrect padding can compromise an otherwise strong cipher.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is block size the same as key size?",
+            "answer": "<p>No. Block size is the amount processed per primitive operation; key size controls the key space. AES always has a 128-bit block but supports 128-, 192-, and 256-bit keys.</p>"
+        },
+        {
+            "question": "Does every block cipher need padding?",
+            "answer": "<p>No. CBC commonly does for non-aligned data, while CTR and authenticated modes can process partial final blocks without traditional padding.</p>"
+        },
+        {
+            "question": "Why is ECB mode discouraged?",
+            "answer": "<p>Identical plaintext blocks produce identical ciphertext blocks, exposing structure and repetitions even though the values themselves are encrypted.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "encryption",
+        "decryption",
+        "cryptographic-key",
+        "cipher"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptography",
+        "block cipher",
+        "symmetric encryption"
+    ],
+    "category": "concepts"
+}

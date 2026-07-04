@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "initialization-vector",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Initialization vector (IV)",
+        "aliases": [
+            "IV",
+            "initialization value"
+        ],
+        "short": "An initialization vector is a non-secret input that initializes a cipher mode so repeated plaintext does not produce unsafe repeated ciphertext.",
+        "meta_title": "Initialization Vector (IV) — Definition | CiphersOnline",
+        "meta_description": "Learn what an IV does, how requirements differ between CBC, CTR, and other modes, and why an IV is not a key or universally interchangeable with a nonce."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>An initialization vector is an additional input that sets the starting state of a cipher mode. It allows the same plaintext encrypted under the same key to produce different ciphertext and prevents patterns from repeating across messages.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "requirements",
+            "title": "Requirements depend on the mode",
+            "html": "<p>An IV is usually transmitted with the ciphertext and need not be secret. CBC requires an unpredictable fresh IV, while CTR-like modes primarily require a unique counter or nonce. Using the wrong generation rule can compromise security.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "IV versus nonce",
+            "html": "<p>The terms overlap but are not universal synonyms. A nonce emphasizes non-repetition; IV is the initialization input defined by a mode. Some APIs call the same field an IV even when its essential requirement is uniqueness rather than randomness.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Can the IV be stored with the ciphertext?",
+            "answer": "<p>Yes, and this is normal. Security depends on satisfying the mode’s uniqueness or unpredictability rule, not on hiding the IV.</p>"
+        },
+        {
+            "question": "Can one IV be reused with the same key?",
+            "answer": "<p>Usually no. The exact damage varies by mode, from revealing equality to exposing plaintext or enabling forgery.</p>"
+        },
+        {
+            "question": "Is an IV derived from a password?",
+            "answer": "<p>It should be generated according to the mode, independently of password-derived key material unless a reviewed protocol specifies otherwise.</p>"
+        }
+    ],
+    "related_terms": [
+        "nonce",
+        "block-cipher",
+        "symmetric-encryption",
+        "cryptographic-key",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptography",
+        "initialization vector",
+        "IV"
+    ],
+    "category": "concepts"
+}

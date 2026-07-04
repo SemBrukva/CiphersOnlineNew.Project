@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "stream-cipher",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Stream cipher",
+        "aliases": [
+            "keystream cipher",
+            "stream encryption algorithm"
+        ],
+        "short": "A stream cipher encrypts data by combining plaintext with a pseudorandom keystream generated from a secret key and nonce.",
+        "meta_title": "Stream Cipher — Definition and Security | CiphersOnline",
+        "meta_description": "Learn how stream ciphers generate keystream, why reusing a key and nonce is dangerous, and why encryption must also authenticate the data."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A stream cipher generates a pseudorandom keystream from a secret key and usually a nonce, then combines it with plaintext—commonly using XOR—to produce ciphertext. Decryption combines the same keystream with the ciphertext. ChaCha20 is a modern example.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "operation",
+            "title": "Keystream reuse",
+            "html": "<p>The same keystream must never encrypt two different messages. Reusing a key and nonce can expose the XOR of the plaintexts and allow both messages to be recovered. Protocols therefore assign a unique nonce to every encryption under a key.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Integrity",
+            "html": "<p>A basic stream cipher provides confidentiality but does not detect modification: changing a ciphertext bit predictably changes the plaintext. Modern systems use an authenticated construction such as ChaCha20-Poly1305 and verify its tag before releasing data.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is a stream cipher the same as a block cipher?",
+            "answer": "<p>No. A native stream cipher generates keystream, while a block cipher permutes fixed-size blocks. Some block-cipher modes behave like stream ciphers.</p>"
+        },
+        {
+            "question": "Can a stream-cipher nonce be public?",
+            "answer": "<p>Usually yes. It must be unique for the key; secrecy is normally not required.</p>"
+        },
+        {
+            "question": "Why is key-and-nonce reuse catastrophic?",
+            "answer": "<p>It repeats the keystream, canceling it when ciphertexts are compared and exposing a direct relationship between the plaintexts.</p>"
+        }
+    ],
+    "related_terms": [
+        "symmetric-encryption",
+        "block-cipher",
+        "cryptographic-key",
+        "nonce",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptography",
+        "stream cipher",
+        "keystream"
+    ],
+    "category": "concepts"
+}

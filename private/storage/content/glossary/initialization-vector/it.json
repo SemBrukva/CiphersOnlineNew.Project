@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "initialization-vector",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Vettore di inizializzazione",
+        "aliases": [
+            "IV",
+            "valore di inizializzazione"
+        ],
+        "short": "Un vettore di inizializzazione è un input non segreto che inizializza una modalità di cifratura ed evita ripetizioni pericolose.",
+        "meta_title": "Vettore di inizializzazione (IV) — definizione | CiphersOnline",
+        "meta_description": "A cosa serve un IV, come cambiano i requisiti tra CBC e CTR e perché non è una chiave né sempre equivalente a un nonce."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Il vettore di inizializzazione imposta lo stato iniziale di una modalità e consente allo stesso testo e chiave di produrre risultati diversi.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "requirements",
+            "title": "Requisiti della modalità",
+            "html": "<p>L’IV viene normalmente inviato col testo cifrato e non è segreto. CBC richiede un IV nuovo e imprevedibile; CTR soprattutto un contatore o nonce unico.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "IV e nonce",
+            "html": "<p>Nonce sottolinea la non ripetizione; IV è l’input iniziale della modalità. I concetti si sovrappongono ma non sono sempre sinonimi.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Si può memorizzare con il testo cifrato?",
+            "answer": "<p>Sì. Conta rispettare unicità o imprevedibilità, non nasconderlo.</p>"
+        },
+        {
+            "question": "Si può riutilizzare con la stessa chiave?",
+            "answer": "<p>In genere no; il danno dipende dalla modalità.</p>"
+        },
+        {
+            "question": "Va derivato dalla password?",
+            "answer": "<p>Va generato secondo la modalità, indipendentemente dalla chiave derivata, salvo protocollo verificato.</p>"
+        }
+    ],
+    "related_terms": [
+        "nonce",
+        "block-cipher",
+        "symmetric-encryption",
+        "cryptographic-key",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "crittografia",
+        "vettore di inizializzazione",
+        "IV"
+    ],
+    "category": "concepts"
+}

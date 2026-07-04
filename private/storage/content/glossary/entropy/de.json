@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "entropy",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Entropie",
+        "aliases": [
+            "kryptografische Entropie",
+            "Maß der Ungewissheit"
+        ],
+        "short": "Entropie misst die Ungewissheit eines Werts und begrenzt den Aufwand zum Erraten kryptografischer Geheimnisse.",
+        "meta_title": "Entropie in der Kryptografie — Definition | CiphersOnline",
+        "meta_description": "Was Entropie für Schlüssel, Passwörter, Nonces und Zufallsgeneratoren bedeutet, warum Länge nicht Entropie ist und schwacher Zufall schadet."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Entropie quantifiziert Ungewissheit in Bit. Ein gleichverteilter 128-Bit-Schlüssel besitzt 128 Bit Entropie; ein langer, vorhersehbar erzeugter Wert viel weniger. Entscheidend ist der Erzeugungsprozess, nicht das Aussehen.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Quellen und Generatoren",
+            "html": "<p>Betriebssysteme sammeln Ungewissheit aus Hardware und Ereignissen und starten damit einen kryptografischen Zufallsgenerator. Dieser erweitert einen guten Seed, kann aber keinen erratbaren Seed retten.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Schlüssel und Passwörter",
+            "html": "<p>Schlüsselstärke übersteigt nie die Entropie der Erzeugung. Passwörter haben meist weniger; langsames Hashing erschwert Versuche, fügt aber keine Entropie hinzu.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Sind Entropie und Schlüssellänge gleich?",
+            "answer": "<p>Nein. Länge beschreibt den Darstellungsraum, Entropie die Unvorhersehbarkeit der Auswahl.</p>"
+        },
+        {
+            "question": "Kann Software echte Entropie erzeugen?",
+            "answer": "<p>Deterministische Software erweitert nur einen Seed und benötigt physische oder systemische Quellen.</p>"
+        },
+        {
+            "question": "Wie viel Entropie genügt?",
+            "answer": "<p>Das hängt von Bedrohung und Algorithmus ab; moderne Zufallsschlüssel zielen oft auf mindestens 128 Bit Sicherheit.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "nonce",
+        "encryption",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "Kryptografie",
+        "Entropie",
+        "Zufall"
+    ],
+    "category": "concepts"
+}

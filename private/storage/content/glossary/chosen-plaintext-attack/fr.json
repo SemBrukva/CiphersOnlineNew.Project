@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "chosen-plaintext-attack",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Attaque à texte clair choisi",
+        "aliases": [
+            "attaque avec texte choisi",
+            "CPA"
+        ],
+        "short": "L’attaque obtient les textes chiffrés de textes clairs choisis et utilise les réponses pour tester le schéma.",
+        "meta_title": "Attaque à texte clair choisi | CiphersOnline",
+        "meta_description": "Quel accès possède l’attaquant, comment fonctionnent les requêtes adaptatives et pourquoi le chiffrement aléatoire doit résister à CPA."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>L’attaquant soumet des textes choisis à un oracle de chiffrement et observe les réponses pour chercher clé, relations ou distinction.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "types",
+            "title": "Requêtes adaptatives",
+            "html": "<p>Les requêtes non adaptatives sont fixées avant ; les adaptatives dépendent des réponses. API et appareils peuvent devenir des oracles.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Sécurité CPA",
+            "html": "<p>Le chiffrement probabiliste doit cacher lequel de deux messages choisis a été chiffré. Nonces neufs et hasard sont essentiels.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Plus forte que texte connu ?",
+            "answer": "<p>Oui, l’attaquant contrôle les entrées.</p>"
+        },
+        {
+            "question": "Révèle-t-elle la clé ?",
+            "answer": "<p>Pas pour un schéma sûr contre CPA.</p>"
+        },
+        {
+            "question": "Une API est-elle dangereuse ?",
+            "answer": "<p>Non si le protocole reste sûr avec des entrées choisies.</p>"
+        }
+    ],
+    "related_terms": [
+        "known-plaintext-attack",
+        "plaintext",
+        "ciphertext",
+        "encryption",
+        "cryptanalysis"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptanalyse",
+        "texte clair choisi",
+        "modèle d’attaque"
+    ],
+    "category": "cryptanalysis"
+}

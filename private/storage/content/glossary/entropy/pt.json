@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "entropy",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Entropia",
+        "aliases": [
+            "entropia criptográfica",
+            "medida de incerteza"
+        ],
+        "short": "A entropia mede a incerteza de um valor e limita a dificuldade de adivinhar segredos criptográficos.",
+        "meta_title": "Entropia em criptografia — definição | CiphersOnline",
+        "meta_description": "O que entropia significa para chaves, senhas, nonces e geradores, por que comprimento não é entropia e como aleatoriedade fraca compromete."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>A entropia quantifica incerteza em bits. Uma chave uniforme de 128 bits tem 128 bits de entropia; um valor longo gerado previsivelmente pode ter muito menos. Ela descreve o processo, não a aparência da amostra.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Fontes e geradores",
+            "html": "<p>O sistema coleta incerteza de hardware e eventos para semear um gerador criptográfico. Ele expande uma boa semente, mas não salva uma semente previsível.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Chaves e senhas",
+            "html": "<p>A força da chave não supera a entropia da geração. Hashing lento dificulta tentativas de senha, mas não adiciona incerteza.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Entropia é o comprimento da chave?",
+            "answer": "<p>Não. O comprimento define o espaço; a entropia mede a imprevisibilidade da escolha.</p>"
+        },
+        {
+            "question": "Software cria entropia real?",
+            "answer": "<p>Software determinístico só expande uma semente e depende de fontes físicas ou do sistema.</p>"
+        },
+        {
+            "question": "Quanta entropia basta?",
+            "answer": "<p>Depende da ameaça e do algoritmo; chaves modernas costumam buscar ao menos 128 bits de segurança.</p>"
+        }
+    ],
+    "related_terms": [
+        "cryptographic-key",
+        "nonce",
+        "encryption",
+        "symmetric-encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografia",
+        "entropia",
+        "aleatoriedade"
+    ],
+    "category": "concepts"
+}

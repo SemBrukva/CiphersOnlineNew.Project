@@ -1,0 +1,82 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ciphertext-only-attack",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Ataque de solo texto cifrado",
+        "aliases": [
+            "ataque solo con texto cifrado",
+            "COA"
+        ],
+        "short": "Este ataque intenta recuperar texto plano o claves usando únicamente texto cifrado capturado y metadatos observables.",
+        "meta_title": "Ataque de solo texto cifrado | CiphersOnline",
+        "meta_description": "Qué observa el atacante, cómo ayudan frecuencias, patrones y búsqueda de claves y por qué el cifrado moderno debe resistir este modelo."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>No hay pares confirmados ni entradas elegibles; solo textos cifrados y metadatos como longitud o tiempo. Se busca inferir texto plano, clave o propiedades.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "methods",
+            "title": "Métodos",
+            "html": "<p>Contra cifras clásicas se usan frecuencias, repeticiones, idioma, IC, Kasiski y búsqueda. Nonces reutilizados añaden evidencia.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "security",
+            "title": "Seguridad moderna",
+            "html": "<p>El texto cifrado moderno debe parecer aleatorio salvo metadatos. El éxito suele venir de claves débiles, nonce repetido, protocolo o implementación.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿El análisis de frecuencia pertenece a este modelo?",
+            "answer": "<p>Sí, cuando solo usa estadísticas cifradas y un perfil lingüístico.</p>"
+        },
+        {
+            "question": "¿Puede conocerse el algoritmo?",
+            "answer": "<p>Sí. El modelo describe datos disponibles, no desconocimiento del diseño.</p>"
+        },
+        {
+            "question": "¿Basta un texto cifrado?",
+            "answer": "<p>A veces para cifras clásicas débiles; los esquemas modernos pueden no revelar nada útil.</p>"
+        }
+    ],
+    "related_terms": [
+        "ciphertext",
+        "frequency-analysis",
+        "index-of-coincidence",
+        "kasiski-examination",
+        "brute-force-attack",
+        "crib"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Identificador de cifrados"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Análisis de frecuencias"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Cracker de Vigenère"
+        }
+    ],
+    "tags": [
+        "criptoanálisis",
+        "solo texto cifrado",
+        "modelo de ataque"
+    ],
+    "category": "cryptanalysis"
+}

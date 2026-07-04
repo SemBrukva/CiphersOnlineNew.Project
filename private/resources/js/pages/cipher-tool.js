@@ -175,6 +175,8 @@ export function initCipherToolPage() {
     copyFailed: ui.feedbackResultCopyFailed || 'Unable to copy result.',
     urlCopied: ui.feedbackUrlCopied || 'Page URL copied.',
     urlCopyFailed: ui.feedbackUrlCopyFailed || 'Unable to copy page URL.',
+    embedCopied: ui.embedCopiedLabel || 'Embed code copied.',
+    embedCopyFailed: ui.embedCopyFailedLabel || 'Unable to copy embed code.',
     runFailed: ui.feedbackInvalidInput || 'Unable to process request.',
     jsonFormatterErrInvalid: ui.jsonFormatterErrInvalid || 'Invalid JSON: :error',
     jsonFormatterErrAt: ui.jsonFormatterErrAt || 'Error at line :line, column :col',
@@ -1194,6 +1196,52 @@ export function initCipherToolPage() {
       setFeedback(labels.urlCopyFailed, true)
     }
   })
+
+  // ── Встраиваемый виджет (iframe) ─────────────────────────────────────────
+  const embedBtn = document.getElementById('ciphers-embed')
+  const embedDialog = document.getElementById('ciphers-embed-dialog')
+  const embedCode = document.getElementById('ciphers-embed-code')
+  const embedCopyBtn = document.getElementById('ciphers-embed-copy')
+
+  /** Формирует HTML-код iframe для встраивания текущего инструмента. */
+  const buildEmbedCode = () => {
+    const url = embedBtn?.getAttribute('data-embed-url') || ''
+    const title = (embedBtn?.getAttribute('data-embed-title') || 'CiphersOnline')
+      .replace(/"/g, '&quot;')
+    return `<iframe src="${url}" width="100%" height="640" loading="lazy" title="${title} — CiphersOnline" style="border:1px solid #e2e8f0;border-radius:12px;max-width:680px;width:100%"></iframe>`
+  }
+
+  const closeEmbedDialog = () => {
+    if (embedDialog) embedDialog.hidden = true
+  }
+
+  if (embedBtn && embedDialog && embedCode) {
+    embedBtn.addEventListener('click', () => {
+      embedCode.value = buildEmbedCode()
+      embedDialog.hidden = false
+      embedCode.focus()
+      embedCode.select()
+    })
+
+    embedDialog.querySelectorAll('[data-embed-close]').forEach((el) => {
+      el.addEventListener('click', closeEmbedDialog)
+    })
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !embedDialog.hidden) closeEmbedDialog()
+    })
+
+    embedCopyBtn?.addEventListener('click', async () => {
+      embedCode.select()
+      try {
+        await navigator.clipboard.writeText(embedCode.value)
+        setFeedback(labels.embedCopied)
+      } catch {
+        setFeedback(labels.embedCopyFailed, true)
+      }
+      window.setTimeout(closeEmbedDialog, 600)
+    })
+  }
 
   tabEncode.addEventListener('click', () => {
     setMode('encode')

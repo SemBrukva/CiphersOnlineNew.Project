@@ -1,0 +1,77 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "crib",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Crib (probable word)",
+        "aliases": [
+            "probable plaintext",
+            "crib word"
+        ],
+        "short": "A crib is a guessed plaintext fragment used to test positions, keys, or structure in a ciphertext.",
+        "meta_title": "Crib in Cryptanalysis — Definition | CiphersOnline",
+        "meta_description": "Learn how probable words and phrases help test ciphertext alignments and keys, why a crib is a hypothesis rather than known plaintext, and when it fails."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A crib is a word, phrase, header, or pattern suspected to occur in the plaintext. The analyst aligns it with ciphertext positions and checks whether the implied key or transformation remains consistent elsewhere.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "sources",
+            "title": "Choosing a crib",
+            "html": "<p>Greetings, dates, protocol markers, file signatures, repeated formats, and topic-specific vocabulary provide candidates. A crib is not confirmed known plaintext; it becomes useful only when independent evidence supports the alignment.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "applications",
+            "title": "Applications and limits",
+            "html": "<p>Cribs helped attack classical machines and reused one-time-pad keystreams. A wrong guess creates false leads, and secure modern encryption prevents local plaintext guesses from revealing corresponding key material.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is a crib known plaintext?",
+            "answer": "<p>No. It is probable plaintext until verified.</p>"
+        },
+        {
+            "question": "What is crib dragging?",
+            "answer": "<p>It slides a guessed fragment across related ciphertexts, testing where the resulting text looks plausible.</p>"
+        },
+        {
+            "question": "Can any common word serve as a crib?",
+            "answer": "<p>It can be tried, but context-specific and structurally constrained guesses are much stronger.</p>"
+        }
+    ],
+    "related_terms": [
+        "known-plaintext-attack",
+        "ciphertext-only-attack",
+        "plaintext",
+        "ciphertext",
+        "cryptanalysis"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/cipher-identifier",
+            "label": "Cipher Identifier"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère Cracker"
+        }
+    ],
+    "tags": [
+        "cryptanalysis",
+        "crib",
+        "probable plaintext"
+    ],
+    "category": "cryptanalysis"
+}

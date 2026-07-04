@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "initialization-vector",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Vector de inicialización",
+        "aliases": [
+            "IV",
+            "valor de inicialización"
+        ],
+        "short": "Un vector de inicialización es una entrada no secreta que inicia un modo de cifrado y evita repeticiones inseguras.",
+        "meta_title": "Vector de inicialización (IV) — definición | CiphersOnline",
+        "meta_description": "Para qué sirve un IV, cómo cambian los requisitos entre CBC y CTR y por qué no es una clave ni siempre equivale a un nonce."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El vector de inicialización fija el estado inicial de un modo y permite que el mismo texto y clave produzcan resultados distintos.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "requirements",
+            "title": "Requisitos según el modo",
+            "html": "<p>Suele enviarse con el texto cifrado y no es secreto. CBC exige un IV nuevo e impredecible; CTR principalmente un contador o nonce único.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "IV y nonce",
+            "html": "<p>Nonce enfatiza no repetir; IV es la entrada de inicialización definida por el modo. Se solapan, pero no son sinónimos universales.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Puede almacenarse con el texto cifrado?",
+            "answer": "<p>Sí. Importa cumplir la regla de unicidad o imprevisibilidad, no ocultarlo.</p>"
+        },
+        {
+            "question": "¿Puede reutilizarse con la misma clave?",
+            "answer": "<p>Normalmente no; el daño depende del modo.</p>"
+        },
+        {
+            "question": "¿Debe derivarse de una contraseña?",
+            "answer": "<p>Debe generarse según el modo, independientemente de la clave derivada, salvo que un protocolo revisado indique otra cosa.</p>"
+        }
+    ],
+    "related_terms": [
+        "nonce",
+        "block-cipher",
+        "symmetric-encryption",
+        "cryptographic-key",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "criptografía",
+        "vector de inicialización",
+        "IV"
+    ],
+    "category": "concepts"
+}

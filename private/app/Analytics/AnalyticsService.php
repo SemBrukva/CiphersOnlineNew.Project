@@ -30,13 +30,14 @@ final readonly class AnalyticsService
      * Если в кеше есть запись о недавнем использовании данного инструмента
      * этим пользователем/IP — событие не дублируется.
      */
-    public function recordUse(string $toolSlug, ?int $userId, string $ipHash, string $mode): void
+    public function recordUse(string $toolSlug, ?int $userId, string $ipHash, string $mode, string $source = 'local'): void
     {
         if (!config('analytics.enabled', true)) {
             return;
         }
 
-        $cacheKey = $this->cooldownKey($userId, $ipHash, $toolSlug);
+        $source = in_array($source, ['local', 'embed'], true) ? $source : 'local';
+        $cacheKey = $this->cooldownKey($userId, $ipHash, $toolSlug, $source);
 
         if ($this->cache->has($cacheKey)) {
             return;
@@ -47,6 +48,7 @@ final readonly class AnalyticsService
             in_array($mode, ['encode', 'decode'], true) ? $mode : 'encode',
             $userId,
             $ipHash,
+            $source,
         );
 
         $ttl = (int) config('analytics.cooldown_seconds', 300);
@@ -54,12 +56,15 @@ final readonly class AnalyticsService
     }
 
     /**
-     * Формирует ключ cooldown для пары (идентификатор пользователя, инструмент).
+     * Формирует ключ cooldown для тройки (идентификатор пользователя, инструмент, источник).
+     *
+     * Источник включён в ключ, чтобы использование в embed и на основном сайте
+     * дедуплицировалось независимо.
      */
-    private function cooldownKey(?int $userId, string $ipHash, string $toolSlug): string
+    private function cooldownKey(?int $userId, string $ipHash, string $toolSlug, string $source): string
     {
         $identity = $userId !== null ? "u:{$userId}" : "ip:{$ipHash}";
 
-        return "analytics:cd:{$identity}:{$toolSlug}";
+        return "analytics:cd:{$source}:{$identity}:{$toolSlug}";
     }
 }

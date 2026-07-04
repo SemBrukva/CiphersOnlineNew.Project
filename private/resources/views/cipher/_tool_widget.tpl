@@ -29,7 +29,7 @@
             {/if}
             <div class="ciphers-unified__title-row">
                 <{$widget_heading_tag} class="ciphers-unified__title">{$cipher.name}</{$widget_heading_tag}>
-                {if !$has_category_intro}
+                {if !$has_category_intro && !($embed|default:false)}
                 <button class="btn ciphers-unified__btn-ghost ciphers-unified__btn-favorite"
                         id="ciphers-favorite"
                         type="button"
@@ -259,6 +259,11 @@
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-json-download"><i class="bi bi-download"></i>{$tool_ui.jsonFormatterDownloadLabel}</button>
                         {/if}
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-share"><i class="bi bi-share"></i>{$tool_ui.shareLabel}</button>
+                        {if !($embed|default:false)}
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-embed"
+                                data-embed-url="{$app_url}{$locale_prefix}/embed/{$tool_slug|escape:'html'}"
+                                data-embed-title="{$cipher.name|escape:'html'}"><i class="bi bi-code-square"></i>{$tool_ui.embedLabel|default:'Embed'}</button>
+                        {/if}
                     </div>
                 </div>
 
@@ -280,4 +285,21 @@
             {/foreach}
         </div>
     </div>
+
+    {if !($embed|default:false)}
+    <div class="ciphers-embed-dialog" id="ciphers-embed-dialog" hidden>
+        <div class="ciphers-embed-dialog__backdrop" data-embed-close></div>
+        <div class="ciphers-embed-dialog__panel" role="dialog" aria-modal="true" aria-labelledby="ciphers-embed-title">
+            <div class="ciphers-embed-dialog__header">
+                <span class="ciphers-embed-dialog__title" id="ciphers-embed-title">{$tool_ui.embedDialogTitle|default:'Embed this tool'}</span>
+                <button class="btn ciphers-unified__btn-ghost" type="button" data-embed-close aria-label="{$tool_ui.embedCloseLabel|default:'Close'}"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <p class="ciphers-embed-dialog__hint">{$tool_ui.embedDialogHint|default:'Copy this code to embed the tool on your website.'}</p>
+            <textarea class="form-control ciphers-textarea ciphers-embed-dialog__code" id="ciphers-embed-code" rows="4" readonly></textarea>
+            <div class="ciphers-embed-dialog__actions">
+                <button class="ciphers-unified__run-btn" type="button" id="ciphers-embed-copy">{$tool_ui.embedCopyLabel|default:'Copy code'}</button>
+            </div>
+        </div>
+    </div>
+    {/if}
 </section>

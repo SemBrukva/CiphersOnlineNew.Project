@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "index-of-coincidence",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Koinzidenzindex",
+        "aliases": [
+            "IC",
+            "Übereinstimmungsindex"
+        ],
+        "short": "Der Koinzidenzindex misst die Wahrscheinlichkeit, dass zwei aus einem Text gezogene Buchstaben gleich sind.",
+        "meta_title": "Koinzidenzindex — Formel und Anwendung | CiphersOnline",
+        "meta_description": "Formel des Koinzidenzindex, Unterschied zwischen Sprach- und Gleichverteilung und Nutzung zur Schätzung einer Vigenère-Schlüssellänge."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition und Formel",
+            "html": "<p>Der Koinzidenzindex (IC) ist die Wahrscheinlichkeit, dass zwei ohne Zurücklegen gezogene Buchstaben übereinstimmen. Für Häufigkeiten <code>nᵢ</code> und Gesamtzahl <code>N</code>: <code>IC = Σ nᵢ(nᵢ−1) / N(N−1)</code>.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "interpretation",
+            "title": "Deutung",
+            "html": "<p>Natürliche Sprachen haben ungleiche Häufigkeiten und meist höheren IC als ein gleichverteiltes Alphabet. Monoalphabetische Substitution erhält den IC; polyalphabetische Verschlüsselung senkt ihn oft.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "application",
+            "title": "Schlüsselperiode",
+            "html": "<p>Für eine Vigenère-Periode teilt man den Geheimtext in Spalten und mittelt deren IC. Sprachähnliche Spalten stützen den Kandidaten. Sprache, Alphabet, Normalisierung und Textlänge beeinflussen den Wert.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Was bedeutet hoher IC?",
+            "answer": "<p>Eine ungleichmäßige Verteilung, passend zu Sprache oder monoalphabetischer Substitution, aber keine eindeutige Chiffrenbestimmung.</p>"
+        },
+        {
+            "question": "Bestimmt IC die exakte Schlüssellänge?",
+            "answer": "<p>Nein. Vielfache, Teiler und Rauschen erzeugen konkurrierende Kandidaten.</p>"
+        },
+        {
+            "question": "Ist IC bei kurzem Text zuverlässig?",
+            "answer": "<p>Nein, wenige Buchstaben dominieren dann die Schätzung.</p>"
+        }
+    ],
+    "related_terms": [
+        "frequency-analysis",
+        "kasiski-examination",
+        "ciphertext"
+    ],
+    "related_tools": [
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Häufigkeitsanalyse"
+        },
+        {
+            "slug": "text-analysis/vigenere-cracker",
+            "label": "Vigenère-Knacker"
+        },
+        {
+            "slug": "classical-ciphers/vigenere",
+            "label": "Vigenère-Chiffre"
+        }
+    ],
+    "tags": [
+        "Kryptoanalyse",
+        "Koinzidenzindex",
+        "Vigenère"
+    ],
+    "category": "cryptanalysis"
+}

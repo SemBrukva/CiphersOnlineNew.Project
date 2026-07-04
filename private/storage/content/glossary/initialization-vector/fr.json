@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "initialization-vector",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04"
+    },
+    "term": {
+        "name": "Vecteur d'initialisation",
+        "aliases": [
+            "IV",
+            "valeur d’initialisation"
+        ],
+        "short": "Un vecteur d’initialisation est une entrée non secrète qui initialise un mode de chiffrement et évite les répétitions dangereuses.",
+        "meta_title": "Vecteur d'initialisation (IV) — définition | CiphersOnline",
+        "meta_description": "À quoi sert un IV, pourquoi CBC et CTR ont des exigences différentes et pourquoi un IV n’est ni une clé ni toujours un nonce."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Le vecteur d’initialisation fixe l’état initial d’un mode et permet au même texte sous la même clé de produire des résultats différents.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "requirements",
+            "title": "Exigences selon le mode",
+            "html": "<p>L’IV est généralement transmis avec le texte chiffré et n’est pas secret. CBC exige un IV neuf et imprévisible ; CTR demande surtout un compteur ou nonce unique.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "distinctions",
+            "title": "IV et nonce",
+            "html": "<p>Nonce insiste sur la non-répétition ; IV désigne l’entrée d’initialisation du mode. Les notions se recouvrent sans être toujours synonymes.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Peut-on stocker l’IV avec le texte chiffré ?",
+            "answer": "<p>Oui. Il faut respecter sa règle d’unicité ou d’imprévisibilité, pas le cacher.</p>"
+        },
+        {
+            "question": "Peut-on réutiliser un IV ?",
+            "answer": "<p>Généralement pas avec la même clé ; les dégâts dépendent du mode.</p>"
+        },
+        {
+            "question": "Faut-il dériver l’IV du mot de passe ?",
+            "answer": "<p>Il doit être généré selon le mode, indépendamment de la clé dérivée, sauf protocole validé contraire.</p>"
+        }
+    ],
+    "related_terms": [
+        "nonce",
+        "block-cipher",
+        "symmetric-encryption",
+        "cryptographic-key",
+        "encryption"
+    ],
+    "related_tools": [],
+    "tags": [
+        "cryptographie",
+        "vecteur d’initialisation",
+        "IV"
+    ],
+    "category": "concepts"
+}
