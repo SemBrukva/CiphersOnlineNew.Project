@@ -194,3 +194,18 @@
     </div>
 </section>
 {/if}
+
+{if $guide_links}
+<section class="panel ciphers-hub-panel">
+    <div class="panel-heading">
+        <div class="panel-title">{$t.GUIDES_FROM_TITLE}</div>
+    </div>
+    <div class="panel-content">
+        <div class="glossary-related-links">
+            {foreach $guide_links as $link}
+            <a class="glossary-related-link" href="{$link.url}"><i class="bi bi-journal-text"></i>{$link.title}</a>
+            {/foreach}
+        </div>
+    </div>
+</section>
+{/if}

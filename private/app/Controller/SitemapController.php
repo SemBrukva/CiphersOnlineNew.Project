@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Cache\CacheInterface;
 use App\Glossary\GlossaryRepository;
+use App\Guide\GuideRepository;
 use App\Http\Request;
 use App\Http\Response;
 use App\I18n\Translator;
@@ -34,6 +35,7 @@ final readonly class SitemapController
         private Translator               $translator,
         private CacheInterface           $cache,
         private GlossaryRepository       $glossary,
+        private GuideRepository          $guides,
     ) {
     }
 
@@ -62,6 +64,7 @@ final readonly class SitemapController
         }
 
         $glossaryTerms = $this->glossary->index($language);
+        $guides        = $this->guides->index($language);
 
         $this->view
             ->setTitle(trans('SITEMAP_TITLE'))
@@ -72,6 +75,7 @@ final readonly class SitemapController
             ->setContent($this->view->fetch('sitemap/html.tpl', [
                 'categories'     => $categoriesWithTools,
                 'glossary_terms' => $glossaryTerms,
+                'guides'         => $guides,
             ]));
 
         return new Response($this->view->render());
@@ -132,6 +136,26 @@ final readonly class SitemapController
                         'priority'   => '0.5',
                         'changefreq' => 'monthly',
                         'lastmod'    => $today,
+                    ];
+                }
+            }
+
+            // Гайды/статьи: страница-индекс и опубликованные статьи (файловый контент, без БД).
+            $guides = $this->guides->index((string) config('locale.locale', 'en'));
+            if ($guides !== []) {
+                $paths[] = [
+                    'path'       => '/guides',
+                    'priority'   => '0.6',
+                    'changefreq' => 'weekly',
+                    'lastmod'    => $today,
+                ];
+
+                foreach ($guides as $guide) {
+                    $paths[] = [
+                        'path'       => '/guides/' . $guide['slug'],
+                        'priority'   => '0.6',
+                        'changefreq' => 'monthly',
+                        'lastmod'    => $this->formatLastmod($guide['updated_at'] ?: null, $today),
                     ];
                 }
             }

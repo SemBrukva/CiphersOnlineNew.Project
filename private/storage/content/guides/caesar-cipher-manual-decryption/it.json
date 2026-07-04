@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "caesar-cipher-manual-decryption",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Come decifrare un cifrario di Cesare a mano",
+        "excerpt": "Una guida passo passo per provare tutti gli spostamenti, usare le frequenze delle lettere e verificare parole probabili.",
+        "meta_title": "Decifrare il cifrario di Cesare a mano | CiphersOnline",
+        "meta_description": "Impara a decifrare Cesare senza chiave: identifica l’alfabeto, prova gli spostamenti, analizza le frequenze e verifica parole probabili.",
+        "reading_time": 4
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Che cos’è il cifrario di Cesare?",
+            "html": "<p>Il <strong>cifrario di Cesare</strong> sposta ogni lettera del testo in chiaro dello stesso numero di posizioni in un alfabeto scelto. Con uno spostamento di 3 nell’alfabeto latino di 26 lettere, <code>A</code> diventa <code>D</code> e, dopo <code>Z</code>, il conteggio riparte da <code>A</code>.</p><p>Poiché la stessa sostituzione vale per tutto il messaggio, è un <em>cifrario a sostituzione monoalfabetica</em>. Lo spostamento è la chiave. Un alfabeto di <em>N</em> simboli offre <em>N − 1</em> chiavi non banali: con 26 lettere i candidati sono 25.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Prima di iniziare",
+            "html": "<p>Stabilisci alfabeto e ordine dei simboli. L’esempio usa <code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</code>; lettere accentate non comprese nell’alfabeto restano invariate nello strumento.</p><p>Per <em>decifrare</em>, sposta ogni lettera cifrata <strong>indietro</strong> della chiave candidata. Tre posizioni indietro equivalgono a 23 in avanti. Spazi, cifre e punteggiatura di solito non cambiano.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Metodo 1 — Provare tutti gli spostamenti",
+            "html": "<p>Con <em>N</em> simboli, prova le chiavi da 1 a <em>N − 1</em>. Per <code>TXHVWR H XQ WHVW</code>:</p><ul><li>Spostamento 1: <code>SWGUVQ G WP VGUV</code>.</li><li>Spostamento 2: <code>RVFTUP F VO UFTU</code>.</li><li>Spostamento 3: <code>QUESTO E UN TEST</code>.</li></ul><p>La terza uscita forma una frase chiara, quindi la chiave 3 è il candidato migliore. Con messaggi molto brevi possono restare più letture plausibili. Lo strumento di <a href=\"/it/text-analysis/caesar-brute-force\">forza bruta per Cesare</a> elenca tutti gli spostamenti.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Metodo 2 — Analisi delle frequenze",
+            "html": "<p>Nei testi italiani lunghi ricorrono spesso <strong>E</strong>, <strong>A</strong>, <strong>I</strong> e <strong>O</strong>, ma l’ordine varia da campione a campione. Conta più lettere frequenti del testo cifrato e prova varie corrispondenze.</p><p>Se <code>H</code> è frequente e ipotizzi che rappresenti <code>E</code>, la distanza è 3. Applica la chiave all’intero messaggio e controlla parole, grammatica e altri schemi. L’<a href=\"/it/text-analysis/frequency-analysis\">analisi delle frequenze</a> fornisce gli indizi, non una dimostrazione.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Metodo 3 — Usare una parola probabile",
+            "html": "<p>Una parola suggerita dal contesto è detta <em>crib</em>. Allineala a un frammento cifrato e verifica che ogni coppia di lettere richieda lo stesso spostamento all’indietro.</p><p>Se ti aspetti <code>TEST</code> e trovi <code>WHVW</code>, i passaggi <code>W→T</code>, <code>H→E</code>, <code>V→S</code> e <code>W→T</code> richiedono tutti la chiave 3. Provala sul testo completo: il crib è valido solo se anche il resto diventa coerente.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Errori comuni e controlli",
+            "html": "<p>Controlla soprattutto:</p><ul><li><strong>Alfabeto sbagliato.</strong> La presenza e l’ordine dei simboli determinano ogni spostamento.</li><li><strong>Direzione errata.</strong> Per decifrare si conta all’indietro.</li><li><strong>Conclusione prematura.</strong> Un frammento leggibile può essere casuale; verifica tutto il messaggio.</li><li><strong>Ambito di ROT13.</strong> <a href=\"/it/classical-ciphers/rot13\">ROT13</a> è il caso autoinverso con spostamento 13 nell’alfabeto latino di 26 lettere.</li></ul><p>Se nessuno spostamento dà un testo coerente, ricontrolla alfabeto e lingua oppure considera un’altra sostituzione o una trasposizione.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Quante chiavi ha un cifrario di Cesare?",
+            "answer": "<p>Un alfabeto di <em>N</em> simboli ha <em>N − 1</em> chiavi non banali. L’alfabeto latino di 26 lettere ne ha 25; lo spostamento zero e un giro completo non modificano il testo.</p>"
+        },
+        {
+            "question": "Posso decifrarlo senza conoscere la chiave?",
+            "answer": "<p>Di solito sì. Prova tutte le chiavi e valuta i risultati tramite lingua, contesto, frequenze e parole probabili. Un messaggio estremamente breve può restare ambiguo.</p>"
+        },
+        {
+            "question": "ROT13 è un cifrario di Cesare?",
+            "answer": "<p>Sì. ROT13 sposta di 13 nell’alfabeto latino di 26 lettere. Poiché 13 è la metà di 26, applicarlo due volte ripristina il testo iniziale.</p>"
+        },
+        {
+            "question": "Perché l’analisi delle frequenze richiede più testo?",
+            "answer": "<p>I campioni brevi oscillano molto rispetto alla media della lingua. Più testo rende i conteggi più stabili, anche se argomento, nomi e ripetizioni possono ancora alterarli.</p>"
+        }
+    ],
+    "related_guides": [],
+    "related_terms": [
+        {"slug": "shift-cipher", "label": "Cifrario a scorrimento"},
+        {"slug": "monoalphabetic-cipher", "label": "Cifrario monoalfabetico"},
+        {"slug": "frequency-analysis", "label": "Analisi delle frequenze"},
+        {"slug": "brute-force-attack", "label": "Attacco a forza bruta"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Strumento cifrario di Cesare"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Forza bruta per Cesare"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Analisi delle frequenze"}
+    ],
+    "tags": ["cesare", "principiante", "crittoanalisi"],
+    "category": "how-to"
+}

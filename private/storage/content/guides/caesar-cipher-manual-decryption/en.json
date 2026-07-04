@@ -1,0 +1,105 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "caesar-cipher-manual-decryption",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "How to Decrypt a Caesar Cipher by Hand",
+        "excerpt": "A step-by-step guide to breaking a Caesar cipher with pen and paper by trying every shift, using letter frequencies, and testing likely words.",
+        "meta_title": "Decrypt a Caesar Cipher by Hand: 3 Methods | CiphersOnline",
+        "meta_description": "Learn to decrypt a Caesar cipher without the key: identify the alphabet, try every shift, use frequency analysis, and test likely words by hand.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "What is a Caesar cipher?",
+            "html": "<p>The <strong>Caesar cipher</strong> shifts every plaintext letter by the same number of positions in a chosen alphabet. With a shift of 3 in the 26-letter English alphabet, <code>A</code> becomes <code>D</code>, <code>B</code> becomes <code>E</code>, and <code>X</code> wraps around to <code>A</code>.</p><p>Because one fixed substitution is used throughout the message, Caesar is a <em>monoalphabetic substitution cipher</em>. The shift is the key. An alphabet of <em>N</em> symbols has <em>N − 1</em> non-trivial shifts, so English has 25 candidates. That small keyspace makes exhaustive manual testing practical, although very short messages can have more than one plausible reading.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Before you start",
+            "html": "<p>First identify the alphabet used by the message. For this English example, write <code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</code> on a strip of paper. A cipher made with another alphabet can have a different number and order of symbols.</p><p>To <em>decrypt</em>, move each ciphertext letter <strong>backward</strong> by the candidate key. A shift of 3 backward in a 26-letter alphabet is equivalent to 23 forward. Spaces, digits, and punctuation are normally preserved, but confirm that convention when the source is known.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Method 1 — Try every shift (brute force)",
+            "html": "<p>For an alphabet of <em>N</em> symbols, test shifts 1 through <em>N − 1</em>. Take the English ciphertext <code>WKLV LV D WHVW</code>:</p><ul><li>Shift 1: <code>VJKU KU C VGUV</code>.</li><li>Shift 2: <code>UIJT JT B UFTU</code>.</li><li>Shift 3: <code>THIS IS A TEST</code>.</li></ul><p>Shift 3 produces a clear sentence, so it is the strongest candidate. With a very short ciphertext, keep more than one plausible result until context confirms the answer. The <a href=\"/text-analysis/caesar-brute-force\">Caesar brute-force tool</a> lists every shift at once for checking your manual work.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Method 2 — Frequency analysis",
+            "html": "<p>Longer texts let you prioritize likely keys. In English, <strong>E</strong>, <strong>T</strong>, <strong>A</strong>, and <strong>O</strong> are common, but the exact order varies by sample. Count the ciphertext letters and compare several high-frequency candidates rather than trusting a single match.</p><p>If <code>H</code> is frequent and you hypothesize that it represents <code>E</code>, the distance is 3, so test key 3 on the whole message. Accept it only if words, grammar, and multiple letter patterns agree. The <a href=\"/text-analysis/frequency-analysis\">frequency analysis tool</a> can produce the counts; frequency is a clue, not proof.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Method 3 — Use a crib (a likely word)",
+            "html": "<p>A likely word—a greeting, a name, or a term suggested by context—is called a <em>crib</em>. Align it with a ciphertext fragment and calculate the backward shift for every letter.</p><p>If you expect <code>THE</code> and see <code>WKH</code>, then <code>W→T</code>, <code>K→H</code>, and <code>H→E</code> all require a shift of 3. That consistency makes key 3 worth testing on the complete message. A crib is convincing only when the rest of the plaintext also becomes coherent.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Common mistakes and checks",
+            "html": "<p>Check these common failure points:</p><ul><li><strong>Wrong alphabet.</strong> The number and order of letters determine every shift.</li><li><strong>Wrong direction or wraparound.</strong> In English, <code>B</code> shifted back by 3 is <code>Y</code>.</li><li><strong>Premature certainty.</strong> A short result can look meaningful by chance; verify the entire message.</li><li><strong>ROT13 scope.</strong> <a href=\"/classical-ciphers/rot13\">ROT13</a> is the self-inverse shift-13 case for the 26-letter Latin alphabet.</li></ul><p>If no shift produces coherent text, reconsider the alphabet, the language, and the assumption that the message uses a Caesar cipher. It may instead use a different substitution or a transposition.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "How many keys does a Caesar cipher have?",
+            "answer": "<p>An alphabet of <em>N</em> symbols has <em>N − 1</em> non-trivial Caesar keys. The 26-letter English alphabet therefore has 25. Shift 0, or any full rotation, leaves the text unchanged.</p>"
+        },
+        {
+            "question": "Can I break a Caesar cipher without knowing the key?",
+            "answer": "<p>Usually. You can test the complete keyspace, then rank the results using language, context, frequency patterns, and cribs. Extremely short or context-free messages may remain ambiguous even after every shift is listed.</p>"
+        },
+        {
+            "question": "Is ROT13 the same as a Caesar cipher?",
+            "answer": "<p>ROT13 is a Caesar cipher with shift 13 over the 26-letter Latin alphabet. Because 13 is half of 26, applying it twice returns the original text. It can hide casual spoilers but provides no cryptographic security.</p>"
+        },
+        {
+            "question": "Why does frequency analysis need a long message?",
+            "answer": "<p>Short samples fluctuate: their most frequent letter may not match the language average. More ciphertext provides more stable counts, although genre, names, and repeated words can still skew the profile.</p>"
+        }
+    ],
+    "related_guides": [],
+    "related_terms": [
+        {"slug": "shift-cipher", "label": "Shift cipher"},
+        {"slug": "monoalphabetic-cipher", "label": "Monoalphabetic cipher"},
+        {"slug": "frequency-analysis", "label": "Frequency analysis"},
+        {"slug": "brute-force-attack", "label": "Brute-force attack"}
+    ],
+    "related_tools": [
+        {
+            "slug": "classical-ciphers/caesar",
+            "label": "Caesar Cipher tool"
+        },
+        {
+            "slug": "text-analysis/caesar-brute-force",
+            "label": "Caesar brute-force tool"
+        },
+        {
+            "slug": "classical-ciphers/rot13",
+            "label": "ROT13"
+        },
+        {
+            "slug": "text-analysis/frequency-analysis",
+            "label": "Frequency Analysis"
+        }
+    ],
+    "tags": [
+        "caesar",
+        "beginner",
+        "cryptanalysis"
+    ],
+    "category": "how-to"
+}

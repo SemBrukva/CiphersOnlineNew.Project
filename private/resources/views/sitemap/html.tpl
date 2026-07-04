@@ -57,6 +57,29 @@
 </section>
 {/if}
 
+{if $guides}
+<section class="panel">
+    <div class="panel-content">
+        <div class="sitemap-grid">
+            <div class="sitemap-category sitemap-category--wide">
+                <div class="sitemap-category__header">
+                    <i class="bi bi-journal-text sitemap-category__icon"></i>
+                    <div class="sitemap-category__name">
+                        <a href="{$locale_prefix}/guides">{$t.MENU_GUIDES}</a>
+                    </div>
+                    <span class="sitemap-category__count">{$guides|count}</span>
+                </div>
+                <div class="sitemap-category__tools">
+                    {foreach $guides as $guide}
+                    <a class="sitemap-tool-link" href="{$guide.url}">{$guide.title}</a>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{/if}
+
 <div class="text-center mb-4">
     <a href="/sitemap.xml" class="text-muted small">
         <i class="bi bi-filetype-xml me-1"></i>XML Sitemap

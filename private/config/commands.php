@@ -14,6 +14,7 @@ use App\Console\Commands\DbImportSqliteCommand;
 use App\Console\Commands\DictionaryBuildCommand;
 use App\Console\Commands\DictionaryDownloadCommand;
 use App\Console\Commands\GlossaryValidateCommand;
+use App\Console\Commands\GuidesValidateCommand;
 use App\Console\Commands\MailTestCommand;
 use App\Console\Commands\Make\MakeControllerCommand;
 use App\Console\Commands\Make\MakeJobCommand;
@@ -66,4 +67,5 @@ return [
     'dictionary:download' => DictionaryDownloadCommand::class,
     'dictionary:build'    => DictionaryBuildCommand::class,
     'glossary:validate'   => GlossaryValidateCommand::class,
+    'guides:validate'     => GuidesValidateCommand::class,
 ];

@@ -12,6 +12,7 @@ use App\Controller\ContactsController;
 use App\Controller\EmbedController;
 use App\Controller\FavoritesController;
 use App\Controller\GlossaryController;
+use App\Controller\GuidesController;
 use App\Controller\HealthController;
 use App\Controller\HomeController;
 use App\Controller\LlmsController;
@@ -104,6 +105,19 @@ return [
         'controller' => GlossaryController::class,
         'method'     => 'show',
         'name'       => 'glossary.show',
+    ],
+
+    // Гайды/статьи — ДО catch-all маршрутов инструментов/категорий, иначе будет перехвачен.
+    'GET /guides' => [
+        'controller' => GuidesController::class,
+        'method'     => 'index',
+        'name'       => 'guides.index',
+    ],
+
+    'GET /guides/{slug:[a-z0-9-]+}' => [
+        'controller' => GuidesController::class,
+        'method'     => 'show',
+        'name'       => 'guides.show',
     ],
 
     // Встраиваемый (iframe) виджет инструмента — ДО catch-all маршрутов инструментов.

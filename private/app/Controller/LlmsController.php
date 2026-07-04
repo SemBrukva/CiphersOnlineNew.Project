@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Cache\CacheInterface;
+use App\Guide\GuideRepository;
 use App\Http\Request;
 use App\Http\Response;
 use App\I18n\Translator;
@@ -26,6 +27,7 @@ final readonly class LlmsController
         private CipherRepository         $ciphers,
         private Translator               $translator,
         private CacheInterface           $cache,
+        private GuideRepository          $guides,
     ) {
     }
 
@@ -66,6 +68,7 @@ final readonly class LlmsController
             '',
             $this->linkLine('Home', $appUrl . '/', 'Main entry point for cipher and encoding tools.'),
             $this->linkLine('Glossary', $appUrl . '/glossary', 'Definitions of cryptography, cipher, encoding and hashing terms.'),
+            $this->linkLine('Guides', $appUrl . '/guides', 'Long-form tutorials, deep dives and history on ciphers and codes.'),
             $this->linkLine('HTML Sitemap', $appUrl . '/sitemap', 'Human-readable list of published categories and tools.'),
             $this->linkLine('XML Sitemap', $appUrl . '/sitemap.xml', 'Complete crawl map with locale alternates.'),
             $this->linkLine('Contact', $appUrl . '/contacts', 'Contact page for site feedback and support requests.'),
@@ -104,6 +107,21 @@ final readonly class LlmsController
                 $description = $this->plainText((string) ($tool['description_short'] ?? $tool['description'] ?? ''));
 
                 $lines[] = $this->linkLine($name, $appUrl . '/' . $categoryAlias . '/' . $tool['alias'], $description);
+            }
+        }
+
+        $guides = $this->guides->index($defaultLanguage);
+        if ($guides !== []) {
+            $lines[] = '';
+            $lines[] = '## Guides & Articles';
+            $lines[] = '';
+
+            foreach ($guides as $guide) {
+                $lines[] = $this->linkLine(
+                    $this->plainText($guide['title']),
+                    $appUrl . '/guides/' . $guide['slug'],
+                    $this->plainText($guide['excerpt']),
+                );
             }
         }
 

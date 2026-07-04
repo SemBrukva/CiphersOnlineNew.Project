@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "caesar-cipher-manual-decryption",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Como decifrar uma cifra de César à mão",
+        "excerpt": "Um guia passo a passo para testar todos os deslocamentos, usar frequências de letras e verificar palavras prováveis.",
+        "meta_title": "Decifrar uma cifra de César à mão | CiphersOnline",
+        "meta_description": "Aprenda a decifrar César sem a chave: identifique o alfabeto, teste deslocamentos, analise frequências e verifique palavras prováveis.",
+        "reading_time": 4
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "O que é uma cifra de César?",
+            "html": "<p>A <strong>cifra de César</strong> desloca cada letra do texto claro pelo mesmo número de posições em um alfabeto definido. Ao chegar ao último símbolo, a contagem continua no início.</p><p>Como a mesma substituição vale para toda a mensagem, trata-se de uma <em>cifra de substituição monoalfabética</em>. O deslocamento é a chave. Um alfabeto com <em>N</em> símbolos possui <em>N − 1</em> chaves não triviais. O alfabeto português estendido da ferramenta tem 36 símbolos e, portanto, 35 candidatos.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Antes de começar",
+            "html": "<p>Determine primeiro o alfabeto e a ordem dos símbolos. A ferramenta usa <code>A Á À Ã B C Ç D E É Ê F G H I Í J K L M N O Ó Ô P Q R S T U Ú V W X Y Z</code>. Uma convenção que remova acentos produzirá deslocamentos diferentes.</p><p>Para <em>decifrar</em>, mova cada símbolo cifrado <strong>para trás</strong> pela chave candidata. Três posições para trás equivalem a 33 para a frente neste alfabeto de 36 símbolos. Espaços, números e pontuação normalmente permanecem iguais.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Método 1 — Testar todos os deslocamentos",
+            "html": "<p>Com <em>N</em> símbolos, teste as chaves de 1 a <em>N − 1</em>. Para <code>KÚVP G WÓ VFÚVF</code>:</p><ul><li>Deslocamento 1: <code>JUÚÔ F VO ÚÊUÚÊ</code>.</li><li>Deslocamento 2: <code>ÍTUÓ Ê ÚN UÉTUÉ</code>.</li><li>Deslocamento 3: <code>ISTO É UM TESTE</code>.</li></ul><p>A terceira saída forma uma frase clara, então a chave 3 é a melhor candidata. Textos muito curtos podem deixar mais de uma leitura plausível. A ferramenta de <a href=\"/pt/text-analysis/caesar-brute-force\">força bruta para César</a> lista todos os deslocamentos para conferência.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Método 2 — Análise de frequência",
+            "html": "<p>Em textos portugueses longos, <strong>A</strong>, <strong>E</strong>, <strong>O</strong> e <strong>S</strong> costumam ser frequentes, mas a ordem varia conforme a amostra. Conte várias letras dominantes do texto cifrado e teste mais de uma correspondência.</p><p>Se <code>F</code> aparece muito e você supõe que representa <code>E</code>, a distância neste alfabeto estendido é 3. Aplique a chave à mensagem inteira e confirme palavras, gramática e outros padrões. A <a href=\"/pt/text-analysis/frequency-analysis\">análise de frequência</a> fornece pistas, não uma prova isolada.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Método 3 — Usar uma palavra provável",
+            "html": "<p>Uma palavra esperada pelo contexto é chamada de <em>crib</em>. Alinhe-a com um trecho cifrado e confira se cada par de letras exige o mesmo deslocamento para trás.</p><p>Se você espera <code>TESTE</code> e encontra <code>VFÚVF</code>, os cinco pares exigem a chave 3 no alfabeto acima. Teste essa chave na mensagem completa; o crib só é convincente quando o restante do texto também fica coerente.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Erros comuns e verificações",
+            "html": "<p>Confira especialmente:</p><ul><li><strong>Alfabeto errado.</strong> A presença e a ordem das letras acentuadas mudam todos os deslocamentos.</li><li><strong>Direção errada.</strong> Para decifrar, conte para trás.</li><li><strong>Conclusão precoce.</strong> Um trecho legível pode ocorrer por acaso; confira a mensagem inteira.</li><li><strong>Escopo do ROT13.</strong> <a href=\"/pt/classical-ciphers/rot13\">ROT13</a> é o caso autoinverso do alfabeto latino de 26 letras, não deste alfabeto estendido.</li></ul><p>Se nenhum deslocamento produzir texto coerente, reveja o alfabeto e o idioma ou considere outra substituição ou uma transposição.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Quantas chaves tem uma cifra de César?",
+            "answer": "<p>Um alfabeto de <em>N</em> símbolos tem <em>N − 1</em> chaves não triviais. O alfabeto português estendido de 36 símbolos usado aqui tem 35; o alfabeto latino básico tem 25.</p>"
+        },
+        {
+            "question": "Posso decifrá-la sem conhecer a chave?",
+            "answer": "<p>Geralmente sim. Teste todas as chaves e avalie os resultados pelo idioma, contexto, frequências e palavras prováveis. Uma mensagem extremamente curta pode continuar ambígua.</p>"
+        },
+        {
+            "question": "ROT13 é uma cifra de César?",
+            "answer": "<p>Sim. ROT13 desloca 13 posições no alfabeto latino de 26 letras. Como 13 é metade de 26, aplicá-lo duas vezes recupera o texto original.</p>"
+        },
+        {
+            "question": "Por que a análise de frequência precisa de mais texto?",
+            "answer": "<p>Amostras curtas variam muito em relação à média do idioma. Mais texto estabiliza as contagens, embora assunto, nomes e repetições ainda possam distorcê-las.</p>"
+        }
+    ],
+    "related_guides": [],
+    "related_terms": [
+        {"slug": "shift-cipher", "label": "Cifra de deslocamento"},
+        {"slug": "monoalphabetic-cipher", "label": "Cifra monoalfabética"},
+        {"slug": "frequency-analysis", "label": "Análise de frequência"},
+        {"slug": "brute-force-attack", "label": "Ataque de força bruta"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Ferramenta de cifra de César"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Força bruta para César"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Análise de frequência"}
+    ],
+    "tags": ["césar", "iniciante", "criptoanálise"],
+    "category": "how-to"
+}

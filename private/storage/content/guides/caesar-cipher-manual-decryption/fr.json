@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "caesar-cipher-manual-decryption",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Déchiffrer un chiffre de César à la main",
+        "excerpt": "Une méthode pas à pas pour tester tous les décalages, exploiter la fréquence des lettres et vérifier des mots probables.",
+        "meta_title": "Déchiffrer un chiffre de César à la main | CiphersOnline",
+        "meta_description": "Apprenez à déchiffrer César sans clé : identifiez l’alphabet, testez les décalages, analysez les fréquences et vérifiez des mots probables.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Qu’est-ce qu’un chiffre de César ?",
+            "html": "<p>Le <strong>chiffre de César</strong> décale chaque lettre du texte clair du même nombre de positions dans un alphabet défini. Avec un décalage de 3, on avance de trois symboles et l’on reprend au début après le dernier.</p><p>La même substitution étant utilisée dans tout le message, il s’agit d’un <em>chiffrement monoalphabétique</em>. Le décalage constitue la clé. Un alphabet de <em>N</em> symboles offre <em>N − 1</em> clés non triviales. L’alphabet français étendu de l’outil contient 40 symboles, soit 39 candidats.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Avant de commencer",
+            "html": "<p>Identifiez d’abord l’alphabet et son ordre. L’outil utilise <code>A À Â B C Ç D E É È Ê Ë F G H I Î Ï J K L M N O Ô P Q R S T U Ù Û Ü V W X Y Ÿ Z</code>. Une convention qui normalise les accents donnera d’autres résultats.</p><p>Pour <em>déchiffrer</em>, reculez chaque symbole du nombre de positions indiqué par la clé candidate. Trois positions en arrière équivalent à 37 en avant dans cet alphabet de 40 symboles. Les espaces, chiffres et signes de ponctuation sont généralement conservés.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Méthode 1 — Tester tous les décalages",
+            "html": "<p>Pour <em>N</em> symboles, essayez les clés de 1 à <em>N − 1</em>. Prenons <code>EÊEJ ÊÙÛ ÜP ËÛË ÙÊEUÊÛ</code> :</p><ul><li>Décalage 1 : <code>DÈDÏ ÈUÙ ÛÔ ÊÙÊ UÈDTÈÙ</code>.</li><li>Décalage 2 : <code>ÇÉÇÎ ÉTU ÙO ÈUÈ TÉÇSÉU</code>.</li><li>Décalage 3 : <code>CECI EST UN ÉTÉ SECRET</code>.</li></ul><p>La troisième sortie forme une phrase cohérente : la clé 3 est donc le meilleur candidat. Un texte très court peut toutefois produire plusieurs lectures plausibles. L’outil de <a href=\"/fr/text-analysis/caesar-brute-force\">force brute pour César</a> affiche tous les décalages pour vérification.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Méthode 2 — Analyse fréquentielle",
+            "html": "<p>Dans un texte français assez long, <strong>E</strong>, <strong>A</strong>, <strong>S</strong> et <strong>I</strong> sont souvent fréquents, mais l’ordre dépend de l’échantillon. Comptez plusieurs lettres dominantes du texte chiffré et testez plusieurs correspondances.</p><p>Si <code>Ê</code> est fréquent et que vous supposez qu’il représente <code>E</code>, l’écart dans cet alphabet est 3. Appliquez cette clé au message entier et vérifiez les mots, la grammaire et d’autres motifs. L’outil d’<a href=\"/fr/text-analysis/frequency-analysis\">analyse fréquentielle</a> fournit les comptes ; ils restent un indice, pas une preuve.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Méthode 3 — Utiliser un mot probable",
+            "html": "<p>Un mot attendu grâce au contexte est appelé un <em>crib</em>. Alignez-le avec un fragment chiffré et vérifiez que chaque paire de lettres donne le même recul.</p><p>Si vous attendez <code>ÉTÉ</code> et observez <code>ËÛË</code>, les passages <code>Ë→É</code>, <code>Û→T</code> et <code>Ë→É</code> demandent tous un recul de 3. Testez alors la clé 3 sur tout le message ; le crib n’est confirmé que si le reste devient lui aussi cohérent.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Erreurs courantes et contrôles",
+            "html": "<p>Vérifiez notamment :</p><ul><li><strong>Le mauvais alphabet.</strong> La présence et l’ordre des lettres accentuées modifient tous les décalages.</li><li><strong>Le mauvais sens.</strong> Pour déchiffrer, comptez en arrière.</li><li><strong>Une conclusion trop rapide.</strong> Un fragment lisible peut être fortuit ; contrôlez le message entier.</li><li><strong>La portée de ROT13.</strong> <a href=\"/fr/classical-ciphers/rot13\">ROT13</a> est le cas auto-réciproque de l’alphabet latin de 26 lettres, pas de cet alphabet étendu.</li></ul><p>Si aucun décalage ne produit de texte cohérent, revérifiez l’alphabet et la langue, puis envisagez une autre substitution ou une transposition.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Combien de clés possède un chiffre de César ?",
+            "answer": "<p>Un alphabet de <em>N</em> symboles possède <em>N − 1</em> clés non triviales. L’alphabet français étendu de 40 symboles utilisé ici en a 39 ; l’alphabet latin de base en a 25.</p>"
+        },
+        {
+            "question": "Puis-je le déchiffrer sans connaître la clé ?",
+            "answer": "<p>En général, oui. Testez toutes les clés puis classez les résultats selon la langue, le contexte, les fréquences et les mots probables. Un message minuscule sans contexte peut rester ambigu.</p>"
+        },
+        {
+            "question": "ROT13 est-il un chiffre de César ?",
+            "answer": "<p>Oui. ROT13 décale de 13 positions dans l’alphabet latin de 26 lettres. Comme 13 est la moitié de 26, une seconde application restitue le texte d’origine.</p>"
+        },
+        {
+            "question": "Pourquoi faut-il un texte assez long pour les fréquences ?",
+            "answer": "<p>Les petits échantillons fluctuent beaucoup. Davantage de texte stabilise les comptes, même si le sujet, les noms propres et les répétitions peuvent encore les déformer.</p>"
+        }
+    ],
+    "related_guides": [],
+    "related_terms": [
+        {"slug": "shift-cipher", "label": "Chiffrement par décalage"},
+        {"slug": "monoalphabetic-cipher", "label": "Chiffrement monoalphabétique"},
+        {"slug": "frequency-analysis", "label": "Analyse fréquentielle"},
+        {"slug": "brute-force-attack", "label": "Attaque par force brute"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Outil de chiffre de César"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Force brute pour César"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Analyse fréquentielle"}
+    ],
+    "tags": ["césar", "débutant", "cryptanalyse"],
+    "category": "how-to"
+}

@@ -8,6 +8,7 @@ use App\Cipher\BaseToolUiFactory;
 use App\Cipher\ToolRegistry;
 use App\Cipher\ToolUiDecorator;
 use App\Glossary\GlossaryRepository;
+use App\Guide\GuideRepository;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -29,7 +30,8 @@ final readonly class CipherController
         private ToolRegistry $toolRegistry,
         private BaseToolUiFactory $uiFactory,
         private ToolUiDecorator $uiDecorator,
-        private GlossaryRepository $glossary
+        private GlossaryRepository $glossary,
+        private GuideRepository $guides
     ) {
     }
 
@@ -56,6 +58,35 @@ final readonly class CipherController
             $slug = (string) $slug;
             if (isset($bySlug[$slug])) {
                 $links[] = ['name' => $bySlug[$slug]['name'], 'url' => $bySlug[$slug]['url']];
+            }
+        }
+
+        return $links;
+    }
+
+    /**
+     * Возвращает связанные гайды для инструмента (из config/guide_related.php).
+     * Резолвит slug'и в пары {title, url} по опубликованному индексу; отсутствующие пропускает.
+     *
+     * @return array<int, array{title: string, url: string}>
+     */
+    private function buildGuideLinks(string $toolSlug, string $language): array
+    {
+        $slugs = (array) (config('guide_related.' . $toolSlug) ?? []);
+        if ($slugs === []) {
+            return [];
+        }
+
+        $bySlug = [];
+        foreach ($this->guides->index($language) as $guide) {
+            $bySlug[$guide['slug']] = $guide;
+        }
+
+        $links = [];
+        foreach ($slugs as $slug) {
+            $slug = (string) $slug;
+            if (isset($bySlug[$slug])) {
+                $links[] = ['title' => $bySlug[$slug]['title'], 'url' => $bySlug[$slug]['url']];
             }
         }
 
@@ -135,6 +166,7 @@ final readonly class CipherController
                 'tool_ui_json' => (string) json_encode($toolUi, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
                 'all_in_category_label' => $allInCategoryLabel,
                 'glossary_links' => $this->buildGlossaryLinks($toolSlug, $language),
+                'guide_links' => $this->buildGuideLinks($toolSlug, $language),
             ]));
 
         return new Response($this->view->render());

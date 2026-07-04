@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "caesar-cipher-manual-decryption",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Cómo descifrar un cifrado César a mano",
+        "excerpt": "Guía paso a paso para probar todos los desplazamientos, aprovechar la frecuencia de las letras y comprobar palabras probables.",
+        "meta_title": "Descifrar un cifrado César a mano | CiphersOnline",
+        "meta_description": "Aprende a descifrar un César sin la clave: identifica el alfabeto, prueba desplazamientos, analiza frecuencias y comprueba palabras probables.",
+        "reading_time": 4
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "¿Qué es un cifrado César?",
+            "html": "<p>El <strong>cifrado César</strong> desplaza cada letra del texto claro el mismo número de posiciones dentro de un alfabeto elegido. Con un desplazamiento de 3 en el alfabeto español usado aquí, <code>A</code> se convierte en <code>D</code> y, al llegar al final, el recuento vuelve al principio.</p><p>Como se mantiene una sola sustitución durante todo el mensaje, es un <em>cifrado por sustitución monoalfabética</em>. El desplazamiento es la clave. Un alfabeto con <em>N</em> símbolos tiene <em>N − 1</em> claves no triviales; con 27 letras españolas hay 26 candidatas.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Antes de empezar",
+            "html": "<p>Determina primero el alfabeto y su orden. La herramienta usa <code>A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z</code>. Omitir la <code>Ñ</code> cambia todos los resultados posteriores.</p><p>Para <em>descifrar</em>, mueve cada letra cifrada <strong>hacia atrás</strong> según la clave candidata. Tres posiciones hacia atrás equivalen a 24 hacia delante en este alfabeto de 27 letras. Los espacios, números y signos suelen conservarse.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Método 1 — Probar todos los desplazamientos",
+            "html": "<p>Con <em>N</em> símbolos, prueba las claves de 1 a <em>N − 1</em>. Para <code>HVWD HV XPD VHQDÑ</code>:</p><ul><li>Desplazamiento 1: <code>GUVC GU WOC UGPCN</code>.</li><li>Desplazamiento 2: <code>FTUB FT VÑB TFOBM</code>.</li><li>Desplazamiento 3: <code>ESTA ES UNA SEÑAL</code>.</li></ul><p>La tercera salida forma una frase clara, de modo que la clave 3 es la mejor candidata. En textos muy cortos conserva varias lecturas posibles hasta que el contexto decida. La herramienta de <a href=\"/es/text-analysis/caesar-brute-force\">fuerza bruta para César</a> enumera todos los desplazamientos.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Método 2 — Análisis de frecuencia",
+            "html": "<p>En textos españoles largos suelen aparecer mucho <strong>E</strong>, <strong>A</strong>, <strong>O</strong> y <strong>S</strong>, aunque la muestra concreta puede alterar el orden. Cuenta varias letras frecuentes del criptograma y prueba más de una correspondencia.</p><p>Si <code>H</code> aparece mucho y supones que representa <code>E</code>, la distancia es 3. Aplica esa clave al mensaje completo y exige que coincidan palabras, gramática y otros patrones. La herramienta de <a href=\"/es/text-analysis/frequency-analysis\">análisis de frecuencia</a> cuenta las letras; no sustituye la comprobación.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Método 3 — Usar una palabra probable",
+            "html": "<p>Una palabra esperada por el contexto se denomina <em>crib</em>. Alinéala con un fragmento cifrado y comprueba que cada pareja de letras produzca el mismo desplazamiento.</p><p>Si esperas <code>UNA</code> y encuentras <code>XPD</code>, las parejas <code>X→U</code>, <code>P→N</code> y <code>D→A</code> requieren retroceder 3 posiciones. Prueba entonces la clave 3 en todo el texto; el crib solo queda confirmado si el resto también tiene sentido.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Errores comunes y comprobaciones",
+            "html": "<p>Revisa estos puntos:</p><ul><li><strong>Alfabeto equivocado.</strong> Incluir o excluir la <code>Ñ</code> modifica las claves.</li><li><strong>Dirección incorrecta.</strong> Para descifrar se cuenta hacia atrás.</li><li><strong>Conclusión precipitada.</strong> Una coincidencia breve puede ser casual; comprueba todo el mensaje.</li><li><strong>Alcance de ROT13.</strong> <a href=\"/es/classical-ciphers/rot13\">ROT13</a> es el caso autoinverso del alfabeto latino de 26 letras, sin <code>Ñ</code>.</li></ul><p>Si ningún desplazamiento genera texto coherente, revisa el alfabeto y el idioma o considera otra sustitución o una transposición.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Cuántas claves tiene un cifrado César?",
+            "answer": "<p>Un alfabeto de <em>N</em> símbolos tiene <em>N − 1</em> claves no triviales. El alfabeto español de 27 letras usado aquí tiene 26; el latino básico de 26 letras tiene 25.</p>"
+        },
+        {
+            "question": "¿Puedo descifrarlo sin conocer la clave?",
+            "answer": "<p>Normalmente sí. Prueba el espacio completo de claves y ordena los resultados por idioma, contexto, frecuencias y palabras probables. Un mensaje extremadamente corto puede seguir siendo ambiguo.</p>"
+        },
+        {
+            "question": "¿ROT13 es un cifrado César?",
+            "answer": "<p>Sí. ROT13 desplaza 13 posiciones en el alfabeto latino de 26 letras. Como 13 es la mitad de 26, aplicarlo dos veces recupera el texto original.</p>"
+        },
+        {
+            "question": "¿Por qué el análisis de frecuencia necesita texto largo?",
+            "answer": "<p>Las muestras cortas fluctúan y su letra más común puede no coincidir con la media del idioma. Más texto estabiliza los recuentos, aunque el tema y las repeticiones todavía influyen.</p>"
+        }
+    ],
+    "related_guides": [],
+    "related_terms": [
+        {"slug": "shift-cipher", "label": "Cifrado por desplazamiento"},
+        {"slug": "monoalphabetic-cipher", "label": "Cifrado monoalfabético"},
+        {"slug": "frequency-analysis", "label": "Análisis de frecuencia"},
+        {"slug": "brute-force-attack", "label": "Ataque de fuerza bruta"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Herramienta de cifrado César"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Fuerza bruta para César"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Análisis de frecuencia"}
+    ],
+    "tags": ["césar", "principiante", "criptoanálisis"],
+    "category": "how-to"
+}

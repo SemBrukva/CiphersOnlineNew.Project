@@ -77,6 +77,7 @@
         <ul class="footer-nav">
             <li><a href="{$locale_prefix}/contacts">{$t.MENU_CONTACTS|default:'Contacts'}</a></li>
             <li><a href="{$locale_prefix}/glossary">{$t.MENU_GLOSSARY|default:'Glossary'}</a></li>
+            <li><a href="{$locale_prefix}/guides">{$t.MENU_GUIDES|default:'Guides'}</a></li>
             {foreach $nav_pages as $pg}
                 <li><a href="{$locale_prefix}/{$pg.alias}">{$pg.name}</a></li>
             {/foreach}

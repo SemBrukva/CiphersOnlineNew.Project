@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "caesar-cipher-manual-decryption",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Sezar şifresi elle nasıl çözülür",
+        "excerpt": "Tüm kaydırmaları denemeyi, harf sıklıklarından yararlanmayı ve olası kelimeleri sınamayı anlatan adım adım rehber.",
+        "meta_title": "Sezar şifresini elle çözme rehberi | CiphersOnline",
+        "meta_description": "Sezar şifresini anahtarsız çözün: alfabeyi belirleyin, kaydırmaları deneyin, frekansları inceleyin ve olası kelimeleri sınayın.",
+        "reading_time": 4
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Sezar şifresi nedir?",
+            "html": "<p><strong>Sezar şifresi</strong>, düz metindeki her harfi seçilen alfabede aynı sayıda konum kaydırır. Son simge geçildiğinde sayım alfabenin başından sürer.</p><p>Tüm mesajda tek bir eşleme kullanıldığı için bu yöntem <em>tek alfabeli yerine koyma şifresi</em>dir. Kaydırma miktarı anahtardır. <em>N</em> simgeli bir alfabenin <em>N − 1</em> önemsiz olmayan anahtarı vardır. Araçtaki 29 harfli Türk alfabesi için 28 aday bulunur.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Başlamadan önce",
+            "html": "<p>Önce alfabe ile harf sırasını belirleyin. Araç şu sırayı kullanır: <code>A B C Ç D E F G Ğ H I İ J K L M N O Ö P R S Ş T U Ü V Y Z</code>. Türkçedeki <code>I</code> ve <code>İ</code> ayrımı kaydırma hesabı için önemlidir.</p><p><em>Çözmek</em> için her şifreli harfi aday anahtar kadar <strong>geriye</strong> kaydırın. Üç konum geri, 29 harfli bu alfabede 26 konum ileriyle aynıdır. Boşluklar, rakamlar ve noktalama işaretleri çoğunlukla değişmez.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Yöntem 1 — Tüm kaydırmaları deneyin",
+            "html": "<p><em>N</em> simgeli bir alfabe için 1’den <em>N − 1</em>’e kadar anahtarları sınayın. <code>Dy dlt vğuvvlt</code> metni için:</p><ul><li>Kaydırma 1: <code>Çv çkş ügtüükş</code>.</li><li>Kaydırma 2: <code>Cü cjs ufşuujs</code>.</li><li>Kaydırma 3: <code>Bu bir testtir</code>.</li></ul><p>Üçüncü sonuç anlamlı bir cümledir; bu nedenle 3 en güçlü adaydır. Çok kısa metinlerde birden fazla makul sonuç kalabilir. <a href=\"/tr/text-analysis/caesar-brute-force\">Sezar kaba kuvvet aracı</a> bütün kaydırmaları bir kerede listeler.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Yöntem 2 — Frekans analizi",
+            "html": "<p>Uzun Türkçe metinlerde <strong>A</strong>, <strong>E</strong>, <strong>İ</strong> ve <strong>N</strong> sık görülebilir; ancak sıra metne göre değişir. Şifreli metindeki birkaç sık harfi sayın ve birden fazla eşleşmeyi sınayın.</p><p><code>Ç</code> sık görülüyorsa ve bunun <code>A</code> olduğunu varsayıyorsanız, bu alfabedeki uzaklık 3’tür. Anahtar 3’ü tüm mesaja uygulayın; sözcükler, dil bilgisi ve başka örüntüler de uyuşmalıdır. <a href=\"/tr/text-analysis/frequency-analysis\">Frekans analizi aracı</a> sayımları verir, fakat tek başına kanıt oluşturmaz.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Yöntem 3 — Olası bir kelime kullanın",
+            "html": "<p>Bağlamdan beklenen kelimeye <em>crib</em> denir. Kelimeyi şifreli bir parçayla hizalayın ve her harf çiftinin aynı geri kaydırmayı verip vermediğini kontrol edin.</p><p><code>bir</code> kelimesini bekliyor ve <code>dlt</code> görüyorsanız, <code>d→b</code>, <code>l→i</code> ve <code>t→r</code> geçişlerinin üçü de 3 konum geri gider. Anahtar 3’ü tüm metne uygulayın; geri kalan bölüm de anlamlı değilse cribi reddedin.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Sık hatalar ve kontroller",
+            "html": "<p>Özellikle şunları denetleyin:</p><ul><li><strong>Yanlış alfabe.</strong> <code>I</code>, <code>İ</code>, <code>Ç</code>, <code>Ğ</code>, <code>Ö</code>, <code>Ş</code> ve <code>Ü</code> bütün kaydırmaları etkiler.</li><li><strong>Yanlış yön.</strong> Çözme sırasında geriye sayılır.</li><li><strong>Erken karar.</strong> Kısa bir parça tesadüfen anlamlı görünebilir; tüm mesajı doğrulayın.</li><li><strong>ROT13 kapsamı.</strong> <a href=\"/tr/classical-ciphers/rot13\">ROT13</a>, 26 harfli Latin alfabesine özgü kendi tersine dönüşen durumdur.</li></ul><p>Hiçbir kaydırma tutarlı metin vermiyorsa alfabeyi ve dili yeniden değerlendirin; mesaj başka bir yerine koyma ya da yer değiştirme yöntemi kullanıyor olabilir.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Bir Sezar şifresinin kaç anahtarı vardır?",
+            "answer": "<p><em>N</em> simgeli bir alfabede <em>N − 1</em> önemsiz olmayan anahtar vardır. Buradaki 29 harfli Türk alfabesinde 28, 26 harfli temel Latin alfabesinde 25 anahtar bulunur.</p>"
+        },
+        {
+            "question": "Anahtarı bilmeden çözebilir miyim?",
+            "answer": "<p>Genellikle evet. Bütün anahtarları deneyip sonuçları dil, bağlam, frekanslar ve olası kelimelerle sıralayın. Çok kısa ve bağlamsız bir mesaj belirsiz kalabilir.</p>"
+        },
+        {
+            "question": "ROT13 bir Sezar şifresi midir?",
+            "answer": "<p>Evet. ROT13, 26 harfli Latin alfabesinde 13 konum kaydırır. 13 sayısı 26’nın yarısı olduğu için ikinci uygulama özgün metni geri getirir.</p>"
+        },
+        {
+            "question": "Frekans analizi neden daha uzun metin ister?",
+            "answer": "<p>Kısa örneklerin harf dağılımı dil ortalamasından büyük ölçüde sapabilir. Daha fazla metin sayımları dengeler; konu, özel adlar ve tekrarlar yine de sonucu etkileyebilir.</p>"
+        }
+    ],
+    "related_guides": [],
+    "related_terms": [
+        {"slug": "shift-cipher", "label": "Kaydırma şifresi"},
+        {"slug": "monoalphabetic-cipher", "label": "Tek alfabeli şifre"},
+        {"slug": "frequency-analysis", "label": "Frekans analizi"},
+        {"slug": "brute-force-attack", "label": "Kaba kuvvet saldırısı"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Sezar şifresi aracı"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Sezar kaba kuvvet aracı"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Frekans analizi"}
+    ],
+    "tags": ["sezar", "başlangıç", "kriptoanaliz"],
+    "category": "how-to"
+}

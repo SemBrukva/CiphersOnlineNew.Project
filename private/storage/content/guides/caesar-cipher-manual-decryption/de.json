@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "caesar-cipher-manual-decryption",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Eine Caesar-Chiffre von Hand entschlüsseln",
+        "excerpt": "Eine Schritt-für-Schritt-Anleitung: alle Verschiebungen prüfen, Buchstabenhäufigkeiten nutzen und wahrscheinliche Wörter testen.",
+        "meta_title": "Caesar-Chiffre von Hand entschlüsseln | CiphersOnline",
+        "meta_description": "Caesar-Chiffren ohne Schlüssel lösen: Alphabet bestimmen, Verschiebungen durchprobieren, Häufigkeiten auswerten und Cribs prüfen.",
+        "reading_time": 4
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Was ist eine Caesar-Chiffre?",
+            "html": "<p>Die <strong>Caesar-Chiffre</strong> verschiebt jeden Klartextbuchstaben um dieselbe Anzahl von Stellen in einem festgelegten Alphabet. Bei Verschiebung 3 wird im hier verwendeten deutschen Alphabet aus <code>A</code> ein <code>C</code>, aus <code>Ä</code> ein <code>D</code>; am Ende beginnt die Zählung wieder vorn.</p><p>Da im ganzen Text dieselbe Ersetzung gilt, ist Caesar eine <em>monoalphabetische Substitutionschiffre</em>. Die Verschiebung ist der Schlüssel. Ein Alphabet mit <em>N</em> Zeichen besitzt <em>N − 1</em> nicht triviale Schlüssel. Das deutsche Alphabet des Werkzeugs umfasst 29 Zeichen und damit 28 Kandidaten.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Vorbereitung",
+            "html": "<p>Bestimme zuerst Alphabet und Reihenfolge. Das Werkzeug verwendet <code>A Ä B C D E F G H I J K L M N O Ö P Q R S T U Ü V W X Y Z</code>. Eine Chiffre, die Umlaute anders behandelt, liefert andere Verschiebungen.</p><p>Zum <em>Entschlüsseln</em> gehst du um den vermuteten Schlüssel <strong>rückwärts</strong>. Drei Stellen rückwärts entsprechen in diesem 29-Zeichen-Alphabet 26 Stellen vorwärts. Leerzeichen, Ziffern und Satzzeichen bleiben üblicherweise erhalten.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Methode 1 — Alle Verschiebungen testen",
+            "html": "<p>Prüfe bei <em>N</em> Zeichen die Schlüssel 1 bis <em>N − 1</em>. Für <code>GCÜ LÜV HLPH XEWPJ</code> ergeben die ersten Versuche:</p><ul><li>Verschiebung 1: <code>FBU KUÜ GKÖG WDVÖI</code>.</li><li>Verschiebung 2: <code>EÄT JTU FJOF VCÜOH</code>.</li><li>Verschiebung 3: <code>DAS IST EINE ÜBUNG</code>.</li></ul><p>Der dritte Text ist sprachlich schlüssig, also ist Schlüssel 3 der beste Kandidat. Bei sehr kurzen Nachrichten können mehrere Ergebnisse plausibel wirken. Das <a href=\"/de/text-analysis/caesar-brute-force\">Caesar-Brute-Force-Werkzeug</a> listet alle Verschiebungen zur Kontrolle auf.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Methode 2 — Häufigkeitsanalyse",
+            "html": "<p>Bei längeren deutschen Texten kommen <strong>E</strong>, <strong>N</strong>, <strong>I</strong> und <strong>S</strong> häufig vor; die Reihenfolge schwankt jedoch je nach Text. Zähle mehrere häufige Geheimtextbuchstaben und teste passende Zuordnungen.</p><p>Vermutest du hinter einem häufigen <code>H</code> ein <code>E</code>, beträgt der Abstand in diesem Alphabet 3. Entschlüssle damit den gesamten Text und prüfe Wörter, Grammatik und weitere Muster. Die <a href=\"/de/text-analysis/frequency-analysis\">Häufigkeitsanalyse</a> liefert die Zählung, aber noch keinen Beweis.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Methode 3 — Ein wahrscheinliches Wort nutzen",
+            "html": "<p>Ein aus dem Kontext erwartetes Wort heißt <em>Crib</em>. Lege es an einen Geheimtextabschnitt und berechne für jedes Buchstabenpaar dieselbe Rückverschiebung.</p><p>Erwartest du <code>EINE</code> und siehst <code>HLPH</code>, erfordern <code>H→E</code>, <code>L→I</code>, <code>P→N</code> und <code>H→E</code> jeweils den Schlüssel 3. Teste ihn anschließend am vollständigen Text; erst ein insgesamt stimmiges Ergebnis bestätigt den Crib.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Häufige Fehler und Kontrollen",
+            "html": "<p>Achte besonders auf:</p><ul><li><strong>Falsches Alphabet.</strong> Umlaute und ihre Position verändern alle Ergebnisse.</li><li><strong>Falsche Richtung.</strong> Beim Entschlüsseln wird rückwärts gezählt.</li><li><strong>Zu frühe Festlegung.</strong> Ein kurzer Zufallstreffer reicht nicht; prüfe die ganze Nachricht.</li><li><strong>ROT13.</strong> <a href=\"/de/classical-ciphers/rot13\">ROT13</a> ist der selbstinverse Spezialfall für das lateinische Alphabet mit 26 Buchstaben, nicht für dieses 29-Zeichen-Alphabet.</li></ul><p>Ergibt keine Verschiebung einen sinnvollen Text, prüfe Alphabet und Sprache oder ziehe eine andere Substitution beziehungsweise Transposition in Betracht.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Wie viele Schlüssel hat eine Caesar-Chiffre?",
+            "answer": "<p>Bei <em>N</em> Alphabetzeichen gibt es <em>N − 1</em> nicht triviale Schlüssel. Das hier verwendete deutsche Alphabet mit 29 Zeichen hat 28, das lateinische Grundalphabet mit 26 Buchstaben hat 25.</p>"
+        },
+        {
+            "question": "Kann ich eine Caesar-Chiffre ohne Schlüssel lösen?",
+            "answer": "<p>Meist ja. Prüfe alle Schlüssel und bewerte die Ergebnisse anhand von Sprache, Kontext, Häufigkeiten und Cribs. Sehr kurze Nachrichten ohne Kontext können mehrdeutig bleiben.</p>"
+        },
+        {
+            "question": "Ist ROT13 eine Caesar-Chiffre?",
+            "answer": "<p>Ja. ROT13 verschiebt im lateinischen 26-Buchstaben-Alphabet um 13. Weil 13 die Hälfte von 26 ist, stellt die zweite Anwendung den Ausgangstext wieder her.</p>"
+        },
+        {
+            "question": "Warum braucht die Häufigkeitsanalyse längeren Text?",
+            "answer": "<p>Kurze Stichproben weichen stark vom durchschnittlichen Sprachprofil ab. Mehr Text stabilisiert die Zählung, auch wenn Namen, Thema und Wiederholungen sie weiterhin verzerren können.</p>"
+        }
+    ],
+    "related_guides": [],
+    "related_terms": [
+        {"slug": "shift-cipher", "label": "Verschiebechiffre"},
+        {"slug": "monoalphabetic-cipher", "label": "Monoalphabetische Chiffre"},
+        {"slug": "frequency-analysis", "label": "Häufigkeitsanalyse"},
+        {"slug": "brute-force-attack", "label": "Brute-Force-Angriff"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Caesar-Chiffre-Werkzeug"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Caesar-Brute-Force"},
+        {"slug": "classical-ciphers/rot13", "label": "ROT13"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Häufigkeitsanalyse"}
+    ],
+    "tags": ["caesar", "anfänger", "kryptoanalyse"],
+    "category": "how-to"
+}
