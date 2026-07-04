@@ -49,6 +49,7 @@
         <script type="application/ld+json">{$schema|json_encode nofilter}</script>
         {/foreach}
     {/if}
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="dMH+PUcwINZvUyturPqQjg" async></script>
 </head>
 <body class="d-flex flex-column min-vh-100" style="font-family:'Inter Variable','Inter',system-ui,sans-serif;">
 
