@@ -1,0 +1,98 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "decrypt-cipher-without-key",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "How to Decrypt a Message Without the Key",
+        "excerpt": "A practical workflow for identifying an unknown cipher, choosing a suitable attack, and deciding whether a keyless recovery is realistically possible.",
+        "meta_title": "Decrypt a Message Without the Key: A Practical Workflow",
+        "meta_description": "Learn how to analyze an unknown ciphertext, distinguish encoding from encryption, identify likely cipher families, choose attacks, and verify plaintext.",
+        "reading_time": 7
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "What “without the key” really means",
+            "html": "<p>Decrypting without the key does not mean guessing at random. It means using the ciphertext, its context, and weaknesses in the method to reduce the possible keys or recover the plaintext directly. This is <strong>cryptanalysis</strong>.</p><p>Classical ciphers, puzzle ciphers, reused short keys, and some broken implementations can often be attacked this way. Properly implemented modern encryption with a strong secret key generally cannot: without a vulnerability, leaked key material, or an impractically large search, the ciphertext is designed not to reveal enough information. The first task is therefore to decide what kind of object you have, not to start trying passwords.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Step 1 — Preserve the evidence",
+            "html": "<p>Keep an untouched copy of the original message. Record spaces, line breaks, punctuation, letter case, separators, repeated groups, and any surrounding clues such as a date, sender, language, or source. Removing formatting too early can destroy evidence about word lengths or blocks.</p><p>Then make a working copy and note basic measurements:</p><ul><li>Which symbols occur, and how many are there?</li><li>Are spaces preserved, or is the text divided into equal groups?</li><li>Which letters, pairs, or longer fragments repeat?</li><li>Does the length fit a fixed block size?</li><li>Is there a likely language, greeting, name, or file format?</li></ul>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Step 2 — Separate encoding from encryption",
+            "html": "<p>Not every unreadable string is encrypted. Hex uses digits and <code>A–F</code>; Base64 commonly uses letters, digits, <code>+</code>, <code>/</code>, and optional <code>=</code> padding; binary uses <code>0</code> and <code>1</code>. These are reversible representations and do not require a secret key.</p><p>Decode a plausible representation before attempting cryptanalysis, but do not assume that a successful decode is the final answer: Base64 may contain compressed data or encrypted bytes. The <a href=\"/encoding/base64\">Base64 tool</a> can test that layer. Hashes are different again: they are one-way digests, not ciphertext that can simply be decrypted.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Step 3 — Identify the likely cipher family",
+            "html": "<p>Use structure to rank hypotheses:</p><ul><li><strong>Caesar or another shift:</strong> spaces and word shapes survive, while every letter moves by a constant amount.</li><li><strong>Monoalphabetic substitution:</strong> word patterns and repeated letters survive, but the mapping is not a single shift.</li><li><strong>Transposition:</strong> the original letters remain, but their order changes.</li><li><strong>Polyalphabetic cipher:</strong> the same plaintext letter can encrypt differently; periodic patterns may suggest a repeating key.</li><li><strong>Modern or binary encryption:</strong> output often looks byte-oriented or random and may include a nonce, salt, authentication tag, or fixed-size header.</li></ul><p>The <a href=\"/text-analysis/cipher-identifier\">cipher identifier</a> can rank supported classical candidates, but its result is a hypothesis. Confirm it with an attack that matches the proposed family.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Step 4 — Apply the smallest suitable attack",
+            "html": "<p>Start with the cheapest test that could disprove a hypothesis:</p><ul><li>For Caesar, enumerate every shift.</li><li>For substitution, compare letter and word-pattern frequencies, then use cribs.</li><li>For transposition, test likely column widths and readout orders while watching for preserved letter frequencies.</li><li>For a repeating-key Vigenère cipher, estimate the key period, split the text into columns, and analyze each column as a shift.</li><li>For a known format or phrase, align that <em>crib</em> with candidate positions and check whether one consistent rule explains the rest.</li></ul><p>Avoid stacking assumptions. If an attack produces only isolated words but breaks grammar and patterns elsewhere, reject it instead of “repairing” the output by hand.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "A short worked triage",
+            "html": "<p>Suppose the message is <code>KHOOR ZRUOG</code>. It contains only letters and a preserved space, both words have familiar lengths, and repeated <code>O</code> remains repeated. That makes a simple substitution more plausible than Base64, a transposition, or binary encryption.</p><p>Trying Caesar shifts gives <code>HELLO WORLD</code> at shift 3. This is not accepted merely because two words appear: the same shift explains every character, preserves the space, and produces a grammatical phrase. The <a href=\"/text-analysis/caesar-brute-force\">Caesar brute-force tool</a> can enumerate the candidates; the detailed hand method is covered in the related Caesar guide.</p>"
+        },
+        {
+            "sort_order": 70,
+            "type": "section",
+            "title": "Step 5 — Verify the plaintext and know when to stop",
+            "html": "<p>A credible solution should explain the entire message and be reproducible. Check that one algorithm and one key account for every transformed symbol, that spelling and grammar fit the expected language, and that names, dates, checksums, headers, or known phrases agree with context. Re-encrypt the proposed plaintext when possible; it should reproduce the original ciphertext exactly.</p><p>Stop when the evidence does not support a practical attack. Missing context, a tiny sample, an unknown custom alphabet, or authenticated modern encryption may make keyless recovery impossible. Record what you tested and what would change the conclusion—for example, more ciphertext, a second message using the same key, a known plaintext fragment, or implementation details.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Can every encrypted message be decrypted without its key?",
+            "answer": "<p>No. Weak classical ciphers and flawed implementations may be recoverable, but sound modern encryption with a strong unknown key is specifically designed to resist keyless recovery.</p>"
+        },
+        {
+            "question": "How can I tell whether a string is Base64 or encryption?",
+            "answer": "<p>Its character set and padding can suggest Base64, but appearance alone is not proof. Decode it and inspect the result. Readable text or a recognizable file header indicates an encoding layer; arbitrary bytes may require further identification.</p>"
+        },
+        {
+            "question": "Does frequency analysis work on short messages?",
+            "answer": "<p>It is much less reliable on short samples because their counts fluctuate. Word patterns, context, cribs, and exhaustive testing of small keyspaces are often more useful.</p>"
+        },
+        {
+            "question": "What extra information helps most?",
+            "answer": "<p>More ciphertext, the probable language, message type, preserved formatting, a likely phrase, another message encrypted with the same system, and details about the software or historical source can all narrow the search.</p>"
+        }
+    ],
+    "related_guides": ["caesar-cipher-manual-decryption", "solve-substitution-cipher"],
+    "related_terms": [
+        {"slug": "cryptanalysis", "label": "Cryptanalysis"},
+        {"slug": "ciphertext", "label": "Ciphertext"},
+        {"slug": "brute-force-attack", "label": "Brute-force attack"},
+        {"slug": "frequency-analysis", "label": "Frequency analysis"},
+        {"slug": "known-plaintext-attack", "label": "Known-plaintext attack"}
+    ],
+    "related_tools": [
+        {"slug": "text-analysis/cipher-identifier", "label": "Cipher Identifier"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Caesar Brute Force"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Frequency Analysis"},
+        {"slug": "text-analysis/vigenere-cracker", "label": "Vigenère Cipher Cracker"},
+        {"slug": "classical-ciphers/simple-substitution", "label": "Substitution Cipher tool"},
+        {"slug": "encoding/base64", "label": "Base64 Decoder"}
+    ],
+    "tags": ["cryptanalysis", "unknown cipher", "beginner"],
+    "category": "how-to"
+}

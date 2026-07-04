@@ -1,0 +1,41 @@
+{
+    "meta": {"schema": "guide-article.v1", "guide_slug": "solve-substitution-cipher", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-04", "published_at": "2026-07-04"},
+    "guide": {
+        "title": "Eine Substitutionschiffre lösen",
+        "excerpt": "Eine systematische Methode, um einfache Substitutionschiffren mit Wortmustern, Häufigkeiten, Cribs und einer konsistenten Zuordnungstabelle zu lösen.",
+        "meta_title": "Substitutionschiffre Schritt für Schritt lösen",
+        "meta_description": "Einfache Substitution von Hand lösen: Wortmuster notieren, Häufigkeiten und Cribs nutzen, Zuordnungen übertragen und Klartext prüfen.",
+        "reading_time": 5
+    },
+    "body": [
+        {"sort_order": 10, "type": "section", "title": "Die Art der Substitution erkennen", "html": "<p>Bei einer <strong>einfachen Substitutionschiffre</strong> wird jeder Klartextbuchstabe im ganzen Text stets durch denselben Geheimtextbuchstaben ersetzt. Leerzeichen und Satzzeichen bleiben meist erhalten. Gleiche Wörter und doppelte Buchstaben behalten daher ihr Muster.</p><p>Anders als Caesar erlaubt die allgemeine Substitution ein beliebig gemischtes Alphabet. Alle Schlüssel durchzuprobieren ist unpraktisch; stattdessen rekonstruierst du die Zuordnung aus sprachlichen Bedingungen.</p>"},
+        {"sort_order": 20, "type": "section", "title": "Schritt 1 — Ein Musterblatt anlegen", "html": "<p>Übernimm den Geheimtext mit allen Abständen. Führe darunter eine Zeile für vorläufigen Klartext sowie Tabellen in beide Richtungen. Jede Zuordnung muss eindeutig sein.</p><p>Kodiere Wortmuster nach Wiederholungen: <code>TRAÄÄAN</code> besitzt beispielsweise zwei gleiche Zeichen nebeneinander. Kandidaten müssen dieselben Wiederholungspositionen haben. Markiere außerdem Ein-Buchstaben-Wörter, Doppelbuchstaben, wiederholte Wörter und typische Endungen.</p>"},
+        {"sort_order": 30, "type": "section", "title": "Schritt 2 — Mit informationsreichen Hinweisen beginnen", "html": "<ul><li>mehrfach auftretende Wörter;</li><li>Doppelbuchstaben und ungewöhnliche Wiederholungsmuster;</li><li>häufige kurze Wörter wie <code>DER</code>, <code>DIE</code>, <code>UND</code> oder <code>IST</code>;</li><li>Namen, Grüße und Begriffe aus dem Kontext;</li><li>Endungen wie <code>-EN</code>, <code>-ER</code>, <code>-UNG</code> und <code>-LICH</code>.</li></ul><p>Behandle jede Vermutung als vorläufig. Übertrage sie auf den ganzen Text und nimm sie zurück, sobald ein Muster oder die Eindeutigkeit verletzt wird.</p>"},
+        {"sort_order": 40, "type": "section", "title": "Schritt 3 — Häufigkeiten als Rangfolge nutzen", "html": "<p>In längeren deutschen Texten sind <code>E</code>, <code>N</code>, <code>I</code>, <code>S</code> und <code>R</code> oft häufig. Thema, Eigennamen und kurze Stichproben können die Reihenfolge verschieben.</p><p>Die <a href=\"/de/text-analysis/frequency-analysis\">Häufigkeitsanalyse</a> liefert Kandidaten, keine fertigen Zuordnungen. Eine Vermutung, die mehrere Wortmuster erklärt, wiegt stärker als ein einzelner Häufigkeitstreffer.</p>"},
+        {"sort_order": 50, "type": "section", "title": "Schritt 4 — Bestätigte Zuordnungen überall einsetzen", "html": "<p>Setze jede bestätigte Klartextzuordnung an allen Stellen ein. Verlangt eine spätere Vermutung für denselben Geheimtextbuchstaben einen anderen Wert, liegt ein Widerspruch vor.</p><p>Wechsle zwischen einzelnen Wörtern und dem Gesamtbild: ergänze ein aussichtsreiches Wort, übertrage seine Buchstaben und untersuche die neu sichtbaren Fragmente. Ein gültiger Klartext verwendet im ganzen Text dasselbe Substitutionsalphabet.</p>"},
+        {"sort_order": 60, "type": "section", "title": "Mini-Beispiel", "html": "<p>Betrachte <code>TRAÄÄAN UL ZWÖKÄ</code>. Die doppelten <code>ÄÄ</code> im ersten Wort müssen im Klartext ebenfalls ein Doppel ergeben. Der Kontext kann für <code>UL</code> das Wort <code>UM</code> nahelegen; dann gelten <code>U→U</code> und <code>L→M</code> überall.</p><p>Die vollständige konsistente Tabelle ergibt <code>TREFFEN UM ZWÖLF</code>. Der Text wurde mit einem gültigen Schlüsselalphabet erzeugt und zurückgeprüft. Beim echten Lösen muss jede Zuordnung aus Muster, Kontext und Widerspruchsfreiheit folgen.</p>"},
+        {"sort_order": 70, "type": "section", "title": "Schritt 5 — Die Lösung vollständig prüfen", "html": "<p>Jeder Geheimtextbuchstabe muss stets dieselbe Bedeutung haben; zwei Klartextbuchstaben dürfen nicht dasselbe Geheimzeichen teilen. Akzeptiere keine manuellen Ausnahmen und erfinde keine Zuordnungen für Zeichen, die gar nicht vorkommen.</p><p>Das <a href=\"/de/classical-ciphers/simple-substitution\">Substitutionswerkzeug</a> wendet einen vollständigen Schlüssel an, findet einen unbekannten Schlüssel aber nicht automatisch. Verschlüssle den gefundenen Klartext erneut: Nur die exakte Reproduktion des Geheimtexts bestätigt die Tabelle mechanisch.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist Substitution dasselbe wie Caesar?", "answer": "<p>Nein. Caesar ist der Spezialfall mit einer festen Verschiebung; eine einfache Substitution kann jede eindeutige Alphabetpermutation verwenden.</p>"},
+        {"question": "Wie viel Geheimtext brauche ich?", "answer": "<p>Mehr Text verbessert Häufigkeiten und Muster. Kurze Kryptogramme können mit erhaltenen Abständen, markanten Wiederholungen oder starkem Kontext dennoch lösbar sein.</p>"},
+        {"question": "Was tun bei einem Widerspruch?", "answer": "<p>Nimm zuerst die schwächste Vermutung zurück. Trenne bestätigte Zuordnungen von vorläufigen und teste ein anderes Wort mit demselben Muster.</p>"},
+        {"question": "Kann ein Computer jede Substitution lösen?", "answer": "<p>Nein. Sehr kurze Texte, ungewöhnlicher Wortschatz, entfernte Leerzeichen und eigene Alphabete können mehrere plausible Lösungen lassen.</p>"}
+    ],
+    "related_guides": ["decrypt-cipher-without-key", "caesar-cipher-manual-decryption"],
+    "related_terms": [
+        {"slug": "substitution-cipher", "label": "Substitutionschiffre"},
+        {"slug": "monoalphabetic-cipher", "label": "Monoalphabetische Chiffre"},
+        {"slug": "frequency-analysis", "label": "Häufigkeitsanalyse"},
+        {"slug": "known-plaintext-attack", "label": "Known-Plaintext-Angriff"},
+        {"slug": "ciphertext", "label": "Geheimtext"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Einfache Substitution"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Häufigkeitsanalyse"},
+        {"slug": "text-analysis/letter-frequency", "label": "Buchstabenhäufigkeit"},
+        {"slug": "text-analysis/cipher-identifier", "label": "Chiffren-Erkennung"}
+    ],
+    "tags": ["substitution", "kryptogramm", "kryptoanalyse"],
+    "category": "how-to"
+}

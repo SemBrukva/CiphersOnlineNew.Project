@@ -1,0 +1,41 @@
+{
+    "meta": {"schema": "guide-article.v1", "guide_slug": "solve-substitution-cipher", "language": "it", "default_language": "en", "status": "published", "updated_at": "2026-07-04", "published_at": "2026-07-04"},
+    "guide": {
+        "title": "Come risolvere un cifrario a sostituzione",
+        "excerpt": "Un metodo sistematico per risolvere una sostituzione semplice con schemi di parole, frequenze, crib e una tabella coerente.",
+        "meta_title": "Risolvere un cifrario a sostituzione passo passo",
+        "meta_description": "Risolvi una sostituzione semplice a mano: annota gli schemi, usa frequenze e crib, propaga le corrispondenze e verifica il testo.",
+        "reading_time": 4
+    },
+    "body": [
+        {"sort_order": 10, "type": "section", "title": "Riconoscere la sostituzione semplice", "html": "<p>In un <strong>cifrario a sostituzione semplice</strong>, ogni lettera in chiaro viene sempre sostituita dalla stessa lettera cifrata. Spazi e punteggiatura di solito restano; ripetizioni, doppie e schemi delle parole sopravvivono.</p><p>È più generale di Cesare: la chiave può essere qualsiasi permutazione dell’alfabeto. Provare tutte le chiavi è impraticabile; bisogna ricostruire la tabella tramite i vincoli della lingua.</p>"},
+        {"sort_order": 20, "type": "section", "title": "Passo 1 — Preparare un foglio degli schemi", "html": "<p>Copia il testo senza alterare gli spazi. Mantieni una riga per il chiaro provvisorio e tabelle in entrambe le direzioni. L’associazione deve essere uno a uno.</p><p>Numera le ripetizioni in ogni parola. Due candidate combaciano solo se le stesse posizioni ripetono la stessa lettera. Segna anche parole di una lettera, doppie, parole ricorrenti e suffissi.</p>"},
+        {"sort_order": 30, "type": "section", "title": "Passo 2 — Partire dagli indizi più informativi", "html": "<ul><li>parole ripetute in più punti;</li><li>doppie e schemi insoliti;</li><li>parole comuni come <code>DI</code>, <code>LA</code>, <code>IL</code>, <code>CHE</code> o <code>E</code>;</li><li>nomi, saluti e termini suggeriti dal contesto;</li><li>terminazioni <code>-ZIONE</code>, <code>-MENTE</code>, <code>-ARE</code> e <code>-ATO</code>.</li></ul><p>Propaga ogni ipotesi e annullala appena viola uno schema o l’unicità della tabella.</p>"},
+        {"sort_order": 40, "type": "section", "title": "Passo 3 — Usare le frequenze come priorità", "html": "<p>Nei testi italiani lunghi ricorrono spesso <code>E</code>, <code>A</code>, <code>I</code>, <code>O</code> e <code>N</code>, ma argomento e lunghezza possono cambiare l’ordine.</p><p>L’<a href=\"/it/text-analysis/frequency-analysis\">analisi delle frequenze</a> suggerisce candidati, non risposte. Un crib sostenuto da più schemi vale più di una singola somiglianza statistica.</p>"},
+        {"sort_order": 50, "type": "section", "title": "Passo 4 — Propagare ogni corrispondenza confermata", "html": "<p>Inserisci una lettera confermata in tutte le occorrenze. Se una nuova ipotesi richiede un valore diverso per lo stesso simbolo, c’è una contraddizione.</p><p>Alterna controlli locali e globali: completa una parola promettente, propaga le lettere e osserva i nuovi frammenti. Una soluzione valida usa una sola tabella.</p>"},
+        {"sort_order": 60, "type": "section", "title": "Mini esempio", "html": "<p>Considera <code>GC VTRCSIK S ITZZKACKNJK</code>. La parola di una lettera <code>S</code> può rappresentare <code>A</code> o <code>E</code>; la forma deve essere controllata in tutte le posizioni prima di accettarla.</p><p>La tabella completa coerente produce <code>CI VEDIAMO A MEZZOGIORNO</code>. L’esempio è stato generato e verificato con un alfabeto chiave valido; senza chiave, ogni assegnazione deve derivare da schemi e contesto.</p>"},
+        {"sort_order": 70, "type": "section", "title": "Passo 5 — Verificare la soluzione completa", "html": "<p>Ogni lettera cifrata deve avere sempre lo stesso significato, senza eccezioni manuali. Non inventare valori per lettere assenti dal campione.</p><p>Lo <a href=\"/it/classical-ciphers/simple-substitution\">strumento di sostituzione semplice</a> applica una chiave completa ma non scopre automaticamente quella ignota. Cifra di nuovo il testo recuperato: deve riprodurre esattamente il crittogramma.</p>"}
+    ],
+    "faq": [
+        {"question": "Sostituzione e Cesare sono la stessa cosa?", "answer": "<p>No. Cesare usa uno spostamento costante; la sostituzione semplice ammette qualunque permutazione uno a uno dell’alfabeto.</p>"},
+        {"question": "Quanto testo cifrato serve?", "answer": "<p>Più testo rende frequenze e schemi affidabili. Un crittogramma breve può comunque risolversi con spazi, ripetizioni distintive o forte contesto.</p>"},
+        {"question": "Che cosa faccio se un’ipotesi si contraddice?", "answer": "<p>Rimuovi prima la supposizione meno sostenuta, separa assegnazioni certe e provvisorie e prova un’altra parola con lo stesso schema.</p>"},
+        {"question": "Un computer può risolvere ogni sostituzione?", "answer": "<p>No. Testi brevissimi, lessico raro, spazi rimossi e alfabeti personalizzati possono lasciare più soluzioni.</p>"}
+    ],
+    "related_guides": ["decrypt-cipher-without-key", "caesar-cipher-manual-decryption"],
+    "related_terms": [
+        {"slug": "substitution-cipher", "label": "Cifrario a sostituzione"},
+        {"slug": "monoalphabetic-cipher", "label": "Cifrario monoalfabetico"},
+        {"slug": "frequency-analysis", "label": "Analisi delle frequenze"},
+        {"slug": "known-plaintext-attack", "label": "Attacco con testo in chiaro noto"},
+        {"slug": "ciphertext", "label": "Testo cifrato"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Sostituzione semplice"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Analisi delle frequenze"},
+        {"slug": "text-analysis/letter-frequency", "label": "Frequenza delle lettere"},
+        {"slug": "text-analysis/cipher-identifier", "label": "Identificatore di cifrari"}
+    ],
+    "tags": ["sostituzione", "crittogramma", "crittoanalisi"],
+    "category": "how-to"
+}

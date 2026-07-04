@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "decrypt-cipher-without-key",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Déchiffrer un message sans la clé",
+        "excerpt": "Une démarche pratique pour identifier un chiffre inconnu, choisir l’attaque adaptée et juger si une récupération sans clé est réaliste.",
+        "meta_title": "Déchiffrer un message sans la clé | CiphersOnline",
+        "meta_description": "Analysez un texte chiffré inconnu : distinguez encodage et chiffrement, identifiez la famille, choisissez une attaque et vérifiez le résultat.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Ce que signifie vraiment « sans la clé »",
+            "html": "<p>Déchiffrer sans clé ne consiste pas à deviner au hasard. La <strong>cryptanalyse</strong> exploite la structure, le contexte et les faiblesses de la méthode pour réduire les clés possibles ou retrouver directement le texte clair.</p><p>Les chiffres classiques, les clés courtes réutilisées et les implémentations défectueuses peuvent être vulnérables. Un chiffrement moderne correctement appliqué avec une clé forte ne l’est normalement pas : sans faille, fuite de clé ou recherche irréalisable, il est conçu pour ne pas révéler assez d’information. Il faut donc commencer par identifier l’objet.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Étape 1 — Préserver les indices",
+            "html": "<p>Conservez une copie intacte. Notez espaces, retours à la ligne, casse, ponctuation, séparateurs, répétitions et contexte : date, source, langue ou expéditeur. Un nettoyage prématuré peut effacer les longueurs de mots et les blocs.</p><ul><li>Quels symboles apparaissent ?</li><li>Les espaces subsistent-ils ou les groupes ont-ils la même taille ?</li><li>Quelles lettres, paires et séquences se répètent ?</li><li>La longueur correspond-elle à une taille de bloc ?</li><li>Un salut, un nom ou un format de fichier est-il probable ?</li></ul>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Étape 2 — Séparer encodage et chiffrement",
+            "html": "<p>Toute chaîne illisible n’est pas chiffrée. L’hexadécimal emploie chiffres et <code>A–F</code>, Base64 des lettres, chiffres, <code>+</code>, <code>/</code> et parfois <code>=</code>, le binaire seulement <code>0</code> et <code>1</code>. Ces représentations réversibles ne demandent pas de clé secrète.</p><p>Testez d’abord une couche plausible avec l’<a href=\"/fr/encoding/base64\">outil Base64</a>, puis inspectez le résultat : il peut encore contenir des données compressées ou chiffrées. Un hachage est différent : c’est une empreinte à sens unique, pas un texte chiffré ordinaire.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Étape 3 — Identifier la famille probable",
+            "html": "<ul><li><strong>César ou décalage :</strong> espaces et formes des mots subsistent ; toutes les lettres bougent pareil.</li><li><strong>Substitution monoalphabétique :</strong> répétitions et motifs restent, sans décalage unique.</li><li><strong>Transposition :</strong> les lettres sont conservées mais réordonnées.</li><li><strong>Chiffre polyalphabétique :</strong> une même lettre claire peut varier ; une période peut signaler une clé répétée.</li><li><strong>Chiffrement moderne :</strong> la sortie paraît binaire ou aléatoire et peut comporter nonce, sel, tag ou en-tête.</li></ul><p>L’<a href=\"/fr/text-analysis/cipher-identifier\">identificateur de chiffres</a> classe les candidats classiques pris en charge. Son classement reste une hypothèse à confirmer par une attaque adaptée.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Étape 4 — Choisir l’attaque minimale adaptée",
+            "html": "<ul><li>Pour César, énumérez tous les décalages.</li><li>Pour une substitution, comparez fréquences et motifs de mots, puis utilisez des cribs.</li><li>Pour une transposition, testez largeurs de colonnes et ordres de lecture.</li><li>Pour Vigenère à clé répétée, estimez la période et analysez chaque colonne comme un décalage.</li><li>Pour un format ou une phrase probable, alignez ce crib à plusieurs positions.</li></ul><p>Rejetez un résultat qui ne produit que quelques mots isolés tout en détruisant la grammaire et les autres motifs. Ne le corrigez pas à la main.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Exemple rapide de diagnostic",
+            "html": "<p><code>DQPMQÜU ÔQPÈÊ</code> ne contient que des lettres et conserve l’espace. Longueurs et répétitions favorisent une substitution simple. En testant les décalages de l’alphabet français étendu, la clé 3 donne <code>BONJOUR MONDE</code>.</p><p>La solution est crédible parce qu’une même règle explique tous les caractères. L’outil de <a href=\"/fr/text-analysis/caesar-brute-force\">force brute pour César</a> affiche les candidats ; la méthode manuelle figure dans le guide associé.</p>"
+        },
+        {
+            "sort_order": 70,
+            "type": "section",
+            "title": "Étape 5 — Vérifier et savoir s’arrêter",
+            "html": "<p>Une solution solide explique tout le message. Un algorithme et une clé doivent rendre compte de chaque symbole ; langue, noms, dates et en-têtes doivent correspondre au contexte. Si possible, rechiffrez le texte proposé : il doit reproduire exactement l’original.</p><p>Arrêtez-vous lorsque les indices ne permettent pas d’attaque pratique. Un échantillon minuscule, un alphabet inconnu ou un chiffrement moderne authentifié peuvent rendre la récupération sans clé impossible. Consignez les essais et les données qui aideraient : plus de texte, un second message, un fragment connu ou les détails de l’implémentation.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Tout message chiffré peut-il être déchiffré sans clé ?", "answer": "<p>Non. Les chiffres classiques faibles et les implémentations fautives peuvent céder ; un chiffrement moderne solide à clé forte est conçu pour résister à cette récupération.</p>"},
+        {"question": "Comment reconnaître Base64 ?", "answer": "<p>L’alphabet et le remplissage <code>=</code> sont des indices, pas une preuve. Décodez puis recherchez du texte lisible ou un en-tête de fichier connu.</p>"},
+        {"question": "L’analyse fréquentielle marche-t-elle sur un texte court ?", "answer": "<p>Elle est nettement moins fiable. Les motifs de mots, le contexte, les cribs et l’exploration complète d’un petit espace de clés sont souvent plus utiles.</p>"},
+        {"question": "Quelles informations supplémentaires aident le plus ?", "answer": "<p>Davantage de texte, la langue probable, le format conservé, une phrase attendue, un autre message du même système et des détails sur le logiciel ou la source.</p>"}
+    ],
+    "related_guides": ["caesar-cipher-manual-decryption", "solve-substitution-cipher"],
+    "related_terms": [
+        {"slug": "cryptanalysis", "label": "Cryptanalyse"},
+        {"slug": "ciphertext", "label": "Texte chiffré"},
+        {"slug": "brute-force-attack", "label": "Attaque par force brute"},
+        {"slug": "frequency-analysis", "label": "Analyse fréquentielle"},
+        {"slug": "known-plaintext-attack", "label": "Attaque à texte clair connu"}
+    ],
+    "related_tools": [
+        {"slug": "text-analysis/cipher-identifier", "label": "Identificateur de chiffres"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Force brute pour César"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Analyse fréquentielle"},
+        {"slug": "text-analysis/vigenere-cracker", "label": "Casseur de Vigenère"},
+        {"slug": "classical-ciphers/simple-substitution", "label": "Chiffrement par substitution"},
+        {"slug": "encoding/base64", "label": "Décodeur Base64"}
+    ],
+    "tags": ["cryptanalyse", "chiffre inconnu", "débutant"],
+    "category": "how-to"
+}

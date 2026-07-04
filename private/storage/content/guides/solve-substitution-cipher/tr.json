@@ -1,0 +1,41 @@
+{
+    "meta": {"schema": "guide-article.v1", "guide_slug": "solve-substitution-cipher", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-04", "published_at": "2026-07-04"},
+    "guide": {
+        "title": "Yerine koyma şifresi nasıl çözülür",
+        "excerpt": "Sözcük örüntüleri, harf sıklıkları, cribler ve tutarlı eşleme tablosuyla basit yerine koymayı çözmek için sistematik yöntem.",
+        "meta_title": "Yerine koyma şifresini adım adım çözme",
+        "meta_description": "Basit yerine koymayı elle çözün: örüntüleri kaydedin, frekans ve crib kullanın, eşlemeleri yayın ve düz metni doğrulayın.",
+        "reading_time": 4
+    },
+    "body": [
+        {"sort_order": 10, "type": "section", "title": "Basit yerine koymayı tanıyın", "html": "<p><strong>Basit yerine koyma şifresinde</strong> her düz metin harfi mesaj boyunca hep aynı şifreli harfle değiştirilir. Boşluk ve noktalama genellikle korunur; tekrarlar, çift harfler ve sözcük örüntüleri görünür kalır.</p><p>Bu yöntem Sezar’dan daha geneldir: anahtar alfabenin herhangi bir permütasyonu olabilir. Bütün anahtarları denemek uygulanabilir değildir; tablo dilin kısıtlarından kurulmalıdır.</p>"},
+        {"sort_order": 20, "type": "section", "title": "Adım 1 — Örüntü çalışma sayfası hazırlayın", "html": "<p>Şifreli metni boşlukları değiştirmeden kopyalayın. Geçici düz metin satırı ve iki yönlü eşleme tabloları tutun. Her eşleme bire bir olmalıdır.</p><p>Her sözcükteki tekrarları numaralandırın. Aday sözcük yalnızca aynı konumlarda aynı harfleri tekrar ediyorsa uyumludur. Tek harfli sözcükleri, çiftleri, yinelenen sözcükleri ve ekleri de işaretleyin.</p>"},
+        {"sort_order": 30, "type": "section", "title": "Adım 2 — En çok bilgi veren ipuçlarıyla başlayın", "html": "<ul><li>birden çok yerde yinelenen sözcükler;</li><li>çift harfler ve sıra dışı örüntüler;</li><li><code>VE</code>, <code>BU</code>, <code>BİR</code>, <code>DE</code> gibi sık sözcükler;</li><li>bağlamın düşündürdüğü adlar, selamlar ve konu sözcükleri;</li><li><code>-LAR</code>, <code>-LER</code>, <code>-LIK</code>, <code>-MEK</code> gibi ekler.</li></ul><p>Her hipotezi tüm metne yayın ve örüntüyü ya da bire bir eşlemeyi bozduğu anda geri alın.</p>"},
+        {"sort_order": 40, "type": "section", "title": "Adım 3 — Frekansları öncelik olarak kullanın", "html": "<p>Uzun Türkçe metinlerde <code>A</code>, <code>E</code>, <code>İ</code>, <code>N</code> ve <code>R</code> sık olabilir; konu ve uzunluk sırayı değiştirir.</p><p><a href=\"/tr/text-analysis/frequency-analysis\">Frekans analizi</a> aday verir, doğrudan yanıt vermez. Birden fazla sözcük örüntüsünü açıklayan crib, tek istatistik benzerliğinden daha güçlüdür.</p>"},
+        {"sort_order": 50, "type": "section", "title": "Adım 4 — Doğrulanan eşlemeleri her yere yayın", "html": "<p>Doğrulanmış harfi bütün konumlara yerleştirin. Sonraki tahmin aynı şifreli simgeye farklı değer istiyorsa çelişki vardır.</p><p>Yerel ve genel kontroller arasında gidip gelin: umut veren sözcüğü tamamlayın, harflerini yayın ve açılan parçaları inceleyin. Geçerli çözüm tek tablo kullanır.</p>"},
+        {"sort_order": 60, "type": "section", "title": "Kısa örnek", "html": "<p><code>odjbm itjtsgjfk</code> metnindeki sözcük uzunlukları ve tekrarlar adayları sınırlar. Bağlam ikinci sözcük için <code>buluşalım</code> öneriyorsa her harf çifti tabloya eklenip ilk sözcükte de sınanmalıdır.</p><p>Tutarlı tam tablo <code>öğlen buluşalım</code> sonucunu verir. Örnek geçerli bir anahtar alfabesiyle üretildi ve tersine doğrulandı; anahtarsız çözümde her eşleme örüntü ve bağlamla desteklenmelidir.</p>"},
+        {"sort_order": 70, "type": "section", "title": "Adım 5 — Tam çözümü doğrulayın", "html": "<p>Her şifreli harf hep aynı anlama gelmeli ve elle eklenmiş istisna olmamalıdır. Örnekte bulunmayan harflere değer uydurmayın.</p><p><a href=\"/tr/classical-ciphers/simple-substitution\">Basit yerine koyma aracı</a> tam anahtarı uygular, bilinmeyen anahtarı otomatik bulmaz. Kurtarılan metni yeniden şifreleyin; özgün metni tam üretmelidir.</p>"}
+    ],
+    "faq": [
+        {"question": "Yerine koyma ile Sezar aynı mıdır?", "answer": "<p>Hayır. Sezar sabit kaydırma kullanır; basit yerine koyma alfabenin herhangi bir bire bir permütasyonunu kullanabilir.</p>"},
+        {"question": "Ne kadar şifreli metin gerekir?", "answer": "<p>Daha fazla metin frekans ve örüntüleri güvenilir kılar. Boşluklar, ayırt edici tekrarlar veya güçlü bağlam varsa kısa metin de çözülebilir.</p>"},
+        {"question": "Bir tahmin çelişki yaratırsa ne yapmalıyım?", "answer": "<p>Önce en az desteklenen varsayımı kaldırın, kesin ve geçici eşlemeleri ayırın, aynı örüntüde başka sözcük deneyin.</p>"},
+        {"question": "Bilgisayar her yerine koymayı çözebilir mi?", "answer": "<p>Hayır. Çok kısa metin, nadir sözcükler, kaldırılmış boşluklar ve özel alfabeler birden çok çözüm bırakabilir.</p>"}
+    ],
+    "related_guides": ["decrypt-cipher-without-key", "caesar-cipher-manual-decryption"],
+    "related_terms": [
+        {"slug": "substitution-cipher", "label": "Yerine koyma şifresi"},
+        {"slug": "monoalphabetic-cipher", "label": "Tek alfabeli şifre"},
+        {"slug": "frequency-analysis", "label": "Frekans analizi"},
+        {"slug": "known-plaintext-attack", "label": "Bilinen düz metin saldırısı"},
+        {"slug": "ciphertext", "label": "Şifreli metin"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Basit yerine koyma"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Frekans analizi"},
+        {"slug": "text-analysis/letter-frequency", "label": "Harf sıklığı"},
+        {"slug": "text-analysis/cipher-identifier", "label": "Şifre tanımlayıcı"}
+    ],
+    "tags": ["yerine koyma", "kriptogram", "kriptoanaliz"],
+    "category": "how-to"
+}

@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "decrypt-cipher-without-key",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Come decifrare un messaggio senza chiave",
+        "excerpt": "Un percorso pratico per identificare un cifrario sconosciuto, scegliere l’attacco adatto e capire se il recupero senza chiave è realistico.",
+        "meta_title": "Decifrare un messaggio senza chiave | CiphersOnline",
+        "meta_description": "Analizza un testo cifrato sconosciuto: distingui codifica e cifratura, identifica la famiglia, scegli un attacco e verifica il testo in chiaro.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Che cosa significa davvero «senza chiave»",
+            "html": "<p>Decifrare senza chiave non significa indovinare a caso. La <strong>crittoanalisi</strong> usa struttura, contesto e debolezze del metodo per ridurre le chiavi possibili o recuperare direttamente il testo in chiaro.</p><p>I cifrari classici, le chiavi brevi riutilizzate e le implementazioni difettose possono essere vulnerabili. Una cifratura moderna corretta con chiave segreta robusta in genere non lo è: senza una falla, una perdita di chiave o una ricerca impraticabile, è progettata per non rivelare abbastanza informazioni. Perciò il primo passo è capire che cosa hai davanti.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Passo 1 — Conservare gli indizi",
+            "html": "<p>Conserva una copia intatta. Registra spazi, a capo, maiuscole, punteggiatura, separatori, ripetizioni e contesto: data, fonte, lingua o mittente. Ripulire troppo presto può cancellare lunghezze delle parole e schemi a blocchi.</p><ul><li>Quali simboli compaiono?</li><li>Gli spazi restano o ci sono gruppi uguali?</li><li>Quali lettere, coppie e frammenti si ripetono?</li><li>La lunghezza coincide con una dimensione di blocco?</li><li>È probabile un saluto, un nome o un formato di file?</li></ul>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Passo 2 — Separare codifica e cifratura",
+            "html": "<p>Non ogni stringa illeggibile è cifrata. Hex usa cifre e <code>A–F</code>; Base64 usa spesso lettere, numeri, <code>+</code>, <code>/</code> ed eventualmente <code>=</code>; il binario usa <code>0</code> e <code>1</code>. Sono rappresentazioni reversibili senza chiave segreta.</p><p>Prova prima uno strato plausibile con il <a href=\"/it/encoding/base64\">decoder Base64</a>, poi ispeziona il risultato: potrebbe contenere dati compressi o byte cifrati. Un hash, invece, è un digest unidirezionale, non un normale testo cifrato.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Passo 3 — Identificare la famiglia probabile",
+            "html": "<ul><li><strong>Cesare o scorrimento:</strong> spazi e forme delle parole restano; ogni lettera si sposta allo stesso modo.</li><li><strong>Sostituzione monoalfabetica:</strong> ripetizioni e schemi restano, senza un solo scorrimento.</li><li><strong>Trasposizione:</strong> le lettere rimangono, cambia l’ordine.</li><li><strong>Cifrario polialfabetico:</strong> la stessa lettera può cifrarsi diversamente; una periodicità può indicare una chiave ripetuta.</li><li><strong>Cifratura moderna:</strong> l’uscita appare binaria o casuale e può includere nonce, salt, tag o intestazione.</li></ul><p>L’<a href=\"/it/text-analysis/cipher-identifier\">identificatore di cifrari</a> ordina i candidati classici supportati. Considera il risultato un’ipotesi da confermare.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Passo 4 — Scegliere il minimo attacco adatto",
+            "html": "<ul><li>Per Cesare, elenca tutti gli scorrimenti.</li><li>Per la sostituzione, confronta frequenze e schemi di parole, poi usa crib.</li><li>Per la trasposizione, prova larghezze di colonna e ordini di lettura.</li><li>Per Vigenère a chiave ripetuta, stima il periodo e analizza ogni colonna come scorrimento.</li><li>Per un formato o una frase probabile, allinea il crib in posizioni diverse.</li></ul><p>Rifiuta un risultato che produce solo parole isolate ma rompe grammatica e altri schemi. Non correggerlo a mano.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Breve esempio di diagnosi",
+            "html": "<p><code>FLDR PRQGR</code> contiene solo lettere e conserva lo spazio. Lunghezze e ripetizioni favoriscono una sostituzione semplice. Provando gli scorrimenti dell’alfabeto latino, la chiave 3 produce <code>CIAO MONDO</code>.</p><p>La soluzione è credibile perché la stessa regola spiega ogni carattere. Lo strumento di <a href=\"/it/text-analysis/caesar-brute-force\">forza bruta per Cesare</a> mostra i candidati; il calcolo manuale è nella guida collegata.</p>"
+        },
+        {
+            "sort_order": 70,
+            "type": "section",
+            "title": "Passo 5 — Verificare e sapere quando fermarsi",
+            "html": "<p>Una soluzione solida spiega l’intero messaggio. Un algoritmo e una chiave devono coprire ogni simbolo; lingua, nomi, date e intestazioni devono combaciare con il contesto. Se possibile, cifra di nuovo il testo proposto: deve riprodurre esattamente l’originale.</p><p>Fermati quando gli indizi non sostengono un attacco pratico. Un campione minimo, un alfabeto ignoto o la cifratura moderna autenticata possono rendere impossibile il recupero senza chiave. Annota le prove e quali nuovi dati aiuterebbero.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Ogni messaggio cifrato può essere decifrato senza chiave?", "answer": "<p>No. Cifrari classici deboli e implementazioni difettose possono cedere; la cifratura moderna solida con chiave forte è progettata per resistere.</p>"},
+        {"question": "Come riconosco Base64?", "answer": "<p>L’alfabeto e il padding <code>=</code> sono indizi, non prove. Decodifica e cerca testo leggibile o un’intestazione di file nota.</p>"},
+        {"question": "L’analisi delle frequenze funziona su testi brevi?", "answer": "<p>È molto meno affidabile. Schemi di parole, contesto, crib e ricerca completa di piccoli spazi di chiavi sono spesso più utili.</p>"},
+        {"question": "Quali informazioni aggiuntive aiutano di più?", "answer": "<p>Più testo cifrato, lingua probabile, formattazione, una frase attesa, un altro messaggio dello stesso sistema e dettagli sul software o sulla fonte.</p>"}
+    ],
+    "related_guides": ["caesar-cipher-manual-decryption", "solve-substitution-cipher"],
+    "related_terms": [
+        {"slug": "cryptanalysis", "label": "Crittoanalisi"},
+        {"slug": "ciphertext", "label": "Testo cifrato"},
+        {"slug": "brute-force-attack", "label": "Attacco a forza bruta"},
+        {"slug": "frequency-analysis", "label": "Analisi delle frequenze"},
+        {"slug": "known-plaintext-attack", "label": "Attacco con testo in chiaro noto"}
+    ],
+    "related_tools": [
+        {"slug": "text-analysis/cipher-identifier", "label": "Identificatore di cifrari"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Forza bruta per Cesare"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Analisi delle frequenze"},
+        {"slug": "text-analysis/vigenere-cracker", "label": "Cracker Vigenère"},
+        {"slug": "classical-ciphers/simple-substitution", "label": "Cifrario a sostituzione"},
+        {"slug": "encoding/base64", "label": "Decoder Base64"}
+    ],
+    "tags": ["crittoanalisi", "cifrario sconosciuto", "principiante"],
+    "category": "how-to"
+}

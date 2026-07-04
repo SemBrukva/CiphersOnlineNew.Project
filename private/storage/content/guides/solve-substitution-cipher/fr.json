@@ -1,0 +1,41 @@
+{
+    "meta": {"schema": "guide-article.v1", "guide_slug": "solve-substitution-cipher", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-04", "published_at": "2026-07-04"},
+    "guide": {
+        "title": "Résoudre un chiffre par substitution",
+        "excerpt": "Une méthode systématique pour résoudre une substitution simple grâce aux motifs des mots, aux fréquences, aux cribs et à une table cohérente.",
+        "meta_title": "Résoudre un chiffre par substitution pas à pas",
+        "meta_description": "Résolvez une substitution simple à la main : relevez les motifs, utilisez fréquences et cribs, propagez les correspondances et vérifiez le texte.",
+        "reading_time": 5
+    },
+    "body": [
+        {"sort_order": 10, "type": "section", "title": "Reconnaître la substitution simple", "html": "<p>Dans un <strong>chiffre par substitution simple</strong>, chaque lettre claire est toujours remplacée par la même lettre chiffrée. Espaces et ponctuation restent généralement visibles ; répétitions, doubles lettres et motifs des mots sont donc conservés.</p><p>Le procédé est plus général que César : la clé peut être toute permutation de l’alphabet. L’énumération de toutes les clés est irréaliste ; il faut reconstruire la table à partir des contraintes de la langue.</p>"},
+        {"sort_order": 20, "type": "section", "title": "Étape 1 — Préparer une feuille de motifs", "html": "<p>Recopiez le texte sans modifier les espaces. Gardez une ligne pour le clair provisoire et deux tables de correspondance. L’association doit rester bijective.</p><p>Numérotez les répétitions de chaque mot. Deux candidats ne sont compatibles que si les mêmes positions portent les mêmes lettres. Signalez aussi mots d’une lettre, doubles, mots répétés, apostrophes et suffixes.</p>"},
+        {"sort_order": 30, "type": "section", "title": "Étape 2 — Commencer par les indices les plus contraignants", "html": "<ul><li>mots répétés à plusieurs endroits ;</li><li>doubles lettres et motifs rares ;</li><li>mots fréquents comme <code>LE</code>, <code>DE</code>, <code>UN</code>, <code>QUE</code> ou <code>À</code> ;</li><li>noms, salutations et vocabulaire suggéré par le sujet ;</li><li>terminaisons <code>-TION</code>, <code>-MENT</code>, <code>-ER</code> ou <code>-ÉE</code>.</li></ul><p>Propagez chaque hypothèse dans tout le message et annulez-la dès qu’elle brise un motif ou l’unicité de la table.</p>"},
+        {"sort_order": 40, "type": "section", "title": "Étape 3 — Employer les fréquences comme priorités", "html": "<p>Dans un long texte français, <code>E</code>, <code>A</code>, <code>S</code>, <code>I</code> et <code>N</code> sont souvent fréquents, mais le sujet et la longueur modifient l’ordre.</p><p>L’<a href=\"/fr/text-analysis/frequency-analysis\">analyse fréquentielle</a> fournit des candidats, pas des réponses. Un crib qui explique plusieurs motifs l’emporte sur une simple ressemblance statistique.</p>"},
+        {"sort_order": 50, "type": "section", "title": "Étape 4 — Propager chaque correspondance confirmée", "html": "<p>Inscrivez toute lettre confirmée à chacune de ses occurrences. Si une hypothèse ultérieure exige une autre valeur pour le même symbole, il y a contradiction.</p><p>Alternez contrôle local et global : complétez un mot prometteur, propagez ses lettres, puis observez les nouveaux fragments. Une solution valide utilise une seule table dans tout le texte.</p>"},
+        {"sort_order": 60, "type": "section", "title": "Mini-exemple", "html": "<p>Considérons <code>ÔÂKÀÂZ VLUP S JFÀF</code>. Le mot d’une lettre <code>S</code> peut, selon le contexte, représenter <code>A</code> ou <code>À</code>. Cette hypothèse doit être reportée partout avant d’examiner les mots plus longs.</p><p>La table complète et cohérente donne <code>RENDEZ VOUS A MIDI</code>. L’exemple a été produit puis vérifié avec un alphabet-clé valide ; sans clé, chaque correspondance doit rester soutenue par les motifs et le contexte.</p>"},
+        {"sort_order": 70, "type": "section", "title": "Étape 5 — Vérifier toute la solution", "html": "<p>Chaque lettre chiffrée doit toujours avoir le même sens et aucune exception ne doit être ajoutée à la main. N’inventez pas les valeurs des lettres absentes de l’échantillon.</p><p>L’<a href=\"/fr/classical-ciphers/simple-substitution\">outil de substitution simple</a> applique une clé complète mais ne découvre pas automatiquement une clé inconnue. Rechiffrez le clair retrouvé : il doit reproduire exactement le texte chiffré.</p>"}
+    ],
+    "faq": [
+        {"question": "Substitution et César sont-ils identiques ?", "answer": "<p>Non. César utilise un décalage constant ; la substitution simple accepte toute permutation bijective de l’alphabet.</p>"},
+        {"question": "Quelle longueur de texte faut-il ?", "answer": "<p>Plus de texte fiabilise fréquences et motifs. Un court cryptogramme peut toutefois céder avec espaces, répétitions distinctives ou contexte fort.</p>"},
+        {"question": "Que faire lorsqu’une hypothèse se contredit ?", "answer": "<p>Retirez d’abord la supposition la moins étayée, séparez les correspondances sûres des provisoires et testez un autre mot du même motif.</p>"},
+        {"question": "Un ordinateur peut-il tout résoudre ?", "answer": "<p>Non. Textes très courts, vocabulaire rare, espaces supprimés et alphabets particuliers peuvent laisser plusieurs solutions plausibles.</p>"}
+    ],
+    "related_guides": ["decrypt-cipher-without-key", "caesar-cipher-manual-decryption"],
+    "related_terms": [
+        {"slug": "substitution-cipher", "label": "Chiffrement par substitution"},
+        {"slug": "monoalphabetic-cipher", "label": "Chiffrement monoalphabétique"},
+        {"slug": "frequency-analysis", "label": "Analyse fréquentielle"},
+        {"slug": "known-plaintext-attack", "label": "Attaque à texte clair connu"},
+        {"slug": "ciphertext", "label": "Texte chiffré"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Substitution simple"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Analyse fréquentielle"},
+        {"slug": "text-analysis/letter-frequency", "label": "Fréquence des lettres"},
+        {"slug": "text-analysis/cipher-identifier", "label": "Identificateur de chiffres"}
+    ],
+    "tags": ["substitution", "cryptogramme", "cryptanalyse"],
+    "category": "how-to"
+}

@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "decrypt-cipher-without-key",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Anahtar olmadan bir mesaj nasıl çözülür",
+        "excerpt": "Bilinmeyen bir şifreyi tanımak, uygun saldırıyı seçmek ve anahtarsız kurtarmanın gerçekçi olup olmadığını değerlendirmek için pratik yol.",
+        "meta_title": "Anahtar olmadan mesaj çözme rehberi | CiphersOnline",
+        "meta_description": "Bilinmeyen şifreli metni inceleyin: kodlama ile şifrelemeyi ayırın, şifre ailesini belirleyin, saldırı seçin ve sonucu doğrulayın.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "«Anahtarsız» gerçekte ne demektir?",
+            "html": "<p>Anahtar olmadan çözmek rastgele tahmin yürütmek değildir. <strong>Kriptoanaliz</strong>, olası anahtarları azaltmak veya düz metni doğrudan bulmak için yapıyı, bağlamı ve yöntemin zayıflıklarını kullanır.</p><p>Klasik bulmaca şifreleri, yeniden kullanılan kısa anahtarlar ve hatalı uygulamalar savunmasız olabilir. Güçlü gizli anahtarla doğru uygulanmış modern şifreleme genellikle değildir: açık, anahtar sızıntısı veya uygulanamaz büyüklükte arama olmadan yeterli bilgi vermemek üzere tasarlanır. Bu yüzden önce elinizdeki nesneyi tanıyın.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Adım 1 — İpuçlarını koruyun",
+            "html": "<p>Özgün mesajın dokunulmamış bir kopyasını saklayın. Boşlukları, satır sonlarını, büyük-küçük harfleri, noktalama işaretlerini, ayraçları, tekrarları ve tarih, kaynak, dil gibi bağlamı kaydedin. Erken temizlik sözcük uzunluklarını ve blok örüntülerini silebilir.</p><ul><li>Hangi simgeler var?</li><li>Boşluklar korunmuş mu, eşit gruplar mı var?</li><li>Hangi harfler, çiftler ve parçalar tekrarlanıyor?</li><li>Uzunluk bir blok boyutuna uyuyor mu?</li><li>Selamlama, ad veya dosya biçimi bekleniyor mu?</li></ul>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Adım 2 — Kodlama ile şifrelemeyi ayırın",
+            "html": "<p>Okunmayan her dizi şifreli değildir. Hex rakamlar ve <code>A–F</code>, Base64 çoğunlukla harfler, rakamlar, <code>+</code>, <code>/</code> ve bazen <code>=</code>, ikili gösterim <code>0</code> ve <code>1</code> kullanır. Bunlar gizli anahtar gerektirmeyen tersinir gösterimlerdir.</p><p>Önce olası katmanı <a href=\"/tr/encoding/base64\">Base64 çözücüyle</a> deneyin; sonuç sıkıştırılmış veri veya şifreli baytlar içerebilir. Hash ise tek yönlü özettir, sıradan biçimde çözülen şifreli metin değildir.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Adım 3 — Olası şifre ailesini belirleyin",
+            "html": "<ul><li><strong>Sezar veya kaydırma:</strong> boşluklar ve sözcük şekilleri kalır; her harf aynı miktarda ilerler.</li><li><strong>Tek alfabeli yerine koyma:</strong> tekrarlar ve örüntüler korunur, tek kaydırma yoktur.</li><li><strong>Yer değiştirme:</strong> harfler kalır, sıraları değişir.</li><li><strong>Çok alfabeli şifre:</strong> aynı açık harf farklılaşabilir; dönemsel yapı yinelenen anahtarı gösterebilir.</li><li><strong>Modern şifreleme:</strong> çıktı ikili veya rastgele görünür; nonce, salt, etiket ya da başlık içerebilir.</li></ul><p><a href=\"/tr/text-analysis/cipher-identifier\">Şifre tanımlayıcı</a> desteklenen klasik adayları sıralar. Sonucu uygun saldırıyla doğrulanacak bir hipotez sayın.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Adım 4 — En küçük uygun saldırıyı seçin",
+            "html": "<ul><li>Sezar için tüm kaydırmaları listeleyin.</li><li>Yerine koymada frekans ve sözcük örüntülerini karşılaştırıp crib kullanın.</li><li>Yer değiştirmede olası sütun genişlikleri ile okuma sıralarını deneyin.</li><li>Yinelenen anahtarlı Vigenère’de dönemi tahmin edip her sütunu kaydırma gibi inceleyin.</li><li>Bilinen biçim veya ifade için cribi olası konumlara hizalayın.</li></ul><p>Yalnızca birkaç sözcük üretip dil bilgisini bozan sonucu reddedin; çıktıyı elle düzeltmeyin.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Kısa tanılama örneği",
+            "html": "<p><code>öğtjçdç gzpbç</code> yalnızca harflerden oluşur ve boşluğu korur. Sözcük uzunlukları basit yerine koymayı düşündürür. Türk alfabesindeki kaydırmalar denenince anahtar 3 ile <code>merhaba dünya</code> çıkar.</p><p>Tek kural bütün karakterleri açıkladığı için sonuç güçlüdür. <a href=\"/tr/text-analysis/caesar-brute-force\">Sezar kaba kuvvet aracı</a> adayları listeler; elle çözüm ilgili rehberdedir.</p>"
+        },
+        {
+            "sort_order": 70,
+            "type": "section",
+            "title": "Adım 5 — Doğrulayın ve ne zaman duracağınızı bilin",
+            "html": "<p>Güvenilir çözüm mesajın tamamını açıklar. Tek algoritma ve anahtar her simgeyi karşılamalı; dil, adlar, tarihler ve başlıklar bağlama uymalıdır. Mümkünse önerilen düz metni yeniden şifreleyin; özgün metni tam üretmelidir.</p><p>Kanıt pratik saldırıyı desteklemiyorsa durun. Çok küçük örnek, bilinmeyen alfabe veya doğrulamalı modern şifreleme anahtarsız kurtarmayı olanaksız kılabilir. Denemeleri ve hangi yeni verinin yardımcı olacağını kaydedin.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Her şifreli mesaj anahtarsız çözülebilir mi?", "answer": "<p>Hayır. Zayıf klasik şifreler ve hatalı uygulamalar çözülebilir; güçlü anahtarlı sağlam modern şifreleme buna direnmek için tasarlanır.</p>"},
+        {"question": "Base64’ü nasıl tanırım?", "answer": "<p>Karakter kümesi ve <code>=</code> dolgusu ipucudur, kanıt değildir. Diziyi çözün ve okunabilir metin ya da bilinen dosya başlığı arayın.</p>"},
+        {"question": "Frekans analizi kısa metinde çalışır mı?", "answer": "<p>Çok daha az güvenilirdir. Sözcük örüntüleri, bağlam, cribler ve küçük anahtar uzayının tamamını denemek daha yararlı olabilir.</p>"},
+        {"question": "Hangi ek bilgiler en çok yardımcı olur?", "answer": "<p>Daha fazla şifreli metin, olası dil, biçimlendirme, beklenen ifade, aynı sistemden ikinci mesaj ve yazılım ya da kaynak ayrıntıları.</p>"}
+    ],
+    "related_guides": ["caesar-cipher-manual-decryption", "solve-substitution-cipher"],
+    "related_terms": [
+        {"slug": "cryptanalysis", "label": "Kriptoanaliz"},
+        {"slug": "ciphertext", "label": "Şifreli metin"},
+        {"slug": "brute-force-attack", "label": "Kaba kuvvet saldırısı"},
+        {"slug": "frequency-analysis", "label": "Frekans analizi"},
+        {"slug": "known-plaintext-attack", "label": "Bilinen açık metin saldırısı"}
+    ],
+    "related_tools": [
+        {"slug": "text-analysis/cipher-identifier", "label": "Şifre tanımlayıcı"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Sezar kaba kuvvet aracı"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Frekans analizi"},
+        {"slug": "text-analysis/vigenere-cracker", "label": "Vigenère kırıcı"},
+        {"slug": "classical-ciphers/simple-substitution", "label": "Yerine koyma şifresi"},
+        {"slug": "encoding/base64", "label": "Base64 çözücü"}
+    ],
+    "tags": ["kriptoanaliz", "bilinmeyen şifre", "başlangıç"],
+    "category": "how-to"
+}

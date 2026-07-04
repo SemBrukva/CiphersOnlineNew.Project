@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "decrypt-cipher-without-key",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Eine Nachricht ohne Schlüssel entschlüsseln",
+        "excerpt": "Ein praktischer Ablauf, um eine unbekannte Chiffre einzuordnen, den passenden Angriff zu wählen und die Erfolgsaussichten realistisch zu bewerten.",
+        "meta_title": "Nachricht ohne Schlüssel entschlüsseln | CiphersOnline",
+        "meta_description": "Unbekannten Geheimtext untersuchen: Kodierung von Verschlüsselung trennen, Chiffrenfamilie bestimmen, Angriff wählen und Klartext prüfen.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Was „ohne Schlüssel“ wirklich bedeutet",
+            "html": "<p>Entschlüsseln ohne Schlüssel bedeutet nicht wahlloses Raten. Bei der <strong>Kryptoanalyse</strong> nutzt du Struktur, Kontext und Schwächen des Verfahrens, um mögliche Schlüssel einzugrenzen oder den Klartext direkt zu gewinnen.</p><p>Klassische Rätselchiffren, wiederverwendete kurze Schlüssel und fehlerhafte Implementierungen sind oft angreifbar. Korrekt eingesetzte moderne Verschlüsselung mit starkem geheimem Schlüssel ist es normalerweise nicht: Ohne Schwachstelle, geleaktes Schlüsselmaterial oder einen unpraktisch großen Suchaufwand soll der Geheimtext zu wenig verraten. Bestimme deshalb zuerst, womit du es zu tun hast.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Schritt 1 — Spuren bewahren",
+            "html": "<p>Bewahre eine unveränderte Kopie auf. Notiere Leerzeichen, Zeilenumbrüche, Großschreibung, Satzzeichen, Trenner, Wiederholungen sowie Hinweise auf Sprache, Absender, Datum oder Quelle. Zu frühes Bereinigen kann Wortlängen und Blockmuster zerstören.</p><ul><li>Welche Zeichen kommen vor?</li><li>Bleiben Leerzeichen erhalten oder gibt es gleich große Gruppen?</li><li>Welche Buchstabenpaare und Fragmente wiederholen sich?</li><li>Passt die Länge zu einer Blockgröße?</li><li>Ist ein Gruß, Name oder Dateiformat zu erwarten?</li></ul>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Schritt 2 — Kodierung von Verschlüsselung trennen",
+            "html": "<p>Nicht jede unlesbare Folge ist verschlüsselt. Hex verwendet Ziffern und <code>A–F</code>, Base64 meist Buchstaben, Ziffern, <code>+</code>, <code>/</code> und optional <code>=</code>, Binärdarstellung nur <code>0</code> und <code>1</code>. Solche Darstellungen benötigen keinen geheimen Schlüssel.</p><p>Dekodiere eine plausible Schicht zuerst mit dem <a href=\"/de/encoding/base64\">Base64-Werkzeug</a>. Das Ergebnis kann dennoch komprimierte oder verschlüsselte Bytes enthalten. Hashwerte sind wiederum Einweg-Digests und kein normal entschlüsselbarer Geheimtext.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Schritt 3 — Die Chiffrenfamilie bestimmen",
+            "html": "<ul><li><strong>Caesar oder Verschiebung:</strong> Wortformen bleiben erhalten, jeder Buchstabe wandert gleich weit.</li><li><strong>Monoalphabetische Substitution:</strong> Wiederholungen und Wortmuster bleiben, aber ohne einheitliche Verschiebung.</li><li><strong>Transposition:</strong> Die Buchstaben bleiben, nur ihre Reihenfolge ändert sich.</li><li><strong>Polyalphabetische Chiffre:</strong> Derselbe Klartextbuchstabe kann verschieden erscheinen; Perioden können auf einen wiederholten Schlüssel deuten.</li><li><strong>Moderne Verschlüsselung:</strong> Die Ausgabe wirkt byteorientiert oder zufällig und kann Nonce, Salt, Authentifizierungstag oder Header enthalten.</li></ul><p>Die <a href=\"/de/text-analysis/cipher-identifier\">Chiffren-Erkennung</a> ordnet unterstützte klassische Kandidaten ein. Behandle die Rangfolge als Hypothese und bestätige sie mit einem passenden Angriff.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Schritt 4 — Den kleinsten passenden Angriff wählen",
+            "html": "<ul><li>Teste bei Caesar alle Verschiebungen.</li><li>Vergleiche bei Substitution Häufigkeiten und Wortmuster, dann nutze Cribs.</li><li>Probiere bei Transposition wahrscheinliche Spaltenbreiten und Leserichtungen.</li><li>Schätze bei Vigenère mit Wiederholungsschlüssel die Periode und untersuche jede Spalte als Verschiebung.</li><li>Richte bei bekanntem Format oder Satzteil einen Crib an möglichen Positionen aus.</li></ul><p>Verwirf Ergebnisse, die nur einzelne Wörter erzeugen, aber Grammatik und übrige Muster verletzen. Repariere sie nicht nachträglich per Hand.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Kurzes Beispiel",
+            "html": "<p><code>KCOOQ ZHOV</code> enthält nur Buchstaben und ein erhaltenes Leerzeichen. Wortlängen und Wiederholungen sprechen für eine einfache Substitution. Beim Durchprobieren der deutschen Caesar-Verschiebungen entsteht mit Schlüssel 3 <code>HALLO WELT</code>.</p><p>Der Kandidat ist überzeugend, weil dieselbe Regel jedes Zeichen erklärt. Das <a href=\"/de/text-analysis/caesar-brute-force\">Caesar-Brute-Force-Werkzeug</a> listet alle Ergebnisse; die Handrechnung steht im verknüpften Caesar-Leitfaden.</p>"
+        },
+        {
+            "sort_order": 70,
+            "type": "section",
+            "title": "Schritt 5 — Klartext prüfen und rechtzeitig stoppen",
+            "html": "<p>Eine belastbare Lösung erklärt die ganze Nachricht. Ein Algorithmus und ein Schlüssel müssen jedes Zeichen abdecken; Sprache, Namen, Daten und bekannte Header müssen zum Kontext passen. Verschlüssle den vorgeschlagenen Klartext nach Möglichkeit erneut: Er sollte den Ausgangstext exakt reproduzieren.</p><p>Fehlen Kontext und genügend Material oder liegt authentifizierte moderne Verschlüsselung vor, kann eine Wiederherstellung ohne Schlüssel unmöglich sein. Dokumentiere getestete Hypothesen und welche neuen Daten helfen würden: mehr Geheimtext, eine zweite Nachricht mit demselben Schlüssel, ein bekannter Klartextteil oder Implementierungsdetails.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Kann jede verschlüsselte Nachricht ohne Schlüssel entschlüsselt werden?", "answer": "<p>Nein. Schwache klassische Verfahren und fehlerhafte Implementierungen können angreifbar sein; solide moderne Verschlüsselung mit starkem unbekanntem Schlüssel soll genau das verhindern.</p>"},
+        {"question": "Woran erkenne ich Base64?", "answer": "<p>Zeichensatz und <code>=</code>-Padding sind Hinweise, aber kein Beweis. Dekodiere die Folge und suche nach lesbarem Text oder einem bekannten Dateikopf.</p>"},
+        {"question": "Funktioniert Häufigkeitsanalyse bei kurzen Texten?", "answer": "<p>Nur eingeschränkt. Wortmuster, Kontext, Cribs und die vollständige Suche in kleinen Schlüsselräumen sind dann oft nützlicher.</p>"},
+        {"question": "Welche Zusatzinformationen helfen am meisten?", "answer": "<p>Mehr Geheimtext, wahrscheinliche Sprache, Formatierung, ein erwarteter Satzteil, eine zweite Nachricht desselben Systems und Angaben zu Software oder Quelle.</p>"}
+    ],
+    "related_guides": ["caesar-cipher-manual-decryption", "solve-substitution-cipher"],
+    "related_terms": [
+        {"slug": "cryptanalysis", "label": "Kryptoanalyse"},
+        {"slug": "ciphertext", "label": "Geheimtext"},
+        {"slug": "brute-force-attack", "label": "Brute-Force-Angriff"},
+        {"slug": "frequency-analysis", "label": "Häufigkeitsanalyse"},
+        {"slug": "known-plaintext-attack", "label": "Known-Plaintext-Angriff"}
+    ],
+    "related_tools": [
+        {"slug": "text-analysis/cipher-identifier", "label": "Chiffren-Erkennung"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Caesar-Brute-Force"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Häufigkeitsanalyse"},
+        {"slug": "text-analysis/vigenere-cracker", "label": "Vigenère-Knacker"},
+        {"slug": "classical-ciphers/simple-substitution", "label": "Substitutionschiffre"},
+        {"slug": "encoding/base64", "label": "Base64-Decoder"}
+    ],
+    "tags": ["kryptoanalyse", "unbekannte chiffre", "anfänger"],
+    "category": "how-to"
+}

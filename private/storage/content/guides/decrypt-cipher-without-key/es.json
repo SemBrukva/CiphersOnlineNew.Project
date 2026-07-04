@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "decrypt-cipher-without-key",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "Cómo descifrar un mensaje sin la clave",
+        "excerpt": "Un método práctico para identificar un cifrado desconocido, elegir el ataque adecuado y valorar si la recuperación sin clave es posible.",
+        "meta_title": "Descifrar un mensaje sin la clave | CiphersOnline",
+        "meta_description": "Analiza un texto cifrado desconocido: distingue codificación y cifrado, identifica la familia, elige un ataque y verifica el texto claro.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Qué significa realmente «sin la clave»",
+            "html": "<p>Descifrar sin la clave no consiste en adivinar al azar. El <strong>criptoanálisis</strong> aprovecha la estructura, el contexto y las debilidades del método para reducir las claves posibles o recuperar directamente el texto claro.</p><p>Los cifrados clásicos, las claves cortas reutilizadas y las implementaciones defectuosas pueden ser vulnerables. El cifrado moderno bien aplicado con una clave secreta fuerte normalmente no lo es: sin una vulnerabilidad, una filtración o una búsqueda impracticable, está diseñado para no revelar información suficiente. Por eso primero hay que identificar el objeto.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Paso 1 — Conservar las pistas",
+            "html": "<p>Guarda una copia intacta. Anota espacios, saltos, mayúsculas, signos, separadores, repeticiones y el contexto: fecha, fuente, idioma o remitente. Limpiar demasiado pronto puede borrar longitudes de palabras y patrones de bloques.</p><ul><li>¿Qué símbolos aparecen?</li><li>¿Se conservan los espacios o hay grupos iguales?</li><li>¿Qué letras, pares o fragmentos se repiten?</li><li>¿La longitud encaja con un tamaño de bloque?</li><li>¿Es probable un saludo, un nombre o un formato de archivo?</li></ul>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Paso 2 — Separar codificación y cifrado",
+            "html": "<p>No toda cadena ilegible está cifrada. Hex usa dígitos y <code>A–F</code>; Base64 suele usar letras, números, <code>+</code>, <code>/</code> y quizá <code>=</code>; el binario usa <code>0</code> y <code>1</code>. Son representaciones reversibles que no requieren clave secreta.</p><p>Prueba primero una capa plausible con el <a href=\"/es/encoding/base64\">decodificador Base64</a>, pero inspecciona el resultado: puede contener datos comprimidos o bytes cifrados. Un hash es otra cosa: un resumen unidireccional, no un texto cifrado que se descifra normalmente.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Paso 3 — Identificar la familia probable",
+            "html": "<ul><li><strong>César o desplazamiento:</strong> se conservan espacios y formas de palabras; todas las letras avanzan igual.</li><li><strong>Sustitución monoalfabética:</strong> sobreviven repeticiones y patrones, pero no hay un solo desplazamiento.</li><li><strong>Transposición:</strong> permanecen las letras y cambia su orden.</li><li><strong>Cifrado polialfabético:</strong> una letra puede cifrarse de varias formas; la periodicidad puede señalar una clave repetida.</li><li><strong>Cifrado moderno:</strong> la salida parece binaria o aleatoria y puede incluir nonce, sal, etiqueta o cabecera.</li></ul><p>El <a href=\"/es/text-analysis/cipher-identifier\">identificador de cifrados</a> ordena candidatos clásicos compatibles, pero su resultado es una hipótesis que debe confirmarse con un ataque adecuado.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Paso 4 — Aplicar el ataque mínimo adecuado",
+            "html": "<ul><li>Para César, enumera todos los desplazamientos.</li><li>Para sustitución, compara frecuencias y patrones de palabras; después usa cribs.</li><li>Para transposición, prueba anchos de columna y órdenes de lectura.</li><li>Para Vigenère con clave repetida, estima el periodo y analiza cada columna como un desplazamiento.</li><li>Si conoces una frase o formato, alinea ese crib en posiciones posibles.</li></ul><p>Rechaza una solución que solo produzca palabras aisladas y rompa el resto de la gramática. No la «arregles» a mano.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Ejemplo breve de diagnóstico",
+            "html": "<p><code>KRÑD OXPGR</code> solo contiene letras y conserva el espacio. Las longitudes y repeticiones favorecen una sustitución sencilla. Al probar los desplazamientos del alfabeto español aparece <code>HOLA MUNDO</code> con clave 3.</p><p>La solución es sólida porque una misma regla explica todos los caracteres. La herramienta de <a href=\"/es/text-analysis/caesar-brute-force\">fuerza bruta para César</a> enumera las opciones; la técnica manual está en la guía relacionada.</p>"
+        },
+        {
+            "sort_order": 70,
+            "type": "section",
+            "title": "Paso 5 — Verificar y saber cuándo detenerse",
+            "html": "<p>Una solución creíble explica todo el mensaje. Un algoritmo y una clave deben justificar cada símbolo; idioma, nombres, fechas y cabeceras deben encajar con el contexto. Si puedes, vuelve a cifrar el texto propuesto: debe reproducir exactamente el original.</p><p>Detente cuando las pruebas no respalden un ataque práctico. Una muestra mínima, un alfabeto desconocido o el cifrado moderno autenticado pueden impedir la recuperación sin clave. Anota qué probaste y qué dato nuevo ayudaría: más texto, otro mensaje con la misma clave, un fragmento conocido o detalles de implementación.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "¿Puede descifrarse cualquier mensaje sin la clave?", "answer": "<p>No. Los cifrados clásicos débiles y las implementaciones defectuosas pueden caer; el cifrado moderno sólido con una clave fuerte está diseñado para resistirlo.</p>"},
+        {"question": "¿Cómo distingo Base64 del cifrado?", "answer": "<p>El alfabeto y el relleno <code>=</code> son pistas, no pruebas. Decodifica y busca texto legible o una cabecera de archivo conocida.</p>"},
+        {"question": "¿Funciona el análisis de frecuencia con textos cortos?", "answer": "<p>Es mucho menos fiable. Los patrones de palabras, el contexto, los cribs y el recorrido completo de espacios de clave pequeños suelen ayudar más.</p>"},
+        {"question": "¿Qué información adicional resulta más útil?", "answer": "<p>Más texto cifrado, idioma probable, formato conservado, una frase esperada, otro mensaje del mismo sistema y detalles del programa o la fuente.</p>"}
+    ],
+    "related_guides": ["caesar-cipher-manual-decryption", "solve-substitution-cipher"],
+    "related_terms": [
+        {"slug": "cryptanalysis", "label": "Criptoanálisis"},
+        {"slug": "ciphertext", "label": "Texto cifrado"},
+        {"slug": "brute-force-attack", "label": "Ataque de fuerza bruta"},
+        {"slug": "frequency-analysis", "label": "Análisis de frecuencia"},
+        {"slug": "known-plaintext-attack", "label": "Ataque de texto claro conocido"}
+    ],
+    "related_tools": [
+        {"slug": "text-analysis/cipher-identifier", "label": "Identificador de cifrados"},
+        {"slug": "text-analysis/caesar-brute-force", "label": "Fuerza bruta para César"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Análisis de frecuencia"},
+        {"slug": "text-analysis/vigenere-cracker", "label": "Rompedor de Vigenère"},
+        {"slug": "classical-ciphers/simple-substitution", "label": "Cifrado por sustitución"},
+        {"slug": "encoding/base64", "label": "Decodificador Base64"}
+    ],
+    "tags": ["criptoanálisis", "cifrado desconocido", "principiante"],
+    "category": "how-to"
+}

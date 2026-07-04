@@ -1,0 +1,41 @@
+{
+    "meta": {"schema": "guide-article.v1", "guide_slug": "solve-substitution-cipher", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-04", "published_at": "2026-07-04"},
+    "guide": {
+        "title": "Cómo resolver un cifrado de sustitución",
+        "excerpt": "Un método sistemático para resolver sustituciones simples mediante patrones de palabras, frecuencias, cribs y una tabla coherente.",
+        "meta_title": "Resolver un cifrado de sustitución paso a paso",
+        "meta_description": "Resuelve una sustitución simple a mano: anota patrones, usa frecuencias y cribs, propaga correspondencias y verifica todo el texto claro.",
+        "reading_time": 5
+    },
+    "body": [
+        {"sort_order": 10, "type": "section", "title": "Reconocer el tipo de sustitución", "html": "<p>En un <strong>cifrado de sustitución simple</strong>, cada letra del texto claro siempre se reemplaza por la misma letra cifrada. Los espacios y signos suelen conservarse; por eso sobreviven las repeticiones, las letras dobles y los patrones de palabras.</p><p>Es más general que César: no hay un único desplazamiento, sino cualquier permutación del alfabeto. Probar todas las claves es inviable; el objetivo es reconstruir la tabla mediante restricciones lingüísticas.</p>"},
+        {"sort_order": 20, "type": "section", "title": "Paso 1 — Preparar una hoja de patrones", "html": "<p>Copia el texto sin alterar los espacios. Mantén una línea para el texto claro provisional y dos tablas de correspondencia. La asignación debe ser uno a uno.</p><p>Numera las repeticiones de cada palabra. Dos candidatas solo pueden coincidir si repiten letras en las mismas posiciones. Marca además palabras de una letra, dobles, palabras repetidas, apóstrofos y terminaciones comunes.</p>"},
+        {"sort_order": 30, "type": "section", "title": "Paso 2 — Empezar por las pistas que más restringen", "html": "<ul><li>palabras repetidas en varias posiciones;</li><li>letras dobles y patrones poco comunes;</li><li>palabras cortas frecuentes como <code>DE</code>, <code>LA</code>, <code>EL</code>, <code>QUE</code> o <code>Y</code>;</li><li>nombres, saludos y términos sugeridos por el tema;</li><li>terminaciones como <code>-CIÓN</code>, <code>-ADO</code>, <code>-MENTE</code> y <code>-ES</code>.</li></ul><p>Propaga cada hipótesis por todo el mensaje y deshazla en cuanto rompa un patrón o la correspondencia única.</p>"},
+        {"sort_order": 40, "type": "section", "title": "Paso 3 — Usar frecuencias como prioridades", "html": "<p>En textos españoles largos suelen ser frecuentes <code>E</code>, <code>A</code>, <code>O</code>, <code>S</code> y <code>N</code>, pero una muestra concreta puede variar.</p><p>El <a href=\"/es/text-analysis/frequency-analysis\">análisis de frecuencia</a> propone candidatos, no respuestas. Una correspondencia respaldada por varios patrones vale más que una sola coincidencia estadística.</p>"},
+        {"sort_order": 50, "type": "section", "title": "Paso 4 — Propagar cada correspondencia confirmada", "html": "<p>Sustituye una letra confirmada en todas sus apariciones. Si otra conjetura exige un valor distinto para el mismo símbolo, hay una contradicción.</p><p>Alterna entre palabras y mensaje completo: completa un candidato, propaga sus letras y revisa los fragmentos nuevos. Una solución válida usa la misma tabla en todo el criptograma.</p>"},
+        {"sort_order": 60, "type": "section", "title": "Mini ejemplo", "html": "<p>Considera <code>JLP VTILP SH ITRDLRDS</code>. La palabra repetida dentro de la frase y las terminaciones permiten proponer palabras frecuentes. Si el contexto sugiere <code>AL</code> para <code>SH</code>, se fijan <code>S→A</code> y <code>H→L</code> en todo el texto.</p><p>La tabla completa y coherente produce <code>NOS VEMOS AL MEDIODIA</code>. El ejemplo se generó con un alfabeto clave válido y se verificó al revés; al resolver sin clave, cada asignación debe justificarse por patrones y contexto.</p>"},
+        {"sort_order": 70, "type": "section", "title": "Paso 5 — Verificar la solución completa", "html": "<p>Cada letra cifrada debe tener un solo significado y ninguna excepción manual. No inventes valores para letras ausentes de la muestra.</p><p>La <a href=\"/es/classical-ciphers/simple-substitution\">herramienta de sustitución simple</a> aplica una clave completa, pero no descubre automáticamente una clave desconocida. Vuelve a cifrar el texto recuperado: debe reproducir exactamente el criptograma.</p>"}
+    ],
+    "faq": [
+        {"question": "¿Sustitución y César son lo mismo?", "answer": "<p>No. César usa un desplazamiento constante; la sustitución simple admite cualquier permutación uno a uno del alfabeto.</p>"},
+        {"question": "¿Cuánto texto cifrado necesito?", "answer": "<p>Más texto mejora frecuencias y patrones. Uno corto puede resolverse si conserva espacios, tiene repeticiones distintivas o buen contexto.</p>"},
+        {"question": "¿Qué hago si una conjetura se contradice?", "answer": "<p>Retira primero la hipótesis menos respaldada, separa asignaciones firmes y provisionales y prueba otra palabra con el mismo patrón.</p>"},
+        {"question": "¿Puede un ordenador resolver cualquier sustitución?", "answer": "<p>No. Textos muy cortos, vocabulario raro, espacios eliminados o alfabetos personalizados pueden dejar varias soluciones.</p>"}
+    ],
+    "related_guides": ["decrypt-cipher-without-key", "caesar-cipher-manual-decryption"],
+    "related_terms": [
+        {"slug": "substitution-cipher", "label": "Cifrado por sustitución"},
+        {"slug": "monoalphabetic-cipher", "label": "Cifrado monoalfabético"},
+        {"slug": "frequency-analysis", "label": "Análisis de frecuencia"},
+        {"slug": "known-plaintext-attack", "label": "Ataque de texto plano conocido"},
+        {"slug": "ciphertext", "label": "Texto cifrado"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Sustitución simple"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Análisis de frecuencia"},
+        {"slug": "text-analysis/letter-frequency", "label": "Frecuencia de letras"},
+        {"slug": "text-analysis/cipher-identifier", "label": "Identificador de cifrados"}
+    ],
+    "tags": ["sustitución", "criptograma", "criptoanálisis"],
+    "category": "how-to"
+}

@@ -1,0 +1,41 @@
+{
+    "meta": {"schema": "guide-article.v1", "guide_slug": "solve-substitution-cipher", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-04", "published_at": "2026-07-04"},
+    "guide": {
+        "title": "Como resolver uma cifra de substituição",
+        "excerpt": "Um método sistemático para resolver substituição simples com padrões de palavras, frequências, cribs e uma tabela coerente.",
+        "meta_title": "Resolver uma cifra de substituição passo a passo",
+        "meta_description": "Resolva substituição simples à mão: anote padrões, use frequências e cribs, propague correspondências e verifique todo o texto claro.",
+        "reading_time": 4
+    },
+    "body": [
+        {"sort_order": 10, "type": "section", "title": "Reconhecer a substituição simples", "html": "<p>Numa <strong>cifra de substituição simples</strong>, cada letra do texto claro é sempre trocada pela mesma letra cifrada. Espaços e pontuação normalmente permanecem; repetições, letras duplas e padrões das palavras sobrevivem.</p><p>Ela é mais geral que César: a chave pode ser qualquer permutação do alfabeto. Testar todas as chaves é inviável; é preciso reconstruir a tabela com restrições do idioma.</p>"},
+        {"sort_order": 20, "type": "section", "title": "Passo 1 — Preparar uma folha de padrões", "html": "<p>Copie o texto sem alterar os espaços. Mantenha uma linha para o texto claro provisório e tabelas nos dois sentidos. A associação deve ser um para um.</p><p>Numere as repetições de cada palavra. Duas candidatas só combinam quando repetem letras nas mesmas posições. Marque também palavras de uma letra, letras duplas, palavras repetidas e terminações.</p>"},
+        {"sort_order": 30, "type": "section", "title": "Passo 2 — Começar pelas pistas mais informativas", "html": "<ul><li>palavras repetidas em várias posições;</li><li>letras duplas e padrões incomuns;</li><li>palavras frequentes como <code>DE</code>, <code>DA</code>, <code>O</code>, <code>A</code> e <code>QUE</code>;</li><li>nomes, saudações e termos sugeridos pelo contexto;</li><li>terminações <code>-ÇÃO</code>, <code>-MENTE</code>, <code>-ADO</code> e <code>-AR</code>.</li></ul><p>Propague cada hipótese e desfaça-a assim que quebrar um padrão ou a unicidade da tabela.</p>"},
+        {"sort_order": 40, "type": "section", "title": "Passo 3 — Usar frequências como prioridades", "html": "<p>Em textos portugueses longos, <code>A</code>, <code>E</code>, <code>O</code>, <code>S</code> e <code>R</code> costumam ser frequentes, mas tema e tamanho alteram a ordem.</p><p>A <a href=\"/pt/text-analysis/frequency-analysis\">análise de frequência</a> sugere candidatos, não respostas. Um crib sustentado por vários padrões vale mais que uma única semelhança estatística.</p>"},
+        {"sort_order": 50, "type": "section", "title": "Passo 4 — Propagar cada correspondência confirmada", "html": "<p>Insira toda letra confirmada em todas as ocorrências. Se outra hipótese exigir valor diferente para o mesmo símbolo, existe contradição.</p><p>Alterne verificações locais e globais: complete uma palavra promissora, propague as letras e examine os novos trechos. Uma solução válida usa uma tabela única.</p>"},
+        {"sort_order": 60, "type": "section", "title": "Mini exemplo", "html": "<p>Considere <code>ÀKOLKTPL SL JÀÊL-ÁÊS</code>. A palavra curta <code>SL</code> e o hífen preservado limitam bastante os candidatos. Se o contexto sugere <code>AO</code> para <code>SL</code>, fixe <code>S→A</code> e <code>L→O</code> no texto inteiro.</p><p>A tabela completa coerente produz <code>ENCONTRO AO MEIO-DIA</code>. O exemplo foi gerado e verificado com um alfabeto-chave válido; sem chave, cada correspondência deve resultar dos padrões e do contexto.</p>"},
+        {"sort_order": 70, "type": "section", "title": "Passo 5 — Verificar a solução completa", "html": "<p>Cada letra cifrada deve manter o mesmo significado, sem exceções manuais. Não invente valores para letras ausentes da amostra.</p><p>A <a href=\"/pt/classical-ciphers/simple-substitution\">ferramenta de substituição simples</a> aplica uma chave completa, mas não descobre automaticamente a chave desconhecida. Cifre novamente o texto recuperado: ele deve reproduzir exatamente o criptograma.</p>"}
+    ],
+    "faq": [
+        {"question": "Substituição e César são a mesma coisa?", "answer": "<p>Não. César usa deslocamento constante; a substituição simples aceita qualquer permutação um para um do alfabeto.</p>"},
+        {"question": "Quanto texto cifrado é necessário?", "answer": "<p>Mais texto melhora frequências e padrões. Um criptograma curto ainda pode ser resolvido com espaços, repetições distintas ou contexto forte.</p>"},
+        {"question": "O que fazer quando uma hipótese contradiz outra?", "answer": "<p>Retire primeiro a suposição menos sustentada, separe associações certas e provisórias e teste outra palavra com o mesmo padrão.</p>"},
+        {"question": "Um computador resolve qualquer substituição?", "answer": "<p>Não. Textos muito curtos, vocabulário raro, espaços removidos e alfabetos personalizados podem deixar várias soluções.</p>"}
+    ],
+    "related_guides": ["decrypt-cipher-without-key", "caesar-cipher-manual-decryption"],
+    "related_terms": [
+        {"slug": "substitution-cipher", "label": "Cifra de substituição"},
+        {"slug": "monoalphabetic-cipher", "label": "Cifra monoalfabética"},
+        {"slug": "frequency-analysis", "label": "Análise de frequência"},
+        {"slug": "known-plaintext-attack", "label": "Ataque de texto claro conhecido"},
+        {"slug": "ciphertext", "label": "Texto cifrado"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Substituição simples"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Análise de frequência"},
+        {"slug": "text-analysis/letter-frequency", "label": "Frequência de letras"},
+        {"slug": "text-analysis/cipher-identifier", "label": "Identificador de cifras"}
+    ],
+    "tags": ["substituição", "criptograma", "criptoanálise"],
+    "category": "how-to"
+}

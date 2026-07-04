@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "solve-substitution-cipher",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-04",
+        "published_at": "2026-07-04"
+    },
+    "guide": {
+        "title": "How to Solve a Substitution Cipher",
+        "excerpt": "A systematic way to solve a simple substitution cryptogram using word patterns, letter frequencies, cribs, and a consistent mapping table.",
+        "meta_title": "How to Solve a Substitution Cipher Step by Step",
+        "meta_description": "Solve a simple substitution cipher by hand: record word patterns, use frequencies and cribs, propagate letter mappings, and verify the full plaintext.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Recognize the kind of substitution",
+            "html": "<p>In a <strong>simple substitution cipher</strong>, every plaintext letter is replaced by one fixed ciphertext letter, and the same mapping is used throughout the message. Spaces and punctuation are usually preserved. Repeated plaintext letters therefore remain repeated, and identical words encrypt identically.</p><p>This is broader than a Caesar cipher. Caesar uses one constant shift; a general substitution can use any shuffled alphabet. Testing 26 shifts is enough for Caesar, but an English substitution alphabet has <code>26!</code> possible arrangements. The practical attack is to reconstruct the mapping from language constraints, not enumerate every key.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Step 1 — Build a pattern worksheet",
+            "html": "<p>Copy the ciphertext without changing spacing. Under it, keep one row for tentative plaintext and a two-way table: ciphertext → plaintext and plaintext → ciphertext. Every assignment must be one-to-one; two ciphertext letters cannot represent the same plaintext letter.</p><p>Mark each word by its repetition pattern. For example, <code>JTTQ</code> has pattern <code>0-1-1-2</code>, while <code>KLLK</code> has <code>0-1-1-0</code>. Candidate words must have exactly the same pattern. Also list one-letter words, double letters, repeated words, apostrophes, and common endings.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Step 2 — Start with high-information clues",
+            "html": "<p>Short does not always mean easy. A long word with repeated letters may constrain more mappings than a common three-letter word. Prioritize:</p><ul><li>words repeated in several positions;</li><li>double letters and distinctive patterns such as <code>0-1-1-0</code>;</li><li>one-letter words, which in English are usually <code>A</code> or <code>I</code>;</li><li>likely greetings, names, topic words, or fixed phrases;</li><li>common endings such as <code>-ING</code>, <code>-ED</code>, and <code>-TION</code>.</li></ul><p>Treat each guess as a hypothesis. Write it in pencil, propagate its mappings everywhere, and undo it immediately if any word pattern or one-to-one constraint breaks.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Step 3 — Use frequencies as rankings, not answers",
+            "html": "<p>On a long English cryptogram, frequent ciphertext letters may correspond to <code>E</code>, <code>T</code>, <code>A</code>, or <code>O</code>; common pairs may reflect <code>TH</code>, <code>HE</code>, <code>IN</code>, or <code>ER</code>. But topic, names, and short samples can change the order.</p><p>Use the <a href=\"/text-analysis/frequency-analysis\">frequency analysis tool</a> to find promising candidates, then test them against word patterns. A frequency match that creates impossible doubles or breaks several words is weaker than a pattern-supported crib.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Step 4 — Propagate every confirmed mapping",
+            "html": "<p>Each reliable word should unlock several others. If you set <code>J→M</code>, replace every <code>J</code> in the message with <code>M</code>. If another guess later requires the same ciphertext letter to mean <code>S</code>, the guesses conflict and at least one must be removed.</p><p>Alternate between local and global checks: complete a promising word, propagate its letters, inspect newly exposed fragments, and revisit frequencies. Do not fill an uncertain word merely because it “looks close.” A valid solution uses one consistent alphabet for the entire ciphertext.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Worked mini-example",
+            "html": "<p>Consider <code>JTTQ JT SQ KLLK</code>. The word <code>JTTQ</code> has pattern <code>0-1-1-2</code>. If context suggests <code>MEET</code>, the mappings are <code>J→M</code>, <code>T→E</code>, and <code>Q→T</code>. The repeated word <code>JT</code> then becomes <code>ME</code>, supporting the guess.</p><p>The two-letter word <code>SQ</code> now has the form <code>_T</code>; <code>AT</code> fits the sentence, giving <code>S→A</code>. Finally, <code>KLLK</code> has the mirrored pattern <code>0-1-1-0</code>; <code>NOON</code> fits and yields <code>K→N</code>, <code>L→O</code>. The full plaintext is <code>MEET ME AT NOON</code>. This example was generated and verified with one complete substitution alphabet.</p>"
+        },
+        {
+            "sort_order": 70,
+            "type": "section",
+            "title": "Step 5 — Verify the complete solution",
+            "html": "<p>Before accepting the plaintext, check that every occurrence of a ciphertext letter has one meaning, no two plaintext letters share a ciphertext symbol, and every word is explained without ad hoc corrections. Reconstruct the full keyed alphabet, including letters absent from the sample only when the key is known.</p><p>The <a href=\"/classical-ciphers/simple-substitution\">simple substitution tool</a> applies a complete key but does not discover an unknown one for you. Use it to re-encrypt the recovered plaintext: an exact match with the original ciphertext is the strongest mechanical check. If several letters remain unresolved, report the partial mapping instead of inventing certainty.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Is a substitution cipher the same as a Caesar cipher?", "answer": "<p>No. Caesar is the special case where every letter moves by one constant shift. A simple substitution can use any one-to-one permutation of the alphabet.</p>"},
+        {"question": "How much ciphertext is needed?", "answer": "<p>More text usually makes frequencies and word patterns more reliable. A short cryptogram can still be solvable when it preserves spaces, contains distinctive repetitions, or has strong contextual clues.</p>"},
+        {"question": "What should I do when a guess creates a contradiction?", "answer": "<p>Undo the least-supported guess first. Keep confirmed mappings separate from tentative ones, then try another candidate with the same word pattern.</p>"},
+        {"question": "Can a computer solve every substitution cipher?", "answer": "<p>No. Automated scoring can search mappings efficiently, but very short texts, unusual vocabulary, missing spaces, custom alphabets, and multilingual content can leave several plausible solutions.</p>"}
+    ],
+    "related_guides": ["decrypt-cipher-without-key", "caesar-cipher-manual-decryption"],
+    "related_terms": [
+        {"slug": "substitution-cipher", "label": "Substitution cipher"},
+        {"slug": "monoalphabetic-cipher", "label": "Monoalphabetic cipher"},
+        {"slug": "frequency-analysis", "label": "Frequency analysis"},
+        {"slug": "known-plaintext-attack", "label": "Known-plaintext attack"},
+        {"slug": "ciphertext", "label": "Ciphertext"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/simple-substitution", "label": "Simple Substitution Cipher"},
+        {"slug": "text-analysis/frequency-analysis", "label": "Frequency Analysis"},
+        {"slug": "text-analysis/letter-frequency", "label": "Letter Frequency"},
+        {"slug": "text-analysis/cipher-identifier", "label": "Cipher Identifier"}
+    ],
+    "tags": ["substitution cipher", "cryptogram", "cryptanalysis"],
+    "category": "how-to"
+}
