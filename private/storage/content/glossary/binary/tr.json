@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "binary",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "İkilik sistem",
+        "aliases": ["2 tabanı", "ikili sayı sistemi"],
+        "short": "İkilik sistem, değerleri yalnızca 0 ve 1 rakamlarıyla gösteren 2 tabanlı bir sayı sistemidir.",
+        "meta_title": "İkilik sistem — Tanım ve örnekler | CiphersOnline",
+        "meta_description": "İkilik gösterimde bitlerin ve ikinin kuvvetlerinin kullanımını, baytların metni göstermesini ve bit dizilerinin neden bağlama ihtiyaç duyduğunu öğrenin."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>İkilik sistem, 2 tabanlı konumsal bir sayı sistemidir. Yalnızca <code>0</code> ve <code>1</code> kullanır; her ikili rakama bit denir. Bilgisayarlar sayıları, metni, komutları, görüntüleri ve diğer verileri ikili durumlarla temsil eder.</p><p>Bir ikili dizi gösterimdir, şifreleme değildir. Biçimi biliniyorsa gizli anahtar olmadan dönüştürülebilir veya yorumlanabilir.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Nasıl çalışır?", "html": "<p>Her basamağın değeri ikinin bir kuvvetidir. Sağdan sola konumlar <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code> diye ilerler. Dolayısıyla <code>101101</code>, <code>32 + 8 + 4 + 1</code>, yani onluk sistemde 45 eder.</p><p>Sekiz bit genellikle bir bayt oluşturur. Bir bayt <code>00000000</code> ile <code>11111111</code> arasında 256 değere sahiptir; bu aralık on altılık <code>00</code>–<code>FF</code> değerlerine eşittir.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Pratik örnek", "html": "<p><code>01001000 01101001</code> bit grupları on altılık <code>48 69</code> baytlarına karşılık gelir. ASCII veya UTF-8 olarak yorumlandıklarında <code>Hi</code> elde edilir.</p><p>Aynı bitler başka bir biçimde farklı anlama gelebilir. Çözümleme için gruplama, bit ve bayt sırası, işaret ve veri türü kuralları gerekir.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Yorumlama ve yaygın hatalar", "html": "<p>Baştaki sıfırlar sıradan işaretsiz bir tam sayıyı değiştirmez, ancak sabit genişlikli alanlarda önemlidir. <code>1</code> ile <code>00000001</code> aynı değerdedir; ikinci biçim açıkça bir bayt yer kaplar.</p><p>Sıfır ve birlerden oluşan dizi kendi biçimini belirtmez: tam sayı, kodlanmış metin, kayan noktalı sayı, sıkıştırılmış veri veya şifreli metin olabilir.</p>"}
+    ],
+    "faq": [
+        {"question": "İkilik gösterim kod mu, şifreleme mi?", "answer": "<p>Değerleri gösterme yöntemidir. Bazı ikili biçimler belirli veri kodları tanımlar; ancak ikilik sistem tek başına gizlilik sağlamaz ve şifreleme değildir.</p>"},
+        {"question": "n bit kaç değer gösterebilir?", "answer": "<p><code>n</code> bitlik işaretsiz alan, sıfırdan <code>2^n - 1</code> değerine kadar <code>2^n</code> farklı desene sahiptir. Başka biçimler desenleri farklı yorumlar.</p>"},
+        {"question": "Bitler neden çoğunlukla sekizli gruplanır?", "answer": "<p>Modern sistemler depolamayı genellikle 8 bitlik baytlarla düzenler. Gruplama bayt sınırlarını gösterir; protokoller başka genişlikler de kullanabilir.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/binary-converter", "label": "İkili Dönüştürücü"}],
+    "tags": ["kodlama", "ikilik sistem", "bitler"],
+    "category": "encoding"
+}

@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "url-encoding", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "URL kodlaması",
+        "aliases": ["yüzde kodlaması", "percent-encoding"],
+        "short": "URL kodlaması, URI bileşenindeki bir baytı yüzde işareti ve iki on altılık rakamla gösterir.",
+        "meta_title": "URL kodlaması — Yüzde kodlaması nasıl çalışır? | CiphersOnline",
+        "meta_description": "UTF-8 baytlarının %HH dizilerine dönüşmesini, %20 ile + farkını ve çift kodlamadan kaçınmayı öğrenin."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>URL kodlaması, daha kesin adıyla yüzde kodlaması, bir baytı <code>%</code> ve iki on altılık rakamla gösterir. Boşluk <code>%20</code>, yüzde işaretinin kendisi <code>%25</code> olarak yazılabilir.</p><p>Ayrılmamış URI karakterleri olan ASCII harfleri, rakamlar, <code>-</code>, <code>.</code>, <code>_</code> ve <code>~</code> normalde değişmez. Diğer karakterler konum ve anlamlarına göre kodlanır.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Nasıl çalışır?", "html": "<p>ASCII dışı metin önce, genellikle UTF-8 ile, baytlara çevrilir ve gerekli baytlar ayrı ayrı kodlanır. Böylece <code>café</code>, <code>caf%C3%A9</code> olur.</p><p><code>/</code>, <code>?</code>, <code>#</code>, <code>&amp;</code> ve <code>=</code> gibi ayrılmış karakterler URL yapısını kurar. Kodlama gereksinimi verinin yol bölümünde, sorgu parametresinde, parçada veya başka bileşende olmasına bağlıdır.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Boşluklar ve form verileri", "html": "<p>Standart yüzde kodlaması boşluğu <code>%20</code> yazar. Sorgu ve HTML formlarında kullanılan <code>application/x-www-form-urlencoded</code> biçimi çoğu zaman <code>+</code> kullanır; gerçek artı işareti bu durumda <code>%2B</code> olur.</p><p>Kütüphaneler genellikle URL, yol bölümü ve parametre değeri için ayrı işlevler sunar. Bileşene özgü işlev yapısal ayraçları doğru işler.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Güvenlik ve yaygın hatalar", "html": "<p>Kodlama tersine çevrilebilir ve şifreleme değildir. Hassas değerler tarayıcı geçmişinde, günlüklerde, Referer verilerinde ve sunucu kayıtlarında görünür kalabilir.</p><p>Kodlanmış yüzdeyi yeniden kodlamak çift kodlama üretir: <code>%20</code>, <code>%2520</code> olur. Kodlama kötü niyetli girdiyi güvenli yapmadığı için çözülen veri yine doğrulanmalıdır.</p>"}
+    ],
+    "faq": [
+        {"question": "%20 ile + arasındaki fark nedir?", "answer": "<p><code>%20</code> boşluk baytının yüzde kodudur. <code>+</code> yalnızca form kodlamasında boşluk anlamına gelir; başka yerde gerçek artı olabilir.</p>"},
+        {"question": "URL’nin tamamı tek seferde kodlanmalı mı?", "answer": "<p>Genellikle hayır. Yapısal ayraçların anlamını korumak için yol bölümlerini ve değerleri kendi bileşen işlevleriyle kodlayın.</p>"},
+        {"question": "URL kodlaması güvenli midir?", "answer": "<p>Hayır. Sözdizimsel uyumluluk sağlar; gizlilik, bütünlük veya kimlik doğrulama sağlamaz.</p>"}
+    ],
+    "related_terms": ["unicode", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/url-encode", "label": "URL Kodlayıcı ve Kod Çözücü"}],
+    "tags": ["kodlama", "URL kodlaması", "yüzde kodlaması"],
+    "category": "encoding"
+}

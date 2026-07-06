@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "binary",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Binärsystem",
+        "aliases": ["Dualsystem", "Zweiersystem"],
+        "short": "Das Binärsystem ist ein Zahlensystem zur Basis 2, das Werte ausschließlich mit den Ziffern 0 und 1 darstellt.",
+        "meta_title": "Binärsystem — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Erfahren Sie, wie Binärzahlen Bits und Zweierpotenzen nutzen, wie Bytes Text darstellen und warum eine Bitfolge nur mit Formatangaben deutbar ist."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Das Binärsystem ist ein Stellenwertsystem zur Basis 2. Es verwendet nur <code>0</code> und <code>1</code>; jede Binärziffer heißt Bit. Computer stellen damit Zahlen, Text, Befehle, Bilder und andere Daten dar.</p><p>Eine Binärfolge ist eine Darstellung, keine Verschlüsselung. Wer ihr Format kennt, kann sie ohne geheimen Schlüssel umwandeln oder deuten.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Funktionsweise", "html": "<p>Jede Stelle besitzt den Wert einer Zweierpotenz. Von rechts stehen die Positionen für <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code> und so weiter. Daher ergibt <code>101101</code> die Summe <code>32 + 8 + 4 + 1</code>, also dezimal 45.</p><p>Acht Bits bilden üblicherweise ein Byte. Es kann 256 Werte von <code>00000000</code> bis <code>11111111</code> annehmen, entsprechend hexadezimal <code>00</code> bis <code>FF</code>.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Praktisches Beispiel", "html": "<p>Die Bitgruppen <code>01001000 01101001</code> entsprechen den Hexbytes <code>48 69</code>. Als ASCII oder UTF-8 interpretiert ergeben sie <code>Hi</code>.</p><p>In einem anderen Format können dieselben Bits etwas anderes bedeuten. Zur Dekodierung sind Regeln für Gruppierung, Bit- und Bytereihenfolge, Vorzeichen und Datentyp nötig.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Deutung und Stolperfallen", "html": "<p>Führende Nullen ändern eine gewöhnliche vorzeichenlose Zahl nicht, sind bei fester Feldbreite aber wichtig. <code>1</code> und <code>00000001</code> sind numerisch gleich; die zweite Form belegt ausdrücklich ein Byte.</p><p>Eine Folge aus Nullen und Einsen benennt ihr Format nicht selbst. Sie kann eine Ganzzahl, kodierten Text, eine Gleitkommazahl, komprimierte Daten oder Geheimtext darstellen.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist Binärdarstellung ein Code oder Verschlüsselung?", "answer": "<p>Sie ist eine Darstellung von Werten. Manche Binärformate definieren Codes für bestimmte Daten, doch das Binärsystem selbst bietet keine Geheimhaltung und ist keine Verschlüsselung.</p>"},
+        {"question": "Wie viele Werte lassen sich mit n Bits darstellen?", "answer": "<p>Ein vorzeichenloses Feld mit <code>n</code> Bits besitzt <code>2^n</code> Muster von null bis <code>2^n - 1</code>. Andere Formate weisen diesen Mustern andere Bedeutungen zu.</p>"},
+        {"question": "Warum werden Bits oft zu acht gruppiert?", "answer": "<p>Moderne Systeme organisieren Speicher meist in 8-Bit-Bytes. Die Gruppierung zeigt Bytegrenzen, obwohl Protokolle auch andere Feldbreiten verwenden.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/binary-converter", "label": "Binär-Konverter"}],
+    "tags": ["Kodierung", "Binärsystem", "Bits"],
+    "category": "encoding"
+}

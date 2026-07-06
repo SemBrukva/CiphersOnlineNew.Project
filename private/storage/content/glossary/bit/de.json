@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "bit", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Bit",
+        "aliases": ["Binärziffer"],
+        "short": "Ein Bit ist eine Binärziffer mit einem von zwei möglichen Werten, die üblicherweise als 0 und 1 geschrieben werden.",
+        "meta_title": "Bit — Definition, Bytes und Binärwerte | CiphersOnline",
+        "meta_description": "Erfahren Sie, was ein Bit darstellt, wie Bits Bytes und Felder bilden und warum Bitanzahl und Datenbedeutung verschieden sind."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Ein Bit, kurz für Binärziffer, ist eine Einheit mit zwei möglichen Werten <code>0</code> und <code>1</code>. Physikalisch können Spannungen, magnetische Zustände, Licht oder andere unterscheidbare Bedingungen dafür stehen.</p><p>Ein Bit beschreibt eine binäre Wahl, nicht deren Bedeutung. Diese ergibt sich aus Zahl, Zeichenkodierung, Dateiformat, Befehl oder Protokoll.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Bits kombinieren", "html": "<p>Ein Feld mit <code>n</code> Bits besitzt <code>2^n</code> Muster. Acht Bits bilden ein Oktett und in modernen Systemen ein Byte; dieses hat 256 Muster von <code>00000000</code> bis <code>11111111</code>.</p><p>Positionen können Zweierpotenzen, Flags oder Strukturteile darstellen. AND, OR, XOR, NOT und Verschiebungen verändern Bitmuster.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Praktisches Beispiel", "html": "<p>Das Byte <code>01000001</code> enthält acht Bits. Als vorzeichenlose Zahl ist es dezimal 65, unter ASCII oder UTF-8 steht es für <code>A</code>. Das Muster bleibt gleich, die Deutung wechselt.</p><p>Kryptografische Algorithmen nutzen Bitoperationen, doch ein Bit oder eine Binärfolge ist nicht von sich aus verschlüsselt oder sicher.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Bits, Bytes und Schreibweise", "html": "<p>Kleines <code>b</code> bezeichnet meist Bits, großes <code>B</code> Bytes: <code>100 Mb/s</code> sind 100 Megabit pro Sekunde, nicht Megabyte. Dezimale und binäre Präfixe können ebenfalls abweichen.</p><p>Bitreihenfolge im Feld und Bytereihenfolge über mehrere Bytes sind getrennte Konventionen, die beim Dekodieren bekannt sein müssen.</p>"}
+    ],
+    "faq": [
+        {"question": "Ist das Bit die kleinste Informationseinheit?", "answer": "<p>In gewöhnlicher Digitaldarstellung ist es die binäre Grundeinheit. Informationstheorie kennt gebrochene Durchschnittswerte, Quantencomputer verwenden Qubits.</p>"},
+        {"question": "Wie viele Bits hat ein Byte?", "answer": "<p>Moderne Systeme nutzen 8-Bit-Bytes. Der genaue Begriff Oktett bedeutet immer acht Bits.</p>"},
+        {"question": "Wie viele Werte passen in n Bits?", "answer": "<p>Es gibt <code>2^n</code> Muster. Der Zahlenbereich hängt von vorzeichenloser, vorzeichenbehafteter, Gleitkomma- oder anderer Deutung ab.</p>"}
+    ],
+    "related_terms": ["binary", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/binary-converter", "label": "Binär-Konverter"}],
+    "tags": ["Binärdaten", "Bit", "digitale Daten"],
+    "category": "encoding"
+}

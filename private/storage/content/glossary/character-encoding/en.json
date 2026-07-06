@@ -1,0 +1,28 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "character-encoding", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Character encoding",
+        "aliases": ["text encoding", "character set encoding"],
+        "short": "A character encoding defines how text characters or code points are represented as byte sequences and decoded back.",
+        "meta_title": "Character Encoding — Definition and Examples | CiphersOnline",
+        "meta_description": "Learn how character encodings map text to bytes, how Unicode differs from UTF-8, and why using the wrong encoding produces corrupted text."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A character encoding specifies how textual units are converted to numbers or bytes for storage and transmission, and how those values are decoded back into text. The sender and receiver must use the same encoding.</p><p>ASCII, UTF-8, UTF-16, and legacy code pages are character encodings or encoding schemes. Unicode defines a shared repertoire and code points; UTF-8 and UTF-16 define concrete byte or code-unit representations of those points.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "How it works", "html": "<p>An encoder maps characters to a valid byte sequence. A decoder applies the inverse rules. In UTF-8, <code>A</code> is the byte <code>41</code>, while <code>€</code> is <code>E2 82 AC</code>. Variable-width encodings use different numbers of bytes for different code points.</p><p>Metadata such as an HTTP charset, a file format declaration, or an agreed protocol tells software which decoder to use. Without that context, the same bytes can produce different text.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Practical example", "html": "<p>If the UTF-8 bytes <code>E2 82 AC</code> are decoded as UTF-8, they produce <code>€</code>. Interpreting them with an unrelated single-byte encoding produces other characters instead. This visible corruption is often called mojibake.</p><p>Converting text between encodings requires decoding the source bytes correctly and then encoding the resulting characters in the destination encoding; relabeling bytes is not conversion.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Errors and pitfalls", "html": "<p>A decoder may reject invalid byte sequences or replace them with <code>U+FFFD</code>, the replacement character. A destination encoding may also be unable to represent some input characters, causing an error, substitution, or data loss.</p><p>Byte order marks, endianness, Unicode normalization, and line endings are related but distinct concerns. Character encoding is reversible representation, not encryption.</p>"}
+    ],
+    "faq": [
+        {"question": "Are Unicode and UTF-8 the same thing?", "answer": "<p>No. Unicode assigns code points and properties to characters; UTF-8 is one encoding that represents those code points as bytes.</p>"},
+        {"question": "Why does text show question marks or strange symbols?", "answer": "<p>The bytes may have been decoded with the wrong encoding, or the original characters may have been replaced because the chosen destination encoding could not represent them.</p>"},
+        {"question": "Can an encoding always be detected automatically?", "answer": "<p>No. Some byte patterns fit several encodings, especially short ASCII-only text. Protocol metadata, a byte-order mark, or external knowledge is often needed.</p>"}
+    ],
+    "related_terms": ["unicode", "ascii"],
+    "related_tools": [
+        {"slug": "encoding/unicode-converter", "label": "Unicode Converter"},
+        {"slug": "encoding/ascii-converter", "label": "ASCII Converter"}
+    ],
+    "tags": ["encoding", "character encoding", "text"],
+    "category": "encoding"
+}

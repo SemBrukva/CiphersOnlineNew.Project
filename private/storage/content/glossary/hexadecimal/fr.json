@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hexadecimal",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Hexadécimal",
+        "aliases": ["hex", "base 16"],
+        "short": "L’hexadécimal est une notation en base 16 qui emploie les symboles 0–9 et A–F pour représenter nombres et octets.",
+        "meta_title": "Hexadécimal — Définition et exemples | CiphersOnline",
+        "meta_description": "Découvrez comment les chiffres hexadécimaux correspondent aux bits et aux octets, comment lire une valeur hex et pourquoi ce codage n’est pas un chiffrement."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>L’hexadécimal, ou hex, est un système de numération positionnel en base 16. Il utilise <code>0</code> à <code>9</code> puis <code>A</code> à <code>F</code> ; <code>A</code> vaut 10 en décimal et <code>F</code> vaut 15.</p><p>Il convient à l’affichage de données binaires, car un chiffre hexadécimal correspond exactement à 4 bits et deux chiffres représentent un octet de <code>00</code> à <code>FF</code>.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Fonctionnement",
+            "html": "<p>Comme en décimal, chaque position possède un poids, mais les puissances de 16 remplacent celles de 10. Ainsi, <code>2F</code> signifie <code>2 × 16 + 15</code>, soit 47 en décimal. Majuscules et minuscules ont normalement la même valeur.</p><p>Les programmes préfixent souvent un nombre hexadécimal par <code>0x</code> ; les suites d’octets peuvent contenir espaces ou deux-points. Ce sont des conventions de format, pas des chiffres hexadécimaux.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Exemple pratique",
+            "html": "<p>Le texte UTF-8 <code>Hi</code> est formé des octets hexadécimaux <code>48 69</code>. Reconvertir ces paires en octets puis les interpréter en UTF-8 restitue <code>Hi</code>. Les mêmes octets s’écrivent <code>SGk=</code> en Base64.</p><p>L’hex utilise deux caractères par octet : il se lit facilement, mais occupe environ deux fois plus de place que les données brutes.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Interprétation et pièges",
+            "html": "<p>Une chaîne hex n’indique pas si ses octets forment un texte, un nombre, un fichier, un hachage ou du texte chiffré. Pour produire du texte, il faut aussi connaître le bon codage de caractères. En décodage par octets, un nombre impair de chiffres est incomplet, sauf convention ajoutant un zéro initial.</p><p>La notation hexadécimale est réversible et n’apporte aucune confidentialité : ce n’est pas un chiffrement.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "L’hexadécimal est-il un chiffrement ?", "answer": "<p>Non. Il change seulement l’écriture de nombres ou d’octets. Chacun peut reconvertir une valeur hex valide sans clé.</p>"},
+        {"question": "Pourquoi un décodeur hex refuse-t-il une longueur impaire ?", "answer": "<p>Un octet s’écrit normalement avec deux chiffres hex. Une chaîne impaire laisse un demi-octet isolé, même si un nombre hexadécimal ordinaire peut avoir autant de chiffres que nécessaire.</p>"},
+        {"question": "Les lettres hex majuscules et minuscules diffèrent-elles ?", "answer": "<p>Non. <code>A–F</code> et <code>a–f</code> ont normalement les mêmes valeurs, bien qu’un format de sortie puisse imposer une casse.</p>"}
+    ],
+    "related_terms": ["base64"],
+    "related_tools": [
+        {"slug": "encoding/hex", "label": "Encodeur et décodeur Hex"}
+    ],
+    "tags": ["codage", "hexadécimal", "données binaires"],
+    "category": "encoding"
+}

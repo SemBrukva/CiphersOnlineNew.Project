@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hexadecimal",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Esadecimale",
+        "aliases": ["hex", "base 16"],
+        "short": "L’esadecimale è una notazione in base 16 che usa i simboli 0–9 e A–F per rappresentare numeri e byte.",
+        "meta_title": "Esadecimale — Definizione ed esempi | CiphersOnline",
+        "meta_description": "Scopri come le cifre esadecimali corrispondono a bit e byte, come leggere i valori hex e perché questa codifica non è cifratura."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>L’esadecimale, o hex, è un sistema numerico posizionale in base 16. Usa da <code>0</code> a <code>9</code> e da <code>A</code> a <code>F</code>; <code>A</code> vale 10 in decimale e <code>F</code> vale 15.</p><p>È adatto a mostrare dati binari perché una cifra esadecimale corrisponde esattamente a 4 bit e due cifre rappresentano un byte da <code>00</code> a <code>FF</code>.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Come funziona",
+            "html": "<p>Come nel sistema decimale, ogni posizione ha un peso, ma si usano potenze di 16. Quindi <code>2F</code> significa <code>2 × 16 + 15</code>, cioè 47 in decimale. Maiuscole e minuscole hanno normalmente lo stesso valore.</p><p>I programmi antepongono spesso <code>0x</code> a un numero esadecimale; le sequenze di byte possono includere spazi o due punti. Sono convenzioni di formato, non cifre esadecimali.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Esempio pratico",
+            "html": "<p>Il testo UTF-8 <code>Hi</code> è composto dai byte esadecimali <code>48 69</code>. Convertendo le coppie in byte e interpretandole come UTF-8 si recupera <code>Hi</code>. Gli stessi byte sono <code>SGk=</code> in Base64.</p><p>Hex usa due caratteri di testo per byte: è facile da esaminare, ma occupa circa il doppio dei dati grezzi.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Interpretazione ed errori comuni",
+            "html": "<p>Una stringa hex non indica se i byte rappresentano testo, un numero, un file, un hash o testo cifrato. Per ottenere testo serve anche la corretta codifica dei caratteri. Nella decodifica a byte, un numero dispari di cifre è incompleto, salvo una convenzione che aggiunga uno zero iniziale.</p><p>La notazione esadecimale è reversibile e non offre riservatezza: non è cifratura.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "L’esadecimale è una cifratura?", "answer": "<p>No. Cambia solo la rappresentazione scritta di numeri o byte. Chiunque può riconvertire un valore hex valido senza chiave.</p>"},
+        {"question": "Perché un decoder hex rifiuta una lunghezza dispari?", "answer": "<p>Un byte si scrive normalmente con due cifre hex. In una stringa dispari resta mezzo byte senza coppia, anche se un normale numero esadecimale può avere qualsiasi quantità di cifre.</p>"},
+        {"question": "Le lettere hex maiuscole e minuscole differiscono?", "answer": "<p>No. <code>A–F</code> e <code>a–f</code> hanno normalmente gli stessi valori, anche se un formato di output può imporre uno stile.</p>"}
+    ],
+    "related_terms": ["base64"],
+    "related_tools": [
+        {"slug": "encoding/hex", "label": "Codificatore e decodificatore Hex"}
+    ],
+    "tags": ["codifica", "esadecimale", "dati binari"],
+    "category": "encoding"
+}

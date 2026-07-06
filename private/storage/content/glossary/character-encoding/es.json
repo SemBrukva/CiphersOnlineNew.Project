@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "character-encoding", "language": "es", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Codificación de caracteres",
+        "aliases": ["codificación de texto"],
+        "short": "Una codificación de caracteres define cómo se representan caracteres o puntos de código mediante secuencias de bytes y cómo se recuperan.",
+        "meta_title": "Codificación de caracteres — Definición y ejemplos | CiphersOnline",
+        "meta_description": "Aprende cómo las codificaciones convierten texto en bytes, cómo se diferencian Unicode y UTF-8 y por qué una codificación incorrecta corrompe texto."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>Una codificación de caracteres determina cómo las unidades de texto se convierten en números o bytes para almacenarse y transmitirse, y cómo vuelven a ser texto. Emisor y receptor deben usar la misma codificación.</p><p>ASCII, UTF-8, UTF-16 y las páginas antiguas son codificaciones o esquemas. Unicode define repertorio y puntos; UTF-8 y UTF-16, su representación concreta.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Cómo funciona", "html": "<p>El codificador asigna secuencias válidas y el decodificador aplica las reglas inversas. En UTF-8, <code>A</code> es <code>41</code> y <code>€</code> es <code>E2 82 AC</code>. Las codificaciones de longitud variable usan distinto número de bytes.</p><p>El charset HTTP, la declaración del archivo o el protocolo indican qué decodificador usar. Sin contexto, los mismos bytes pueden producir textos distintos.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Ejemplo práctico", "html": "<p>Decodificados como UTF-8, los bytes <code>E2 82 AC</code> producen <code>€</code>. Con una codificación de un byte ajena generan otros caracteres; esta corrupción visible se denomina mojibake.</p><p>Convertir exige decodificar bien el origen y codificar los caracteres en el destino. Cambiar solo la etiqueta no transforma los bytes.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Errores frecuentes", "html": "<p>Un decodificador puede rechazar secuencias inválidas o sustituirlas por <code>U+FFFD</code>. Si el destino no representa un carácter, puede haber error, sustitución o pérdida.</p><p>Marca de orden de bytes, endianness, normalización Unicode y finales de línea son asuntos relacionados pero distintos. Codificar caracteres no es cifrar.</p>"}
+    ],
+    "faq": [
+        {"question": "¿Unicode y UTF-8 son lo mismo?", "answer": "<p>No. Unicode asigna puntos y propiedades; UTF-8 codifica esos puntos como bytes.</p>"},
+        {"question": "¿Por qué aparecen interrogaciones o símbolos extraños?", "answer": "<p>Los bytes pueden haberse decodificado mal o los caracteres se sustituyeron porque el destino no podía representarlos.</p>"},
+        {"question": "¿Siempre puede detectarse una codificación automáticamente?", "answer": "<p>No. Algunos bytes encajan en varias codificaciones, sobre todo texto ASCII corto. Hacen falta metadatos, BOM o contexto.</p>"}
+    ],
+    "related_terms": ["unicode", "ascii"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Convertidor Unicode"}, {"slug": "encoding/ascii-converter", "label": "Convertidor ASCII"}],
+    "tags": ["codificación", "codificación de caracteres", "texto"],
+    "category": "encoding"
+}

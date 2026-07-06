@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "url-encoding", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Encodage d'URL",
+        "aliases": ["encodage par pourcentage", "percent-encoding"],
+        "short": "L’encodage d’URL représente un octet dans un composant d’URI par un signe pour cent suivi de deux chiffres hexadécimaux.",
+        "meta_title": "Encodage d’URL — Comprendre le percent-encoding | CiphersOnline",
+        "meta_description": "Découvrez comment les octets UTF-8 deviennent des suites %HH, la différence entre %20 et + et comment éviter le double encodage."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>L’encodage d’URL, plus précisément encodage par pourcentage, représente un octet par <code>%</code> et deux chiffres hexadécimaux. Un espace peut ainsi devenir <code>%20</code> et le signe pour cent lui-même <code>%25</code>.</p><p>Les caractères URI non réservés—lettres ASCII, chiffres, <code>-</code>, <code>.</code>, <code>_</code> et <code>~</code>—restent normalement inchangés. Les autres dépendent de leur position et de leur rôle.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Fonctionnement", "html": "<p>Un texte non ASCII est d’abord converti en octets, généralement en UTF-8, puis les octets nécessaires sont encodés séparément. Ainsi, <code>café</code> devient <code>caf%C3%A9</code>.</p><p>Les caractères réservés <code>/</code>, <code>?</code>, <code>#</code>, <code>&amp;</code> et <code>=</code> structurent l’URL. Leur encodage dépend du composant : segment de chemin, paramètre, fragment ou autre.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Espaces et données de formulaire", "html": "<p>L’encodage par pourcentage écrit un espace <code>%20</code>. Le format <code>application/x-www-form-urlencoded</code>, utilisé dans les requêtes et formulaires HTML, emploie souvent <code>+</code> ; un plus littéral devient alors <code>%2B</code>.</p><p>Les bibliothèques proposent généralement des fonctions distinctes pour URL, segments et valeurs de paramètres. La fonction propre au composant traite correctement les séparateurs.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Sécurité et pièges", "html": "<p>L’encodage est réversible et n’est pas un chiffrement. Des valeurs sensibles peuvent rester visibles dans l’historique, les journaux, les données Referer et les traces serveur.</p><p>Réencoder un pourcentage déjà encodé produit un double encodage : <code>%20</code> devient <code>%2520</code>. Les données décodées doivent toujours être validées, car l’encodage ne neutralise pas une entrée malveillante.</p>"}
+    ],
+    "faq": [
+        {"question": "Quelle différence entre %20 et + ?", "answer": "<p><code>%20</code> est l’octet encodé d’un espace. <code>+</code> signifie espace uniquement dans l’encodage de formulaire ; ailleurs, il peut être littéral.</p>"},
+        {"question": "Faut-il encoder une URL entière d’un coup ?", "answer": "<p>En général, non. Encodez segments et valeurs avec la fonction du composant afin que les séparateurs structurels conservent leur sens.</p>"},
+        {"question": "L’encodage d’URL est-il sûr ?", "answer": "<p>Non. Il assure la compatibilité syntaxique, mais ni confidentialité, ni intégrité, ni authenticité.</p>"}
+    ],
+    "related_terms": ["unicode", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/url-encode", "label": "Encodeur et décodeur d’URL"}],
+    "tags": ["codage", "encodage d’URL", "encodage par pourcentage"],
+    "category": "encoding"
+}

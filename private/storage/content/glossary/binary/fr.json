@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "binary",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Binaire",
+        "aliases": ["base 2", "système binaire"],
+        "short": "Le binaire est un système de numération en base 2 qui représente les valeurs uniquement avec les chiffres 0 et 1.",
+        "meta_title": "Système binaire — Définition et exemples | CiphersOnline",
+        "meta_description": "Découvrez comment le binaire utilise bits et puissances de deux, comment les octets représentent du texte et pourquoi une suite de bits exige un format."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Le binaire est un système de numération positionnel en base 2. Il n’emploie que <code>0</code> et <code>1</code> ; chaque chiffre binaire est un bit. Les ordinateurs représentent ainsi nombres, textes, instructions, images et autres données.</p><p>Une suite binaire est une représentation, pas un chiffrement. Son format connu, elle peut être convertie ou interprétée sans clé secrète.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Fonctionnement", "html": "<p>Chaque position vaut une puissance de deux. De droite à gauche, les positions représentent <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, etc. Ainsi, <code>101101</code> vaut <code>32 + 8 + 4 + 1</code>, soit 45 en décimal.</p><p>Huit bits forment couramment un octet, qui offre 256 valeurs de <code>00000000</code> à <code>11111111</code>, équivalentes à l’intervalle hexadécimal <code>00</code>–<code>FF</code>.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Exemple pratique", "html": "<p>Les groupes <code>01001000 01101001</code> correspondent aux octets hexadécimaux <code>48 69</code>. Interprétés en ASCII ou UTF-8, ils donnent <code>Hi</code>.</p><p>Dans un autre format, les mêmes bits peuvent avoir un autre sens. Le décodage exige des règles de groupement, d’ordre des bits et octets, de signe et de type de données.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Interprétation et pièges", "html": "<p>Les zéros initiaux ne changent pas un entier non signé ordinaire, mais comptent dans un champ de largeur fixe. <code>1</code> et <code>00000001</code> ont la même valeur ; la seconde forme occupe explicitement un octet.</p><p>Une suite de zéros et de uns n’indique pas son propre format : entier, texte codé, nombre flottant, données compressées ou texte chiffré sont possibles.</p>"}
+    ],
+    "faq": [
+        {"question": "Le binaire est-il un code ou un chiffrement ?", "answer": "<p>C’est une représentation de valeurs. Certains formats binaires définissent des codes, mais le binaire lui-même n’apporte aucune confidentialité et n’est pas un chiffrement.</p>"},
+        {"question": "Combien de valeurs n bits peuvent-ils représenter ?", "answer": "<p>Un champ non signé de <code>n</code> bits possède <code>2^n</code> motifs, de zéro à <code>2^n - 1</code>. D’autres formats attribuent un autre sens à ces motifs.</p>"},
+        {"question": "Pourquoi regroupe-t-on souvent les bits par huit ?", "answer": "<p>Les systèmes modernes organisent généralement le stockage en octets de 8 bits. Le groupement montre leurs limites, même si les protocoles utilisent aussi d’autres largeurs.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/binary-converter", "label": "Convertisseur binaire"}],
+    "tags": ["codage", "système binaire", "bits"],
+    "category": "encoding"
+}

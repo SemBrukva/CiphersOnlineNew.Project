@@ -1,0 +1,19 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "character-encoding", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {"name": "Karakter kodlaması", "aliases": ["metin kodlaması"], "short": "Karakter kodlaması, karakterlerin veya kod noktalarının bayt dizileriyle nasıl gösterilip geri çözüleceğini tanımlar.", "meta_title": "Karakter kodlaması — Tanım ve örnekler | CiphersOnline", "meta_description": "Karakter kodlamalarının metni baytlara dönüştürmesini, Unicode ile UTF-8 farkını ve yanlış kodlamanın metni neden bozduğunu öğrenin."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>Karakter kodlaması, metin öğelerinin saklama ve iletim için sayı veya baytlara nasıl çevrileceğini ve yeniden metin yapılacağını belirler. Gönderici ile alıcı aynı kodlamayı kullanmalıdır.</p><p>ASCII, UTF-8, UTF-16 ve eski kod sayfaları kodlama veya şemalardır. Unicode repertuvarı ve kod noktalarını; UTF-8 ile UTF-16 somut gösterimi tanımlar.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Nasıl çalışır?", "html": "<p>Kodlayıcı geçerli bayt dizisini eşler, çözücü ters kuralları uygular. UTF-8’de <code>A</code>, <code>41</code>; <code>€</code>, <code>E2 82 AC</code> baytlarıdır. Değişken uzunluklu kodlamalar farklı sayıda bayt kullanır.</p><p>HTTP charset, dosya bildirimi veya protokol doğru çözücüyü belirtir. Bağlam olmadan aynı baytlar farklı metin üretebilir.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Pratik örnek", "html": "<p><code>E2 82 AC</code> baytları UTF-8 olarak çözüldüğünde <code>€</code> verir. İlgisiz tek baytlı kodlamayla başka karakterler oluşur; bu görünür bozulmaya mojibake denir.</p><p>Dönüştürme, kaynağı doğru çözmeyi ve karakterleri hedefte yeniden kodlamayı gerektirir. Yalnız etiketi değiştirmek baytları dönüştürmez.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Hatalar ve tuzaklar", "html": "<p>Geçersiz dizi reddedilebilir veya <code>U+FFFD</code> ile değiştirilebilir. Hedef kodlama karakteri gösteremiyorsa hata, değiştirme veya veri kaybı olur.</p><p>Bayt sırası işareti, endianness, Unicode normalleştirme ve satır sonları ilgili ama ayrı konulardır. Karakter kodlaması şifreleme değildir.</p>"}
+    ],
+    "faq": [
+        {"question": "Unicode ile UTF-8 aynı mıdır?", "answer": "<p>Hayır. Unicode noktaları ve özellikleri atar; UTF-8 bunları baytlarla kodlar.</p>"},
+        {"question": "Neden soru işaretleri veya garip simgeler görünür?", "answer": "<p>Baytlar yanlış kodlamayla çözülmüş veya hedef karakterleri gösteremediği için değiştirilmiş olabilir.</p>"},
+        {"question": "Kodlama her zaman otomatik bulunabilir mi?", "answer": "<p>Hayır. Bazı baytlar birkaç kodlamaya uyar, özellikle kısa ASCII metni. Meta veri, BOM veya bağlam gerekir.</p>"}
+    ],
+    "related_terms": ["unicode", "ascii"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Unicode Dönüştürücü"}, {"slug": "encoding/ascii-converter", "label": "ASCII Dönüştürücü"}],
+    "tags": ["kodlama", "karakter kodlaması", "metin"],
+    "category": "encoding"
+}

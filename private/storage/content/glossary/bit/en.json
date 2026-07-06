@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "bit", "language": "en", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Bit",
+        "aliases": ["binary digit"],
+        "short": "A bit is a binary digit with one of two possible values, conventionally written as 0 or 1.",
+        "meta_title": "Bit — Definition, Bytes and Binary Values | CiphersOnline",
+        "meta_description": "Learn what a bit represents, how bits combine into bytes and larger fields, and how bit count differs from byte count and data meaning."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>A bit, short for binary digit, is a unit with two possible values, conventionally <code>0</code> and <code>1</code>. Physical systems may realize those values with voltage levels, magnetic states, light, or other distinguishable conditions.</p><p>A bit describes a binary choice, not what the choice means. Its interpretation comes from a surrounding number, character encoding, file format, instruction, or protocol.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Combining bits", "html": "<p>A field of <code>n</code> bits has <code>2^n</code> possible patterns. Eight bits form an octet and, on modern systems, a byte; one byte therefore has 256 patterns from <code>00000000</code> through <code>11111111</code>.</p><p>Bit positions can represent powers of two, flags, or parts of a larger structure. Operations such as AND, OR, XOR, NOT, and shifts manipulate individual patterns.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Practical example", "html": "<p>The byte <code>01000001</code> has eight bits. As an unsigned binary integer it equals decimal 65; under ASCII or UTF-8 it represents <code>A</code>. The pattern is unchanged, but the interpretation differs.</p><p>Cryptographic algorithms perform many bit operations, yet an isolated bit or a binary-looking string is not inherently encrypted or secure.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Bits, bytes, and notation", "html": "<p>Lowercase <code>b</code> commonly denotes bits and uppercase <code>B</code> bytes: <code>100 Mb/s</code> is 100 megabits per second, not 100 megabytes per second. Decimal and binary unit prefixes may also produce different totals.</p><p>Bit order within fields and byte order across multi-byte values are separate conventions and must be known when decoding data.</p>"}
+    ],
+    "faq": [
+        {"question": "Is a bit the smallest possible unit of information?", "answer": "<p>In ordinary digital representation, a bit is the basic binary unit. Information theory can measure fractional average information, while quantum computing uses qubits with different behavior.</p>"},
+        {"question": "How many bits are in a byte?", "answer": "<p>Modern computing uses 8-bit bytes. The precise term octet always means eight bits and is common in network standards.</p>"},
+        {"question": "How many values fit in n bits?", "answer": "<p>There are <code>2^n</code> distinct bit patterns. Their numeric range depends on whether the field is unsigned, signed, floating-point, or interpreted another way.</p>"}
+    ],
+    "related_terms": ["binary", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/binary-converter", "label": "Binary Converter"}],
+    "tags": ["binary", "bit", "digital data"],
+    "category": "encoding"
+}

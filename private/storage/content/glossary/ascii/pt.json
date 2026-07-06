@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ascii",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "ASCII",
+        "aliases": ["Código Padrão Americano para o Intercâmbio de Informação"],
+        "short": "ASCII é uma codificação de caracteres de 7 bits que associa valores de 0 a 127 a letras latinas, algarismos, sinais e caracteres de controlo.",
+        "meta_title": "ASCII — Definição, códigos e exemplos | CiphersOnline",
+        "meta_description": "Saiba o que contém a codificação ASCII de 7 bits, como o texto aparece em decimal, hex e binário e como ASCII se relaciona com UTF-8."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>ASCII é uma codificação de caracteres de 7 bits com 128 valores de 0 a 127. Atribui códigos a letras latinas básicas, algarismos, pontuação, espaços e caracteres de controlo.</p><p>Os valores 32–126 são imprimíveis. De 0 a 31 e o valor 127 são controlos como mudança de linha, retorno do carro e eliminação; o efeito depende do sistema.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Como funciona", "html": "<p>Cada carácter tem um código numérico. O <code>A</code> maiúsculo vale <code>65</code> em decimal, <code>41</code> em hexadecimal e <code>01000001</code> em binário. São três notações do mesmo valor.</p><p>ASCII define caracteres e controlos; binário e hexadecimal apenas mostram os números. Uma sequência torna-se texto quando o programa aplica a tabela ASCII.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Exemplo prático", "html": "<p>O texto <code>Hi</code> tem códigos ASCII decimais <code>72 105</code>, bytes hexadecimais <code>48 69</code> e bytes binários <code>01001000 01101001</code>. As três formas representam os mesmos caracteres.</p><p>ASCII não representa diretamente cirílico, a maioria das letras acentuadas ou emoji. Esse texto precisa de uma codificação mais ampla, normalmente Unicode codificado como UTF-8.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "ASCII, UTF-8 e ASCII estendido", "html": "<p>UTF-8 preserva ASCII exatamente entre 0 e 127, pelo que texto ASCII comum também é UTF-8 válido. Os restantes caracteres usam bytes adicionais.</p><p>“ASCII estendido” não é uma codificação universal: pode indicar várias páginas de códigos de 8 bits incompatíveis. Para descodificar bytes 128–255 é necessário conhecer a página exata.</p>"}
+    ],
+    "faq": [
+        {"question": "ASCII e UTF-8 são iguais?", "answer": "<p>Não. UTF-8 inclui todo o intervalo ASCII com bytes idênticos e também codifica todos os caracteres Unicode através de sequências multibyte.</p>"},
+        {"question": "ASCII usa 7 ou 8 bits?", "answer": "<p>ASCII define 128 valores e precisa de 7 bits. É frequentemente guardado num byte de 8 bits com o bit superior a zero.</p>"},
+        {"question": "ASCII é criptografia?", "answer": "<p>Não. ASCII é uma correspondência pública entre caracteres e números. Não oculta texto nem requer chave.</p>"}
+    ],
+    "related_terms": ["binary", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/ascii-converter", "label": "Conversor ASCII"}],
+    "tags": ["codificação", "ASCII", "codificação de caracteres"],
+    "category": "encoding"
+}

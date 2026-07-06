@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "binary",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Binario",
+        "aliases": ["base 2", "sistema binario"],
+        "short": "El sistema binario es una numeración de base 2 que representa valores únicamente con los dígitos 0 y 1.",
+        "meta_title": "Sistema binario — Definición y ejemplos | CiphersOnline",
+        "meta_description": "Aprende cómo el binario usa bits y potencias de dos, cómo los bytes representan texto y por qué una cadena de bits necesita contexto."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definición", "html": "<p>El binario es un sistema de numeración posicional de base 2. Solo utiliza <code>0</code> y <code>1</code>; cada dígito binario se llama bit. Los ordenadores emplean estados binarios para representar números, texto, instrucciones, imágenes y otros datos.</p><p>Una cadena binaria es una representación, no un cifrado. Conociendo su formato, puede convertirse o interpretarse sin clave secreta.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Cómo funciona", "html": "<p>Cada posición vale una potencia de dos. De derecha a izquierda, las posiciones representan <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code> y así sucesivamente. Por tanto, <code>101101</code> equivale a <code>32 + 8 + 4 + 1</code>, es decir, 45 decimal.</p><p>Ocho bits suelen formar un byte, capaz de contener 256 valores entre <code>00000000</code> y <code>11111111</code>, equivalentes al rango hexadecimal <code>00</code>–<code>FF</code>.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Ejemplo práctico", "html": "<p>Los grupos <code>01001000 01101001</code> corresponden a los bytes hexadecimales <code>48 69</code>. Interpretados como ASCII o UTF-8 producen <code>Hi</code>.</p><p>En otro formato, los mismos bits pueden significar algo distinto. La decodificación requiere reglas de agrupación, orden de bits y bytes, signo y tipo de datos.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Interpretación y errores frecuentes", "html": "<p>Los ceros iniciales no cambian un entero sin signo normal, pero importan en un campo de longitud fija. <code>1</code> y <code>00000001</code> valen lo mismo, aunque la segunda forma ocupa explícitamente un byte.</p><p>Una secuencia de ceros y unos no identifica su formato: puede ser un entero, texto codificado, un número de coma flotante, datos comprimidos o texto cifrado.</p>"}
+    ],
+    "faq": [
+        {"question": "¿El binario es un código o un cifrado?", "answer": "<p>Es una forma de representar valores. Algunos formatos binarios definen códigos para datos concretos, pero el binario por sí mismo no ofrece secreto ni es cifrado.</p>"},
+        {"question": "¿Cuántos valores representan n bits?", "answer": "<p>Un campo sin signo de <code>n</code> bits tiene <code>2^n</code> patrones, desde cero hasta <code>2^n - 1</code>. Otros formatos asignan significados distintos a esos patrones.</p>"},
+        {"question": "¿Por qué se agrupan los bits de ocho en ocho?", "answer": "<p>Los sistemas modernos suelen organizar la memoria en bytes de 8 bits. La agrupación muestra sus límites, aunque los protocolos también usan campos de otras anchuras.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/binary-converter", "label": "Convertidor binario"}],
+    "tags": ["codificación", "sistema binario", "bits"],
+    "category": "encoding"
+}

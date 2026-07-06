@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hexadecimal",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Hexadecimal",
+        "aliases": ["hex", "base 16"],
+        "short": "El sistema hexadecimal es una notación de base 16 que usa los símbolos 0–9 y A–F para representar números y bytes.",
+        "meta_title": "Hexadecimal — Definición y ejemplos | CiphersOnline",
+        "meta_description": "Aprende cómo los dígitos hexadecimales representan bits y bytes, cómo leer valores hex y por qué esta codificación no es cifrado."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>El sistema hexadecimal, o hex, es un sistema de numeración posicional de base 16. Usa del <code>0</code> al <code>9</code> y de la <code>A</code> a la <code>F</code>; <code>A</code> equivale a 10 decimal y <code>F</code> a 15.</p><p>Es práctico para mostrar datos binarios porque un dígito hexadecimal corresponde exactamente a 4 bits y dos dígitos representan un byte entre <code>00</code> y <code>FF</code>.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Cómo funciona",
+            "html": "<p>Como en decimal, cada posición tiene un peso, pero se usan potencias de 16. Así, <code>2F</code> significa <code>2 × 16 + 15</code>, es decir, 47 decimal. Las letras mayúsculas y minúsculas suelen tener el mismo valor.</p><p>Los programas suelen anteponer <code>0x</code> a un número hexadecimal, y los volcados de bytes pueden incluir espacios o dos puntos. Son convenciones de formato, no dígitos hexadecimales.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Ejemplo práctico",
+            "html": "<p>El texto UTF-8 <code>Hi</code> consta de los bytes hexadecimales <code>48 69</code>. Al convertir las parejas en bytes e interpretarlas como UTF-8 se recupera <code>Hi</code>. Los mismos bytes son <code>SGk=</code> en Base64.</p><p>Hex usa dos caracteres de texto por byte, de modo que resulta fácil de inspeccionar pero ocupa aproximadamente el doble que los datos sin codificar.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Interpretación y errores frecuentes",
+            "html": "<p>Una cadena hex no indica si sus bytes son texto, un número, un archivo, un hash o texto cifrado. Para obtener texto también hace falta la codificación de caracteres correcta. Al decodificar por bytes, una cantidad impar de dígitos queda incompleta salvo que una convención añada un cero inicial.</p><p>La notación hexadecimal es reversible y no ofrece confidencialidad: no es cifrado.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "¿El hexadecimal es cifrado?", "answer": "<p>No. Solo cambia la representación escrita de números o bytes. Cualquiera puede convertir un valor hex válido sin clave.</p>"},
+        {"question": "¿Por qué un decodificador hex rechaza una longitud impar?", "answer": "<p>Un byte suele escribirse con dos dígitos hex. En una cadena impar queda medio byte sin pareja, aunque un número hexadecimal ordinario sí puede tener cualquier cantidad de dígitos.</p>"},
+        {"question": "¿Cambian los valores entre mayúsculas y minúsculas?", "answer": "<p>No. <code>A–F</code> y <code>a–f</code> suelen valer lo mismo, aunque un formato de salida concreto puede imponer un estilo.</p>"}
+    ],
+    "related_terms": ["base64"],
+    "related_tools": [
+        {"slug": "encoding/hex", "label": "Codificador y decodificador Hex"}
+    ],
+    "tags": ["codificación", "hexadecimal", "datos binarios"],
+    "category": "encoding"
+}

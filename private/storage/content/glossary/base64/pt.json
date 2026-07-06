@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "base64",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Base64",
+        "aliases": ["codificação Base64"],
+        "short": "Base64 é uma codificação de binário para texto que representa bytes através de um alfabeto de 64 caracteres.",
+        "meta_title": "Base64 — Definição e exemplos | CiphersOnline",
+        "meta_description": "Saiba como Base64 converte bytes em texto, para que serve o preenchimento, como difere de Base64url e por que não é criptografia."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Base64 representa bytes arbitrários como texto para os transportar por sistemas orientados a caracteres. O alfabeto padrão contém letras latinas maiúsculas e minúsculas, algarismos, <code>+</code> e <code>/</code>; no fim pode surgir <code>=</code> como preenchimento.</p><p>Base64 só altera a representação. Por si só, não oferece confidencialidade, autenticidade ou integridade e pode ser descodificado sem chave.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Como funciona",
+            "html": "<p>O codificador pega em 3 bytes, divide os 24 bits em quatro valores de 6 bits e associa cada valor a um dos 64 caracteres. Se o último grupo tiver apenas 1 ou 2 bytes, <code>=</code> costuma marcar a parte em falta e torna o comprimento múltiplo de quatro.</p><p>Em entradas grandes, o resultado ocupa cerca de um terço a mais. Base64url troca <code>+</code> e <code>/</code> por <code>-</code> e <code>_</code> e muitas vezes omite o preenchimento, pelo que as variantes nem sempre são intercambiáveis.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Exemplo prático",
+            "html": "<p>Os bytes ASCII e UTF-8 de <code>Hi</code> são <code>48 69</code> em hexadecimal. Base64 padrão representa-os como <code>SGk=</code>. A descodificação recupera os mesmos bytes, que interpretados como UTF-8 produzem <code>Hi</code>.</p><p>Base64 também pode conter uma imagem, dados comprimidos ou texto cifrado; descodificar com êxito não garante texto legível.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Formatos e erros frequentes",
+            "html": "<p>As aplicações têm de concordar quanto à variante, ao preenchimento e aos espaços permitidos. Um descodificador rigoroso pode rejeitar o que outro aceita. Antes da codificação, o texto é convertido em bytes através de uma codificação de caracteres como UTF-8; outra codificação produz um Base64 diferente.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Base64 é criptografia?", "answer": "<p>Não. É uma codificação pública e reversível sem chave secreta. Os dados confidenciais devem ser primeiro protegidos por um esquema criptográfico adequado.</p>"},
+        {"question": "Por que motivo Base64 termina por vezes em = ou ==?", "answer": "<p>O preenchimento completa o último grupo de quatro caracteres quando o número de bytes não é divisível por três. Pode haver um ou dois sinais; alguns formatos omitem-nos.</p>"},
+        {"question": "Base64 e Base64url são iguais?", "answer": "<p>Agrupam os bits da mesma forma, mas Base64url usa caracteres seguros para URL e costuma omitir o preenchimento. Deve usar-se a variante exigida pelo protocolo.</p>"}
+    ],
+    "related_terms": ["hexadecimal"],
+    "related_tools": [
+        {"slug": "encoding/base64", "label": "Codificador e descodificador Base64"}
+    ],
+    "tags": ["codificação", "dados binários", "binário para texto"],
+    "category": "encoding"
+}

@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "url-encoding",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "URL-Kodierung",
+        "aliases": ["Prozentkodierung", "Percent-Encoding"],
+        "short": "URL-Kodierung stellt ein Byte in einer URI-Komponente durch ein Prozentzeichen und zwei Hexadezimalziffern dar.",
+        "meta_title": "URL-Kodierung — Prozentkodierung erklärt | CiphersOnline",
+        "meta_description": "Erfahren Sie, wie UTF-8-Bytes zu %HH-Folgen werden, worin sich %20 und + unterscheiden und wie doppelte URL-Kodierung vermieden wird."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>URL-Kodierung, genauer Prozentkodierung, stellt ein Byte als <code>%</code> mit zwei Hexziffern dar. Ein Leerzeichen kann etwa <code>%20</code> und das Prozentzeichen selbst <code>%25</code> lauten.</p><p>Nicht reservierte URI-Zeichen—ASCII-Buchstaben, Ziffern, <code>-</code>, <code>.</code>, <code>_</code> und <code>~</code>—bleiben normalerweise unverändert. Andere Zeichen müssen je nach Position und Bedeutung kodiert werden.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Funktionsweise", "html": "<p>Nicht-ASCII-Text wird zuerst, meist mit UTF-8, in Bytes umgewandelt; die nötigen Bytes werden einzeln prozentkodiert. So wird <code>café</code> in UTF-8 zu <code>caf%C3%A9</code>.</p><p>Reservierte Zeichen wie <code>/</code>, <code>?</code>, <code>#</code>, <code>&amp;</code> und <code>=</code> strukturieren eine URL. Ob sie zu kodieren sind, hängt von Pfadsegment, Abfrageparameter, Fragment oder anderer Komponente ab.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Leerzeichen und Formulardaten", "html": "<p>Gewöhnliche Prozentkodierung schreibt ein Leerzeichen als <code>%20</code>. Das Format <code>application/x-www-form-urlencoded</code> nutzt in Abfragen und HTML-Formularen oft <code>+</code>; ein echtes Pluszeichen wird dann zu <code>%2B</code>.</p><p>Bibliotheken bieten meist eigene Funktionen für ganze URLs, Pfadsegmente und Parameterwerte. Die komponentengerechte Funktion behandelt Strukturtrennzeichen korrekt.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Sicherheit und Stolperfallen", "html": "<p>Prozentkodierung ist umkehrbar und keine Verschlüsselung. Vertrauliche Werte können in Verlauf, Protokollen, Referrer-Daten und Serveraufzeichnungen sichtbar bleiben.</p><p>Erneutes Kodieren eines kodierten Prozentzeichens erzeugt Doppelkodierung: <code>%20</code> wird <code>%2520</code>. Dekodierte Eingaben müssen weiterhin geprüft werden, da Kodierung schädliche Daten nicht sicher macht.</p>"}
+    ],
+    "faq": [
+        {"question": "Was ist der Unterschied zwischen %20 und +?", "answer": "<p><code>%20</code> ist das prozentkodierte Byte für ein Leerzeichen. <code>+</code> bedeutet nur in der Formularkodierung ein Leerzeichen; andernorts kann es ein echtes Plus sein.</p>"},
+        {"question": "Soll eine ganze URL auf einmal kodiert werden?", "answer": "<p>Meist nicht. Pfadsegmente und Parameterwerte werden mit der jeweiligen Komponentenfunktion kodiert, damit Strukturtrennzeichen ihre Bedeutung behalten.</p>"},
+        {"question": "Ist URL-Kodierung sicher?", "answer": "<p>Nein. Sie sorgt für syntaktische Kompatibilität, aber nicht für Vertraulichkeit, Integrität oder Authentizität.</p>"}
+    ],
+    "related_terms": ["unicode", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/url-encode", "label": "URL-Encoder und -Decoder"}],
+    "tags": ["Kodierung", "URL-Kodierung", "Prozentkodierung"],
+    "category": "encoding"
+}

@@ -1,0 +1,75 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hexadecimal",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Hexadecimal",
+        "aliases": [
+            "hex",
+            "base 16"
+        ],
+        "short": "Hexadecimal is a base-16 notation that uses the symbols 0–9 and A–F to represent numbers and bytes compactly.",
+        "meta_title": "Hexadecimal — Definition and Examples | CiphersOnline",
+        "meta_description": "Learn how hexadecimal notation maps digits to bits and bytes, how to read hex values, and why hex encoding is not encryption."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Hexadecimal, or hex, is a positional numeral system with base 16. Its digits are <code>0</code> through <code>9</code> followed by <code>A</code> through <code>F</code>, where <code>A</code> represents decimal 10 and <code>F</code> represents decimal 15.</p><p>Hex is widely used to display binary data because one hexadecimal digit corresponds exactly to 4 bits and two digits can represent one byte from <code>00</code> to <code>FF</code>.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "How it works",
+            "html": "<p>As in decimal notation, each position has a place value, but powers of 16 replace powers of 10. Thus <code>2F</code> means <code>2 × 16 + 15</code>, which is decimal 47. Uppercase and lowercase letters normally have the same value.</p><p>Programs often mark a hexadecimal number with a <code>0x</code> prefix, while byte dumps may insert spaces or colons. Such prefixes and separators are formatting conventions rather than hexadecimal digits.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Practical example",
+            "html": "<p>The UTF-8 text <code>Hi</code> consists of the bytes <code>48 69</code> in hex. Converting those byte pairs back and interpreting them as UTF-8 recovers <code>Hi</code>. The same bytes can instead be represented as Base64 <code>SGk=</code>.</p><p>A hex byte string uses two text characters per byte, so it is easy to inspect but about twice the size of the raw data.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Interpretation and pitfalls",
+            "html": "<p>A hex string does not identify what its bytes mean. They may represent text, a number, a file, a hash, or ciphertext. Decoding bytes as text also requires the correct character encoding. For byte-oriented decoding, an odd number of hex digits is incomplete unless a leading zero is implied by an agreed convention.</p><p>Hexadecimal notation is reversible and is not encryption; it provides no confidentiality.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is hexadecimal encryption?",
+            "answer": "<p>No. Hexadecimal only changes the written representation of numbers or bytes. Anyone can convert a valid hex value back without a key.</p>"
+        },
+        {
+            "question": "Why do hex decoders reject an odd number of characters?",
+            "answer": "<p>A byte is normally written as two hex digits. An odd-length byte string leaves one nibble unpaired, although ordinary hexadecimal integers themselves may have any number of digits.</p>"
+        },
+        {
+            "question": "Do uppercase and lowercase hex letters differ?",
+            "answer": "<p>No. <code>A–F</code> and <code>a–f</code> normally have identical numeric values, though a particular output format may require one style.</p>"
+        }
+    ],
+    "related_terms": [
+        "base64"
+    ],
+    "related_tools": [
+        {
+            "slug": "encoding/hex",
+            "label": "Hex Encoder & Decoder"
+        }
+    ],
+    "tags": [
+        "encoding",
+        "hexadecimal",
+        "binary data"
+    ],
+    "category": "encoding"
+}

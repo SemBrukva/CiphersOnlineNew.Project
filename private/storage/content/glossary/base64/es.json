@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "base64",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Base64",
+        "aliases": ["codificación Base64"],
+        "short": "Base64 es una codificación de binario a texto que representa bytes mediante un alfabeto de 64 caracteres.",
+        "meta_title": "Base64 — Definición y ejemplos | CiphersOnline",
+        "meta_description": "Descubre cómo Base64 convierte bytes en texto, para qué sirve el relleno, en qué se diferencia Base64url y por qué no es cifrado."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Base64 representa bytes arbitrarios como texto para transportarlos por sistemas orientados a caracteres. El alfabeto estándar contiene letras latinas mayúsculas y minúsculas, dígitos, <code>+</code> y <code>/</code>; al final puede aparecer <code>=</code> como relleno.</p><p>Base64 solo cambia la representación. No aporta confidencialidad, autenticidad ni integridad por sí mismo y se decodifica sin clave.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Cómo funciona",
+            "html": "<p>El codificador toma 3 bytes, divide sus 24 bits en cuatro valores de 6 bits y asigna a cada valor uno de los 64 caracteres. Si el grupo final contiene solo 1 o 2 bytes, se suele usar <code>=</code> para completar una longitud múltiplo de cuatro.</p><p>En entradas grandes, el resultado ocupa aproximadamente un tercio más. Base64url sustituye <code>+</code> y <code>/</code> por <code>-</code> y <code>_</code> y suele omitir el relleno, por lo que ambas variantes no siempre son intercambiables.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Ejemplo práctico",
+            "html": "<p>Los bytes ASCII y UTF-8 de <code>Hi</code> son <code>48 69</code> en hexadecimal. Base64 estándar los representa como <code>SGk=</code>. Al decodificar se recuperan los mismos bytes, que interpretados como UTF-8 producen <code>Hi</code>.</p><p>Base64 también puede contener una imagen, datos comprimidos o texto cifrado; una decodificación correcta no garantiza texto legible.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Formatos y errores frecuentes",
+            "html": "<p>Las aplicaciones deben coincidir en la variante, el uso de relleno y la admisión de espacios. Un decodificador estricto puede rechazar lo que otro tolera. Antes de codificar texto hay que convertirlo a bytes con una codificación de caracteres, como UTF-8; otra codificación generará un Base64 distinto.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "¿Base64 es cifrado?", "answer": "<p>No. Es una codificación pública y reversible que no necesita clave secreta. Los datos confidenciales deben protegerse primero con un sistema criptográfico adecuado.</p>"},
+        {"question": "¿Por qué Base64 termina a veces en = o ==?", "answer": "<p>El relleno completa el último grupo de cuatro caracteres cuando la cantidad de bytes no es divisible entre tres. Puede haber uno o dos signos, aunque algunos formatos los omiten.</p>"},
+        {"question": "¿Base64 y Base64url son lo mismo?", "answer": "<p>Agrupan los bits igual, pero Base64url usa caracteres seguros para URL y suele omitir el relleno. Debe emplearse la variante exigida por el protocolo.</p>"}
+    ],
+    "related_terms": ["hexadecimal"],
+    "related_tools": [
+        {"slug": "encoding/base64", "label": "Codificador y decodificador Base64"}
+    ],
+    "tags": ["codificación", "datos binarios", "binario a texto"],
+    "category": "encoding"
+}

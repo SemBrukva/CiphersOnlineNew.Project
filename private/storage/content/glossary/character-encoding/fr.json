@@ -1,0 +1,19 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "character-encoding", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {"name": "Codage des caractères", "aliases": ["encodage de caractères", "codage du texte"], "short": "Un codage des caractères définit comment caractères ou points de code sont représentés par des suites d’octets puis décodés.", "meta_title": "Codage des caractères — Définition et exemples | CiphersOnline", "meta_description": "Découvrez comment les codages transforment le texte en octets, la différence entre Unicode et UTF-8 et l’origine des textes corrompus."},
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Un codage des caractères indique comment convertir des unités textuelles en nombres ou octets pour les stocker et les transmettre, puis les restituer. Émetteur et destinataire doivent employer le même codage.</p><p>ASCII, UTF-8, UTF-16 et les anciennes pages de codes sont des codages ou schémas. Unicode définit le répertoire et les points de code ; UTF-8 et UTF-16 leur représentation concrète.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Fonctionnement", "html": "<p>L’encodeur associe aux caractères une suite valide et le décodeur applique l’inverse. En UTF-8, <code>A</code> vaut <code>41</code> et <code>€</code> vaut <code>E2 82 AC</code>. Un codage de longueur variable utilise un nombre d’octets différent.</p><p>Le charset HTTP, la déclaration du fichier ou le protocole indique le bon décodeur. Sans contexte, les mêmes octets peuvent produire des textes différents.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Exemple pratique", "html": "<p>Décodés en UTF-8, les octets <code>E2 82 AC</code> donnent <code>€</code>. Avec un codage mono-octet sans rapport, ils donnent d’autres caractères : cette corruption visible est souvent appelée mojibake.</p><p>Convertir exige de décoder correctement la source puis d’encoder les caractères vers la cible. Changer seulement l’étiquette ne convertit pas les octets.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Erreurs et pièges", "html": "<p>Une suite invalide peut être refusée ou remplacée par <code>U+FFFD</code>. Si le codage cible ne représente pas un caractère, erreur, substitution ou perte de données sont possibles.</p><p>Marque d’ordre des octets, boutisme, normalisation Unicode et fins de ligne sont des sujets liés mais distincts. Le codage n’est pas un chiffrement.</p>"}
+    ],
+    "faq": [
+        {"question": "Unicode et UTF-8 sont-ils identiques ?", "answer": "<p>Non. Unicode attribue points et propriétés ; UTF-8 encode ces points en octets.</p>"},
+        {"question": "Pourquoi voit-on des points d’interrogation ou symboles étranges ?", "answer": "<p>Les octets ont pu être mal décodés ou remplacés parce que le codage cible ne pouvait pas représenter les caractères.</p>"},
+        {"question": "Peut-on toujours détecter automatiquement un codage ?", "answer": "<p>Non. Certains octets conviennent à plusieurs codages, surtout un court texte ASCII. Métadonnées, BOM ou contexte sont souvent nécessaires.</p>"}
+    ],
+    "related_terms": ["unicode", "ascii"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Convertisseur Unicode"}, {"slug": "encoding/ascii-converter", "label": "Convertisseur ASCII"}],
+    "tags": ["codage", "codage des caractères", "texte"],
+    "category": "encoding"
+}

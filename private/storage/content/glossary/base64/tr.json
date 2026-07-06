@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "base64",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Base64",
+        "aliases": ["Base64 kodlaması"],
+        "short": "Base64, baytları 64 karakterlik bir alfabe ile gösteren ikiliden metne kodlama yöntemidir.",
+        "meta_title": "Base64 — Tanım ve örnekler | CiphersOnline",
+        "meta_description": "Base64’ün baytları metne nasıl dönüştürdüğünü, dolgunun amacını, Base64url farkını ve neden şifreleme olmadığını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Base64, herhangi bir bayt dizisini metin odaklı sistemlerden taşımak için karakterlerle gösterir. Standart alfabe büyük ve küçük Latin harflerini, rakamları, <code>+</code> ve <code>/</code> karakterlerini içerir; sonda dolgu olarak <code>=</code> bulunabilir.</p><p>Base64 yalnızca gösterimi değiştirir. Tek başına gizlilik, kimlik doğrulama veya bütünlük sağlamaz ve anahtar olmadan çözülebilir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Nasıl çalışır?",
+            "html": "<p>Kodlayıcı 3 baytın 24 bitini dört adet 6 bitlik değere ayırır ve her değeri 64 karakterden biriyle eşler. Son grupta yalnızca 1 veya 2 bayt varsa eksik bölüm genellikle <code>=</code> ile belirtilir ve çıktı uzunluğu dördün katı olur.</p><p>Büyük girdilerde sonuç yaklaşık üçte bir daha uzundur. Base64url, <code>+</code> ve <code>/</code> yerine <code>-</code> ve <code>_</code> kullanır ve dolguyu çoğu zaman atar; bu nedenle iki biçim her zaman birbirinin yerine kullanılamaz.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Pratik örnek",
+            "html": "<p><code>Hi</code> metninin ASCII ve UTF-8 baytları on altılık olarak <code>48 69</code> değerleridir. Standart Base64 bunları <code>SGk=</code> biçiminde gösterir. Çözme işlemi aynı baytları verir; UTF-8 olarak yorumlandıklarında yeniden <code>Hi</code> elde edilir.</p><p>Base64 bir resim, sıkıştırılmış veri veya şifreli metin de içerebilir. Başarılı çözme işlemi okunabilir metin çıkacağı anlamına gelmez.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Biçimler ve yaygın hatalar",
+            "html": "<p>Uygulamaların Base64 türü, dolgu zorunluluğu ve boşluklara izin verilip verilmediği konusunda anlaşması gerekir. Katı bir çözücü, esnek bir çözücünün kabul ettiği diziyi reddedebilir. Metin önce UTF-8 gibi bir karakter kodlamasıyla baytlara çevrilir; farklı kodlama farklı Base64 üretir.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Base64 şifreleme midir?", "answer": "<p>Hayır. Gizli anahtar gerektirmeyen, açık ve tersine çevrilebilir bir kodlamadır. Hassas veriler önce uygun bir kriptografik yöntemle korunmalıdır.</p>"},
+        {"question": "Base64 neden bazen = veya == ile biter?", "answer": "<p>Girdi baytlarının sayısı üçe bölünmüyorsa dolgu son dört karakterlik grubu tamamlar. Bir veya iki dolgu işareti olabilir; bazı biçimler bunları kullanmaz.</p>"},
+        {"question": "Base64 ile Base64url aynı mıdır?", "answer": "<p>Bitleri aynı şekilde gruplarlar; ancak Base64url, URL’ye uygun karakterler kullanır ve dolguyu çoğunlukla atar. İlgili protokolün istediği tür seçilmelidir.</p>"}
+    ],
+    "related_terms": ["hexadecimal"],
+    "related_tools": [
+        {"slug": "encoding/base64", "label": "Base64 Kodlayıcı ve Kod Çözücü"}
+    ],
+    "tags": ["kodlama", "ikili veri", "ikiliden metne"],
+    "category": "encoding"
+}

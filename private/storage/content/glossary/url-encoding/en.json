@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "url-encoding",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "URL encoding",
+        "aliases": ["percent-encoding", "URL percent-encoding"],
+        "short": "URL encoding represents a byte in a URI component as a percent sign followed by two hexadecimal digits.",
+        "meta_title": "URL Encoding — Percent-Encoding Explained | CiphersOnline",
+        "meta_description": "Learn how URL percent-encoding works, why UTF-8 text becomes %HH byte sequences, how %20 differs from +, and how to avoid double encoding."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>URL encoding, more precisely percent-encoding, represents a byte with <code>%</code> followed by two hexadecimal digits. For example, a space can be written as <code>%20</code> and a literal percent sign as <code>%25</code>.</p><p>The unreserved URI characters—ASCII letters, digits, <code>-</code>, <code>.</code>, <code>_</code>, and <code>~</code>—normally remain unchanged. Other characters may need encoding depending on their position and meaning in the URI.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "How it works", "html": "<p>For non-ASCII text, an application first converts characters to bytes, usually with UTF-8, and percent-encodes the necessary bytes individually. Thus <code>café</code> becomes <code>caf%C3%A9</code> in UTF-8.</p><p>Reserved characters such as <code>/</code>, <code>?</code>, <code>#</code>, <code>&amp;</code>, and <code>=</code> structure a URL. Whether they must be encoded depends on whether the data belongs to a path segment, query parameter, fragment, or another component.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Spaces and form data", "html": "<p>Standard percent-encoding writes a space as <code>%20</code>. The form format <code>application/x-www-form-urlencoded</code>, commonly used for query strings and HTML forms, often writes a space as <code>+</code>; a literal plus sign must then be encoded as <code>%2B</code>.</p><p>Libraries usually provide separate functions for complete URLs, path segments, and query parameters. Using the component-specific function prevents delimiters from being escaped or preserved incorrectly.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Security and pitfalls", "html": "<p>Percent-encoding is reversible and is not encryption. Sensitive values remain exposed in browser history, logs, referrer data, and server records unless protected by appropriate transport and application controls.</p><p>Encoding an already encoded percent sign causes double encoding—for example, <code>%20</code> becomes <code>%2520</code>. Decoded input must still be validated because encoding does not make malicious or malformed data safe.</p>"}
+    ],
+    "faq": [
+        {"question": "What is the difference between %20 and +?", "answer": "<p><code>%20</code> is the percent-encoded byte for a space. <code>+</code> represents a space specifically in form-style encoding; elsewhere it may be a literal plus sign.</p>"},
+        {"question": "Should an entire URL be encoded at once?", "answer": "<p>Usually no. Encode individual path segments or parameter values with the function intended for that component so structural delimiters keep their meaning.</p>"},
+        {"question": "Is URL encoding secure?", "answer": "<p>No. It improves syntactic compatibility but provides no confidentiality, integrity, or authentication.</p>"}
+    ],
+    "related_terms": ["unicode", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/url-encode", "label": "URL Encoder & Decoder"}],
+    "tags": ["encoding", "URL encoding", "percent-encoding"],
+    "category": "encoding"
+}

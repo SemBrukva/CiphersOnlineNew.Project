@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "character-encoding", "language": "de", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Zeichenkodierung",
+        "aliases": ["Textkodierung", "Zeichencodierung"],
+        "short": "Eine Zeichenkodierung legt fest, wie Textzeichen oder Codepunkte als Bytefolgen dargestellt und wieder dekodiert werden.",
+        "meta_title": "Zeichenkodierung — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Erfahren Sie, wie Zeichenkodierungen Text auf Bytes abbilden, wie Unicode und UTF-8 sich unterscheiden und warum falsche Kodierung Text beschädigt."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Eine Zeichenkodierung bestimmt, wie Texteinheiten für Speicherung und Übertragung in Zahlen oder Bytes umgewandelt und zurückdekodiert werden. Sender und Empfänger müssen dieselbe Kodierung verwenden.</p><p>ASCII, UTF-8, UTF-16 und ältere Codepages sind Zeichenkodierungen oder Kodierungsschemata. Unicode definiert Repertoire und Codepunkte; UTF-8 und UTF-16 deren konkrete Darstellung.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Funktionsweise", "html": "<p>Ein Encoder ordnet Zeichen gültige Bytefolgen zu, der Decoder wendet die Umkehrregeln an. In UTF-8 ist <code>A</code> das Byte <code>41</code>, <code>€</code> dagegen <code>E2 82 AC</code>. Kodierungen variabler Länge verwenden unterschiedlich viele Bytes.</p><p>HTTP-Charset, Dateideklaration oder Protokollvereinbarung nennen den richtigen Decoder. Ohne Kontext können dieselben Bytes verschiedenen Text ergeben.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Praktisches Beispiel", "html": "<p>Als UTF-8 dekodiert ergeben die Bytes <code>E2 82 AC</code> das Zeichen <code>€</code>. Mit einer unpassenden Einbyte-Kodierung entstehen andere Zeichen; diese sichtbare Beschädigung heißt oft Mojibake.</p><p>Eine Konvertierung dekodiert zuerst die Quellbytes korrekt und kodiert danach die Zeichen im Zielformat. Nur die Kennzeichnung zu ändern wandelt keine Bytes um.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Fehler und Stolperfallen", "html": "<p>Ungültige Bytefolgen können abgelehnt oder durch <code>U+FFFD</code> ersetzt werden. Kann die Zielkodierung ein Zeichen nicht darstellen, drohen Fehler, Ersatz oder Datenverlust.</p><p>Byte Order Mark, Endianness, Unicode-Normalisierung und Zeilenenden sind verwandte, aber eigene Fragen. Zeichenkodierung ist Darstellung, keine Verschlüsselung.</p>"}
+    ],
+    "faq": [
+        {"question": "Sind Unicode und UTF-8 dasselbe?", "answer": "<p>Nein. Unicode weist Zeichen Codepunkte und Eigenschaften zu; UTF-8 kodiert diese Punkte als Bytes.</p>"},
+        {"question": "Warum erscheinen Fragezeichen oder seltsame Symbole?", "answer": "<p>Die Bytes wurden möglicherweise falsch dekodiert oder Zeichen ersetzt, weil die Zielkodierung sie nicht darstellen konnte.</p>"},
+        {"question": "Lässt sich eine Kodierung immer automatisch erkennen?", "answer": "<p>Nein. Manche Bytefolgen passen zu mehreren Kodierungen, besonders kurzer ASCII-Text. Metadaten, BOM oder Kontext sind oft nötig.</p>"}
+    ],
+    "related_terms": ["unicode", "ascii"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Unicode-Konverter"}, {"slug": "encoding/ascii-converter", "label": "ASCII-Konverter"}],
+    "tags": ["Kodierung", "Zeichenkodierung", "Text"],
+    "category": "encoding"
+}

@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hexadecimal",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "On altılık sistem",
+        "aliases": ["hex", "16 tabanı"],
+        "short": "On altılık sistem, sayıları ve baytları 0–9 ile A–F simgelerini kullanarak gösteren 16 tabanlı bir sayı sistemidir.",
+        "meta_title": "On altılık sistem — Tanım ve örnekler | CiphersOnline",
+        "meta_description": "On altılık basamakların bit ve baytlarla ilişkisini, hex değerlerin okunmasını ve hex kodlamanın neden şifreleme olmadığını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>On altılık sistem veya hex, 16 tabanlı konumsal bir sayı sistemidir. <code>0</code> ile <code>9</code> arasındaki rakamların yanı sıra <code>A</code> ile <code>F</code> arasındaki harfleri kullanır; <code>A</code> onluk sistemde 10, <code>F</code> ise 15 değerindedir.</p><p>Bir on altılık basamak tam olarak 4 bite, iki basamak da <code>00</code> ile <code>FF</code> arasındaki bir bayta karşılık geldiği için ikili verileri göstermeye uygundur.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Nasıl çalışır?",
+            "html": "<p>Onluk sistemde olduğu gibi her konumun bir basamak değeri vardır; ancak 10’un kuvvetleri yerine 16’nın kuvvetleri kullanılır. Bu nedenle <code>2F</code>, <code>2 × 16 + 15</code>, yani onluk sistemde 47 demektir. Büyük ve küçük harfler normalde aynı değerdedir.</p><p>Programlar on altılık sayıları çoğu zaman <code>0x</code> önekiyle belirtir; bayt dökümlerinde boşluk veya iki nokta bulunabilir. Bunlar biçim kurallarıdır, on altılık basamak değildir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Pratik örnek",
+            "html": "<p>UTF-8 <code>Hi</code> metni on altılık <code>48 69</code> baytlarından oluşur. Çiftleri baytlara dönüştürüp UTF-8 olarak yorumlamak <code>Hi</code> metnini geri verir. Aynı baytların Base64 gösterimi <code>SGk=</code> biçimindedir.</p><p>Hex her bayt için iki metin karakteri kullanır; kolay incelenir, ancak ham verinin yaklaşık iki katı yer kaplar.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Yorumlama ve yaygın hatalar",
+            "html": "<p>Bir hex dizisi baytların metin, sayı, dosya, özet veya şifreli metin olduğunu belirtmez. Metin elde etmek için doğru karakter kodlaması da bilinmelidir. Bayt odaklı çözmede tek sayıda hex basamağı, başa sıfır ekleneceğini söyleyen bir kural yoksa eksiktir.</p><p>On altılık gösterim tersine çevrilebilir ve gizlilik sağlamaz; şifreleme değildir.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "On altılık gösterim şifreleme midir?", "answer": "<p>Hayır. Yalnızca sayıların veya baytların yazılışını değiştirir. Geçerli bir hex değerini herkes anahtarsız geri dönüştürebilir.</p>"},
+        {"question": "Hex çözücü neden tek sayıda karakteri reddeder?", "answer": "<p>Bir bayt normalde iki hex basamağıyla yazılır. Tek uzunluklu dizide yarım bayt eşsiz kalır; ancak sıradan bir on altılık sayı herhangi bir basamak sayısına sahip olabilir.</p>"},
+        {"question": "Büyük ve küçük hex harfleri farklı mıdır?", "answer": "<p>Hayır. <code>A–F</code> ile <code>a–f</code> normalde aynı değerlere sahiptir; yine de belirli bir çıktı biçimi tek bir yazımı zorunlu tutabilir.</p>"}
+    ],
+    "related_terms": ["base64"],
+    "related_tools": [
+        {"slug": "encoding/hex", "label": "Hex Kodlayıcı ve Kod Çözücü"}
+    ],
+    "tags": ["kodlama", "on altılık sistem", "ikili veri"],
+    "category": "encoding"
+}

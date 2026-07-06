@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "base64",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Base64",
+        "aliases": ["encodage Base64"],
+        "short": "Base64 est un codage binaire-vers-texte qui représente des octets au moyen d’un alphabet de 64 caractères.",
+        "meta_title": "Base64 — Définition et exemples | CiphersOnline",
+        "meta_description": "Découvrez comment Base64 convertit des octets en texte, le rôle du remplissage, la différence avec Base64url et pourquoi ce n’est pas du chiffrement."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Base64 représente des octets quelconques sous forme de texte afin de les transporter dans des systèmes conçus pour les caractères. L’alphabet standard comprend les lettres latines majuscules et minuscules, les chiffres, <code>+</code> et <code>/</code> ; <code>=</code> peut apparaître à la fin comme remplissage.</p><p>Base64 ne change que la représentation. Il n’assure à lui seul ni confidentialité, ni authenticité, ni intégrité et se décode sans clé.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Fonctionnement",
+            "html": "<p>L’encodeur prend 3 octets, divise leurs 24 bits en quatre valeurs de 6 bits et associe chacune à un caractère parmi 64. Si le dernier groupe ne contient que 1 ou 2 octets, <code>=</code> marque généralement la partie manquante afin d’obtenir une longueur multiple de quatre.</p><p>Pour de grandes entrées, le résultat occupe environ un tiers de plus. Base64url remplace <code>+</code> et <code>/</code> par <code>-</code> et <code>_</code> et omet souvent le remplissage ; les variantes ne sont donc pas toujours interchangeables.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Exemple pratique",
+            "html": "<p>Les octets ASCII et UTF-8 de <code>Hi</code> sont <code>48 69</code> en hexadécimal. Base64 standard les représente par <code>SGk=</code>. Le décodage restitue les mêmes octets, dont l’interprétation en UTF-8 redonne <code>Hi</code>.</p><p>Base64 peut aussi contenir une image, des données compressées ou du texte chiffré. Un décodage réussi ne produit pas nécessairement du texte lisible.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Formats et pièges",
+            "html": "<p>Les applications doivent s’accorder sur la variante, le remplissage et les espaces autorisés. Un décodeur strict peut refuser ce qu’un autre accepte. Un texte doit d’abord être converti en octets avec un codage de caractères tel qu’UTF-8 ; un autre codage produira un Base64 différent.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Base64 est-il un chiffrement ?", "answer": "<p>Non. C’est un codage public et réversible sans clé secrète. Les données sensibles doivent d’abord être protégées par un mécanisme cryptographique approprié.</p>"},
+        {"question": "Pourquoi Base64 se termine-t-il parfois par = ou == ?", "answer": "<p>Le remplissage complète le dernier groupe de quatre caractères lorsque le nombre d’octets n’est pas divisible par trois. Il peut comporter un ou deux signes ; certains formats les omettent.</p>"},
+        {"question": "Base64 et Base64url sont-ils identiques ?", "answer": "<p>Ils regroupent les bits de la même façon, mais Base64url emploie des caractères adaptés aux URL et omet souvent le remplissage. Il faut suivre la variante imposée par le protocole.</p>"}
+    ],
+    "related_terms": ["hexadecimal"],
+    "related_tools": [
+        {"slug": "encoding/base64", "label": "Encodeur et décodeur Base64"}
+    ],
+    "tags": ["codage", "données binaires", "binaire vers texte"],
+    "category": "encoding"
+}

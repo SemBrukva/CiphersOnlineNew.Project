@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "unicode", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Unicode",
+        "aliases": ["padrão Unicode"],
+        "short": "Unicode é um padrão universal que atribui pontos de código aos caracteres e símbolos dos sistemas de escrita de todo o mundo.",
+        "meta_title": "Unicode — Pontos de código, UTF-8 e exemplos | CiphersOnline",
+        "meta_description": "Saiba como Unicode identifica caracteres, como UTF-8 os codifica em bytes e por que grafemas e normalização são importantes."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>Unicode é um padrão para representar textos de muitos sistemas de escrita, além de símbolos, emoji e controlos. Cada elemento recebe um ponto de código escrito como <code>U+</code> e algarismos hexadecimais, por exemplo <code>U+0041</code> para <code>A</code> e <code>U+20AC</code> para <code>€</code>.</p><p>Um ponto de código é um número abstrato, não uma sequência de bytes. UTF-8, UTF-16 e UTF-32 definem como o guardar ou transmitir.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Pontos de código e codificações", "html": "<p>Unicode vai de <code>U+0000</code> a <code>U+10FFFF</code>, com intervalos reservados ou não atribuídos. UTF-8 usa um byte para ASCII e dois a quatro para outros pontos atribuídos; UTF-16 usa uma ou duas unidades de 16 bits.</p><p>ASCII está incluído em Unicode: os valores 0–127 mantêm os mesmos pontos e a mesma representação de um byte em UTF-8.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Exemplo prático", "html": "<p>O carácter <code>€</code> é o ponto <code>U+20AC</code>. Em UTF-8, é guardado nos bytes <code>E2 82 AC</code>; em código-fonte também pode surgir como escape. São representações diferentes do mesmo ponto.</p><p>Um carácter visível nem sempre equivale a um ponto: <code>é</code> pode ser <code>U+00E9</code> ou <code>U+0065</code> seguido do sinal combinante <code>U+0301</code>.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Normalização e erros frequentes", "html": "<p>A normalização Unicode leva sequências equivalentes a uma forma padrão escolhida e facilita comparações e pesquisas. Deve ser aplicada com cuidado, pois caracteres visualmente semelhantes podem ser realmente distintos.</p><p>O tipo de letra determina a aparência e alguns emoji ou sistemas juntam vários pontos num grafema. Contagens de bytes, pontos e caracteres visíveis podem diferir. Unicode é codificação, não criptografia.</p>"}
+    ],
+    "faq": [
+        {"question": "Unicode e UTF-8 são iguais?", "answer": "<p>Não. Unicode define caracteres e pontos de código; UTF-8 é uma forma de codificar esses pontos como bytes.</p>"},
+        {"question": "Quantos bytes ocupa um carácter Unicode?", "answer": "<p>Não há um número único. Em UTF-8 um ponto usa um a quatro bytes, e um grafema visível pode conter vários pontos.</p>"},
+        {"question": "Por que duas cadeias iguais à vista podem ser diferentes?", "answer": "<p>Podem usar sequências distintas mas canonicamente equivalentes, como uma letra pré-composta ou letra mais sinal combinante. A normalização adequada uniformiza-as.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Conversor Unicode"}],
+    "tags": ["codificação", "Unicode", "codificação de caracteres"],
+    "category": "encoding"
+}

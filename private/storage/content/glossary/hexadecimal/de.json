@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hexadecimal",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Hexadezimalsystem",
+        "aliases": ["Hex", "Sechzehnersystem"],
+        "short": "Das Hexadezimalsystem ist eine Zahlendarstellung zur Basis 16, die Zahlen und Bytes mit den Zeichen 0–9 und A–F notiert.",
+        "meta_title": "Hexadezimalsystem — Definition | CiphersOnline",
+        "meta_description": "Erfahren Sie, wie Hexadezimalziffern Bits und Bytes abbilden, wie Hexwerte gelesen werden und warum Hexkodierung keine Verschlüsselung ist."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Das Hexadezimalsystem, kurz Hex, ist ein Stellenwertsystem zur Basis 16. Es verwendet <code>0</code> bis <code>9</code> sowie <code>A</code> bis <code>F</code>; dabei steht <code>A</code> für den Dezimalwert 10 und <code>F</code> für 15.</p><p>Hex eignet sich zur Anzeige binärer Daten, weil eine Hexadezimalziffer genau 4 Bits und ein Ziffernpaar ein Byte von <code>00</code> bis <code>FF</code> darstellt.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Funktionsweise",
+            "html": "<p>Wie im Dezimalsystem bestimmt die Stelle den Wert, jedoch mit Potenzen von 16. So bedeutet <code>2F</code> die Rechnung <code>2 × 16 + 15</code> und damit dezimal 47. Groß- und Kleinbuchstaben haben normalerweise denselben Wert.</p><p>Programme kennzeichnen Hexzahlen oft mit <code>0x</code>; Bytefolgen können Leerzeichen oder Doppelpunkte enthalten. Diese Präfixe und Trennzeichen sind Formatkonventionen, keine Hexadezimalziffern.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Praktisches Beispiel",
+            "html": "<p>Der UTF-8-Text <code>Hi</code> besteht hexadezimal aus den Bytes <code>48 69</code>. Werden die Paare zurück in Bytes gewandelt und als UTF-8 interpretiert, entsteht wieder <code>Hi</code>. Dieselben Bytes lauten in Base64 <code>SGk=</code>.</p><p>Hex benötigt zwei Textzeichen pro Byte und ist deshalb gut lesbar, aber ungefähr doppelt so groß wie die Rohdaten.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Deutung und Stolperfallen",
+            "html": "<p>Eine Hexfolge verrät nicht, ob ihre Bytes Text, Zahl, Datei, Hash oder Geheimtext bedeuten. Für Text ist zusätzlich die richtige Zeichenkodierung nötig. Bei byteweiser Dekodierung ist eine ungerade Ziffernzahl unvollständig, sofern keine vereinbarte Regel eine führende Null ergänzt.</p><p>Hex ist umkehrbar und bietet keine Vertraulichkeit; es ist keine Verschlüsselung.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Ist Hexadezimaldarstellung Verschlüsselung?", "answer": "<p>Nein. Sie ändert nur die Schreibweise von Zahlen oder Bytes. Ein gültiger Hexwert lässt sich ohne Schlüssel zurückwandeln.</p>"},
+        {"question": "Warum lehnen Hexdecoder eine ungerade Zeichenzahl ab?", "answer": "<p>Ein Byte wird gewöhnlich mit zwei Hexziffern geschrieben. Bei ungerader Länge bleibt ein Halbbyte ohne Partner, obwohl eine gewöhnliche Hexzahl beliebig viele Ziffern haben darf.</p>"},
+        {"question": "Unterscheiden sich große und kleine Hexbuchstaben?", "answer": "<p>Nein. <code>A–F</code> und <code>a–f</code> haben normalerweise dieselben Werte, auch wenn ein Ausgabeformat eine Schreibweise vorschreiben kann.</p>"}
+    ],
+    "related_terms": ["base64"],
+    "related_tools": [
+        {"slug": "encoding/hex", "label": "Hex-Encoder und -Decoder"}
+    ],
+    "tags": ["Kodierung", "Hexadezimalsystem", "Binärdaten"],
+    "category": "encoding"
+}

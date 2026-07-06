@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "url-encoding", "language": "pt", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Codificação de URL",
+        "aliases": ["codificação percentual", "percent-encoding"],
+        "short": "A codificação de URL representa um byte num componente URI por um sinal de percentagem seguido de dois algarismos hexadecimais.",
+        "meta_title": "Codificação de URL — Como funciona percent-encoding | CiphersOnline",
+        "meta_description": "Saiba como bytes UTF-8 se tornam sequências %HH, a diferença entre %20 e + e como evitar a dupla codificação."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definição", "html": "<p>A codificação de URL, mais precisamente codificação percentual, representa um byte por <code>%</code> e dois algarismos hexadecimais. Um espaço pode ser <code>%20</code> e o próprio sinal de percentagem, <code>%25</code>.</p><p>Os caracteres URI não reservados—letras ASCII, algarismos, <code>-</code>, <code>.</code>, <code>_</code> e <code>~</code>—ficam normalmente inalterados. Os restantes dependem da posição e função.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Como funciona", "html": "<p>Texto fora de ASCII é primeiro convertido em bytes, normalmente UTF-8, e os bytes necessários são codificados individualmente. Assim, <code>café</code> torna-se <code>caf%C3%A9</code>.</p><p>Caracteres reservados como <code>/</code>, <code>?</code>, <code>#</code>, <code>&amp;</code> e <code>=</code> estruturam o URL. A codificação depende de serem segmento de caminho, parâmetro, fragmento ou outro componente.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Espaços e dados de formulários", "html": "<p>A codificação percentual escreve espaço como <code>%20</code>. O formato <code>application/x-www-form-urlencoded</code>, usado em consultas e formulários HTML, usa frequentemente <code>+</code>; um mais literal torna-se então <code>%2B</code>.</p><p>As bibliotecas oferecem normalmente funções distintas para URL, segmentos e valores de parâmetros. A função específica trata corretamente os separadores estruturais.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Segurança e erros frequentes", "html": "<p>A codificação é reversível e não é criptografia. Valores sensíveis podem continuar visíveis no histórico, registos, dados Referer e arquivos do servidor.</p><p>Voltar a codificar uma percentagem já codificada gera dupla codificação: <code>%20</code> torna-se <code>%2520</code>. Os dados descodificados devem ser validados, pois a codificação não torna segura uma entrada maliciosa.</p>"}
+    ],
+    "faq": [
+        {"question": "Qual é a diferença entre %20 e +?", "answer": "<p><code>%20</code> é o byte codificado de um espaço. <code>+</code> significa espaço apenas na codificação de formulários; noutro contexto pode ser literal.</p>"},
+        {"question": "Deve codificar-se um URL inteiro de uma vez?", "answer": "<p>Normalmente não. Codifique segmentos e valores com a função do componente para que os separadores estruturais mantenham o significado.</p>"},
+        {"question": "A codificação de URL é segura?", "answer": "<p>Não. Garante compatibilidade sintática, mas não confidencialidade, integridade ou autenticidade.</p>"}
+    ],
+    "related_terms": ["unicode", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/url-encode", "label": "Codificador e descodificador de URL"}],
+    "tags": ["codificação", "codificação de URL", "codificação percentual"],
+    "category": "encoding"
+}

@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "unicode",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Unicode",
+        "aliases": ["Unicode-Standard"],
+        "short": "Unicode ist ein universeller Zeichenstandard, der Textzeichen und Symbolen weltweiter Schriftsysteme Codepunkte zuweist.",
+        "meta_title": "Unicode — Codepunkte, UTF-8 und Beispiele | CiphersOnline",
+        "meta_description": "Erfahren Sie, wie Unicode-Codepunkte Zeichen bestimmen, UTF-8 sie als Bytes kodiert und warum Grapheme und Normalisierung wichtig sind."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Unicode ist ein Standard für Texte vieler Schriftsysteme sowie Symbole, Emoji und Steuerzeichen. Jedem kodierten Element wird ein Codepunkt zugewiesen, geschrieben als <code>U+</code> mit Hexziffern, etwa <code>U+0041</code> für <code>A</code> und <code>U+20AC</code> für <code>€</code>.</p><p>Ein Codepunkt ist eine abstrakte Zahl, keine Bytefolge. UTF-8, UTF-16 und UTF-32 legen fest, wie Codepunkte als Bytes gespeichert oder übertragen werden.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Codepunkte und Kodierungen", "html": "<p>Unicode reicht von <code>U+0000</code> bis <code>U+10FFFF</code>; einige Bereiche sind reserviert oder unbelegt. UTF-8 verwendet für ASCII ein Byte und für andere belegte Codepunkte zwei bis vier Bytes; UTF-16 nutzt eine oder zwei 16-Bit-Codeeinheiten.</p><p>ASCII ist in Unicode enthalten: Die Werte 0 bis 127 besitzen dieselben Codepunkte und dieselbe Ein-Byte-Darstellung in UTF-8.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Praktisches Beispiel", "html": "<p>Das Zeichen <code>€</code> hat den Codepunkt <code>U+20AC</code>. In UTF-8 wird es als <code>E2 82 AC</code> gespeichert; in Quelltext kann es auch als Escape-Notation erscheinen. Dies sind verschiedene Darstellungen desselben Codepunkts.</p><p>Ein sichtbares Zeichen entspricht nicht immer einem Codepunkt. <code>é</code> kann <code>U+00E9</code> oder die Folge <code>U+0065</code> plus kombinierendes <code>U+0301</code> sein.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Normalisierung und Stolperfallen", "html": "<p>Unicode-Normalisierung bringt gleichwertige Folgen in eine gewählte Standardform und hilft bei Vergleichen und Suchen. Sie muss bewusst eingesetzt werden, denn ähnlich aussehende Zeichen können tatsächlich verschieden sein.</p><p>Die Schriftart bestimmt die Darstellung; manche Emoji und Schriften verbinden mehrere Codepunkte zu einem Graphem. Byte-, Codepunkt- und Zeichenzahl können sich daher unterscheiden. Unicode ist Kodierung, keine Verschlüsselung.</p>"}
+    ],
+    "faq": [
+        {"question": "Sind Unicode und UTF-8 dasselbe?", "answer": "<p>Nein. Unicode definiert Zeichen und Codepunkte; UTF-8 ist eine Methode, diese Codepunkte als Bytes zu kodieren.</p>"},
+        {"question": "Wie viele Bytes benötigt ein Unicode-Zeichen?", "answer": "<p>Das ist nicht einheitlich. Ein Codepunkt belegt in UTF-8 ein bis vier Bytes, während ein sichtbares Graphem aus mehreren Codepunkten bestehen kann.</p>"},
+        {"question": "Warum können gleich aussehende Zeichenfolgen ungleich sein?", "answer": "<p>Sie können verschiedene, aber kanonisch gleichwertige Folgen nutzen, etwa einen fertigen Buchstaben oder Buchstabe plus Kombinationszeichen. Geeignete Normalisierung gleicht sie an.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Unicode-Konverter"}],
+    "tags": ["Kodierung", "Unicode", "Zeichenkodierung"],
+    "category": "encoding"
+}

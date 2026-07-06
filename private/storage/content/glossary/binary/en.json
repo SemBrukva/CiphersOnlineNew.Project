@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "binary",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Binary",
+        "aliases": ["base 2", "binary numeral system"],
+        "short": "Binary is a base-2 numeral system that represents values using only the digits 0 and 1.",
+        "meta_title": "Binary — Definition and Examples | CiphersOnline",
+        "meta_description": "Learn how binary notation uses bits and powers of two, how bytes represent text, and why a bit string needs context to be interpreted."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Binary is a positional numeral system with base 2. It uses only <code>0</code> and <code>1</code>; each binary digit is called a bit. Computers use binary states to represent numbers, text, instructions, images, and other data.</p><p>A binary string is a representation, not an encryption method. Anyone who knows its format can convert or interpret it without a secret key.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "How it works",
+            "html": "<p>Each position has a value that is a power of two. From right to left, the positions represent <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, and so on. Thus <code>101101</code> equals <code>32 + 8 + 4 + 1</code>, or decimal 45.</p><p>Eight bits commonly form a byte. A byte can hold one of 256 values from <code>00000000</code> to <code>11111111</code>, equivalent to hexadecimal <code>00</code> through <code>FF</code>.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Practical example",
+            "html": "<p>The bit groups <code>01001000 01101001</code> correspond to hexadecimal bytes <code>48 69</code>. When those bytes are interpreted as ASCII or UTF-8, they produce <code>Hi</code>.</p><p>The same bits could mean something else under another format. Decoding binary therefore requires rules for grouping, bit order, byte order, signedness, and data type.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Interpretation and pitfalls",
+            "html": "<p>Leading zeros do not change an ordinary unsigned integer, but they matter when a field has a fixed width. For example, <code>1</code> and <code>00000001</code> have the same numeric value, while the latter explicitly occupies one byte.</p><p>A sequence of zeros and ones does not identify its own format. It may represent an integer, encoded text, floating-point data, compressed bytes, or ciphertext.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Is binary a code or encryption?", "answer": "<p>Binary is a way to represent values. Some binary formats define codes for particular data, but binary itself provides no secrecy and is not encryption.</p>"},
+        {"question": "How many values can n bits represent?", "answer": "<p>An unsigned field of <code>n</code> bits has <code>2^n</code> possible patterns, from zero through <code>2^n - 1</code>. Signed and other formats assign meanings to those patterns differently.</p>"},
+        {"question": "Why is binary often grouped into eight bits?", "answer": "<p>Modern systems commonly organize storage around 8-bit bytes. Grouping makes byte boundaries visible, but protocols may also use fields of other widths.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [
+        {"slug": "encoding/binary-converter", "label": "Binary Converter"}
+    ],
+    "tags": ["encoding", "binary", "bits"],
+    "category": "encoding"
+}

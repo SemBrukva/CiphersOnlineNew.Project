@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "unicode",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Unicode",
+        "aliases": ["Unicode Standard"],
+        "short": "Unicode is a universal character standard that assigns code points to text characters and symbols from writing systems worldwide.",
+        "meta_title": "Unicode — Code Points, UTF-8 and Examples | CiphersOnline",
+        "meta_description": "Learn how Unicode code points identify characters, how UTF-8 encodes them as bytes, and why graphemes and normalization matter."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>Unicode is a standard for representing text from many writing systems, together with symbols, emoji, and control characters. It assigns each encoded element a code point written as <code>U+</code> followed by hexadecimal digits, such as <code>U+0041</code> for <code>A</code> and <code>U+20AC</code> for <code>€</code>.</p><p>A code point is an abstract number, not a byte sequence. Encodings such as UTF-8, UTF-16, and UTF-32 define how Unicode code points are stored or transmitted as bytes.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Code points and encodings", "html": "<p>Unicode code points range from <code>U+0000</code> through <code>U+10FFFF</code>, with some ranges reserved or unassigned. UTF-8 uses one byte for ASCII characters and two to four bytes for other assigned code points; UTF-16 uses one or two 16-bit code units.</p><p>ASCII is included in Unicode: its values 0 through 127 have the same code points and the same single-byte representation in UTF-8.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Practical example", "html": "<p>The character <code>€</code> is code point <code>U+20AC</code>. In UTF-8 it is stored as the three bytes <code>E2 82 AC</code>; in a source format it may also appear through an escape notation. These are different representations of the same code point.</p><p>User-perceived characters do not always equal one code point. The visible <code>é</code> may be <code>U+00E9</code> or a sequence of <code>U+0065</code> and combining <code>U+0301</code>.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Normalization and pitfalls", "html": "<p>Unicode normalization converts equivalent sequences to a chosen standard form, which helps comparison and searching. It must be applied deliberately because visually similar characters can also be genuinely different.</p><p>Fonts determine how available characters look, and some emoji or scripts combine several code points into one grapheme. Counting bytes, code points, and visible characters can therefore produce different results. Unicode representation is encoding, not encryption.</p>"}
+    ],
+    "faq": [
+        {"question": "Are Unicode and UTF-8 the same?", "answer": "<p>No. Unicode defines characters and code points; UTF-8 is one method for encoding those code points as bytes.</p>"},
+        {"question": "How many bytes does one Unicode character use?", "answer": "<p>There is no single answer. In UTF-8 an encoded code point uses one to four bytes, while a visible grapheme may contain several code points.</p>"},
+        {"question": "Why can two identical-looking strings compare as different?", "answer": "<p>They may use different but canonically equivalent code-point sequences, such as a precomposed letter and a letter plus combining mark. Appropriate Unicode normalization can align them.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Unicode Converter"}],
+    "tags": ["encoding", "Unicode", "character encoding"],
+    "category": "encoding"
+}

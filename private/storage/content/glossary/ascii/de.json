@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ascii",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "ASCII",
+        "aliases": ["American Standard Code for Information Interchange"],
+        "short": "ASCII ist eine 7-Bit-Zeichenkodierung, die den Werten 0 bis 127 lateinische Buchstaben, Ziffern, Satz- und Steuerzeichen zuordnet.",
+        "meta_title": "ASCII — Definition, Codes und Beispiele | CiphersOnline",
+        "meta_description": "Erfahren Sie, was die 7-Bit-Zeichenkodierung ASCII enthält, wie Text als Dezimal-, Hex- und Binärcode erscheint und wie ASCII zu UTF-8 steht."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Definition", "html": "<p>ASCII ist eine 7-Bit-Zeichenkodierung mit 128 Werten von 0 bis 127. Sie weist einfachen lateinischen Buchstaben, Ziffern, Satzzeichen, Leerzeichen und Steuerzeichen feste Codes zu.</p><p>Die Werte 32 bis 126 sind druckbar. 0 bis 31 sowie 127 sind Steuerzeichen wie Zeilenvorschub, Wagenrücklauf und Löschen; ihre Wirkung hängt vom System ab.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Funktionsweise", "html": "<p>Jedes Zeichen hat einen Zahlenwert. Das große <code>A</code> ist dezimal <code>65</code>, hexadezimal <code>41</code> und binär <code>01000001</code>. Dies sind drei Schreibweisen desselben Werts.</p><p>ASCII definiert Zeichen und Steuercodes; Binär- und Hexadezimalschreibweise zeigen nur deren Zahlen. Erst die Interpretation mit der ASCII-Tabelle macht aus einer Codefolge Text.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Praktisches Beispiel", "html": "<p>Der Text <code>Hi</code> besitzt die dezimalen ASCII-Codes <code>72 105</code>, die Hexbytes <code>48 69</code> und die Binärbytes <code>01001000 01101001</code>. Alle drei Formen bezeichnen dieselben zwei Zeichen.</p><p>ASCII kann Kyrillisch, die meisten Akzentbuchstaben und Emoji nicht direkt darstellen. Dafür ist eine umfassendere Zeichenkodierung nötig, meist Unicode in UTF-8.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "ASCII, UTF-8 und erweitertes ASCII", "html": "<p>UTF-8 übernimmt ASCII für die Werte 0 bis 127 unverändert, daher ist gewöhnlicher ASCII-Text zugleich gültiges UTF-8. Weitere Zeichen benötigen in UTF-8 zusätzliche Bytes.</p><p>„Erweitertes ASCII“ ist keine einheitliche Kodierung. Der Ausdruck bezeichnet mehrere inkompatible 8-Bit-Codepages; für Bytes von 128 bis 255 muss deshalb die genaue Codepage bekannt sein.</p>"}
+    ],
+    "faq": [
+        {"question": "Sind ASCII und UTF-8 dasselbe?", "answer": "<p>Nein. UTF-8 enthält den gesamten ASCII-Bereich mit identischen Bytes und kodiert zusätzlich alle Unicode-Zeichen in Mehrbytefolgen.</p>"},
+        {"question": "Verwendet ASCII 7 oder 8 Bits?", "answer": "<p>ASCII selbst definiert 128 Werte und benötigt 7 Bits. Gespeichert wird ein Code häufig in einem 8-Bit-Byte, dessen höchstes Bit null ist.</p>"},
+        {"question": "Ist ASCII Verschlüsselung?", "answer": "<p>Nein. ASCII ist eine öffentliche Zuordnung zwischen Zeichen und Zahlen. Es verbirgt keinen Text und benötigt keinen Schlüssel.</p>"}
+    ],
+    "related_terms": ["binary", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/ascii-converter", "label": "ASCII-Konverter"}],
+    "tags": ["Kodierung", "ASCII", "Zeichenkodierung"],
+    "category": "encoding"
+}

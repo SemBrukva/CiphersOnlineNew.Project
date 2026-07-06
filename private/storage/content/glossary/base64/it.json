@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "base64",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "Base64",
+        "aliases": ["codifica Base64"],
+        "short": "Base64 è una codifica da binario a testo che rappresenta i byte con un alfabeto di 64 caratteri.",
+        "meta_title": "Base64 — Definizione ed esempi | CiphersOnline",
+        "meta_description": "Scopri come Base64 converte i byte in testo, a cosa serve il padding, come differisce Base64url e perché Base64 non è cifratura."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Base64 rappresenta byte arbitrari come testo per trasportarli attraverso sistemi progettati per i caratteri. L’alfabeto standard comprende lettere latine maiuscole e minuscole, cifre, <code>+</code> e <code>/</code>; alla fine può comparire <code>=</code> come padding.</p><p>Base64 cambia solo la rappresentazione. Da sola non offre riservatezza, autenticità o integrità e può essere decodificata senza chiave.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Come funziona",
+            "html": "<p>Il codificatore prende 3 byte, divide i loro 24 bit in quattro valori da 6 bit e associa ciascun valore a uno dei 64 caratteri. Se il gruppo finale contiene soltanto 1 o 2 byte, <code>=</code> indica di solito la parte mancante e rende la lunghezza multipla di quattro.</p><p>Con input grandi, il risultato occupa circa un terzo in più. Base64url sostituisce <code>+</code> e <code>/</code> con <code>-</code> e <code>_</code> e spesso omette il padding, quindi le due varianti non sono sempre intercambiabili.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Esempio pratico",
+            "html": "<p>I byte ASCII e UTF-8 di <code>Hi</code> sono <code>48 69</code> in esadecimale. Base64 standard li rappresenta come <code>SGk=</code>. La decodifica restituisce gli stessi byte, che interpretati come UTF-8 producono nuovamente <code>Hi</code>.</p><p>Base64 può contenere anche un’immagine, dati compressi o testo cifrato: una decodifica riuscita non garantisce testo leggibile.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "limitations",
+            "title": "Formati ed errori comuni",
+            "html": "<p>Le applicazioni devono concordare sulla variante, sull’obbligo del padding e sugli spazi ammessi. Un decodificatore rigoroso può rifiutare ciò che uno tollerante accetta. Il testo va prima convertito in byte con una codifica dei caratteri come UTF-8; una codifica diversa genera un Base64 diverso.</p>"
+        }
+    ],
+    "faq": [
+        {"question": "Base64 è una cifratura?", "answer": "<p>No. È una codifica pubblica e reversibile che non richiede una chiave segreta. I dati riservati vanno prima protetti con uno schema crittografico adeguato.</p>"},
+        {"question": "Perché Base64 termina a volte con = o ==?", "answer": "<p>Il padding completa l’ultimo gruppo di quattro caratteri quando il numero di byte non è divisibile per tre. Può contenere uno o due segni; alcuni formati li omettono.</p>"},
+        {"question": "Base64 e Base64url sono uguali?", "answer": "<p>Raggruppano i bit allo stesso modo, ma Base64url usa caratteri adatti agli URL e spesso omette il padding. Va usata la variante richiesta dal protocollo.</p>"}
+    ],
+    "related_terms": ["hexadecimal"],
+    "related_tools": [
+        {"slug": "encoding/base64", "label": "Codificatore e decodificatore Base64"}
+    ],
+    "tags": ["codifica", "dati binari", "binario-testo"],
+    "category": "encoding"
+}

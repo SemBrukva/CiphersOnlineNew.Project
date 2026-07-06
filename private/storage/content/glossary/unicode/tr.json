@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "unicode", "language": "tr", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Unicode",
+        "aliases": ["Unicode Standardı"],
+        "short": "Unicode, dünyadaki yazı sistemlerinin karakter ve simgelerine kod noktaları atayan evrensel bir karakter standardıdır.",
+        "meta_title": "Unicode — Kod noktaları, UTF-8 ve örnekler | CiphersOnline",
+        "meta_description": "Unicode kod noktalarının karakterleri nasıl tanımladığını, UTF-8’in bunları baytlarla kodlamasını ve normalleştirmenin önemini öğrenin."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>Unicode, birçok yazı sistemindeki metinlerin yanı sıra simgeleri, emojileri ve denetimleri temsil eden standarttır. Her öğeye <code>U+</code> ve on altılık rakamlarla yazılan kod noktası atanır; örneğin <code>A</code> için <code>U+0041</code>, <code>€</code> için <code>U+20AC</code>.</p><p>Kod noktası soyut bir sayıdır, bayt dizisi değildir. UTF-8, UTF-16 ve UTF-32 bu noktaların baytlarla nasıl saklanacağını veya iletileceğini tanımlar.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Kod noktaları ve kodlamalar", "html": "<p>Unicode <code>U+0000</code> ile <code>U+10FFFF</code> arasındadır; bazı aralıklar ayrılmış veya atanmamıştır. UTF-8 ASCII için bir, diğer atanmış noktalar için iki ila dört bayt; UTF-16 bir veya iki 16 bitlik kod birimi kullanır.</p><p>ASCII Unicode’a dahildir: 0–127 değerleri aynı kod noktalarını ve UTF-8’de aynı tek baytlık gösterimi korur.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Pratik örnek", "html": "<p><code>€</code> karakteri <code>U+20AC</code> kod noktasıdır. UTF-8’de <code>E2 82 AC</code> baytlarıyla saklanır; kaynak kodda kaçış gösterimiyle de yazılabilir. Bunlar aynı noktanın farklı gösterimleridir.</p><p>Görünen bir karakter her zaman tek nokta değildir: <code>é</code>, <code>U+00E9</code> veya <code>U+0065</code> ile birleşen <code>U+0301</code> dizisi olabilir.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Normalleştirme ve yaygın hatalar", "html": "<p>Unicode normalleştirme eşdeğer dizileri seçilen standart biçime getirerek karşılaştırma ve aramayı kolaylaştırır. Görsel olarak benzer karakterler gerçekten farklı olabileceği için bilinçli uygulanmalıdır.</p><p>Yazı tipi görünümü belirler; bazı emoji ve yazılar birkaç noktayı tek grafemde birleştirir. Bayt, kod noktası ve görünen karakter sayıları bu yüzden farklı olabilir. Unicode kodlamadır, şifreleme değildir.</p>"}
+    ],
+    "faq": [
+        {"question": "Unicode ile UTF-8 aynı mıdır?", "answer": "<p>Hayır. Unicode karakterleri ve kod noktalarını tanımlar; UTF-8 bu noktaları baytlarla kodlama yöntemidir.</p>"},
+        {"question": "Bir Unicode karakteri kaç bayt kullanır?", "answer": "<p>Tek bir sayı yoktur. UTF-8’de kod noktası bir ila dört bayt kullanır; görünen bir grafem birkaç noktadan oluşabilir.</p>"},
+        {"question": "Aynı görünen iki dize neden farklı olabilir?", "answer": "<p>Önceden oluşturulmuş harf ile harf ve birleşen işaret gibi farklı ama kanonik olarak eşdeğer diziler kullanabilirler. Uygun normalleştirme bunları eşler.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Unicode Dönüştürücü"}],
+    "tags": ["kodlama", "Unicode", "karakter kodlaması"],
+    "category": "encoding"
+}

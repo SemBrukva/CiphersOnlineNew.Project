@@ -1,0 +1,25 @@
+{
+    "meta": {"schema": "glossary-term.v1", "term_slug": "unicode", "language": "fr", "default_language": "en", "status": "published", "updated_at": "2026-07-06"},
+    "term": {
+        "name": "Unicode",
+        "aliases": ["standard Unicode"],
+        "short": "Unicode est un standard universel qui attribue des points de code aux caractères et symboles des systèmes d’écriture du monde entier.",
+        "meta_title": "Unicode — Points de code, UTF-8 et exemples | CiphersOnline",
+        "meta_description": "Découvrez comment Unicode identifie les caractères, comment UTF-8 les encode en octets et pourquoi graphèmes et normalisation sont importants."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Définition", "html": "<p>Unicode est un standard qui représente les textes de nombreuses écritures, ainsi que symboles, emoji et contrôles. Chaque élément reçoit un point de code noté <code>U+</code> et des chiffres hexadécimaux, par exemple <code>U+0041</code> pour <code>A</code> et <code>U+20AC</code> pour <code>€</code>.</p><p>Un point de code est un nombre abstrait, pas une suite d’octets. UTF-8, UTF-16 et UTF-32 définissent son stockage ou sa transmission en octets.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Points de code et encodages", "html": "<p>Unicode s’étend de <code>U+0000</code> à <code>U+10FFFF</code>, avec des zones réservées ou non attribuées. UTF-8 utilise un octet pour ASCII et deux à quatre pour les autres points attribués ; UTF-16 emploie une ou deux unités de 16 bits.</p><p>ASCII est inclus dans Unicode : les valeurs 0 à 127 gardent les mêmes points et la même représentation sur un octet en UTF-8.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Exemple pratique", "html": "<p>Le caractère <code>€</code> correspond à <code>U+20AC</code>. En UTF-8, il est stocké par les octets <code>E2 82 AC</code> ; dans du code source, il peut aussi apparaître sous forme d’échappement. Ce sont plusieurs représentations du même point.</p><p>Un caractère visible n’est pas toujours un seul point : <code>é</code> peut être <code>U+00E9</code> ou <code>U+0065</code> suivi du signe combinant <code>U+0301</code>.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "Normalisation et pièges", "html": "<p>La normalisation Unicode ramène des suites équivalentes à une forme standard choisie, ce qui facilite comparaison et recherche. Elle doit rester intentionnelle, car des caractères visuellement proches peuvent être réellement distincts.</p><p>La police détermine l’apparence, et certains emoji ou scripts réunissent plusieurs points en un graphème. Le nombre d’octets, de points et de caractères visibles peut donc différer. Unicode est un codage, pas un chiffrement.</p>"}
+    ],
+    "faq": [
+        {"question": "Unicode et UTF-8 sont-ils identiques ?", "answer": "<p>Non. Unicode définit caractères et points de code ; UTF-8 est une méthode pour encoder ces points en octets.</p>"},
+        {"question": "Combien d’octets occupe un caractère Unicode ?", "answer": "<p>Il n’existe pas de réponse unique. En UTF-8, un point utilise un à quatre octets et un graphème visible peut comprendre plusieurs points.</p>"},
+        {"question": "Pourquoi deux chaînes identiques à l’œil peuvent-elles différer ?", "answer": "<p>Elles peuvent employer des suites distinctes mais canoniquement équivalentes, comme une lettre précomposée ou une lettre suivie d’un signe combinant. La normalisation adaptée les aligne.</p>"}
+    ],
+    "related_terms": ["ascii", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/unicode-converter", "label": "Convertisseur Unicode"}],
+    "tags": ["codage", "Unicode", "codage des caractères"],
+    "category": "encoding"
+}

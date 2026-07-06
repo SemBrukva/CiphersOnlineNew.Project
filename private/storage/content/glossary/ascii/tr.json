@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "ascii",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-06"
+    },
+    "term": {
+        "name": "ASCII",
+        "aliases": ["Bilgi Değişimi için Amerikan Standart Kodu"],
+        "short": "ASCII, 0 ile 127 arasındaki değerleri Latin harfleri, rakamlar, işaretler ve denetim karakterleriyle eşleyen 7 bitlik karakter kodlamasıdır.",
+        "meta_title": "ASCII — Tanım, kodlar ve örnekler | CiphersOnline",
+        "meta_description": "7 bitlik ASCII kodlamasının içeriğini, metnin onluk, hex ve ikilik kodlarla gösterimini ve ASCII ile UTF-8 ilişkisini öğrenin."
+    },
+    "body": [
+        {"sort_order": 10, "type": "definition", "title": "Tanım", "html": "<p>ASCII, 0 ile 127 arasında 128 değere sahip 7 bitlik karakter kodlamasıdır. Temel Latin harflerine, rakamlara, noktalama işaretlerine, boşluğa ve denetim karakterlerine kod atar.</p><p>32–126 arasındaki değerler yazdırılabilir. 0–31 ve 127 ise satır besleme, satır başı ve silme gibi denetimlerdir; etkileri sisteme bağlıdır.</p>"},
+        {"sort_order": 20, "type": "how_it_works", "title": "Nasıl çalışır?", "html": "<p>Her karakterin sayısal kodu vardır. Büyük <code>A</code>, onluk <code>65</code>, on altılık <code>41</code> ve ikilik <code>01000001</code> değeridir. Bunlar aynı değerin üç gösterimidir.</p><p>ASCII karakterleri ve denetimleri tanımlar; ikilik ve on altılık sistemler yalnızca sayılarını gösterir. Bir program ASCII tablosunu uyguladığında kod dizisi metne dönüşür.</p>"},
+        {"sort_order": 30, "type": "example", "title": "Pratik örnek", "html": "<p><code>Hi</code> metninin onluk ASCII kodları <code>72 105</code>, on altılık baytları <code>48 69</code> ve ikilik baytları <code>01001000 01101001</code> biçimindedir. Üçü de aynı karakterleri gösterir.</p><p>ASCII Kiril alfabesini, aksanlı harflerin çoğunu veya emojileri doğrudan gösteremez. Bunlar için genellikle UTF-8 ile kodlanan Unicode gibi daha geniş bir sistem gerekir.</p>"},
+        {"sort_order": 40, "type": "limitations", "title": "ASCII, UTF-8 ve genişletilmiş ASCII", "html": "<p>UTF-8, 0–127 arasındaki ASCII değerlerini aynen korur; bu nedenle sıradan ASCII metni geçerli UTF-8’dir. Diğer karakterler ek baytlar kullanır.</p><p>“Genişletilmiş ASCII” tek bir evrensel kodlama değildir. Birbiriyle uyumsuz çeşitli 8 bitlik kod sayfalarını anlatabilir; 128–255 arasındaki baytlar için kesin kod sayfası bilinmelidir.</p>"}
+    ],
+    "faq": [
+        {"question": "ASCII ile UTF-8 aynı mıdır?", "answer": "<p>Hayır. UTF-8 aynı bayt değerleriyle tüm ASCII aralığını içerir ve ayrıca çok baytlı dizilerle bütün Unicode karakterlerini kodlar.</p>"},
+        {"question": "ASCII 7 bit mi, 8 bit mi kullanır?", "answer": "<p>ASCII 128 değer tanımlar ve 7 bit gerektirir. Çoğu zaman üst biti sıfır olan 8 bitlik bir baytta saklanır.</p>"},
+        {"question": "ASCII şifreleme midir?", "answer": "<p>Hayır. ASCII, karakterlerle sayılar arasında açık bir eşlemedir. Metni gizlemez ve anahtar gerektirmez.</p>"}
+    ],
+    "related_terms": ["binary", "hexadecimal"],
+    "related_tools": [{"slug": "encoding/ascii-converter", "label": "ASCII Dönüştürücü"}],
+    "tags": ["kodlama", "ASCII", "karakter kodlaması"],
+    "category": "encoding"
+}
