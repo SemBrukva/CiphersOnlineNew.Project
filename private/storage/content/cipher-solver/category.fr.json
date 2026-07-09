@@ -1,0 +1,310 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-07-09T18:31:44+00:00",
+        "category_alias": "cipher-solver",
+        "language": "fr",
+        "default_language": "en",
+        "category_id": 6
+    },
+    "category_translation": {
+        "id": 6,
+        "data": {
+            "name": "Solveur de chiffrements",
+            "name_short": "Solveur de chiffrements",
+            "description": "Collez un texte chiffré inconnu dans un identificateur, un décodeur et un solveur de chiffrements réunis au même endroit. L’outil détecte les types probables de chiffrement ou d’encodage, lance automatiquement les solveurs compatibles et affiche d’abord le texte clair le plus probable, avec des déchiffrements alternatifs classés et leurs indices.",
+            "meta_title": "Identificateur et solveur de chiffrements - déchiffrer en ligne",
+            "meta_description": "Solveur gratuit de chiffrements, décodeur de ciphertext et résolveur de cryptogrammes. Déchiffrez Caesar, ROT13, ROT47, Atbash, Vigenere, Affine, substitution, Base64, Hex, Binary, Morse, URL, Unicode et XOR en ligne."
+        }
+    },
+    "blocks": [
+        {
+            "id": 19,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement du solveur de chiffrements",
+                "text": "<p>Le solveur commence comme un identificateur et un décodeur de chiffrements : il analyse le texte collé, détecte les familles probables de chiffrement ou d’encodage, puis essaie automatiquement la voie de cracking ou de décodage prise en charge. La première carte affiche le texte clair le plus probable, tandis que la liste classée conserve les autres déchiffrements visibles pour comparaison.</p><p>Le service combine des contrôles de format stricts avec de la cryptanalyse. Les détecteurs par motifs reconnaissent Base64, l’hexadécimal, le binaire, les échappements URL, les séquences Unicode, les symboles Morse, la structure JWT, les nombres A1Z26 et les coordonnées de type Polybius. Les détecteurs statistiques examinent le texte alphabétique avec l’indice de coïncidence, le chi-carré des fréquences, la lisibilité des bigrammes et trigrammes, les n-grammes courants et des scores propres à chaque chiffrement.</p><p>Pour les encodages réversibles, le texte décodé peut être affiché directement. Pour les chiffrements classiques compatibles, le solveur lance le flux correspondant : force brute Caesar, ROT13, ROT47, Atbash, force brute Affine, cracking Vigenere, cracking de substitution simple et force brute XOR sur un octet. Quand le chiffrement exige une information absente du texte, la page montre quand même les candidats et la meilleure suite possible.</p>"
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Familles de chiffrements et d’encodages prises en charge",
+                "text": "<p>Le solveur vérifie 27 types de détecteurs dans plusieurs familles : <strong>encodages et formats structurés</strong> : Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT ; <strong>codes et systèmes alphabétiques</strong> : code Morse, chiffre de Bacon, A1Z26, Polybius Square ; <strong>chiffrements monoalphabétiques</strong> : Caesar, ROT13, Atbash, Affine, substitution simple, XOR ; <strong>chiffrements polyalphabétiques</strong> : Vigenere, Beaufort, Autokey, Gronsfeld, Alberti ; <strong>chiffrements fractionnaires</strong> : Bifid, Trifid ; <strong>chiffrements par transposition</strong> : Rail Fence, Columnar Transposition ; <strong>chiffrements polygraphiques</strong> : Playfair, Hill.</p><p>La résolution automatique est la plus forte pour les encodages déterministes et les familles qui disposent d’une force brute ou d’une attaque statistique pratique. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, substitution simple, Base64, Hex, Binary, Morse, URL, Unicode escape et XOR sur un octet ont tous des exemples sur cette page qui produisent directement un texte clair dans le solveur.</p><p>Pour l’analyse dépendante de la langue, vous pouvez laisser l’alphabet en détection automatique ou le limiter à l’anglais, au russe, à l’allemand, à l’espagnol, au français, à l’italien, au portugais ou au turc. Le bon alphabet aide le modèle de fréquences à comparer le candidat au profil linguistique attendu.</p>"
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Ce que signifie le résultat",
+                "text": "<p>Le résultat n’est pas une simple réponse oui/non. La carte supérieure est le meilleur candidat de texte clair du solveur, avec le chiffrement ou l’encodage détecté, la clé récupérée lorsqu’elle existe et un score de lisibilité. La liste des autres déchiffrements montre les alternatives proches, ce qui compte lorsque plusieurs chiffrements classiques produisent un texte partiellement lisible.</p><p>Le tableau de candidats déroulant explique la couche d’identification : pourcentages de confiance, étiquettes d’indices et liens vers l’outil correspondant. Les indices peuvent inclure le motif de format, le jeu de caractères, la plage d’IoC, la forme des fréquences, des bigrammes lisibles, des mots fréquents, un signal de longueur de clé ou un score spécifique au chiffrement.</p><p>Considérez la première réponse comme l’hypothèse la plus forte, pas comme une certitude magique. Base64, Hex, Binary, URL, Unicode et Morse sont généralement déterministes. La résolution des chiffrements classiques dépend de la longueur du texte, de la langue, des espaces et de la possibilité de déduire la clé originale à partir du seul ciphertext.</p>"
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Meilleurs cas d’usage",
+                "text": "<p>Ce service est utile lorsque vous avez un message chiffré inconnu, une énigme, un défi CTF, un exercice de cryptographie, un cryptogramme, un jeton encodé, un fragment copié ou un ancien échantillon de chiffrement et que vous voulez une première réponse rapide. Il aide à distinguer les encodages simples comme Base64, Hex, Binary, URL encoding, Unicode escape, Morse et JWT de la cryptographie classique comme Caesar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid, Hill et systèmes voisins.</p><p>Utilisez-le comme point de départ tout-en-un : collez le ciphertext, examinez le résultat décodé le plus probable, puis comparez les alternatives classées. Si le message ressemble à un cryptogramme numérique, à un code alphabétique ou à un chiffrement qui exige une clé, le tableau de candidats vous oriente vers le décodeur plus spécifique au lieu de prétendre que chaque format a un texte clair en un clic.</p>"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Qualité de l’entrée et limites",
+                "text": "<p>Les échantillons courts, les langues mélangées, la ponctuation excessive, les erreurs de transcription et le ciphertext copié partiellement réduisent la confiance. Les encodages stricts peuvent souvent être reconnus à partir de chaînes brèves, mais la résolution statistique des chiffrements classiques fonctionne mieux avec des échantillons alphabétiques plus longs. En pratique, 50 lettres ou plus donnent au solveur beaucoup plus d’indices qu’un seul mot ou un code court ; la substitution simple demande généralement encore plus de texte.</p><p>La limite d’entrée est de 3000 caractères. Pour de meilleurs résultats, collez le ciphertext lui-même, retirez les libellés ou explications externes, conservez les espaces lorsqu’ils peuvent être significatifs et choisissez l’alphabet probable si la détection automatique hésite. L’outil est conçu pour les chiffrements classiques, la cryptanalyse pédagogique, les cryptogrammes d’énigmes et les encodages de texte courants ; ce n’est pas un décodeur pour le chiffrement moderne comme AES, RSA, ChaCha20 ni pour les fichiers binaires chiffrés.</p>"
+            }
+        }
+    ],
+    "tasks": [],
+    "used_together": [],
+    "examples": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Chiffre de Caesar",
+                "input": "dqpmqüu ôqpèê eêej êùû üp ôêùùbîê èê ûêùû sqüu oê ùqoyêüu èê eïjiiuê",
+                "description": "Un message Caesar avec un décalage de 3 dans l’alphabet français. Le solveur teste les décalages et retrouve bonjour monde ceci est un message de test pour le solveur de chiffre."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64",
+                "input": "Qm9uam91ciBsZSBtb25kZSAh",
+                "description": "Une courte chaîne encodée en Base64. Le solveur détecte l’encodage et la décode en Bonjour le monde !"
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT-13",
+                "input": "URYYB JBEYQ GUVF VF N FRPERG ZRFFNTR",
+                "description": "ROT13 est un Caesar avec un décalage de 13. Le solveur classe comme meilleure réponse le texte HELLO WORLD THIS IS A SECRET MESSAGE."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "ROT47",
+                "input": "%96 D64C6E >66E:?8 :D 2E ?@@? E@>@CC@H",
+                "description": "Un exemple ROT47 en ASCII imprimable. Le solveur le décode en The secret meeting is at noon tomorrow."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Atbash",
+                "input": "xîïmîèf jîïüû wûwô ûëê èï jûëëzqû ëûwfûê",
+                "description": "Une substitution par alphabet inversé en français. Le solveur applique Atbash et récupère bonjour monde ceci est un message secret."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Vigenère",
+                "input": "SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC",
+                "description": "Un exemple Vigenère chiffré avec la clé KEY. Le cracker automatique retrouve la clé et le fragment de texte clair de Dickens."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "Affine",
+                "input": "ph üouèèvh çèèuzh évçzàèdvûh phà phéévhà hé îçveh ehà uzeuühà ldiv pçzçpôàh àéçéuàéurih ei ûhààçîh àhüvhé",
+                "description": "Un chiffrement Affine avec les clés a=7, b=5. Le solveur essaie les paires de clés valides et restaure la phrase en français."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Substitution",
+                "input": "zit iolzgkn gy ltektz vkozofu ol yxss gy lodhst lxwlzozxzogf qshiqwtzl. htghst xltr zitd ygk hkocqzt fgztl, esqllkggd tbtkeoltl, qfr hsqnyxs zktqlxkt dqhl. zit dtzigr kthsqetl tctkn hsqofztbz stzztk vozi gft yobtr eohitkztbz stzztk, lg zit lqdt vgkr qsvqnl ektqztl zit lqdt hqzztkf. egddgf tfroful, rgxwst stzztkl, qfr ligkz vgkrl uoct zit lgsctk tfgxui tcortfet zg ktegctk zit dtllqut.",
+                "description": "Un long cryptogramme de substitution monoalphabétique. Le solveur utilise les fréquences et les scores de n-grammes pour récupérer le texte complet."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "title": "Hex",
+                "input": "426f6e6a6f7572206d6f6e646520636563692065737420686578",
+                "description": "Du texte représenté sous forme d’octets hexadécimaux. Le solveur le décode en Bonjour monde ceci est hex."
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "title": "Binary",
+                "input": "01000010 01101111 01101110 01101010 01101111 01110101 01110010",
+                "description": "Des groupes binaires ASCII de huit bits. Le solveur reconvertit les bits en Bonjour."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "title": "Morse",
+                "input": ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
+                "description": "Du code Morse international avec une barre entre les mots. Le solveur le décode en HELLO WORLD."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 120,
+            "published": true,
+            "data": {
+                "title": "URL",
+                "input": "Bonjour%20le%20monde%20%21%20solveur%20de%20chiffre",
+                "description": "Un texte encodé avec des échappements URL. Le solveur décode les pourcentages en Bonjour le monde ! solveur de chiffre."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 130,
+            "published": true,
+            "data": {
+                "title": "Unicode",
+                "input": "\\u0042\\u006f\\u006e\\u006a\\u006f\\u0075\\u0072\\u0020\\u006d\\u006f\\u006e\\u0064\\u0065",
+                "description": "Des séquences Unicode escape. Le solveur développe les points de code et renvoie Bonjour monde."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 140,
+            "published": true,
+            "data": {
+                "title": "XOR",
+                "input": "4854591c484e595d4f494e591c554f1c5e494e5559581c495258594e1c4854591c5350581c535d571c484e5959",
+                "description": "Un ciphertext XOR sur un octet écrit en hexadécimal. Le solveur teste les 256 clés d’un octet et trouve key=0x3C."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quelle est la précision du solveur de chiffrements ?",
+                "answer": "La précision dépend fortement de la longueur du texte, de l’alphabet, du bruit et de la famille de chiffrement. Les formats structurés et encodages comme Base64, Hex, Binary, URL encoding, Unicode escape, JWT et Morse peuvent souvent être décodés à partir d’échantillons courts, car ils ont des motifs stricts. Les chiffrements classiques reposent sur des statistiques : ils deviennent plus fiables lorsque l’échantillon grandit. Quelques mots ne donnent parfois que des pistes générales, tandis que 50 caractères alphabétiques ou plus donnent au solveur des indices beaucoup plus solides."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Qu’est-ce que l’indice de coïncidence et pourquoi est-il utile ?",
+                "answer": "L’indice de coïncidence (IoC) mesure l’inégalité de la distribution des lettres dans un texte. Dans une langue naturelle, certaines lettres sont beaucoup plus fréquentes que d’autres, donc l’IoC est généralement plus élevé que dans un texte aléatoire. Caesar, Atbash, Affine et beaucoup de substitutions simples conservent une grande partie de cette forme de fréquences. Vigenere, Beaufort, Autokey, Gronsfeld et les chiffrements polyalphabétiques voisins répartissent mieux les lettres et donnent un IoC plus faible. Comparer l’IoC mesuré avec des valeurs de référence par langue aide l’outil à séparer les familles avant les tests plus spécifiques."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Pourquoi l’outil affiche-t-il plusieurs déchiffrements au lieu d’une seule réponse ?",
+                "answer": "Beaucoup de chiffrements classiques partagent des empreintes statistiques, surtout lorsque le texte est court ou que le chiffrement introduit seulement des changements subtils. Vigenere, Beaufort, Autokey, Gronsfeld et Alberti peuvent se ressembler ; Caesar, Affine, Atbash et substitution simple conservent tous de forts motifs monoalphabétiques. Plutôt que de masquer cette incertitude, l’outil renvoie le meilleur texte clair avec une liste classée d’alternatives pour comparer les candidats proches."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "L’outil peut-il identifier des encodages aussi bien que des chiffrements ?",
+                "answer": "Oui. Le solveur vérifie à la fois les familles de chiffrement et les formats courants de texte encodé. Il peut reconnaître et décoder les motifs typiques de Base64, Hexadecimal, Binary, URL encoding, séquences Unicode, code Morse, jetons JWT, nombres A1Z26 et coordonnées de type Polybius. C’est important, car beaucoup de chaînes qui semblent chiffrées sont en réalité encodées ou formatées."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Le message sera-t-il déchiffré automatiquement ?",
+                "answer": "Souvent, oui, lorsque le format est réversible ou que le chiffrement dispose d’une attaque intégrée pratique. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, substitution simple, Base64, Hex, Binary, Morse, URL encoding, Unicode escape et XOR sur un octet peuvent produire directement un texte clair pour des entrées adaptées. D’autres chiffrements peuvent nécessiter une clé secrète, une matrice, un alphabet, un crib ou des hypothèses plus fortes ; la page affiche alors les candidats et les liens vers l’outil correspondant lorsque le déchiffrement automatique n’est pas fiable."
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Quels alphabets et quelles langues sont pris en charge ?",
+                "answer": "Le réglage d’alphabet prend en charge la détection automatique ainsi que l’anglais, le russe, l’allemand, l’espagnol, le français, l’italien, le portugais et le turc. L’alphabet choisi influence l’analyse des fréquences, la comparaison d’IoC, le score chi-carré et les tests de lisibilité. Si vous connaissez la langue du texte clair, la sélectionner manuellement peut améliorer le classement."
+            }
+        },
+        {
+            "id": 40,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Peut-il identifier AES, RSA ou un chiffrement moderne ?",
+                "answer": "Non. Le solveur de chiffrements est conçu pour les chiffrements classiques, la cryptanalyse pédagogique, les ciphertexts d’énigmes, les cryptogrammes et les encodages de texte courants. Le chiffrement moderne comme AES, RSA, ChaCha20 ou les fichiers chiffrés est volontairement conçu pour ressembler à du hasard et ne peut pas être décodé ni identifié de manière fiable à partir du seul ciphertext, sans métadonnées, contexte de protocole, clés ou structure de fichier."
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Que dois-je coller pour obtenir le meilleur résultat ?",
+                "answer": "Collez le ciphertext brut ou la chaîne encodée, pas l’explication qui l’entoure. Gardez assez de texte pour l’analyse, évitez de mélanger plusieurs messages différents dans une seule entrée et retirez les libellés évidents comme \"ciphertext:\" ou \"réponse:\". Pour les chiffrements classiques, un texte alphabétique plus long est beaucoup meilleur qu’un seul mot. Pour les encodages, conservez les séparateurs, barres, points, signes pourcentage, padding et retours à la ligne lorsqu’ils font partie du format."
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Puis-je l’utiliser comme décodeur de chiffrement avec une clé ?",
+                "answer": "Cette page est optimisée pour le ciphertext inconnu et la résolution automatique. Si vous connaissez déjà la clé, utilisez la page du chiffrement correspondant depuis le tableau de candidats, par exemple Vigenere, Affine, Playfair, Rail Fence, Columnar Transposition ou XOR. Une clé connue donne généralement un résultat plus exact qu’une estimation statistique."
+            }
+        },
+        {
+            "id": 43,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Cypher solver est-il la même chose que cipher solver ?",
+                "answer": "Oui. Cipher est l’orthographe standard en cryptographie anglaise, tandis que cypher est une variante courante. L’outil couvre la même tâche dans les deux cas : coller un texte chiffré inconnu, décoder les formats compatibles et classer les candidats de texte clair les plus probables."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

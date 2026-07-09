@@ -297,6 +297,14 @@ final class CipherCategoryController
             'language'
         );
 
+        $examples = $this->categories->listExamplesByCategoryId($categoryId);
+        $exampleIds = array_map(static fn (array $row): int => (int) ($row['id'] ?? 0), $examples);
+        $exampleTranslations = $this->groupByEntityAndLanguage(
+            $this->categories->listExampleTranslationsByExampleIds($exampleIds),
+            'example_id',
+            'language'
+        );
+
         return [
             'category' => $category,
             'translations_by_language' => $translationsByLanguage,
@@ -304,6 +312,7 @@ final class CipherCategoryController
             'tasks' => $this->attachTranslations($tasks, $taskTranslations),
             'used_together' => $this->attachTranslations($usedTogether, $usedTogetherTranslations),
             'faq' => $this->attachTranslations($faq, $faqTranslations),
+            'examples' => $this->attachTranslations($examples, $exampleTranslations),
             'category_ciphers' => $this->ciphers->listForSelectByCategoryId($categoryId),
         ];
     }

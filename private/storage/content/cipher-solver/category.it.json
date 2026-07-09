@@ -1,0 +1,310 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-07-09T18:31:49+00:00",
+        "category_alias": "cipher-solver",
+        "language": "it",
+        "default_language": "en",
+        "category_id": 6
+    },
+    "category_translation": {
+        "id": 6,
+        "data": {
+            "name": "Risolutore di cifrari",
+            "name_short": "Risolutore di cifrari",
+            "description": "Incolla un testo cifrato sconosciuto in un identificatore, decodificatore e risolutore di cifrari in un unico posto. Lo strumento rileva i tipi probabili di cifrario o codifica, esegue automaticamente i solver supportati e mostra per primo il testo in chiaro più probabile, con decifrazioni alternative ordinate ed evidenze.",
+            "meta_title": "Identificatore e risolutore di cifrari - decifra online",
+            "meta_description": "Risolutore gratuito di cifrari, decodificatore di ciphertext e solver di crittogrammi. Decifra Caesar, ROT13, ROT47, Atbash, Vigenere, Affine, sostituzione, Base64, Hex, Binary, Morse, URL, Unicode e XOR online."
+        }
+    },
+    "blocks": [
+        {
+            "id": 19,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona il risolutore di cifrari",
+                "text": "<p>Il risolutore parte come identificatore e decodificatore di cifrari: analizza il testo incollato, rileva le famiglie probabili di cifrario o codifica e poi prova automaticamente il percorso di cracking o decodifica supportato. La prima scheda mostra il testo in chiaro più probabile, mentre la lista ordinata mantiene visibili le altre decifrazioni per il confronto.</p><p>Il servizio combina controlli rigorosi di formato con crittoanalisi. I detector basati su pattern riconoscono Base64, esadecimale, binario, escape URL, sequenze Unicode, simboli Morse, struttura JWT, numeri A1Z26 e coordinate tipo Polybius. I detector statistici esaminano testo alfabetico con indice di coincidenza, chi-quadrato delle frequenze, leggibilità di bigrammi e trigrammi, n-grammi comuni e punteggi specifici per ogni cifrario.</p><p>Per le codifiche reversibili, il testo decodificato può essere mostrato direttamente. Per i cifrari classici supportati, il solver esegue il flusso corrispondente: brute force Caesar, ROT13, ROT47, Atbash, brute force Affine, cracking Vigenere, cracking di sostituzione semplice e brute force XOR a byte singolo. Quando il cifrario richiede informazioni non presenti nel testo, la pagina mostra comunque i candidati e il miglior percorso per continuare.</p>"
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Famiglie di cifrari e codifiche supportate",
+                "text": "<p>Il solver controlla 27 tipi di detector in più famiglie: <strong>codifiche e formati strutturati</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>codici e sistemi alfabetici</strong>: codice Morse, cifrario di Bacon, A1Z26, Polybius Square; <strong>cifrari monoalfabetici</strong>: Caesar, ROT13, Atbash, Affine, sostituzione semplice, XOR; <strong>cifrari polialfabetici</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>cifrari frazionari</strong>: Bifid, Trifid; <strong>cifrari a trasposizione</strong>: Rail Fence, Columnar Transposition; <strong>cifrari poligrafici</strong>: Playfair, Hill.</p><p>La risoluzione automatica è più forte per codifiche deterministiche e per famiglie con attacchi pratici di brute force o statistici. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, sostituzione semplice, Base64, Hex, Binary, Morse, URL, Unicode escape e XOR a byte singolo hanno esempi in questa pagina che producono direttamente un testo in chiaro nel solver.</p><p>Per l’analisi dipendente dalla lingua puoi lasciare l’alfabeto in auto-detect o limitarlo manualmente a inglese, russo, tedesco, spagnolo, francese, italiano, portoghese o turco. Scegliere l’alfabeto corretto aiuta il modello di frequenze a confrontare il candidato con il profilo linguistico giusto.</p>"
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Cosa comunica il risultato",
+                "text": "<p>Il risultato non è una semplice risposta sì/no. La scheda superiore è il miglior candidato di testo in chiaro del solver, etichettato con il cifrario o la codifica rilevati, la chiave recuperata quando disponibile e un punteggio di leggibilità. L’elenco delle altre decifrazioni mostra alternative vicine, cosa importante quando più cifrari classici producono testo parzialmente leggibile.</p><p>La tabella espandibile dei candidati spiega il livello di identificazione: percentuali di confidenza, etichette di evidenza e link allo strumento corrispondente. Le evidenze possono includere pattern di formato, set di caratteri, intervallo IoC, forma delle frequenze, bigrammi leggibili, parole comuni, segnale di lunghezza della chiave o punteggio specifico del cifrario.</p><p>Considera la prima risposta come l’ipotesi più forte, non come una certezza magica. Base64, Hex, Binary, URL, Unicode e Morse sono di solito deterministici. La risoluzione dei cifrari classici dipende dalla lunghezza del testo, dalla lingua, dagli spazi e dalla possibilità di inferire la chiave originale solo dal ciphertext.</p>"
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Migliori casi d’uso",
+                "text": "<p>Questo servizio è utile quando hai un messaggio cifrato sconosciuto, un enigma, una sfida CTF, un esercizio di crittografia, un crittogramma, un token codificato, un frammento copiato o un vecchio esempio di cifrario e vuoi una prima risposta rapida. Aiuta a separare codifiche semplici come Base64, Hex, Binary, URL encoding, Unicode escape, Morse e JWT dalla crittografia classica come Caesar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid, Hill e sistemi collegati.</p><p>Usalo come punto di partenza unico: incolla il ciphertext, osserva il risultato decodificato più probabile e poi confronta le alternative ordinate. Se il messaggio sembra un crittogramma numerico, un codice alfabetico o un cifrario che richiede una chiave, la tabella dei candidati ti indirizza verso il decodificatore più specifico invece di fingere che ogni formato abbia un testo in chiaro con un solo clic.</p>"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Qualità dell’input e limiti",
+                "text": "<p>Campioni brevi, lingue miste, punteggiatura pesante, errori di trascrizione e ciphertext copiato solo in parte riducono la confidenza. Le codifiche rigide possono spesso essere riconosciute da stringhe brevi, ma la risoluzione statistica dei cifrari classici funziona meglio con campioni alfabetici più lunghi. Come regola pratica, 50 o più lettere danno al solver molte più evidenze di una sola parola o di un codice breve; la sostituzione semplice di solito richiede ancora più testo.</p><p>Il limite di input è 3000 caratteri. Per ottenere i risultati migliori, incolla il ciphertext stesso, rimuovi etichette o spiegazioni esterne, conserva gli spazi quando possono essere significativi e scegli l’alfabeto probabile se l’auto-detect è incerto. Lo strumento è pensato per cifrari classici, crittoanalisi didattica, crittogrammi da puzzle e codifiche testuali comuni; non è un decodificatore per cifratura moderna come AES, RSA, ChaCha20 o file binari cifrati.</p>"
+            }
+        }
+    ],
+    "tasks": [],
+    "used_together": [],
+    "examples": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cifrario Caesar",
+                "input": "KHOOR ZRUOG WKLV LV D WHVW PHVVDJH IRU FLSKHU GHWHFWLRQ",
+                "description": "Un messaggio Caesar con spostamento 3. Il solver prova gli spostamenti e restituisce HELLO WORLD THIS IS A TEST MESSAGE FOR CIPHER DETECTION."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64",
+                "input": "SWwgdGVzdG8gaW4gYmFzZTY0IHRvcm5hIGxlZ2dpYmlsZSBuZWwgc29sdmVy",
+                "description": "Una frase italiana codificata in Base64. Il solver rileva l’encodaggio e la decodifica in Il testo in base64 torna leggibile nel solver."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT-13",
+                "input": "URYYB JBEYQ GUVF VF N FRPERG ZRFFNTR",
+                "description": "ROT13 è un Caesar con spostamento 13. Il solver classifica come migliore risposta il testo HELLO WORLD THIS IS A SECRET MESSAGE."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "ROT47",
+                "input": "%96 D64C6E >66E:?8 :D 2E ?@@? E@>@CC@H",
+                "description": "Un esempio ROT47 in ASCII stampabile. Il solver lo decodifica in The secret meeting is at noon tomorrow."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Atbash",
+                "input": "xrzl nlmwl jfvhgl v fm nvhhzttrl hvtivgl",
+                "description": "Una sostituzione con alfabeto invertito in italiano. Il solver applica Atbash e recupera ciao mondo questo e un messaggio segreto."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Vigenère",
+                "input": "Sbinys wu zixitjitjvg yqczzg bv tzwvv kiavcaw szrbh ta xlkhde, xitji pmmoh q mjhgsti mmrlbuom fltlv pkuouv. Pg smtoitl nrzuwlvtd, pg jwpkmg zbawmnp m lv pwuohzdbh xrjfciqlz hgsta xlkhde vmwainj e fpdiyitl ql hiuzigbmq pv pdy evtoirg. Wwi jkpp kogspui szqdyi ui gkmzammq kq Czwcym e ge uaitdwvpka mmrvztv kthluvpolvtz mn amsos qyqgdrcsm.",
+                "description": "Un esempio Vigenère in italiano con la chiave CHIAVE. Il cracker automatico recupera testo in chiaro leggibile sui modelli della lingua."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "Affine",
+                "input": "li spwzzaivilwuw xcl swhpipwa ihhwvc fpaji zezzc lc srwijw jilwxc c savhpavzi lc hpckecvdc",
+                "description": "Un cifrario Affine con chiavi a=5, b=8. Il solver prova le coppie di chiavi valide e ripristina la frase in italiano."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Sostituzione",
+                "input": "zit iolzgkn gy ltektz vkozofu ol yxss gy lodhst lxwlzozxzogf qshiqwtzl. htghst xltr zitd ygk hkocqzt fgztl, esqllkggd tbtkeoltl, qfr hsqnyxs zktqlxkt dqhl. zit dtzigr kthsqetl tctkn hsqofztbz stzztk vozi gft yobtr eohitkztbz stzztk, lg zit lqdt vgkr qsvqnl ektqztl zit lqdt hqzztkf. egddgf tfroful, rgxwst stzztkl, qfr ligkz vgkrl uoct zit lgsctk tfgxui tcortfet zg ktegctk zit dtllqut.",
+                "description": "Un crittogramma lungo di sostituzione monoalfabetica. Il solver usa frequenze e punteggi n-gram per recuperare il testo completo."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "title": "Hex",
+                "input": "496c20746573746f20696e20657361646563696d616c6520646976656e7461206c6567676962696c65207175616e646f20696c20736f6c766572206c6f206465636f646966696361",
+                "description": "Testo rappresentato come byte esadecimali. Il solver lo decodifica in Il testo in esadecimale diventa leggibile quando il solver lo decodifica."
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "title": "Binary",
+                "input": "01000011 01101001 01100001 01101111 00100000 01101101 01101111 01101110 01100100 01101111",
+                "description": "Gruppi binari ASCII di otto bit. Il solver converte i bit in Ciao mondo."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "title": "Morse",
+                "input": ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
+                "description": "Codice Morse internazionale con una barra tra le parole. Il solver lo decodifica in HELLO WORLD."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 120,
+            "published": true,
+            "data": {
+                "title": "URL",
+                "input": "Ciao%20mondo%21%20risolutore%20di%20cifrari",
+                "description": "Testo con codifica percentuale URL. Il solver decodifica gli escape in Ciao mondo! risolutore di cifrari."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 130,
+            "published": true,
+            "data": {
+                "title": "Unicode",
+                "input": "\\u0043\\u0069\\u0061\\u006f\\u0020\\u006d\\u006f\\u006e\\u0064\\u006f",
+                "description": "Sequenze Unicode escape. Il solver espande i code point e restituisce Ciao mondo."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 140,
+            "published": true,
+            "data": {
+                "title": "XOR",
+                "input": "4854591c484e595d4f494e591c554f1c5e494e5559581c495258594e1c4854591c5350581c535d571c484e5959",
+                "description": "Ciphertext XOR a byte singolo scritto in esadecimale. Il solver prova 256 chiavi byte e trova key=0x3C."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quanto è preciso il risolutore di cifrari?",
+                "answer": "La precisione dipende molto dalla lunghezza del testo, dall’alfabeto, dal rumore e dalla famiglia del cifrario. Formati strutturati e codifiche come Base64, Hex, Binary, URL encoding, Unicode escape, JWT e Morse possono spesso essere decodificati da campioni brevi perché hanno pattern rigidi. I cifrari classici sono statistici, quindi diventano più affidabili quando il campione cresce. Poche parole possono produrre solo indizi generali, mentre 50 o più caratteri alfabetici danno al solver evidenze molto più forti."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Che cos’è l’indice di coincidenza e perché è utile?",
+                "answer": "L’indice di coincidenza (IoC) misura quanto è irregolare la distribuzione delle lettere in un testo. Le lingue naturali hanno frequenze non uniformi, quindi il loro IoC è di solito più alto di quello di un testo casuale. Caesar, Atbash, Affine e molti cifrari a sostituzione semplice conservano gran parte di questa forma. Vigenere, Beaufort, Autokey, Gronsfeld e cifrari polialfabetici simili distribuiscono meglio le lettere e producono un IoC più basso. Confrontare l’IoC misurato con valori di riferimento per lingua aiuta lo strumento a separare le famiglie prima di applicare test più specifici."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Perché lo strumento mostra più decifrazioni invece di una sola risposta?",
+                "answer": "Molti cifrari classici condividono impronte statistiche, soprattutto quando il testo è breve o il cifrario introduce solo cambiamenti sottili. Vigenere, Beaufort, Autokey, Gronsfeld e Alberti possono somigliarsi; Caesar, Affine, Atbash e sostituzione semplice conservano tutti forti pattern monoalfabetici. Invece di nascondere l’incertezza, lo strumento restituisce il miglior testo in chiaro più una lista ordinata di alternative, così puoi confrontare candidati vicini."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Può identificare codifiche oltre ai cifrari?",
+                "answer": "Sì. Il solver controlla sia famiglie di cifrari sia formati comuni di testo codificato. Può riconoscere e decodificare pattern tipici di Base64, Hexadecimal, Binary, URL encoding, sequenze Unicode, codice Morse, token JWT, numeri A1Z26 e coordinate tipo Polybius. È importante perché molte stringhe che sembrano cifrate sono in realtà codificate o formattate."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Decifra automaticamente il messaggio?",
+                "answer": "Spesso sì, quando il formato è reversibile o il cifrario ha un attacco pratico integrato. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, sostituzione semplice, Base64, Hex, Binary, Morse, URL encoding, Unicode escape e XOR a byte singolo possono produrre risultati diretti in testo chiaro per input adatti. Altri cifrari possono richiedere una chiave segreta, una matrice, un alfabeto, un crib o ipotesi più forti, quindi la pagina mostra i candidati e i link allo strumento corrispondente quando la decifrazione automatica non è affidabile."
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Quali alfabeti e lingue sono supportati?",
+                "answer": "L’impostazione dell’alfabeto supporta auto-detect più inglese, russo, tedesco, spagnolo, francese, italiano, portoghese e turco. L’alfabeto selezionato influenza analisi delle frequenze, confronto IoC, punteggio chi-quadrato e test di leggibilità. Se conosci la lingua del testo in chiaro, selezionarla manualmente può migliorare la classifica."
+            }
+        },
+        {
+            "id": 40,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Può identificare AES, RSA o cifratura moderna?",
+                "answer": "No. Il risolutore di cifrari è costruito per cifrari classici, crittoanalisi didattica, ciphertext da puzzle, crittogrammi e codifiche testuali comuni. La cifratura moderna come AES, RSA, ChaCha20 o file cifrati è progettata apposta per sembrare casuale e non può essere decodificata o identificata in modo affidabile dal solo ciphertext, senza metadati, contesto di protocollo, chiavi o struttura del file."
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Cosa devo incollare per ottenere il risultato migliore?",
+                "answer": "Incolla il ciphertext grezzo o la stringa codificata, non la spiegazione intorno. Mantieni abbastanza testo per l’analisi, evita di mescolare messaggi diversi in un solo input e rimuovi etichette ovvie come \"ciphertext:\" o \"risposta:\". Per i cifrari classici, un testo alfabetico più lungo è molto meglio di una sola parola. Per le codifiche, conserva separatori, slash, punti, segni percentuale, padding e ritorni a capo quando fanno parte del formato."
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Posso usarlo come decodificatore di cifrari con una chiave?",
+                "answer": "Questa pagina è ottimizzata per ciphertext sconosciuto e risoluzione automatica. Se conosci già la chiave, usa la pagina del cifrario corrispondente dalla tabella dei candidati, ad esempio Vigenere, Affine, Playfair, Rail Fence, Columnar Transposition o XOR. Una chiave nota di solito dà un risultato più esatto di una stima statistica."
+            }
+        },
+        {
+            "id": 43,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Cypher solver è la stessa cosa di cipher solver?",
+                "answer": "Sì. Cipher è l’ortografia standard nella crittografia in inglese, mentre cypher è una variante comune. Lo strumento gestisce lo stesso compito in entrambi i casi: incollare testo cifrato sconosciuto, decodificare i formati supportati e ordinare i candidati di testo in chiaro più probabili."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

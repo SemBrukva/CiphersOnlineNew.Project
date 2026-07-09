@@ -1,0 +1,310 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-07-09T18:31:34+00:00",
+        "category_alias": "cipher-solver",
+        "language": "de",
+        "default_language": "en",
+        "category_id": 6
+    },
+    "category_translation": {
+        "id": 6,
+        "data": {
+            "name": "Chiffren-Löser",
+            "name_short": "Chiffren-Löser",
+            "description": "Fügen Sie unbekannten Geheimtext in einen Chiffren-Erkenner, Decoder und Löser in einem ein. Das Werkzeug erkennt wahrscheinliche Chiffren oder Codierungen, führt unterstützte Lösungswege automatisch aus und zeigt den wahrscheinlichsten Klartext zuerst, zusammen mit alternativen Entschlüsselungen und Hinweisen.",
+            "meta_title": "Chiffren-Erkenner und Chiffren-Löser - unbekannte Chiffren online entschlüsseln",
+            "meta_description": "Kostenloser Chiffren-Erkenner, Geheimtext-Decoder und Kryptogramm-Löser. Entschlüsselt Caesar, ROT13, ROT47, Atbash, Vigenere, affine Chiffren, Substitution, Base64, Hex, Binary, Morse, URL, Unicode und XOR-Beispiele online."
+        }
+    },
+    "blocks": [
+        {
+            "id": 19,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Wie der Chiffren-Löser funktioniert",
+                "text": "<p>Der Chiffren-Löser beginnt als Chiffren-Erkenner und Decoder: Er analysiert den eingefügten Text, erkennt wahrscheinliche Chiffren- oder Codierungsfamilien und versucht anschließend automatisch den passenden Crack- oder Decode-Weg. Die erste Karte zeigt den wahrscheinlichsten Klartext, während die Rangliste darunter nahe Alternativen sichtbar lässt.</p><p>Der Dienst kombiniert strenge Formatprüfungen mit Kryptoanalyse. Musterbasierte Detektoren erkennen Base64, Hexadezimal, Binärgruppen, URL-Prozentcodierung, Unicode-Escape-Sequenzen, Morsezeichen, JWT-Struktur, A1Z26-Zahlen und Polybios-Koordinaten. Statistische Detektoren untersuchen alphabetischen Geheimtext mit Koinzidenzindex, Chi-squared-Buchstabenhäufigkeit, Bigramm- und Trigramm-Lesbarkeit, häufigen n-Grammen und chifferspezifischen Bewertungen.</p><p>Bei reversiblen Codierungen kann der dekodierte Text direkt angezeigt werden. Für unterstützte klassische Chiffren startet der Löser den passenden Ablauf: Caesar-Bruteforce, ROT13, ROT47, Atbash, Affine-Bruteforce, Vigenere-Cracking, einfache Substitution und Single-Byte-XOR-Bruteforce. Wenn eine Chiffre Informationen benötigt, die im Text nicht enthalten sind, zeigt die Seite trotzdem Typkandidaten und den sinnvollsten nächsten Schritt.</p>"
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Unterstützte Chiffren- und Codierungsfamilien",
+                "text": "<p>Der Löser prüft 27 Detektortypen in mehreren Familien: <strong>Codierungen und strukturierte Formate</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>Codes und Alphabetsysteme</strong>: Morsecode, Bacon-Chiffre, A1Z26, Polybios-Quadrat; <strong>monoalphabetische Chiffren</strong>: Caesar, ROT13, Atbash, affine Chiffre, einfache Substitution, XOR; <strong>polyalphabetische Chiffren</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>fraktionierende Chiffren</strong>: Bifid, Trifid; <strong>Transpositionen</strong>: Rail Fence, Columnar Transposition; <strong>polygraphische Chiffren</strong>: Playfair, Hill.</p><p>Automatisches Lösen ist am stärksten bei deterministischen Codierungen und bei Chiffrenfamilien mit praktikablen Brute-force- oder Statistikangriffen. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, einfache Substitution, Base64, Hex, Binary, Morse, URL, Unicode escape und Single-Byte-XOR haben auf dieser Seite Beispiele, die direkt einen Klartext im Löser erzeugen.</p><p>Für sprachabhängige Analyse kann die Alphabet-Einstellung auf Auto-Erkennung bleiben oder manuell auf Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch oder Türkisch gesetzt werden. Das richtige Alphabet hilft dem Frequenzmodell, Kandidaten mit dem passenden Sprachprofil zu vergleichen.</p>"
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Was das Ergebnis bedeutet",
+                "text": "<p>Das Ergebnis ist mehr als eine einzelne Ja-oder-Nein-Vermutung. Die oberste Karte zeigt den besten Klartextkandidaten, benannt mit erkannter Chiffre oder Codierung, wiederhergestelltem Schlüssel, falls vorhanden, und Lesbarkeitswert. Die weiteren Entschlüsselungen zeigen nahe Alternativen, was wichtig ist, wenn mehrere klassische Chiffren teilweise lesbaren Text erzeugen.</p><p>Die aufklappbare Kandidatentabelle erklärt die Erkennungsebene: Vertrauenswerte, Hinweise und Links zum passenden Werkzeug. Hinweise können Formatmuster, Zeichensatz, IoC-Bereich, Frequenzform, lesbare Bigramme, häufige Wörter, Schlüssellängensignale oder chifferspezifische Bewertungen sein.</p><p>Behandeln Sie die erste Antwort als stärkste Hypothese, nicht als absolute Gewissheit. Codierungen wie Base64, Hex, Binary, URL, Unicode und Morse sind meist deterministisch. Klassisches Chiffrenlösen hängt von Textlänge, Sprache, Leerzeichen und davon ab, ob sich der ursprüngliche Schlüssel allein aus dem Geheimtext ableiten lässt.</p>"
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Wofür der Chiffren-Löser nützlich ist",
+                "text": "<p>Der Dienst ist hilfreich, wenn Sie eine unbekannte verschlüsselte Nachricht, einen Rätseltext, eine CTF-Aufgabe, eine Kryptografieübung, ein Kryptogramm, einen codierten Token, ein kopiertes Datenfragment oder eine historische Chiffre haben und schnell einen ersten Ansatz brauchen. Er trennt einfache Codierungen wie Base64, Hex, Binary, URL encoding, Unicode escape, Morse und JWT von klassischer Kryptografie wie Caesar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybios, Bacon, Bifid, Trifid, Hill und verwandten Systemen.</p><p>Nutzen Sie ihn als Startpunkt: Geheimtext einfügen, wahrscheinlichste Entschlüsselung prüfen und Alternativen vergleichen. Wenn die Nachricht wie ein Zahlenkryptogramm, ein Alphabetcode oder eine Chiffre mit benötigtem Schlüssel aussieht, verweist die Kandidatentabelle auf einen genaueren Decoder, statt für jedes Verfahren einen Sofort-Klartext zu versprechen.</p>"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Eingabequalität und Grenzen",
+                "text": "<p>Kurze Proben, gemischte Sprachen, viel Interpunktion, Abschreibfehler und unvollständig kopierter Geheimtext verringern die Sicherheit. Strenge Codierungen lassen sich oft schon an kurzen Zeichenfolgen erkennen, statistisches Lösen klassischer Chiffren funktioniert jedoch am besten mit längeren alphabetischen Proben. Als Faustregel liefern 50 oder mehr Buchstaben deutlich mehr Hinweise als ein einzelnes Wort; einfache Substitution braucht meist noch mehr Text.</p><p>Die Eingabe ist auf 3000 Zeichen begrenzt. Für beste Ergebnisse fügen Sie den Geheimtext selbst ein, entfernen Sie fremde Beschriftungen oder Erklärungen, erhalten Sie bedeutungsvolle Leerzeichen und wählen Sie bei Unsicherheit das vermutete Alphabet manuell. Das Werkzeug ist für klassische Chiffren, Lern-Kryptoanalyse, Rätsel-Kryptogramme und gängige Textcodierungen gedacht; es ist kein Decoder für AES, RSA, ChaCha20 oder verschlüsselte Binärdateien.</p>"
+            }
+        }
+    ],
+    "tasks": [],
+    "used_together": [],
+    "examples": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Caesar-Chiffre",
+                "input": "kcooq zhov glhü lüv hlph vhüvpcfkulfkv iwhu ghp fkliiuhp üqoyhu",
+                "description": "Eine deutsche Caesar-Nachricht mit Verschiebung 3. Der Löser probiert die Alphabetverschiebungen und gibt den Klartext hallo welt dies ist eine testnachricht fuer den chiffren solver zurück."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64",
+                "input": "SGFsbG8gV2VsdCE=",
+                "description": "Eine deutsche Kurzphrase in Base64. Der Löser erkennt die Codierung und dekodiert sie zu Hallo Welt!"
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT-13",
+                "input": "URYYB JBEYQ GUVF VF N FRPERG ZRFFNTR",
+                "description": "ROT13 arbeitet mit dem lateinischen Alphabet und ist eine Caesar-Verschiebung um 13. Der Löser findet den Klartext HELLO WORLD THIS IS A SECRET MESSAGE."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "ROT47",
+                "input": "%96 D64C6E >66E:?8 :D 2E ?@@? E@>@CC@H",
+                "description": "Ein druckbares ASCII-Beispiel für ROT47. Der Löser dekodiert es zu The secret meeting is at noon tomorrow."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Atbash",
+                "input": "szööm cüög vrüh rhg ürnü tüsüroü nzwsirwsg",
+                "description": "Eine umgekehrte Substitution im deutschen Alphabet. Der Löser wendet Atbash an und stellt hallo welt dies ist eine geheime nachricht wieder her."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Vigenère",
+                "input": "Zsqr hvq Kqevhksü jlair Jsljlzwjag rmps Vhkyxjüfip helehyw, wwqlx he cyhevx pogm zviiheojkeirgsq Qwfwjua hju Ftvcqlj. Koiyivkj Ehgmügdgha, vxcpmph Cdeus xrg rmj ysüqwgixh Ydjpui ihf Vhkyxjüfipü üipisq, ils Qefüünfüw np zimusüj Ücdpvsq dw ginosq. Icadhk fmjkg njgs Vucywj zvi jlai jluirh Qdjüoü Hkvjkus dyü, hqi gvi Wvownügmö ihimug hjp Xöeugibv Fgmuvwx ihiv Üqlvlgw dwexjfx.",
+                "description": "Ein deutsches Vigenère-Beispiel mit dem Schlüssel CODE. Der automatische Cracker findet den Schlüssel und rekonstruiert den Lehrtext über Sprachmuster."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "Affine Chiffre",
+                "input": "eqqjök xcjqqukö zkuaxcjkrkö pkdkö rnxcagerkö ijg yfkj yecbkö nöd ykjwkö ahuexcinagku qnku djk eöebsak",
+                "description": "Eine deutsche affine Chiffre mit den Schlüsseln a=7, b=5. Der Löser testet gültige Schlüsselpaare und stellt den ursprünglichen Satz wieder her."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Einfache Substitution",
+                "input": "zit iolzgkn gy ltektz vkozofu ol yxss gy lodhst lxwlzozxzogf qshiqwtzl. htghst xltr zitd ygk hkocqzt fgztl, esqllkggd tbtkeoltl, qfr hsqnyxs zktqlxkt dqhl. zit dtzigr kthsqetl tctkn hsqofztbz stzztk vozi gft yobtr eohitkztbz stzztk, lg zit lqdt vgkr qsvqnl ektqztl zit lqdt hqzztkf. egddgf tfroful, rgxwst stzztkl, qfr ligkz vgkrl uoct zit lgsctk tfgxui tcortfet zg ktegctk zit dtllqut.",
+                "description": "Ein längeres englisches Kryptogramm mit einfacher Substitution. Diese Textmenge liefert genug Frequenz- und n-Gramm-Hinweise, damit der Löser den vollständigen Klartext wiederherstellt."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "title": "Hex",
+                "input": "48616c6c6f2057656c7420646965732069737420686578",
+                "description": "Text als hexadezimale Bytes. Der Löser dekodiert ihn zu Hallo Welt dies ist hex."
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "title": "Binary",
+                "input": "01001000 01100001 01101100 01101100 01101111",
+                "description": "Acht-Bit-ASCII-Gruppen. Der Löser setzt die Bits wieder zu Hallo zusammen."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "title": "Morse",
+                "input": ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
+                "description": "Internationaler Morsecode mit Schrägstrich als Worttrenner. Der Löser dekodiert das Beispiel als HELLO WORLD."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 120,
+            "published": true,
+            "data": {
+                "title": "URL",
+                "input": "Hallo%20Welt%21%20Chiffren%20Solver",
+                "description": "URL-Prozentcodierung für eine deutsche Phrase. Der Löser dekodiert die Prozent-Escapes zu Hallo Welt! Chiffren Solver."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 130,
+            "published": true,
+            "data": {
+                "title": "Unicode",
+                "input": "\\u0048\\u0061\\u006c\\u006c\\u006f\\u0020\\u0057\\u0065\\u006c\\u0074",
+                "description": "Unicode-Escape-Sequenzen. Der Löser erweitert die Codepunkte zu Hallo Welt."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 140,
+            "published": true,
+            "data": {
+                "title": "XOR",
+                "input": "4854591c484e595d4f494e591c554f1c5e494e5559581c495258594e1c4854591c5350581c535d571c484e5959",
+                "description": "Single-Byte-XOR-Geheimtext als Hex. Der Löser probiert 256 Byte-Schlüssel und findet key=0x3C."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Wie genau ist der Chiffren-Löser?",
+                "answer": "Die Genauigkeit hängt stark von Textlänge, Alphabet, Rauschen und Chiffrenfamilie ab. Strukturierte Formate und Codierungen wie Base64, Hex, Binary, URL encoding, Unicode escape, JWT und Morse können oft schon aus kurzen Proben dekodiert werden. Klassische Chiffren werden statistisch gelöst; je länger und natürlicher der Text ist, desto stärker werden die Hinweise. Wenige Wörter liefern oft nur grobe Vermutungen, während 50 oder mehr Buchstaben deutlich zuverlässiger sind."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Was ist der Koinzidenzindex und warum ist er nützlich?",
+                "answer": "Der Koinzidenzindex (IoC) misst, wie ungleich Buchstaben in einem Text verteilt sind. Natürliche Sprache hat ungleiche Häufigkeiten und daher meist einen höheren IoC als zufälliger Text. Caesar, Atbash, affine Chiffren und einfache Substitution erhalten viel von dieser Form. Vigenere, Beaufort, Autokey, Gronsfeld und ähnliche polyalphabetische Chiffren verteilen Buchstaben gleichmäßiger. Der Vergleich mit sprachspezifischen Referenzwerten hilft, Chiffrenfamilien vor genaueren Tests zu trennen."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Warum zeigt das Werkzeug mehrere Entschlüsselungen statt nur einer Antwort?",
+                "answer": "Viele klassische Chiffren teilen statistische Spuren, besonders bei kurzen Texten oder schwachen Transformationen. Vigenere, Beaufort, Autokey, Gronsfeld und Alberti können ähnlich wirken; Caesar, Affine, Atbash und einfache Substitution behalten starke monoalphabetische Muster. Statt Unsicherheit zu verstecken, zeigt das Werkzeug den besten Klartext und eine Rangliste von Alternativen, damit Sie nahe Kandidaten vergleichen können."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Erkennt das Werkzeug Codierungen genauso wie Chiffren?",
+                "answer": "Ja. Der Löser prüft sowohl Chiffrenfamilien als auch gängige codierte Textformate. Er kann Muster von Base64, Hexadecimal, Binary, URL encoding, Unicode escape, Morsecode, JWT-Token, A1Z26-Zahlen und Polybios-Koordinaten erkennen und oft direkt dekodieren. Das ist wichtig, weil viele scheinbar verschlüsselte Zeichenfolgen in Wirklichkeit codiert oder strukturiert sind."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Wird die Nachricht automatisch entschlüsselt?",
+                "answer": "Oft ja, wenn das Format reversibel ist oder die Chiffre einen praktikablen eingebauten Angriff hat. Caesar, ROT13, ROT47, Atbash, affine Chiffren, Vigenere, einfache Substitution, Base64, Hex, Binary, Morse, URL encoding, Unicode escape und Single-Byte-XOR können bei passenden Eingaben direkten Klartext liefern. Andere Chiffren brauchen einen geheimen Schlüssel, eine Matrix, ein Alphabet, einen Crib oder zusätzliche Annahmen."
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Welche Alphabete und Sprachen werden unterstützt?",
+                "answer": "Die Alphabet-Einstellung unterstützt Auto-Erkennung sowie Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Die Wahl beeinflusst Frequenzanalyse, IoC-Vergleich, Chi-squared-Bewertung und Lesbarkeitsprüfungen. Wenn die Sprache der ursprünglichen Nachricht bekannt ist, kann die manuelle Auswahl die Rangfolge verbessern."
+            }
+        },
+        {
+            "id": 40,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Kann der Löser AES, RSA oder moderne Verschlüsselung erkennen?",
+                "answer": "Nein. Der Chiffren-Löser ist für klassische Chiffren, Lern-Kryptoanalyse, Rätsel-Kryptogramme und gängige Textcodierungen gebaut. Moderne Verschlüsselung wie AES, RSA, ChaCha20 oder verschlüsselte Dateien soll zufällig aussehen und lässt sich aus Geheimtext allein ohne Metadaten, Protokollkontext, Schlüssel oder Dateistruktur nicht zuverlässig dekodieren oder erkennen."
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Was sollte ich für das beste Ergebnis einfügen?",
+                "answer": "Fügen Sie den rohen Geheimtext oder die codierte Zeichenfolge ein, nicht die umgebende Erklärung. Mischen Sie keine unterschiedlichen Nachrichten in einer Eingabe und entfernen Sie Labels wie \"ciphertext:\" oder \"answer:\". Bei klassischen Chiffren ist längerer alphabetischer Text deutlich besser als ein einzelnes Wort. Bei Codierungen sollten Trennzeichen, Slashes, Punkte, Prozentzeichen, Padding und Zeilenumbrüche erhalten bleiben, wenn sie Teil des Formats sind."
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Kann ich ihn als Chiffren-Decoder mit bekanntem Schlüssel verwenden?",
+                "answer": "Diese Seite ist auf unbekannten Geheimtext und automatisches Lösen optimiert. Wenn der Schlüssel bereits bekannt ist, öffnen Sie das passende Chiffrenwerkzeug aus der Kandidatentabelle, etwa Vigenere, Affine, Playfair, Rail Fence, Columnar Transposition oder XOR. Ein bekannter Schlüssel liefert in der Regel ein genaueres Ergebnis als statistisches Raten."
+            }
+        },
+        {
+            "id": 43,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Ist Cypher Solver dasselbe wie Cipher Solver?",
+                "answer": "Ja. Cipher ist die übliche Schreibweise in der Kryptografie, Cypher ist eine häufige Variante. Gemeint ist dieselbe Aufgabe: unbekannten Geheimtext einfügen, unterstützte Formate dekodieren und wahrscheinliche Klartextkandidaten vergleichen."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

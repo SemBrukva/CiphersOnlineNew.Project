@@ -1,0 +1,310 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-07-09T18:31:58+00:00",
+        "category_alias": "cipher-solver",
+        "language": "tr",
+        "default_language": "en",
+        "category_id": 6
+    },
+    "category_translation": {
+        "id": 6,
+        "data": {
+            "name": "Şifre Çözücü",
+            "name_short": "Şifre Çözücü",
+            "description": "Bilinmeyen ciphertext’i tek yerde şifre tanımlayıcı, kod çözücü ve şifre çözücüye yapıştırın. Araç olası şifre ya da kodlama türlerini algılar, desteklenen çözücüleri otomatik çalıştırır ve en olası düz metni sıralı alternatif çözümler ve kanıtlarla birlikte ilk sırada gösterir.",
+            "meta_title": "Şifre Tanımlayıcı ve Şifre Çözücü - çevrimiçi çöz",
+            "meta_description": "Ücretsiz şifre çözücü, ciphertext decoder ve kriptogram çözücü. Caesar, ROT13, ROT47, Atbash, Vigenere, Affine, substitution, Base64, Hex, Binary, Morse, URL, Unicode ve XOR örneklerini çevrimiçi çözün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 19,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Şifre Çözücü nasıl çalışır",
+                "text": "<p>Şifre Çözücü önce bir şifre tanımlayıcı ve kod çözücü gibi çalışır: yapıştırdığınız metni analiz eder, olası şifre veya kodlama ailelerini algılar ve ardından desteklenen kırma ya da çözme yolunu otomatik dener. İlk kart en olası düz metni gösterir; sıralı liste ise diğer çözümleri karşılaştırma için görünür tutar.</p><p>Servis katı biçim kontrollerini kriptoanalizle birleştirir. Desen tabanlı algılayıcılar Base64, onaltılık, ikili, URL kaçışları, Unicode kaçış dizileri, Morse sembolleri, JWT yapısı, A1Z26 sayıları ve Polybius türü koordinatları tanır. İstatistiksel algılayıcılar alfabetik ciphertext’i çakışma indeksi, chi-kare harf frekansı, bigram ve trigram okunabilirliği, yaygın n-gram eşleşmeleri ve şifreye özel puanlama ile inceler.</p><p>Tersine çevrilebilir kodlamalarda çözülen metin doğrudan gösterilebilir. Desteklenen klasik şifrelerde solver ilgili akışı çalıştırır: Caesar brute force, ROT13, ROT47, Atbash, Affine brute force, Vigenere kırma, basit substitution kırma ve tek bayt XOR brute force. Bir şifre metinde bulunmayan bilgi gerektiriyorsa sayfa yine adayları ve devam etmek için en iyi yolu gösterir.</p>"
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Desteklenen şifre ve kodlama aileleri",
+                "text": "<p>Solver birkaç ailede 27 algılayıcı tipini kontrol eder: <strong>kodlamalar ve yapısal biçimler</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>kodlar ve alfabe sistemleri</strong>: Morse code, Bacon cipher, A1Z26, Polybius Square; <strong>monoalfabetik şifreler</strong>: Caesar, ROT13, Atbash, Affine, Simple Substitution, XOR; <strong>polialfabetik şifreler</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>parçalayan şifreler</strong>: Bifid, Trifid; <strong>transpozisyon şifreleri</strong>: Rail Fence, Columnar Transposition; <strong>poligrafik şifreler</strong>: Playfair, Hill.</p><p>Otomatik çözüm deterministik kodlamalarda ve pratik brute force ya da istatistiksel saldırısı olan ailelerde en güçlüdür. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, basit substitution, Base64, Hex, Binary, Morse, URL, Unicode escape ve tek bayt XOR için bu sayfadaki örnekler solver içinde doğrudan düz metin üretir.</p><p>Dile bağlı analiz için alfabe ayarı otomatik algılamada bırakılabilir veya İngilizce, Rusça, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce ya da Türkçe ile sınırlandırılabilir. Doğru alfabeyi seçmek, frekans modelinin adayı doğru dil profiliyle karşılaştırmasına yardım eder.</p>"
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Sonuç size ne söyler",
+                "text": "<p>Sonuç yalnızca evet/hayır türü bir tahmin değildir. Üst kart solver’ın en iyi düz metin adayını gösterir; algılanan şifre veya kodlama, varsa kurtarılan anahtar ve okunabilirlik puanı ile etiketlenir. Diğer çözümler listesi yakın alternatifleri gösterir; bu, birkaç klasik şifre kısmen okunabilir metin ürettiğinde özellikle önemlidir.</p><p>Açılır aday tablosu tanımlama katmanını açıklar: güven yüzdeleri, kanıt etiketleri ve ilgili araca bağlantılar. Kanıtlar biçim deseni, karakter kümesi, IoC aralığı, frekans şekli, okunabilir bigramlar, yaygın kelimeler, anahtar uzunluğu sinyali veya şifreye özel puanlama içerebilir.</p><p>İlk yanıtı büyülü kesinlik değil, en güçlü hipotez olarak değerlendirin. Base64, Hex, Binary, URL, Unicode ve Morse genellikle deterministiktir. Klasik şifre çözümü metin uzunluğuna, dile, boşluklara ve özgün anahtarın yalnızca ciphertext’ten çıkarılıp çıkarılamayacağına bağlıdır.</p>"
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Şifre çözme için en iyi kullanım alanları",
+                "text": "<p>Bu servis bilinmeyen şifreli mesaj, bulmaca metni, CTF görevi, kriptografi dersi, kriptogram, kodlanmış token, kopyalanmış veri parçası veya eski şifre örneği için hızlı bir ilk yanıt istediğinizde kullanışlıdır. Base64, Hex, Binary, URL encoding, Unicode escape, Morse ve JWT gibi basit kodlamaları Caesar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid, Hill ve ilgili klasik kriptografi sistemlerinden ayırmaya yardım eder.</p><p>Tek başlangıç noktası olarak kullanın: ciphertext’i yapıştırın, en olası çözülen sonucu inceleyin ve sıralı alternatifleri karşılaştırın. Mesaj sayı kriptogramı, alfabe kodu veya anahtar gerektiren bir şifre gibi görünüyorsa aday tablosu her biçimin tek tıkla çözüleceğini varsaymak yerine sizi daha özel çözücüye yönlendirir.</p>"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Girdi kalitesi ve sınırlar",
+                "text": "<p>Kısa örnekler, karışık diller, yoğun noktalama, kopyalama hataları ve kısmen alınmış ciphertext güveni düşürür. Katı kodlamalar çoğu zaman kısa dizelerden tanınabilir, fakat klasik şifrelerde istatistiksel çözüm daha uzun alfabetik örneklerle daha iyi çalışır. Pratik bir kural olarak 50 veya daha fazla harf solver’a tek kelime ya da kısa koda göre çok daha fazla kanıt sağlar; basit substitution genellikle daha da fazla metin ister.</p><p>Girdi sınırı 3000 karakterdir. En iyi sonuç için ciphertext’in kendisini yapıştırın, alakasız etiketleri veya açıklamaları kaldırın, anlamlı olabilecek boşlukları koruyun ve otomatik algılama kararsızsa olası alfabeyi seçin. Araç klasik şifreler, eğitim amaçlı kriptoanaliz, bulmaca tipi kriptogramlar ve yaygın metin kodlamaları için tasarlanmıştır; AES, RSA, ChaCha20 veya şifreli ikili dosyalar için decoder değildir.</p>"
+            }
+        }
+    ],
+    "tasks": [],
+    "used_together": [],
+    "examples": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Caesar şifresi",
+                "input": "öğtjçdç gypbç dy uroağt lelp gğpğöğ ulhtğol öğvlpglt",
+                "description": "Türk alfabesinde 3 kaydırmalı bir Caesar mesajı. Solver kaydırmaları dener ve merhaba dunya bu solver icin deneme sifreli metindir sonucunu döndürür."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64",
+                "input": "QmFzZTY0IG1ldG5pIHNvbHZlciBpY2luZGUgb2t1bnVyIGhhbGUgZ2VsaXI=",
+                "description": "Base64 ile kodlanmış Türkçe bir cümle. Solver kodlamayı algılar ve Base64 metni solver icinde okunur hale gelir olarak çözer."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT-13",
+                "input": "URYYB JBEYQ GUVF VF N FRPERG ZRFFNTR",
+                "description": "ROT13, 13 kaydırmalı özel bir Caesar biçimidir. Solver en iyi yanıt olarak HELLO WORLD THIS IS A SECRET MESSAGE metnini sıralar."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "ROT47",
+                "input": "%96 D64C6E >66E:?8 :D 2E ?@@? E@>@CC@H",
+                "description": "Yazdırılabilir ASCII ile hazırlanmış ROT47 örneği. Solver bunu The secret meeting is at noon tomorrow olarak çözer."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Atbash",
+                "input": "ktğpzyz udjbz yd soalo ktgznuoğ",
+                "description": "Türk alfabesinde ters alfabe substitution örneği. Solver Atbash uygular ve merhaba dunya bu gizli mesajdir metnini kurtarır."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Vigenère",
+                "input": "Byr hlaktvrutcb açaöoaiı dlutyrn himleei oia heliç atyızıçdh jnşe riten öiçetznün yztzrcny aatr. Jıa hhlfeeg, shclrm üaaa çcfıllli oe dlhmı rnnhçtr mzintöğm msshfı sigkhv sntinh tybrcagt yrrrıu zdür. Ouüyag sdnat hür ğüçön rygı ıer Şasshl şcfgebe gcby gylügüg vl eslaıiboid apış helny akdm rdvm nzrc gstrlii.",
+                "description": "ANAHTAR anahtarıyla şifrelenmiş Türkçe Vigenère örneği. Otomatik kırıcı dili izleyen düz metni ve yinelenen anahtar yapısını geri kazanır."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "Affine",
+                "input": "ğheb vehsd öfçjürdyeöe gjü ğbğugğs öehgrdsebe zdbds şd gjsmöd hsdmğbvrğse mğsverğvgeses",
+                "description": "a=5, b=8 anahtarlarıyla Affine şifresi. Solver geçerli anahtar çiftlerini dener ve Türkçe cümleyi geri yükler."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Substitution",
+                "input": "zit iolzgkn gy ltektz vkozofu ol yxss gy lodhst lxwlzozxzogf qshiqwtzl. htghst xltr zitd ygk hkocqzt fgztl, esqllkggd tbtkeoltl, qfr hsqnyxs zktqlxkt dqhl. zit dtzigr kthsqetl tctkn hsqofztbz stzztk vozi gft yobtr eohitkztbz stzztk, lg zit lqdt vgkr qsvqnl ektqztl zit lqdt hqzztkf. egddgf tfroful, rgxwst stzztkl, qfr ligkz vgkrl uoct zit lgsctk tfgxui tcortfet zg ktegctk zit dtllqut.",
+                "description": "Uzun monoalfabetik substitution kriptogramı. Solver frekans ve n-gram puanlamasıyla düz metnin tamamını geri kazanır."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "title": "Hex",
+                "input": "4f6e616c74696c696b206d6574696e20736f6c766572207461726166696e64616e206f6b756e75722068616c652067656c6972",
+                "description": "Onaltılık baytlar olarak yazılmış metin. Solver bunu Onaltilik metin solver tarafindan okunur hale gelir olarak çözer."
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "title": "Binary",
+                "input": "01001101 01100101 01110010 01101000 01100001 01100010 01100001",
+                "description": "Sekiz bitlik ASCII binary grupları. Solver bitleri Merhaba metnine dönüştürür."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "title": "Morse",
+                "input": ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
+                "description": "Kelimeler arasında eğik çizgi bulunan uluslararası Morse kodu. Solver bunu HELLO WORLD olarak çözer."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 120,
+            "published": true,
+            "data": {
+                "title": "URL",
+                "input": "Merhaba%20dunya%21%20sifre%20cozucu",
+                "description": "URL yüzde kaçışlarıyla kodlanmış metin. Solver kaçışları Merhaba dunya! sifre cozucu olarak çözer."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 130,
+            "published": true,
+            "data": {
+                "title": "Unicode",
+                "input": "\\u0048\\u0065\\u006c\\u006c\\u006f\\u0020\\u0057\\u006f\\u0072\\u006c\\u0064",
+                "description": "Unicode escape dizileri. Solver code point değerlerini genişletir ve Hello World sonucunu verir."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 140,
+            "published": true,
+            "data": {
+                "title": "XOR",
+                "input": "4854591c484e595d4f494e591c554f1c5e494e5559581c495258594e1c4854591c5350581c535d571c484e5959",
+                "description": "Hex olarak yazılmış tek bayt XOR ciphertext. Solver 256 byte anahtarını dener ve key=0x3C bulur."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Şifre Çözücü ne kadar doğru?",
+                "answer": "Doğruluk metin uzunluğuna, alfabeye, gürültüye ve şifre ailesine güçlü biçimde bağlıdır. Base64, Hex, Binary, URL encoding, Unicode escape, JWT ve Morse gibi yapısal biçimler katı desenlere sahip oldukları için kısa örneklerden bile çoğu zaman çözülebilir. Klasik şifre çözümü istatistikseldir; örnek büyüdükçe güven artar. Birkaç kelime yalnızca geniş ipuçları verebilir, 50 veya daha fazla alfabetik karakter solver’a çok daha güçlü kanıt sağlar."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Çakışma indeksi nedir ve neden işe yarar?",
+                "answer": "Çakışma indeksi (IoC), bir metindeki harf dağılımının ne kadar dengesiz olduğunu ölçer. Doğal dilde bazı harfler daha sık geçtiği için IoC genellikle rastgele metinden yüksektir. Caesar, Atbash, Affine ve birçok basit substitution şifresi bu frekans şeklini büyük ölçüde korur. Vigenere, Beaufort, Autokey, Gronsfeld ve benzeri polialfabetik şifreler harfleri daha yayar ve daha düşük IoC üretir. Ölçülen IoC’yi dile özgü referans değerlerle karşılaştırmak, daha özel testlerden önce şifre ailelerini ayırmaya yardım eder."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Araç neden tek yanıt yerine birden fazla çözüm gösteriyor?",
+                "answer": "Birçok klasik şifre, özellikle metin kısa olduğunda veya şifre yalnızca ince değişiklikler getirdiğinde benzer istatistiksel izler taşır. Vigenere, Beaufort, Autokey, Gronsfeld ve Alberti birbirine benzeyebilir; Caesar, Affine, Atbash ve basit substitution güçlü monoalfabetik desenler korur. Belirsizliği gizlemek yerine araç en iyi düz metni ve yakın adayları karşılaştırmanız için sıralı alternatifleri döndürür."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Araç şifrelerin yanında kodlamaları da tanır mı?",
+                "answer": "Evet. Solver hem şifre ailelerini hem de yaygın kodlanmış metin biçimlerini kontrol eder. Base64, Hexadecimal, Binary, URL encoding, Unicode escape dizileri, Morse code, JWT tokenları, A1Z26 sayıları ve Polybius türü koordinatlara özgü desenleri tanıyıp çözebilir. Bu önemlidir, çünkü şifreli görünen birçok dize aslında klasik anlamda şifrelenmiş değil, kodlanmış veya biçimlendirilmiştir."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Mesajı otomatik olarak çözer mi?",
+                "answer": "Biçim tersine çevrilebilir olduğunda veya şifrenin pratik bir yerleşik saldırısı bulunduğunda çoğu zaman evet. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, basit substitution, Base64, Hex, Binary, Morse, URL encoding, Unicode escape ve tek bayt XOR uygun girdilerde doğrudan düz metin sonuçları üretebilir. Diğer şifreler gizli anahtar, matris, alfabe, crib veya daha güçlü varsayımlar gerektirebilir; otomatik çözüm güvenilir olmadığında sayfa adayları ve ilgili araca bağlantıları gösterir."
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Hangi alfabeler ve diller destekleniyor?",
+                "answer": "Alfabe ayarı otomatik algılamanın yanında İngilizce, Rusça, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce ve Türkçe destekler. Seçilen alfabe frekans analizini, IoC karşılaştırmasını, chi-kare puanlamasını ve okunabilir metin kontrollerini etkiler. Düz metnin dilini biliyorsanız manuel seçim sıralamayı iyileştirebilir."
+            }
+        },
+        {
+            "id": 40,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "AES, RSA veya modern şifrelemeyi tanıyabilir mi?",
+                "answer": "Hayır. Şifre Çözücü klasik şifreler, eğitim amaçlı kriptoanaliz, bulmaca tipi ciphertext, kriptogramlar ve yaygın metin kodlamaları için tasarlanmıştır. AES, RSA, ChaCha20 veya şifreli dosyalar gibi modern şifreleme bilerek rastgele görünmek üzere tasarlanır; metadata, protokol bağlamı, anahtarlar veya dosya yapısı olmadan yalnızca ciphertext üzerinden güvenilir biçimde çözülemez ya da tanınamaz."
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "En iyi sonuç için ne yapıştırmalıyım?",
+                "answer": "Çevresindeki açıklamayı değil, ham ciphertext’i veya kodlanmış dizeyi yapıştırın. Analiz için yeterli metin bırakın, farklı mesajları tek girdide karıştırmayın ve \"ciphertext:\" veya \"answer:\" gibi açık etiketleri kaldırın. Klasik şifrelerde daha uzun alfabetik metin tek kelimeden çok daha iyidir. Kodlamalarda biçimin parçası olan ayırıcıları, eğik çizgileri, noktaları, yüzde işaretlerini, padding’i ve satır sonlarını koruyun."
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Bunu anahtarlı şifre decoder olarak kullanabilir miyim?",
+                "answer": "Bu sayfa bilinmeyen ciphertext ve otomatik çözüm için optimize edilmiştir. Anahtarı zaten biliyorsanız aday tablosundan ilgili şifre sayfasını kullanın; örneğin Vigenere, Affine, Playfair, Rail Fence, Columnar Transposition veya XOR. Bilinen anahtar çoğu zaman istatistiksel tahminden daha kesin sonuç verir."
+            }
+        },
+        {
+            "id": 43,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Cypher solver ile cipher solver aynı şey mi?",
+                "answer": "Evet. Cipher, İngilizce kriptografi terminolojisinde standart yazımdır; cypher ise yaygın bir alternatif yazımdır. Araç iki durumda da aynı kullanıcı görevini çözer: bilinmeyen şifreli metni yapıştırmak, desteklenen biçimleri çözmek ve olası düz metin adaylarını sıralamak."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

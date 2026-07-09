@@ -162,6 +162,11 @@ final readonly class GlossaryValidateCommand implements CommandInterface
             if ($category === 'glossary') {
                 continue;
             }
+            // Самостоятельный хаб-категория (каталог с category.*.json, например
+            // cipher-solver) — линкуемая цель верхнего уровня без дочерних инструментов.
+            if (glob($categoryDir . '/category.*.json') !== []) {
+                $slugs[] = $category;
+            }
             foreach (glob($categoryDir . '/*', GLOB_ONLYDIR) ?: [] as $toolDir) {
                 $slugs[] = $category . '/' . basename($toolDir);
             }

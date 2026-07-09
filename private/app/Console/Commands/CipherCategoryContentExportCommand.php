@@ -58,6 +58,7 @@ final readonly class CipherCategoryContentExportCommand implements CommandInterf
             'blocks' => $this->fetchBlocks($categoryId, $language, $defaultLanguage),
             'tasks' => $this->fetchTasks($categoryId, $language, $defaultLanguage),
             'used_together' => $this->fetchUsedTogether($categoryId, $language, $defaultLanguage),
+            'examples' => $this->fetchExamples($categoryId, $language, $defaultLanguage),
             'faq' => $this->fetchFaq($categoryId, $language, $defaultLanguage),
             'notes' => [
                 'Сохраняйте id у каждой сущности без изменений.',
@@ -250,6 +251,26 @@ final readonly class CipherCategoryContentExportCommand implements CommandInterf
 
         $categoryAlias = (string) ($row[$prefix . '_cipher_category_alias'] ?? '');
         return $categoryAlias === '' ? $cipherAlias : $categoryAlias . '/' . $cipherAlias;
+    }
+
+    /**
+     * Возвращает примеры категории с переводами.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    private function fetchExamples(int $categoryId, string $language, string $defaultLanguage): array
+    {
+        $rows = $this->fetchTranslatedEntities(
+            Tables::CIPHERS_CATEGORIES_EXAMPLES,
+            Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS,
+            'example_id',
+            $categoryId,
+            $language,
+            $defaultLanguage,
+            ['title', 'input', 'description']
+        );
+
+        return $this->mapEntities($rows, ['title', 'input', 'description']);
     }
 
     /**

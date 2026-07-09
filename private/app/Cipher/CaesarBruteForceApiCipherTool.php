@@ -16,7 +16,9 @@ final readonly class CaesarBruteForceApiCipherTool implements ApiCipherToolInter
      */
     public function __construct(
         private CaesarCipherService $cipher,
-        private LetterFrequencyScorer $scorer
+        private LetterFrequencyScorer $scorer,
+        private BigramFrequencyScorer $bigramScorer,
+        private TrigramFrequencyScorer $trigramScorer,
     ) {
     }
 
@@ -69,9 +71,26 @@ final readonly class CaesarBruteForceApiCipherTool implements ApiCipherToolInter
             $texts[$shift] = $this->cipher->process($text, $alphabet, $shift, 'decrypt');
         }
 
-        $chiValues = array_map(fn (string $t): float => $this->scorer->chiSquared($t, $alphabet), $texts);
-        $fitness   = $this->scorer->toFitness($chiValues);
-        $bestShift = (int) array_key_first(array_filter($fitness, static fn (int $f): bool => $f === max($fitness)));
+        // Отбор лучшего сдвига: биграммное + триграммное лог-правдоподобие
+        // различает верный сдвиг на коротких текстах надёжнее моно-χ². Для
+        // алфавитов без n-gram-таблиц откатываемся к χ² (прежнее поведение).
+        if ($this->bigramScorer->supports($alphabet)) {
+            $useTrigram = $this->trigramScorer->supports($alphabet);
+            $scores     = [];
+            foreach ($texts as $shift => $t) {
+                $score = $this->bigramScorer->score($t, $alphabet);
+                if ($useTrigram) {
+                    $score += $this->trigramScorer->score($t, $alphabet);
+                }
+                $scores[$shift] = $score;
+            }
+            $bestShift = (int) array_keys($scores, max($scores), true)[0];
+            $fitness   = $this->scoresToFitness($scores);
+        } else {
+            $chiValues = array_map(fn (string $t): float => $this->scorer->chiSquared($t, $alphabet), $texts);
+            $fitness   = $this->scorer->toFitness($chiValues);
+            $bestShift = (int) array_key_first(array_filter($fitness, static fn (int $f): bool => $f === max($fitness)));
+        }
 
         $letterCount = $this->scorer->countLetters($texts[0], $alphabet);
         $reliable    = $letterCount >= LetterFrequencyScorer::MIN_LETTERS_FOR_RELIABLE_SCORING;
@@ -93,5 +112,30 @@ final readonly class CaesarBruteForceApiCipherTool implements ApiCipherToolInter
             'best_shift'        => $bestShift,
             'reliable'          => $reliable,
         ];
+    }
+
+    /**
+     * Нормализует n-gram-скоры (выше — лучше) к оценкам пригодности 0..100.
+     * Лучший сдвиг → 100, худший → 0.
+     *
+     * @param  array<int, float> $scores
+     * @return array<int, int>
+     */
+    private function scoresToFitness(array $scores): array
+    {
+        if ($scores === []) {
+            return [];
+        }
+
+        $max = max($scores);
+        $min = min($scores);
+        if ($max - $min < 1e-9) {
+            return array_map(static fn (): int => 100, $scores);
+        }
+
+        return array_map(
+            static fn (float $s): int => (int) round(100 * ($s - $min) / ($max - $min)),
+            $scores
+        );
     }
 }

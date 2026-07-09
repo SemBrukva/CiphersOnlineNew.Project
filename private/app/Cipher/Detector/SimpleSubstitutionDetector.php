@@ -13,7 +13,7 @@ use App\Cipher\IndexOfCoincidence;
  * Детектор шифра простой замены.
  *
  * Признак: только буквы; IoC ≈ IoC языка; длина ≥ 80 букв.
- * Brute-force недоступен — только ссылка на инструмент.
+ * Взлом — через substitution-cracker (частотный старт + hill climbing).
  */
 final readonly class SimpleSubstitutionDetector implements CipherDetectorInterface
 {
@@ -49,6 +49,7 @@ final readonly class SimpleSubstitutionDetector implements CipherDetectorInterfa
             cipherKey: 'CIPHER_NAME_SIMPLE_SUBSTITUTION',
             confidence: 0.50,
             evidenceKeys: ['CID_EV_CHARSET_LETTERS', 'CID_EV_IOC_MONO'],
+            bruteForceAction: 'substitution-cracker',
             detectedAlphabet: $alphabet,
         );
     }

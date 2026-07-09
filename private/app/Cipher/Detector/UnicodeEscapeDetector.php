@@ -35,11 +35,26 @@ final readonly class UnicodeEscapeDetector implements CipherDetectorInterface
 
         $confidence = $total >= 3 ? 0.90 : 0.78;
 
+        // Разворачиваем \uXXXX и U+XXXX в реальные символы: детерминированный
+        // декод, пригодный как расшифровка для авто-солвера.
+        $decoded = preg_replace_callback(
+            '/\\\\u([0-9a-fA-F]{4})/',
+            static fn (array $m): string => mb_chr((int) hexdec($m[1]), 'UTF-8'),
+            $trimmed
+        );
+        $decoded = preg_replace_callback(
+            '/U\+([0-9a-fA-F]{4,6})/',
+            static fn (array $m): string => mb_chr((int) hexdec($m[1]), 'UTF-8'),
+            (string) $decoded
+        );
+        $plaintext = (is_string($decoded) && $decoded !== $trimmed && mb_check_encoding($decoded, 'UTF-8')) ? $decoded : null;
+
         return new CipherDetection(
             toolSlug: 'encoding/unicode-converter',
             cipherKey: 'CIPHER_NAME_UNICODE',
             confidence: $confidence,
             evidenceKeys: [],
+            decryptedText: $plaintext,
         );
     }
 }

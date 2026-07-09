@@ -40,11 +40,14 @@ use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\PortaCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
+use App\Cipher\Rot47CipherService;
 use App\Cipher\SimpleSubstitutionCipherService;
+use App\Cipher\SolverService;
 use App\Cipher\TextDiffService;
 use App\Cipher\TimestampConverterCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\TrifidCipherService;
+use App\Cipher\TrigramFrequencyScorer;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereCipherService;
 use App\Cipher\VigenereCrackerService;
@@ -180,7 +183,14 @@ final class ToolRegistryTest extends TestCase
             new AnagramSolverService(),
             new DancingMenCipherService(),
             new PigpenCipherService(),
-            new TextDiffService()
+            new TextDiffService(),
+            new SolverService(
+                new CipherIdentifierService([], new LetterFrequencyScorer(), new IndexOfCoincidence(), new BigramFrequencyScorer()),
+                new BigramFrequencyScorer(),
+                new LetterFrequencyScorer(),
+                new TrigramFrequencyScorer(),
+                new Rot47CipherService(),
+            )
         );
     }
 }

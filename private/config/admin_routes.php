@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Controller\Admin\CipherCategoryController;
 use App\Controller\Admin\CipherController;
+use App\Controller\Admin\CipherSolverAnalyticsController;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\RedirectController;
 use App\Controller\Admin\SemanticCoreController;
@@ -46,6 +47,12 @@ return [
         'controller' => ToolsOverviewController::class,
         'method'     => 'index',
         'name'       => 'admin.tools_overview.index',
+    ],
+
+    'GET /cipher-solver-analytics' => [
+        'controller' => CipherSolverAnalyticsController::class,
+        'method'     => 'index',
+        'name'       => 'admin.cipher_solver_analytics.index',
     ],
 
     'POST /tools-overview/refresh-indexation' => [

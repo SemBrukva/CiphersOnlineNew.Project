@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Cipher\BaseToolUiFactory;
 use App\Cipher\HashingToolUi;
+use App\Cipher\ToolUiDecorator;
 use App\Http\Request;
 use App\Http\Response;
 use App\Repository\CipherCategoryRepository;
@@ -26,7 +27,8 @@ final readonly class CipherCategoryController
         private CipherCategoryRepository $categories,
         private CipherRepository $ciphers,
         private SystemPageRepository $pages,
-        private BaseToolUiFactory $uiFactory
+        private BaseToolUiFactory $uiFactory,
+        private ToolUiDecorator $uiDecorator
     ) {
     }
 
@@ -94,6 +96,11 @@ final readonly class CipherCategoryController
             $language,
             $defaultLanguage
         );
+        $examples = $this->categories->findExamplesByCategoryIdWithTranslation(
+            (int) $category['id'],
+            $language,
+            $defaultLanguage
+        );
 
         $cipherIds = array_map(static fn (array $t) => (int) $t['id'], $tools);
         $tagsByCipher = $this->ciphers->findTagsGroupedByCipherIds($cipherIds, $language, $defaultLanguage);
@@ -108,9 +115,11 @@ final readonly class CipherCategoryController
         }
         unset($task);
 
-        $hero = $alias === 'hashing'
-            ? $this->buildHashingHero()
-            : null;
+        $hero = match ($alias) {
+            'hashing'       => $this->buildHashingHero(),
+            'cipher-solver' => $this->buildSolverHero(),
+            default         => null,
+        };
 
         $this->view
             ->setTitle($title)
@@ -126,10 +135,12 @@ final readonly class CipherCategoryController
                 'tasks' => $tasks,
                 'used_together' => $usedTogether,
                 'faq' => $faq,
+                'examples' => $examples,
                 'hero_cipher' => $hero['cipher'] ?? null,
                 'hero_tool_slug' => $hero['tool_slug'] ?? null,
                 'hero_tool_ui' => $hero['tool_ui'] ?? null,
                 'hero_tool_ui_json' => $hero['tool_ui_json'] ?? null,
+                'hero_hide_title' => $hero['hide_title'] ?? false,
             ]));
 
         return new Response($this->view->render());
@@ -160,6 +171,38 @@ final readonly class CipherCategoryController
             'tool_slug'    => $toolSlug,
             'tool_ui'      => $toolUi,
             'tool_ui_json' => (string) json_encode($toolUi, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+        ];
+    }
+
+    /**
+     * Готовит данные hero-решателя для категории «cipher-solver».
+     * Инструмент работает в API-режиме и переиспользует зарегистрированный
+     * декодер `cipher-solver`; заголовок и описание виджета — универсальные.
+     *
+     * @return array{cipher: array<string, mixed>, tool_slug: string, tool_ui: array<string, mixed>, tool_ui_json: string, hide_title: bool}
+     */
+    private function buildSolverHero(): array
+    {
+        $toolSlug    = 'cipher-solver';
+        $cipherAlias = 'cipher-solver';
+
+        $heroCipher = [
+            'name'        => trans('SOLVER_HERO_TITLE'),
+            'description' => trans('SOLVER_HERO_DESC'),
+        ];
+
+        $toolUi = $this->uiDecorator->decorate(
+            $this->uiFactory->build($toolSlug, 'api'),
+            $cipherAlias,
+            $cipherAlias
+        );
+
+        return [
+            'cipher'       => $heroCipher,
+            'tool_slug'    => $toolSlug,
+            'tool_ui'      => $toolUi,
+            'tool_ui_json' => (string) json_encode($toolUi, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+            'hide_title'   => true,
         ];
     }
 

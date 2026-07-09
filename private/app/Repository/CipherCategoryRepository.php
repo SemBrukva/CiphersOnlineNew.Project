@@ -439,4 +439,62 @@ final class CipherCategoryRepository extends AbstractRepository
             [$defaultLanguage, $language, $defaultLanguage, $categoryId]
         );
     }
+
+    /**
+     * Возвращает список примеров категории для админки.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function listExamplesByCategoryId(int $categoryId): array
+    {
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_CATEGORIES_EXAMPLES . ' WHERE category_id = ? ORDER BY sort_order ASC, id ASC',
+            [$categoryId]
+        );
+    }
+
+    /**
+     * Возвращает переводы примеров категорий для списка id примеров.
+     *
+     * @param  int[] $exampleIds Список ID примеров.
+     * @return array<int, array<string, mixed>>
+     */
+    public function listExampleTranslationsByExampleIds(array $exampleIds): array
+    {
+        if ($exampleIds === []) {
+            return [];
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($exampleIds), '?'));
+
+        return $this->db->fetchAll(
+            'SELECT * FROM ' . Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS
+            . ' WHERE example_id IN (' . $placeholders . ') ORDER BY example_id ASC, language ASC, id ASC',
+            $exampleIds
+        );
+    }
+
+    /**
+     * Возвращает переведённые примеры категории для публичной страницы.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function findExamplesByCategoryIdWithTranslation(int $categoryId, string $language, string $defaultLanguage): array
+    {
+        return $this->db->fetchAll(
+            'SELECT e.id, e.category_id, e.sort_order, e.published, '
+            . 'COALESCE(et_cur.language, et_def.language, ?) AS language, '
+            . 'COALESCE(et_cur.title, et_def.title, \'\') AS label, '
+            . 'COALESCE(et_cur.input, et_def.input, \'\') AS input, '
+            . 'COALESCE(et_cur.description, et_def.description, \'\') AS `desc` '
+            . 'FROM ' . Tables::CIPHERS_CATEGORIES_EXAMPLES . ' e '
+            . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS . ' et_cur '
+            . 'ON et_cur.example_id = e.id AND et_cur.language = ? '
+            . 'LEFT JOIN ' . Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS . ' et_def '
+            . 'ON et_def.example_id = e.id AND et_def.language = ? '
+            . 'WHERE e.category_id = ? AND e.published = 1 '
+            . 'ORDER BY e.sort_order ASC, e.id ASC',
+            [$defaultLanguage, $language, $defaultLanguage, $categoryId]
+        );
+    }
 }

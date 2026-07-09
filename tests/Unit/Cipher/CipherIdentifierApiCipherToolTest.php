@@ -80,14 +80,17 @@ use App\Cipher\Rot13ApiCipherTool;
 use App\Cipher\Rot13CipherService;
 use App\Cipher\SimpleSubstitutionApiCipherTool;
 use App\Cipher\SimpleSubstitutionCipherService;
+use App\Cipher\SubstitutionCrackerApiCipherTool;
 use App\Cipher\TrifidApiCipherTool;
 use App\Cipher\TrifidCipherService;
+use App\Cipher\TrigramFrequencyScorer;
 use App\Cipher\VernamApiCipherTool;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereApiCipherTool;
 use App\Cipher\VigenereCipherService;
 use App\Cipher\VigenereCrackerApiCipherTool;
 use App\Cipher\XorApiCipherTool;
+use App\Cipher\XorBruteForceApiCipherTool;
 use App\Cipher\XorCipherService;
 use App\Http\Exception\ValidationFailedException;
 use PHPUnit\Framework\TestCase;
@@ -171,10 +174,12 @@ final class CipherIdentifierApiCipherToolTest extends TestCase
             new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),
             new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
             new HillApiCipherTool(new HillCipherService()),
-            new CaesarBruteForceApiCipherTool($caesar, $scorer),
+            new CaesarBruteForceApiCipherTool($caesar, $scorer, new BigramFrequencyScorer(), new TrigramFrequencyScorer()),
             new AffineBruteForceApiCipherTool(new AffineCipherService(), $scorer, $catalog, new BigramFrequencyScorer(), new NullCache()),
             new SimpleSubstitutionApiCipherTool(new SimpleSubstitutionCipherService()),
+            new SubstitutionCrackerApiCipherTool(new SimpleSubstitutionCipherService(), new LetterFrequencyScorer(), new AlphabetCatalog(), new BigramFrequencyScorer(), new TrigramFrequencyScorer(), new NullCache()),
             new XorApiCipherTool(new XorCipherService()),
+            new XorBruteForceApiCipherTool(new LetterFrequencyScorer(), new BigramFrequencyScorer(), new TrigramFrequencyScorer()),
             new VigenereCrackerApiCipherTool(new VigenereCipherService(), $scorer, $catalog, new BigramFrequencyScorer(), new NullCache()),
             new BifidApiCipherTool(new BifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
             new TrifidApiCipherTool(new TrifidCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),

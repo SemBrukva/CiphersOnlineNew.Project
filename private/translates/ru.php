@@ -14,6 +14,7 @@ return [
     'MENU_CABINET'          => 'Кабинет',
     'MENU_ADMIN'            => 'Админ',
     'MENU_TOOLS'            => 'Инструменты',
+    'MENU_CIPHER_SOLVER'     => 'Решатель шифров',
     'MENU_CLASSICAL_CIPHERS' => 'Классические шифры',
     'MENU_ENCODING'         => 'Кодирование данных',
     'MENU_CODES_AND_ALPHABETS' => 'Коды и алфавиты',
@@ -377,6 +378,17 @@ return [
     'VIGENERE_CRACK_WARN_LANG_MISMATCH'       => 'Текст не содержит символов выбранного алфавита. Попробуйте режим «Авто».',
     'VIGENERE_CRACK_WARN_NOT_ENCRYPTED'       => 'Текст, похоже, не зашифрован — ключ «A» означает нулевой сдвиг.',
     'VIGENERE_CRACK_ERR_INVALID'              => 'Некорректные входные данные.',
+
+    // XOR Brute Force
+    'XOR_BRUTE_ERR_TEXT_REQUIRED'             => 'Введите шифртекст для взлома.',
+    'XOR_BRUTE_ERR_NOT_HEX'                   => 'Ввод должен быть шестнадцатеричной строкой чётной длины.',
+    'XOR_BRUTE_ERR_TEXT_TOO_LONG'             => 'Слишком длинный ввод (максимум {limit} hex-символов).',
+    'XOR_BRUTE_ERR_INVALID'                   => 'Некорректные входные данные.',
+
+    // Substitution Cracker
+    'SUBSTITUTION_CRACK_ERR_TEXT_REQUIRED'   => 'Введите шифртекст для взлома.',
+    'SUBSTITUTION_CRACK_ERR_TEXT_TOO_LONG'    => 'Слишком длинный ввод (максимум {limit} символов).',
+    'SUBSTITUTION_CRACK_ERR_INVALID'          => 'Некорректные входные данные.',
     'VIGENERE_CRACK_ERR_TEXT_REQUIRED'        => 'Текст обязателен.',
     'VIGENERE_CRACK_ERR_ALPHABET_UNSUPPORTED' => 'Выбранный алфавит не поддерживается.',
     'VIGENERE_CRACK_ERR_TEXT_TOO_LONG'        => 'Текст слишком длинный — максимум :limit символов.',
@@ -750,6 +762,17 @@ return [
     'CIPHER_IDENTIFIER_CRACK_RUNNING'     => 'Расшифровываем…',
     'CIPHER_IDENTIFIER_CRACK_FAILED'      => 'Не удалось расшифровать',
     'CIPHER_IDENTIFIER_CRACK_KEY'         => 'Ключ',
+
+    // Cipher Solver
+    'SOLVER_TRUST_AUTO'    => 'Определяет и взламывает шифр автоматически',
+    'SOLVER_TRUST_RANKED'  => 'Ранжирует расшифровки по читаемости',
+    'SOLVER_EMPTY_LABEL'   => 'Вставьте зашифрованный текст, чтобы получить ответ',
+    'SOLVER_NO_ANSWERS'    => 'Не удалось расшифровать текст автоматически. Посмотрите кандидатов ниже.',
+    'SOLVER_BEST_TITLE'    => 'Наиболее вероятный ответ',
+    'SOLVER_ANSWERS_TITLE' => 'Другие расшифровки',
+    'SOLVER_TYPES_TOGGLE'  => 'Показать типы-кандидаты',
+    'SOLVER_OPEN_TOOL'     => 'Открыть инструмент',
+    'SOLVER_COPY_LABEL'    => 'Копировать',
     'CIPHER_IDENTIFIER_TRUST_TYPE'        => 'Статистическое определение на основе индекса совпадений и частотного анализа',
     'CIPHER_IDENTIFIER_TRUST_MULTI_ALPHA' => 'Поддерживает 8 алфавитов: английский, русский, немецкий, испанский, французский, итальянский, португальский, турецкий',
     'CIPHER_IDENTIFIER_ERR_TEXT_REQUIRED' => 'Введите текст.',
@@ -787,6 +810,7 @@ return [
     'CIPHER_NAME_UNICODE'              => 'Unicode-эскейп',
     'CIPHER_NAME_CAESAR'               => 'Шифр Цезаря',
     'CIPHER_NAME_ROT13'                => 'ROT-13',
+    'CIPHER_NAME_ROT47'                => 'ROT47',
     'CIPHER_NAME_ATBASH'               => 'Шифр Атбаш',
     'CIPHER_NAME_AFFINE'               => 'Аффинный шифр',
     'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => 'Простая замена',
@@ -842,6 +866,8 @@ return [
     // Hashing
     'HASH_HERO_TITLE'           => 'Калькулятор хешей',
     'HASH_HERO_DESC'            => 'Выберите алгоритм и вычислите криптографический хеш любого текста прямо в браузере. Поддерживаются SHA-1, SHA-256, SHA-384, SHA-512.',
+    'SOLVER_HERO_TITLE'         => 'Решатель шифров',
+    'SOLVER_HERO_DESC'          => 'Вставьте любой шифртекст — решатель автоматически определит и расшифрует его: Цезарь, Виженер, Base64, Морзе, XOR и другие, прямо в браузере.',
     'HASH_TAB_HASH'             => 'Хеш',
     'HASH_INPUT_LABEL'          => 'Текст',
     'HASH_PLACEHOLDER_INPUT'    => 'Введите текст для хеширования...',

@@ -9,6 +9,7 @@ import { initLetterFrequency } from './cipher-tool/letter-frequency.js'
 import { initBruteForce } from './cipher-tool/brute-force.js'
 import { initVigenereCracker } from './cipher-tool/vigenere-cracker.js'
 import { initCipherIdentifier } from './cipher-tool/cipher-identifier.js'
+import { initCipherSolver } from './cipher-tool/cipher-solver.js'
 import { initAnagramSolver } from './cipher-tool/anagram-solver.js'
 import { initMatrixControl } from './cipher-tool/matrix-control.js'
 import { initMorsePlayer } from './cipher-tool/morse-player.js'
@@ -101,6 +102,7 @@ export function initCipherToolPage() {
   const isBruteForceTool = Boolean(ui.bruteForceMode)
   const isVigenereCrackerTool  = Boolean(ui.vigenereCrackerMode)
   const isIdentifierTool       = Boolean(ui.identifierMode)
+  const isSolverTool           = Boolean(ui.solverMode)
   const isAnagramTool          = Boolean(ui.anagramMode)
   const anagramModeSelect      = document.getElementById('ciphers-anagram-mode')
   const isLetterFrequencyTool  = Boolean(ui.letterFrequencyMode)
@@ -155,6 +157,7 @@ export function initCipherToolPage() {
   let bruteForce = null
   let vigenereCracker = null
   let cipherIdentifier = null
+  let cipherSolver = null
   let anagramSolver = null
   let dancingMen = null
   let pigpen = null
@@ -564,6 +567,7 @@ export function initCipherToolPage() {
       if (isBruteForceTool) bruteForce.showEmpty()
       if (isVigenereCrackerTool) vigenereCracker.showEmpty()
       if (isIdentifierTool) cipherIdentifier.showEmpty()
+      if (isSolverTool) cipherSolver.showEmpty()
       if (isAnagramTool) anagramSolver.showEmpty()
       if (isLetterFrequencyTool) letterFrequency.showEmpty()
       if (isJsonFormatterTool) jsonFormatter.showEmpty()
@@ -796,6 +800,8 @@ export function initCipherToolPage() {
         vigenereCracker.handleApiResponse(response, alphabetSelect)
       } else if (isIdentifierTool) {
         cipherIdentifier.handleApiResponse(response)
+      } else if (isSolverTool) {
+        cipherSolver.handleApiResponse(response)
       } else if (isAnagramTool) {
         anagramSolver.handleApiResponse(response)
       } else {
@@ -829,6 +835,9 @@ export function initCipherToolPage() {
       }
       if (isIdentifierTool) {
         cipherIdentifier.showEmpty()
+      }
+      if (isSolverTool) {
+        cipherSolver.showEmpty()
       }
       if (isAnagramTool) {
         anagramSolver.showEmpty()
@@ -1334,6 +1343,12 @@ export function initCipherToolPage() {
 
   if (isIdentifierTool) {
     cipherIdentifier = initCipherIdentifier({
+      output, visualOutput, tabDecode, ui, input, setFeedback, setOutputState,
+    })
+  }
+
+  if (isSolverTool) {
+    cipherSolver = initCipherSolver({
       output, visualOutput, tabDecode, ui, input, setFeedback, setOutputState,
     })
   }

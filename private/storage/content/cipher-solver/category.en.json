@@ -1,0 +1,310 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-07-09T18:30:15+00:00",
+        "category_alias": "cipher-solver",
+        "language": "en",
+        "default_language": "en",
+        "category_id": 6
+    },
+    "category_translation": {
+        "id": 6,
+        "data": {
+            "name": "Cipher Solver",
+            "name_short": "Cipher Solver",
+            "description": "Paste unknown ciphertext into a cipher identifier, cipher decoder, and cipher solver in one place. The tool detects likely cipher or encoding types, runs supported solvers automatically, and shows the most likely plaintext first with ranked alternative decryptions and evidence.",
+            "meta_title": "Cipher Identifier and Cipher Solver - Decode Unknown Ciphers Online",
+            "meta_description": "Free cipher identifier, ciphertext decoder, and cryptogram solver. Decode Caesar, ROT13, ROT47, Atbash, Vigenere, Affine, substitution, Base64, Hex, Binary, Morse, URL, Unicode, and XOR examples online."
+        }
+    },
+    "blocks": [
+        {
+            "id": 19,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Cipher Solver works",
+                "text": "<p>The Cipher Solver starts as a cipher identifier and cipher decoder: it analyzes the text you paste, detects likely cipher or encoding families, and then tries the supported cracking or decoding path automatically. The first card shows the most likely plaintext, while the ranked list below keeps alternative decryptions visible for comparison.</p><p>The service combines strict format checks with cryptanalysis. Pattern-based detectors recognize Base64, hexadecimal, binary, URL percent escapes, Unicode escape sequences, Morse symbols, JWT structure, A1Z26 numbers, and Polybius-style coordinates. Statistical detectors examine alphabetic ciphertext with Index of Coincidence, chi-squared letter frequency, bigram and trigram readability, common n-gram matches, and cipher-specific scoring.</p><p>For reversible encodings the decoded text can be shown directly. For supported classical ciphers the solver runs the matching workflow, including Caesar brute force, ROT13, ROT47, Atbash, Affine brute force, Vigenere cracking, simple substitution cracking, and single-byte XOR brute force. When a cipher needs information the input does not contain, the page still shows type candidates and the best continuation path.</p>"
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Supported cipher and encoding families",
+                "text": "<p>The solver checks 27 detector types across several families: <strong>encodings and structured formats</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>codes and alphabet systems</strong>: Morse code, Bacon cipher, A1Z26, Polybius Square; <strong>monoalphabetic ciphers</strong>: Caesar, ROT13, Atbash, Affine, Simple Substitution, XOR; <strong>polyalphabetic ciphers</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>fractionating ciphers</strong>: Bifid, Trifid; <strong>transposition ciphers</strong>: Rail Fence, Columnar Transposition; <strong>polygraphic ciphers</strong>: Playfair, Hill.</p><p>Automatic solving is strongest for deterministic encodings and for cipher families with practical brute-force or statistical attacks. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, simple substitution, Base64, Hex, Binary, Morse, URL, Unicode escape, and single-byte XOR all have example inputs on this page that produce a plaintext result directly in the solver.</p><p>For language-dependent analysis, the alphabet setting can be left on auto-detect or limited manually to English, Russian, German, Spanish, French, Italian, Portuguese, or Turkish. Choosing the correct alphabet helps the frequency model compare the candidate plaintext against the right language profile.</p>"
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "What the result tells you",
+                "text": "<p>The result is more than a yes-or-no guess. The top card is the solver's best plaintext candidate, labeled with the detected cipher or encoding, the recovered key when available, and a readability score. The other decryptions list shows close alternatives, which matters when several classical ciphers produce partially readable text.</p><p>The expandable candidate table explains the identification layer: confidence percentages, evidence labels, and links to the matching tool. Evidence can include format pattern, character set, IoC range, frequency shape, readable bigrams, common words, key-length signal, or cipher-specific scoring.</p><p>Treat the first answer as the strongest hypothesis, not as magic certainty. Encodings such as Base64, Hex, Binary, URL, Unicode, and Morse are usually deterministic. Classical cipher solving depends on text length, language, spacing, and whether the original key can be inferred from the ciphertext alone.</p>"
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Best uses for cipher solving",
+                "text": "<p>This service is useful when you have an unknown encrypted message, puzzle text, CTF challenge, classroom cryptography exercise, cryptogram, encoded token, copied data fragment, or legacy cipher sample and want a fast first answer. It helps separate simple encodings such as Base64, Hex, Binary, URL encoding, Unicode escape, Morse, and JWT from classical cryptography such as Caesar, Vigenere, Playfair, Affine, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid, Hill, and related systems.</p><p>Use it as an all-in-one starting point: paste the ciphertext, inspect the most likely decoded result, then compare the ranked alternatives. If the message looks like a number cryptogram, an alphabet code, or a cipher that needs a key, the candidate table points you toward the more specific decoder instead of pretending every format has a one-click plaintext.</p>"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Input quality and limitations",
+                "text": "<p>Short samples, mixed languages, heavy punctuation, transcription errors, and partially copied ciphertext reduce confidence. Strict encodings can often be recognized from short strings, but statistical solving for classical ciphers works best with longer alphabetic samples. As a practical rule, 50 or more letters gives the solver much more evidence than a single word or a short code; simple substitution usually needs even more text.</p><p>The input limit is 3000 characters. For best results, paste the ciphertext itself, remove unrelated labels or explanations, preserve spaces when they may be meaningful, and choose the likely alphabet if auto-detection is uncertain. The tool is designed for classical ciphers, educational cryptanalysis, puzzle-style cryptograms, and common text encodings; it is not a decoder for modern encryption such as AES, RSA, ChaCha20, or encrypted binary files.</p>"
+            }
+        }
+    ],
+    "tasks": [],
+    "used_together": [],
+    "examples": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Caesar cipher",
+                "input": "KHOOR ZRUOG WKLV LV D WHVW PHVVDJH IRU FLSKHU GHWHFWLRQ",
+                "description": "A shift-3 Caesar message. The solver brute-forces the alphabet and returns HELLO WORLD THIS IS A TEST MESSAGE FOR CIPHER DETECTION."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64",
+                "input": "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZw==",
+                "description": "A Base64-encoded pangram. The solver detects the encoding and decodes it to The quick brown fox jumps over the lazy dog."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT-13",
+                "input": "URYYB JBEYQ GUVF VF N FRPERG ZRFFNTR",
+                "description": "ROT13 is a Caesar shift of 13. The solver ranks the shift-13 plaintext HELLO WORLD THIS IS A SECRET MESSAGE as the best answer."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "ROT47",
+                "input": "%96 D64C6E >66E:?8 :D 2E ?@@? E@>@CC@H",
+                "description": "A printable ASCII ROT47 sample. The solver decodes it to The secret meeting is at noon tomorrow."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Atbash",
+                "input": "SVOOL DLIOW GSRH RH Z HVXIVG NVHHZTV",
+                "description": "A reversed-alphabet substitution. The solver applies Atbash and recovers HELLO WORLD THIS IS A SECRET MESSAGE."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Vigenère",
+                "input": "SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC",
+                "description": "A Vigenère sample encrypted with the key KEY. The automatic cracker recovers the key and the Dickens plaintext fragment."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "Affine",
+                "input": "Ihhwvc swfrcpu cvspyfz cisr lczzcp owzr zoa veqcpws gcyu ivx pcjcil livmeimc fizzcpvu evxcp ivilyuwu",
+                "description": "An affine cipher with keys a=5, b=8. The solver tests valid key pairs and restores the plaintext sentence."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Substitution",
+                "input": "zit iolzgkn gy ltektz vkozofu ol yxss gy lodhst lxwlzozxzogf qshiqwtzl. htghst xltr zitd ygk hkocqzt fgztl, esqllkggd tbtkeoltl, qfr hsqnyxs zktqlxkt dqhl. zit dtzigr kthsqetl tctkn hsqofztbz stzztk vozi gft yobtr eohitkztbz stzztk, lg zit lqdt vgkr qsvqnl ektqztl zit lqdt hqzztkf. egddgf tfroful, rgxwst stzztkl, qfr ligkz vgkrl uoct zit lgsctk tfgxui tcortfet zg ktegctk zit dtllqut.",
+                "description": "A longer monoalphabetic substitution cryptogram. The solver uses frequency and n-gram scoring to recover the full plaintext."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "title": "Hex",
+                "input": "48656c6c6f20576f726c64207468697320697320686578",
+                "description": "Plain text represented as hexadecimal bytes. The solver decodes it to Hello World this is hex."
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "title": "Binary",
+                "input": "01001000 01101001 00100000 01110100 01101000 01100101 01110010 01100101",
+                "description": "Eight-bit binary ASCII groups. The solver converts the bits back to Hi there."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "title": "Morse",
+                "input": ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
+                "description": "International Morse code with a slash between words. The solver decodes it to HELLO WORLD."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 120,
+            "published": true,
+            "data": {
+                "title": "URL",
+                "input": "Hello%20World%21%20cipher%20solver",
+                "description": "URL percent-encoded text. The solver decodes the percent escapes to Hello World! cipher solver."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 130,
+            "published": true,
+            "data": {
+                "title": "Unicode",
+                "input": "\\u0048\\u0065\\u006c\\u006c\\u006f\\u0020\\u0057\\u006f\\u0072\\u006c\\u0064",
+                "description": "Unicode escape sequences. The solver expands the code points to Hello World."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 140,
+            "published": true,
+            "data": {
+                "title": "XOR",
+                "input": "4854591c484e595d4f494e591c554f1c5e494e5559581c495258594e1c4854591c5350581c535d571c484e5959",
+                "description": "Single-byte XOR ciphertext written as hex. The solver brute-forces 256 byte keys and finds key=0x3C."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How accurate is the Cipher Solver?",
+                "answer": "Accuracy depends heavily on text length, alphabet, noise, and cipher family. Structured formats and encodings such as Base64, Hex, Binary, URL encoding, Unicode escape, JWT, and Morse can often be decoded from short samples because they have strict character patterns. Classical cipher solving is statistical, so it becomes more reliable as the sample grows. A few words may only produce broad hints, while 50+ alphabetic characters gives the solver much stronger evidence."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the Index of Coincidence and why is it useful?",
+                "answer": "The Index of Coincidence (IoC) measures how unevenly letters are distributed in a text. Natural language has uneven letter frequencies, so its IoC is usually higher than random text. Caesar, Atbash, Affine, and many simple substitution ciphers preserve much of that frequency shape. Vigenere, Beaufort, Autokey, Gronsfeld, and similar polyalphabetic ciphers spread letters more evenly, producing a lower IoC. Comparing the measured IoC with language-specific reference values helps the tool separate cipher families before applying more specific tests."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why does the tool show multiple decryptions instead of one answer?",
+                "answer": "Many classical ciphers share statistical fingerprints, especially when the text is short or the cipher introduces only subtle changes. Vigenere, Beaufort, Autokey, Gronsfeld, and Alberti can look similar; Caesar, Affine, Atbash, and simple substitution all preserve strong monoalphabetic patterns. Rather than hiding uncertainty, the tool returns a best plaintext plus a ranked list of alternatives so you can compare close candidates."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can the tool identify encodings as well as ciphers?",
+                "answer": "Yes. The solver checks both cipher families and common encoded text formats. It can recognize and decode patterns typical of Base64, Hexadecimal, Binary, URL encoding, Unicode escape sequences, Morse code, JWT tokens, A1Z26 numbers, and Polybius-style coordinates. This matters because many strings that look encrypted are actually encoded or formatted rather than encrypted with a classical cipher."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Will it decrypt the message automatically?",
+                "answer": "Often, when the format is reversible or the cipher has a practical built-in attack. Caesar, ROT13, ROT47, Atbash, Affine, Vigenere, simple substitution, Base64, Hex, Binary, Morse, URL encoding, Unicode escape, and single-byte XOR can produce direct plaintext results for suitable inputs. Other ciphers may require a secret key, matrix, alphabet, crib, or stronger assumptions, so the page shows candidates and links to the matching tool when automatic decryption is not reliable."
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Which alphabets and languages are supported?",
+                "answer": "The alphabet setting supports auto-detect plus English, Russian, German, Spanish, French, Italian, Portuguese, and Turkish. The selected alphabet affects frequency analysis, IoC comparison, chi-squared scoring, and readable-text checks. If you know the plaintext language, selecting it manually can improve the ranking."
+            }
+        },
+        {
+            "id": 40,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can it identify AES, RSA, or modern encryption?",
+                "answer": "No. The Cipher Solver is built for classical ciphers, educational cryptanalysis, puzzle-style ciphertext, cryptograms, and common text encodings. Modern encryption such as AES, RSA, ChaCha20, or encrypted files is intentionally designed to look random and cannot be decoded or identified reliably from ciphertext alone without metadata, protocol context, keys, or file structure."
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "What should I paste for the best result?",
+                "answer": "Paste the raw ciphertext or encoded string, not the surrounding explanation. Keep enough text for analysis, avoid mixing several different messages in one input, and remove obvious labels such as \"ciphertext:\" or \"answer:\". For classical ciphers, longer alphabetic text is much better than a single word. For encodings, preserve separators, slashes, dots, percent signs, padding, and line breaks when they are part of the format."
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Can I use it as a cipher decoder with a key?",
+                "answer": "This page is optimized for unknown ciphertext and automatic solving. If you already know the key, use the matching cipher page from the candidate table, such as Vigenere, Affine, Playfair, Rail Fence, Columnar Transposition, or XOR. A known key usually gives a more exact result than statistical guessing."
+            }
+        },
+        {
+            "id": 43,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Is cypher solver the same as cipher solver?",
+                "answer": "Yes. Cipher is the standard spelling in cryptography, while cypher is a common alternate spelling. The tool handles the same user task either way: paste unknown cipher text, decode supported formats, and rank likely plaintext candidates."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

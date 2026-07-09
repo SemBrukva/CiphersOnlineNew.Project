@@ -51,16 +51,15 @@ final readonly class HexDetector implements CipherDetectorInterface
             return null;
         }
 
-        $confidence = match (true) {
-            $this->looksLikeText($decoded) => $len < 8 ? 0.78 : 0.92,
-            default                        => 0.55,
-        };
+        $isText     = $this->looksLikeText($decoded);
+        $confidence = $isText ? ($len < 8 ? 0.78 : 0.92) : 0.55;
 
         return new CipherDetection(
             toolSlug: 'encoding/hex',
             cipherKey: 'CIPHER_NAME_HEX',
             confidence: $confidence,
             evidenceKeys: ['CID_EV_CHARSET_HEX'],
+            decryptedText: $isText ? $decoded : null,
         );
     }
 

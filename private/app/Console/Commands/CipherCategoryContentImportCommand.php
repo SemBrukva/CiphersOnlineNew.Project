@@ -68,6 +68,7 @@ final readonly class CipherCategoryContentImportCommand implements CommandInterf
             'blocks' => 0, 'blocks_created' => 0,
             'tasks' => 0, 'tasks_created' => 0,
             'used_together' => 0, 'used_together_created' => 0,
+            'examples' => 0, 'examples_created' => 0,
             'faq' => 0, 'faq_created' => 0,
         ];
 
@@ -139,6 +140,30 @@ final readonly class CipherCategoryContentImportCommand implements CommandInterf
                     $summary['used_together']++;
                 }
 
+                foreach ($this->readItems($payload, 'examples') as $item) {
+                    $entityId = $this->resolveSimpleEntity(
+                        Tables::CIPHERS_CATEGORIES_EXAMPLES,
+                        Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS,
+                        'example_id',
+                        $categoryId,
+                        $language,
+                        $defaultLanguage,
+                        $item,
+                        $now,
+                        $summary['examples_created']
+                    );
+                    $this->upsertTranslation(
+                        Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS,
+                        'example_id',
+                        $entityId,
+                        $language,
+                        $this->readData($item),
+                        ['title', 'input', 'description'],
+                        $now
+                    );
+                    $summary['examples']++;
+                }
+
                 foreach ($this->readItems($payload, 'faq') as $item) {
                     $entityId = $this->resolveSimpleEntity(
                         Tables::CIPHERS_CATEGORIES_FAQ,
@@ -183,6 +208,7 @@ final readonly class CipherCategoryContentImportCommand implements CommandInterf
             . ', blocks=' . $summary['blocks'] . ' (создано: ' . $summary['blocks_created'] . ')'
             . ', tasks=' . $summary['tasks'] . ' (создано: ' . $summary['tasks_created'] . ')'
             . ', used_together=' . $summary['used_together'] . ' (создано: ' . $summary['used_together_created'] . ')'
+            . ', examples=' . $summary['examples'] . ' (создано: ' . $summary['examples_created'] . ')'
             . ', faq=' . $summary['faq'] . ' (создано: ' . $summary['faq_created'] . ')' . PHP_EOL;
 
         return 0;

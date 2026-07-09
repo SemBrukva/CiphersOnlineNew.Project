@@ -150,4 +150,79 @@ final class AnalyticsRepository extends AbstractRepository
 
         return $result;
     }
+
+    /**
+     * Возвращает общее число использований конкретного инструмента за последние N дней.
+     */
+    public function totalCountForTool(string $toolSlug, int $days = 30): int
+    {
+        $since = date('Y-m-d H:i:s', strtotime("-{$days} days"));
+        $row = $this->db->fetch(
+            'SELECT COUNT(*) AS cnt FROM ' . Tables::TOOL_USAGE_EVENTS
+            . ' WHERE tool_slug = ? AND created_at >= ?',
+            [$toolSlug, $since]
+        );
+
+        return (int) ($row['cnt'] ?? 0);
+    }
+
+    /**
+     * Возвращает дневную статистику использования конкретного инструмента за последние N дней.
+     *
+     * Результат — ассоциативный массив `['YYYY-MM-DD' => count]` без пропусков.
+     *
+     * @return array<string, int>
+     */
+    public function dailyUsageForTool(string $toolSlug, int $days = 30): array
+    {
+        $since = date('Y-m-d', strtotime("-{$days} days"));
+
+        $rows = $this->db->fetchAll(
+            'SELECT DATE(created_at) AS day, COUNT(*) AS cnt
+             FROM ' . Tables::TOOL_USAGE_EVENTS . '
+             WHERE tool_slug = ? AND created_at >= ?
+             GROUP BY DATE(created_at)
+             ORDER BY day ASC',
+            [$toolSlug, $since . ' 00:00:00']
+        );
+
+        $byDay = [];
+        foreach ($rows as $row) {
+            $byDay[(string) $row['day']] = (int) $row['cnt'];
+        }
+
+        $result = [];
+        for ($i = $days - 1; $i >= 0; $i--) {
+            $day = date('Y-m-d', strtotime("-{$i} days"));
+            $result[$day] = $byDay[$day] ?? 0;
+        }
+
+        return $result;
+    }
+
+    /**
+     * Возвращает разбивку использований конкретного инструмента по источнику за N дней.
+     *
+     * @return array{local: int, embed: int}
+     */
+    public function sourceBreakdownForTool(string $toolSlug, int $days = 30): array
+    {
+        $since = date('Y-m-d H:i:s', strtotime("-{$days} days"));
+
+        $rows = $this->db->fetchAll(
+            'SELECT source, COUNT(*) AS cnt
+             FROM ' . Tables::TOOL_USAGE_EVENTS . '
+             WHERE tool_slug = ? AND created_at >= ?
+             GROUP BY source',
+            [$toolSlug, $since]
+        );
+
+        $result = ['local' => 0, 'embed' => 0];
+        foreach ($rows as $row) {
+            $key = (string) ($row['source'] ?? 'local') === 'embed' ? 'embed' : 'local';
+            $result[$key] += (int) $row['cnt'];
+        }
+
+        return $result;
+    }
 }

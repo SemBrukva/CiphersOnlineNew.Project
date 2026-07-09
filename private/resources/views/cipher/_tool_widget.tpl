@@ -5,6 +5,7 @@
 {* при передаче рендерит шапку категории (название, описание, чипы инструментов) над калькулятором *}
 {* и скрывает кнопку «в избранное», чтобы получился единый hero. *}
 {$widget_heading_tag = $widget_heading_tag|default:'h1'}
+{$hide_title = $hide_title|default:false}
 {$has_category_intro = isset($category_intro) && $category_intro}
 <section class="ciphers-page{if $has_category_intro} ciphers-page--with-category-intro{/if}"
          data-page="cipher-tool"
@@ -27,6 +28,7 @@
                 {/if}
             </div>
             {/if}
+            {if !$hide_title}
             <div class="ciphers-unified__title-row">
                 <{$widget_heading_tag} class="ciphers-unified__title">{$cipher.name}</{$widget_heading_tag}>
                 {if !$has_category_intro && !($embed|default:false)}
@@ -41,6 +43,7 @@
                 {/if}
             </div>
             <p class="ciphers-unified__desc">{$cipher.description}</p>
+            {/if}
 
             <div class="ciphers-unified__controls-row">
 

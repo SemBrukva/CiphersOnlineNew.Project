@@ -1,0 +1,310 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-07-09T18:31:54+00:00",
+        "category_alias": "cipher-solver",
+        "language": "pt",
+        "default_language": "en",
+        "category_id": 6
+    },
+    "category_translation": {
+        "id": 6,
+        "data": {
+            "name": "Resolvedor de cifras",
+            "name_short": "Resolvedor de cifras",
+            "description": "Cole um texto cifrado desconhecido em um identificador, decodificador e resolvedor de cifras no mesmo lugar. A ferramenta detecta tipos prováveis de cifra ou codificação, executa automaticamente os solvers compatíveis e mostra primeiro o texto claro mais provável, com decifrações alternativas ranqueadas e evidências.",
+            "meta_title": "Identificador e resolvedor de cifras - decifrar online",
+            "meta_description": "Resolvedor gratuito de cifras, decodificador de ciphertext e solver de criptogramas. Decifre Caesar, ROT13, ROT47, Atbash, Vigenere, Afim, substituição, Base64, Hex, Binary, Morse, URL, Unicode e XOR online."
+        }
+    },
+    "blocks": [
+        {
+            "id": 19,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Como o resolvedor de cifras funciona",
+                "text": "<p>O resolvedor começa como identificador e decodificador de cifras: ele analisa o texto colado, detecta famílias prováveis de cifra ou codificação e então tenta automaticamente o caminho de cracking ou decodificação suportado. O primeiro cartão mostra o texto claro mais provável, enquanto a lista ranqueada mantém outras decifrações visíveis para comparação.</p><p>O serviço combina verificações rígidas de formato com criptoanálise. Detectores baseados em padrões reconhecem Base64, hexadecimal, binário, escapes de URL, sequências Unicode, símbolos Morse, estrutura JWT, números A1Z26 e coordenadas do tipo Polybius. Detectores estatísticos examinam texto alfabético com índice de coincidência, chi-quadrado de frequência, legibilidade de bigramas e trigramas, n-gramas comuns e pontuações específicas de cada cifra.</p><p>Para codificações reversíveis, o texto decodificado pode aparecer diretamente. Para cifras clássicas suportadas, o solver executa o fluxo correspondente: força bruta Caesar, ROT13, ROT47, Atbash, força bruta Afim, cracking Vigenere, cracking de substituição simples e força bruta XOR de um byte. Quando a cifra exige uma informação que o texto não contém, a página ainda mostra candidatos e o melhor caminho para continuar.</p>"
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Famílias de cifras e codificações suportadas",
+                "text": "<p>O solver verifica 27 tipos de detectores em várias famílias: <strong>codificações e formatos estruturados</strong>: Base64, Hexadecimal, Binary, URL encoding, Unicode escape, JWT; <strong>códigos e sistemas alfabéticos</strong>: código Morse, cifra de Bacon, A1Z26, Polybius Square; <strong>cifras monoalfabéticas</strong>: Caesar, ROT13, Atbash, Afim, substituição simples, XOR; <strong>cifras polialfabéticas</strong>: Vigenere, Beaufort, Autokey, Gronsfeld, Alberti; <strong>cifras fracionárias</strong>: Bifid, Trifid; <strong>cifras de transposição</strong>: Rail Fence, Columnar Transposition; <strong>cifras poligráficas</strong>: Playfair, Hill.</p><p>A resolução automática é mais forte para codificações determinísticas e famílias com ataques práticos de força bruta ou estatísticos. Caesar, ROT13, ROT47, Atbash, Afim, Vigenere, substituição simples, Base64, Hex, Binary, Morse, URL, Unicode escape e XOR de um byte têm exemplos nesta página que produzem texto claro diretamente no solver.</p><p>Para análise dependente do idioma, você pode deixar o alfabeto em auto-detecção ou limitar manualmente a inglês, russo, alemão, espanhol, francês, italiano, português ou turco. Escolher o alfabeto correto ajuda o modelo de frequência a comparar o candidato com o perfil linguístico adequado.</p>"
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "O que o resultado informa",
+                "text": "<p>O resultado não é apenas uma resposta de sim ou não. O cartão superior é o melhor candidato de texto claro do solver, rotulado com a cifra ou codificação detectada, a chave recuperada quando disponível e uma pontuação de legibilidade. A lista de outras decifrações mostra alternativas próximas, o que importa quando várias cifras clássicas produzem texto parcialmente legível.</p><p>A tabela expansível de candidatos explica a camada de identificação: porcentagens de confiança, etiquetas de evidência e links para a ferramenta correspondente. As evidências podem incluir padrão de formato, conjunto de caracteres, faixa de IoC, forma das frequências, bigramas legíveis, palavras comuns, sinal de tamanho de chave ou pontuação específica da cifra.</p><p>Trate a primeira resposta como a hipótese mais forte, não como certeza mágica. Base64, Hex, Binary, URL, Unicode e Morse normalmente são determinísticos. A resolução de cifras clássicas depende do tamanho do texto, do idioma, dos espaços e de a chave original poder ser inferida apenas pelo ciphertext.</p>"
+            }
+        },
+        {
+            "id": 22,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Melhores usos para resolver cifras",
+                "text": "<p>Este serviço é útil quando você tem uma mensagem cifrada desconhecida, um puzzle, um desafio CTF, um exercício de criptografia, um criptograma, um token codificado, um fragmento copiado ou uma amostra antiga de cifra e quer uma primeira resposta rápida. Ele ajuda a separar codificações simples como Base64, Hex, Binary, URL encoding, Unicode escape, Morse e JWT de criptografia clássica como Caesar, Vigenere, Playfair, Afim, Atbash, Rail Fence, Columnar Transposition, Polybius, Bacon, Bifid, Trifid, Hill e sistemas relacionados.</p><p>Use como ponto de partida único: cole o ciphertext, veja o resultado decodificado mais provável e compare as alternativas ranqueadas. Se a mensagem parece um criptograma numérico, um código alfabético ou uma cifra que exige chave, a tabela de candidatos aponta para o decodificador mais específico em vez de fingir que todo formato tem texto claro com um clique.</p>"
+            }
+        },
+        {
+            "id": 23,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Qualidade da entrada e limites",
+                "text": "<p>Amostras curtas, idiomas misturados, muita pontuação, erros de transcrição e ciphertext copiado parcialmente reduzem a confiança. Codificações rígidas podem ser reconhecidas a partir de strings breves, mas a resolução estatística de cifras clássicas funciona melhor com amostras alfabéticas mais longas. Como regra prática, 50 ou mais letras dão ao solver muito mais evidência que uma única palavra ou um código curto; substituição simples geralmente precisa de ainda mais texto.</p><p>O limite de entrada é 3000 caracteres. Para melhores resultados, cole o próprio ciphertext, remova rótulos ou explicações externas, preserve espaços quando eles puderem ser significativos e escolha o alfabeto provável se a auto-detecção estiver incerta. A ferramenta foi criada para cifras clássicas, criptoanálise educacional, criptogramas de puzzle e codificações de texto comuns; não é um decodificador para criptografia moderna como AES, RSA, ChaCha20 nem arquivos binários cifrados.</p>"
+            }
+        }
+    ],
+    "tasks": [],
+    "used_together": [],
+    "examples": [
+        {
+            "id": 4,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cifra Caesar",
+                "input": "poã ówôêp fúvf f wó vfúvf sãuã p úpoyfu êf ekiuãú",
+                "description": "Uma mensagem Caesar com deslocamento 3 no alfabeto português. O solver testa os deslocamentos e retorna ola mundo este e um teste para o solver de cifras."
+            }
+        },
+        {
+            "id": 5,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base64",
+                "input": "TyB0ZXh0byBlbSBiYXNlNjQgdm9sdGEgbGVnaXZlbCBubyBzb2x2ZXI=",
+                "description": "Uma frase em português codificada em Base64. O solver detecta a codificação e decodifica para O texto em base64 volta legivel no solver."
+            }
+        },
+        {
+            "id": 6,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT-13",
+                "input": "URYYB JBEYQ GUVF VF N FRPERG ZRFFNTR",
+                "description": "ROT13 é um Caesar com deslocamento 13. O solver classifica como melhor resposta o texto HELLO WORLD THIS IS A SECRET MESSAGE."
+            }
+        },
+        {
+            "id": 7,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "ROT47",
+                "input": "%96 D64C6E >66E:?8 :D 2E ?@@? E@>@CC@H",
+                "description": "Um exemplo ROT47 em ASCII imprimível. O solver decodifica para The secret meeting is at noon tomorrow."
+            }
+        },
+        {
+            "id": 8,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Atbash",
+                "input": "ikz jçíti seds s çjz jsíezôsj esúésdz",
+                "description": "Uma substituição por alfabeto invertido em português. O solver aplica Atbash e recupera ola mundo este e uma mensagem secreta."
+            }
+        },
+        {
+            "id": 9,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "title": "Vigenère",
+                "input": "Úçaíír çm mjwàuézcnoo yhlezj yw tãcxy cémvhdj zhw a aocee, mymweéyr árjhyãa megãoãz vopãamnoó ír sdéuph. Lãavhs çyhàuãtxos, mevos ãzxhvãów o o ôephneu uãoreaol àe êrarj cuuàep h déãmnio e ponóekom ãs ahréew loháqhs. Àjuyió hcna auôçnv wcãeaj ywa aójãa àj Êosvy wopvycna, ã e hbtvambtéhc loijêh a ojêçpãycã o ôjàco arcão.",
+                "description": "Um exemplo Vigenère em português com a chave CHAVE. O cracker automático recupera texto claro legível sobre padrões do idioma."
+            }
+        },
+        {
+            "id": 10,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "title": "Afim",
+                "input": "e xúçnbceaerçzg de xçsúe esçv bgzbe bcdez ez xáemgz merçdez g xcvneúe ez súgqégaxçez",
+                "description": "Uma cifra Afim com chaves a=5, b=8. O solver testa pares de chaves válidos e restaura a frase em português."
+            }
+        },
+        {
+            "id": 11,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "title": "Substituição",
+                "input": "zit iolzgkn gy ltektz vkozofu ol yxss gy lodhst lxwlzozxzogf qshiqwtzl. htghst xltr zitd ygk hkocqzt fgztl, esqllkggd tbtkeoltl, qfr hsqnyxs zktqlxkt dqhl. zit dtzigr kthsqetl tctkn hsqofztbz stzztk vozi gft yobtr eohitkztbz stzztk, lg zit lqdt vgkr qsvqnl ektqztl zit lqdt hqzztkf. egddgf tfroful, rgxwst stzztkl, qfr ligkz vgkrl uoct zit lgsctk tfgxui tcortfet zg ktegctk zit dtllqut.",
+                "description": "Um criptograma longo de substituição monoalfabética. O solver usa frequências e pontuação por n-gramas para recuperar o texto completo."
+            }
+        },
+        {
+            "id": 12,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "title": "Hex",
+                "input": "4f20746578746f20656d2068657861646563696d616c2066696361206c65676976656c207175616e646f206f20736f6c766572206465636f646966696361",
+                "description": "Texto representado como bytes hexadecimais. O solver decodifica para O texto em hexadecimal fica legivel quando o solver decodifica."
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "title": "Binary",
+                "input": "01001111 01101100 01100001 00100000 01101101 01110101 01101110 01100100 01101111",
+                "description": "Grupos binários ASCII de oito bits. O solver converte os bits de volta para Ola mundo."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 110,
+            "published": true,
+            "data": {
+                "title": "Morse",
+                "input": ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
+                "description": "Código Morse internacional com uma barra entre palavras. O solver decodifica para HELLO WORLD."
+            }
+        },
+        {
+            "id": 15,
+            "sort_order": 120,
+            "published": true,
+            "data": {
+                "title": "URL",
+                "input": "Ola%20mundo%21%20resolvedor%20de%20cifras",
+                "description": "Texto com codificação percentual de URL. O solver decodifica os escapes para Ola mundo! resolvedor de cifras."
+            }
+        },
+        {
+            "id": 16,
+            "sort_order": 130,
+            "published": true,
+            "data": {
+                "title": "Unicode",
+                "input": "\\u004f\\u006c\\u0061\\u0020\\u006d\\u0075\\u006e\\u0064\\u006f",
+                "description": "Sequências Unicode escape. O solver expande os code points e retorna Ola mundo."
+            }
+        },
+        {
+            "id": 17,
+            "sort_order": 140,
+            "published": true,
+            "data": {
+                "title": "XOR",
+                "input": "4854591c484e595d4f494e591c554f1c5e494e5559581c495258594e1c4854591c5350581c535d571c484e5959",
+                "description": "Ciphertext XOR de um byte escrito em hexadecimal. O solver testa 256 chaves de byte e encontra key=0x3C."
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 34,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Qual é a precisão do resolvedor de cifras?",
+                "answer": "A precisão depende muito do tamanho do texto, do alfabeto, do ruído e da família da cifra. Formatos estruturados e codificações como Base64, Hex, Binary, URL encoding, Unicode escape, JWT e Morse muitas vezes podem ser decodificados a partir de amostras curtas, porque têm padrões rígidos. Cifras clássicas são estatísticas, então ficam mais confiáveis quando a amostra cresce. Algumas palavras podem gerar apenas pistas gerais; 50 ou mais caracteres alfabéticos dão ao solver evidências muito mais fortes."
+            }
+        },
+        {
+            "id": 35,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "O que é o índice de coincidência e por que ele é útil?",
+                "answer": "O índice de coincidência (IoC) mede quão desigual é a distribuição das letras em um texto. Em uma língua natural, algumas letras aparecem com muito mais frequência, por isso o IoC costuma ser maior que em texto aleatório. Caesar, Atbash, Afim e muitas substituições simples preservam boa parte dessa forma de frequências. Vigenere, Beaufort, Autokey, Gronsfeld e cifras polialfabéticas semelhantes distribuem melhor as letras e produzem um IoC mais baixo. Comparar o IoC medido com valores de referência por idioma ajuda a separar famílias antes de aplicar testes mais específicos."
+            }
+        },
+        {
+            "id": 36,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Por que a ferramenta mostra várias decifrações em vez de uma resposta?",
+                "answer": "Muitas cifras clássicas compartilham impressões estatísticas, especialmente quando o texto é curto ou a cifra introduz apenas mudanças sutis. Vigenere, Beaufort, Autokey, Gronsfeld e Alberti podem parecer semelhantes; Caesar, Afim, Atbash e substituição simples preservam padrões monoalfabéticos fortes. Em vez de esconder essa incerteza, a ferramenta retorna o melhor texto claro e uma lista ranqueada de alternativas para você comparar candidatos próximos."
+            }
+        },
+        {
+            "id": 37,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "A ferramenta identifica codificações além de cifras?",
+                "answer": "Sim. O solver verifica tanto famílias de cifras quanto formatos comuns de texto codificado. Ele pode reconhecer e decodificar padrões típicos de Base64, Hexadecimal, Binary, URL encoding, sequências Unicode, código Morse, tokens JWT, números A1Z26 e coordenadas do tipo Polybius. Isso importa porque muitas strings que parecem cifradas na verdade estão codificadas ou formatadas."
+            }
+        },
+        {
+            "id": 38,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Ele decifra a mensagem automaticamente?",
+                "answer": "Frequentemente sim, quando o formato é reversível ou a cifra tem um ataque prático integrado. Caesar, ROT13, ROT47, Atbash, Afim, Vigenere, substituição simples, Base64, Hex, Binary, Morse, URL encoding, Unicode escape e XOR de um byte podem produzir resultados diretos em texto claro para entradas adequadas. Outras cifras podem exigir uma chave secreta, matriz, alfabeto, crib ou hipóteses mais fortes; nesses casos, a página mostra candidatos e links para a ferramenta correspondente quando a decifração automática não é confiável."
+            }
+        },
+        {
+            "id": 39,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Quais alfabetos e idiomas são suportados?",
+                "answer": "A configuração de alfabeto suporta auto-detecção e também inglês, russo, alemão, espanhol, francês, italiano, português e turco. O alfabeto selecionado afeta a análise de frequências, a comparação de IoC, a pontuação chi-quadrado e os testes de legibilidade. Se você souber o idioma do texto claro, selecioná-lo manualmente pode melhorar o ranqueamento."
+            }
+        },
+        {
+            "id": 40,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Pode identificar AES, RSA ou criptografia moderna?",
+                "answer": "Não. O resolvedor de cifras foi criado para cifras clássicas, criptoanálise educacional, ciphertext de puzzles, criptogramas e codificações de texto comuns. Criptografia moderna como AES, RSA, ChaCha20 ou arquivos cifrados é projetada para parecer aleatória e não pode ser decodificada nem identificada de forma confiável apenas pelo ciphertext, sem metadados, contexto de protocolo, chaves ou estrutura de arquivo."
+            }
+        },
+        {
+            "id": 41,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "O que devo colar para obter o melhor resultado?",
+                "answer": "Cole o ciphertext bruto ou a string codificada, não a explicação ao redor. Mantenha texto suficiente para análise, evite misturar mensagens diferentes em uma única entrada e remova rótulos óbvios como \"ciphertext:\" ou \"resposta:\". Para cifras clássicas, texto alfabético mais longo é muito melhor que uma única palavra. Para codificações, preserve separadores, barras, pontos, sinais de porcentagem, padding e quebras de linha quando fizerem parte do formato."
+            }
+        },
+        {
+            "id": 42,
+            "sort_order": 90,
+            "published": true,
+            "data": {
+                "question": "Posso usá-lo como decodificador de cifras com uma chave?",
+                "answer": "Esta página é otimizada para ciphertext desconhecido e resolução automática. Se você já conhece a chave, use a página da cifra correspondente a partir da tabela de candidatos, como Vigenere, Afim, Playfair, Rail Fence, Columnar Transposition ou XOR. Uma chave conhecida normalmente gera um resultado mais exato que uma estimativa estatística."
+            }
+        },
+        {
+            "id": 43,
+            "sort_order": 100,
+            "published": true,
+            "data": {
+                "question": "Cypher solver é a mesma coisa que cipher solver?",
+                "answer": "Sim. Cipher é a grafia padrão em criptografia em inglês, enquanto cypher é uma variante comum. A ferramenta cobre a mesma tarefa nos dois casos: colar texto cifrado desconhecido, decodificar formatos suportados e ranquear os candidatos de texto claro mais prováveis."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

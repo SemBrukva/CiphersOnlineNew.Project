@@ -13,6 +13,7 @@ return [
     'MENU_CABINET' => 'Minha conta',
     'MENU_ADMIN' => 'Admin',
     'MENU_TOOLS' => 'Ferramentas',
+    'MENU_CIPHER_SOLVER'     => 'Solucionador de cifras',
     'MENU_CLASSICAL_CIPHERS' => 'Cifras clássicas',
     'MENU_ENCODING' => 'Codificação de dados',
     'MENU_CODES_AND_ALPHABETS' => 'Códigos e alfabetos',
@@ -353,6 +354,17 @@ return [
     'VIGENERE_CRACK_WARN_LANG_MISMATCH'       => 'O texto não contém caracteres do alfabeto selecionado. Tente o modo Auto.',
     'VIGENERE_CRACK_WARN_NOT_ENCRYPTED'       => 'O texto não parece estar cifrado com Vigenère — a chave "A" significa que nenhum deslocamento foi aplicado.',
     'VIGENERE_CRACK_ERR_INVALID'              => 'Dados de entrada inválidos.',
+
+    // XOR Brute Force
+    'XOR_BRUTE_ERR_TEXT_REQUIRED'             => 'Insira o texto cifrado a quebrar.',
+    'XOR_BRUTE_ERR_NOT_HEX'                   => 'A entrada deve ser uma string hexadecimal de comprimento par.',
+    'XOR_BRUTE_ERR_TEXT_TOO_LONG'             => 'Entrada muito longa (máx. {limit} caracteres hex).',
+    'XOR_BRUTE_ERR_INVALID'                   => 'Dados de entrada inválidos.',
+
+    // Substitution Cracker
+    'SUBSTITUTION_CRACK_ERR_TEXT_REQUIRED'   => 'Insira o texto cifrado a quebrar.',
+    'SUBSTITUTION_CRACK_ERR_TEXT_TOO_LONG'    => 'Entrada muito longa (máx. {limit} caracteres).',
+    'SUBSTITUTION_CRACK_ERR_INVALID'          => 'Dados de entrada inválidos.',
     'VIGENERE_CRACK_ERR_TEXT_REQUIRED'        => 'O texto é obrigatório.',
     'VIGENERE_CRACK_ERR_ALPHABET_UNSUPPORTED' => 'Alfabeto não suportado.',
     'VIGENERE_CRACK_ERR_TEXT_TOO_LONG'        => 'Texto muito longo — máximo de :limit caracteres.',
@@ -726,6 +738,17 @@ return [
     'CIPHER_IDENTIFIER_CRACK_RUNNING'     => 'Decifrando…',
     'CIPHER_IDENTIFIER_CRACK_FAILED'      => 'Falha ao decifrar o texto',
     'CIPHER_IDENTIFIER_CRACK_KEY'         => 'Chave',
+
+    // Cipher Solver
+    'SOLVER_TRUST_AUTO'    => 'Detecta e decifra automaticamente',
+    'SOLVER_TRUST_RANKED'  => 'Classifica as decifrações por legibilidade',
+    'SOLVER_EMPTY_LABEL'   => 'Cole qualquer texto cifrado para obter a resposta',
+    'SOLVER_NO_ANSWERS'    => 'Não foi possível decifrar o texto automaticamente. Veja os candidatos abaixo.',
+    'SOLVER_BEST_TITLE'    => 'Resposta mais provável',
+    'SOLVER_ANSWERS_TITLE' => 'Outras decifrações',
+    'SOLVER_TYPES_TOGGLE'  => 'Mostrar cifras candidatas',
+    'SOLVER_OPEN_TOOL'     => 'Abrir ferramenta',
+    'SOLVER_COPY_LABEL'    => 'Copiar',
     'CIPHER_IDENTIFIER_TRUST_TYPE'        => 'Detecção estatística baseada no índice de coincidência e análise de frequência',
     'CIPHER_IDENTIFIER_TRUST_MULTI_ALPHA' => 'Suporta 8 alfabetos: inglês, russo, alemão, espanhol, francês, italiano, português, turco',
     'CIPHER_IDENTIFIER_ERR_TEXT_REQUIRED' => 'O texto é obrigatório.',
@@ -763,6 +786,7 @@ return [
     'CIPHER_NAME_UNICODE'              => 'Escape Unicode',
     'CIPHER_NAME_CAESAR'               => 'Cifra de César',
     'CIPHER_NAME_ROT13'                => 'ROT-13',
+    'CIPHER_NAME_ROT47'                => 'ROT47',
     'CIPHER_NAME_ATBASH'               => 'Cifra Atbash',
     'CIPHER_NAME_AFFINE'               => 'Cifra afim',
     'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => 'Substituição simples',
@@ -818,6 +842,8 @@ return [
     // Hashing
     'HASH_HERO_TITLE'           => 'Calculadora de hash',
     'HASH_HERO_DESC'            => 'Escolha um algoritmo e calcule o hash criptográfico de qualquer texto diretamente no navegador. Suporta SHA-1, SHA-256, SHA-384, SHA-512.',
+    'SOLVER_HERO_TITLE'         => 'Solucionador de cifras',
+    'SOLVER_HERO_DESC'          => 'Cole qualquer texto cifrado e o solucionador o detectará e decodificará automaticamente: César, Vigenère, Base64, Morse, XOR e mais, diretamente no navegador.',
     'HASH_TAB_HASH'             => 'Hash',
     'HASH_INPUT_LABEL'          => 'Entrada',
     'HASH_PLACEHOLDER_INPUT'    => 'Insira o texto para gerar o hash...',

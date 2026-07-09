@@ -19,8 +19,20 @@ return [
     ],
     'text-analysis/caesar-brute-force' => [
         'caesar-cipher-manual-decryption',
+        'decrypt-cipher-without-key',
     ],
     'text-analysis/frequency-analysis' => [
         'caesar-cipher-manual-decryption',
+        'decrypt-cipher-without-key',
+    ],
+    'text-analysis/vigenere-cracker' => [
+        'decrypt-cipher-without-key',
+    ],
+    'classical-ciphers/simple-substitution' => [
+        'solve-substitution-cipher',
+        'decrypt-cipher-without-key',
+    ],
+    'text-analysis/letter-frequency' => [
+        'solve-substitution-cipher',
     ],
 ];

@@ -52,7 +52,8 @@ final readonly class ToolRegistry
         private AnagramSolverService $anagramSolver,
         private DancingMenCipherService $dancingMen,
         private PigpenCipherService $pigpen,
-        private TextDiffService $textDiff
+        private TextDiffService $textDiff,
+        private SolverService $solver
     ) {
     }
 
@@ -374,6 +375,25 @@ final readonly class ToolRegistry
                 ['label' => 'Caesar',   'value' => 'KHOOR ZRUOG WKLV LV D WHVW RI WKH FDHVDU FLSKHU'],
                 ['label' => 'Vigenere', 'value' => 'SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR G'],
             ],
+            // Флагман-солвер: по одному примеру на каждое семейство, которое он
+            // умеет вскрывать/декодировать без ключа. Значения выверены прогоном
+            // через SolverService — каждый чип даёт корректный верхний ответ.
+            'cipher-solver' => [
+                ['label' => 'Caesar',       'value' => 'KHOOR ZRUOG WKLV LV D WHVW PHVVDJH IRU FLSKHU GHWHFWLRQ', 'alphabet' => 'auto'],
+                ['label' => 'ROT-13',       'value' => 'URYYB JBEYQ GUVF VF N FRPERG ZRFFNTR',                    'alphabet' => 'auto'],
+                ['label' => 'ROT47',        'value' => '%96 D64C6E >66E:?8 :D 2E ?@@? E@>@CC@H',                  'alphabet' => 'auto'],
+                ['label' => 'Atbash',       'value' => 'SVOOL DLIOW GSRH RH Z HVXIVG NVHHZTV',                     'alphabet' => 'auto'],
+                ['label' => 'Vigenère',     'value' => 'SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC', 'alphabet' => 'auto'],
+                ['label' => 'Affine',       'value' => 'Ihhwvc swfrcpu cvspyfz cisr lczzcp owzr zoa veqcpws gcyu ivx pcjcil livmeimc fizzcpvu evxcp ivilyuwu', 'alphabet' => 'auto'],
+                ['label' => 'Substitution', 'value' => 'zit qkz gy eknhzgukqhin ol zit leotfet gy ltektz vkozofu vozi zit ugqs gy iorofu zit dtqfofu gy q dtllqut ykgd qfngft wxz zit ofztfrtr kteohotfz zikgxuigxz iolzgkn htghst iqct xltr eohitkl zg hkgztez ltflozoct ofygkdqzogf', 'alphabet' => 'auto'],
+                ['label' => 'Base64',       'value' => 'VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZw=='],
+                ['label' => 'Hex',          'value' => '48656c6c6f20576f726c64207468697320697320686578'],
+                ['label' => 'Binary',       'value' => '01001000 01101001 00100000 01110100 01101000 01100101 01110010 01100101'],
+                ['label' => 'Morse',        'value' => '.... . .-.. .-.. --- / .-- --- .-. .-.. -..'],
+                ['label' => 'URL',          'value' => 'Hello%20World%21%20cipher%20solver'],
+                ['label' => 'Unicode',      'value' => '\u0048\u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064'],
+                ['label' => 'XOR',          'value' => '4854591c484e595d4f494e591c554f1c5e494e5559581c495258594e1c4854591c5350581c535d571c484e5959'],
+            ],
             'text-analysis/vigenere-cracker' => [
                 ['label' => 'Key KEY',    'value' => 'SX UKW RRI ZOWR YJ RSQCC MR GEQ DLC GSPCX MP XGWIQ SX UKW RRI YQI MP AGCHMW MR GEQ DLC KKC YJ DYSJSWFXIQC MR GEQ DLC OTMML MP FCVMCP MR GEQ DLC OTMML MP MLMVCNYJSXW',   'alphabet' => 'en'],
                 ['label' => 'Key LEMON',  'value' => 'QSGF FNSDS NYH ESIPR KSNCW MUB ZYD TNELQFF MVAITSX RCEEL AB GSME QBYXUBRYX M BRH RMHVZR OCANIUJRO MZ ZVMIDHL LRP RROMOOGPH FC GSI BFBASEWGTSZ HULX MZY XIZ OEP GDSNEIP SDFEX', 'alphabet' => 'en'],
@@ -458,6 +478,7 @@ final readonly class ToolRegistry
             'text-analysis/affine-brute-force' => 'affine-brute-force',
             'text-analysis/vigenere-cracker'   => 'vigenere-cracker',
             'text-analysis/cipher-identifier'  => 'cipher-identifier',
+            'cipher-solver'                    => 'cipher-solver',
             'text-analysis/letter-frequency' => null,
             default => null,
         };
@@ -510,6 +531,7 @@ final readonly class ToolRegistry
             'text-analysis/vigenere-cracker'    => $this->vigenereCracker->getToolSettings(),
             'text-analysis/letter-frequency'    => $this->letterFrequency->getToolSettings(),
             'text-analysis/cipher-identifier'   => $this->cipherIdentifier->getToolSettings(),
+            'cipher-solver'                     => $this->solver->getToolSettings(),
             'text-analysis/text-diff'           => $this->textDiff->getToolSettings(),
             default => [],
         };
@@ -557,6 +579,7 @@ final readonly class ToolRegistry
             'text-analysis/vigenere-cracker'    => $this->vigenereCracker->getTrustItems($calculationMode),
             'text-analysis/letter-frequency'    => $this->letterFrequency->getTrustItems($calculationMode),
             'text-analysis/cipher-identifier'   => $this->cipherIdentifier->getTrustItems($calculationMode),
+            'cipher-solver'                     => $this->solver->getTrustItems($calculationMode),
             'text-analysis/text-diff'           => $this->textDiff->getTrustItems($calculationMode),
             'encoding/html-encode' => $this->htmlEncode->getTrustItems($calculationMode),
             'encoding/json-formatter' => $this->jsonFormatter->getTrustItems($calculationMode),

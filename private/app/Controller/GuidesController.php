@@ -261,14 +261,14 @@ final readonly class GuidesController
             'url'             => $guidesUrl,
             'mainEntity'      => [
                 '@type'           => 'ItemList',
-                'itemListElement' => array_values(array_map(static function (array $guide, int $i) use ($appUrl): array {
+                'itemListElement' => array_map(static function (array $guide, int $i) use ($appUrl): array {
                     return [
                         '@type'    => 'ListItem',
                         'position' => $i + 1,
                         'url'      => $appUrl . $guide['url'],
                         'name'     => $guide['title'],
                     ];
-                }, $guides, array_keys($guides))),
+                }, $guides, array_keys($guides)),
             ],
         ];
 

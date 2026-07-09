@@ -14,6 +14,7 @@ return [
     'MENU_CABINET'          => 'My Account',
     'MENU_ADMIN'            => 'Admin',
     'MENU_TOOLS'            => 'Tools',
+    'MENU_CIPHER_SOLVER'     => 'Cipher Solver',
     'MENU_CLASSICAL_CIPHERS' => 'Classical ciphers',
     'MENU_ENCODING'         => 'Data encoding',
     'MENU_CODES_AND_ALPHABETS' => 'Codes & alphabets',
@@ -377,6 +378,17 @@ return [
     'VIGENERE_CRACK_WARN_LANG_MISMATCH'       => 'The text contains no characters from the selected alphabet. Try switching to Auto.',
     'VIGENERE_CRACK_WARN_NOT_ENCRYPTED'       => 'The text does not appear to be Vigenère-encrypted — key "A" means no shift was applied.',
     'VIGENERE_CRACK_ERR_INVALID'              => 'Invalid input data.',
+
+    // XOR Brute Force
+    'XOR_BRUTE_ERR_TEXT_REQUIRED'             => 'Enter the ciphertext to crack.',
+    'XOR_BRUTE_ERR_NOT_HEX'                   => 'Input must be a hexadecimal string of even length.',
+    'XOR_BRUTE_ERR_TEXT_TOO_LONG'             => 'Input is too long (max {limit} hex characters).',
+    'XOR_BRUTE_ERR_INVALID'                   => 'Invalid input data.',
+
+    // Substitution Cracker
+    'SUBSTITUTION_CRACK_ERR_TEXT_REQUIRED'   => 'Enter the ciphertext to crack.',
+    'SUBSTITUTION_CRACK_ERR_TEXT_TOO_LONG'    => 'Input is too long (max {limit} characters).',
+    'SUBSTITUTION_CRACK_ERR_INVALID'          => 'Invalid input data.',
     'VIGENERE_CRACK_ERR_TEXT_REQUIRED'        => 'Text is required.',
     'VIGENERE_CRACK_ERR_ALPHABET_UNSUPPORTED' => 'Unsupported alphabet.',
     'VIGENERE_CRACK_ERR_TEXT_TOO_LONG'        => 'Text is too long — maximum :limit characters.',
@@ -750,6 +762,17 @@ return [
     'CIPHER_IDENTIFIER_CRACK_RUNNING'     => 'Cracking…',
     'CIPHER_IDENTIFIER_CRACK_FAILED'      => 'Failed to crack the text',
     'CIPHER_IDENTIFIER_CRACK_KEY'         => 'Key',
+
+    // Cipher Solver
+    'SOLVER_TRUST_AUTO'    => 'Detects and cracks the cipher automatically',
+    'SOLVER_TRUST_RANKED'  => 'Ranks decryptions by readability',
+    'SOLVER_EMPTY_LABEL'   => 'Paste any ciphertext to get the answer',
+    'SOLVER_NO_ANSWERS'    => 'Could not decrypt this text automatically. Try the cipher candidates below.',
+    'SOLVER_BEST_TITLE'    => 'Most likely answer',
+    'SOLVER_ANSWERS_TITLE' => 'Other decryptions',
+    'SOLVER_TYPES_TOGGLE'  => 'Show cipher candidates',
+    'SOLVER_OPEN_TOOL'     => 'Open tool',
+    'SOLVER_COPY_LABEL'    => 'Copy',
     'CIPHER_IDENTIFIER_TRUST_TYPE'        => 'Statistical detection based on Index of Coincidence and frequency analysis',
     'CIPHER_IDENTIFIER_TRUST_MULTI_ALPHA' => 'Supports 8 alphabets: English, Russian, German, Spanish, French, Italian, Portuguese, Turkish',
     'CIPHER_IDENTIFIER_ERR_TEXT_REQUIRED' => 'Text is required.',
@@ -787,6 +810,7 @@ return [
     'CIPHER_NAME_UNICODE'              => 'Unicode Escape',
     'CIPHER_NAME_CAESAR'               => 'Caesar Cipher',
     'CIPHER_NAME_ROT13'                => 'ROT-13',
+    'CIPHER_NAME_ROT47'                => 'ROT47',
     'CIPHER_NAME_ATBASH'               => 'Atbash Cipher',
     'CIPHER_NAME_AFFINE'               => 'Affine Cipher',
     'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => 'Simple Substitution',
@@ -842,6 +866,8 @@ return [
     // Hashing
     'HASH_HERO_TITLE'           => 'Hash Calculator',
     'HASH_HERO_DESC'            => 'Pick an algorithm and compute the cryptographic hash of any text directly in your browser. Supports SHA-1, SHA-256, SHA-384, SHA-512.',
+    'SOLVER_HERO_TITLE'         => 'Cipher Solver',
+    'SOLVER_HERO_DESC'          => 'Paste any ciphertext and the solver will automatically detect and decode it — Caesar, Vigenère, Base64, Morse, XOR and more, right in your browser.',
     'HASH_TAB_HASH'             => 'Hash',
     'HASH_INPUT_LABEL'          => 'Input',
     'HASH_PLACEHOLDER_INPUT'    => 'Enter text to hash...',

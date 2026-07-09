@@ -233,6 +233,13 @@ return [
         'name'       => 'api.tools.cipher_identifier',
     ],
 
+    'POST /tools/cipher-solver' => [
+        'controller' => GuestController::class,
+        'method'     => 'cipherSolver',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.cipher_solver',
+    ],
+
     'POST /analytics/use' => [
         'controller' => AnalyticsController::class,
         'method'     => 'record',

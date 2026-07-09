@@ -334,6 +334,67 @@
   border-right: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* === Подменю третьего уровня внутри «Ещё» (flyout влево) === */
+.site-header .dropdown-submenu {
+  position: relative;
+}
+
+/* Пункт-родитель: подпись слева, шеврон-индикатор справа */
+.site-header .dropdown-item--has-sub {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-submenu__label {
+  flex: 1 1 auto;
+}
+
+.dropdown-submenu__chevron {
+  flex-shrink: 0;
+  margin-left: 12px;
+  font-size: 11px;
+  opacity: 0.55;
+}
+
+/* Флайаут раскрывается влево от пункта (т.к. «Ещё» прижато к правому краю) */
+.site-header .dropdown-submenu > .dropdown-menu {
+  top: -8px;
+  left: auto;
+  right: 100%;
+  margin: 0 3px 0 0;
+  z-index: 10;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+/* Невидимый мост справа — перекрывает зазор между пунктом и флайаутом */
+.site-header .dropdown-submenu > .dropdown-menu::before {
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: -6px;
+  width: 9px;
+  height: auto;
+}
+
+/* Показ флайаута по hover/фокусу родительского пункта */
+.site-header .dropdown-submenu:hover > .dropdown-menu,
+.site-header .dropdown-submenu:focus-within > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
+}
+
+/* Подсветка родительского пункта, пока открыт его флайаут */
+.site-header .dropdown-submenu:hover > .dropdown-item--has-sub,
+.site-header .dropdown-submenu:focus-within > .dropdown-item--has-sub {
+  background: rgba(193, 255, 0, 0.08);
+  color: var(--co-accent);
+}
+
 /* === Language selector === */
 .site-header__lang-toggle {
   display: inline-flex;
@@ -6487,6 +6548,7 @@ a:focus .nav-fav-count {
   display: flex;
   align-items: center;
   gap: 8px;
+  justify-content: space-between;
 }
 
 .cid-auto-card__meta {
@@ -6717,6 +6779,77 @@ a:focus .nav-fav-count {
   .cid-col-action { grid-column: 1 / -1; }
 
   .cid-col-action { justify-content: flex-start; }
+}
+
+/* ── Cipher Solver ──────────────────────────────────────────────── */
+.solver-best .cid-auto-result-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 10px;
+  background: none;
+  border-radius: 0;
+  padding: 10px 0 2px;
+  border-top: 1px solid rgba(193, 255, 0, 0.15);
+}
+
+.solver-copy {
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(193, 255, 0, 0.30);
+  color: rgba(193, 255, 0, 0.80);
+  background: rgba(193, 255, 0, 0.07);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.solver-copy:hover {
+  background: rgba(193, 255, 0, 0.16);
+  border-color: rgba(193, 255, 0, 0.50);
+  color: #c1ff00;
+}
+
+.solver-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.solver-answer {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.solver-answer__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.solver-answer__text {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  word-break: break-word;
+}
+
+.solver-types {
+  margin-top: 8px;
+}
+
+.solver-types__toggle {
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(193, 255, 0, 0.85);
+  padding: 8px 0;
+  user-select: none;
 }
 
 /* ── Enigma Machine Panel ───────────────────────────────────────── */

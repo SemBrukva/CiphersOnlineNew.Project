@@ -79,16 +79,15 @@ final readonly class BinaryDetector implements CipherDetectorInterface
             );
         }
 
-        $confidence = match (true) {
-            $this->looksLikeText($decoded) => $len < 16 ? 0.78 : 0.93,
-            default                        => 0.55,
-        };
+        $isText     = $this->looksLikeText($decoded);
+        $confidence = $isText ? ($len < 16 ? 0.78 : 0.93) : 0.55;
 
         return new CipherDetection(
             toolSlug: 'encoding/binary-converter',
             cipherKey: 'CIPHER_NAME_BINARY',
             confidence: $confidence,
             evidenceKeys: ['CID_EV_CHARSET_BINARY'],
+            decryptedText: $isText ? $decoded : null,
         );
     }
 

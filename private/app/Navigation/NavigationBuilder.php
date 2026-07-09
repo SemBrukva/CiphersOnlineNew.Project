@@ -48,27 +48,12 @@ final class NavigationBuilder
         $items = [];
 
         foreach (config('navigation.main', []) as $item) {
-            $categoryAlias = $item['category_alias'] ?? null;
-
-            if ($categoryAlias !== null && isset($ciphersByCategory[$categoryAlias])) {
-                $items[] = $this->makeDropdownItem(
-                    $item['title_key'],
-                    $item['url'],
-                    $item['icon'] ?? null,
-                    $categoryAlias,
-                    $ciphersByCategory[$categoryAlias],
-                    $currentPath,
-                    $localePrefix,
-                );
-            } else {
-                $items[] = $this->makeItem(
-                    $item['title_key'],
-                    $item['url'],
-                    $item['icon'] ?? null,
-                    $currentPath,
-                    $localePrefix,
-                );
+            if (($item['type'] ?? null) === 'group') {
+                $items[] = $this->makeGroupItem($item, $ciphersByCategory, $currentPath, $localePrefix);
+                continue;
             }
+
+            $items[] = $this->makeNavEntry($item, $ciphersByCategory, $currentPath, $localePrefix);
         }
 
         if ($this->auth->check()) {
@@ -78,6 +63,74 @@ final class NavigationBuilder
         }
 
         return $items;
+    }
+
+    /**
+     * Формирует один пункт меню: либо категорию с сервисами, либо обычную ссылку.
+     *
+     * @param  array<string, mixed>                        $item              Конфиг пункта.
+     * @param  array<string, list<array{alias: string, name: string}>> $ciphersByCategory Сервисы по категориям.
+     * @return array<string, mixed>
+     */
+    private function makeNavEntry(
+        array  $item,
+        array  $ciphersByCategory,
+        string $currentPath,
+        string $localePrefix,
+    ): array {
+        $categoryAlias = $item['category_alias'] ?? null;
+
+        if ($categoryAlias !== null && isset($ciphersByCategory[$categoryAlias])) {
+            return $this->makeDropdownItem(
+                $item['title_key'],
+                $item['url'],
+                $item['icon'] ?? null,
+                $categoryAlias,
+                $ciphersByCategory[$categoryAlias],
+                $currentPath,
+                $localePrefix,
+            );
+        }
+
+        return $this->makeItem(
+            $item['title_key'],
+            $item['url'],
+            $item['icon'] ?? null,
+            $currentPath,
+            $localePrefix,
+        );
+    }
+
+    /**
+     * Формирует пункт-группу: дропдаун без своей страницы, дети — пункты-категории
+     * (каждый со своим списком сервисов, раскрывается flyout-подменю).
+     *
+     * @param  array<string, mixed>                        $item              Конфиг группы.
+     * @param  array<string, list<array{alias: string, name: string}>> $ciphersByCategory Сервисы по категориям.
+     * @return array{label: string, url: null, icon: string|null, active: bool, is_group: true, children: list<array<string, mixed>>}
+     */
+    private function makeGroupItem(
+        array  $item,
+        array  $ciphersByCategory,
+        string $currentPath,
+        string $localePrefix,
+    ): array {
+        $children = [];
+
+        foreach ($item['children'] ?? [] as $child) {
+            $children[] = $this->makeNavEntry($child, $ciphersByCategory, $currentPath, $localePrefix);
+        }
+
+        $active = (bool) array_filter($children, static fn (array $c): bool => $c['active']);
+
+        return [
+            'label'    => $this->translator->get($item['title_key']),
+            'url'      => null,
+            'icon'     => $item['icon'] ?? null,
+            'active'   => $active,
+            'is_group' => true,
+            'children' => $children,
+        ];
     }
 
     /**

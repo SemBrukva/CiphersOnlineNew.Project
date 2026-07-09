@@ -60,6 +60,12 @@ final class Tables
     /** @var string Таблица переводов FAQ категорий шифров. */
     public const string CIPHERS_CATEGORIES_FAQ_TRANSLATIONS = 'ciphers_categories_faq_translations';
 
+    /** @var string Таблица примеров категорий шифров. */
+    public const string CIPHERS_CATEGORIES_EXAMPLES = 'ciphers_categories_examples';
+
+    /** @var string Таблица переводов примеров категорий шифров. */
+    public const string CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS = 'ciphers_categories_examples_translations';
+
     /** @var string Таблица приложений-шифров. */
     public const string CIPHERS = 'ciphers';
 

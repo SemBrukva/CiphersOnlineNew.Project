@@ -13,6 +13,7 @@ return [
     'MENU_CABINET' => 'Il mio account',
     'MENU_ADMIN' => 'Admin',
     'MENU_TOOLS' => 'Strumenti',
+    'MENU_CIPHER_SOLVER'     => 'Risolutore di cifrari',
     'MENU_CLASSICAL_CIPHERS' => 'Cifrature classiche',
     'MENU_ENCODING' => 'Codifica dei dati',
     'MENU_CODES_AND_ALPHABETS' => 'Codici e alfabeti',
@@ -353,6 +354,17 @@ return [
     'VIGENERE_CRACK_WARN_LANG_MISMATCH'       => 'Il testo non contiene caratteri dell\'alfabeto selezionato. Prova la modalità Auto.',
     'VIGENERE_CRACK_WARN_NOT_ENCRYPTED'       => 'Il testo non sembra cifrato con Vigenère — la chiave "A" significa che non è stato applicato alcun offset.',
     'VIGENERE_CRACK_ERR_INVALID'              => 'Dati di input non validi.',
+
+    // XOR Brute Force
+    'XOR_BRUTE_ERR_TEXT_REQUIRED'             => 'Inserisci il testo cifrato da forzare.',
+    'XOR_BRUTE_ERR_NOT_HEX'                   => 'L\'input deve essere una stringa esadecimale di lunghezza pari.',
+    'XOR_BRUTE_ERR_TEXT_TOO_LONG'             => 'Input troppo lungo (max {limit} caratteri esadecimali).',
+    'XOR_BRUTE_ERR_INVALID'                   => 'Dati di input non validi.',
+
+    // Substitution Cracker
+    'SUBSTITUTION_CRACK_ERR_TEXT_REQUIRED'   => 'Inserisci il testo cifrato da forzare.',
+    'SUBSTITUTION_CRACK_ERR_TEXT_TOO_LONG'    => 'Input troppo lungo (max {limit} caratteri).',
+    'SUBSTITUTION_CRACK_ERR_INVALID'          => 'Dati di input non validi.',
     'VIGENERE_CRACK_ERR_TEXT_REQUIRED'        => 'Il testo è obbligatorio.',
     'VIGENERE_CRACK_ERR_ALPHABET_UNSUPPORTED' => 'Alfabeto non supportato.',
     'VIGENERE_CRACK_ERR_TEXT_TOO_LONG'        => 'Testo troppo lungo — massimo :limit caratteri.',
@@ -726,6 +738,17 @@ return [
     'CIPHER_IDENTIFIER_CRACK_RUNNING'     => 'Decifratura…',
     'CIPHER_IDENTIFIER_CRACK_FAILED'      => 'Impossibile decifrare il testo',
     'CIPHER_IDENTIFIER_CRACK_KEY'         => 'Chiave',
+
+    // Cipher Solver
+    'SOLVER_TRUST_AUTO'    => 'Rileva e decifra automaticamente',
+    'SOLVER_TRUST_RANKED'  => 'Ordina le decifrazioni per leggibilità',
+    'SOLVER_EMPTY_LABEL'   => 'Incolla qualsiasi testo cifrato per ottenere la risposta',
+    'SOLVER_NO_ANSWERS'    => 'Impossibile decifrare automaticamente il testo. Controlla i candidati qui sotto.',
+    'SOLVER_BEST_TITLE'    => 'Risposta più probabile',
+    'SOLVER_ANSWERS_TITLE' => 'Altre decifrazioni',
+    'SOLVER_TYPES_TOGGLE'  => 'Mostra i cifrari candidati',
+    'SOLVER_OPEN_TOOL'     => 'Apri strumento',
+    'SOLVER_COPY_LABEL'    => 'Copia',
     'CIPHER_IDENTIFIER_TRUST_TYPE'        => 'Rilevamento statistico basato sull\'indice di coincidenza e sull\'analisi della frequenza',
     'CIPHER_IDENTIFIER_TRUST_MULTI_ALPHA' => 'Supporta 8 alfabeti: inglese, russo, tedesco, spagnolo, francese, italiano, portoghese, turco',
     'CIPHER_IDENTIFIER_ERR_TEXT_REQUIRED' => 'Il testo è obbligatorio.',
@@ -763,6 +786,7 @@ return [
     'CIPHER_NAME_UNICODE'              => 'Escape Unicode',
     'CIPHER_NAME_CAESAR'               => 'Cifra di Cesare',
     'CIPHER_NAME_ROT13'                => 'ROT-13',
+    'CIPHER_NAME_ROT47'                => 'ROT47',
     'CIPHER_NAME_ATBASH'               => 'Cifra Atbash',
     'CIPHER_NAME_AFFINE'               => 'Cifra affine',
     'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => 'Sostituzione semplice',
@@ -818,6 +842,8 @@ return [
     // Hashing
     'HASH_HERO_TITLE'           => 'Calcolatore di hash',
     'HASH_HERO_DESC'            => 'Scegli un algoritmo e calcola l\'hash crittografico di qualsiasi testo direttamente nel browser. Supporta SHA-1, SHA-256, SHA-384, SHA-512.',
+    'SOLVER_HERO_TITLE'         => 'Risolutore di cifrari',
+    'SOLVER_HERO_DESC'          => 'Incolla qualsiasi testo cifrato e il risolutore lo rileverà e lo decodificherà automaticamente: Cesare, Vigenère, Base64, Morse, XOR e altro, direttamente nel browser.',
     'HASH_TAB_HASH'             => 'Hash',
     'HASH_INPUT_LABEL'          => 'Input',
     'HASH_PLACEHOLDER_INPUT'    => 'Inserisci il testo da hashare...',

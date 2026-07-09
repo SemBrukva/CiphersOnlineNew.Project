@@ -149,6 +149,8 @@ export class ApiClient {
         enigma: (data) => this.#request('POST', '/tools/enigma', data),
         /** POST /api/tools/cipher-identifier */
         'cipher-identifier': (data) => this.#request('POST', '/tools/cipher-identifier', data),
+        /** POST /api/tools/cipher-solver */
+        'cipher-solver': (data) => this.#request('POST', '/tools/cipher-solver', data),
         /** POST /api/tools/anagram-solver */
         'anagram-solver': (data) => this.#request('POST', '/tools/anagram-solver', data),
         /** GET /api/tools/search?q=...&locale=ru */

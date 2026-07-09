@@ -9,9 +9,54 @@
             </a>
 
             {* Десктопная навигация (≥lg) *}
-            <nav class="d-none d-lg-flex align-items-center gap-1 flex-grow-1">
+            <nav class="site-header__nav d-none d-lg-flex align-items-center gap-1 flex-grow-1">
                 {foreach $nav_main as $item}
-                    {if isset($item.children) && $item.children}
+                    {if isset($item.is_group) && $item.is_group}
+                        {* Группа (например «Инструменты»): дропдаун без своей страницы,
+                           дети — категории, раскрываются flyout-подменю третьего уровня. *}
+                        <div class="dropdown">
+                            <button class="site-header-link dropdown-toggle{if $item.active} active{/if}" type="button"
+                                    data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                {if $item.icon}<i class="bi {$item.icon} me-1"></i>{/if}
+                                {$item.label}
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                {foreach $item.children as $cat}
+                                    {if isset($cat.children) && $cat.children}
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-item--has-sub{if $cat.active} active{/if}" href="{$cat.url}">
+                                                {if $cat.icon}<i class="bi {$cat.icon} me-2"></i>{/if}
+                                                <span class="dropdown-submenu__label">{$cat.label}</span>
+                                                <i class="bi bi-chevron-right dropdown-submenu__chevron"></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item dropdown-item--category{if $cat.page_active} active{/if}" href="{$cat.url}">
+                                                        {$cat.label}
+                                                    </a>
+                                                </li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                {foreach $cat.children as $child}
+                                                    <li>
+                                                        <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
+                                                            {$child.label}
+                                                        </a>
+                                                    </li>
+                                                {/foreach}
+                                            </ul>
+                                        </li>
+                                    {else}
+                                        <li>
+                                            <a class="dropdown-item{if $cat.active} active{/if}" href="{$cat.url}">
+                                                {if $cat.icon}<i class="bi {$cat.icon} me-2"></i>{/if}
+                                                {$cat.label}
+                                            </a>
+                                        </li>
+                                    {/if}
+                                {/foreach}
+                            </ul>
+                        </div>
+                    {elseif isset($item.children) && $item.children}
                         <div class="dropdown">
                             <button class="site-header-link dropdown-toggle{if $item.active} active{/if}" type="button"
                                     data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
@@ -56,7 +101,7 @@
             </nav>
 
             {* Десктопная правая панель: языки + избранное + авторизация (≥lg) *}
-            <div class="d-none d-lg-flex align-items-center gap-2 ms-auto">
+            <div class="site-header__actions d-none d-lg-flex align-items-center gap-2 ms-auto">
                 {if $multilang && $auth_user === null && $available_locales|@count > 1}
                     <div class="dropdown">
                         <button class="site-header-link dropdown-toggle site-header__lang-toggle" type="button"
@@ -152,7 +197,48 @@
             <ul class="site-nav__list">
                 <li class="site-nav__no-results" hidden>{$t.SEARCH_NO_RESULTS|default:'Ничего не найдено'}</li>
                 {foreach $nav_main as $item}
-                    {if isset($item.children) && $item.children}
+                    {if isset($item.is_group) && $item.is_group}
+                        {* Группу на мобильном разворачиваем: её категории показываем
+                           как обычные раскрывающиеся группы (ширина здесь не ограничена). *}
+                        {foreach $item.children as $cat}
+                            {if isset($cat.children) && $cat.children}
+                                <li class="site-nav__item site-nav__item--group">
+                                    <button class="site-nav__group-btn{if $cat.active} active{/if}"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#navGroupG{$item@iteration}C{$cat@iteration}"
+                                            aria-expanded="{if $cat.active}true{else}false{/if}"
+                                            aria-controls="navGroupG{$item@iteration}C{$cat@iteration}">
+                                        {if $cat.icon}<i class="bi {$cat.icon} site-nav__group-icon"></i>{/if}
+                                        <span class="site-nav__group-label">{$cat.label}</span>
+                                        <i class="bi bi-chevron-down site-nav__chevron"></i>
+                                    </button>
+                                    <ul class="site-nav__sub collapse{if $cat.active} show{/if}" id="navGroupG{$item@iteration}C{$cat@iteration}">
+                                        <li>
+                                            <a class="site-nav__sublink site-nav__sublink--category{if $cat.page_active} active{/if}" href="{$cat.url}">
+                                                {$cat.label}
+                                            </a>
+                                        </li>
+                                        <li class="site-nav__sub-divider"></li>
+                                        {foreach $cat.children as $child}
+                                            <li>
+                                                <a class="site-nav__sublink{if $child.active} active{/if}" href="{$child.url}">
+                                                    {$child.label}
+                                                </a>
+                                            </li>
+                                        {/foreach}
+                                    </ul>
+                                </li>
+                            {else}
+                                <li class="site-nav__item">
+                                    <a class="site-nav__link{if $cat.active} active{/if}" href="{$cat.url}">
+                                        {if $cat.icon}<i class="bi {$cat.icon} me-2"></i>{/if}
+                                        {$cat.label}
+                                    </a>
+                                </li>
+                            {/if}
+                        {/foreach}
+                    {elseif isset($item.children) && $item.children}
                         <li class="site-nav__item site-nav__item--group">
                             <button class="site-nav__group-btn{if $item.active} active{/if}"
                                     type="button"

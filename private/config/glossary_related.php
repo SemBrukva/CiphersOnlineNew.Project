@@ -11,6 +11,27 @@ declare(strict_types=1);
  * (несуществующие пропускаются) и командой `glossary:validate`.
  */
 return [
+    'encoding/base64' => [
+        'base64',
+    ],
+    'encoding/hex' => [
+        'hexadecimal',
+    ],
+    'encoding/binary-converter' => [
+        'binary',
+        'bit',
+    ],
+    'encoding/ascii-converter' => [
+        'ascii',
+        'character-encoding',
+    ],
+    'encoding/unicode-converter' => [
+        'unicode',
+        'character-encoding',
+    ],
+    'encoding/url-encode' => [
+        'url-encoding',
+    ],
     'text-analysis/frequency-analysis' => [
         'frequency-analysis',
         'cryptanalysis',

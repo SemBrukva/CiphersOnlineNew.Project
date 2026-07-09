@@ -1,0 +1,488 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "определитель шифра",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/cipher-solver/cipher-solver.csv",
+        "imported_at": "2026-07-07T13:24:00+02:00"
+    },
+    "tool": {
+        "slug": "cipher-solver",
+        "url": "/ru/cipher-solver",
+        "content_file": "private/storage/content/cipher-solver/category.ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 438,
+        "primary_terms": [
+            "помогите разгадать шифр",
+            "разгадать шифр",
+            "определитель шифра",
+            "распознать шифр",
+            "расшифровка шифров онлайн",
+            "расшифровать шифр",
+            "определить шифр",
+            "неизвестный шифр",
+            "шифр из цифр",
+            "шифр из букв",
+            "русский алфавит",
+            "сайт для расшифровки"
+        ],
+        "modifiers": [
+            "онлайн",
+            "расшифровка",
+            "из цифр",
+            "из букв",
+            "русский алфавит",
+            "помогите",
+            "пожалуйста"
+        ],
+        "intents": {
+            "cipher": 31,
+            "decode": 23,
+            "online": 3,
+            "tool": 8
+        },
+        "content_recommendations": [
+            "В meta_title сохранить главный пользовательский запрос «помогите разгадать шифр», но в тексте страницы естественно связать его с названием сервиса «Определитель шифра».",
+            "В первом экране явно обещать практический первый шаг: вставить неизвестный текст, распознать вероятный шифр или кодировку и перейти к подходящему инструменту расшифровки.",
+            "В intro покрыть три главных формулировки без keyword stuffing: «разгадать шифр», «распознать шифр» и «расшифровка шифров онлайн».",
+            "В отдельном блоке объяснить разницу между распознаванием типа шифра и полной расшифровкой: сервис не гарантирует мгновенный исходный текст для любого алгоритма, но сужает варианты и запускает поддерживаемые solver-сценарии.",
+            "В FAQ вынести короткие запросы с просьбами и узкие случаи: шифр из цифр, шифр из букв русского алфавита, короткие загадки и ситуации, когда результат неочевиден.",
+            "В examples показать 2-3 практических сценария: Base64/Hex как кодировка, Цезарь или Виженер как классический шифр, буквенно-цифровая головоломка с ручной проверкой кандидатов."
+        ],
+        "query_groups": [
+            {
+                "name": "Помочь разгадать шифр",
+                "intent": [
+                    "cipher",
+                    "decode"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "помогите разгадать шифр",
+                    "разгадайте шифр пожалуйста",
+                    "разгадать шифр",
+                    "помоги разгадать шифр"
+                ]
+            },
+            {
+                "name": "Распознать или определить шифр",
+                "intent": [
+                    "cipher",
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "как распознать шифр",
+                    "определитель шифра",
+                    "определить шифр",
+                    "распознать шифр онлайн"
+                ]
+            },
+            {
+                "name": "Расшифровка онлайн",
+                "intent": [
+                    "decode",
+                    "cipher",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "расшифровка шифров онлайн",
+                    "шифр расшифровать",
+                    "сайт для расшифровки шифров",
+                    "шифры расшифровка"
+                ]
+            },
+            {
+                "name": "Цифры, буквы и русский алфавит",
+                "intent": [
+                    "cipher",
+                    "decode"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "как разгадать шифр из цифр",
+                    "как разгадать шифр из букв",
+                    "как разгадать шифр из букв русского алфавита"
+                ]
+            },
+            {
+                "name": "Просьбы и разговорные формулировки",
+                "intent": [
+                    "cipher",
+                    "decode"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "не могу разгадать шифр",
+                    "кто сможет разгадать шифр",
+                    "это шифр попробуйте разгадать",
+                    "разгадай шифр"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "помогите разгадать шифр",
+            "score": 103,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "разгадайте шифр пожалуйста",
+            "score": 88,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "разгадать шифр",
+            "score": 66,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "как распознать шифр",
+            "score": 44,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "расшифровка шифров онлайн",
+            "score": 13,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр как разгадать",
+            "score": 11,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "как разгадать шифр",
+            "score": 10,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "нужно разгадать шифр",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр разгадать",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр расшифровать",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "сайт для расшифровки шифров",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр расшифровка",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "не могу разгадать шифр",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "помоги разгадать шифр",
+            "score": 7,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "определитель шифра",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "как разгадать шифр из цифр",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шифры расшифровка",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "определить шифр",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "разгадывать шифры",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "помогите шифр разгадать",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "разгадай шифр",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "кто сможет разгадать шифр",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "определить шифр онлайн",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "определитель шифров",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "это шифр попробуйте разгадать",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "как разгадать шифр из букв",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "разгадайте шифр",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "как разгадать шифр из букв русского алфавита",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "распознавание шифра",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "распознать шифр онлайн",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "tool",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "распознать шифр",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-07-09T20:02:31+02:00",
+        "reviewed_by": "Codex semantic-core-builder",
+        "decision": "Reviewed for the cipher-solver category hub. The cluster should map to the standalone cipher-solver page and support identify/solve/decode language without splitting numeric and letter variants into separate tools."
+    },
+    "notes": "Кластер соответствует хабу «Определитель шифра»: пользователь хочет получить помощь с неизвестным шифром, сначала распознать тип, затем перейти к расшифровке. Запросы про цифры, буквы и русский алфавит оставлены как FAQ/примерные long-tail сценарии, а не как отдельные сервисы."
+}

@@ -501,7 +501,9 @@ return [
             $container->get(App\Cipher\CaesarBruteForceApiCipherTool::class),
             $container->get(App\Cipher\AffineBruteForceApiCipherTool::class),
             $container->get(App\Cipher\SimpleSubstitutionApiCipherTool::class),
+            $container->get(App\Cipher\SubstitutionCrackerApiCipherTool::class),
             $container->get(App\Cipher\XorApiCipherTool::class),
+            $container->get(App\Cipher\XorBruteForceApiCipherTool::class),
             $container->get(App\Cipher\VigenereCrackerApiCipherTool::class),
             $container->get(App\Cipher\BifidApiCipherTool::class),
             $container->get(App\Cipher\TrifidApiCipherTool::class),
@@ -511,6 +513,10 @@ return [
         );
         $registry->register(new App\Cipher\CipherIdentifierApiCipherTool(
             $container->get(App\Cipher\CipherIdentifierService::class),
+            $registry,
+        ));
+        $registry->register(new App\Cipher\SolverApiCipherTool(
+            $container->get(App\Cipher\SolverService::class),
             $registry,
         ));
         return $registry;

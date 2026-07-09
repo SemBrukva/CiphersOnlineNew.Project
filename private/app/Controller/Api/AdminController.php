@@ -91,10 +91,13 @@ final class AdminController
         $newTasks = is_array($payload['new_tasks'] ?? null) ? $payload['new_tasks'] : [];
         $newUsedTogether = is_array($payload['new_used_together'] ?? null) ? $payload['new_used_together'] : [];
         $newFaq = is_array($payload['new_faq'] ?? null) ? $payload['new_faq'] : [];
+        $examples = is_array($payload['examples'] ?? null) ? $payload['examples'] : [];
+        $newExamples = is_array($payload['new_examples'] ?? null) ? $payload['new_examples'] : [];
         $deleteBlocks = array_map('intval', is_array($payload['delete_blocks'] ?? null) ? $payload['delete_blocks'] : []);
         $deleteTasks = array_map('intval', is_array($payload['delete_tasks'] ?? null) ? $payload['delete_tasks'] : []);
         $deleteUsedTogether = array_map('intval', is_array($payload['delete_used_together'] ?? null) ? $payload['delete_used_together'] : []);
         $deleteFaq = array_map('intval', is_array($payload['delete_faq'] ?? null) ? $payload['delete_faq'] : []);
+        $deleteExamples = array_map('intval', is_array($payload['delete_examples'] ?? null) ? $payload['delete_examples'] : []);
         $availableLanguages = array_values(array_filter(array_map(
             static fn (mixed $language): string => mb_strtolower(trim((string) $language)),
             (array) config('locale.locales', [])
@@ -289,6 +292,25 @@ final class AdminController
             }
         }
 
+        foreach (['examples' => $examples, 'new_examples' => $newExamples] as $field => $rows) {
+            foreach ($rows as $index => $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $title = trim((string) ($translation['title'] ?? ''));
+
+                    if (mb_strlen($title) > 255) {
+                        $errors["{$field}.{$index}.translations.{$language}.title"][] = 'Подпись не должна превышать 255 символов.';
+                    }
+                }
+            }
+        }
+
         if ($errors !== []) {
             throw new ValidationFailedException('The given data was invalid.', ['errors' => $errors]);
         }
@@ -297,6 +319,7 @@ final class AdminController
         $createdTasks = [];
         $createdUsedTogether = [];
         $createdFaq = [];
+        $createdExamples = [];
 
         $this->db->transaction(function () use (
             $categoryId,
@@ -309,19 +332,23 @@ final class AdminController
             $tasks,
             $usedTogether,
             $faq,
+            $examples,
             $newBlocks,
             $newTasks,
             $newUsedTogether,
             $newFaq,
+            $newExamples,
             $deleteBlocks,
             $deleteTasks,
             $deleteUsedTogether,
             $deleteFaq,
+            $deleteExamples,
             $availableLanguages,
             &$createdBlocks,
             &$createdTasks,
             &$createdUsedTogether,
-            &$createdFaq
+            &$createdFaq,
+            &$createdExamples
         ): void {
             $now = date('Y-m-d H:i:s');
 
@@ -609,6 +636,67 @@ final class AdminController
                     $createdFaq[] = ['temp_id' => $tempId, 'id' => $newId];
                 }
             }
+
+            foreach ($deleteExamples as $exampleId) {
+                if ($this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_EXAMPLES, 'category_id', $categoryId, $exampleId)) {
+                    $this->db->execute('DELETE FROM ' . Tables::CIPHERS_CATEGORIES_EXAMPLES . ' WHERE id = ?', [$exampleId]);
+                }
+            }
+
+            foreach ($examples as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $exampleId = (int) ($row['id'] ?? 0);
+                if (!$this->isOwnedCategoryEntity(Tables::CIPHERS_CATEGORIES_EXAMPLES, 'category_id', $categoryId, $exampleId)) {
+                    continue;
+                }
+
+                $this->db->execute(
+                    'UPDATE ' . Tables::CIPHERS_CATEGORIES_EXAMPLES . ' SET sort_order = ?, published = ?, updated_at = ? WHERE id = ?',
+                    [
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $exampleId,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryExampleTranslation($exampleId, $language, $translation, $now);
+                }
+            }
+
+            foreach ($newExamples as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+
+                $tempId = (string) ($row['temp_id'] ?? '');
+                $newId = (int) $this->db->insert(
+                    'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_EXAMPLES . ' (category_id, sort_order, published, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+                    [
+                        $categoryId,
+                        max(0, min(999999, (int) ($row['sort_order'] ?? 0))),
+                        (bool) ($row['published'] ?? true) ? 1 : 0,
+                        $now,
+                        $now,
+                    ]
+                );
+
+                $itemTranslations = is_array($row['translations'] ?? null) ? $row['translations'] : [];
+                foreach ($availableLanguages as $language) {
+                    $translation = is_array($itemTranslations[$language] ?? null) ? $itemTranslations[$language] : [];
+                    $this->upsertCategoryExampleTranslation($newId, $language, $translation, $now);
+                }
+
+                if ($tempId !== '') {
+                    $createdExamples[] = ['temp_id' => $tempId, 'id' => $newId];
+                }
+            }
         });
         $this->cache->tag('cipher_categories')->flush();
 
@@ -620,6 +708,7 @@ final class AdminController
                 'tasks' => $createdTasks,
                 'used_together' => $createdUsedTogether,
                 'faq' => $createdFaq,
+                'examples' => $createdExamples,
             ],
         ]);
     }
@@ -1300,6 +1389,47 @@ final class AdminController
         $this->db->execute(
             'UPDATE ' . Tables::CIPHERS_CATEGORIES_FAQ_TRANSLATIONS . ' SET question = ?, answer = ?, updated_at = ? WHERE id = ?',
             [$question, $answer, $now, (int) $existing['id']]
+        );
+    }
+
+    /**
+     * Создаёт или обновляет перевод примера категории.
+     *
+     * @param array<string, mixed> $row Данные перевода.
+     */
+    private function upsertCategoryExampleTranslation(int $exampleId, string $language, array $row, string $now): void
+    {
+        $title = trim((string) ($row['title'] ?? ''));
+        $input = trim((string) ($row['input'] ?? ''));
+        $description = trim((string) ($row['description'] ?? ''));
+        $existing = $this->db->fetch(
+            'SELECT id FROM ' . Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ? LIMIT 1',
+            [$exampleId, $language]
+        );
+
+        if ($title === '' && $input === '' && $description === '') {
+            if ($existing !== false) {
+                $this->db->execute(
+                    'DELETE FROM ' . Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ?',
+                    [$exampleId, $language]
+                );
+            }
+
+            return;
+        }
+
+        if ($existing === false) {
+            $this->db->insert(
+                'INSERT INTO ' . Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, input, description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                [$exampleId, $language, $title, $input, $description, $now, $now]
+            );
+
+            return;
+        }
+
+        $this->db->execute(
+            'UPDATE ' . Tables::CIPHERS_CATEGORIES_EXAMPLES_TRANSLATIONS . ' SET title = ?, input = ?, description = ?, updated_at = ? WHERE id = ?',
+            [$title, $input, $description, $now, (int) $existing['id']]
         );
     }
 

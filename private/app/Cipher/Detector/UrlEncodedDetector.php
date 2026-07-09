@@ -32,11 +32,17 @@ final readonly class UrlEncodedDetector implements CipherDetectorInterface
 
         $confidence = $count >= 3 ? 0.92 : 0.82;
 
+        // Percent-decoding детерминировано: отдаём расшифровку, если результат —
+        // валидный UTF-8 и реально отличается от исходного.
+        $decoded   = rawurldecode($trimmed);
+        $plaintext = ($decoded !== $trimmed && mb_check_encoding($decoded, 'UTF-8')) ? $decoded : null;
+
         return new CipherDetection(
             toolSlug: 'encoding/url-encode',
             cipherKey: 'CIPHER_NAME_URL_ENCODE',
             confidence: $confidence,
             evidenceKeys: [],
+            decryptedText: $plaintext,
         );
     }
 }

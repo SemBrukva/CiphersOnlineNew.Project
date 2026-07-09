@@ -54,6 +54,7 @@ final readonly class XorDetector implements CipherDetectorInterface
             cipherKey: 'CIPHER_NAME_XOR',
             confidence: 0.50,
             evidenceKeys: ['CID_EV_CHARSET_HEX'],
+            bruteForceAction: 'xor-brute-force',
         );
     }
 }

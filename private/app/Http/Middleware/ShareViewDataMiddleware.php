@@ -129,6 +129,10 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
     /**
      * Строит карту locale → URL для переключателя языков (только для гостей).
      *
+     * Дефолтный язык → путь без изменений. Прочие языки → /{locale}[/path].
+     * Для корня ('/') с ненулевым префиксом даёт '/{locale}' без завершающего
+     * слэша, чтобы избежать лишнего редиректа '/ru/' → '/ru'.
+     *
      * @param string[] $locales
      * @return array<string, string>
      */
@@ -136,7 +140,13 @@ final readonly class ShareViewDataMiddleware implements MiddlewareInterface
     {
         $urls = [];
         foreach ($locales as $lang) {
-            $urls[$lang] = ($lang !== $defaultLocale ? '/' . $lang : '') . $path;
+            if ($lang === $defaultLocale) {
+                $urls[$lang] = $path;
+                continue;
+            }
+
+            $prefix      = '/' . $lang;
+            $urls[$lang] = $path === '/' ? $prefix : $prefix . $path;
         }
 
         return $urls;

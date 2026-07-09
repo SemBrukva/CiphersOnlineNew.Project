@@ -19,9 +19,16 @@ use App\View\View;
  */
 final readonly class HomeController
 {
+    /**
+     * Алиас самостоятельного хаба-флагмана «Cipher Solver».
+     *
+     * Это категория верхнего уровня (не строка ciphers), поэтому на главной она
+     * подставляется синтетической плиткой — см. {@see buildSolverHubTile()}.
+     */
+    private const string SOLVER_HUB_ALIAS = 'cipher-solver';
+
     /** @var string[] Алиасы инструментов в hero-блоке быстрого доступа. */
     private const array QUICK_ACCESS_ALIASES = [
-        'cipher-identifier',
         'base64',
         'caesar',
         'morse-code',
@@ -31,7 +38,6 @@ final readonly class HomeController
 
     /** @var string[] Алиасы инструментов в секции «Популярные инструменты». */
     private const array POPULAR_ALIASES = [
-        'cipher-identifier',
         'vigenere-cracker',
         'caesar',
         'atbash',
@@ -41,7 +47,6 @@ final readonly class HomeController
 
     /** @var string[] Алиасы инструментов в секции задач. */
     private const array USE_CASE_ALIASES = [
-        'cipher-identifier',
         'vigenere-cracker',
         'morse-code',
         'base64',
@@ -75,7 +80,7 @@ final readonly class HomeController
         $defaultLanguage = (string) config('locale.locale', 'en');
 
         /** @var array{categories_with_tools: array<mixed>, popular_tools: array<mixed>, recent_tools: array<mixed>, quick_access_tools: array<mixed>, use_case_tools: array<mixed>} $cached */
-        $cached = $this->cache->remember("home:v2:{$language}", self::CACHE_TTL, function () use ($language, $defaultLanguage): array {
+        $cached = $this->cache->remember("home:v3:{$language}", self::CACHE_TTL, function () use ($language, $defaultLanguage): array {
             $publishedCategories = $this->categories->findPublishedCategoriesForHome($language, $defaultLanguage);
 
             $categoriesWithTools = [];
@@ -85,6 +90,13 @@ final readonly class HomeController
                     $language,
                     $defaultLanguage,
                 );
+
+                // Категории без инструментов (например, самостоятельный хаб cipher-solver)
+                // не показываем карточкой на главной — они доступны через меню.
+                if ($tools === []) {
+                    continue;
+                }
+
                 $category['tools'] = array_slice($tools, 0, 4);
                 $category['tools_count'] = count($tools);
                 $categoriesWithTools[] = $category;
@@ -102,6 +114,11 @@ final readonly class HomeController
             }
             unset($tool);
 
+            // Флагман cipher-solver — категория, а не строка ciphers, поэтому не
+            // приходит из выборок по алиасам. Ставим его первой синтетической
+            // плиткой в hero и «Популярных».
+            array_unshift($popularTools, $this->buildSolverHubTile());
+
             $recentTools = $this->ciphers->findLatestPublishedWithTranslation(
                 self::RECENT_LIMIT,
                 $language,
@@ -113,6 +130,7 @@ final readonly class HomeController
                 $language,
                 $defaultLanguage,
             );
+            array_unshift($quickAccessTools, $this->buildSolverHubTile());
 
             $useCaseTools = $this->ciphers->findPublishedByAliasesWithTranslation(
                 self::USE_CASE_ALIASES,
@@ -155,8 +173,18 @@ final readonly class HomeController
             $byAlias[(string) $tool['alias']] = $tool;
         }
 
+        // Сценарий флагмана-хаба задаём явно: cipher-solver — категория, а не
+        // строка ciphers, поэтому его нет в выборке по алиасам.
+        $cases = [
+            [
+                'title'       => trans('HOME_USE_CASE_IDENTIFIER_TITLE'),
+                'description' => trans('HOME_USE_CASE_IDENTIFIER_DESC'),
+                'tool_label'  => trans('MENU_CIPHER_SOLVER'),
+                'url'         => locale_url('/' . self::SOLVER_HUB_ALIAS),
+            ],
+        ];
+
         $map = [
-            ['alias' => 'cipher-identifier', 'key' => 'HOME_USE_CASE_IDENTIFIER'],
             ['alias' => 'vigenere-cracker',  'key' => 'HOME_USE_CASE_CRACK'],
             ['alias' => 'morse-code',        'key' => 'HOME_USE_CASE_MORSE'],
             ['alias' => 'base64',             'key' => 'HOME_USE_CASE_BASE64'],
@@ -164,7 +192,6 @@ final readonly class HomeController
             ['alias' => 'sha256',             'key' => 'HOME_USE_CASE_HASH'],
         ];
 
-        $cases = [];
         foreach ($map as $item) {
             if (!isset($byAlias[$item['alias']])) {
                 continue;
@@ -179,6 +206,27 @@ final readonly class HomeController
         }
 
         return $cases;
+    }
+
+    /**
+     * Строит синтетическую плитку флагманского хаба «Cipher Solver» для главной.
+     *
+     * cipher-solver — категория верхнего уровня, а не строка ciphers, поэтому не
+     * приходит из выборок по алиасам. Поле `url` задаётся явно (шаблон отдаёт ему
+     * приоритет над сборкой пути из category_alias/alias), `tags` пуст.
+     *
+     * @return array{alias: string, category_alias: string, name_short: string, description_short: string, tags: array<int, mixed>, url: string}
+     */
+    private function buildSolverHubTile(): array
+    {
+        return [
+            'alias'             => self::SOLVER_HUB_ALIAS,
+            'category_alias'    => '',
+            'name_short'        => trans('MENU_CIPHER_SOLVER'),
+            'description_short' => trans('HOME_USE_CASE_IDENTIFIER_DESC'),
+            'tags'              => [],
+            'url'               => locale_url('/' . self::SOLVER_HUB_ALIAS),
+        ];
     }
 
 }

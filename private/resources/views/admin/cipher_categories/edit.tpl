@@ -365,6 +365,68 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="mt-4 mb-1">
+                            <div class="d-flex align-items-center gap-2 py-2 border-bottom entity-section-toggle"
+                                 role="button"
+                                 data-bs-toggle="collapse"
+                                 data-bs-target="#collapse-examples-{$language}"
+                                 aria-expanded="false">
+                                <h3 class="h6 fw-semibold text-uppercase text-secondary mb-0 flex-grow-1">Examples</h3>
+                                <i class="bi bi-chevron-down text-secondary collapse-chevron"></i>
+                            </div>
+                            <div class="collapse" id="collapse-examples-{$language}">
+                                <div class="vstack gap-2 pt-3 pb-1" data-entity-list="examples">
+                                    {foreach $active_category.examples as $example_item}
+                                        {assign var="example_translation" value=$example_item.translations_by_language[$language]|default:null}
+                                        <div class="cipher-entity border rounded" data-entity="example" data-id="{$example_item.id}">
+                                            <div class="cipher-entity-head d-flex align-items-center gap-3 px-3 py-2 bg-light rounded-top border-bottom">
+                                                <span class="badge bg-secondary-subtle text-secondary font-monospace">#<span data-role="entity-id">{$example_item.id}</span></span>
+                                                <div class="d-flex align-items-center gap-1 ms-auto">
+                                                    <span class="text-muted small me-1">Сорт.</span>
+                                                    <input type="number" class="form-control form-control-sm entity-sort-input"
+                                                           min="0" max="999999" data-meta-field="sort_order"
+                                                           value="{$example_item.sort_order|default:0}">
+                                                </div>
+                                                <div class="form-check form-switch mb-0">
+                                                    <input class="form-check-input" type="checkbox" role="switch"
+                                                           data-meta-field="published"
+                                                           {if $example_item.published}checked{/if}>
+                                                    <label class="form-check-label small text-muted">Вкл.</label>
+                                                </div>
+                                                <button type="button" class="btn btn-sm btn-link text-danger p-0 ms-1"
+                                                        data-action="delete-item" title="Удалить">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </div>
+                                            <div class="p-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-medium">Подпись</label>
+                                                    <input type="text" class="form-control"
+                                                           data-translation-field="title"
+                                                           value="{$example_translation.title|default:''}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-medium">Входная строка</label>
+                                                    <textarea class="form-control" rows="2"
+                                                              data-translation-field="input">{$example_translation.input|default:''}</textarea>
+                                                </div>
+                                                <div class="mb-0">
+                                                    <label class="form-label fw-medium">Описание</label>
+                                                    <textarea class="form-control" rows="2"
+                                                              data-translation-field="description">{$example_translation.description|default:''}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-action="add-example">
+                                    <i class="bi bi-plus-circle me-1"></i>Добавить пример
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 {/foreach}
             </div>

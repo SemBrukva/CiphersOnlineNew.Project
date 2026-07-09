@@ -9,8 +9,8 @@ export function initAdminCipherCategoryEdit() {
     }
 
     let newItemCounter = 0
-    /** @type {{block:Set<number>, task:Set<number>, used_together:Set<number>, faq:Set<number>}} */
-    const deletedIds = { block: new Set(), task: new Set(), used_together: new Set(), faq: new Set() }
+    /** @type {{block:Set<number>, task:Set<number>, used_together:Set<number>, faq:Set<number>, example:Set<number>}} */
+    const deletedIds = { block: new Set(), task: new Set(), used_together: new Set(), faq: new Set(), example: new Set() }
 
     const saveButton = root.querySelector('[data-role="save-category"]')
     const alertBox = root.querySelector('[data-role="save-alert"]')
@@ -141,6 +141,25 @@ export function initAdminCipherCategoryEdit() {
             </div>
         </div>`
 
+    const newExampleHtml = (tempId) => `
+        <div class="cipher-entity border rounded" data-entity="example" data-new-id="${tempId}">
+            ${entityHeadHtml()}
+            <div class="p-3">
+                <div class="mb-3">
+                    <label class="form-label fw-medium">Подпись</label>
+                    <input type="text" class="form-control" data-translation-field="title" value="">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-medium">Входная строка</label>
+                    <textarea class="form-control" rows="2" data-translation-field="input"></textarea>
+                </div>
+                <div class="mb-0">
+                    <label class="form-label fw-medium">Описание</label>
+                    <textarea class="form-control" rows="2" data-translation-field="description"></textarea>
+                </div>
+            </div>
+        </div>`
+
     const addNewBlock = () => {
         newItemCounter++
         const tempId = `new-${newItemCounter}`
@@ -197,6 +216,20 @@ export function initAdminCipherCategoryEdit() {
         })
     }
 
+    const addNewExample = () => {
+        newItemCounter++
+        const tempId = `new-${newItemCounter}`
+
+        root.querySelectorAll('[data-language]').forEach((section) => {
+            const list = section.querySelector('[data-entity-list="examples"]')
+            if (!list) {
+                return
+            }
+
+            list.insertAdjacentHTML('beforeend', newExampleHtml(tempId))
+        })
+    }
+
     const deleteItem = (button) => {
         const item = button.closest('[data-entity]')
         if (!item) {
@@ -212,7 +245,7 @@ export function initAdminCipherCategoryEdit() {
             return
         }
 
-        if (id > 0 && (entity === 'block' || entity === 'task' || entity === 'used_together' || entity === 'faq')) {
+        if (id > 0 && (entity === 'block' || entity === 'task' || entity === 'used_together' || entity === 'faq' || entity === 'example')) {
             deletedIds[entity].add(id)
             root.querySelectorAll(`[data-entity="${entity}"][data-id="${id}"]`).forEach((el) => {
                 el.style.opacity = '0.35'
@@ -245,6 +278,10 @@ export function initAdminCipherCategoryEdit() {
 
         if (action === 'add-faq') {
             addNewFaq()
+        }
+
+        if (action === 'add-example') {
+            addNewExample()
         }
 
         if (action === 'delete-item') {
@@ -281,6 +318,9 @@ export function initAdminCipherCategoryEdit() {
             faq: [],
             new_faq: [],
             delete_faq: [...deletedIds.faq],
+            examples: [],
+            new_examples: [],
+            delete_examples: [...deletedIds.example],
         }
 
         root.querySelectorAll('[data-language]').forEach((section) => {
@@ -456,6 +496,47 @@ export function initAdminCipherCategoryEdit() {
                     }
                 }
             })
+
+            section.querySelectorAll('[data-entity="example"]:not([data-deleted])').forEach((item) => {
+                const id = Number(item.getAttribute('data-id') || '0')
+                const newId = item.getAttribute('data-new-id')
+
+                if (newId) {
+                    let row = payload.new_examples.find((r) => r.temp_id === newId)
+                    if (!row) {
+                        row = {
+                            temp_id: newId,
+                            sort_order: Number(item.querySelector('[data-meta-field="sort_order"]')?.value ?? 0),
+                            published: item.querySelector('[data-meta-field="published"]')?.checked ? 1 : 0,
+                            translations: {},
+                        }
+                        payload.new_examples.push(row)
+                    }
+
+                    row.translations[language] = {
+                        title: String(item.querySelector('[data-translation-field="title"]')?.value ?? '').trim(),
+                        input: String(item.querySelector('[data-translation-field="input"]')?.value ?? '').trim(),
+                        description: String(item.querySelector('[data-translation-field="description"]')?.value ?? '').trim(),
+                    }
+                } else if (id > 0) {
+                    let row = payload.examples.find((r) => r.id === id)
+                    if (!row) {
+                        row = {
+                            id,
+                            sort_order: Number(item.querySelector('[data-meta-field="sort_order"]')?.value ?? 0),
+                            published: item.querySelector('[data-meta-field="published"]')?.checked ? 1 : 0,
+                            translations: {},
+                        }
+                        payload.examples.push(row)
+                    }
+
+                    row.translations[language] = {
+                        title: String(item.querySelector('[data-translation-field="title"]')?.value ?? '').trim(),
+                        input: String(item.querySelector('[data-translation-field="input"]')?.value ?? '').trim(),
+                        description: String(item.querySelector('[data-translation-field="description"]')?.value ?? '').trim(),
+                    }
+                }
+            })
         })
 
         saveButton.disabled = true
@@ -468,6 +549,7 @@ export function initAdminCipherCategoryEdit() {
             const createdTasks = response?.created?.tasks ?? []
             const createdUsedTogether = response?.created?.used_together ?? []
             const createdFaq = response?.created?.faq ?? []
+            const createdExamples = response?.created?.examples ?? []
 
             createdBlocks.forEach(({ temp_id, id }) => {
                 root.querySelectorAll(`[data-entity="block"][data-new-id="${temp_id}"]`).forEach((el) => {
@@ -525,6 +607,24 @@ export function initAdminCipherCategoryEdit() {
 
             createdFaq.forEach(({ temp_id, id }) => {
                 root.querySelectorAll(`[data-entity="faq"][data-new-id="${temp_id}"]`).forEach((el) => {
+                    el.setAttribute('data-id', String(id))
+                    el.removeAttribute('data-new-id')
+                    const badge = el.querySelector('.badge')
+                    if (badge) {
+                        badge.className = 'badge bg-secondary-subtle text-secondary font-monospace'
+                        badge.textContent = `#${id}`
+                    }
+                    const head = el.querySelector('.cipher-entity-head')
+                    if (head) {
+                        head.classList.remove('bg-warning-subtle')
+                        head.classList.add('bg-light')
+                        head.style.borderRadius = ''
+                    }
+                })
+            })
+
+            createdExamples.forEach(({ temp_id, id }) => {
+                root.querySelectorAll(`[data-entity="example"][data-new-id="${temp_id}"]`).forEach((el) => {
                     el.setAttribute('data-id', String(id))
                     el.removeAttribute('data-new-id')
                     const badge = el.querySelector('.badge')

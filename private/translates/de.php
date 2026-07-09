@@ -13,6 +13,7 @@ return [
     'MENU_CABINET' => 'Konto',
     'MENU_ADMIN' => 'Admin',
     'MENU_TOOLS' => 'Tools',
+    'MENU_CIPHER_SOLVER'     => 'Chiffren-Löser',
     'MENU_CLASSICAL_CIPHERS' => 'Klassische Chiffren',
     'MENU_ENCODING' => 'Datenkodierung',
     'MENU_CODES_AND_ALPHABETS' => 'Codes & Alphabete',
@@ -354,6 +355,17 @@ return [
     'VIGENERE_CRACK_WARN_LANG_MISMATCH'       => 'Der Text enthält keine Zeichen des gewählten Alphabets. Versuchen Sie den Auto-Modus.',
     'VIGENERE_CRACK_WARN_NOT_ENCRYPTED'       => 'Der Text scheint nicht Vigenère-verschlüsselt zu sein — Schlüssel „A" bedeutet keine Verschiebung.',
     'VIGENERE_CRACK_ERR_INVALID'              => 'Ungültige Eingabedaten.',
+
+    // XOR Brute Force
+    'XOR_BRUTE_ERR_TEXT_REQUIRED'             => 'Geben Sie den zu knackenden Geheimtext ein.',
+    'XOR_BRUTE_ERR_NOT_HEX'                   => 'Die Eingabe muss eine hexadezimale Zeichenkette gerader Länge sein.',
+    'XOR_BRUTE_ERR_TEXT_TOO_LONG'             => 'Eingabe zu lang (max. {limit} Hex-Zeichen).',
+    'XOR_BRUTE_ERR_INVALID'                   => 'Ungültige Eingabedaten.',
+
+    // Substitution Cracker
+    'SUBSTITUTION_CRACK_ERR_TEXT_REQUIRED'   => 'Geben Sie den zu knackenden Geheimtext ein.',
+    'SUBSTITUTION_CRACK_ERR_TEXT_TOO_LONG'    => 'Eingabe zu lang (max. {limit} Zeichen).',
+    'SUBSTITUTION_CRACK_ERR_INVALID'          => 'Ungültige Eingabedaten.',
     'VIGENERE_CRACK_ERR_TEXT_REQUIRED'        => 'Text ist erforderlich.',
     'VIGENERE_CRACK_ERR_ALPHABET_UNSUPPORTED' => 'Nicht unterstütztes Alphabet.',
     'VIGENERE_CRACK_ERR_TEXT_TOO_LONG'        => 'Text zu lang — maximal :limit Zeichen.',
@@ -727,6 +739,17 @@ return [
     'CIPHER_IDENTIFIER_CRACK_RUNNING'     => 'Wird geknackt…',
     'CIPHER_IDENTIFIER_CRACK_FAILED'      => 'Text konnte nicht entschlüsselt werden',
     'CIPHER_IDENTIFIER_CRACK_KEY'         => 'Schlüssel',
+
+    // Cipher Solver
+    'SOLVER_TRUST_AUTO'    => 'Erkennt und knackt die Chiffre automatisch',
+    'SOLVER_TRUST_RANKED'  => 'Ordnet Entschlüsselungen nach Lesbarkeit',
+    'SOLVER_EMPTY_LABEL'   => 'Fügen Sie einen Geheimtext ein, um die Antwort zu erhalten',
+    'SOLVER_NO_ANSWERS'    => 'Der Text konnte nicht automatisch entschlüsselt werden. Prüfen Sie die Kandidaten unten.',
+    'SOLVER_BEST_TITLE'    => 'Wahrscheinlichste Antwort',
+    'SOLVER_ANSWERS_TITLE' => 'Weitere Entschlüsselungen',
+    'SOLVER_TYPES_TOGGLE'  => 'Verschlüsselungskandidaten anzeigen',
+    'SOLVER_OPEN_TOOL'     => 'Werkzeug öffnen',
+    'SOLVER_COPY_LABEL'    => 'Kopieren',
     'CIPHER_IDENTIFIER_TRUST_TYPE'        => 'Statistische Erkennung basierend auf Koinzidenzindex und Häufigkeitsanalyse',
     'CIPHER_IDENTIFIER_TRUST_MULTI_ALPHA' => 'Unterstützt 8 Alphabete: Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch, Türkisch',
     'CIPHER_IDENTIFIER_ERR_TEXT_REQUIRED' => 'Text ist erforderlich.',
@@ -764,6 +787,7 @@ return [
     'CIPHER_NAME_UNICODE'              => 'Unicode-Escape',
     'CIPHER_NAME_CAESAR'               => 'Caesar-Chiffre',
     'CIPHER_NAME_ROT13'                => 'ROT-13',
+    'CIPHER_NAME_ROT47'                => 'ROT47',
     'CIPHER_NAME_ATBASH'               => 'Atbash-Chiffre',
     'CIPHER_NAME_AFFINE'               => 'Affine Chiffre',
     'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => 'Einfache Substitution',
@@ -819,6 +843,8 @@ return [
     // Hashing
     'HASH_HERO_TITLE'           => 'Hash-Rechner',
     'HASH_HERO_DESC'            => 'Wählen Sie einen Algorithmus und berechnen Sie den kryptografischen Hash beliebigen Textes direkt im Browser. Unterstützt SHA-1, SHA-256, SHA-384, SHA-512.',
+    'SOLVER_HERO_TITLE'         => 'Chiffren-Löser',
+    'SOLVER_HERO_DESC'          => 'Fügen Sie einen beliebigen Geheimtext ein — der Löser erkennt und entschlüsselt ihn automatisch: Cäsar, Vigenère, Base64, Morse, XOR und mehr, direkt im Browser.',
     'HASH_TAB_HASH'             => 'Hash',
     'HASH_INPUT_LABEL'          => 'Eingabe',
     'HASH_PLACEHOLDER_INPUT'    => 'Text zum Hashen eingeben...',

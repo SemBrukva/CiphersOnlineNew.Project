@@ -98,6 +98,7 @@ final readonly class Base64Detector implements CipherDetectorInterface
             cipherKey: 'CIPHER_NAME_BASE64',
             confidence: $confidence,
             evidenceKeys: ['CID_EV_CHARSET_BASE64'],
+            decryptedText: $decoded,
         );
     }
 

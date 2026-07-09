@@ -13,6 +13,7 @@ return [
     'MENU_CABINET' => 'Mon compte',
     'MENU_ADMIN' => 'Admin',
     'MENU_TOOLS' => 'Outils',
+    'MENU_CIPHER_SOLVER'     => 'Solveur de chiffrement',
     'MENU_CLASSICAL_CIPHERS' => 'Chiffres classiques',
     'MENU_ENCODING' => 'Encodage des données',
     'MENU_CODES_AND_ALPHABETS' => 'Codes et alphabets',
@@ -354,6 +355,17 @@ return [
     'VIGENERE_CRACK_WARN_LANG_MISMATCH'       => 'Le texte ne contient aucun caractère de l\'alphabet sélectionné. Essayez le mode Auto.',
     'VIGENERE_CRACK_WARN_NOT_ENCRYPTED'       => 'Le texte ne semble pas chiffré avec Vigenère — la clé « A » signifie qu\'aucun décalage n\'a été appliqué.',
     'VIGENERE_CRACK_ERR_INVALID'              => 'Données d\'entrée invalides.',
+
+    // XOR Brute Force
+    'XOR_BRUTE_ERR_TEXT_REQUIRED'             => 'Saisissez le texte chiffré à casser.',
+    'XOR_BRUTE_ERR_NOT_HEX'                   => 'L\'entrée doit être une chaîne hexadécimale de longueur paire.',
+    'XOR_BRUTE_ERR_TEXT_TOO_LONG'             => 'Entrée trop longue (max {limit} caractères hex).',
+    'XOR_BRUTE_ERR_INVALID'                   => 'Données d\'entrée invalides.',
+
+    // Substitution Cracker
+    'SUBSTITUTION_CRACK_ERR_TEXT_REQUIRED'   => 'Saisissez le texte chiffré à casser.',
+    'SUBSTITUTION_CRACK_ERR_TEXT_TOO_LONG'    => 'Entrée trop longue (max {limit} caractères).',
+    'SUBSTITUTION_CRACK_ERR_INVALID'          => 'Données d\'entrée invalides.',
     'VIGENERE_CRACK_ERR_TEXT_REQUIRED'        => 'Le texte est obligatoire.',
     'VIGENERE_CRACK_ERR_ALPHABET_UNSUPPORTED' => 'Alphabet non pris en charge.',
     'VIGENERE_CRACK_ERR_TEXT_TOO_LONG'        => 'Texte trop long — maximum :limit caractères.',
@@ -727,6 +739,17 @@ return [
     'CIPHER_IDENTIFIER_CRACK_RUNNING'     => 'Décryptage…',
     'CIPHER_IDENTIFIER_CRACK_FAILED'      => 'Échec du décryptage du texte',
     'CIPHER_IDENTIFIER_CRACK_KEY'         => 'Clé',
+
+    // Cipher Solver
+    'SOLVER_TRUST_AUTO'    => 'Détecte et déchiffre automatiquement',
+    'SOLVER_TRUST_RANKED'  => 'Classe les déchiffrements par lisibilité',
+    'SOLVER_EMPTY_LABEL'   => 'Collez un texte chiffré pour obtenir la réponse',
+    'SOLVER_NO_ANSWERS'    => 'Impossible de déchiffrer ce texte automatiquement. Consultez les candidats ci-dessous.',
+    'SOLVER_BEST_TITLE'    => 'Réponse la plus probable',
+    'SOLVER_ANSWERS_TITLE' => 'Autres déchiffrements',
+    'SOLVER_TYPES_TOGGLE'  => 'Afficher les chiffrements candidats',
+    'SOLVER_OPEN_TOOL'     => 'Ouvrir l\'outil',
+    'SOLVER_COPY_LABEL'    => 'Copier',
     'CIPHER_IDENTIFIER_TRUST_TYPE'        => 'Détection statistique basée sur l\'indice de coïncidence et l\'analyse de fréquence',
     'CIPHER_IDENTIFIER_TRUST_MULTI_ALPHA' => 'Prend en charge 8 alphabets : anglais, russe, allemand, espagnol, français, italien, portugais, turc',
     'CIPHER_IDENTIFIER_ERR_TEXT_REQUIRED' => 'Le texte est requis.',
@@ -764,6 +787,7 @@ return [
     'CIPHER_NAME_UNICODE'              => 'Échappement Unicode',
     'CIPHER_NAME_CAESAR'               => 'Chiffre de César',
     'CIPHER_NAME_ROT13'                => 'ROT-13',
+    'CIPHER_NAME_ROT47'                => 'ROT47',
     'CIPHER_NAME_ATBASH'               => 'Chiffre Atbash',
     'CIPHER_NAME_AFFINE'               => 'Chiffre affine',
     'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => 'Substitution simple',
@@ -819,6 +843,8 @@ return [
     // Hashing
     'HASH_HERO_TITLE'           => 'Calculateur de hachage',
     'HASH_HERO_DESC'            => 'Choisissez un algorithme et calculez l\'empreinte cryptographique d\'un texte directement dans votre navigateur. Prend en charge SHA-1, SHA-256, SHA-384, SHA-512.',
+    'SOLVER_HERO_TITLE'         => 'Solveur de chiffrement',
+    'SOLVER_HERO_DESC'          => 'Collez n\'importe quel texte chiffré et le solveur le détectera et le déchiffrera automatiquement : César, Vigenère, Base64, Morse, XOR et plus, directement dans votre navigateur.',
     'HASH_TAB_HASH'             => 'Hacher',
     'HASH_INPUT_LABEL'          => 'Entrée',
     'HASH_PLACEHOLDER_INPUT'    => 'Saisissez le texte à hacher...',

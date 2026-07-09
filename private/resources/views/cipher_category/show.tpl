@@ -5,6 +5,7 @@
         tool_ui=$hero_tool_ui
         tool_ui_json=$hero_tool_ui_json
         widget_heading_tag='h2'
+        hide_title=($hero_hide_title|default:false)
         category_intro=[
             'name'        => $category.name,
             'description' => ($category.description|default:''),
@@ -23,6 +24,34 @@
             {/foreach}
         </div>
         {/if}
+    </div>
+</section>
+{/if}
+
+{if $examples}
+<section class="panel ciphers-category-hub-panel" id="category-examples">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="bi bi-collection"></i> {trans key='CIPHER_TOOL_EXAMPLES_TITLE'}
+        </div>
+    </div>
+    <div class="panel-content">
+        <div class="b64-examples-grid">
+            {foreach $examples as $example}
+                <article class="b64-example-card">
+                    {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
+                    <div class="b64-example-card__row">
+                        <div class="b64-example-card__slot">
+                            <code class="b64-example-card__code">{$example.input|escape}</code>
+                        </div>
+                    </div>
+                    {if $example.desc}<p class="b64-example-card__desc">{$example.desc|escape}</p>{/if}
+                    <button class="b64-example-card__use ciphers-example-use" type="button"
+                            data-example-text="{$example.input|escape:'html'}"
+                            data-alphabet="auto">{trans key='CIPHER_TOOL_USE_EXAMPLE'}</button>
+                </article>
+            {/foreach}
+        </div>
     </div>
 </section>
 {/if}

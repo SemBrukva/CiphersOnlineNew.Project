@@ -266,55 +266,23 @@ final class ToolUiDecorator
             $toolUi['cidCrackRunning']           = trans('CIPHER_IDENTIFIER_CRACK_RUNNING');
             $toolUi['cidCrackFailed']            = trans('CIPHER_IDENTIFIER_CRACK_FAILED');
             $toolUi['cidCrackKey']               = trans('CIPHER_IDENTIFIER_CRACK_KEY');
-            $toolUi['cidTranslations']           = [
-                'CIPHER_NAME_BASE64'               => trans('CIPHER_NAME_BASE64'),
-                'CIPHER_NAME_HEX'                  => trans('CIPHER_NAME_HEX'),
-                'CIPHER_NAME_BINARY'               => trans('CIPHER_NAME_BINARY'),
-                'CIPHER_NAME_MORSE_CODE'           => trans('CIPHER_NAME_MORSE_CODE'),
-                'CIPHER_NAME_BACON'                => trans('CIPHER_NAME_BACON'),
-                'CIPHER_NAME_A1Z26'                => trans('CIPHER_NAME_A1Z26'),
-                'CIPHER_NAME_POLYBIUS_SQUARE'      => trans('CIPHER_NAME_POLYBIUS_SQUARE'),
-                'CIPHER_NAME_URL_ENCODE'           => trans('CIPHER_NAME_URL_ENCODE'),
-                'CIPHER_NAME_JWT'                  => trans('CIPHER_NAME_JWT'),
-                'CIPHER_NAME_UNICODE'              => trans('CIPHER_NAME_UNICODE'),
-                'CIPHER_NAME_CAESAR'               => trans('CIPHER_NAME_CAESAR'),
-                'CIPHER_NAME_ROT13'                => trans('CIPHER_NAME_ROT13'),
-                'CIPHER_NAME_ATBASH'               => trans('CIPHER_NAME_ATBASH'),
-                'CIPHER_NAME_AFFINE'               => trans('CIPHER_NAME_AFFINE'),
-                'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => trans('CIPHER_NAME_SIMPLE_SUBSTITUTION'),
-                'CIPHER_NAME_XOR'                  => trans('CIPHER_NAME_XOR'),
-                'CIPHER_NAME_VIGENERE'             => trans('CIPHER_NAME_VIGENERE'),
-                'CIPHER_NAME_BEAUFORT'             => trans('CIPHER_NAME_BEAUFORT'),
-                'CIPHER_NAME_AUTOKEY'              => trans('CIPHER_NAME_AUTOKEY'),
-                'CIPHER_NAME_GRONSFELD'            => trans('CIPHER_NAME_GRONSFELD'),
-                'CIPHER_NAME_ALBERTI'              => trans('CIPHER_NAME_ALBERTI'),
-                'CIPHER_NAME_BIFID'                => trans('CIPHER_NAME_BIFID'),
-                'CIPHER_NAME_TRIFID'               => trans('CIPHER_NAME_TRIFID'),
-                'CIPHER_NAME_RAIL_FENCE'           => trans('CIPHER_NAME_RAIL_FENCE'),
-                'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => trans('CIPHER_NAME_COLUMNAR_TRANSPOSITION'),
-                'CIPHER_NAME_PLAYFAIR'             => trans('CIPHER_NAME_PLAYFAIR'),
-                'CIPHER_NAME_HILL'                 => trans('CIPHER_NAME_HILL'),
-                'CIPHER_NAME_VERNAM'               => trans('CIPHER_NAME_VERNAM'),
-                'CID_EV_CHARSET_LETTERS'           => trans('CID_EV_CHARSET_LETTERS'),
-                'CID_EV_CHARSET_HEX'               => trans('CID_EV_CHARSET_HEX'),
-                'CID_EV_CHARSET_BASE64'            => trans('CID_EV_CHARSET_BASE64'),
-                'CID_EV_CHARSET_BINARY'            => trans('CID_EV_CHARSET_BINARY'),
-                'CID_EV_CHARSET_MORSE'             => trans('CID_EV_CHARSET_MORSE'),
-                'CID_EV_CHARSET_BACON'             => trans('CID_EV_CHARSET_BACON'),
-                'CID_EV_CHARSET_NUMBERS'           => trans('CID_EV_CHARSET_NUMBERS'),
-                'CID_EV_LENGTH_MULTIPLE_OF'        => trans('CID_EV_LENGTH_MULTIPLE_OF'),
-                'CID_EV_IOC_MONO'                  => trans('CID_EV_IOC_MONO'),
-                'CID_EV_IOC_POLY'                  => trans('CID_EV_IOC_POLY'),
-                'CID_EV_IOC_PRESERVED'             => trans('CID_EV_IOC_PRESERVED'),
-                'CID_EV_CHISQ_BEST_SHIFT'          => trans('CID_EV_CHISQ_BEST_SHIFT'),
-                'CID_EV_AMBIGUOUS_POLYALPHA'       => trans('CID_EV_AMBIGUOUS_POLYALPHA'),
-                'CID_EV_LOW_SAMPLE'                => trans('CID_EV_LOW_SAMPLE'),
-                'CID_EV_BIGRAM_READABLE'           => trans('CID_EV_BIGRAM_READABLE'),
-                'CID_EV_IOC_COLUMNS_PEAK'          => trans('CID_EV_IOC_COLUMNS_PEAK'),
-                'CID_EV_KASISKI_AGREE'             => trans('CID_EV_KASISKI_AGREE'),
-                'CID_EV_COMMON_WORDS'              => trans('CID_EV_COMMON_WORDS'),
-                'CID_EV_FILE_SIGNATURE'            => trans('CID_EV_FILE_SIGNATURE'),
-            ];
+            $toolUi['cidTranslations']           = self::cipherNameTranslations();
+        }
+        if ($cipherAlias === 'cipher-solver') {
+            $toolUi['solverMode']            = true;
+            $toolUi['disableLiveMode']       = true;
+            $toolUi['inputMaxLength']        = SolverApiCipherTool::MAX_TEXT_LENGTH;
+            $toolUi['solverEmptyLabel']      = trans('SOLVER_EMPTY_LABEL');
+            $toolUi['solverNoAnswersMsg']    = trans('SOLVER_NO_ANSWERS');
+            $toolUi['solverBestTitle']       = trans('SOLVER_BEST_TITLE');
+            $toolUi['solverAnswersTitle']    = trans('SOLVER_ANSWERS_TITLE');
+            $toolUi['solverTypesToggle']     = trans('SOLVER_TYPES_TOGGLE');
+            $toolUi['solverOpenTool']        = trans('SOLVER_OPEN_TOOL');
+            $toolUi['solverCopyLabel']       = trans('SOLVER_COPY_LABEL');
+            $toolUi['solverColCipher']       = trans('CIPHER_IDENTIFIER_COLUMN_CIPHER');
+            $toolUi['solverColConfidence']   = trans('CIPHER_IDENTIFIER_COLUMN_CONFIDENCE');
+            $toolUi['solverColEvidence']     = trans('CIPHER_IDENTIFIER_COLUMN_EVIDENCE');
+            $toolUi['solverTranslations']    = self::cipherNameTranslations();
         }
         if ($cipherAlias === 'text-diff') {
             $toolUi['diffMode']                = true;
@@ -353,5 +321,67 @@ final class ToolUiDecorator
         }
 
         return $toolUi;
+    }
+
+    /**
+     * Возвращает карту «ключ перевода → перевод» для названий шифров и evidence-меток.
+     *
+     * Используется и определителем шифра, и авто-солвером: оба рендерят на клиенте
+     * имена шифров-кандидатов и объяснения-свидетельства по ключам из ответа API.
+     *
+     * @return array<string, string>
+     */
+    private static function cipherNameTranslations(): array
+    {
+        return [
+            'CIPHER_NAME_BASE64'               => trans('CIPHER_NAME_BASE64'),
+            'CIPHER_NAME_HEX'                  => trans('CIPHER_NAME_HEX'),
+            'CIPHER_NAME_BINARY'               => trans('CIPHER_NAME_BINARY'),
+            'CIPHER_NAME_MORSE_CODE'           => trans('CIPHER_NAME_MORSE_CODE'),
+            'CIPHER_NAME_BACON'                => trans('CIPHER_NAME_BACON'),
+            'CIPHER_NAME_A1Z26'                => trans('CIPHER_NAME_A1Z26'),
+            'CIPHER_NAME_POLYBIUS_SQUARE'      => trans('CIPHER_NAME_POLYBIUS_SQUARE'),
+            'CIPHER_NAME_URL_ENCODE'           => trans('CIPHER_NAME_URL_ENCODE'),
+            'CIPHER_NAME_JWT'                  => trans('CIPHER_NAME_JWT'),
+            'CIPHER_NAME_UNICODE'              => trans('CIPHER_NAME_UNICODE'),
+            'CIPHER_NAME_CAESAR'               => trans('CIPHER_NAME_CAESAR'),
+            'CIPHER_NAME_ROT13'                => trans('CIPHER_NAME_ROT13'),
+            'CIPHER_NAME_ROT47'                => trans('CIPHER_NAME_ROT47'),
+            'CIPHER_NAME_ATBASH'               => trans('CIPHER_NAME_ATBASH'),
+            'CIPHER_NAME_AFFINE'               => trans('CIPHER_NAME_AFFINE'),
+            'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => trans('CIPHER_NAME_SIMPLE_SUBSTITUTION'),
+            'CIPHER_NAME_XOR'                  => trans('CIPHER_NAME_XOR'),
+            'CIPHER_NAME_VIGENERE'             => trans('CIPHER_NAME_VIGENERE'),
+            'CIPHER_NAME_BEAUFORT'             => trans('CIPHER_NAME_BEAUFORT'),
+            'CIPHER_NAME_AUTOKEY'              => trans('CIPHER_NAME_AUTOKEY'),
+            'CIPHER_NAME_GRONSFELD'            => trans('CIPHER_NAME_GRONSFELD'),
+            'CIPHER_NAME_ALBERTI'              => trans('CIPHER_NAME_ALBERTI'),
+            'CIPHER_NAME_BIFID'                => trans('CIPHER_NAME_BIFID'),
+            'CIPHER_NAME_TRIFID'               => trans('CIPHER_NAME_TRIFID'),
+            'CIPHER_NAME_RAIL_FENCE'           => trans('CIPHER_NAME_RAIL_FENCE'),
+            'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => trans('CIPHER_NAME_COLUMNAR_TRANSPOSITION'),
+            'CIPHER_NAME_PLAYFAIR'             => trans('CIPHER_NAME_PLAYFAIR'),
+            'CIPHER_NAME_HILL'                 => trans('CIPHER_NAME_HILL'),
+            'CIPHER_NAME_VERNAM'               => trans('CIPHER_NAME_VERNAM'),
+            'CID_EV_CHARSET_LETTERS'           => trans('CID_EV_CHARSET_LETTERS'),
+            'CID_EV_CHARSET_HEX'               => trans('CID_EV_CHARSET_HEX'),
+            'CID_EV_CHARSET_BASE64'            => trans('CID_EV_CHARSET_BASE64'),
+            'CID_EV_CHARSET_BINARY'            => trans('CID_EV_CHARSET_BINARY'),
+            'CID_EV_CHARSET_MORSE'             => trans('CID_EV_CHARSET_MORSE'),
+            'CID_EV_CHARSET_BACON'             => trans('CID_EV_CHARSET_BACON'),
+            'CID_EV_CHARSET_NUMBERS'           => trans('CID_EV_CHARSET_NUMBERS'),
+            'CID_EV_LENGTH_MULTIPLE_OF'        => trans('CID_EV_LENGTH_MULTIPLE_OF'),
+            'CID_EV_IOC_MONO'                  => trans('CID_EV_IOC_MONO'),
+            'CID_EV_IOC_POLY'                  => trans('CID_EV_IOC_POLY'),
+            'CID_EV_IOC_PRESERVED'             => trans('CID_EV_IOC_PRESERVED'),
+            'CID_EV_CHISQ_BEST_SHIFT'          => trans('CID_EV_CHISQ_BEST_SHIFT'),
+            'CID_EV_AMBIGUOUS_POLYALPHA'       => trans('CID_EV_AMBIGUOUS_POLYALPHA'),
+            'CID_EV_LOW_SAMPLE'                => trans('CID_EV_LOW_SAMPLE'),
+            'CID_EV_BIGRAM_READABLE'           => trans('CID_EV_BIGRAM_READABLE'),
+            'CID_EV_IOC_COLUMNS_PEAK'          => trans('CID_EV_IOC_COLUMNS_PEAK'),
+            'CID_EV_KASISKI_AGREE'             => trans('CID_EV_KASISKI_AGREE'),
+            'CID_EV_COMMON_WORDS'              => trans('CID_EV_COMMON_WORDS'),
+            'CID_EV_FILE_SIGNATURE'            => trans('CID_EV_FILE_SIGNATURE'),
+        ];
     }
 }

@@ -17,7 +17,7 @@
             <div class="home-hero__search-results" id="homeSearchResults" role="listbox"></div>
         </form>
 
-        <a class="home-hero__identifier" href="{$locale_prefix}/text-analysis/cipher-identifier">
+        <a class="home-hero__identifier" href="{$locale_prefix}/cipher-solver">
             <span class="home-hero__identifier-icon" aria-hidden="true">
                 <i class="bi bi-stars"></i>
             </span>
@@ -35,7 +35,7 @@
                 {foreach $quick_access_tools as $tool}
                     <a class="home-hero__chip"
                        data-search-name="{$tool.name_short|escape:'html'} {$tool.alias}"
-                       href="{$locale_prefix}/{$tool.category_alias}/{$tool.alias}">
+                       href="{if $tool.url|default:''}{$tool.url}{else}{$locale_prefix}/{$tool.category_alias}/{$tool.alias}{/if}">
                         {$tool.name_short}
                     </a>
                 {/foreach}
@@ -80,7 +80,7 @@
 
     <div class="home-tools-grid">
         {foreach $popular_tools as $tool}
-        <a class="home-tool-card" href="{$locale_prefix}/{$tool.category_alias}/{$tool.alias}">
+        <a class="home-tool-card" href="{if $tool.url|default:''}{$tool.url}{else}{$locale_prefix}/{$tool.category_alias}/{$tool.alias}{/if}">
             <div class="home-tool-card__top">
                 <h3 class="home-tool-card__title">{$tool.name_short}</h3>
                 <span class="home-tool-card__arrow" aria-hidden="true">→</span>
@@ -170,7 +170,7 @@
             <p class="home-edu-card__text">{$t.HOME_EDU_CARD_1_TEXT}</p>
             <i class="bi bi-arrow-right home-edu-card__arrow" aria-hidden="true"></i>
         </a>
-        <a class="home-edu-card" href="{$locale_prefix}/text-analysis/cipher-identifier">
+        <a class="home-edu-card" href="{$locale_prefix}/cipher-solver">
             <span class="home-edu-card__num">02</span>
             <h3 class="home-edu-card__title">{$t.HOME_EDU_CARD_2_TITLE}</h3>
             <p class="home-edu-card__text">{$t.HOME_EDU_CARD_2_TEXT}</p>

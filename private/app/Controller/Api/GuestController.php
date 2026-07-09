@@ -546,6 +546,19 @@ final class GuestController
     }
 
     /**
+     * «Умный» авто-солвер: определяет тип, взламывает и ранжирует расшифровки.
+     *
+     * POST /api/tools/cipher-solver
+     */
+    #[ApiOperation(summary: 'Cipher Solver', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Ранжированные по читаемости расшифровки и типы-кандидаты')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function cipherSolver(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'cipher-solver');
+    }
+
+    /**
      * Ищет анаграммы, подмножества букв, шаблоны и многословные перестановки.
      *
      * POST /api/tools/anagram-solver

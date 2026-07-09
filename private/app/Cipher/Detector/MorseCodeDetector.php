@@ -65,9 +65,11 @@ final readonly class MorseCodeDetector implements CipherDetectorInterface
 
         $structurallyValid = 0;
         $decoded           = 0;
+        $decodedText       = '';
         foreach ($tokens as $token) {
             if ($token === '/') {
                 $structurallyValid++;
+                $decodedText .= ' ';
                 continue;
             }
             if (!preg_match('/^[.\-]{1,5}$/', $token)) {
@@ -76,6 +78,7 @@ final readonly class MorseCodeDetector implements CipherDetectorInterface
             $structurallyValid++;
             if (isset(self::MORSE_TABLE[$token])) {
                 $decoded++;
+                $decodedText .= self::MORSE_TABLE[$token];
             }
         }
 
@@ -98,11 +101,15 @@ final readonly class MorseCodeDetector implements CipherDetectorInterface
             $confidence = 0.45;
         }
 
+        // Расшифровку отдаём только при уверенном декоде — на шуме она бессмысленна.
+        $plaintext = trim($decodedText);
+
         return new CipherDetection(
             toolSlug: 'codes-and-alphabets/morse-code',
             cipherKey: 'CIPHER_NAME_MORSE_CODE',
             confidence: $confidence,
             evidenceKeys: ['CID_EV_CHARSET_MORSE'],
+            decryptedText: ($decodedRatio >= self::MIN_DECODED_RATIO && $plaintext !== '') ? $plaintext : null,
         );
     }
 }

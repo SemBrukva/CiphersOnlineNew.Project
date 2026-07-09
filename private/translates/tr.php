@@ -13,6 +13,7 @@ return [
     'MENU_CABINET' => 'Hesabım',
     'MENU_ADMIN' => 'Yönetici',
     'MENU_TOOLS' => 'Araçlar',
+    'MENU_CIPHER_SOLVER'     => 'Şifre Çözücü',
     'MENU_CLASSICAL_CIPHERS' => 'Klasik şifreler',
     'MENU_ENCODING' => 'Veri kodlama',
     'MENU_CODES_AND_ALPHABETS' => 'Kodlar ve alfabeler',
@@ -353,6 +354,17 @@ return [
     'VIGENERE_CRACK_WARN_LANG_MISMATCH'       => 'Metin, seçilen alfabeye ait karakter içermiyor. Otomatik modunu deneyin.',
     'VIGENERE_CRACK_WARN_NOT_ENCRYPTED'       => 'Metin Vigenère ile şifrelenmiş görünmüyor — "A" anahtarı hiçbir kaydırma uygulanmadığı anlamına gelir.',
     'VIGENERE_CRACK_ERR_INVALID'              => 'Geçersiz giriş verisi.',
+
+    // XOR Brute Force
+    'XOR_BRUTE_ERR_TEXT_REQUIRED'             => 'Kırılacak şifreli metni girin.',
+    'XOR_BRUTE_ERR_NOT_HEX'                   => 'Giriş çift uzunlukta onaltılık bir dize olmalıdır.',
+    'XOR_BRUTE_ERR_TEXT_TOO_LONG'             => 'Giriş çok uzun (en fazla {limit} onaltılık karakter).',
+    'XOR_BRUTE_ERR_INVALID'                   => 'Geçersiz giriş verisi.',
+
+    // Substitution Cracker
+    'SUBSTITUTION_CRACK_ERR_TEXT_REQUIRED'   => 'Kırılacak şifreli metni girin.',
+    'SUBSTITUTION_CRACK_ERR_TEXT_TOO_LONG'    => 'Giriş çok uzun (en fazla {limit} karakter).',
+    'SUBSTITUTION_CRACK_ERR_INVALID'          => 'Geçersiz giriş verisi.',
     'VIGENERE_CRACK_ERR_TEXT_REQUIRED'        => 'Metin gereklidir.',
     'VIGENERE_CRACK_ERR_ALPHABET_UNSUPPORTED' => 'Desteklenmeyen alfabe.',
     'VIGENERE_CRACK_ERR_TEXT_TOO_LONG'        => 'Metin çok uzun — en fazla :limit karakter.',
@@ -726,6 +738,17 @@ return [
     'CIPHER_IDENTIFIER_CRACK_RUNNING'     => 'Kırılıyor…',
     'CIPHER_IDENTIFIER_CRACK_FAILED'      => 'Metin kırılamadı',
     'CIPHER_IDENTIFIER_CRACK_KEY'         => 'Anahtar',
+
+    // Cipher Solver
+    'SOLVER_TRUST_AUTO'    => 'Şifreyi otomatik algılar ve kırar',
+    'SOLVER_TRUST_RANKED'  => 'Çözümleri okunabilirliğe göre sıralar',
+    'SOLVER_EMPTY_LABEL'   => 'Yanıtı almak için herhangi bir şifreli metin yapıştırın',
+    'SOLVER_NO_ANSWERS'    => 'Metin otomatik olarak çözülemedi. Aşağıdaki adaylara bakın.',
+    'SOLVER_BEST_TITLE'    => 'En olası yanıt',
+    'SOLVER_ANSWERS_TITLE' => 'Diğer çözümler',
+    'SOLVER_TYPES_TOGGLE'  => 'Şifre adaylarını göster',
+    'SOLVER_OPEN_TOOL'     => 'Aracı aç',
+    'SOLVER_COPY_LABEL'    => 'Kopyala',
     'CIPHER_IDENTIFIER_TRUST_TYPE'        => 'Koinsidens indeksi ve frekans analizine dayalı istatistiksel tespit',
     'CIPHER_IDENTIFIER_TRUST_MULTI_ALPHA' => '8 alfabeyi destekler: İngilizce, Rusça, Almanca, İspanyolca, Fransızca, İtalyanca, Portekizce, Türkçe',
     'CIPHER_IDENTIFIER_ERR_TEXT_REQUIRED' => 'Metin gereklidir.',
@@ -763,6 +786,7 @@ return [
     'CIPHER_NAME_UNICODE'              => 'Unicode Kaçış',
     'CIPHER_NAME_CAESAR'               => 'Sezar Şifresi',
     'CIPHER_NAME_ROT13'                => 'ROT-13',
+    'CIPHER_NAME_ROT47'                => 'ROT47',
     'CIPHER_NAME_ATBASH'               => 'Atbaş Şifresi',
     'CIPHER_NAME_AFFINE'               => 'Afin Şifre',
     'CIPHER_NAME_SIMPLE_SUBSTITUTION'  => 'Basit Yerine Koyma',
@@ -818,6 +842,8 @@ return [
     // Hashing
     'HASH_HERO_TITLE'           => 'Hash Hesaplayıcı',
     'HASH_HERO_DESC'            => 'Bir algoritma seçin ve herhangi bir metnin kriptografik karma değerini doğrudan tarayıcınızda hesaplayın. SHA-1, SHA-256, SHA-384, SHA-512 destekler.',
+    'SOLVER_HERO_TITLE'         => 'Şifre Çözücü',
+    'SOLVER_HERO_DESC'          => 'Herhangi bir şifreli metni yapıştırın; çözücü onu otomatik olarak algılar ve çözer: Sezar, Vigenère, Base64, Mors, XOR ve daha fazlası, doğrudan tarayıcınızda.',
     'HASH_TAB_HASH'             => 'Hash',
     'HASH_INPUT_LABEL'          => 'Girdi',
     'HASH_PLACEHOLDER_INPUT'    => 'Hash\'lemek için metin girin...',

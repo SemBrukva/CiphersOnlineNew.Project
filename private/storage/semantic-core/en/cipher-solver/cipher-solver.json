@@ -1,0 +1,398 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "cipher solver",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/cipher-solver/cipher-solver.csv",
+        "imported_at": "2026-07-07T13:24:00+02:00"
+    },
+    "tool": {
+        "slug": "cipher-solver",
+        "url": "/en/cipher-solver",
+        "content_file": "private/storage/content/cipher-solver/category.en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 182500,
+        "primary_terms": [
+            "cipher identifier",
+            "cipher decoder",
+            "ciphertext decoder",
+            "cipher solver",
+            "cryptogram solver",
+            "cypher decode",
+            "decipher codes",
+            "cipher decryption",
+            "cipher decoder online",
+            "cipher decoder with key",
+            "cryptogram solver numbers",
+            "cipher identifier tool"
+        ],
+        "modifiers": [
+            "online",
+            "with key",
+            "ciphertext",
+            "cipher text",
+            "cypher",
+            "cryptogram",
+            "numbers",
+            "all cipher",
+            "decryption"
+        ],
+        "intents": {
+            "cipher": 23,
+            "decode": 15,
+            "online": 1,
+            "tool": 8
+        },
+        "content_recommendations": [
+            "Keep the exact phrase “cipher identifier” in the meta title and first screen because it is the clearest head query for the existing page.",
+            "Use the intro to cover the two equal-demand decoder heads naturally: “cipher decoder” and “ciphertext decoder”. Do not imply that every unknown cipher can be fully decrypted instantly.",
+            "Explain the workflow as identify first, then decode or solve with the matching tool. This resolves the mixed user language around identifier, decoder, solver, decipher, and decryption.",
+            "Add a content block that distinguishes ciphertext, simple encodings, classical ciphers, and cryptograms so the page can satisfy both tool and educational intent.",
+            "Use FAQ for low-score but important edge cases: all cipher decoder, decoder with key, cryptogram solver numbers, cypher spelling, and the ambiguous “decoder encryption” phrasing.",
+            "Examples should show practical continuation paths: detect Base64/Hex as encodings, identify Caesar or Vigenere as ciphers, and handle a number-based cryptogram as a candidate rather than a guaranteed one-click answer."
+        ],
+        "query_groups": [
+            {
+                "name": "Cipher identifier",
+                "intent": [
+                    "cipher",
+                    "tool"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "cipher identifier",
+                    "cipher identifier tool",
+                    "cypher identifier"
+                ]
+            },
+            {
+                "name": "Cipher and ciphertext decoder",
+                "intent": [
+                    "decode",
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "cipher decoder",
+                    "ciphertext decoder",
+                    "cipher text decoder",
+                    "cipher decoder online"
+                ]
+            },
+            {
+                "name": "Solver and decipher language",
+                "intent": [
+                    "cipher",
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "cipher solver",
+                    "cryptogram solver",
+                    "cypher solver",
+                    "decipher codes"
+                ]
+            },
+            {
+                "name": "Decryption with key and limits",
+                "intent": [
+                    "decode",
+                    "cipher"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "cipher decoder with key",
+                    "cipher decryption",
+                    "all cipher decoder",
+                    "decoder encryption"
+                ]
+            },
+            {
+                "name": "Cryptograms and number puzzles",
+                "intent": [
+                    "cipher",
+                    "tool"
+                ],
+                "priority": "long_tail",
+                "target": "examples",
+                "representative_queries": [
+                    "crypto solver",
+                    "cryptogram decoder",
+                    "cryptogram solver numbers"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "cipher identifier",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "cipher decoder",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "ciphertext decoder",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "cipher solver",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "cryptogram solver",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "cypher decode",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "cypher solver",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "decipher codes",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "all cipher decoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cipher alphabet decoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cipher decoder online",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cipher decoder with key",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cipher decryption",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cipher identifier tool",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cipher text decoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "crypto solver",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cryptogram decoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cryptogram solver numbers",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "cryptography decode",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cryptography decoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cypher identifier",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "decode cypher",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "decoder encryption",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-07-09T20:06:42+02:00",
+        "reviewed_by": "Codex semantic-core-builder",
+        "decision": "Reviewed for the standalone cipher-solver category hub. The cluster maps to a page that identifies unknown ciphertext first, then routes users toward decoding, decryption, or solver actions when supported."
+    },
+    "notes": "The English cluster combines identifier, decoder, solver, decipher, and cryptogram language around one user job: paste unknown ciphertext and find the right next step. Low-score variants about keys, all-cipher decoding, cypher spelling, and number cryptograms are supporting FAQ/example material, not separate page targets."
+}

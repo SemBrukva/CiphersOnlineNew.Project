@@ -27,17 +27,19 @@ initMobileNavSearch()
 initNavDropdownOverflowGuard()
 
 /**
- * Прижимает дропдауны навигации к правому краю кнопки,
+ * Прижимает открытые дропдауны навигации первого уровня к правому краю кнопки,
  * если при выравнивании влево они выходят за границу вьюпорта.
+ * Flyout-подменю третьего уровня (.dropdown-submenu) позиционируются через CSS
+ * и здесь не участвуют.
  */
 function initNavDropdownOverflowGuard() {
-    const nav = document.querySelector('.site-header nav')
+    const nav = document.querySelector('.site-header__nav')
     if (!nav) return
 
     function adjust() {
         const vw = window.innerWidth
-        nav.querySelectorAll('.dropdown').forEach(dropdown => {
-            const menu = dropdown.querySelector('.dropdown-menu')
+        nav.querySelectorAll(':scope > .dropdown').forEach(dropdown => {
+            const menu = dropdown.querySelector(':scope > .dropdown-menu')
             if (!menu) return
             menu.classList.remove('dropdown-menu-end')
             const rect = dropdown.getBoundingClientRect()
