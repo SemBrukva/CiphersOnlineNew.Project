@@ -55,11 +55,12 @@
 | Аналитика использования | ✅ | `config/analytics.php`, `/api/analytics/use` |
 | Админка (CRUD, редиректы, индексация) | ✅ | `admin_routes.php` |
 | Связанные инструменты | ✅ ручные + авто | `config/cipher_related.php` |
-| **Информационный контент (блог/глоссарий)** | ❌ отсутствует | — |
+| **Информационный контент (глоссарий)** | ✅ 50 терминов × 8 локалей | `storage/content/glossary`, `App\Glossary\*` |
+| **Информационный контент (гайды/блог)** | 🟡 3 из 18 статей | `storage/content/guides`, `App\Guide\*` |
 | **Шаринг состояния (permalink)** | ❌ отсутствует | — |
 | **Встраиваемые виджеты (embed)** | ✅ есть | `EmbedController`, `/embed/{category}/{tool}`, `layouts/embed.tpl` |
 | **Публичный API-продукт / тарифы** | ❌ отсутствует | — |
-| **Универсальный авто-солвер** | 🟡 есть identifier, нет «решателя» | `CipherIdentifierService` |
+| **Универсальный авто-солвер** | ✅ `/cipher-solver` (identifier → взлом → скоринг) | `SolverService`, `SolverApiCipherTool` |
 
 Вывод: строим **надстройки**, а не переписываем фундамент.
 
@@ -242,8 +243,8 @@ Rate limit + аккаунты = естественный gate. Pro-ценнос�
 **Результат фазы:** рост CTR/позиций на 6 языках, виральный канал запущен, CWV в зелёной зоне.
 
 ### Фаза 1 — Информационный авторитет + расширение каталога (2–3 мес.) 🔥
-- [ ] **Глоссарий** (`/glossary`) — 40–60 терминов × языки (A1).
-- [~] **Гайды/блог** (`/guides`) — инфраструктура готова (файловая подсистема, зеркалит глоссарий: `App\Guide\GuideRepository`, `GuidesController`, `Article`/`FAQPage` schema, sitemap+llms.txt, tool→guide, `guides:validate`), план 18 статей зафиксирован в [guides-spec.md](guides-spec.md), залита 1 эталонная статья × 8 локалей. Осталось: написать остальные 17 по workflow (A1).
+- [x] **Глоссарий** (`/glossary`) — реализован: 50 терминов × 8 локалей, `glossary:validate` зелёный (A1).
+- [~] **Гайды/блог** (`/guides`) — инфраструктура готова (файловая подсистема, зеркалит глоссарий: `App\Guide\GuideRepository`, `GuidesController`, `Article`/`FAQPage` schema, sitemap+llms.txt, tool→guide, `guides:validate`), план 18 статей зафиксирован в [guides-spec.md](guides-spec.md), залито **3 статьи × 8 локалей** (все из `how-to`: caesar-cipher-manual-decryption, decrypt-cipher-without-key, solve-substitution-cipher), `guides:validate` зелёный. Осталось: написать остальные **15** по workflow (A1).
 - [ ] Перелинковка статьи ↔ инструменты (расширить `cipher_related.php`).
 - [ ] **+20–30 инструментов** из B1 (клиентские классические/коды в первую очередь).
 - [ ] Обновить `SitemapController` под новые типы, приоритеты/lastmod.
@@ -251,7 +252,7 @@ Rate limit + аккаунты = естественный gate. Pro-ценнос�
 **Результат:** +40–60% органики, кратный рост числа посадочных, укрепление E-E-A-T.
 
 ### Фаза 2 — Продуктовая уникальность (2–3 мес.) 🚀
-- [ ] **Универсальный авто-солвер** `/solver` (B2) — флагманская фича и УТП.
+- [x] **Универсальный авто-солвер** `/cipher-solver` (B2) — реализован: `SolverService` (identifier → brute-force/cracker → n-gram-скоринг), API `POST /api/tools/cipher-solver`, категория-хаб `/cipher-solver` × 8 локалей, аналитика в админке, 23 теста зелёные. Флагманская фича и УТП.
 - [ ] **Обучающий/визуальный режим** для топ-инструментов (B3).
 - [ ] **Цепочки операций / рецепты** (B4) — дифференциатор для dev.
 - [x] **Embeddable-виджеты** `/embed` (C2) — беклинки.

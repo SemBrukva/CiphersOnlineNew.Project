@@ -1,0 +1,110 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "understand-and-decode-base64",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "Como entender e decodificar Base64",
+        "excerpt": "Um guia prático para reconhecer Base64, decodificar em bytes ou texto, entender o preenchimento e evitar confundir isso com criptografia.",
+        "meta_title": "Como entender e decodificar Base64",
+        "meta_description": "Aprenda como Base64 funciona, como reconhecer e decodificar strings Base64, o que significa o padding e por que Base64 não é criptografia.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Base64 em uma frase",
+            "html": "<p>Base64 é uma codificação de binário para texto: representa bytes arbitrários usando um alfabeto de 64 caracteres. Ele é útil quando dados precisam passar por sistemas que esperam texto, como JSON, email, cabeçalhos HTTP, Data URIs e alguns tokens.</p><p>Não é criptografia. Uma string Base64 pode ser decodificada sem senha, portanto não deve ser usada para proteger segredos.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Como reconhecer um candidato Base64",
+            "html": "<p>O Base64 padrão usa letras maiúsculas, minúsculas, dígitos, <code>+</code>, <code>/</code> e padding opcional <code>=</code>. O texto codificado geralmente tem comprimento múltiplo de quatro, ignorando quebras de linha e espaços.</p><p>A variante segura para URLs, Base64URL, costuma usar <code>-</code> e <code>_</code> no lugar de <code>+</code> e <code>/</code>. A aparência é só uma pista: o teste confiável é decodificar e inspecionar o resultado.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Decodifique em uma ordem segura",
+            "html": "<p>Primeiro mantenha uma cópia da string original. Remova espaços inofensivos, verifique alfabeto e padding, depois decodifique para bytes. Em seguida interprete esses bytes como texto UTF-8, JSON, imagem, certificado, dados compactados ou outro formato.</p><p>Se a saída não for legível, ela ainda pode ser Base64 válido. Pode representar dados binários, bytes compactados ou conteúdo criptografado que exige outra etapa.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "O que acontece dentro da codificação",
+            "html": "<p>Base64 agrupa os bytes de entrada de três em três. Esses 24 bits são divididos em quatro valores de 6 bits, e cada valor escolhe um caractere do alfabeto Base64. A palavra <code>Man</code> vira <code>TWFu</code>.</p><p>Como exemplo conferido, <code>Hello, Morse!</code> codifica para <code>SGVsbG8sIE1vcnNlIQ==</code> e decodifica de volta para o mesmo texto UTF-8.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Padding e Unicode",
+            "html": "<p>Quando o tamanho da entrada não é divisível por três, Base64 adiciona padding. Um byte restante gera dois <code>=</code>; dois bytes restantes geram um <code>=</code>. O padding informa ao decodificador quantos bytes recuperar do grupo final.</p><p>Base64 codifica bytes, não caracteres abstratos. Um texto como <code>Café ☕</code> primeiro vira bytes UTF-8; esses bytes codificam como <code>Q2Fmw6kg4piV</code>.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Usos comuns e limites de segurança",
+            "html": "<p>Base64 aparece em APIs, campos JSON, anexos de email, cabeçalhos Basic Auth, partes de JWT, imagens Data URI, certificados e arquivos de configuração. Em todos os casos resolve um problema de transporte: tornar bytes seguros para canais de texto.</p><p>Não chame Base64 de “descriptografia” e não armazene senhas, chaves de API ou dados pessoais apenas em Base64. Se confidencialidade importa, use criptografia real antes da codificação de transporte.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Por que Base64 costuma terminar com = ou ==?",
+            "answer": "<p>Os caracteres <code>=</code> são padding. Eles completam o último grupo de 4 caracteres quando o tamanho original em bytes não era múltiplo de três.</p>"
+        },
+        {
+            "question": "Base64 pode conter dados criptografados?",
+            "answer": "<p>Sim. Base64 pode transportar bytes criptografados, mas ele mesmo é só a representação externa. Decodificar remove a camada de texto; não descriptografa o conteúdo.</p>"
+        },
+        {
+            "question": "Por que Base64 é maior que o original?",
+            "answer": "<p>Cada 3 bytes de entrada viram 4 caracteres de texto, então a forma codificada fica cerca de um terço maior antes de quebras de linha ou outra formatação.</p>"
+        }
+    ],
+    "related_guides": [
+        "decrypt-cipher-without-key",
+        "read-and-write-morse-code"
+    ],
+    "related_terms": [
+        "base64",
+        "binary",
+        "ascii",
+        "character-encoding",
+        "unicode",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "encoding/base64",
+            "label": "Codificador e decodificador Base64"
+        },
+        {
+            "slug": "encoding/ascii-converter",
+            "label": "Conversor ASCII"
+        },
+        {
+            "slug": "encoding/binary-converter",
+            "label": "Conversor binário"
+        },
+        {
+            "slug": "encoding/unicode-converter",
+            "label": "Conversor Unicode"
+        },
+        {
+            "slug": "encoding/jwt-decoder",
+            "label": "Decodificador JWT"
+        }
+    ],
+    "tags": [
+        "base64",
+        "codificação",
+        "desenvolvimento"
+    ],
+    "category": "how-to"
+}

@@ -1,0 +1,91 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "read-and-write-morse-code",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "Lire et écrire le code Morse",
+        "excerpt": "Apprenez les points, les traits, les règles d’espacement et une méthode fiable pour écrire, lire et vérifier le code Morse international.",
+        "meta_title": "Lire et écrire le code Morse étape par étape",
+        "meta_description": "Comprenez comment le code Morse représente lettres et chiffres, comment gérer les espaces et comment décoder un signal écrit ou sonore.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Ce que représente le code Morse",
+            "html": "<p>Le code Morse représente les caractères par des signaux courts et longs: points et traits. C’est un <strong>code</strong>, pas un chiffrement, car toute personne qui connaît la table peut le lire sans clé secrète.</p><p>Ce guide utilise le code Morse international pour les lettres latines, les chiffres et la ponctuation courante. À l’écrit, les lettres sont séparées par des espaces et les mots par <code> / </code>; en audio, des silences de durées différentes jouent le même rôle.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Apprendre d’abord les règles de lecture",
+            "html": "<p>Commencez par les motifs les plus courts. <code>E</code> vaut <code>.</code>, <code>T</code> vaut <code>-</code>, <code>I</code> vaut <code>..</code>, <code>M</code> vaut <code>--</code>, <code>S</code> vaut <code>...</code> et <code>O</code> vaut <code>---</code>. C’est pourquoi <code>SOS</code> s’écrit <code>... --- ...</code>.</p><p>Lisez un caractère entier, pas chaque point isolément. <code>.-</code> signifie <code>A</code>; le motif inverse <code>-.</code> signifie <code>N</code>. L’ordre compte.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Écrire un message en Morse",
+            "html": "<p>Normalisez le texte, cherchez chaque caractère pris en charge, placez un espace entre les lettres et <code> / </code> entre les mots. Par exemple, <code>HELLO WORLD</code> devient <code>.... . .-.. .-.. --- / .-- --- .-. .-.. -..</code>.</p><p>Gardez la ponctuation seulement si vous connaissez son symbole Morse international. Pour les accents ou d’autres alphabets, vérifiez que la table ou l’outil prend bien l’extension en charge.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Décoder prudemment du Morse écrit",
+            "html": "<p>Conservez les séparateurs avant de commencer. Coupez le message sur <code> / </code> pour retrouver les mots, puis chaque mot sur les espaces pour retrouver les lettres. <code>.. / .- -- / --- -.-</code> se lit <code>I AM OK</code>.</p><p>Sans séparateurs, le décodage devient ambigu: la même suite de points et de traits peut se découper de plusieurs façons. Notez les groupes incertains au lieu d’imposer une seule lecture.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Écouter le rythme plutôt que le dessin",
+            "html": "<p>En Morse audio, le minutage porte les séparateurs. Un point dure une unité, un trait trois, l’écart à l’intérieur d’un caractère une, l’écart entre lettres trois et l’écart entre mots sept.</p><p>Les débutants progressent souvent en reconnaissant les rythmes complets: <code>A</code> sonne “di-dah”, tandis que <code>N</code> sonne “dah-di”. Commencez lentement, puis augmentez les WPM quand la reconnaissance est stable.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Erreurs fréquentes et limites",
+            "html": "<p>Ne traitez pas le Morse comme un chiffrement sûr: il ne cache rien à une personne qui connaît le code. Évitez aussi de mélanger les styles de points, d’utiliser des tirets comme séparateurs de mots ou de supprimer tous les espaces.</p><p>Pour vérifier, utilisez l’outil Morse afin d’encoder le texte, de redécoder votre écriture et d’écouter l’audio. Le message est prêt lorsque les symboles, le texte et le rythme concordent.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Le code Morse est-il un chiffre?",
+            "answer": "<p>Non. C’est un système de codage et de signalisation. Il transforme le texte en points, traits, lumière, son ou vibration, mais n’apporte pas de secret.</p>"
+        },
+        {
+            "question": "Comment écrire les espaces en Morse?",
+            "answer": "<p>Les lettres sont séparées par un espace. Les mots sont souvent séparés par <code> / </code>. En audio, des silences plus longs remplacent ces séparateurs visibles.</p>"
+        },
+        {
+            "question": "Que faut-il apprendre en premier?",
+            "answer": "<p>Apprenez les motifs courts de <code>E</code>, <code>T</code>, <code>I</code>, <code>M</code>, <code>S</code> et <code>O</code>, puis pratiquez des mots fréquents et l’audio à vitesse confortable.</p>"
+        }
+    ],
+    "related_guides": [
+        "understand-and-decode-base64",
+        "decrypt-cipher-without-key"
+    ],
+    "related_terms": [
+        "code",
+        "character-encoding",
+        "plaintext"
+    ],
+    "related_tools": [
+        {
+            "slug": "codes-and-alphabets/morse-code",
+            "label": "Traducteur de code Morse"
+        }
+    ],
+    "tags": [
+        "code Morse",
+        "signaux",
+        "débutants"
+    ],
+    "category": "how-to"
+}

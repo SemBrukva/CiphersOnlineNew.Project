@@ -1,0 +1,110 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "understand-and-decode-base64",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "Come capire e decodificare Base64",
+        "excerpt": "Una guida pratica per riconoscere Base64, decodificarlo in byte o testo, capire il padding e non scambiarlo per crittografia.",
+        "meta_title": "Come capire e decodificare Base64",
+        "meta_description": "Impara come funziona Base64, come riconoscere e decodificare stringhe Base64, che cosa significa il padding e perché non è crittografia.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Base64 in una frase",
+            "html": "<p>Base64 è una codifica da binario a testo: rappresenta byte arbitrari con un alfabeto di 64 caratteri. È utile quando i dati devono passare in sistemi che si aspettano testo, come JSON, email, intestazioni HTTP, Data URI e alcuni token.</p><p>Non è crittografia. Una stringa Base64 si decodifica senza password, quindi non protegge i segreti.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Come riconoscere un possibile Base64",
+            "html": "<p>Il Base64 standard usa lettere maiuscole, minuscole, cifre, <code>+</code>, <code>/</code> e padding opzionale <code>=</code>. La lunghezza di solito è multipla di quattro, ignorando spazi e a capo.</p><p>La variante sicura per URL, Base64URL, usa spesso <code>-</code> e <code>_</code> al posto di <code>+</code> e <code>/</code>. L’aspetto è solo un indizio: il test affidabile è decodificare e controllare il risultato.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Decodifica in ordine sicuro",
+            "html": "<p>Prima conserva una copia della stringa originale. Rimuovi spazi innocui, controlla alfabeto e padding, poi decodifica in byte. Interpreta quindi quei byte come testo UTF-8, JSON, immagine, certificato, dati compressi o altro formato.</p><p>Se l’output non è leggibile, può comunque essere Base64 valido. Potrebbe contenere dati binari, byte compressi o contenuto cifrato che richiede un passaggio separato.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Che cosa succede dentro la codifica",
+            "html": "<p>Base64 raggruppa i byte di input a tre a tre. Quei 24 bit sono divisi in quattro valori da 6 bit, e ogni valore sceglie un carattere dall’alfabeto Base64. La parola <code>Man</code> diventa <code>TWFu</code>.</p><p>Come esempio verificato, <code>Hello, Morse!</code> si codifica in <code>SGVsbG8sIE1vcnNlIQ==</code> e si decodifica nello stesso testo UTF-8.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Padding e Unicode",
+            "html": "<p>Quando la lunghezza dell’input non è divisibile per tre, Base64 aggiunge padding. Un byte rimanente produce due <code>=</code>; due byte rimanenti producono un <code>=</code>. Il padding dice al decoder quanti byte recuperare dall’ultimo gruppo.</p><p>Base64 codifica byte, non caratteri astratti. Un testo come <code>Café ☕</code> deve prima diventare byte UTF-8; quei byte si codificano come <code>Q2Fmw6kg4piV</code>.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Usi comuni e limiti di sicurezza",
+            "html": "<p>Base64 è comune in API, campi JSON, allegati email, intestazioni Basic Auth, parti di JWT, immagini Data URI, certificati e file di configurazione. In ogni caso risolve un problema di trasporto: rendere i byte adatti a canali testuali.</p><p>Non chiamare Base64 “decifratura” e non salvare password, chiavi API o dati personali solo in Base64. Se serve riservatezza, usa vera crittografia prima della codifica di trasporto.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Perché Base64 finisce spesso con = o ==?",
+            "answer": "<p>I caratteri <code>=</code> sono padding. Completano l’ultimo gruppo da 4 caratteri quando la lunghezza originale in byte non era multipla di tre.</p>"
+        },
+        {
+            "question": "Base64 può contenere dati cifrati?",
+            "answer": "<p>Sì. Base64 può trasportare byte cifrati, ma è solo la rappresentazione esterna. La decodifica rimuove l’involucro testuale; non decifra il contenuto.</p>"
+        },
+        {
+            "question": "Perché Base64 è più grande dell’originale?",
+            "answer": "<p>Ogni 3 byte di input diventano 4 caratteri di testo, quindi la forma codificata è circa un terzo più grande prima di a capo o altra formattazione.</p>"
+        }
+    ],
+    "related_guides": [
+        "decrypt-cipher-without-key",
+        "read-and-write-morse-code"
+    ],
+    "related_terms": [
+        "base64",
+        "binary",
+        "ascii",
+        "character-encoding",
+        "unicode",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "encoding/base64",
+            "label": "Codificatore e decodificatore Base64"
+        },
+        {
+            "slug": "encoding/ascii-converter",
+            "label": "Convertitore ASCII"
+        },
+        {
+            "slug": "encoding/binary-converter",
+            "label": "Convertitore binario"
+        },
+        {
+            "slug": "encoding/unicode-converter",
+            "label": "Convertitore Unicode"
+        },
+        {
+            "slug": "encoding/jwt-decoder",
+            "label": "Decodificatore JWT"
+        }
+    ],
+    "tags": [
+        "base64",
+        "codifica",
+        "sviluppo"
+    ],
+    "category": "how-to"
+}

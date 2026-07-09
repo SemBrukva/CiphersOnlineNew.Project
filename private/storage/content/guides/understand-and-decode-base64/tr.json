@@ -1,0 +1,110 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "understand-and-decode-base64",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "Base64 nasıl anlaşılır ve çözülür",
+        "excerpt": "Base64’ü tanımak, bayt ya da metne çözmek, padding mantığını anlamak ve onu şifreleme sanmamak için pratik bir rehber.",
+        "meta_title": "Base64 nasıl anlaşılır ve çözülür",
+        "meta_description": "Base64’ün nasıl çalıştığını, Base64 dizelerinin nasıl tanınıp çözüleceğini, padding’in ne anlama geldiğini ve neden şifreleme olmadığını öğrenin.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Base64 tek cümlede",
+            "html": "<p>Base64, ikiliden metne bir kodlamadır: herhangi baytları 64 karakterlik bir metin alfabesiyle temsil eder. JSON, e-posta, HTTP başlıkları, Data URI’ler ve bazı token’lar gibi metin bekleyen sistemlerden veri geçirmek için kullanılır.</p><p>Şifreleme değildir. Bir Base64 dizesi parola olmadan çözülebilir; bu yüzden sırları korumak için kullanılmamalıdır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Base64 adayı nasıl tanınır",
+            "html": "<p>Standart Base64 büyük harfler, küçük harfler, rakamlar, <code>+</code>, <code>/</code> ve isteğe bağlı <code>=</code> padding kullanır. Satır sonları ve boşluklar yok sayıldığında uzunluk genellikle dördün katıdır.</p><p>URL güvenli varyant Base64URL çoğu zaman <code>+</code> ve <code>/</code> yerine <code>-</code> ve <code>_</code> kullanır. Görünüm yalnızca ipucudur: güvenilir test, çözmek ve sonucu incelemektir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Güvenli sırayla çözün",
+            "html": "<p>Önce orijinal dizenin kopyasını saklayın. Zararsız boşlukları kaldırın, alfabe ve padding’i kontrol edin, sonra baytlara çözün. Ardından bu baytları UTF-8 metin, JSON, görüntü, sertifika, sıkıştırılmış veri veya başka bir format olarak yorumlayın.</p><p>Çıktı okunamıyorsa bu mutlaka hata değildir. Geçerli Base64 içinde ikili veri, sıkıştırılmış baytlar veya ayrı bir adım gerektiren şifreli içerik olabilir.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Kodlamanın içinde ne olur",
+            "html": "<p>Base64 giriş baytlarını üçlü gruplar halinde işler. Bu 24 bit dört adet 6 bitlik değere bölünür ve her değer Base64 alfabesinden bir karakter seçer. <code>Man</code> kelimesi <code>TWFu</code> olur.</p><p>Kontrol edilmiş metin örneği olarak <code>Hello, Morse!</code>, <code>SGVsbG8sIE1vcnNlIQ==</code> biçiminde kodlanır ve aynı UTF-8 metne geri çözülür.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Padding ve Unicode",
+            "html": "<p>Giriş uzunluğu üçe bölünmüyorsa Base64 padding ekler. Bir kalan bayt iki <code>=</code>, iki kalan bayt bir <code>=</code> üretir. Padding, son gruptan kaç bayt geri alınacağını çözücüye söyler.</p><p>Base64 soyut karakterleri değil baytları kodlar. <code>Café ☕</code> gibi metin önce UTF-8 baytlarına dönüşür; bu baytlar <code>Q2Fmw6kg4piV</code> olarak kodlanır.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Yaygın kullanımlar ve güvenlik sınırları",
+            "html": "<p>Base64 API’lerde, JSON alanlarında, e-posta eklerinde, Basic Auth başlıklarında, JWT parçalarında, Data URI görüntülerinde, sertifikalarda ve yapılandırma dosyalarında görülür. Her durumda taşıma sorununu çözer: baytları metin kanallarına uygun hale getirir.</p><p>Base64 için “şifre çözme” demeyin ve parolaları, API anahtarlarını ya da kişisel verileri yalnızca Base64 ile saklamayın. Gizlilik gerekiyorsa taşıma kodlamasından önce gerçek şifreleme kullanın.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Base64 neden sık sık = veya == ile biter?",
+            "answer": "<p><code>=</code> karakterleri padding’dir. Özgün bayt uzunluğu üçün katı değilse son 4 karakterlik grubu tamamlarlar.</p>"
+        },
+        {
+            "question": "Base64 şifreli veri içerebilir mi?",
+            "answer": "<p>Evet. Base64 şifreli baytları taşıyabilir, fakat kendisi yalnızca dış temsildir. Çözme metin kılıfını kaldırır; içeriğin şifresini çözmez.</p>"
+        },
+        {
+            "question": "Base64 neden orijinalden daha büyüktür?",
+            "answer": "<p>Her 3 giriş baytı 4 metin karakterine dönüşür. Bu yüzden kodlanmış biçim, satır sonları veya başka biçimlendirme eklenmeden önce yaklaşık üçte bir daha büyüktür.</p>"
+        }
+    ],
+    "related_guides": [
+        "decrypt-cipher-without-key",
+        "read-and-write-morse-code"
+    ],
+    "related_terms": [
+        "base64",
+        "binary",
+        "ascii",
+        "character-encoding",
+        "unicode",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "encoding/base64",
+            "label": "Base64 kodlayıcı ve çözücü"
+        },
+        {
+            "slug": "encoding/ascii-converter",
+            "label": "ASCII dönüştürücü"
+        },
+        {
+            "slug": "encoding/binary-converter",
+            "label": "İkili dönüştürücü"
+        },
+        {
+            "slug": "encoding/unicode-converter",
+            "label": "Unicode dönüştürücü"
+        },
+        {
+            "slug": "encoding/jwt-decoder",
+            "label": "JWT çözücü"
+        }
+    ],
+    "tags": [
+        "base64",
+        "kodlama",
+        "geliştirici"
+    ],
+    "category": "how-to"
+}

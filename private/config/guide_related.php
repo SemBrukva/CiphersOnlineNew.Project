@@ -11,6 +11,13 @@ declare(strict_types=1);
  * рантаймом (несуществующие/черновики пропускаются) и командой `guides:validate`.
  */
 return [
+    'codes-and-alphabets/morse-code' => [
+        'read-and-write-morse-code',
+    ],
+    'encoding/base64' => [
+        'understand-and-decode-base64',
+        'decrypt-cipher-without-key',
+    ],
     'classical-ciphers/caesar' => [
         'caesar-cipher-manual-decryption',
     ],

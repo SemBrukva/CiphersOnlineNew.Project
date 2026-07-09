@@ -1,0 +1,91 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "read-and-write-morse-code",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "How to Read and Write Morse Code",
+        "excerpt": "Learn the dot-and-dash alphabet, the spacing rules, and a reliable workflow for writing, reading, and checking International Morse code.",
+        "meta_title": "How to Read and Write Morse Code Step by Step",
+        "meta_description": "Learn how Morse code represents letters and numbers, how spacing works, how to write a message, and how to decode written or audio Morse signals.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "What Morse code represents",
+            "html": "<p>Morse code represents characters as short and long signals: dots and dashes. It is a <strong>code</strong>, not encryption, because anyone who knows the alphabet can read it without a secret key.</p><p>This guide uses International Morse Code, the modern standard for Latin letters, digits, and common punctuation. Written Morse normally separates letters with spaces and words with <code> / </code>; audio Morse uses silent gaps of different lengths for the same structure.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Learn the basic reading rules first",
+            "html": "<p>Start with the shortest, most common patterns. <code>E</code> is <code>.</code>, <code>T</code> is <code>-</code>, <code>I</code> is <code>..</code>, <code>M</code> is <code>--</code>, <code>S</code> is <code>...</code>, and <code>O</code> is <code>---</code>. That is why <code>SOS</code> is written <code>... --- ...</code>.</p><p>Read one character at a time, not one dot at a time. The pattern <code>.-</code> is <code>A</code>; the reversed pattern <code>-.</code> is <code>N</code>. Direction matters.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Write a message in Morse",
+            "html": "<p>To write Morse, normalize the message, look up each supported character, put one space between letters, and put <code> / </code> between words. For example, <code>HELLO WORLD</code> becomes <code>.... . .-.. .-.. --- / .-- --- .-. .-.. -..</code>.</p><p>Keep punctuation only when you know its International Morse symbol. If a language uses accented letters, check whether your table or tool supports that extension before sending the message.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Decode written Morse safely",
+            "html": "<p>Preserve separators before you begin. Split the message at <code> / </code> to recover words, then split each word at spaces to recover letters. Decode <code>.. / .- -- / --- -.-</code> as <code>I AM OK</code>.</p><p>If separators are missing, decoding becomes much harder because several different letter groupings can fit the same dot-and-dash stream. Mark uncertain groups instead of forcing a single reading.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Listen for rhythm, not drawings",
+            "html": "<p>In audio Morse, timing carries the separators. A dot is one time unit, a dash is three units, the gap inside one character is one unit, the gap between letters is three units, and the gap between words is seven units.</p><p>Beginners often learn faster by hearing whole character rhythms: <code>A</code> sounds like “di-dah,” while <code>N</code> sounds like “dah-di.” Use slow WPM at first, then increase speed only when recognition is stable.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Common mistakes and limits",
+            "html": "<p>Do not treat Morse as a secure cipher. It hides nothing from a reader who knows the code. Also avoid mixing dot styles, using hyphens as word separators, or removing all spaces from a written message.</p><p>For practical checking, use the Morse tool to encode your plaintext, decode your written Morse back to text, and listen to the audio. A message is ready when the written symbols, decoded text, and audio rhythm all agree.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is Morse code a cipher?",
+            "answer": "<p>No. It is an encoding and signaling system. It changes text into dots, dashes, light, sound, or vibration, but it does not provide secrecy.</p>"
+        },
+        {
+            "question": "How are spaces written in Morse code?",
+            "answer": "<p>Letters are separated by one space. Words are commonly separated by <code> / </code>. In audio, longer silence replaces those written separators.</p>"
+        },
+        {
+            "question": "What should I learn first?",
+            "answer": "<p>Learn the short patterns for <code>E</code>, <code>T</code>, <code>I</code>, <code>M</code>, <code>S</code>, <code>O</code>, then practice common words and listen to audio at a comfortable speed.</p>"
+        }
+    ],
+    "related_guides": [
+        "understand-and-decode-base64",
+        "decrypt-cipher-without-key"
+    ],
+    "related_terms": [
+        "code",
+        "character-encoding",
+        "plaintext"
+    ],
+    "related_tools": [
+        {
+            "slug": "codes-and-alphabets/morse-code",
+            "label": "Morse Code Translator"
+        }
+    ],
+    "tags": [
+        "morse code",
+        "signals",
+        "beginner"
+    ],
+    "category": "how-to"
+}

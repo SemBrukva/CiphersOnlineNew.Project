@@ -1,0 +1,110 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "understand-and-decode-base64",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "Comprendre et décoder le Base64",
+        "excerpt": "Un guide pratique pour reconnaître le Base64, le décoder en octets ou en texte, comprendre le remplissage et éviter de le confondre avec un chiffrement.",
+        "meta_title": "Comprendre et décoder le Base64",
+        "meta_description": "Apprenez comment fonctionne Base64, comment reconnaître et décoder une chaîne Base64, ce que signifie le padding et pourquoi ce n’est pas un chiffrement.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Base64 en une phrase",
+            "html": "<p>Base64 est un encodage binaire-vers-texte: il représente des octets quelconques avec un alphabet de 64 caractères. Il sert lorsque des données doivent traverser des systèmes prévus pour du texte, comme JSON, l’e-mail, les en-têtes HTTP, les Data URIs ou certains jetons.</p><p>Ce n’est pas du chiffrement. Une chaîne Base64 se décode sans mot de passe; elle ne doit donc pas servir à protéger des secrets.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Reconnaître un candidat Base64",
+            "html": "<p>Le Base64 standard utilise les majuscules, les minuscules, les chiffres, <code>+</code>, <code>/</code> et un padding optionnel <code>=</code>. Sa longueur est souvent un multiple de quatre si l’on ignore espaces et retours à la ligne.</p><p>La variante sûre pour les URL, Base64URL, remplace souvent <code>+</code> et <code>/</code> par <code>-</code> et <code>_</code>. L’apparence n’est qu’un indice: le test fiable consiste à décoder puis inspecter le résultat.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Décoder dans le bon ordre",
+            "html": "<p>Conservez d’abord une copie de la chaîne originale. Supprimez les espaces inoffensifs, vérifiez l’alphabet et le padding, puis décodez en octets. Interprétez ensuite ces octets comme texte UTF-8, JSON, image, certificat, données compressées ou autre format.</p><p>Une sortie illisible n’est pas forcément une erreur. Elle peut représenter des données binaires, des octets compressés ou du contenu chiffré nécessitant une étape séparée.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Ce qui se passe dans l’encodage",
+            "html": "<p>Base64 groupe les octets d’entrée par trois. Ces 24 bits sont divisés en quatre valeurs de 6 bits, et chaque valeur choisit un caractère dans l’alphabet Base64. Le mot <code>Man</code> devient <code>TWFu</code>.</p><p>Comme exemple vérifié, <code>Hello, Morse!</code> s’encode en <code>SGVsbG8sIE1vcnNlIQ==</code> et se décode vers le même texte UTF-8.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Padding et Unicode",
+            "html": "<p>Quand la longueur d’entrée n’est pas divisible par trois, Base64 ajoute du padding. Un octet restant produit deux <code>=</code>; deux octets restants produisent un <code>=</code>. Le padding indique au décodeur combien d’octets récupérer dans le dernier groupe.</p><p>Base64 encode des octets, pas des caractères abstraits. Un texte comme <code>Café ☕</code> doit d’abord devenir des octets UTF-8; ces octets s’encodent en <code>Q2Fmw6kg4piV</code>.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Usages courants et limites de sécurité",
+            "html": "<p>Base64 est courant dans les API, champs JSON, pièces jointes d’e-mail, en-têtes Basic Auth, parties de JWT, images Data URI, certificats et fichiers de configuration. Dans chaque cas, il résout un problème de transport: rendre des octets compatibles avec du texte.</p><p>Ne parlez pas de “déchiffrement” Base64 et ne stockez pas mots de passe, clés API ou données personnelles simplement encodés en Base64. Pour la confidentialité, chiffrez réellement avant l’encodage de transport.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Pourquoi Base64 finit-il souvent par = ou ==?",
+            "answer": "<p>Les caractères <code>=</code> sont du padding. Ils complètent le dernier groupe de 4 caractères lorsque la longueur originale en octets n’était pas multiple de trois.</p>"
+        },
+        {
+            "question": "Base64 peut-il contenir des données chiffrées?",
+            "answer": "<p>Oui. Base64 peut transporter des octets chiffrés, mais il reste seulement la représentation externe. Décoder retire l’enveloppe texte; cela ne déchiffre pas le contenu.</p>"
+        },
+        {
+            "question": "Pourquoi Base64 est-il plus long que l’original?",
+            "answer": "<p>Chaque groupe de 3 octets devient 4 caractères de texte. La forme encodée est donc environ un tiers plus grande avant les retours à la ligne ou autres formats.</p>"
+        }
+    ],
+    "related_guides": [
+        "decrypt-cipher-without-key",
+        "read-and-write-morse-code"
+    ],
+    "related_terms": [
+        "base64",
+        "binary",
+        "ascii",
+        "character-encoding",
+        "unicode",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "encoding/base64",
+            "label": "Encodeur et décodeur Base64"
+        },
+        {
+            "slug": "encoding/ascii-converter",
+            "label": "Convertisseur ASCII"
+        },
+        {
+            "slug": "encoding/binary-converter",
+            "label": "Convertisseur binaire"
+        },
+        {
+            "slug": "encoding/unicode-converter",
+            "label": "Convertisseur Unicode"
+        },
+        {
+            "slug": "encoding/jwt-decoder",
+            "label": "Décodeur JWT"
+        }
+    ],
+    "tags": [
+        "base64",
+        "encodage",
+        "développement"
+    ],
+    "category": "how-to"
+}

@@ -1,0 +1,91 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "read-and-write-morse-code",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "Morsecode lesen und schreiben",
+        "excerpt": "Lerne Punkte, Striche, Abstände und einen verlässlichen Ablauf, um Internationalen Morsecode zu schreiben, zu lesen und zu prüfen.",
+        "meta_title": "Morsecode lesen und schreiben - Schritt für Schritt",
+        "meta_description": "Lerne, wie Morsecode Buchstaben und Zahlen darstellt, wie Abstände funktionieren und wie du geschriebene oder gesendete Signale dekodierst.",
+        "reading_time": 5
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Was Morsecode darstellt",
+            "html": "<p>Morsecode stellt Zeichen als kurze und lange Signale dar: Punkte und Striche. Er ist ein <strong>Code</strong>, keine Verschlüsselung, denn jeder mit der Tabelle kann die Nachricht ohne geheimen Schlüssel lesen.</p><p>Dieser Leitfaden nutzt den Internationalen Morsecode für lateinische Buchstaben, Ziffern und häufige Satzzeichen. Schriftlich trennt man Buchstaben mit Leerzeichen und Wörter mit <code> / </code>; im Ton übernehmen Pausen unterschiedlicher Länge diese Aufgabe.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Lerne zuerst die Leseregeln",
+            "html": "<p>Beginne mit den kürzesten Mustern. <code>E</code> ist <code>.</code>, <code>T</code> ist <code>-</code>, <code>I</code> ist <code>..</code>, <code>M</code> ist <code>--</code>, <code>S</code> ist <code>...</code> und <code>O</code> ist <code>---</code>. Deshalb schreibt man <code>SOS</code> als <code>... --- ...</code>.</p><p>Lies immer ein ganzes Zeichen. <code>.-</code> bedeutet <code>A</code>, das umgekehrte <code>-.</code> bedeutet <code>N</code>. Die Reihenfolge ist entscheidend.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Eine Nachricht schreiben",
+            "html": "<p>Normalisiere den Text, suche jedes unterstützte Zeichen nach, setze ein Leerzeichen zwischen Buchstaben und <code> / </code> zwischen Wörter. <code>HELLO WORLD</code> wird zu <code>.... . .-.. .-.. --- / .-- --- .-. .-.. -..</code>.</p><p>Übernimm Satzzeichen nur, wenn du ihr internationales Morsezeichen kennst. Bei Umlauten oder Akzenten prüfe vorher, ob deine Tabelle oder dein Werkzeug die Erweiterung unterstützt.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Geschriebenen Morsecode dekodieren",
+            "html": "<p>Erhalte zuerst die Trenner. Teile die Nachricht an <code> / </code> in Wörter und dann jedes Wort an Leerzeichen in Buchstaben. <code>.. / .- -- / --- -.-</code> ergibt <code>I AM OK</code>.</p><p>Fehlen Trenner, wird die Dekodierung deutlich unsicherer, weil dieselbe Punkt-Strich-Folge mehrere Buchstabengruppen ergeben kann. Markiere unsichere Stellen statt eine Lesart zu erzwingen.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Höre auf Rhythmus, nicht auf Formen",
+            "html": "<p>Bei Audio-Morse tragen Zeitabstände die Struktur. Ein Punkt dauert eine Einheit, ein Strich drei, die Pause innerhalb eines Zeichens eine, zwischen Buchstaben drei und zwischen Wörtern sieben Einheiten.</p><p>Anfänger erkennen Zeichen oft schneller als Klangmuster: <code>A</code> klingt wie “di-dah”, <code>N</code> wie “dah-di”. Starte langsam und erhöhe die WPM erst bei sicherer Erkennung.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Häufige Fehler und Grenzen",
+            "html": "<p>Behandle Morsecode nicht als sicheren Geheimcode. Er schützt nichts vor Personen, die ihn kennen. Vermeide außerdem gemischte Punktschreibweisen, Bindestriche als Worttrenner oder Nachrichten ohne alle Leerzeichen.</p><p>Zum Prüfen kannst du den Text mit dem Morse-Werkzeug kodieren, die Schreibweise zurückdekodieren und das Audiosignal anhören. Fertig ist die Nachricht, wenn Symbolfolge, Text und Rhythmus zusammenpassen.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Ist Morsecode eine Chiffre?",
+            "answer": "<p>Nein. Er ist ein Kodierungs- und Signalsystem. Er wandelt Text in Punkte, Striche, Licht, Ton oder Vibration um, bietet aber keine Geheimhaltung.</p>"
+        },
+        {
+            "question": "Wie werden Leerzeichen geschrieben?",
+            "answer": "<p>Buchstaben trennt man mit einem Leerzeichen. Wörter trennt man meist mit <code> / </code>. Im Ton ersetzen längere Pausen diese sichtbaren Trenner.</p>"
+        },
+        {
+            "question": "Was sollte ich zuerst lernen?",
+            "answer": "<p>Lerne die kurzen Muster für <code>E</code>, <code>T</code>, <code>I</code>, <code>M</code>, <code>S</code> und <code>O</code>, danach häufige Wörter und Audio mit angenehmer Geschwindigkeit.</p>"
+        }
+    ],
+    "related_guides": [
+        "understand-and-decode-base64",
+        "decrypt-cipher-without-key"
+    ],
+    "related_terms": [
+        "code",
+        "character-encoding",
+        "plaintext"
+    ],
+    "related_tools": [
+        {
+            "slug": "codes-and-alphabets/morse-code",
+            "label": "Morsecode-Übersetzer"
+        }
+    ],
+    "tags": [
+        "Morsecode",
+        "Signale",
+        "Anfänger"
+    ],
+    "category": "how-to"
+}

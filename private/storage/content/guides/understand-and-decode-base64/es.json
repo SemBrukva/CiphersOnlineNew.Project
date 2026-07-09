@@ -1,0 +1,110 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "understand-and-decode-base64",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09",
+        "published_at": "2026-07-09"
+    },
+    "guide": {
+        "title": "Cómo entender y decodificar Base64",
+        "excerpt": "Una guía práctica para reconocer Base64, decodificarlo a bytes o texto, entender el relleno y no confundirlo con cifrado.",
+        "meta_title": "Cómo entender y decodificar Base64",
+        "meta_description": "Aprende cómo funciona Base64, cómo reconocer y decodificar cadenas Base64, qué significa el relleno y por qué no es cifrado.",
+        "reading_time": 6
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Base64 en una frase",
+            "html": "<p>Base64 es una codificación de binario a texto: representa bytes arbitrarios con un alfabeto de 64 caracteres. Sirve cuando los datos deben pasar por sistemas que esperan texto, como JSON, correo, cabeceras HTTP, Data URIs y algunos tokens.</p><p>No es cifrado. Una cadena Base64 se puede decodificar sin contraseña, así que no debe usarse para proteger secretos.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "Cómo reconocer un candidato Base64",
+            "html": "<p>El Base64 estándar usa letras mayúsculas, minúsculas, dígitos, <code>+</code>, <code>/</code> y relleno opcional <code>=</code>. La longitud suele ser múltiplo de cuatro si se ignoran espacios y saltos de línea.</p><p>La variante segura para URL, Base64URL, suele usar <code>-</code> y <code>_</code> en lugar de <code>+</code> y <code>/</code>. La apariencia solo orienta: la prueba fiable es decodificar e inspeccionar el resultado.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "Decodifica en un orden seguro",
+            "html": "<p>Primero conserva una copia de la cadena original. Elimina espacios inocuos, comprueba alfabeto y relleno, y decodifica a bytes. Después interpreta esos bytes como texto UTF-8, JSON, imagen, certificado, datos comprimidos u otro formato.</p><p>Si la salida no es legible, puede seguir siendo Base64 válido. Quizá represente datos binarios, bytes comprimidos o contenido cifrado que requiere otro paso.</p>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "Qué ocurre dentro de la codificación",
+            "html": "<p>Base64 agrupa los bytes de entrada de tres en tres. Esos 24 bits se dividen en cuatro valores de 6 bits, y cada valor elige un carácter del alfabeto Base64. La palabra <code>Man</code> se convierte en <code>TWFu</code>.</p><p>Como ejemplo comprobado, <code>Hello, Morse!</code> se codifica como <code>SGVsbG8sIE1vcnNlIQ==</code> y se decodifica de nuevo al mismo texto UTF-8.</p>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Relleno y Unicode",
+            "html": "<p>Cuando la longitud de entrada no es divisible por tres, Base64 añade relleno. Un byte sobrante produce dos <code>=</code>; dos bytes sobrantes producen un <code>=</code>. El relleno indica al decodificador cuántos bytes recuperar del último grupo.</p><p>Base64 codifica bytes, no caracteres abstractos. Un texto como <code>Café ☕</code> primero se convierte a bytes UTF-8; esos bytes se codifican como <code>Q2Fmw6kg4piV</code>.</p>"
+        },
+        {
+            "sort_order": 60,
+            "type": "section",
+            "title": "Usos comunes y límites de seguridad",
+            "html": "<p>Base64 aparece en APIs, campos JSON, adjuntos de correo, cabeceras Basic Auth, partes de JWT, imágenes Data URI, certificados y archivos de configuración. En todos los casos resuelve transporte: hacer que bytes viajen por canales de texto.</p><p>No llames “descifrado” a Base64 ni guardes contraseñas, claves de API o datos personales solo en Base64. Si necesitas confidencialidad, usa cifrado real antes de cualquier codificación de transporte.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Por qué Base64 termina a menudo en = o ==?",
+            "answer": "<p>Los caracteres <code>=</code> son relleno. Completan el último grupo de 4 caracteres cuando la longitud original en bytes no era múltiplo de tres.</p>"
+        },
+        {
+            "question": "¿Base64 puede contener datos cifrados?",
+            "answer": "<p>Sí. Base64 puede transportar bytes cifrados, pero Base64 solo es la representación externa. Decodificar quita la envoltura de texto; no descifra el contenido.</p>"
+        },
+        {
+            "question": "¿Por qué Base64 es más grande que el original?",
+            "answer": "<p>Cada 3 bytes de entrada se convierten en 4 caracteres de texto, por eso la forma codificada crece alrededor de un tercio antes de saltos de línea u otro formato.</p>"
+        }
+    ],
+    "related_guides": [
+        "decrypt-cipher-without-key",
+        "read-and-write-morse-code"
+    ],
+    "related_terms": [
+        "base64",
+        "binary",
+        "ascii",
+        "character-encoding",
+        "unicode",
+        "encryption"
+    ],
+    "related_tools": [
+        {
+            "slug": "encoding/base64",
+            "label": "Codificador y decodificador Base64"
+        },
+        {
+            "slug": "encoding/ascii-converter",
+            "label": "Convertidor ASCII"
+        },
+        {
+            "slug": "encoding/binary-converter",
+            "label": "Convertidor binario"
+        },
+        {
+            "slug": "encoding/unicode-converter",
+            "label": "Convertidor Unicode"
+        },
+        {
+            "slug": "encoding/jwt-decoder",
+            "label": "Decodificador JWT"
+        }
+    ],
+    "tags": [
+        "base64",
+        "codificación",
+        "desarrollo"
+    ],
+    "category": "how-to"
+}
