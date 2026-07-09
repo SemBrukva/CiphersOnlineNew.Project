@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "salt",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Sel (salt)",
+        "aliases": [
+            "sel de mot de passe",
+            "sel cryptographique"
+        ],
+        "short": "Un sel est une valeur unique ajoutée à chaque hachage de mot de passe ou dérivation de clé afin que des entrées identiques produisent des sorties différentes.",
+        "meta_title": "Sel en hachage — définition et exemples | CiphersOnline",
+        "meta_description": "Comprendre ce qu'est un sel, pourquoi les hashes de mots de passe ont besoin de sels uniques et comment il diffère des clés secrètes, peppers et nonces."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Un sel est une valeur ajoutée à un mot de passe ou à une autre entrée avant le hachage de mot de passe ou la dérivation de clé. Son rôle principal est de rendre la sortie dérivée unique même si deux utilisateurs choisissent le même mot de passe.</p><p>Un sel n'a généralement pas besoin d'être secret. Il est stocké avec le hash ou la sortie encodée afin que le vérificateur puisse refaire le même calcul plus tard.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Fonctionnement",
+            "html": "<p>Pour chaque mot de passe, le système génère un nouveau sel aléatoire et fournit le mot de passe et le sel à une fonction de hachage de mots de passe comme Argon2id, bcrypt ou PBKDF2. Lors de la vérification, le sel stocké est réutilisé avec le mot de passe candidat.</p><p>Des sels uniques empêchent des mots de passe identiques de produire des hashes stockés identiques et rendent les tables précalculées beaucoup moins utiles. Ils ne rendent pas forts les mots de passe faibles; la fonction de hachage doit toujours avoir des paramètres de coût adaptés.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Sel, clé, pepper et nonce",
+            "html": "<p>Un sel fournit une unicité publique, pas une clé secrète d'authentification. Un pepper est une valeur secrète séparée conservée hors de la base de mots de passe, et un nonce est un nombre utilisé une seule fois dans un protocole ou une opération de chiffrement précise.</p><p>Pour les nouveaux systèmes, générez les sels avec une source aléatoire cryptographiquement sûre et laissez la bibliothèque de hachage les stocker dans son format encodé standard quand c'est possible.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Un sel doit-il rester secret ?",
+            "answer": "<p>Non. Il doit être unique et de préférence aléatoire, mais il peut être stocké à côté du hash.</p>"
+        },
+        {
+            "question": "Deux comptes peuvent-ils utiliser le même sel ?",
+            "answer": "<p>Ils ne devraient pas. Les sels aléatoires rendent la réutilisation improbable et empêchent des mots de passe identiques d'apparaître comme des hashes identiques.</p>"
+        },
+        {
+            "question": "Un sel suffit-il à protéger les mots de passe ?",
+            "answer": "<p>Non. Utilisez une fonction de hachage de mots de passe avec des paramètres de coût adaptés, des sels aléatoires sûrs, une limitation de débit et de la surveillance.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "entropy",
+        "nonce"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Hachage de mots de passe Argon2"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "Hachage de mots de passe bcrypt"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "Dérivation de clé PBKDF2"
+        }
+    ],
+    "tags": [
+        "hachage",
+        "mots de passe",
+        "dérivation de clé"
+    ],
+    "category": "hashing"
+}

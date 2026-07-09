@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-collision",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Collision de hachage",
+        "aliases": [
+            "collision",
+            "collision de condensat"
+        ],
+        "short": "Une collision de hachage se produit lorsque deux entrées différentes produisent le même condensat.",
+        "meta_title": "Collision de hachage — définition et exemples | CiphersOnline",
+        "meta_description": "Comprendre les collisions de hachage, pourquoi la résistance aux collisions compte et en quoi elles diffèrent de l'inversion d'un hash."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Une collision de hachage apparaît lorsque deux entrées distinctes produisent le même condensat avec la même fonction de hachage. Des collisions existent forcément pour tout hash de taille fixe, car il y a plus d'entrées possibles que de sorties, mais un hash sûr les rend impraticables à trouver.</p><p>La résistance aux collisions compte lorsqu'un condensat identifie un contenu, signe des documents, compare des fichiers ou protège l'intégrité face à un attaquant.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Résistance aux collisions",
+            "html": "<p>Pour un hash idéal de n bits, une recherche générique de collision coûte environ 2^(n/2) opérations à cause de la borne des anniversaires. C'est différent de la résistance à la préimage, où l'objectif est de trouver une entrée pour un condensat précis et le coût générique est d'environ 2^n.</p><p>MD5 et SHA-1 ont des attaques de collision pratiques et ne doivent pas être choisis pour de nouveaux systèmes sensibles. SHA-256, SHA-512, SHA-3 et BLAKE2 sont des choix modernes lorsqu'ils sont utilisés dans la bonne construction.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Ce qu'une collision ne signifie pas",
+            "html": "<p>Une attaque par collision ne déchiffre pas un hash et ne révèle pas le message d'origine. Elle montre qu'un attaquant peut créer deux entrées différentes avec le même condensat, ce qui peut casser des signatures, certificats ou identifiants de contenu reposant sur l'unicité.</p><p>La sécurité de HMAC ne dépend pas uniquement de la résistance aux collisions de la même manière qu'une signature simple sur un condensat, mais les protocoles doivent tout de même choisir des fonctions de hachage actuelles et suivre leurs spécifications.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Les collisions rendent-elles tout hash dangereux ?",
+            "answer": "<p>Non. Les collisions sont mathématiquement inévitables, mais un hash bien conçu rend la recherche de collisions utiles impraticable.</p>"
+        },
+        {
+            "question": "Une collision est-elle la même chose qu'inverser un hash ?",
+            "answer": "<p>Non. L'inversion cherche une entrée pour un condensat donné; une collision cherche deux entrées différentes avec le même condensat.</p>"
+        },
+        {
+            "question": "Pourquoi MD5 et SHA-1 sont-ils déconseillés ?",
+            "answer": "<p>Ils ont tous deux des attaques de collision pratiques, ce qui permet de créer des entrées différentes partageant un condensat dans les scénarios où la résistance aux collisions est importante.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "checksum",
+        "hmac"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/md5",
+            "label": "Générateur de hash MD5"
+        },
+        {
+            "slug": "hashing/sha1",
+            "label": "Générateur de hash SHA-1"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "Générateur de hash SHA-256"
+        }
+    ],
+    "tags": [
+        "hachage",
+        "résistance aux collisions",
+        "cryptographie"
+    ],
+    "category": "hashing"
+}

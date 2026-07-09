@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "salt",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Sal (salt)",
+        "aliases": [
+            "sal de contraseña",
+            "sal criptográfica"
+        ],
+        "short": "Una sal es un valor único añadido a cada operación de hash de contraseña o derivación de clave para que entradas iguales produzcan salidas distintas.",
+        "meta_title": "Sal en hashing — definición y ejemplos | CiphersOnline",
+        "meta_description": "Qué es una sal, por qué los hashes de contraseña necesitan sales únicas y cómo se diferencia de claves secretas, peppers y nonces."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Una sal es un valor añadido a una contraseña u otra entrada antes del hash de contraseña o la derivación de clave. Su función principal es hacer único el resultado derivado incluso cuando dos usuarios eligen la misma contraseña.</p><p>Una sal normalmente no necesita ser secreta. Se almacena con el hash o la salida codificada para que el verificador pueda repetir el mismo cálculo después.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Cómo funciona",
+            "html": "<p>Para cada contraseña, el sistema genera una sal aleatoria nueva y entrega la contraseña y la sal a una función de hash de contraseñas como Argon2id, bcrypt o PBKDF2. Durante la verificación, la sal almacenada se reutiliza con la contraseña candidata.</p><p>Las sales únicas evitan que contraseñas iguales produzcan hashes almacenados iguales y hacen mucho menos útiles las tablas precalculadas. No convierten contraseñas débiles en fuertes; la función de hash de contraseña aún necesita un coste adecuado.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Sal, clave, pepper y nonce",
+            "html": "<p>Una sal aporta unicidad pública, no una clave secreta de autenticación. Un pepper es un valor secreto separado que se guarda fuera de la base de datos de contraseñas, y un nonce es un número usado una sola vez en un protocolo u operación de cifrado concretos.</p><p>En sistemas nuevos, genera sales con una fuente aleatoria criptográficamente segura y deja que la biblioteca de hash de contraseñas las almacene en su formato codificado estándar cuando sea posible.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Una sal debe ser secreta?",
+            "answer": "<p>No. Debe ser única y preferiblemente aleatoria, pero puede almacenarse junto al hash.</p>"
+        },
+        {
+            "question": "¿Dos cuentas pueden usar la misma sal?",
+            "answer": "<p>No deberían. Las sales aleatorias hacen improbable la reutilización y evitan que contraseñas iguales se vean como hashes iguales.</p>"
+        },
+        {
+            "question": "¿Una sal basta para proteger contraseñas?",
+            "answer": "<p>No. Usa una función de hash de contraseñas con parámetros de coste adecuados, sales aleatorias seguras, limitación de intentos y monitoreo.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "entropy",
+        "nonce"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Hash de contraseñas Argon2"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "Hash de contraseñas bcrypt"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "Derivación de claves PBKDF2"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "contraseñas",
+        "derivación de claves"
+    ],
+    "category": "hashing"
+}

@@ -1,0 +1,74 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "checksum",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Sağlama toplamı",
+        "aliases": [
+            "kontrol değeri",
+            "checksum"
+        ],
+        "short": "Sağlama toplamı, verideki kazara değişiklikleri veya bozulmayı fark etmeye yarayan kompakt bir değerdir.",
+        "meta_title": "Sağlama toplamı — tanım ve örnekler | CiphersOnline",
+        "meta_description": "Sağlama toplamının ne olduğunu, veri bütünlüğünü nasıl doğruladığını ve ne zaman CRC32, kriptografik hash, HMAC ya da dijital imza seçileceğini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Sağlama toplamı, daha sonra bir yazılımın veya kişinin yeniden hesaplayıp karşılaştırabilmesi için bir veri bloğundan üretilen küçük bir değerdir. Değerler farklıysa veri depolama, kopyalama veya iletim sırasında neredeyse kesin olarak değişmiştir.</p><p>Sağlama toplamları dosya biçimlerinde, ağ protokollerinde, indirmelerde, yedeklerde ve arşivlerde yaygındır. Yararlı olmalarının nedeni özgün veriyi içermeleri değil, kompakt ve kolay karşılaştırılabilir olmalarıdır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Nasıl çalışır",
+            "html": "<p>Algoritma tam baytları okur ve onları sabit boyutlu bir değerde birleştirir. Örneğin CRC32, genellikle 8 on altılık karakter olarak yazılan 32 bitlik bir değer üretir. SHA-256 gibi kriptografik hashler de yayımlanan özet güvenilir olduğunda sağlama toplamı olarak kullanılır.</p><p>Aynı görünen metin; bayt kodlaması, satır sonları, boşluklar veya dosya içeriği farklıysa farklı sağlama toplamlarına sahip olabilir. Dosya adının sağlama toplamı, dosyanın sağlama toplamı değildir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Güvenlik sınırları",
+            "html": "<p>Basit toplamlar ve CRC'ler dahil birçok sağlama toplamı algoritması, kötü niyetli kurcalamadan çok kazara hatalar için tasarlanır. Hem veriyi hem de sağlama toplamını değiştirebilen bir saldırgan çoğu zaman bunları eşleştirebilir.</p><p>Tehdit modelinde kasıtlı değiştirme varsa HMAC, dijital imza veya protokole özgü bir bütünlük mekanizması kullanın. SHA-256 gibi kriptografik hash, CRC32'den daha güçlü çakışma direnci sağlar; ancak düz bir hash tek başına veriyi kimin ürettiğini kanıtlamaz.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Sağlama toplamı bozuk veriyi onarabilir mi?",
+            "answer": "<p>Genellikle hayır. Sağlama toplamı verinin değiştiğini algılar; eksik veya hasarlı veriyi yeniden oluşturmak için hata düzeltme kodları ya da yedekler gerekir.</p>"
+        },
+        {
+            "question": "CRC32 güvenli midir?",
+            "answer": "<p>Saldırganlara karşı hayır. CRC32 hızlıdır ve yaygın kazara bozulmaları iyi algılar, ancak kasıtlı kurcalamaya direnmek için tasarlanmamıştır.</p>"
+        },
+        {
+            "question": "Sağlama toplamım neden eşleşmiyor?",
+            "answer": "<p>Veri veya algoritma farklıdır. Tam dosya baytlarını, metin kodlamasını, satır sonlarını, gizli boşlukları, algoritma varyantını ve çıktı biçimini kontrol edin.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "hexadecimal"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/crc32",
+            "label": "CRC32 sağlama toplamı hesaplayıcı"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256 hash oluşturucu"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "bütünlük",
+        "sağlama toplamı"
+    ],
+    "category": "hashing"
+}

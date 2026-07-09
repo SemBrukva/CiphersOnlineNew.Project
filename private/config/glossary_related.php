@@ -32,6 +32,61 @@ return [
     'encoding/url-encode' => [
         'url-encoding',
     ],
+    'hashing/argon2' => [
+        'hash-function',
+        'salt',
+        'rainbow-table',
+    ],
+    'hashing/bcrypt' => [
+        'hash-function',
+        'salt',
+        'rainbow-table',
+    ],
+    'hashing/blake2b' => [
+        'hash-function',
+        'checksum',
+    ],
+    'hashing/crc32' => [
+        'checksum',
+        'hash-function',
+    ],
+    'hashing/hmac' => [
+        'hmac',
+        'hash-function',
+    ],
+    'hashing/md5' => [
+        'hash-function',
+        'checksum',
+        'hash-collision',
+    ],
+    'hashing/pbkdf2' => [
+        'hash-function',
+        'hmac',
+        'salt',
+        'rainbow-table',
+    ],
+    'hashing/sha1' => [
+        'hash-function',
+        'checksum',
+        'hash-collision',
+    ],
+    'hashing/sha256' => [
+        'hash-function',
+        'checksum',
+        'hash-collision',
+    ],
+    'hashing/sha3-256' => [
+        'hash-function',
+        'checksum',
+    ],
+    'hashing/sha3-512' => [
+        'hash-function',
+        'checksum',
+    ],
+    'hashing/sha512' => [
+        'hash-function',
+        'checksum',
+    ],
     'text-analysis/frequency-analysis' => [
         'frequency-analysis',
         'cryptanalysis',

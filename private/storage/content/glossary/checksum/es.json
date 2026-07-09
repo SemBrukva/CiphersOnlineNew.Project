@@ -1,0 +1,74 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "checksum",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Suma de verificación",
+        "aliases": [
+            "valor de comprobación",
+            "checksum"
+        ],
+        "short": "Una suma de verificación es un valor compacto calculado a partir de datos para ayudar a detectar cambios accidentales o corrupción.",
+        "meta_title": "Suma de verificación — definición y ejemplos | CiphersOnline",
+        "meta_description": "Qué es una suma de verificación, cómo se usa para verificar la integridad de los datos y cuándo elegir CRC32, un hash criptográfico, HMAC o una firma digital."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Una suma de verificación es un valor pequeño calculado a partir de un bloque de datos para que después un programa o una persona pueda recalcularlo y comparar el resultado. Si los valores difieren, los datos casi seguro cambiaron durante el almacenamiento, la copia o la transmisión.</p><p>Las sumas de verificación son comunes en formatos de archivo, protocolos de red, descargas, copias de seguridad y archivos comprimidos. Son útiles porque son compactas y fáciles de comparar, no porque contengan los datos originales.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Cómo funciona",
+            "html": "<p>El algoritmo lee los bytes exactos y los combina en un valor de tamaño fijo. CRC32, por ejemplo, produce un valor de 32 bits que suele escribirse como 8 caracteres hexadecimales. Los hashes criptográficos como SHA-256 también se usan como sumas de verificación cuando el resumen publicado es confiable.</p><p>El mismo texto visible puede tener sumas de verificación distintas si cambian la codificación de bytes, los saltos de línea, los espacios o el contenido del archivo. La suma de verificación de un nombre de archivo no es la suma de verificación del archivo.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Límites de seguridad",
+            "html": "<p>Muchos algoritmos de suma de verificación, incluidas sumas simples y CRC, están diseñados para errores accidentales y no para manipulación maliciosa. Un atacante que pueda alterar tanto los datos como la suma de verificación a menudo puede hacer que coincidan.</p><p>Usa HMAC, una firma digital o un mecanismo de integridad propio del protocolo cuando el modelo de amenaza incluya modificación deliberada. Un hash criptográfico como SHA-256 ofrece más resistencia a colisiones que CRC32, pero un hash simple por sí solo tampoco demuestra quién produjo los datos.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Puede una suma de verificación reparar datos dañados?",
+            "answer": "<p>Normalmente no. Una suma de verificación detecta que los datos cambiaron; para reconstruir datos dañados o faltantes se necesitan códigos de corrección de errores o copias de seguridad.</p>"
+        },
+        {
+            "question": "¿CRC32 es seguro?",
+            "answer": "<p>No frente a atacantes. CRC32 es rápido y detecta bien la corrupción accidental común, pero no está diseñado para resistir manipulación deliberada.</p>"
+        },
+        {
+            "question": "¿Por qué no coincide mi suma de verificación?",
+            "answer": "<p>Los datos o el algoritmo son distintos. Revisa los bytes exactos del archivo, la codificación de texto, los saltos de línea, espacios ocultos, la variante del algoritmo y el formato de salida.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "hexadecimal"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/crc32",
+            "label": "Calculadora de suma de verificación CRC32"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "Generador de hash SHA-256"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "integridad",
+        "suma de verificación"
+    ],
+    "category": "hashing"
+}

@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-collision",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Hash collision",
+        "aliases": [
+            "collision",
+            "digest collision"
+        ],
+        "short": "A hash collision occurs when two different inputs produce the same hash digest.",
+        "meta_title": "Hash Collision — Definition and Examples | CiphersOnline",
+        "meta_description": "Learn what hash collisions are, why collision resistance matters, and how collision attacks differ from reversing a hash."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A hash collision happens when two distinct inputs produce the same digest under the same hash function. Collisions must exist for any fixed-size hash because there are more possible inputs than outputs, but a secure hash makes them computationally infeasible to find.</p><p>Collision resistance matters when a digest is used to identify content, sign documents, compare files, or protect integrity against an attacker.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Collision resistance",
+            "html": "<p>For an ideal n-bit hash, a generic collision search costs about 2^(n/2) work because of the birthday bound. This is different from preimage resistance, where the goal is to find an input for one specific digest and the generic cost is about 2^n.</p><p>MD5 and SHA-1 have practical collision attacks and should not be used for new security-sensitive designs. SHA-256, SHA-512, SHA-3, and BLAKE2 are modern choices when used in the right construction.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "What a collision does not mean",
+            "html": "<p>A collision attack does not decrypt a hash or reveal the original message. It shows that an attacker can create two different inputs with the same digest, which can break signatures, certificates, or content identifiers that rely on uniqueness.</p><p>HMAC security does not depend on collision resistance alone in the same way as plain signatures over a digest, but protocols should still choose current hash functions and follow their specifications.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Do collisions mean every hash is unsafe?",
+            "answer": "<p>No. Collisions are mathematically unavoidable, but a well-designed hash makes finding useful collisions impractical.</p>"
+        },
+        {
+            "question": "Is a collision the same as reversing a hash?",
+            "answer": "<p>No. Reversal tries to find an input for a given digest; a collision finds two different inputs with the same digest.</p>"
+        },
+        {
+            "question": "Why are MD5 and SHA-1 discouraged?",
+            "answer": "<p>Both have practical collision attacks, so attackers can create different inputs that share a digest in scenarios where collision resistance matters.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "checksum",
+        "hmac"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/md5",
+            "label": "MD5 Hash Generator"
+        },
+        {
+            "slug": "hashing/sha1",
+            "label": "SHA-1 Hash Generator"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256 Hash Generator"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "collision resistance",
+        "cryptography"
+    ],
+    "category": "hashing"
+}

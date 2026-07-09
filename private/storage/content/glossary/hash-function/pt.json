@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-function",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Função hash",
+        "aliases": [
+            "algoritmo hash",
+            "função de resumo"
+        ],
+        "short": "Uma função hash transforma dados de praticamente qualquer tamanho em um resumo de tamanho fixo.",
+        "meta_title": "Função hash — definição e exemplos | CiphersOnline",
+        "meta_description": "Entenda o que uma função hash faz, como hashes criptográficos diferem de somas de verificação e por que um hash não pode ser descriptografado."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Uma função hash recebe dados e calcula um valor de tamanho fixo chamado hash, resumo ou impressão digital. Os mesmos bytes de entrada sempre produzem a mesma saída, enquanto até uma pequena mudança na entrada normalmente altera o resumo.</p><p>Hashing não é criptografia reversível. Um resumo não deve ser decodificado ou descriptografado para recuperar a mensagem original; ele é usado para comparação, identificação, verificação de integridade e como componente de construções criptográficas maiores.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Propriedades criptográficas",
+            "html": "<p>Uma função hash criptográfica é projetada para resistir a ataques de pré-imagem, segunda pré-imagem e colisão. Em termos simples, deve ser difícil encontrar uma entrada para um resumo dado, encontrar outra entrada com o mesmo resumo de uma mensagem escolhida ou encontrar quaisquer duas entradas com o mesmo resumo.</p><p>SHA-256, SHA-512, SHA-3 e BLAKE2 são usados em sistemas modernos. MD5 e SHA-1 ainda aparecem em somas de verificação legadas, mas sua resistência a colisões está quebrada e eles não devem proteger dados sensíveis.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Usos e confusões comuns",
+            "html": "<p>Hashes costumam ser exibidos como strings hexadecimais. Por exemplo, SHA-256 produz 32 bytes, normalmente escritos como 64 caracteres hexadecimais. Comparar um resumo recém-calculado com um valor publicado e confiável pode mostrar se os dados mudaram.</p><p>Um hash simples não autentica quem criou os dados. Use HMAC ou assinatura digital quando um atacante puder modificar conteúdo deliberadamente, e use uma função de hash de senha como Argon2id ou bcrypt em vez de um hash rápido bruto para armazenar senhas.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Um hash pode ser descriptografado?",
+            "answer": "<p>Não. Um hash é um resumo unidirecional, não texto cifrado. Só é possível tentar entradas possíveis, calcular seus hashes e comparar os resultados.</p>"
+        },
+        {
+            "question": "Função hash e soma de verificação são a mesma coisa?",
+            "answer": "<p>Elas se sobrepõem em alguns usos, mas não em segurança. Uma soma de verificação detecta mudanças acidentais; um hash criptográfico é projetado para resistir a certos ataques deliberados.</p>"
+        },
+        {
+            "question": "Por que ferramentas diferentes geram hashes diferentes?",
+            "answer": "<p>Elas podem usar algoritmos diferentes ou aplicar hash a bytes diferentes. Espaços, quebras de linha, normalização Unicode, codificação de texto e entrada como arquivo ou texto afetam o resultado.</p>"
+        }
+    ],
+    "related_terms": [
+        "checksum",
+        "hexadecimal",
+        "entropy"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/sha256",
+            "label": "Gerador de hash SHA-256"
+        },
+        {
+            "slug": "hashing/sha512",
+            "label": "Gerador de hash SHA-512"
+        },
+        {
+            "slug": "hashing/md5",
+            "label": "Gerador de hash MD5"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "criptografia",
+        "resumo"
+    ],
+    "category": "hashing"
+}

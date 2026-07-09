@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "salt",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Sale (salt)",
+        "aliases": [
+            "sale della password",
+            "sale crittografico"
+        ],
+        "short": "Un sale è un valore unico aggiunto a ogni hashing di password o derivazione di chiave per far produrre output diversi a input uguali.",
+        "meta_title": "Sale nell'hashing — definizione ed esempi | CiphersOnline",
+        "meta_description": "Che cos'è un sale, perché gli hash delle password richiedono sali unici e come si distingue da chiavi segrete, pepper e nonce."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Un sale è un valore aggiunto a una password o a un altro input prima dell'hashing di password o della derivazione di chiave. Il suo compito principale è rendere unico l'output derivato anche quando due utenti scelgono la stessa password.</p><p>Di solito un sale non deve essere segreto. Viene memorizzato con l'hash o con l'output codificato in modo che il verificatore possa ripetere lo stesso calcolo in seguito.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Come funziona",
+            "html": "<p>Per ogni password, il sistema genera un nuovo sale casuale e passa password e sale a una funzione di hashing delle password come Argon2id, bcrypt o PBKDF2. Durante la verifica, il sale memorizzato viene riutilizzato con la password candidata.</p><p>I sali unici impediscono a password uguali di produrre hash memorizzati uguali e rendono molto meno utili le tabelle precalcolate. Non trasformano password deboli in password forti; la funzione di hashing deve comunque avere parametri di costo adeguati.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Sale, chiave, pepper e nonce",
+            "html": "<p>Un sale fornisce unicità pubblica, non una chiave segreta di autenticazione. Un pepper è un valore segreto separato conservato fuori dal database delle password, mentre un nonce è un numero usato una sola volta in uno specifico protocollo o in una specifica operazione di cifratura.</p><p>Nei nuovi sistemi genera sali con una fonte casuale crittograficamente sicura e, quando possibile, lascia che la libreria di hashing li memorizzi nel proprio formato codificato standard.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Un sale deve essere segreto?",
+            "answer": "<p>No. Deve essere unico e preferibilmente casuale, ma può essere memorizzato accanto all'hash.</p>"
+        },
+        {
+            "question": "Due account possono usare lo stesso sale?",
+            "answer": "<p>Non dovrebbero. I sali casuali rendono improbabile il riuso e impediscono che password uguali appaiano come hash uguali.</p>"
+        },
+        {
+            "question": "Un sale basta per proteggere le password?",
+            "answer": "<p>No. Usa una funzione di hashing delle password con parametri di costo adatti, sali casuali sicuri, limitazione dei tentativi e monitoraggio.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "entropy",
+        "nonce"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Hashing password Argon2"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "Hashing password bcrypt"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "Derivazione di chiave PBKDF2"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "password",
+        "derivazione di chiave"
+    ],
+    "category": "hashing"
+}

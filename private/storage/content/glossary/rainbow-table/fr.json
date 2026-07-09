@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "rainbow-table",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Table arc-en-ciel",
+        "aliases": [
+            "table de hashes précalculée",
+            "table d'attaque arc-en-ciel"
+        ],
+        "short": "Une table arc-en-ciel est une structure précalculée utilisée pour retrouver des entrées probables à partir de hashes de mots de passe non salés.",
+        "meta_title": "Table arc-en-ciel — définition et défense | CiphersOnline",
+        "meta_description": "Comprendre les tables arc-en-ciel, la recherche par hashes précalculés et pourquoi les sels uniques et le hachage lent des mots de passe bloquent cette attaque."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Une table arc-en-ciel est une structure de données précalculée qui permet de revenir de nombreux hashes possibles à des entrées candidates, généralement des mots de passe. Au lieu de hacher les essais après une fuite de base, l'attaquant prépare à l'avance des chaînes de hashes et de réductions et stocke assez d'informations pour retrouver ensuite des correspondances probables.</p><p>Les tables arc-en-ciel sont surtout utiles contre des hashes rapides et non salés de mots de passe choisis par des humains. Ce n'est pas un déchiffrement magique: elles ne couvrent que l'espace d'entrée et l'algorithme utilisés pour les construire.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Fonctionnement",
+            "html": "<p>Les tables de recherche classiques stockent beaucoup de paires directes mot de passe-hash. Les tables arc-en-ciel réduisent le stockage en gardant des extrémités de chaînes: un hash est réduit en une autre entrée candidate, haché à nouveau, puis répété avec des fonctions de réduction changeantes. Pendant l'attaque, le hash cible est parcouru dans des positions de chaîne possibles jusqu'à trouver une extrémité correspondante.</p><p>C'est un compromis entre temps et stockage. Construire des tables utiles peut coûter cher, mais une fois créées elles testent rapidement de nombreux hashes non salés compatibles.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Défense",
+            "html": "<p>Un sel aléatoire unique par mot de passe rend une table précalculée inutile sur de nombreux comptes, car le sel change la valeur hachée. Les fonctions lentes de hachage de mots de passe comme Argon2id, bcrypt et PBKDF2 augmentent encore le coût de chaque essai.</p><p>Les sels ne rendent pas forts les mots de passe faibles, et les hashes rapides bruts comme MD5 ou SHA-1 restent de mauvais choix pour stocker des mots de passe même avec un sel. Stockez les mots de passe avec une fonction dédiée et des paramètres de coût actuels.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Un sel arrête-t-il les tables arc-en-ciel ?",
+            "answer": "<p>Un sel aléatoire unique rend les tables précalculées pour hashes non salés inefficaces entre comptes. L'attaquant devrait refaire un travail séparé pour chaque sel.</p>"
+        },
+        {
+            "question": "Les tables arc-en-ciel sont-elles de la force brute ?",
+            "answer": "<p>Non. La force brute calcule les essais pendant l'attaque; une table arc-en-ciel déplace une grande partie de ce travail dans une phase de précalcul.</p>"
+        },
+        {
+            "question": "Les tables arc-en-ciel peuvent-elles casser n'importe quel hash ?",
+            "answer": "<p>Non. Elles couvrent seulement les algorithmes, sels et espaces de candidats utilisés pour les construire. Les longs secrets aléatoires et les hashes de mots de passe lents avec sel sont hors de portée de tables pratiques.</p>"
+        }
+    ],
+    "related_terms": [
+        "salt",
+        "hash-function",
+        "dictionary-attack",
+        "brute-force-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Hachage de mots de passe Argon2"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "Hachage de mots de passe bcrypt"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "Dérivation de clé PBKDF2"
+        }
+    ],
+    "tags": [
+        "hachage",
+        "mots de passe",
+        "cryptanalyse"
+    ],
+    "category": "hashing"
+}

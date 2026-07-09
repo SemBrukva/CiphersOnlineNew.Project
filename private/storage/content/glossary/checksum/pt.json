@@ -1,0 +1,74 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "checksum",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Soma de verificação",
+        "aliases": [
+            "valor de verificação",
+            "checksum"
+        ],
+        "short": "Uma soma de verificação é um valor compacto calculado a partir de dados para ajudar a detectar mudanças acidentais ou corrupção.",
+        "meta_title": "Soma de verificação — definição e exemplos | CiphersOnline",
+        "meta_description": "Saiba o que é uma soma de verificação, como ela verifica a integridade dos dados e quando escolher CRC32, hash criptográfico, HMAC ou assinatura digital."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Uma soma de verificação é um pequeno valor calculado de um bloco de dados para que depois um programa ou uma pessoa possa recalculá-lo e comparar o resultado. Se os valores forem diferentes, os dados quase certamente mudaram durante armazenamento, cópia ou transmissão.</p><p>Somas de verificação são comuns em formatos de arquivo, protocolos de rede, downloads, backups e arquivos compactados. Elas são úteis por serem compactas e fáceis de comparar, não por conterem os dados originais.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Como funciona",
+            "html": "<p>O algoritmo lê os bytes exatos e os combina em um valor de tamanho fixo. CRC32, por exemplo, produz um valor de 32 bits frequentemente escrito como 8 caracteres hexadecimais. Hashes criptográficos como SHA-256 também são usados como somas de verificação quando o resumo publicado é confiável.</p><p>O mesmo texto visível pode ter somas de verificação diferentes se a codificação dos bytes, quebras de linha, espaços ou conteúdo do arquivo forem diferentes. A soma de verificação de um nome de arquivo não é a soma de verificação do arquivo.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Limites de segurança",
+            "html": "<p>Muitos algoritmos de soma de verificação, incluindo somas simples e CRCs, são projetados para erros acidentais e não para adulteração maliciosa. Um atacante que possa alterar tanto os dados quanto a soma de verificação muitas vezes consegue fazê-los coincidir.</p><p>Use HMAC, assinatura digital ou um mecanismo de integridade específico do protocolo quando o modelo de ameaça incluir modificação deliberada. Um hash criptográfico como SHA-256 oferece resistência a colisões maior que CRC32, mas um hash simples sozinho ainda não prova quem produziu os dados.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Uma soma de verificação pode corrigir dados corrompidos?",
+            "answer": "<p>Geralmente não. Ela detecta que os dados mudaram; códigos de correção de erros ou backups são necessários para reconstruir dados ausentes ou danificados.</p>"
+        },
+        {
+            "question": "CRC32 é seguro?",
+            "answer": "<p>Não contra adversários. CRC32 é rápido e bom para detectar corrupção acidental comum, mas não foi projetado para resistir a adulteração deliberada.</p>"
+        },
+        {
+            "question": "Por que minha soma de verificação não corresponde?",
+            "answer": "<p>Os dados ou o algoritmo são diferentes. Verifique os bytes exatos do arquivo, codificação de texto, quebras de linha, espaços ocultos, variante do algoritmo e formato de saída.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "hexadecimal"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/crc32",
+            "label": "Calculadora de soma de verificação CRC32"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "Gerador de hash SHA-256"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "integridade",
+        "soma de verificação"
+    ],
+    "category": "hashing"
+}

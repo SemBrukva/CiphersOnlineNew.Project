@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-collision",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Colisão de hash",
+        "aliases": [
+            "colisão",
+            "colisão de resumo"
+        ],
+        "short": "Uma colisão de hash ocorre quando duas entradas diferentes produzem o mesmo resumo hash.",
+        "meta_title": "Colisão de hash — definição e exemplos | CiphersOnline",
+        "meta_description": "Entenda o que são colisões de hash, por que a resistência a colisões importa e como ataques de colisão diferem de reverter um hash."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Uma colisão de hash acontece quando duas entradas distintas produzem o mesmo resumo na mesma função hash. Colisões precisam existir em qualquer hash de tamanho fixo porque há mais entradas possíveis do que saídas, mas um hash seguro as torna impraticáveis de encontrar.</p><p>Resistência a colisões importa quando um resumo identifica conteúdo, assina documentos, compara arquivos ou protege integridade contra um atacante.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Resistência a colisões",
+            "html": "<p>Para um hash ideal de n bits, uma busca genérica de colisão custa cerca de 2^(n/2) trabalho por causa do limite do aniversário. Isso é diferente da resistência à pré-imagem, em que o objetivo é encontrar uma entrada para um resumo específico e o custo genérico é cerca de 2^n.</p><p>MD5 e SHA-1 têm ataques práticos de colisão e não devem ser usados em novos projetos sensíveis à segurança. SHA-256, SHA-512, SHA-3 e BLAKE2 são escolhas modernas quando usados na construção correta.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "O que uma colisão não significa",
+            "html": "<p>Um ataque de colisão não descriptografa um hash nem revela a mensagem original. Ele mostra que um atacante pode criar duas entradas diferentes com o mesmo resumo, o que pode quebrar assinaturas, certificados ou identificadores de conteúdo que dependem de unicidade.</p><p>A segurança de HMAC não depende apenas de resistência a colisões do mesmo modo que assinaturas simples sobre um resumo, mas protocolos ainda devem escolher funções hash atuais e seguir suas especificações.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Colisões significam que todo hash é inseguro?",
+            "answer": "<p>Não. Colisões são matematicamente inevitáveis, mas um hash bem projetado torna impraticável encontrar colisões úteis.</p>"
+        },
+        {
+            "question": "Uma colisão é o mesmo que reverter um hash?",
+            "answer": "<p>Não. Reversão tenta encontrar uma entrada para um resumo dado; colisão encontra duas entradas diferentes com o mesmo resumo.</p>"
+        },
+        {
+            "question": "Por que MD5 e SHA-1 são desencorajados?",
+            "answer": "<p>Ambos têm ataques práticos de colisão, então atacantes podem criar entradas diferentes que compartilham um resumo em cenários onde a resistência a colisões importa.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "checksum",
+        "hmac"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/md5",
+            "label": "Gerador de hash MD5"
+        },
+        {
+            "slug": "hashing/sha1",
+            "label": "Gerador de hash SHA-1"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "Gerador de hash SHA-256"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "resistência a colisões",
+        "criptografia"
+    ],
+    "category": "hashing"
+}

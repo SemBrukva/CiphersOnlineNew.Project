@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "salt",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Salt",
+        "aliases": [
+            "Passwort-Salt",
+            "kryptografischer Salt"
+        ],
+        "short": "Ein Salt ist ein eindeutiger Wert, der beim Passwort-Hashing oder bei der Schlüsselableitung dafür sorgt, dass gleiche Eingaben unterschiedliche Ausgaben ergeben.",
+        "meta_title": "Salt beim Hashing — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Was ein Salt ist, warum Passwort-Hashes eindeutige Salts brauchen und wie sich Salts von geheimen Schlüsseln, Peppers und Nonces unterscheiden."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Ein Salt ist ein Wert, der vor dem Passwort-Hashing oder der Schlüsselableitung zu einem Passwort oder einer anderen Eingabe hinzugefügt wird. Seine Hauptaufgabe ist, die abgeleitete Ausgabe eindeutig zu machen, selbst wenn zwei Nutzer dasselbe Passwort wählen.</p><p>Ein Salt muss normalerweise nicht geheim sein. Er wird mit dem Hash oder der kodierten Ausgabe gespeichert, damit der Prüfer dieselbe Berechnung später wiederholen kann.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Funktionsweise",
+            "html": "<p>Für jedes Passwort erzeugt das System einen frischen zufälligen Salt und gibt Passwort und Salt an eine Passwort-Hashfunktion wie Argon2id, bcrypt oder PBKDF2. Bei der Verifikation wird der gespeicherte Salt mit dem Kandidatenpasswort erneut verwendet.</p><p>Eindeutige Salts verhindern, dass gleiche Passwörter gleiche gespeicherte Hashes erzeugen, und machen vorberechnete Nachschlagetabellen deutlich weniger nützlich. Sie machen schwache Passwörter nicht stark; die Passwort-Hashfunktion braucht weiterhin passende Kostenparameter.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Salt, Schlüssel, Pepper und Nonce",
+            "html": "<p>Ein Salt ist öffentliche Eindeutigkeit, kein geheimer Authentifizierungsschlüssel. Ein Pepper ist ein separates Geheimnis außerhalb der Passwortdatenbank, und eine Nonce ist eine Zahl, die in einem bestimmten Protokoll oder Verschlüsselungsvorgang nur einmal verwendet wird.</p><p>Erzeugen Sie Salts in neuen Systemen mit einer kryptografisch sicheren Zufallsquelle und lassen Sie die Passwort-Hashbibliothek sie nach Möglichkeit in ihrem Standardformat speichern.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Muss ein Salt geheim sein?",
+            "answer": "<p>Nein. Ein Salt sollte eindeutig und möglichst zufällig sein, kann aber neben dem Hash gespeichert werden.</p>"
+        },
+        {
+            "question": "Können zwei Konten denselben Salt verwenden?",
+            "answer": "<p>Das sollten sie nicht. Zufällige Salts machen Wiederverwendung unwahrscheinlich und verhindern, dass gleiche Passwörter als gleiche Hashes sichtbar werden.</p>"
+        },
+        {
+            "question": "Reicht ein Salt zum Schutz von Passwörtern?",
+            "answer": "<p>Nein. Nutzen Sie eine Passwort-Hashfunktion mit geeigneten Kostenparametern, sichere zufällige Salts, Rate-Limiting und Überwachung.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "entropy",
+        "nonce"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Argon2-Passwort-Hashing"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "bcrypt-Passwort-Hashing"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "PBKDF2-Schlüsselableitung"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "passwörter",
+        "schlüsselableitung"
+    ],
+    "category": "hashing"
+}

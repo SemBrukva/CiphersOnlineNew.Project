@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-collision",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Hash-Kollision",
+        "aliases": [
+            "Kollision",
+            "Digest-Kollision"
+        ],
+        "short": "Eine Hash-Kollision liegt vor, wenn zwei verschiedene Eingaben denselben Hash-Digest erzeugen.",
+        "meta_title": "Hash-Kollision — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Was Hash-Kollisionen sind, warum Kollisionsresistenz wichtig ist und wie Kollisionsangriffe sich vom Umkehren eines Hashes unterscheiden."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Eine Hash-Kollision entsteht, wenn zwei unterschiedliche Eingaben unter derselben Hashfunktion denselben Digest erzeugen. Kollisionen müssen bei jedem Hash fester Größe existieren, weil es mehr mögliche Eingaben als Ausgaben gibt; ein sicherer Hash macht sie aber praktisch unauffindbar.</p><p>Kollisionsresistenz ist wichtig, wenn ein Digest Inhalte identifiziert, Dokumente signiert, Dateien vergleicht oder Integrität gegen Angreifer schützt.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Kollisionsresistenz",
+            "html": "<p>Für einen idealen n-Bit-Hash kostet eine generische Kollisionssuche wegen der Geburtstagsgrenze etwa 2^(n/2) Arbeit. Das unterscheidet sich von Urbildresistenz, bei der eine Eingabe für einen bestimmten Digest gesucht wird und die generischen Kosten etwa 2^n betragen.</p><p>MD5 und SHA-1 haben praktische Kollisionsangriffe und sollten nicht für neue sicherheitssensitive Designs genutzt werden. SHA-256, SHA-512, SHA-3 und BLAKE2 sind moderne Optionen, wenn sie in der passenden Konstruktion verwendet werden.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Was eine Kollision nicht bedeutet",
+            "html": "<p>Ein Kollisionsangriff entschlüsselt keinen Hash und verrät nicht die ursprüngliche Nachricht. Er zeigt, dass ein Angreifer zwei verschiedene Eingaben mit demselben Digest erzeugen kann, was Signaturen, Zertifikate oder Inhaltskennungen brechen kann, die auf Eindeutigkeit vertrauen.</p><p>Die Sicherheit von HMAC hängt nicht in derselben Weise allein von Kollisionsresistenz ab wie einfache Signaturen über einen Digest, dennoch sollten Protokolle aktuelle Hashfunktionen wählen und ihre Spezifikationen befolgen.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Bedeuten Kollisionen, dass jeder Hash unsicher ist?",
+            "answer": "<p>Nein. Kollisionen sind mathematisch unvermeidbar, aber ein gut entworfener Hash macht nützliche Kollisionen praktisch unauffindbar.</p>"
+        },
+        {
+            "question": "Ist eine Kollision dasselbe wie das Umkehren eines Hashes?",
+            "answer": "<p>Nein. Beim Umkehren sucht man eine Eingabe für einen gegebenen Digest; bei einer Kollision sucht man zwei verschiedene Eingaben mit demselben Digest.</p>"
+        },
+        {
+            "question": "Warum werden MD5 und SHA-1 abgeraten?",
+            "answer": "<p>Für beide gibt es praktische Kollisionsangriffe, sodass Angreifer in kollisionskritischen Szenarien verschiedene Eingaben mit demselben Digest erzeugen können.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "checksum",
+        "hmac"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/md5",
+            "label": "MD5-Hashgenerator"
+        },
+        {
+            "slug": "hashing/sha1",
+            "label": "SHA-1-Hashgenerator"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256-Hashgenerator"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "kollisionsresistenz",
+        "kryptografie"
+    ],
+    "category": "hashing"
+}

@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "rainbow-table",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Rainbow Table",
+        "aliases": [
+            "vorberechnete Hashtabelle",
+            "Rainbow-Angriffstabelle"
+        ],
+        "short": "Eine Rainbow Table ist eine vorberechnete Struktur, mit der wahrscheinliche Eingaben zu ungesalzenen Passwort-Hashes nachgeschlagen werden.",
+        "meta_title": "Rainbow Table — Definition und Schutz | CiphersOnline",
+        "meta_description": "Was Rainbow Tables sind, wie vorberechnetes Hash-Nachschlagen funktioniert und warum eindeutige Salts und langsames Passwort-Hashing dagegen schützen."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Eine Rainbow Table ist eine vorberechnete Datenstruktur, um viele mögliche Hashwerte wieder Kandidateneingaben zuzuordnen, meist Passwörtern. Statt nach einem Datenbankleck erst Vermutungen zu hashen, bereitet ein Angreifer Ketten aus Hashes und Reduktionsfunktionen vor und speichert genug Informationen, um später wahrscheinliche Treffer zu rekonstruieren.</p><p>Rainbow Tables sind vor allem gegen schnelle, ungesalzene Hashes menschlich gewählter Passwörter nützlich. Sie sind keine magische Entschlüsselung: Sie decken nur den Eingaberaum und Algorithmus ab, für die sie gebaut wurden.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Funktionsweise",
+            "html": "<p>Klassische Nachschlagetabellen speichern viele direkte Passwort-Hash-Paare. Rainbow Tables sparen Speicher, indem sie Kettenendpunkte speichern: Ein Hash wird zu einer neuen Kandidateneingabe reduziert, erneut gehasht und mit wechselnden Reduktionsfunktionen wiederholt. Beim Angriff wird der Zielhash durch mögliche Kettenpositionen geführt, bis ein passender Endpunkt gefunden wird.</p><p>Das ist ein Zeit-Speicher-Tausch. Nützliche Tabellen können teuer zu bauen sein, prüfen danach aber viele passende ungesalzene Hashes schnell.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Schutz",
+            "html": "<p>Ein eindeutiger zufälliger Salt pro Passwort macht eine vorberechnete Tabelle über viele Konten hinweg unbrauchbar, weil der Salt den gehashten Wert verändert. Langsame Passwort-Hashfunktionen wie Argon2id, bcrypt und PBKDF2 erhöhen zusätzlich die Kosten jedes Versuchs.</p><p>Salts machen schwache Passwörter nicht stark, und schnelle rohe Hashes wie MD5 oder SHA-1 sind selbst mit Salt schlechte Passwortspeicherverfahren. Speichern Sie Passwörter mit einer dedizierten Passwort-Hashfunktion und aktuellen Kostenparametern.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Stoppt ein Salt Rainbow Tables?",
+            "answer": "<p>Ein eindeutiger zufälliger Salt macht vorberechnete Tabellen für ungesalzene Hashes kontoübergreifend unwirksam. Angreifer müssten für jeden Salt eigene Arbeit leisten.</p>"
+        },
+        {
+            "question": "Sind Rainbow Tables dasselbe wie Brute Force?",
+            "answer": "<p>Nein. Brute Force berechnet Versuche während des Angriffs; eine Rainbow Table verlagert einen großen Teil dieser Arbeit in eine Vorberechnungsphase.</p>"
+        },
+        {
+            "question": "Können Rainbow Tables jeden Hash knacken?",
+            "answer": "<p>Nein. Sie decken nur Algorithmen, Salts und Kandidatenräume ab, für die sie erstellt wurden. Lange zufällige Geheimnisse und gesalzene langsame Passwort-Hashes liegen außerhalb praktischer Tabellen.</p>"
+        }
+    ],
+    "related_terms": [
+        "salt",
+        "hash-function",
+        "dictionary-attack",
+        "brute-force-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Argon2-Passwort-Hashing"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "bcrypt-Passwort-Hashing"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "PBKDF2-Schlüsselableitung"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "passwörter",
+        "kryptoanalyse"
+    ],
+    "category": "hashing"
+}

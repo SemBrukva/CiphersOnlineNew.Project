@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-function",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Hash function",
+        "aliases": [
+            "hash algorithm",
+            "digest function"
+        ],
+        "short": "A hash function maps input data of any practical length to a fixed-size digest.",
+        "meta_title": "Hash Function — Definition and Examples | CiphersOnline",
+        "meta_description": "Learn what a hash function does, how cryptographic hashes differ from checksums, and why a hash cannot be decrypted back to the original data."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A hash function takes data and calculates a fixed-size value called a hash, digest, or fingerprint. The same input bytes always produce the same output, while even a small input change should usually change the digest.</p><p>Hashing is not encryption. A digest is not meant to be decoded or decrypted back into the original message; it is used for comparison, identification, integrity checks, and as a component inside larger cryptographic constructions.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Cryptographic properties",
+            "html": "<p>A cryptographic hash function is designed to resist preimage attacks, second-preimage attacks, and collisions. In simple terms, it should be hard to find an input for a given digest, hard to find a different input with the same digest as a chosen message, and hard to find any two inputs with the same digest.</p><p>Algorithms such as SHA-256, SHA-512, SHA-3, and BLAKE2 are used in modern systems. MD5 and SHA-1 are still seen in legacy checksums, but their collision resistance is broken and they should not protect security-sensitive data.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Uses and common confusion",
+            "html": "<p>Hashes are commonly displayed as hexadecimal strings. For example, SHA-256 produces 32 bytes, usually written as 64 hex characters. Comparing a newly calculated digest with a trusted published digest can show whether data changed.</p><p>A plain hash does not authenticate who created the data. Use an HMAC or a digital signature when an attacker may deliberately modify content, and use a password-hashing function such as Argon2id or bcrypt instead of a fast raw hash for password storage.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Can a hash be decrypted?",
+            "answer": "<p>No. A hash is a one-way digest, not ciphertext. Someone can only guess possible inputs, hash them, and compare the results.</p>"
+        },
+        {
+            "question": "Are hash functions and checksums the same?",
+            "answer": "<p>They overlap in use, but not in security. A checksum detects accidental changes, while a cryptographic hash is designed to resist certain deliberate attacks.</p>"
+        },
+        {
+            "question": "Why do different tools give different hashes?",
+            "answer": "<p>They may use different algorithms or hash different bytes. Spaces, line endings, Unicode normalization, text encodings, and file-versus-text input all affect the result.</p>"
+        }
+    ],
+    "related_terms": [
+        "checksum",
+        "hexadecimal",
+        "entropy"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256 Hash Generator"
+        },
+        {
+            "slug": "hashing/sha512",
+            "label": "SHA-512 Hash Generator"
+        },
+        {
+            "slug": "hashing/md5",
+            "label": "MD5 Hash Generator"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "cryptography",
+        "digest"
+    ],
+    "category": "hashing"
+}

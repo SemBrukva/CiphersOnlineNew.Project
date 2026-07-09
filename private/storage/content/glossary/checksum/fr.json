@@ -1,0 +1,74 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "checksum",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Somme de contrôle",
+        "aliases": [
+            "valeur de contrôle",
+            "checksum"
+        ],
+        "short": "Une somme de contrôle est une valeur compacte calculée à partir de données pour aider à détecter des changements accidentels ou une corruption.",
+        "meta_title": "Somme de contrôle — définition et exemples | CiphersOnline",
+        "meta_description": "Comprendre ce qu'est une somme de contrôle, comment elle vérifie l'intégrité des données et quand choisir CRC32, un hash cryptographique, HMAC ou une signature numérique."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Une somme de contrôle est une petite valeur calculée à partir d'un bloc de données afin qu'un logiciel ou une personne puisse la recalculer plus tard et comparer le résultat. Si les valeurs diffèrent, les données ont très probablement changé pendant le stockage, la copie ou la transmission.</p><p>Les sommes de contrôle sont fréquentes dans les formats de fichiers, les protocoles réseau, les téléchargements, les sauvegardes et les archives. Elles sont utiles parce qu'elles sont compactes et faciles à comparer, pas parce qu'elles contiennent les données d'origine.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Fonctionnement",
+            "html": "<p>L'algorithme lit les octets exacts et les combine en une valeur de taille fixe. CRC32, par exemple, produit une valeur de 32 bits souvent écrite avec 8 caractères hexadécimaux. Les hashes cryptographiques comme SHA-256 servent aussi de sommes de contrôle lorsque le condensat publié est fiable.</p><p>Le même texte visible peut avoir des sommes de contrôle différentes si l'encodage des octets, les fins de ligne, les espaces ou le contenu du fichier changent. La somme de contrôle d'un nom de fichier n'est pas celle du fichier.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Limites de sécurité",
+            "html": "<p>De nombreux algorithmes de somme de contrôle, y compris les sommes simples et les CRC, visent les erreurs accidentelles plutôt que la falsification malveillante. Un attaquant capable de modifier à la fois les données et la somme de contrôle peut souvent les faire correspondre.</p><p>Utilisez un HMAC, une signature numérique ou un mécanisme d'intégrité propre au protocole lorsque le modèle de menace inclut une modification volontaire. Un hash cryptographique comme SHA-256 offre une meilleure résistance aux collisions que CRC32, mais un hash simple ne prouve toujours pas à lui seul qui a produit les données.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Une somme de contrôle peut-elle réparer des données corrompues ?",
+            "answer": "<p>Généralement non. Elle détecte que les données ont changé; des codes correcteurs d'erreurs ou des sauvegardes sont nécessaires pour reconstruire les données manquantes ou endommagées.</p>"
+        },
+        {
+            "question": "CRC32 est-il sûr ?",
+            "answer": "<p>Non face à un adversaire. CRC32 est rapide et détecte bien les corruptions accidentelles courantes, mais il n'est pas conçu pour résister à une falsification volontaire.</p>"
+        },
+        {
+            "question": "Pourquoi ma somme de contrôle ne correspond-elle pas ?",
+            "answer": "<p>Les données ou l'algorithme diffèrent. Vérifiez les octets exacts du fichier, l'encodage du texte, les fins de ligne, les espaces cachés, la variante de l'algorithme et le format de sortie.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "hexadecimal"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/crc32",
+            "label": "Calculateur de somme de contrôle CRC32"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "Générateur de hash SHA-256"
+        }
+    ],
+    "tags": [
+        "hachage",
+        "intégrité",
+        "somme de contrôle"
+    ],
+    "category": "hashing"
+}

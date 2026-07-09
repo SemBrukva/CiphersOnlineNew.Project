@@ -1,0 +1,71 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hmac",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "HMAC",
+        "aliases": [
+            "Hash-based Message Authentication Code",
+            "schlüsselbasierter Hash"
+        ],
+        "short": "HMAC ist ein schlüsselbasierter Nachrichtenauthentifizierungscode auf Basis einer kryptografischen Hashfunktion.",
+        "meta_title": "HMAC — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Was HMAC ist, wie es einen geheimen Schlüssel mit einer Hashfunktion kombiniert und warum es zur Nachrichtenauthentifizierung statt zur Verschlüsselung dient."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>HMAC steht für Hash-based Message Authentication Code. Es kombiniert einen geheimen Schlüssel mit einer kryptografischen Hashfunktion und erzeugt ein Authentifizierungstag fester Größe für eine Nachricht.</p><p>Ein Prüfer mit demselben geheimen Schlüssel berechnet das Tag über die exakten Nachrichtenbytes erneut und vergleicht es mit dem empfangenen Tag. Eine Übereinstimmung zeigt, dass die Nachricht nicht verändert wurde und das Tag von jemandem stammt, der den gemeinsamen Schlüssel kennt.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Funktionsweise",
+            "html": "<p>HMAC hasht Schlüssel und Nachricht in zwei verschachtelten Schritten mit unterschiedlichen Padding-Konstanten. Diese Konstruktion ist sicherer als ein einfaches <code>hash(key || message)</code>, das bei manchen Hashfunktionen angreifbar sein kann.</p><p>Die gewählte Hashfunktion bestimmt die Tag-Länge: HMAC-SHA256 erzeugt 32 Bytes, meist als 64 Hexadezimalzeichen geschrieben. HMAC-SHA512 und HMAC-SHA384 erzeugen längere Tags; HMAC-SHA1 bleibt hauptsächlich aus Kompatibilitätsgründen im Einsatz.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Einsatz und Grenzen",
+            "html": "<p>HMAC wird für API-Signaturen, Webhooks, Sitzungsdaten, JWT HS256 und Protokollnachrichten genutzt, wenn beide Seiten bereits ein Geheimnis teilen. Es bietet Integrität und Authentifizierung, aber keine Vertraulichkeit: Die Nachricht selbst wird nicht verborgen.</p><p>Verwenden Sie einen zufälligen geheimen Schlüssel, bewahren Sie die exakten signierten Bytes und vergleichen Sie Tags im Anwendungscode in konstanter Zeit. Für öffentliche Prüfung ohne gemeinsames Geheimnis braucht man eine digitale Signatur.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Ist HMAC Verschlüsselung?",
+            "answer": "<p>Nein. HMAC authentifiziert eine Nachricht, verbirgt sie aber nicht. Wenn die Nachricht vertraulich sein muss, ist zusätzlich Verschlüsselung nötig.</p>"
+        },
+        {
+            "question": "Warum nicht einfach einen SHA-256-Hash nutzen?",
+            "answer": "<p>Ein einfacher Hash hat keinen geheimen Schlüssel; jeder kann die Nachricht ändern und einen neuen Hash berechnen. HMAC benötigt das gemeinsame Geheimnis, um ein gültiges Tag zu erzeugen.</p>"
+        },
+        {
+            "question": "Kann man HMAC rückgängig machen?",
+            "answer": "<p>Nein. Die Prüfung berechnet das Tag aus der ursprünglichen Nachricht und dem geheimen Schlüssel erneut; aus dem Tag werden diese Werte nicht wiederhergestellt.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "cryptographic-key",
+        "checksum"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/hmac",
+            "label": "HMAC-Generator"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "authentifizierung",
+        "integrität"
+    ],
+    "category": "hashing"
+}

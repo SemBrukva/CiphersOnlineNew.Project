@@ -1,0 +1,74 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "checksum",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Prüfsumme",
+        "aliases": [
+            "Prüfwert",
+            "Integritätsprüfsumme"
+        ],
+        "short": "Eine Prüfsumme ist ein kompakter Wert, der aus Daten berechnet wird, um unbeabsichtigte Änderungen oder Beschädigungen zu erkennen.",
+        "meta_title": "Prüfsumme — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Was eine Prüfsumme ist, wie sie Datenintegrität prüft und wann CRC32, ein kryptografischer Hash, HMAC oder eine digitale Signatur geeignet ist."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Eine Prüfsumme ist ein kleiner Wert, der aus einem Datenblock berechnet wird, damit Software oder eine Person ihn später erneut berechnen und vergleichen kann. Weichen die Werte ab, haben sich die Daten mit hoher Wahrscheinlichkeit beim Speichern, Kopieren oder Übertragen geändert.</p><p>Prüfsummen sind in Dateiformaten, Netzwerkprotokollen, Downloads, Backups und Archiven verbreitet. Sie sind nützlich, weil sie kompakt und leicht vergleichbar sind, nicht weil sie die ursprünglichen Daten enthalten.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Funktionsweise",
+            "html": "<p>Der Algorithmus liest die exakten Bytes und kombiniert sie zu einem Wert fester Größe. CRC32 erzeugt zum Beispiel einen 32-Bit-Wert, der oft als 8 Hexadezimalzeichen geschrieben wird. Auch kryptografische Hashes wie SHA-256 werden als Prüfsummen genutzt, wenn der veröffentlichte Digest vertrauenswürdig ist.</p><p>Derselbe sichtbare Text kann unterschiedliche Prüfsummen haben, wenn Bytekodierung, Zeilenenden, Leerzeichen oder Dateiinhalte abweichen. Die Prüfsumme eines Dateinamens ist nicht die Prüfsumme der Datei.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Sicherheitsgrenzen",
+            "html": "<p>Viele Prüfsummenalgorithmen, darunter einfache Summen und CRCs, sind für unbeabsichtigte Fehler statt für böswillige Manipulation gedacht. Ein Angreifer, der sowohl Daten als auch Prüfsumme ändern kann, kann sie oft passend machen.</p><p>Verwenden Sie HMAC, eine digitale Signatur oder einen protokollspezifischen Integritätsmechanismus, wenn absichtliche Änderungen Teil des Bedrohungsmodells sind. Ein kryptografischer Hash wie SHA-256 bietet stärkere Kollisionsresistenz als CRC32, beweist als einfacher Hash allein aber noch nicht, wer die Daten erzeugt hat.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Kann eine Prüfsumme beschädigte Daten reparieren?",
+            "answer": "<p>Meist nein. Eine Prüfsumme erkennt, dass Daten verändert wurden; zur Rekonstruktion braucht man Fehlerkorrekturcodes oder Backups.</p>"
+        },
+        {
+            "question": "Ist CRC32 sicher?",
+            "answer": "<p>Nicht gegen Angreifer. CRC32 ist schnell und erkennt typische unbeabsichtigte Beschädigungen gut, ist aber nicht dafür ausgelegt, gezielter Manipulation zu widerstehen.</p>"
+        },
+        {
+            "question": "Warum stimmt meine Prüfsumme nicht überein?",
+            "answer": "<p>Daten oder Algorithmus unterscheiden sich. Prüfen Sie exakte Dateibytes, Textkodierung, Zeilenenden, versteckte Leerzeichen, Algorithmusvariante und Ausgabeformat.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "hexadecimal"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/crc32",
+            "label": "CRC32-Prüfsummenrechner"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256-Hashgenerator"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "integrität",
+        "prüfsumme"
+    ],
+    "category": "hashing"
+}

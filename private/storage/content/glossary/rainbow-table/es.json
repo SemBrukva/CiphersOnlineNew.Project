@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "rainbow-table",
+        "language": "es",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Tabla arcoíris",
+        "aliases": [
+            "tabla hash precalculada",
+            "tabla de ataque arcoíris"
+        ],
+        "short": "Una tabla arcoíris es una estructura precalculada usada para buscar entradas probables de hashes de contraseña sin sal.",
+        "meta_title": "Tabla arcoíris — definición y defensa | CiphersOnline",
+        "meta_description": "Qué son las tablas arcoíris, cómo funciona la búsqueda hash precalculada y por qué las sales únicas y el hash lento de contraseñas bloquean este ataque."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definición",
+            "html": "<p>Una tabla arcoíris es una estructura de datos precalculada para volver de muchos valores hash posibles a entradas candidatas, normalmente contraseñas. En lugar de aplicar hash a las conjeturas después de una filtración, el atacante prepara cadenas de hashes y reducciones de antemano y guarda suficiente información para recuperar coincidencias probables después.</p><p>Las tablas arcoíris son más útiles contra hashes rápidos y sin sal de contraseñas elegidas por personas. No son descifrado mágico: solo cubren el espacio de entrada y el algoritmo usados para construir la tabla.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Cómo funciona",
+            "html": "<p>Las tablas de búsqueda clásicas almacenan muchos pares directos contraseña-hash. Las tablas arcoíris reducen almacenamiento guardando extremos de cadenas: un hash se reduce a otra entrada candidata, se vuelve a aplicar hash y se repite con funciones de reducción cambiantes. Durante el ataque, el hash objetivo se recorre por posibles posiciones de cadena hasta encontrar un extremo coincidente.</p><p>Es un intercambio entre tiempo y almacenamiento. Construir tablas útiles puede ser costoso, pero una vez creadas pueden comprobar muchos hashes sin sal compatibles con rapidez.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Defensa",
+            "html": "<p>Una sal aleatoria única por contraseña vuelve inútil una tabla precalculada para muchas cuentas, porque la sal cambia el valor que se aplica al hash. Funciones lentas de hash de contraseñas como Argon2id, bcrypt y PBKDF2 elevan además el coste de cada intento.</p><p>Las sales no hacen fuertes las contraseñas débiles, y los hashes rápidos sin procesar como MD5 o SHA-1 siguen siendo malas opciones para almacenar contraseñas incluso con sal. Almacena contraseñas con una función especializada y parámetros de coste actuales.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "¿Una sal detiene las tablas arcoíris?",
+            "answer": "<p>Una sal aleatoria única hace ineficaces entre cuentas las tablas precalculadas para hashes sin sal. El atacante necesitaría trabajo separado para cada sal.</p>"
+        },
+        {
+            "question": "¿Las tablas arcoíris son lo mismo que fuerza bruta?",
+            "answer": "<p>No. La fuerza bruta calcula conjeturas durante el ataque; una tabla arcoíris traslada gran parte de ese trabajo a una fase de precálculo.</p>"
+        },
+        {
+            "question": "¿Pueden las tablas arcoíris romper cualquier hash?",
+            "answer": "<p>No. Solo cubren los algoritmos, sales y espacio de candidatos usados para construirlas. Secretos largos aleatorios y hashes de contraseña lentos con sal quedan fuera de tablas prácticas.</p>"
+        }
+    ],
+    "related_terms": [
+        "salt",
+        "hash-function",
+        "dictionary-attack",
+        "brute-force-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Hash de contraseñas Argon2"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "Hash de contraseñas bcrypt"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "Derivación de claves PBKDF2"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "contraseñas",
+        "criptoanálisis"
+    ],
+    "category": "hashing"
+}

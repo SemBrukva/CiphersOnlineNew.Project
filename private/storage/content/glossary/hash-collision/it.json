@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-collision",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Collisione di hash",
+        "aliases": [
+            "collisione",
+            "collisione di digest"
+        ],
+        "short": "Una collisione di hash si verifica quando due input diversi producono lo stesso digest hash.",
+        "meta_title": "Collisione di hash — definizione ed esempi | CiphersOnline",
+        "meta_description": "Che cosa sono le collisioni di hash, perché la resistenza alle collisioni conta e come differiscono dall'inversione di un hash."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Una collisione di hash avviene quando due input distinti producono lo stesso digest con la stessa funzione di hash. Le collisioni devono esistere per qualunque hash di dimensione fissa perché ci sono più input possibili che output, ma un hash sicuro le rende impraticabili da trovare.</p><p>La resistenza alle collisioni è importante quando un digest identifica contenuti, firma documenti, confronta file o protegge l'integrità contro un attaccante.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Resistenza alle collisioni",
+            "html": "<p>Per un hash ideale a n bit, una ricerca generica di collisione costa circa 2^(n/2) lavoro per il limite del compleanno. È diverso dalla resistenza alla preimmagine, dove l'obiettivo è trovare un input per uno specifico digest e il costo generico è circa 2^n.</p><p>MD5 e SHA-1 hanno attacchi di collisione pratici e non dovrebbero essere usati in nuovi progetti sensibili alla sicurezza. SHA-256, SHA-512, SHA-3 e BLAKE2 sono scelte moderne se usate nella costruzione corretta.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Che cosa non significa una collisione",
+            "html": "<p>Un attacco di collisione non decifra un hash e non rivela il messaggio originale. Mostra che un attaccante può creare due input diversi con lo stesso digest, cosa che può rompere firme, certificati o identificatori di contenuto che dipendono dall'unicità.</p><p>La sicurezza di HMAC non dipende solo dalla resistenza alle collisioni nello stesso modo delle firme semplici su digest, ma i protocolli dovrebbero comunque scegliere funzioni di hash attuali e seguire le loro specifiche.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Le collisioni rendono insicuro ogni hash?",
+            "answer": "<p>No. Le collisioni sono matematicamente inevitabili, ma un hash ben progettato rende impraticabile trovare collisioni utili.</p>"
+        },
+        {
+            "question": "Una collisione è la stessa cosa che invertire un hash?",
+            "answer": "<p>No. L'inversione cerca un input per un digest dato; una collisione trova due input diversi con lo stesso digest.</p>"
+        },
+        {
+            "question": "Perché MD5 e SHA-1 sono sconsigliati?",
+            "answer": "<p>Entrambi hanno attacchi di collisione pratici, quindi gli attaccanti possono creare input diversi con lo stesso digest negli scenari dove la resistenza alle collisioni conta.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "checksum",
+        "hmac"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/md5",
+            "label": "Generatore di hash MD5"
+        },
+        {
+            "slug": "hashing/sha1",
+            "label": "Generatore di hash SHA-1"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "Generatore di hash SHA-256"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "resistenza alle collisioni",
+        "crittografia"
+    ],
+    "category": "hashing"
+}

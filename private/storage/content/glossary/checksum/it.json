@@ -1,0 +1,74 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "checksum",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Checksum (somma di controllo)",
+        "aliases": [
+            "somma di controllo",
+            "valore di controllo"
+        ],
+        "short": "Una checksum è un valore compatto calcolato dai dati per aiutare a rilevare modifiche accidentali o corruzione.",
+        "meta_title": "Checksum — definizione ed esempi | CiphersOnline",
+        "meta_description": "Che cos'è una checksum, come verifica l'integrità dei dati e quando scegliere CRC32, un hash crittografico, HMAC o una firma digitale."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Una checksum è un piccolo valore calcolato da un blocco di dati affinché in seguito un software o una persona possa ricalcolarlo e confrontare il risultato. Se i valori differiscono, i dati quasi certamente sono cambiati durante archiviazione, copia o trasmissione.</p><p>Le checksum sono comuni in formati di file, protocolli di rete, download, backup e archivi. Sono utili perché sono compatte e facili da confrontare, non perché contengano i dati originali.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Come funziona",
+            "html": "<p>L'algoritmo legge i byte esatti e li combina in un valore di dimensione fissa. CRC32, per esempio, produce un valore a 32 bit spesso scritto come 8 caratteri esadecimali. Anche hash crittografici come SHA-256 sono usati come checksum quando il digest pubblicato è attendibile.</p><p>Lo stesso testo visibile può avere checksum diverse se cambiano codifica dei byte, terminatori di riga, spazi o contenuto del file. La checksum di un nome file non è la checksum del file.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Limiti di sicurezza",
+            "html": "<p>Molti algoritmi di checksum, incluse somme semplici e CRC, sono progettati per errori accidentali più che per manomissioni malevole. Un attaccante che può modificare sia i dati sia la checksum spesso può farli combaciare.</p><p>Usa HMAC, una firma digitale o un meccanismo di integrità specifico del protocollo quando il modello di minaccia include modifiche deliberate. Un hash crittografico come SHA-256 offre resistenza alle collisioni più forte di CRC32, ma un hash semplice da solo non prova comunque chi ha prodotto i dati.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Una checksum può riparare dati corrotti?",
+            "answer": "<p>Di solito no. Una checksum rileva che i dati sono cambiati; per ricostruire dati mancanti o danneggiati servono codici di correzione degli errori o backup.</p>"
+        },
+        {
+            "question": "CRC32 è sicuro?",
+            "answer": "<p>No contro un avversario. CRC32 è veloce e rileva bene la corruzione accidentale comune, ma non è progettato per resistere a manomissioni deliberate.</p>"
+        },
+        {
+            "question": "Perché la mia checksum non coincide?",
+            "answer": "<p>I dati o l'algoritmo sono diversi. Controlla i byte esatti del file, la codifica del testo, i terminatori di riga, gli spazi nascosti, la variante dell'algoritmo e il formato di output.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "hexadecimal"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/crc32",
+            "label": "Calcolatore checksum CRC32"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "Generatore di hash SHA-256"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "integrità",
+        "checksum"
+    ],
+    "category": "hashing"
+}

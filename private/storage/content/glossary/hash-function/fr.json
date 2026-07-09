@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-function",
+        "language": "fr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Fonction de hachage",
+        "aliases": [
+            "algorithme de hachage",
+            "fonction de condensat"
+        ],
+        "short": "Une fonction de hachage transforme des données de longueur pratiquement quelconque en un condensat de taille fixe.",
+        "meta_title": "Fonction de hachage — définition et exemples | CiphersOnline",
+        "meta_description": "Comprendre ce que fait une fonction de hachage, comment elle diffère d'une somme de contrôle et pourquoi un hash ne se déchiffre pas."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Définition",
+            "html": "<p>Une fonction de hachage prend des données et calcule une valeur de taille fixe appelée hash, condensat ou empreinte. Les mêmes octets d'entrée produisent toujours la même sortie, tandis qu'une petite modification de l'entrée devrait normalement changer le condensat.</p><p>Le hachage n'est pas du chiffrement. Un condensat n'est pas destiné à être décodé ou déchiffré pour retrouver le message d'origine; il sert à comparer, identifier, vérifier l'intégrité et construire des mécanismes cryptographiques plus larges.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Propriétés cryptographiques",
+            "html": "<p>Une fonction de hachage cryptographique est conçue pour résister aux attaques par préimage, seconde préimage et collision. Autrement dit, il doit être difficile de trouver une entrée pour un condensat donné, une autre entrée ayant le même condensat qu'un message choisi, ou deux entrées quelconques partageant le même condensat.</p><p>SHA-256, SHA-512, SHA-3 et BLAKE2 sont utilisés dans les systèmes modernes. MD5 et SHA-1 apparaissent encore dans d'anciennes sommes de contrôle, mais leur résistance aux collisions est cassée et ils ne doivent pas protéger de données sensibles.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Usages et confusions",
+            "html": "<p>Les hashes sont souvent affichés sous forme de chaînes hexadécimales. Par exemple, SHA-256 produit 32 octets, généralement écrits avec 64 caractères hexadécimaux. Comparer un condensat recalculé avec une valeur publiée de confiance peut montrer si les données ont changé.</p><p>Un hash simple n'authentifie pas l'auteur des données. Utilisez un HMAC ou une signature numérique si un attaquant peut modifier le contenu volontairement, et une fonction de hachage de mots de passe comme Argon2id ou bcrypt plutôt qu'un hash rapide brut pour stocker des mots de passe.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Peut-on déchiffrer un hash ?",
+            "answer": "<p>Non. Un hash est un condensat à sens unique, pas un texte chiffré. On peut seulement deviner des entrées possibles, les hacher et comparer les résultats.</p>"
+        },
+        {
+            "question": "Une fonction de hachage et une somme de contrôle sont-elles identiques ?",
+            "answer": "<p>Leurs usages se recoupent, mais pas leur niveau de sécurité. Une somme de contrôle détecte les changements accidentels; un hash cryptographique est conçu pour résister à certaines attaques délibérées.</p>"
+        },
+        {
+            "question": "Pourquoi deux outils donnent-ils des hashes différents ?",
+            "answer": "<p>Ils peuvent utiliser des algorithmes différents ou hacher des octets différents. Espaces, fins de ligne, normalisation Unicode, encodage du texte et entrée fichier ou texte changent le résultat.</p>"
+        }
+    ],
+    "related_terms": [
+        "checksum",
+        "hexadecimal",
+        "entropy"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/sha256",
+            "label": "Générateur de hash SHA-256"
+        },
+        {
+            "slug": "hashing/sha512",
+            "label": "Générateur de hash SHA-512"
+        },
+        {
+            "slug": "hashing/md5",
+            "label": "Générateur de hash MD5"
+        }
+    ],
+    "tags": [
+        "hachage",
+        "cryptographie",
+        "condensat"
+    ],
+    "category": "hashing"
+}

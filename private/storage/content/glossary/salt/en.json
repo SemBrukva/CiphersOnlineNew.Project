@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "salt",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Salt",
+        "aliases": [
+            "password salt",
+            "cryptographic salt"
+        ],
+        "short": "A salt is a unique value added to each password-hashing or key-derivation operation to make equal inputs produce different outputs.",
+        "meta_title": "Salt in Hashing — Definition and Examples | CiphersOnline",
+        "meta_description": "Learn what a salt is, why password hashes need unique salts, and how salts differ from secret keys, peppers, and nonces."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A salt is a value added to a password or other input before password hashing or key derivation. Its main job is to make the derived output unique even when two users choose the same password.</p><p>A salt usually does not need to be secret. It is stored with the hash or encoded output so the verifier can repeat the same calculation later.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "How it works",
+            "html": "<p>For every password, the system generates a fresh random salt and feeds both the password and salt into a password-hashing function such as Argon2id, bcrypt, or PBKDF2. During verification, the stored salt is reused with the candidate password.</p><p>Unique salts prevent identical passwords from producing identical stored hashes and make precomputed lookup tables much less useful. They do not make weak passwords strong; the password-hashing function still needs an appropriate cost setting.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Salt, key, pepper, and nonce",
+            "html": "<p>A salt is public uniqueness, not a secret authentication key. A pepper is a separate secret value kept outside the password database, and a nonce is a number used once in a specific protocol or encryption operation.</p><p>For new systems, generate salts with a cryptographically secure random source and let the password-hashing library store them in its standard encoded format when possible.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Does a salt need to be secret?",
+            "answer": "<p>No. A salt should be unique and preferably random, but it can be stored next to the hash.</p>"
+        },
+        {
+            "question": "Can two accounts use the same salt?",
+            "answer": "<p>They should not. Random salts make accidental reuse unlikely and prevent equal passwords from being visible as equal hashes.</p>"
+        },
+        {
+            "question": "Is a salt enough to protect passwords?",
+            "answer": "<p>No. Use a password-hashing function with suitable cost parameters, secure random salts, rate limiting, and monitoring.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "entropy",
+        "nonce"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Argon2 Password Hashing"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "bcrypt Password Hashing"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "PBKDF2 Key Derivation"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "passwords",
+        "key derivation"
+    ],
+    "category": "hashing"
+}

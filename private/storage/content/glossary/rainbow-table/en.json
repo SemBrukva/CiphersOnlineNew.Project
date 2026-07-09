@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "rainbow-table",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Rainbow table",
+        "aliases": [
+            "precomputed hash table",
+            "rainbow attack table"
+        ],
+        "short": "A rainbow table is a precomputed structure used to look up likely inputs for unsalted password hashes.",
+        "meta_title": "Rainbow Table — Definition and Defense | CiphersOnline",
+        "meta_description": "Learn what rainbow tables are, how precomputed hash lookup works, and why unique salts and slow password hashing defeat this attack."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>A rainbow table is a precomputed data structure for reversing many possible hash values back to candidate inputs, usually passwords. Instead of hashing guesses after a database leak, an attacker prepares chains of hashes and reductions in advance and stores enough information to recover likely matches later.</p><p>Rainbow tables are most useful against fast, unsalted hashes of human-chosen passwords. They are not magic decryption: they only cover the input space and algorithm used to build the table.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "How it works",
+            "html": "<p>Classic lookup tables store many direct password-to-hash pairs. Rainbow tables reduce storage by keeping chain endpoints: a hash is reduced to another candidate input, hashed again, and repeated with changing reduction functions. During an attack, the target hash is walked through possible chain positions until a matching endpoint is found.</p><p>The trade-off is time versus storage. Building useful tables can be expensive, but once built they can test many matching unsalted hashes quickly.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Defense",
+            "html": "<p>A unique random salt per password makes one precomputed table useless across many accounts, because the salt changes the value being hashed. Slow password-hashing functions such as Argon2id, bcrypt, and PBKDF2 further raise the cost of each guess.</p><p>Salts do not make weak passwords strong, and raw fast hashes such as MD5 or SHA-1 are still poor password-storage choices even when salted. Store passwords with a dedicated password-hashing function and current cost parameters.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Does a salt stop rainbow tables?",
+            "answer": "<p>A unique random salt makes precomputed tables for unsalted hashes ineffective across accounts. Attackers would need separate work for each salt.</p>"
+        },
+        {
+            "question": "Are rainbow tables the same as brute force?",
+            "answer": "<p>No. Brute force computes guesses during the attack; a rainbow table moves much of that work into a precomputation phase.</p>"
+        },
+        {
+            "question": "Can rainbow tables crack any hash?",
+            "answer": "<p>No. They only cover the algorithms, salts, and candidate space used to build them. Long random secrets and salted slow password hashes are outside practical tables.</p>"
+        }
+    ],
+    "related_terms": [
+        "salt",
+        "hash-function",
+        "dictionary-attack",
+        "brute-force-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Argon2 Password Hashing"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "bcrypt Password Hashing"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "PBKDF2 Key Derivation"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "passwords",
+        "cryptanalysis"
+    ],
+    "category": "hashing"
+}

@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "rainbow-table",
+        "language": "it",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Tabella arcobaleno",
+        "aliases": [
+            "tabella hash precalcolata",
+            "tabella di attacco arcobaleno"
+        ],
+        "short": "Una tabella arcobaleno è una struttura precalcolata usata per cercare input probabili per hash di password senza sale.",
+        "meta_title": "Tabella arcobaleno — definizione e difesa | CiphersOnline",
+        "meta_description": "Che cosa sono le tabelle arcobaleno, come funziona la ricerca con hash precalcolati e perché sali unici e hashing lento delle password bloccano questo attacco."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definizione",
+            "html": "<p>Una tabella arcobaleno è una struttura dati precalcolata per risalire da molti possibili valori hash a input candidati, di solito password. Invece di calcolare hash dei tentativi dopo una fuga di database, un attaccante prepara in anticipo catene di hash e riduzioni e conserva informazioni sufficienti per recuperare in seguito corrispondenze probabili.</p><p>Le tabelle arcobaleno sono più utili contro hash rapidi e senza sale di password scelte da persone. Non sono decifratura magica: coprono solo lo spazio di input e l'algoritmo usati per costruirle.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Come funziona",
+            "html": "<p>Le tabelle di lookup classiche memorizzano molte coppie dirette password-hash. Le tabelle arcobaleno riducono lo spazio conservando gli estremi delle catene: un hash viene ridotto a un altro input candidato, di nuovo hashato e ripetuto con funzioni di riduzione variabili. Durante l'attacco, l'hash bersaglio viene percorso in possibili posizioni di catena finché si trova un estremo corrispondente.</p><p>È uno scambio tra tempo e memoria. Costruire tabelle utili può essere costoso, ma una volta pronte possono testare rapidamente molti hash senza sale compatibili.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Difesa",
+            "html": "<p>Un sale casuale unico per ogni password rende una tabella precalcolata inutile su molti account, perché il sale cambia il valore sottoposto a hash. Funzioni lente di hashing delle password come Argon2id, bcrypt e PBKDF2 aumentano inoltre il costo di ogni tentativo.</p><p>I sali non rendono forti le password deboli, e hash grezzi veloci come MD5 o SHA-1 restano scelte scadenti per memorizzare password anche con sale. Memorizza le password con una funzione dedicata e parametri di costo aggiornati.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Un sale ferma le tabelle arcobaleno?",
+            "answer": "<p>Un sale casuale unico rende inefficaci tra account le tabelle precalcolate per hash senza sale. Gli attaccanti dovrebbero svolgere lavoro separato per ogni sale.</p>"
+        },
+        {
+            "question": "Le tabelle arcobaleno sono forza bruta?",
+            "answer": "<p>No. La forza bruta calcola i tentativi durante l'attacco; una tabella arcobaleno sposta gran parte del lavoro in una fase di precalcolo.</p>"
+        },
+        {
+            "question": "Le tabelle arcobaleno possono violare qualunque hash?",
+            "answer": "<p>No. Coprono solo algoritmi, sali e spazio di candidati usati per costruirle. Segreti lunghi casuali e hash password lenti con sale sono fuori dalle tabelle pratiche.</p>"
+        }
+    ],
+    "related_terms": [
+        "salt",
+        "hash-function",
+        "dictionary-attack",
+        "brute-force-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Hashing password Argon2"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "Hashing password bcrypt"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "Derivazione di chiave PBKDF2"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "password",
+        "crittanalisi"
+    ],
+    "category": "hashing"
+}

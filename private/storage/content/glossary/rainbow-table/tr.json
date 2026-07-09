@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "rainbow-table",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Gökkuşağı tablosu",
+        "aliases": [
+            "önceden hesaplanmış hash tablosu",
+            "gökkuşağı saldırı tablosu"
+        ],
+        "short": "Gökkuşağı tablosu, tuzsuz parola hashleri için olası girişleri aramakta kullanılan önceden hesaplanmış bir yapıdır.",
+        "meta_title": "Gökkuşağı tablosu — tanım ve savunma | CiphersOnline",
+        "meta_description": "Gökkuşağı tablolarının ne olduğunu, önceden hesaplanmış hash aramasının nasıl çalıştığını ve benzersiz tuzlar ile yavaş parola hashlemenin bu saldırıyı neden durdurduğunu öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Gökkuşağı tablosu, birçok olası hash değerinden genellikle parola olan aday girişlere dönmek için önceden hesaplanmış bir veri yapısıdır. Saldırgan, veritabanı sızıntısından sonra tahminleri hashlemek yerine hash ve indirgeme zincirlerini önceden hazırlar ve daha sonra olası eşleşmeleri bulmak için yeterli bilgiyi saklar.</p><p>Gökkuşağı tabloları, insanların seçtiği hızlı ve tuzsuz parola hashlerine karşı en kullanışlıdır. Bunlar sihirli şifre çözme değildir: yalnızca tabloyu oluştururken kullanılan giriş alanını ve algoritmayı kapsar.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Nasıl çalışır",
+            "html": "<p>Klasik arama tabloları çok sayıda doğrudan parola-hash çifti saklar. Gökkuşağı tabloları, zincir uç noktalarını saklayarak depolamayı azaltır: bir hash başka bir aday girişe indirgenir, yeniden hashlenir ve değişen indirgeme fonksiyonlarıyla tekrarlanır. Saldırı sırasında hedef hash, eşleşen bir uç nokta bulunana kadar olası zincir konumlarından geçirilir.</p><p>Bu zaman ile depolama arasında bir takastır. Kullanışlı tablolar oluşturmak pahalı olabilir, ancak oluşturulduktan sonra uyumlu çok sayıda tuzsuz hashi hızlıca test edebilirler.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Savunma",
+            "html": "<p>Her parola için benzersiz rastgele tuz, önceden hesaplanmış tek bir tabloyu birçok hesap için işe yaramaz hale getirir; çünkü tuz hashlenen değeri değiştirir. Argon2id, bcrypt ve PBKDF2 gibi yavaş parola hash fonksiyonları her tahminin maliyetini daha da artırır.</p><p>Tuzlar zayıf parolaları güçlü yapmaz; MD5 veya SHA-1 gibi hızlı ham hashler de tuzlu olsalar bile parola saklama için kötü seçimlerdir. Parolaları özel bir parola hash fonksiyonu ve güncel maliyet parametreleriyle saklayın.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Tuz gökkuşağı tablolarını durdurur mu?",
+            "answer": "<p>Benzersiz rastgele tuz, tuzsuz hashler için önceden hesaplanmış tabloları hesaplar arasında etkisiz kılar. Saldırganın her tuz için ayrı çalışma yapması gerekir.</p>"
+        },
+        {
+            "question": "Gökkuşağı tabloları kaba kuvvet ile aynı mı?",
+            "answer": "<p>Hayır. Kaba kuvvet tahminleri saldırı sırasında hesaplar; gökkuşağı tablosu bu işin büyük kısmını ön hesaplama aşamasına taşır.</p>"
+        },
+        {
+            "question": "Gökkuşağı tabloları her hashi kırabilir mi?",
+            "answer": "<p>Hayır. Yalnızca oluşturulurken kullanılan algoritmaları, tuzları ve aday alanını kapsar. Uzun rastgele sırlar ve tuzlu yavaş parola hashleri pratik tabloların dışındadır.</p>"
+        }
+    ],
+    "related_terms": [
+        "salt",
+        "hash-function",
+        "dictionary-attack",
+        "brute-force-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Argon2 parola hashleme"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "bcrypt parola hashleme"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "PBKDF2 anahtar türetme"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "parolalar",
+        "kriptanaliz"
+    ],
+    "category": "hashing"
+}

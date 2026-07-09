@@ -1,0 +1,71 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hmac",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "HMAC",
+        "aliases": [
+            "hash tabanlı ileti kimlik doğrulama kodu",
+            "anahtarlı hash"
+        ],
+        "short": "HMAC, kriptografik bir özet fonksiyonundan oluşturulan anahtarlı ileti kimlik doğrulama kodudur.",
+        "meta_title": "HMAC — tanım ve örnekler | CiphersOnline",
+        "meta_description": "HMAC'in ne olduğunu, gizli anahtarı özet fonksiyonuyla nasıl birleştirdiğini ve neden şifreleme yerine ileti kimlik doğrulaması için kullanıldığını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>HMAC, Hash-based Message Authentication Code anlamına gelir. Gizli bir anahtarı kriptografik özet fonksiyonuyla birleştirerek mesaj için sabit boyutlu bir kimlik doğrulama etiketi üretir.</p><p>Aynı gizli anahtara sahip doğrulayıcı, etiketi mesajın tam baytları üzerinden yeniden hesaplar ve alınan etiketle karşılaştırır. Eşleşme, mesajın değişmediğini ve etiketin paylaşılan anahtarı bilen biri tarafından oluşturulduğunu gösterir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Nasıl çalışır",
+            "html": "<p>HMAC, anahtarı ve mesajı farklı dolgu sabitleriyle iki iç içe adımda hashler. Bu yapı, bazı özet fonksiyonlarında savunmasız olabilen basit <code>hash(key || message)</code> hesabından daha güvenlidir.</p><p>Seçilen özet fonksiyonu etiket boyutunu belirler: HMAC-SHA256, genellikle 64 on altılık karakter olarak yazılan 32 bayt üretir. HMAC-SHA512 ve HMAC-SHA384 daha uzun etiketler üretir; HMAC-SHA1 ise çoğunlukla uyumluluk için kalmıştır.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Kullanım ve sınırlar",
+            "html": "<p>HMAC, iki tarafın zaten bir sırrı paylaştığı API imzaları, webhook'lar, oturum verileri, JWT HS256 ve protokol mesajlarında kullanılır. Bütünlük ve kimlik doğrulama sağlar, gizlilik sağlamaz: mesajın kendisi saklanmaz.</p><p>Rastgele bir gizli anahtar kullanın, imzalanan tam baytları koruyun ve uygulama kodunda etiketleri sabit zamanlı karşılaştırmayla kıyaslayın. Paylaşılan sır olmadan herkese açık doğrulama için dijital imza kullanın.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "HMAC şifreleme midir?",
+            "answer": "<p>Hayır. HMAC bir mesajı doğrular ama gizlemez. Mesajın gizli kalması gerekiyorsa ayrıca şifreleme kullanın.</p>"
+        },
+        {
+            "question": "Neden düz SHA-256 hash kullanmayayım?",
+            "answer": "<p>Düz hash gizli anahtar içermez; bu yüzden herkes mesajı değiştirip yeni hash hesaplayabilir. HMAC geçerli etiket oluşturmak için paylaşılan sırrı gerektirir.</p>"
+        },
+        {
+            "question": "HMAC geri çevrilebilir mi?",
+            "answer": "<p>Hayır. Doğrulama etiketi özgün mesaj ve gizli anahtardan yeniden hesaplar; etiketten bu değerleri geri çıkarmaz.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "cryptographic-key",
+        "checksum"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/hmac",
+            "label": "HMAC oluşturucu"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "kimlik doğrulama",
+        "bütünlük"
+    ],
+    "category": "hashing"
+}

@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-function",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Özet (hash) fonksiyonu",
+        "aliases": [
+            "hash algoritması",
+            "özet fonksiyonu"
+        ],
+        "short": "Özet fonksiyonu, pratikte herhangi bir uzunluktaki girdiyi sabit boyutlu bir özete dönüştürür.",
+        "meta_title": "Özet (hash) fonksiyonu — tanım ve örnekler | CiphersOnline",
+        "meta_description": "Özet fonksiyonunun ne yaptığını, kriptografik hash ile sağlama toplamı arasındaki farkı ve bir hash değerinin neden geri çözülemeyeceğini öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Özet fonksiyonu veriyi alır ve hash, özet ya da parmak izi denen sabit boyutlu bir değer hesaplar. Aynı giriş baytları her zaman aynı çıktıyı üretir; girişteki küçük bir değişiklik ise normalde özeti değiştirir.</p><p>Hashing şifreleme değildir. Özet değeri özgün mesaja geri decode veya deşifre edilmek için tasarlanmaz; karşılaştırma, tanımlama, bütünlük kontrolü ve daha büyük kriptografik yapıların bileşeni olarak kullanılır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Kriptografik özellikler",
+            "html": "<p>Kriptografik bir özet fonksiyonu, ön-görüntü, ikinci ön-görüntü ve çakışma saldırılarına dirençli olacak şekilde tasarlanır. Basitçe, verilen bir özet için giriş bulmak, seçilen bir mesajla aynı özete sahip farklı bir giriş bulmak veya aynı özete sahip herhangi iki giriş bulmak zor olmalıdır.</p><p>Modern sistemlerde SHA-256, SHA-512, SHA-3 ve BLAKE2 kullanılır. MD5 ve SHA-1 eski sağlama toplamlarında hâlâ görülür, ancak çakışma dirençleri kırılmıştır ve güvenlik açısından hassas verileri korumamalıdır.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Kullanımlar ve yaygın karışıklıklar",
+            "html": "<p>Hash değerleri çoğunlukla on altılık dizeler olarak gösterilir. Örneğin SHA-256, genellikle 64 hex karakteriyle yazılan 32 bayt üretir. Yeni hesaplanan özeti güvenilir yayımlanmış bir değerle karşılaştırmak, verinin değişip değişmediğini gösterebilir.</p><p>Düz bir hash, veriyi kimin oluşturduğunu doğrulamaz. Bir saldırgan içeriği kasıtlı olarak değiştirebiliyorsa HMAC veya dijital imza kullanın; parola saklamak için hızlı ham hash yerine Argon2id ya da bcrypt gibi parola hash fonksiyonları kullanın.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Bir hash değeri deşifre edilebilir mi?",
+            "answer": "<p>Hayır. Hash, şifreli metin değil tek yönlü bir özettir. Yalnızca olası girişler tahmin edilip hashlenebilir ve sonuçlar karşılaştırılabilir.</p>"
+        },
+        {
+            "question": "Hash fonksiyonu ile sağlama toplamı aynı şey mi?",
+            "answer": "<p>Kullanım alanları örtüşebilir, ancak güvenlikleri aynı değildir. Sağlama toplamı kazara değişiklikleri yakalar; kriptografik hash ise belirli kasıtlı saldırılara direnmek için tasarlanır.</p>"
+        },
+        {
+            "question": "Farklı araçlar neden farklı hash değerleri veriyor?",
+            "answer": "<p>Farklı algoritmalar kullanıyor veya farklı baytları hashliyor olabilirler. Boşluklar, satır sonları, Unicode normalizasyonu, metin kodlaması ve dosya/metin girişi sonucu etkiler.</p>"
+        }
+    ],
+    "related_terms": [
+        "checksum",
+        "hexadecimal",
+        "entropy"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256 hash oluşturucu"
+        },
+        {
+            "slug": "hashing/sha512",
+            "label": "SHA-512 hash oluşturucu"
+        },
+        {
+            "slug": "hashing/md5",
+            "label": "MD5 hash oluşturucu"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "kriptografi",
+        "özet"
+    ],
+    "category": "hashing"
+}

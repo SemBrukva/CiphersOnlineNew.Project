@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "salt",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Tuz (salt)",
+        "aliases": [
+            "parola tuzu",
+            "kriptografik tuz"
+        ],
+        "short": "Tuz, aynı girişlerin farklı çıktılar üretmesi için her parola hashleme veya anahtar türetme işlemine eklenen benzersiz bir değerdir.",
+        "meta_title": "Hashing'de tuz — tanım ve örnekler | CiphersOnline",
+        "meta_description": "Tuzun ne olduğunu, parola hashlerinin neden benzersiz tuzlara ihtiyaç duyduğunu ve tuzun gizli anahtar, pepper ve nonce'tan nasıl ayrıldığını öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Tuz, parola hashleme veya anahtar türetme öncesinde parolaya ya da başka bir girdiye eklenen değerdir. Temel görevi, iki kullanıcı aynı parolayı seçse bile türetilen çıktıyı benzersiz yapmaktır.</p><p>Tuzun genellikle gizli olması gerekmez. Doğrulayıcı aynı hesabı daha sonra tekrarlayabilsin diye hash veya kodlanmış çıktı ile birlikte saklanır.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Nasıl çalışır",
+            "html": "<p>Sistem her parola için yeni rastgele bir tuz üretir ve parolayı tuzla birlikte Argon2id, bcrypt veya PBKDF2 gibi bir parola hash fonksiyonuna verir. Doğrulama sırasında saklanan tuz aday parolayla yeniden kullanılır.</p><p>Benzersiz tuzlar, aynı parolaların aynı saklanan hashleri üretmesini engeller ve önceden hesaplanmış arama tablolarını çok daha az işe yarar hale getirir. Zayıf parolaları güçlü yapmazlar; parola hash fonksiyonunun yine uygun maliyet ayarlarına ihtiyacı vardır.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Tuz, anahtar, pepper ve nonce",
+            "html": "<p>Tuz, gizli kimlik doğrulama anahtarı değil herkese açık benzersizlik sağlar. Pepper, parola veritabanının dışında tutulan ayrı bir gizli değerdir; nonce ise belirli bir protokolde veya şifreleme işleminde bir kez kullanılan sayıdır.</p><p>Yeni sistemlerde tuzları kriptografik olarak güvenli rastgele kaynakla üretin ve mümkün olduğunda parola hashleme kütüphanesinin bunları standart kodlanmış biçiminde saklamasına izin verin.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Tuz gizli olmalı mı?",
+            "answer": "<p>Hayır. Tuz benzersiz ve tercihen rastgele olmalıdır, ancak hashin yanında saklanabilir.</p>"
+        },
+        {
+            "question": "İki hesap aynı tuzu kullanabilir mi?",
+            "answer": "<p>Kullanmamalıdır. Rastgele tuzlar yeniden kullanımı olasılık dışına iter ve aynı parolaların aynı hash gibi görünmesini engeller.</p>"
+        },
+        {
+            "question": "Tuz parolaları korumak için yeterli mi?",
+            "answer": "<p>Hayır. Uygun maliyet parametrelerine sahip parola hash fonksiyonu, güvenli rastgele tuzlar, hız sınırlama ve izleme kullanın.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "entropy",
+        "nonce"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Argon2 parola hashleme"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "bcrypt parola hashleme"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "PBKDF2 anahtar türetme"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "parolalar",
+        "anahtar türetme"
+    ],
+    "category": "hashing"
+}

@@ -1,0 +1,71 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hmac",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "HMAC",
+        "aliases": [
+            "Hash-based Message Authentication Code",
+            "keyed hash"
+        ],
+        "short": "HMAC is a keyed message authentication code built from a cryptographic hash function.",
+        "meta_title": "HMAC — Definition and Examples | CiphersOnline",
+        "meta_description": "Learn what HMAC is, how it combines a secret key with a hash function, and why it is used for message authentication rather than encryption."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>HMAC means Hash-based Message Authentication Code. It combines a secret key with a cryptographic hash function to produce a fixed-size authentication tag for a message.</p><p>A verifier with the same secret key recalculates the tag over the exact message bytes and compares it with the received tag. A match shows that the message was not changed and that the tag was created by someone who knew the shared key.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "How it works",
+            "html": "<p>HMAC hashes the key and message in two nested steps with different padding constants. This construction is safer than simply calculating <code>hash(key || message)</code>, which can be vulnerable with some hash functions.</p><p>The selected hash function determines the tag size: HMAC-SHA256 produces 32 bytes, usually written as 64 hexadecimal characters. HMAC-SHA512 and HMAC-SHA384 produce longer tags, while HMAC-SHA1 mainly remains for compatibility.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Use and limits",
+            "html": "<p>HMAC is used for API signatures, webhooks, session data, JWT HS256, and protocol messages where both sides already share a secret. It provides integrity and authentication, not confidentiality: the message itself is not hidden.</p><p>Use a random secret key, preserve the exact bytes being signed, and compare tags with a constant-time comparison in application code. For public verification without a shared secret, use a digital signature instead.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Is HMAC encryption?",
+            "answer": "<p>No. HMAC authenticates a message but does not hide it. Use encryption separately when the message must be confidential.</p>"
+        },
+        {
+            "question": "Why not use a plain SHA-256 hash?",
+            "answer": "<p>A plain hash has no secret key, so anyone can change the message and calculate a new hash. HMAC requires the shared secret to create a valid tag.</p>"
+        },
+        {
+            "question": "Can HMAC be reversed?",
+            "answer": "<p>No. Verification recalculates the tag from the original message and secret key; it does not recover either value from the tag.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "cryptographic-key",
+        "checksum"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/hmac",
+            "label": "HMAC Generator"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "authentication",
+        "integrity"
+    ],
+    "category": "hashing"
+}

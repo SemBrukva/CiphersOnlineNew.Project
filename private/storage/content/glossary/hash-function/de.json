@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-function",
+        "language": "de",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Hashfunktion",
+        "aliases": [
+            "Hash-Algorithmus",
+            "Digest-Funktion"
+        ],
+        "short": "Eine Hashfunktion bildet Eingabedaten praktisch beliebiger Länge auf einen Digest fester Größe ab.",
+        "meta_title": "Hashfunktion — Definition und Beispiele | CiphersOnline",
+        "meta_description": "Was eine Hashfunktion leistet, wie sich kryptografische Hashes von Prüfsummen unterscheiden und warum ein Hash nicht entschlüsselt werden kann."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definition",
+            "html": "<p>Eine Hashfunktion nimmt Daten entgegen und berechnet einen Wert fester Größe, den man Hash, Digest oder Fingerabdruck nennt. Dieselben Eingabebytes liefern immer denselben Ausgabewert; schon eine kleine Änderung der Eingabe sollte den Digest normalerweise verändern.</p><p>Hashing ist keine Verschlüsselung. Ein Digest soll nicht in die ursprüngliche Nachricht zurückdecodiert oder entschlüsselt werden; er dient zum Vergleichen, Identifizieren, Prüfen der Integrität und als Baustein größerer kryptografischer Verfahren.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Kryptografische Eigenschaften",
+            "html": "<p>Eine kryptografische Hashfunktion soll gegen Urbildangriffe, zweite Urbildangriffe und Kollisionen widerstandsfähig sein. Vereinfacht gesagt soll es schwer sein, zu einem Digest eine Eingabe zu finden, zu einer gewählten Nachricht eine andere Eingabe mit demselben Digest zu finden oder überhaupt zwei Eingaben mit gleichem Digest zu finden.</p><p>Algorithmen wie SHA-256, SHA-512, SHA-3 und BLAKE2 werden in modernen Systemen verwendet. MD5 und SHA-1 tauchen noch in älteren Prüfsummen auf, ihre Kollisionsresistenz ist aber gebrochen und sie sollten keine sicherheitskritischen Daten schützen.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "example",
+            "title": "Einsatz und Verwechslungen",
+            "html": "<p>Hashes werden häufig als Hexadezimalzeichenketten angezeigt. SHA-256 erzeugt zum Beispiel 32 Bytes, meist geschrieben als 64 Hex-Zeichen. Vergleicht man einen neu berechneten Digest mit einem vertrauenswürdig veröffentlichten Digest, lässt sich erkennen, ob Daten verändert wurden.</p><p>Ein einfacher Hash authentifiziert nicht, wer die Daten erstellt hat. Wenn ein Angreifer Inhalte absichtlich ändern kann, braucht man HMAC oder eine digitale Signatur; für Passwortspeicherung nutzt man eine Passwort-Hashfunktion wie Argon2id oder bcrypt statt eines schnellen rohen Hashes.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Kann man einen Hash entschlüsseln?",
+            "answer": "<p>Nein. Ein Hash ist ein Einweg-Digest, kein Chiffretext. Man kann nur mögliche Eingaben raten, hashen und die Ergebnisse vergleichen.</p>"
+        },
+        {
+            "question": "Sind Hashfunktionen und Prüfsummen dasselbe?",
+            "answer": "<p>Sie überschneiden sich in der Nutzung, aber nicht in der Sicherheit. Eine Prüfsumme erkennt unbeabsichtigte Änderungen; ein kryptografischer Hash soll bestimmten absichtlichen Angriffen widerstehen.</p>"
+        },
+        {
+            "question": "Warum liefern verschiedene Werkzeuge verschiedene Hashes?",
+            "answer": "<p>Sie können andere Algorithmen verwenden oder andere Bytes hashen. Leerzeichen, Zeilenenden, Unicode-Normalisierung, Textkodierung und Datei-gegen-Text-Eingabe beeinflussen das Ergebnis.</p>"
+        }
+    ],
+    "related_terms": [
+        "checksum",
+        "hexadecimal",
+        "entropy"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256-Hashgenerator"
+        },
+        {
+            "slug": "hashing/sha512",
+            "label": "SHA-512-Hashgenerator"
+        },
+        {
+            "slug": "hashing/md5",
+            "label": "MD5-Hashgenerator"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "kryptografie",
+        "digest"
+    ],
+    "category": "hashing"
+}

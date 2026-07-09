@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "rainbow-table",
+        "language": "pt",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Tabela arco-íris",
+        "aliases": [
+            "tabela hash pré-calculada",
+            "tabela de ataque arco-íris"
+        ],
+        "short": "Uma tabela arco-íris é uma estrutura pré-calculada usada para procurar entradas prováveis de hashes de senha sem sal.",
+        "meta_title": "Tabela arco-íris — definição e defesa | CiphersOnline",
+        "meta_description": "Entenda o que são tabelas arco-íris, como funciona a busca hash pré-calculada e por que sais únicos e hash lento de senhas derrotam esse ataque."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Definição",
+            "html": "<p>Uma tabela arco-íris é uma estrutura de dados pré-calculada para voltar de muitos valores hash possíveis a entradas candidatas, geralmente senhas. Em vez de aplicar hash a tentativas depois de um vazamento, o atacante prepara cadeias de hashes e reduções com antecedência e armazena informação suficiente para recuperar correspondências prováveis depois.</p><p>Tabelas arco-íris são mais úteis contra hashes rápidos e sem sal de senhas escolhidas por pessoas. Elas não são descriptografia mágica: cobrem apenas o espaço de entrada e o algoritmo usados para construir a tabela.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "how_it_works",
+            "title": "Como funciona",
+            "html": "<p>Tabelas de consulta clássicas armazenam muitos pares diretos senha-hash. Tabelas arco-íris reduzem armazenamento guardando pontos finais de cadeias: um hash é reduzido para outra entrada candidata, recebe hash novamente e o processo se repete com funções de redução variáveis. Durante o ataque, o hash alvo percorre possíveis posições da cadeia até encontrar um ponto final correspondente.</p><p>É uma troca entre tempo e armazenamento. Construir tabelas úteis pode ser caro, mas depois elas podem testar rapidamente muitos hashes sem sal compatíveis.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "defense",
+            "title": "Defesa",
+            "html": "<p>Um sal aleatório único por senha torna uma tabela pré-calculada inútil em muitas contas, porque o sal muda o valor que recebe hash. Funções lentas de hash de senha como Argon2id, bcrypt e PBKDF2 aumentam ainda mais o custo de cada tentativa.</p><p>Sais não transformam senhas fracas em fortes, e hashes rápidos brutos como MD5 ou SHA-1 continuam ruins para armazenar senhas mesmo com sal. Armazene senhas com uma função dedicada e parâmetros de custo atuais.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Um sal impede tabelas arco-íris?",
+            "answer": "<p>Um sal aleatório único torna tabelas pré-calculadas para hashes sem sal ineficazes entre contas. O atacante precisaria de trabalho separado para cada sal.</p>"
+        },
+        {
+            "question": "Tabelas arco-íris são força bruta?",
+            "answer": "<p>Não. Força bruta calcula tentativas durante o ataque; uma tabela arco-íris desloca grande parte desse trabalho para uma fase de pré-cálculo.</p>"
+        },
+        {
+            "question": "Tabelas arco-íris podem quebrar qualquer hash?",
+            "answer": "<p>Não. Elas cobrem apenas algoritmos, sais e espaço de candidatos usados para construí-las. Segredos longos aleatórios e hashes de senha lentos com sal ficam fora de tabelas práticas.</p>"
+        }
+    ],
+    "related_terms": [
+        "salt",
+        "hash-function",
+        "dictionary-attack",
+        "brute-force-attack"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/argon2",
+            "label": "Hash de senhas Argon2"
+        },
+        {
+            "slug": "hashing/bcrypt",
+            "label": "Hash de senhas bcrypt"
+        },
+        {
+            "slug": "hashing/pbkdf2",
+            "label": "Derivação de chave PBKDF2"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "senhas",
+        "criptoanálise"
+    ],
+    "category": "hashing"
+}

@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "schema": "glossary-term.v1",
+        "term_slug": "hash-collision",
+        "language": "tr",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-09"
+    },
+    "term": {
+        "name": "Özet çakışması",
+        "aliases": [
+            "hash çakışması",
+            "digest çakışması"
+        ],
+        "short": "Özet çakışması, iki farklı girişin aynı hash özetini üretmesi durumudur.",
+        "meta_title": "Özet çakışması — tanım ve örnekler | CiphersOnline",
+        "meta_description": "Hash çakışmalarının ne olduğunu, çakışma direncinin neden önemli olduğunu ve çakışma saldırılarının hashi geri çevirmekten nasıl farklı olduğunu öğrenin."
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "definition",
+            "title": "Tanım",
+            "html": "<p>Özet çakışması, aynı özet fonksiyonunda iki farklı girişin aynı digest değerini üretmesidir. Sabit boyutlu her hash için çakışmalar var olmak zorundadır, çünkü olası girişler çıkışlardan fazladır; ancak güvenli bir hash bunları bulmayı hesaplama açısından pratik olmaktan çıkarır.</p><p>Çakışma direnci; digest içerik tanımlamak, belge imzalamak, dosya karşılaştırmak veya saldırgana karşı bütünlüğü korumak için kullanıldığında önemlidir.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "properties",
+            "title": "Çakışma direnci",
+            "html": "<p>İdeal n bitlik bir hash için genel çakışma araması, doğum günü sınırı nedeniyle yaklaşık 2^(n/2) iş gerektirir. Bu, amacın belirli bir digest için giriş bulmak olduğu ve genel maliyetin yaklaşık 2^n olduğu ön-görüntü direncinden farklıdır.</p><p>MD5 ve SHA-1 için pratik çakışma saldırıları vardır ve yeni güvenlik açısından hassas tasarımlarda kullanılmamalıdır. SHA-256, SHA-512, SHA-3 ve BLAKE2 doğru yapıda kullanıldığında modern seçeneklerdir.</p>"
+        },
+        {
+            "sort_order": 30,
+            "type": "limitations",
+            "title": "Çakışma ne anlama gelmez",
+            "html": "<p>Çakışma saldırısı bir hashi deşifre etmez veya özgün mesajı açığa çıkarmaz. Saldırganın aynı digest değerine sahip iki farklı giriş oluşturabildiğini gösterir; bu da benzersizliğe dayanan imzaları, sertifikaları veya içerik tanımlayıcılarını bozabilir.</p><p>HMAC güvenliği, düz digest imzalarında olduğu gibi yalnızca çakışma direncine bağlı değildir; ancak protokoller yine de güncel özet fonksiyonlarını seçmeli ve teknik şartnamelerine uymalıdır.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Çakışmalar her hashin güvensiz olduğu anlamına mı gelir?",
+            "answer": "<p>Hayır. Çakışmalar matematiksel olarak kaçınılmazdır, ancak iyi tasarlanmış bir hash yararlı çakışmalar bulmayı pratik olmaktan çıkarır.</p>"
+        },
+        {
+            "question": "Çakışma hashi geri çevirmekle aynı şey mi?",
+            "answer": "<p>Hayır. Geri çevirme verilen bir digest için giriş arar; çakışma aynı digest değerine sahip iki farklı giriş bulur.</p>"
+        },
+        {
+            "question": "MD5 ve SHA-1 neden önerilmiyor?",
+            "answer": "<p>İkisinde de pratik çakışma saldırıları vardır; bu yüzden saldırganlar çakışma direncinin önemli olduğu senaryolarda aynı digest değerini paylaşan farklı girişler oluşturabilir.</p>"
+        }
+    ],
+    "related_terms": [
+        "hash-function",
+        "checksum",
+        "hmac"
+    ],
+    "related_tools": [
+        {
+            "slug": "hashing/md5",
+            "label": "MD5 hash oluşturucu"
+        },
+        {
+            "slug": "hashing/sha1",
+            "label": "SHA-1 hash oluşturucu"
+        },
+        {
+            "slug": "hashing/sha256",
+            "label": "SHA-256 hash oluşturucu"
+        }
+    ],
+    "tags": [
+        "hashing",
+        "çakışma direnci",
+        "kriptografi"
+    ],
+    "category": "hashing"
+}
