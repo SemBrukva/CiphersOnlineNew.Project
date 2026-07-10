@@ -65,7 +65,8 @@
 }
 
 .breadcrumbs span[itemprop="name"] {
-  color: rgba(255, 255, 255, 0.40);
+  /* 0.55 → контраст ~5.4:1 на #002340 (WCAG AA). Прежние 0.40 давали 3.58:1. */
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .breadcrumbs a.pathway span[itemprop="name"] {
@@ -74,7 +75,8 @@
 
 .breadcrumbs__sep {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.30);
+  /* 0.55 → проходит AA на тёмном хедере; прежние 0.30 давали ~2.6:1. */
+  color: rgba(255, 255, 255, 0.55);
   margin: 0 4px;
   vertical-align: middle;
 }
