@@ -7,6 +7,9 @@ declare(strict_types=1);
  * Полный bootstrap (с загрузкой контейнера/конфига) для статанализа не нужен.
  */
 
+// Поднимаем лимит памяти: дефолтных 128M не хватает воркерам анализатора.
+ini_set('memory_limit', '512M');
+
 if (!defined('BASE_PATH')) {
     define('BASE_PATH', __DIR__);
 }

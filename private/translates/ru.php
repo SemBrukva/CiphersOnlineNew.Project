@@ -452,6 +452,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Текст обязателен.',
     'RAIL_FENCE_ERR_RAILS'             => 'Количество рельсов должно быть в диапазоне :min-:max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Количество рельсов не меньше длины текста — шифрование не имеет эффекта, результат совпадает со входом.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Диаметр (столбцы)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Древний шифр перестановки',
+    'SCYTALE_TRUST_COLUMNS'            => 'Настраиваемый диаметр жезла',
+    'SCYTALE_ERR_INVALID'             => 'Некорректные входные данные.',
+    'SCYTALE_ERR_DIRECTION'           => 'Направление должно быть encrypt или decrypt.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'Текст обязателен.',
+    'SCYTALE_ERR_COLUMNS'             => 'Диаметр должен быть в диапазоне :min-:max.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'Диаметр не меньше длины текста — шифрование не имеет эффекта, результат совпадает со входом.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Ключевое слово',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Введите ключевое слово',
@@ -823,6 +832,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Шифр Бифид',
     'CIPHER_NAME_TRIFID'               => 'Шифр Трифид',
     'CIPHER_NAME_RAIL_FENCE'           => 'Заборный шифр',
+    'CIPHER_NAME_SCYTALE'              => 'Шифр «Сцитала»',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Перестановка по столбцам',
     'CIPHER_NAME_PLAYFAIR'             => 'Шифр Плейфэйра',
     'CIPHER_NAME_HILL'                 => 'Шифр Хилла',

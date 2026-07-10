@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T09:58:54+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "scytale",
+    "language": "it",
+    "default_language": "en",
+    "cipher_id": 72,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 72,
+    "data": {
+      "name": "Cifrario Scitala",
+      "name_short": "Cifrario Scitala",
+      "description": "Cifra e decifra testo online con l'antico cifrario Scitala e un diametro del bastone regolabile.",
+      "description_stort": "Cifrario spartano a trasposizione con diametro regolabile.",
+      "meta_title": "Cifrario Scitala online | Ciphers Online",
+      "meta_description": "Usa il cifrario Scitala online: scegli il diametro del bastone e cifra o decifra testo all'istante."
+    }
+  },
+  "blocks": [
+    {
+      "id": 263,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Come funziona il cifrario Scitala",
+        "text": "<p>Il <strong>cifrario Scitala</strong> è uno dei più antichi cifrari a trasposizione noti ed è associato all'antica Sparta. Una striscia di pergamena veniva avvolta attorno a un bastone di diametro fisso e il messaggio veniva scritto lungo il bastone. Dopo averla svolta, le lettere apparivano mescolate; solo un bastone dello stesso diametro ne ripristinava l'ordine.</p><p>In questo strumento online, il diametro corrisponde al numero di colonne. Per cifrare, inserisci il testo e scegli il numero di colonne: i caratteri vengono scritti riga per riga in una griglia e poi letti per colonne. Per decifrare, incolla il testo cifrato e usa esattamente lo stesso numero di colonne.</p><p>Scitala modifica solo la posizione dei caratteri. Spazi, punteggiatura e lettere di qualsiasi alfabeto partecipano alla trasposizione. Un diametro diverso produce un testo cifrato diverso. È utile per imparare e per gli enigmi, ma non protegge dati riservati moderni.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 531,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Scitala è un cifrario a sostituzione?",
+        "answer": "No. Non sostituisce le lettere, ma ne cambia solo l'ordine. È quindi un cifrario a trasposizione."
+      }
+    },
+    {
+      "id": 532,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Qual è la chiave del cifrario Scitala?",
+        "answer": "La chiave è il diametro del bastone, cioè il numero di colonne. Per decifrare occorre lo stesso valore."
+      }
+    },
+    {
+      "id": 533,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Scitala funziona con altri alfabeti?",
+        "answer": "Sì. Poiché riordina solo i caratteri, funziona con qualsiasi alfabeto e testo Unicode."
+      }
+    },
+    {
+      "id": 534,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Come decifro un messaggio Scitala?",
+        "answer": "Scegli Decifra, incolla il testo cifrato e inserisci il numero di colonne usato per cifrarlo."
+      }
+    },
+    {
+      "id": 535,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Cosa succede se cambio il diametro?",
+        "answer": "Un altro numero di colonne dispone il testo diversamente e genera un risultato diverso. Se è almeno lungo quanto il messaggio, il testo non cambia."
+      }
+    },
+    {
+      "id": 536,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Spazi e punteggiatura vengono mantenuti?",
+        "answer": "Sì. Fanno parte del messaggio e vengono trasposti insieme alle lettere."
+      }
+    },
+    {
+      "id": 537,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Scitala è sicura per i segreti moderni?",
+        "answer": "No. È un semplice cifrario storico, facile da analizzare. Usalo per imparare, giocare o fare dimostrazioni."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 272,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifrare con diametro 4",
+        "key": "",
+        "shift": 4,
+        "input": "INCONTRO ALL ALBA",
+        "output": "IN  ANTAACRLLOOLB",
+        "description": "Esempio Scitala con quattro colonne."
+      }
+    },
+    {
+      "id": 273,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Decifrare con diametro 4",
+        "key": "",
+        "shift": 4,
+        "input": "IN  ANTAACRLLOOLB",
+        "output": "INCONTRO ALL ALBA",
+        "description": "Lo stesso diametro ripristina il testo originale."
+      }
+    },
+    {
+      "id": 274,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifratura Scitala con diametro 3",
+        "key": "",
+        "shift": 3,
+        "input": "SCITALE",
+        "output": "STECAIL",
+        "description": "Tre colonne producono un ordine di caratteri diverso."
+      }
+    },
+    {
+      "id": 275,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifrare un messaggio con spazi",
+        "key": "",
+        "shift": 4,
+        "input": "INCONTRO ALLE CINQUE",
+        "output": "IN ENNTA QCRLCUOOLIE",
+        "description": "Gli spazi vengono trasposti come tutti gli altri caratteri."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 365,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Trasposizione"
+      }
+    },
+    {
+      "id": 366,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Antica Grecia"
+      }
+    },
+    {
+      "id": 367,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Cifrario classico"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

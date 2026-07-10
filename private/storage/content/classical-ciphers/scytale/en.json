@@ -1,0 +1,207 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T09:58:54+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "scytale",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 72,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 72,
+        "data": {
+            "name": "Scytale Cipher",
+            "name_short": "Scytale Cipher",
+            "description": "Use the Scytale cipher online to encrypt or decrypt text with a configurable rod diameter (number of columns).",
+            "description_stort": "Ancient Spartan transposition cipher and Scytale decoder.",
+            "meta_title": "Scytale Cipher Online | Ciphers Online",
+            "meta_description": "Use the Scytale cipher online: choose the rod diameter and encrypt or decrypt text instantly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 263,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Scytale cipher works",
+                "text": "<p>The <strong>Scytale cipher</strong> is one of the oldest known transposition ciphers, associated with ancient Sparta. A sender wound a strip of parchment around a rod of a fixed diameter and wrote the message along its length. Once the strip was unwound, the letters looked scrambled; someone with a rod of the same diameter could read them in their original order.</p><p>In this online Scytale tool, the diameter is represented by the number of columns. For Scytale encryption, enter your text, choose a column count, and the tool writes the characters across a grid row by row before reading the columns from top to bottom. To use it as a <strong>Scytale decoder</strong>, paste the ciphertext and select the exact same number of columns used for encryption.</p><p>Scytale changes positions only: it does not substitute, remove, or translate characters. Spaces, punctuation, and letters from any alphabet are included in the transposition. Changing the diameter changes the ciphertext, so record the chosen value with your recipient. This historical cipher is useful for learning and puzzles, but it is not secure encryption for confidential information.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 531,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is Scytale a substitution cipher?",
+                "answer": "No. Scytale does not replace letters. It only changes their order, so it is a transposition cipher."
+            }
+        },
+        {
+            "id": 532,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the key in the Scytale cipher?",
+                "answer": "The key is the rod diameter — the number of columns used to lay out the text. Decryption needs the same value."
+            }
+        },
+        {
+            "id": 533,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Does Scytale work with non-English alphabets?",
+                "answer": "Yes. Because it only rearranges characters, it works with any alphabet and Unicode text without configuration."
+            }
+        },
+        {
+            "id": 534,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "How do I use this Scytale decoder?",
+                "answer": "Select Decrypt, paste the ciphertext, and enter the same diameter (number of columns) used to encrypt it. Without the matching value, the original character order cannot be restored reliably."
+            }
+        },
+        {
+            "id": 535,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What happens if I change the Scytale diameter?",
+                "answer": "A different column count lays the same text into a different grid, so Scytale encryption produces a different ciphertext. Use the identical count for decryption. If the count is at least as long as the message, the text is unchanged."
+            }
+        },
+        {
+            "id": 536,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does Scytale preserve spaces and punctuation?",
+                "answer": "Yes. The tool treats every character as part of the message, so spaces, punctuation, digits, and line characters are transposed along with letters."
+            }
+        },
+        {
+            "id": 537,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is the Scytale cipher secure for modern secrets?",
+                "answer": "No. Scytale is a simple historical transposition cipher and is easy to analyze with modern methods. Use it for education, games, or historical demonstrations—not to protect sensitive data."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 272,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Encrypt with diameter 4",
+                "key": "",
+                "shift": 4,
+                "input": "WEAREDISCOVEREDFLEEATONCE",
+                "output": "WECRLTEEDOEEOAIVDENRSEFAC",
+                "description": "A classic Scytale example with a rod diameter of four columns."
+            }
+        },
+        {
+            "id": 273,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Decrypt with diameter 4",
+                "key": "",
+                "shift": 4,
+                "input": "WECRLTEEDOEEOAIVDENRSEFAC",
+                "output": "WEAREDISCOVEREDFLEEATONCE",
+                "description": "The same rod diameter is required to restore the plaintext."
+            }
+        },
+        {
+            "id": 274,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Scytale encryption with diameter 3",
+                "key": "",
+                "shift": 3,
+                "input": "SCYTALE",
+                "output": "STECAYL",
+                "description": "With three columns, the text is arranged as SCY / TAL / E and then read down each column. A different diameter would produce different ciphertext."
+            }
+        },
+        {
+            "id": 275,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Encrypt a message with spaces",
+                "key": "",
+                "shift": 4,
+                "input": "MEET AT DAWN",
+                "output": "M DEAAETWT N",
+                "description": "Spaces are preserved as characters in the Scytale transposition. Decrypt this result with diameter 4 to recover the message exactly."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 365,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Transposition"
+            }
+        },
+        {
+            "id": 366,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Ancient Greece"
+            }
+        },
+        {
+            "id": 367,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Classical cipher"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

@@ -429,6 +429,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Text ist erforderlich.',
     'RAIL_FENCE_ERR_RAILS'             => 'Schienen müssen im Bereich :min-:max liegen.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Die Schienenanzahl ist mindestens so groß wie die Textlänge — die Verschlüsselung hat keinen Effekt und die Ausgabe ist identisch mit der Eingabe.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Durchmesser (Spalten)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Antike Transpositionschiffre',
+    'SCYTALE_TRUST_COLUMNS'            => 'Anpassbarer Stabdurchmesser',
+    'SCYTALE_ERR_INVALID'             => 'Ungültige Eingabedaten.',
+    'SCYTALE_ERR_DIRECTION'           => 'Richtung muss encrypt oder decrypt sein.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'Text ist erforderlich.',
+    'SCYTALE_ERR_COLUMNS'             => 'Der Durchmesser muss im Bereich :min-:max liegen.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'Der Durchmesser ist mindestens so groß wie die Textlänge — die Verschlüsselung hat keinen Effekt und die Ausgabe ist identisch mit der Eingabe.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Schlüsselwort',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Schlüsselwort eingeben',
@@ -800,6 +809,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Bifid-Chiffre',
     'CIPHER_NAME_TRIFID'               => 'Trifid-Chiffre',
     'CIPHER_NAME_RAIL_FENCE'           => 'Zaunlatten-Chiffre',
+    'CIPHER_NAME_SCYTALE'              => 'Skytale-Chiffre',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Spaltenweise Transposition',
     'CIPHER_NAME_PLAYFAIR'             => 'Playfair-Chiffre',
     'CIPHER_NAME_HILL'                 => 'Hill-Chiffre',

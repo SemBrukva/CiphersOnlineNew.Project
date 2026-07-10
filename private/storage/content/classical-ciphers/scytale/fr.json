@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T09:58:54+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "scytale",
+    "language": "fr",
+    "default_language": "en",
+    "cipher_id": 72,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 72,
+    "data": {
+      "name": "Chiffre Scytale",
+      "name_short": "Chiffre Scytale",
+      "description": "Chiffrez et déchiffrez du texte en ligne avec l'ancien chiffre Scytale et un diamètre de bâton réglable.",
+      "description_stort": "Chiffre de transposition spartiate à diamètre réglable.",
+      "meta_title": "Chiffre Scytale en ligne | Ciphers Online",
+      "meta_description": "Utilisez le chiffre Scytale en ligne : choisissez le diamètre du bâton et chiffrez ou déchiffrez du texte instantanément."
+    }
+  },
+  "blocks": [
+    {
+      "id": 263,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Comment fonctionne le chiffre Scytale",
+        "text": "<p>Le <strong>chiffre Scytale</strong> est l'un des plus anciens chiffres de transposition connus, associé à la Sparte antique. Une bande de parchemin était enroulée autour d'un bâton de diamètre fixe, puis le message y était écrit. Une fois déroulée, elle présentait des lettres mélangées ; seul un bâton de même diamètre permettait de rétablir leur ordre.</p><p>Dans cet outil en ligne, le diamètre correspond au nombre de colonnes. Pour chiffrer, saisissez le texte et choisissez ce nombre : les caractères sont écrits ligne par ligne dans une grille, puis lus colonne par colonne. Pour déchiffrer, collez le texte chiffré et indiquez exactement le même nombre de colonnes.</p><p>Scytale ne change que la position des caractères. Espaces, ponctuation et lettres de tout alphabet participent à la transposition. Un autre diamètre donne un autre texte chiffré. Ce chiffre sert à l'apprentissage et aux énigmes, mais ne protège pas des données confidentielles modernes.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 531,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Scytale est-il un chiffre de substitution ?",
+        "answer": "Non. Il ne remplace pas les lettres ; il modifie seulement leur ordre. C'est donc un chiffre de transposition."
+      }
+    },
+    {
+      "id": 532,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Quelle est la clé du chiffre Scytale ?",
+        "answer": "La clé est le diamètre du bâton, c'est-à-dire le nombre de colonnes. Le déchiffrement exige la même valeur."
+      }
+    },
+    {
+      "id": 533,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Scytale fonctionne-t-il avec d'autres alphabets ?",
+        "answer": "Oui. Comme il réorganise seulement les caractères, il fonctionne avec tout alphabet et texte Unicode."
+      }
+    },
+    {
+      "id": 534,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Comment déchiffrer un message Scytale ?",
+        "answer": "Choisissez Déchiffrer, collez le texte chiffré et saisissez le même nombre de colonnes que pour le chiffrement."
+      }
+    },
+    {
+      "id": 535,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Que se passe-t-il si je change le diamètre ?",
+        "answer": "Un autre nombre de colonnes réorganise le texte différemment et produit un autre résultat. Si ce nombre est au moins égal à la longueur du message, le texte reste inchangé."
+      }
+    },
+    {
+      "id": 536,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Les espaces et la ponctuation sont-ils conservés ?",
+        "answer": "Oui. Ils font partie du message et sont transposés avec les lettres."
+      }
+    },
+    {
+      "id": 537,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Scytale est-il sûr pour les secrets modernes ?",
+        "answer": "Non. C'est un chiffre historique simple et facile à analyser. Utilisez-le pour apprendre, jouer ou faire une démonstration."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 272,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Chiffrer avec un diamètre de 4",
+        "key": "",
+        "shift": 4,
+        "input": "RENDEZVOUS A L AUBE",
+        "output": "REU UEZSLBNV  EDOAA",
+        "description": "Exemple Scytale avec quatre colonnes."
+      }
+    },
+    {
+      "id": 273,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Déchiffrer avec un diamètre de 4",
+        "key": "",
+        "shift": 4,
+        "input": "REU UEZSLBNV  EDOAA",
+        "output": "RENDEZVOUS A L AUBE",
+        "description": "Le même diamètre rétablit le texte clair."
+      }
+    },
+    {
+      "id": 274,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Chiffrement Scytale avec un diamètre de 3",
+        "key": "",
+        "shift": 3,
+        "input": "SCYTALE",
+        "output": "STECAYL",
+        "description": "Trois colonnes donnent un ordre de caractères différent."
+      }
+    },
+    {
+      "id": 275,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Chiffrer un message avec des espaces",
+        "key": "",
+        "shift": 4,
+        "input": "RENDEZ-VOUS À CINQ",
+        "output": "REOÀNEZU QN-SCDV I",
+        "description": "Les espaces sont transposés comme tous les autres caractères."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 365,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Transposition"
+      }
+    },
+    {
+      "id": 366,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Grèce antique"
+      }
+    },
+    {
+      "id": 367,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Chiffre classique"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

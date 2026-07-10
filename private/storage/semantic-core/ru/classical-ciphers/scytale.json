@@ -1,0 +1,268 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "шифр скитала",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/classical-ciphers/scytale.csv",
+        "imported_at": "2026-07-10T11:41:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/scytale",
+        "url": "/ru/classical-ciphers/scytale",
+        "content_file": "private/storage/content/classical-ciphers/scytale/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 62,
+        "primary_terms": [
+            "скитала",
+            "шифр скитала",
+            "шифр скитала онлайн",
+            "расшифровка скитала",
+            "шифр сцитала"
+        ],
+        "modifiers": [
+            "онлайн",
+            "расшифровка",
+            "как расшифровать",
+            "шифрование",
+            "пример",
+            "сцитала"
+        ],
+        "intents": {
+            "cipher": 11,
+            "online": 5,
+            "decode": 3,
+            "tool": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точную связку «шифр Скитала», а вариант «Скитала» — как естественное краткое название.",
+            "В intro показать онлайн-сценарий: инструмент кодирует и расшифровывает текст перестановкой по выбранному числу столбцов или окружности цилиндра.",
+            "Покрыть запросы про расшифровку понятной инструкцией: для восстановления текста нужно использовать тот же параметр, что и при шифровании.",
+            "Добавить пример шифра перестановки Скитала с короткой фразой, параметром и обратной расшифровкой.",
+            "Упомянуть вариант написания «сцитала» в FAQ или естественном пояснении, не заменяя им нормативное название «Скитала».",
+            "Отдельно пояснить, что это исторический ручной шифр, а не средство современной криптографической защиты."
+        ],
+        "query_groups": [
+            {
+                "name": "Основное название",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "скитала",
+                    "шифр скитала"
+                ]
+            },
+            {
+                "name": "Онлайн-инструмент",
+                "intent": [
+                    "cipher",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "шифр скитала онлайн",
+                    "скитала онлайн"
+                ]
+            },
+            {
+                "name": "Расшифровка",
+                "intent": [
+                    "decode",
+                    "cipher",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "шифр скитала онлайн расшифровка",
+                    "расшифровка скитала онлайн",
+                    "скитала как расшифровать"
+                ]
+            },
+            {
+                "name": "Пример и принцип перестановки",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "long_tail",
+                "target": "examples",
+                "representative_queries": [
+                    "шифр перестановки скитала пример",
+                    "скитала шифрование"
+                ]
+            },
+            {
+                "name": "Вариант написания",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "шифр сцитала онлайн",
+                    "шифр сцитала"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "скитала",
+            "score": 16,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "шифр скитала",
+            "score": 14,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр скитала онлайн",
+            "score": 12,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр скитала онлайн расшифровка",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр сцитала онлайн",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровка скитала онлайн",
+            "score": 2,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "скитала онлайн",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр перестановки скитала пример",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "скитала шифр",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр сцитала",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "скитала как расшифровать",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "скитала шифрование",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "шрифт скитала",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент исторического шифра перестановки. Не расширять семантику до Спарты как исторической темы, цилиндров или современных средств шифрования. Запрос «шрифт скитала» сохранён в данных как слабый неоднозначный хвост, но не должен становиться отдельным контентным направлением.",
+    "curation": {
+        "reviewed_at": "2026-07-10",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "Основной спрос формируют «скитала» и «шифр скитала»; title остаётся сфокусированным на нормативном названии шифра.",
+            "Онлайн- и decode-варианты составляют значимую часть спроса, поэтому их следует раскрыть в первом экране и инструкции к инструменту.",
+            "«Сцитала» — вариант написания для поддерживающего FAQ, а не самостоятельный primary-запрос.",
+            "Связанный ru content_file пока отсутствует, но семантическое ядро готово для создания контента или sync."
+        ]
+    }
+}

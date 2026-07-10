@@ -452,6 +452,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Text is required.',
     'RAIL_FENCE_ERR_RAILS'             => 'Rails must be in range :min-:max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Rail count equals or exceeds the text length — the cipher has no effect and the output is identical to the input.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Diameter (columns)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Ancient transposition cipher',
+    'SCYTALE_TRUST_COLUMNS'            => 'Customizable rod diameter',
+    'SCYTALE_ERR_INVALID'             => 'Invalid input data.',
+    'SCYTALE_ERR_DIRECTION'           => 'Direction must be encrypt or decrypt.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'Text is required.',
+    'SCYTALE_ERR_COLUMNS'             => 'Diameter must be in range :min-:max.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'Diameter equals or exceeds the text length — the cipher has no effect and the output is identical to the input.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Keyword',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Enter keyword',
@@ -823,6 +832,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Bifid Cipher',
     'CIPHER_NAME_TRIFID'               => 'Trifid Cipher',
     'CIPHER_NAME_RAIL_FENCE'           => 'Rail Fence Cipher',
+    'CIPHER_NAME_SCYTALE'              => 'Scytale Cipher',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Columnar Transposition',
     'CIPHER_NAME_PLAYFAIR'             => 'Playfair Cipher',
     'CIPHER_NAME_HILL'                 => 'Hill Cipher',

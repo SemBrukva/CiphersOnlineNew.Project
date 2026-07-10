@@ -428,6 +428,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Il testo è obbligatorio.',
     'RAIL_FENCE_ERR_RAILS'             => 'Il numero di binari deve essere compreso tra :min e :max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Il numero di binari è uguale o superiore alla lunghezza del testo — la cifratura non ha effetto e l\'output è identico all\'input.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Diametro (colonne)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Cifrario antico a trasposizione',
+    'SCYTALE_TRUST_COLUMNS'            => 'Diametro del bastone personalizzabile',
+    'SCYTALE_ERR_INVALID'             => 'Dati di input non validi.',
+    'SCYTALE_ERR_DIRECTION'           => 'La direzione deve essere encrypt o decrypt.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'Il testo è obbligatorio.',
+    'SCYTALE_ERR_COLUMNS'             => 'Il diametro deve essere compreso tra :min e :max.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'Il diametro è uguale o superiore alla lunghezza del testo — la cifratura non ha effetto e l\'output è identico all\'input.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Parola chiave',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Inserisci la parola chiave',
@@ -799,6 +808,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Cifra Bifid',
     'CIPHER_NAME_TRIFID'               => 'Cifra Trifid',
     'CIPHER_NAME_RAIL_FENCE'           => 'Cifra a staccionata',
+    'CIPHER_NAME_SCYTALE'              => 'Cifrario scitale',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Trasposizione colonnare',
     'CIPHER_NAME_PLAYFAIR'             => 'Cifra Playfair',
     'CIPHER_NAME_HILL'                 => 'Cifra di Hill',

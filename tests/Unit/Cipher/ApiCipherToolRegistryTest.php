@@ -58,6 +58,8 @@ use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13ApiCipherTool;
 use App\Cipher\Rot13CipherService;
+use App\Cipher\ScytaleApiCipherTool;
+use App\Cipher\ScytaleCipherService;
 use App\Cipher\SimpleSubstitutionApiCipherTool;
 use App\Cipher\SimpleSubstitutionCipherService;
 use App\Cipher\SubstitutionCrackerApiCipherTool;
@@ -179,6 +181,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             new Rot13ApiCipherTool(new Rot13CipherService()),
             new A1z26ApiCipherTool(new A1z26CipherService()),
             new RailFenceApiCipherTool(new RailFenceCipherService()),
+            new ScytaleApiCipherTool(new ScytaleCipherService()),
             new ColumnarTranspositionApiCipherTool(new ColumnarTranspositionCipherService()),
             new PolybiusSquareApiCipherTool(new PolybiusSquareCipherService()),
             new HillApiCipherTool(new HillCipherService()),

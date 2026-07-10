@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T09:58:54+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "scytale",
+    "language": "es",
+    "default_language": "en",
+    "cipher_id": 72,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 72,
+    "data": {
+      "name": "Cifrado Escítala",
+      "name_short": "Cifrado Escítala",
+      "description": "Cifra y descifra texto en línea con el antiguo cifrado Escítala y un diámetro de vara configurable.",
+      "description_stort": "Cifrado espartano de transposición con diámetro configurable.",
+      "meta_title": "Cifrado Escítala en línea | Ciphers Online",
+      "meta_description": "Usa el cifrado Escítala en línea: elige el diámetro de la vara y cifra o descifra texto al instante."
+    }
+  },
+  "blocks": [
+    {
+      "id": 263,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Cómo funciona el cifrado Escítala",
+        "text": "<p>El <strong>cifrado Escítala</strong> es uno de los cifrados de transposición más antiguos conocidos y se asocia con la antigua Esparta. Se enrollaba una tira de pergamino alrededor de una vara de diámetro fijo y se escribía el mensaje a lo largo de ella. Al desenrollarla, las letras parecían desordenadas; una vara del mismo diámetro devolvía su orden original.</p><p>En esta herramienta en línea, el diámetro equivale al número de columnas. Para cifrar, introduce el texto y elige las columnas: los caracteres se escriben por filas en una cuadrícula y después se leen por columnas. Para descifrar, pega el texto cifrado y utiliza exactamente el mismo número de columnas.</p><p>Escítala solo cambia las posiciones de los caracteres. Los espacios, la puntuación y las letras de cualquier alfabeto participan en la transposición. Otro diámetro produce otro texto cifrado. Es útil para aprender y para acertijos, no para proteger información confidencial moderna.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 531,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "¿Escítala es un cifrado por sustitución?",
+        "answer": "No. No sustituye letras; solo cambia su orden, por lo que es un cifrado de transposición."
+      }
+    },
+    {
+      "id": 532,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "¿Cuál es la clave del cifrado Escítala?",
+        "answer": "La clave es el diámetro de la vara, es decir, el número de columnas. Para descifrar se necesita el mismo valor."
+      }
+    },
+    {
+      "id": 533,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "¿Funciona Escítala con otros alfabetos?",
+        "answer": "Sí. Como solo reordena caracteres, funciona con cualquier alfabeto y con texto Unicode sin configuración adicional."
+      }
+    },
+    {
+      "id": 534,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "¿Cómo descifro un mensaje Escítala?",
+        "answer": "Selecciona Descifrar, pega el texto cifrado e indica el mismo número de columnas usado para cifrarlo."
+      }
+    },
+    {
+      "id": 535,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "¿Qué ocurre si cambio el diámetro?",
+        "answer": "Otro número de columnas coloca el texto en una cuadrícula distinta y genera otro resultado. Si el valor es igual o mayor que la longitud del mensaje, el texto no cambia."
+      }
+    },
+    {
+      "id": 536,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "¿Se conservan espacios y signos de puntuación?",
+        "answer": "Sí. Todos forman parte del mensaje y se transponen junto con las letras."
+      }
+    },
+    {
+      "id": 537,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "¿Es seguro Escítala para secretos modernos?",
+        "answer": "No. Es un cifrado histórico simple y fácil de analizar. Úsalo para aprender, jugar o hacer demostraciones."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 272,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifrar con diámetro 4",
+        "key": "",
+        "shift": 4,
+        "input": "CITA AL AMANECER",
+        "output": "C AEIAMCTLAEA NR",
+        "description": "Ejemplo de Escítala con cuatro columnas."
+      }
+    },
+    {
+      "id": 273,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Descifrar con diámetro 4",
+        "key": "",
+        "shift": 4,
+        "input": "C AEIAMCTLAEA NR",
+        "output": "CITA AL AMANECER",
+        "description": "El mismo diámetro recupera el texto original."
+      }
+    },
+    {
+      "id": 274,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifrado Escítala con diámetro 3",
+        "key": "",
+        "shift": 3,
+        "input": "ESCITALA",
+        "output": "EILSTACA",
+        "description": "Tres columnas producen un orden distinto de caracteres."
+      }
+    },
+    {
+      "id": 275,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifrar un mensaje con espacios",
+        "key": "",
+        "shift": 4,
+        "input": "CITA A LAS CINCO",
+        "output": "C AIIASNT  CALCO",
+        "description": "Los espacios se transponen igual que los demás caracteres."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 365,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Transposición"
+      }
+    },
+    {
+      "id": 366,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Antigua Grecia"
+      }
+    },
+    {
+      "id": 367,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Cifrado clásico"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

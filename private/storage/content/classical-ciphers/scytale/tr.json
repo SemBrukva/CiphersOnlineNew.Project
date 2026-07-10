@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T09:58:54+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "scytale",
+    "language": "tr",
+    "default_language": "en",
+    "cipher_id": 72,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 72,
+    "data": {
+      "name": "Skytale Şifresi",
+      "name_short": "Skytale Şifresi",
+      "description": "Antik Skytale şifresi ve ayarlanabilir çubuk çapıyla metni çevrimiçi şifreleyin veya çözün.",
+      "description_stort": "Ayarlanabilir çapa sahip antik Sparta aktarım şifresi.",
+      "meta_title": "Skytale Şifresi Çevrimiçi | Ciphers Online",
+      "meta_description": "Skytale şifresini çevrimiçi kullanın: çubuk çapını seçin, metni anında şifreleyin veya çözün."
+    }
+  },
+  "blocks": [
+    {
+      "id": 263,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Skytale şifresi nasıl çalışır",
+        "text": "<p><strong>Skytale şifresi</strong>, bilinen en eski aktarım şifrelerinden biridir ve antik Sparta ile ilişkilendirilir. Bir parşömen şeridi sabit çaplı bir çubuğa sarılır, mesaj çubuk boyunca yazılırdı. Şerit açıldığında harfler karışmış görünür; yalnızca aynı çaptaki bir çubuk özgün sırayı geri getirirdi.</p><p>Bu çevrimiçi araçta çap, sütun sayısıyla ifade edilir. Şifrelemek için metni girip sütun sayısını seçin: karakterler ızgaraya satır satır yazılır, ardından sütun sütun okunur. Çözmek için şifreli metni yapıştırın ve şifrelemede kullanılan sütun sayısının aynısını girin.</p><p>Skytale yalnızca karakterlerin konumunu değiştirir. Boşluklar, noktalama işaretleri ve tüm alfabelerdeki harfler aktarıma katılır. Farklı çap farklı şifreli metin üretir. Eğitim ve bulmacalar için yararlıdır; modern gizli verileri korumaz.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 531,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Skytale bir yerine koyma şifresi midir?",
+        "answer": "Hayır. Harfleri değiştirmez, yalnızca sıralarını değiştirir; bu nedenle bir aktarım şifresidir."
+      }
+    },
+    {
+      "id": 532,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Skytale şifresinin anahtarı nedir?",
+        "answer": "Anahtar, çubuğun çapı yani sütun sayısıdır. Çözme için aynı değer gerekir."
+      }
+    },
+    {
+      "id": 533,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Skytale başka alfabelerle çalışır mı?",
+        "answer": "Evet. Yalnızca karakterleri yeniden sıraladığı için her alfabe ve Unicode metinle ek ayar olmadan çalışır."
+      }
+    },
+    {
+      "id": 534,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Bir Skytale mesajını nasıl çözerim?",
+        "answer": "Çöz modunu seçin, şifreli metni yapıştırın ve şifreleme sırasında kullanılan sütun sayısını girin."
+      }
+    },
+    {
+      "id": 535,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Çapı değiştirirsem ne olur?",
+        "answer": "Farklı bir sütun sayısı metni ızgarada farklı düzenler ve farklı sonuç üretir. Sayı mesaj uzunluğuna eşit veya büyükse metin değişmez."
+      }
+    },
+    {
+      "id": 536,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Boşluklar ve noktalama işaretleri korunur mu?",
+        "answer": "Evet. Mesajın parçasıdırlar ve harflerle birlikte aktarılırlar."
+      }
+    },
+    {
+      "id": 537,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Skytale modern sırlar için güvenli mi?",
+        "answer": "Hayır. Basit ve kolay analiz edilen tarihî bir şifredir. Onu eğitim, oyunlar veya gösterimler için kullanın."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 272,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Çap 4 ile şifreleme",
+        "key": "",
+        "shift": 4,
+        "input": "ŞAFAKTA BULUŞALIM",
+        "output": "ŞKBŞMATUAFALLA UI",
+        "description": "Dört sütunlu Skytale örneği."
+      }
+    },
+    {
+      "id": 273,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Çap 4 ile çözme",
+        "key": "",
+        "shift": 4,
+        "input": "ŞKBŞMATUAFALLA UI",
+        "output": "ŞAFAKTA BULUŞALIM",
+        "description": "Aynı çap özgün metni geri getirir."
+      }
+    },
+    {
+      "id": 274,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Çap 3 ile Skytale şifreleme",
+        "key": "",
+        "shift": 3,
+        "input": "SKYTALA",
+        "output": "STAKAYL",
+        "description": "Üç sütun farklı bir karakter sırası üretir."
+      }
+    },
+    {
+      "id": 275,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Boşluklu mesaj şifreleme",
+        "key": "",
+        "shift": 4,
+        "input": "BEŞTE BULUŞALIM",
+        "output": "BELLE UIŞBŞMTUA",
+        "description": "Boşluklar diğer karakterlerle aynı şekilde aktarılır."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 365,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Aktarım"
+      }
+    },
+    {
+      "id": 366,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Antik Yunan"
+      }
+    },
+    {
+      "id": 367,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Klasik şifre"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

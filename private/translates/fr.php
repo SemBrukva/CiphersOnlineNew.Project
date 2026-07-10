@@ -429,6 +429,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Le texte est obligatoire.',
     'RAIL_FENCE_ERR_RAILS'             => 'Le nombre de rails doit être compris entre :min et :max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Le nombre de rails est supérieur ou égal à la longueur du texte — le chiffrement est sans effet et la sortie est identique à l\'entrée.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Diamètre (colonnes)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Chiffre de transposition antique',
+    'SCYTALE_TRUST_COLUMNS'            => 'Diamètre du bâton configurable',
+    'SCYTALE_ERR_INVALID'             => "Données d'entrée invalides.",
+    'SCYTALE_ERR_DIRECTION'           => 'La direction doit être encrypt ou decrypt.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'Le texte est obligatoire.',
+    'SCYTALE_ERR_COLUMNS'             => 'Le diamètre doit être compris entre :min et :max.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'Le diamètre est supérieur ou égal à la longueur du texte — le chiffrement est sans effet et la sortie est identique à l\'entrée.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Mot-clé',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Saisir le mot-clé',
@@ -800,6 +809,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Chiffre Bifid',
     'CIPHER_NAME_TRIFID'               => 'Chiffre Trifid',
     'CIPHER_NAME_RAIL_FENCE'           => 'Chiffre en zigzag',
+    'CIPHER_NAME_SCYTALE'              => 'Chiffre scytale',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Transposition par colonnes',
     'CIPHER_NAME_PLAYFAIR'             => 'Chiffre Playfair',
     'CIPHER_NAME_HILL'                 => 'Chiffre de Hill',

@@ -429,6 +429,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'El texto es obligatorio.',
     'RAIL_FENCE_ERR_RAILS'             => 'Los rieles deben estar en el rango :min-:max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'El número de rieles es igual o superior a la longitud del texto — el cifrado no tiene efecto y la salida es idéntica a la entrada.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Diámetro (columnas)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Cifrado antiguo de transposición',
+    'SCYTALE_TRUST_COLUMNS'            => 'Diámetro de la vara configurable',
+    'SCYTALE_ERR_INVALID'             => 'Datos de entrada no válidos.',
+    'SCYTALE_ERR_DIRECTION'           => 'La dirección debe ser encrypt o decrypt.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'El texto es obligatorio.',
+    'SCYTALE_ERR_COLUMNS'             => 'El diámetro debe estar en el rango :min-:max.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'El diámetro es igual o superior a la longitud del texto — el cifrado no tiene efecto y la salida es idéntica a la entrada.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Palabra clave',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Introduce la palabra clave',
@@ -800,6 +809,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Cifrado Bifid',
     'CIPHER_NAME_TRIFID'               => 'Cifrado Trifid',
     'CIPHER_NAME_RAIL_FENCE'           => 'Cifrado de valla',
+    'CIPHER_NAME_SCYTALE'              => 'Cifrado escítala',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Transposición columnar',
     'CIPHER_NAME_PLAYFAIR'             => 'Cifrado Playfair',
     'CIPHER_NAME_HILL'                 => 'Cifrado Hill',

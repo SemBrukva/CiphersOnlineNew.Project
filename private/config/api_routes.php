@@ -135,6 +135,13 @@ return [
         'name'       => 'api.tools.rail_fence',
     ],
 
+    'POST /tools/scytale' => [
+        'controller' => GuestController::class,
+        'method'     => 'scytale',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.scytale',
+    ],
+
     'POST /tools/columnar-transposition' => [
         'controller' => GuestController::class,
         'method'     => 'columnarTransposition',

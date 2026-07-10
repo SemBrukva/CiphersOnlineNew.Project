@@ -377,6 +377,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование Scytale через API.
+     *
+     * POST /api/tools/scytale
+     */
+    #[ApiOperation(summary: 'Шифр Scytale', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function scytale(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'scytale');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование столбцовой перестановки через API.
      *
      * POST /api/tools/columnar-transposition

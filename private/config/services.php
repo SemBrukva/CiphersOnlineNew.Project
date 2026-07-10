@@ -495,6 +495,7 @@ return [
             $container->get(App\Cipher\Rot13ApiCipherTool::class),
             $container->get(App\Cipher\A1z26ApiCipherTool::class),
             $container->get(App\Cipher\RailFenceApiCipherTool::class),
+            $container->get(App\Cipher\ScytaleApiCipherTool::class),
             $container->get(App\Cipher\ColumnarTranspositionApiCipherTool::class),
             $container->get(App\Cipher\PolybiusSquareApiCipherTool::class),
             $container->get(App\Cipher\HillApiCipherTool::class),

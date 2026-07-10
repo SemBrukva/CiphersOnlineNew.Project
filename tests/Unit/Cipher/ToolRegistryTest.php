@@ -17,12 +17,12 @@ use App\Cipher\BaconCipherService;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\BifidCipherService;
 use App\Cipher\BigramFrequencyScorer;
+use App\Cipher\BookCipherService;
 use App\Cipher\CaesarBruteForceService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\CaseFolder;
 use App\Cipher\CipherIdentifierService;
 use App\Cipher\ColumnarTranspositionCipherService;
-use App\Cipher\BookCipherService;
 use App\Cipher\DancingMenCipherService;
 use App\Cipher\EnigmaCipherService;
 use App\Cipher\FrequencyAnalysisService;
@@ -42,6 +42,7 @@ use App\Cipher\PortaCipherService;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13CipherService;
 use App\Cipher\Rot47CipherService;
+use App\Cipher\ScytaleCipherService;
 use App\Cipher\SimpleSubstitutionCipherService;
 use App\Cipher\SolverService;
 use App\Cipher\TextDiffService;
@@ -161,6 +162,7 @@ final class ToolRegistryTest extends TestCase
             new Rot13CipherService(),
             new A1z26CipherService(),
             new RailFenceCipherService(),
+            new ScytaleCipherService(),
             new ColumnarTranspositionCipherService(),
             new PolybiusSquareCipherService(),
             new HillCipherService(),

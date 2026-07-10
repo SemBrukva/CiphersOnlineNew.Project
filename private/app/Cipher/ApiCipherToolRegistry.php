@@ -32,6 +32,7 @@ final class ApiCipherToolRegistry implements ApiCipherToolExecutorInterface
         Rot13ApiCipherTool $rot13Tool,
         A1z26ApiCipherTool $a1z26Tool,
         RailFenceApiCipherTool $railFenceTool,
+        ScytaleApiCipherTool $scytaleTool,
         ColumnarTranspositionApiCipherTool $columnarTranspositionTool,
         PolybiusSquareApiCipherTool $polybiusSquareTool,
         HillApiCipherTool $hillTool,
@@ -48,7 +49,7 @@ final class ApiCipherToolRegistry implements ApiCipherToolExecutorInterface
         EnigmaApiCipherTool $enigmaTool,
         AnagramSolverApiCipherTool $anagramSolverTool,
     ) {
-        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $portaTool, $autokeyTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $substitutionCrackerTool, $xorTool, $xorBruteForceTool, $vigenereCrackerTool, $bifidTool, $trifidTool, $albertiTool, $enigmaTool, $anagramSolverTool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $portaTool, $autokeyTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $scytaleTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $substitutionCrackerTool, $xorTool, $xorBruteForceTool, $vigenereCrackerTool, $bifidTool, $trifidTool, $albertiTool, $enigmaTool, $anagramSolverTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }

@@ -1,0 +1,121 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "scytale cipher",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/classical-ciphers/scytale.csv",
+        "imported_at": "2026-07-10T11:41:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/scytale",
+        "url": "/en/classical-ciphers/scytale",
+        "content_file": "private/storage/content/classical-ciphers/scytale/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 50100,
+        "primary_terms": [
+            "scytale cipher",
+            "scytale decoder",
+            "scytale encryption"
+        ],
+        "modifiers": [
+            "decoder",
+            "encryption"
+        ],
+        "intents": {
+            "cipher": 1,
+            "decode": 1,
+            "encode": 1
+        },
+        "content_recommendations": [
+            "Use the exact primary query \"scytale cipher\" once in the meta title and first-screen copy.",
+            "In the intro, explain Scytale as a transposition cipher: a message is written across a strip wrapped around a cylinder and read in a different direction.",
+            "Cover \"scytale decoder\" with a concise decode workflow: enter the ciphertext and use the same cylinder circumference or number of columns that was used for encryption.",
+            "Cover \"scytale encryption\" with an encode example that shows how changing the circumference changes the ciphertext.",
+            "Add a short FAQ explaining that Scytale is a historical manual cipher, not modern secure encryption, and that the shared cylinder size is required to recover the message."
+        ],
+        "query_groups": [
+            {
+                "name": "Canonical cipher name",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "scytale cipher"
+                ]
+            },
+            {
+                "name": "Decoding workflow",
+                "intent": [
+                    "decode"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "scytale decoder"
+                ]
+            },
+            {
+                "name": "Encryption workflow",
+                "intent": [
+                    "encode"
+                ],
+                "priority": "secondary",
+                "target": "examples",
+                "representative_queries": [
+                    "scytale encryption"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "scytale cipher",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "scytale decoder",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "scytale encryption",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "encode"
+            ],
+            "target": "examples"
+        }
+    ],
+    "notes": "Reviewed as a single-tool historical transposition-cipher cluster. The raw demand is highly concentrated on the canonical name; do not broaden it into unrelated Spartan history, cylinder crafts, or modern encryption topics.",
+    "curation": {
+        "reviewed_at": "2026-07-10",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "\"scytale cipher\" accounts for 99.8% of the source score, so keep the page title and first-screen copy tightly focused on that exact phrase.",
+            "The decoder and encryption variants are complementary tool actions; cover both without competing with the canonical primary query.",
+            "The linked English content file is not present yet. The reviewed semantic core is ready for content creation or database sync, but cannot be mapped until that file exists."
+        ]
+    }
+}

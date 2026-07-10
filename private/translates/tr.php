@@ -428,6 +428,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'Metin zorunludur.',
     'RAIL_FENCE_ERR_RAILS'             => 'Ray sayısı :min-:max aralığında olmalıdır.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'Ray sayısı metin uzunluğuna eşit veya daha fazla — şifrelemenin etkisi yok ve çıktı girdiyle aynı.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Çap (sütunlar)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Antik yer değiştirme şifresi',
+    'SCYTALE_TRUST_COLUMNS'            => 'Ayarlanabilir çubuk çapı',
+    'SCYTALE_ERR_INVALID'             => 'Geçersiz giriş verisi.',
+    'SCYTALE_ERR_DIRECTION'           => 'Yön encrypt veya decrypt olmalıdır.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'Metin zorunludur.',
+    'SCYTALE_ERR_COLUMNS'             => 'Çap :min-:max aralığında olmalıdır.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'Çap metin uzunluğuna eşit veya daha fazla — şifrelemenin etkisi yok ve çıktı girdiyle aynı.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Anahtar sözcük',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Anahtar sözcüğü girin',
@@ -799,6 +808,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Bifid Şifresi',
     'CIPHER_NAME_TRIFID'               => 'Trifid Şifresi',
     'CIPHER_NAME_RAIL_FENCE'           => 'Ray Çit Şifresi',
+    'CIPHER_NAME_SCYTALE'              => 'Skital Şifresi',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Sütunsal Transpozisyon',
     'CIPHER_NAME_PLAYFAIR'             => 'Playfair Şifresi',
     'CIPHER_NAME_HILL'                 => 'Hill Şifresi',

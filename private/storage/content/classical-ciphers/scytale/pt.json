@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T09:58:54+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "scytale",
+    "language": "pt",
+    "default_language": "en",
+    "cipher_id": 72,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 72,
+    "data": {
+      "name": "Cifra de Cítala",
+      "name_short": "Cifra de Cítala",
+      "description": "Cifre e decifre texto online com a antiga cifra de Cítala e um diâmetro de bastão ajustável.",
+      "description_stort": "Cifra espartana de transposição com diâmetro ajustável.",
+      "meta_title": "Cifra de Cítala online | Ciphers Online",
+      "meta_description": "Use a cifra de Cítala online: escolha o diâmetro do bastão e cifre ou decifre texto imediatamente."
+    }
+  },
+  "blocks": [
+    {
+      "id": 263,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Como funciona a cifra de Cítala",
+        "text": "<p>A <strong>cifra de Cítala</strong> é uma das mais antigas cifras de transposição conhecidas e é associada à antiga Esparta. Uma tira de pergaminho era enrolada num bastão de diâmetro fixo e a mensagem era escrita ao longo dele. Depois de desenrolada, as letras pareciam misturadas; apenas um bastão do mesmo diâmetro restaurava a ordem original.</p><p>Nesta ferramenta online, o diâmetro corresponde ao número de colunas. Para cifrar, introduza o texto e escolha esse número: os caracteres são escritos por linhas numa grelha e depois lidos por colunas. Para decifrar, cole o texto cifrado e use exatamente o mesmo número de colunas.</p><p>A Cítala altera apenas as posições dos caracteres. Espaços, pontuação e letras de qualquer alfabeto participam na transposição. Outro diâmetro produz outro texto cifrado. É útil para aprender e para enigmas, mas não protege dados confidenciais modernos.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 531,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Cítala é uma cifra de substituição?",
+        "answer": "Não. Não substitui letras; apenas muda a sua ordem. Por isso, é uma cifra de transposição."
+      }
+    },
+    {
+      "id": 532,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Qual é a chave da cifra de Cítala?",
+        "answer": "A chave é o diâmetro do bastão, ou seja, o número de colunas. Para decifrar é necessário o mesmo valor."
+      }
+    },
+    {
+      "id": 533,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "A Cítala funciona com outros alfabetos?",
+        "answer": "Sim. Como apenas reorganiza caracteres, funciona com qualquer alfabeto e texto Unicode."
+      }
+    },
+    {
+      "id": 534,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Como decifrar uma mensagem de Cítala?",
+        "answer": "Selecione Decifrar, cole o texto cifrado e indique o mesmo número de colunas usado na cifra."
+      }
+    },
+    {
+      "id": 535,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "O que acontece se eu mudar o diâmetro?",
+        "answer": "Outro número de colunas organiza o texto de outra forma e produz outro resultado. Se o valor for pelo menos tão grande quanto a mensagem, o texto não muda."
+      }
+    },
+    {
+      "id": 536,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Os espaços e a pontuação são preservados?",
+        "answer": "Sim. Fazem parte da mensagem e são transpostos juntamente com as letras."
+      }
+    },
+    {
+      "id": 537,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "A Cítala é segura para segredos modernos?",
+        "answer": "Não. É uma cifra histórica simples e fácil de analisar. Use-a para aprender, jogos ou demonstrações."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 272,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifrar com diâmetro 4",
+        "key": "",
+        "shift": 4,
+        "input": "ENCONTRO AO AMANHECER",
+        "output": "EN AHRNTAMECROACOO NE",
+        "description": "Exemplo de Cítala com quatro colunas."
+      }
+    },
+    {
+      "id": 273,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Decifrar com diâmetro 4",
+        "key": "",
+        "shift": 4,
+        "input": "EN AHRNTAMECROACOO NE",
+        "output": "ENCONTRO AO AMANHECER",
+        "description": "O mesmo diâmetro restaura o texto original."
+      }
+    },
+    {
+      "id": 274,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifragem de Cítala com diâmetro 3",
+        "key": "",
+        "shift": 3,
+        "input": "CITALA",
+        "output": "CAILTA",
+        "description": "Três colunas produzem uma ordem de caracteres diferente."
+      }
+    },
+    {
+      "id": 275,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "data": {
+        "title": "Cifrar uma mensagem com espaços",
+        "key": "",
+        "shift": 4,
+        "input": "ENCONTRO AS CINCO",
+        "output": "EN CONTAICRSNOO C",
+        "description": "Os espaços são transpostos como todos os outros caracteres."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 365,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Transposição"
+      }
+    },
+    {
+      "id": 366,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Grécia Antiga"
+      }
+    },
+    {
+      "id": 367,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Cifra clássica"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

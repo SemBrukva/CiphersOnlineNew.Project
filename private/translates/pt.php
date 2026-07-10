@@ -428,6 +428,15 @@ return [
     'RAIL_FENCE_ERR_TEXT_REQUIRED'     => 'O texto é obrigatório.',
     'RAIL_FENCE_ERR_RAILS'             => 'O número de trilhos deve estar no intervalo :min-:max.',
     'RAIL_FENCE_WARNING_RAILS_TOO_HIGH' => 'O número de trilhos é igual ou superior ao comprimento do texto — a cifra não tem efeito e a saída é idêntica à entrada.',
+    // Scytale
+    'SCYTALE_SETTING_COLUMNS'          => 'Diâmetro (colunas)',
+    'SCYTALE_TRUST_TRANSPOSITION'      => 'Cifra antiga de transposição',
+    'SCYTALE_TRUST_COLUMNS'            => 'Diâmetro do bastão configurável',
+    'SCYTALE_ERR_INVALID'             => 'Dados de entrada inválidos.',
+    'SCYTALE_ERR_DIRECTION'           => 'A direção deve ser encrypt ou decrypt.',
+    'SCYTALE_ERR_TEXT_REQUIRED'       => 'O texto é obrigatório.',
+    'SCYTALE_ERR_COLUMNS'             => 'O diâmetro deve estar no intervalo :min-:max.',
+    'SCYTALE_WARNING_COLUMNS_TOO_HIGH' => 'O diâmetro é igual ou superior ao comprimento do texto — a cifra não tem efeito e a saída é idêntica à entrada.',
     // Columnar Transposition
     'COLUMNAR_SETTING_KEY'             => 'Palavra-chave',
     'COLUMNAR_SETTING_KEY_PLACEHOLDER' => 'Digite a palavra-chave',
@@ -799,6 +808,7 @@ return [
     'CIPHER_NAME_BIFID'                => 'Cifra Bifid',
     'CIPHER_NAME_TRIFID'               => 'Cifra Trifid',
     'CIPHER_NAME_RAIL_FENCE'           => 'Cifra de cerca',
+    'CIPHER_NAME_SCYTALE'              => 'Cifra cítala',
     'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => 'Transposição colunar',
     'CIPHER_NAME_PLAYFAIR'             => 'Cifra Playfair',
     'CIPHER_NAME_HILL'                 => 'Cifra de Hill',
