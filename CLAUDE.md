@@ -36,6 +36,7 @@ php bin/console openapi:generate path/to/output.json  # произвольный
 make npm-install      # npm install
 make dev              # npm run dev  — Vite dev-сервер с HMR
 make build            # npm run build — продакшн-сборка в public/build/
+npm run icons         # пересобрать сабсет Bootstrap Icons (после добавления новых bi-*)
 
 # Docker
 make docker-build       # собрать образы
@@ -277,12 +278,17 @@ private/resources/
     admin.js    # entry admin-layout: Bootstrap + сайдбар + ApiClient → window.api
     api.js      # ES-модуль ApiClient / ApiError (импортируется обоими entry)
   css/
-    app.css     # Bootstrap + Bootstrap Icons
+    app.css     # Bootstrap + сабсет Bootstrap Icons (icons.css)
+    icons.css   # АВТОГЕНЕРАЦИЯ — сабсет иконок, не редактировать вручную
     admin.css   # импортирует app.css + стили для админки
+  fonts/
+    co-icons.woff2  # АВТОГЕНЕРАЦИЯ — сабсет-шрифт иконок (только используемые глифы)
   views/        # Smarty-шаблоны
 ```
 
 Dev-режим определяется по наличию `public/build/hot` (создаётся при `make dev`, удаляется при остановке).
+
+**Сабсет Bootstrap Icons.** Полный шрифт иконок (~134 КБ woff2 + ~100 КБ CSS, ~2000 глифов) заменён сабсетом только под используемые иконки (`scripts/subset-icons.mjs`, пакет `subset-font`). Скрипт сканирует `views/` и `js/` на классы `bi-*`, оставляет нужные глифы и генерирует `css/icons.css` + `fonts/co-icons.woff2` — **оба коммитятся** (при сборке `subset-font` не требуется). При добавлении новой иконки `bi-*` выполнить `npm run icons` **перед** `make build`, иначе глифа не будет в сабсете. Тяжёлое поддерево `js/pages/cipher-tool/` (декодеры, `hash-wasm`, `chart.js`) грузится отдельным чанком через динамический `import()` только на странице инструмента.
 
 ---
 
