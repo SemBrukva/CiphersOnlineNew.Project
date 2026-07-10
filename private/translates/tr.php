@@ -383,6 +383,13 @@ return [
     'ROT13_ERR_DIRECTION'             => 'Yön encrypt veya decrypt olmalıdır.',
     'ROT13_ERR_TEXT_REQUIRED'         => 'Metin zorunludur.',
     'ROT13_ERR_TEXT_LATIN'            => 'Girdi en az bir Latin harfi içermelidir.',
+    // ROT47
+    'ROT47_TRUST_TYPE'                => 'Yazdırılabilir ASCII üzerinde sabit döndürme (94 karakter)',
+    'ROT47_TRUST_KEYLESS'             => 'Anahtar veya ayar gerekmez',
+    'ROT47_ERR_INVALID'               => 'Geçersiz giriş verisi.',
+    'ROT47_ERR_DIRECTION'             => 'Yön encrypt veya decrypt olmalıdır.',
+    'ROT47_ERR_TEXT_REQUIRED'         => 'Metin zorunludur.',
+    'ROT47_ERR_TEXT_ASCII'            => 'Girdi en az bir yazdırılabilir ASCII karakteri içermelidir (kodlar 33–126).',
     // Beaufort
     'BEAUFORT_TRUST_RECIPROCAL'        => 'Aynı anahtar şifreleme ve çözme yapar',
     // Gronsfeld

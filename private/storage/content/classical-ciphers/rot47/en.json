@@ -1,0 +1,208 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T17:10:23+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rot47",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 73,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 73,
+        "data": {
+            "name": "ROT47 Cipher",
+            "name_short": "ROT47 Cipher",
+            "description": "Use the ROT47 encoder to encode or decode printable ASCII text with a keyless 47-position rotation.",
+            "description_stort": "Encode and decode printable ASCII text with ROT47.",
+            "meta_title": "ROT47 Encoder & Decoder Online | Ciphers Online",
+            "meta_description": "Use the ROT47 encoder and decoder online. Rotate all 94 printable ASCII characters by 47 positions; apply it twice to restore text."
+        }
+    },
+    "blocks": [
+        {
+            "id": 264,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How ROT47 works",
+                "text": "<p>ROT47 is a keyless rotation cipher for the 94 printable ASCII characters, from code 33 (<code>!</code>) through code 126 (<code>~</code>). It moves every supported character 47 positions forward in that range. Letters, digits, and punctuation all change, while spaces, line breaks, and characters outside printable ASCII stay as they are.</p><p>Since 47 is exactly half of 94, ROT47 is self-inverse: run the same transformation a second time and the original text returns. This page works as both a ROT47 encoder and a ROT47 decoder; the Encode and Decode controls produce the same reversible conversion.</p>"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT47, ROT 47, and ROT13",
+                "text": "<p>ROT 47 is simply an alternate spelling of ROT47. Unlike ROT13, which rotates only the 26 Latin letters, ROT47 covers the complete printable ASCII range. That is why a ROT47 result usually changes numbers and symbols as well as alphabetic characters.</p><p>Use ROT47 for reversible text obfuscation, demonstrations, puzzles, or decoding a known ROT47 string. It has no password or secret key, so it is not appropriate for protecting confidential information.</p>"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "How to use the ROT47 tool",
+                "text": "<ol><li>Enter text containing at least one printable ASCII character.</li><li>Choose Encode to create a ROT47 string, or Decode for a string already transformed with ROT47.</li><li>Copy the result. To verify a conversion, paste the result back into the tool and run ROT47 once more.</li></ol><p>The tool does not transliterate Unicode. For example, Cyrillic, accented letters, emoji, tabs, and spaces are preserved rather than rotated.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 538,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is ROT47 secure encryption?",
+                "answer": "No. ROT47 is an obfuscation method, not secure encryption. It has no secret key and is trivial to reverse."
+            }
+        },
+        {
+            "id": 539,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How is ROT47 different from ROT13?",
+                "answer": "ROT13 rotates only the 26 Latin letters, while ROT47 rotates the full range of 94 printable ASCII characters, so digits and punctuation are transformed too."
+            }
+        },
+        {
+            "id": 540,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do I decode a ROT47 string?",
+                "answer": "Paste the printable-ASCII text into the ROT47 decoder and run the conversion. ROT47 is self-inverse, so decoding uses exactly the same 47-position rotation as encoding; applying it twice restores the starting text."
+            }
+        },
+        {
+            "id": 541,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Which characters does ROT47 change?",
+                "answer": "ROT47 changes the 94 printable ASCII characters with codes 33 through 126. This includes uppercase and lowercase Latin letters, digits, and printable punctuation. Spaces, line breaks, tabs, emoji, Cyrillic, and other non-ASCII characters are not rotated."
+            }
+        },
+        {
+            "id": 542,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Do I need a key for ROT47?",
+                "answer": "No. ROT47 has a fixed shift of 47 and no secret key. Anyone who knows the method can reverse it immediately, so use it only for simple obfuscation, learning, or puzzle-style text transformations."
+            }
+        },
+        {
+            "id": 543,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is ROT 47 the same as ROT47?",
+                "answer": "Yes. ROT 47 is a spaced spelling of the same printable-ASCII rotation cipher. Both names describe a 47-character shift across the 94 printable ASCII characters."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 276,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Encode a greeting",
+                "key": "",
+                "shift": 0,
+                "input": "Hello, World!",
+                "output": "w6==@[ (@C=5P",
+                "description": "ROT47 shifts every printable ASCII character by 47 positions, including letters, the comma and the exclamation mark."
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Decode ROT47 text",
+                "key": "",
+                "shift": 0,
+                "input": "w6==@[ (@C=5P",
+                "output": "Hello, World!",
+                "description": "The same operation decodes ROT47 because the cipher is reciprocal."
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Use the ROT47 encoder with letters and digits",
+                "key": "",
+                "shift": 0,
+                "input": "ROT47 rocks 2024",
+                "output": "#~%cf C@4<D a_ac",
+                "description": "This ROT47 encoder example changes uppercase letters, lowercase letters, digits, and punctuation-capable ASCII characters in one pass. Apply ROT47 to the output again to recover ROT47 rocks 2024."
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Preserve spaces and Unicode characters",
+                "key": "",
+                "shift": 0,
+                "input": "Email: test@example.com",
+                "output": "t>2:=i E6DEo6I2>A=6]4@>",
+                "description": "ROT47 rotates every printable ASCII character in the address, including the colon, at sign, and period, while the space remains unchanged. Non-ASCII characters would likewise pass through unchanged."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 368,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Keyless cipher"
+            }
+        },
+        {
+            "id": 369,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "ASCII rotation"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

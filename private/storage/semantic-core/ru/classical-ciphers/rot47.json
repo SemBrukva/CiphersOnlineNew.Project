@@ -1,0 +1,72 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "rot47",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/classical-ciphers/rot47.csv",
+        "imported_at": "2026-07-10T18:41:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/rot47",
+        "url": "/ru/classical-ciphers/rot47",
+        "content_file": "private/storage/content/classical-ciphers/rot47/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 2,
+        "primary_terms": [
+            "rot47"
+        ],
+        "modifiers": [],
+        "intents": {
+            "cipher": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точный запрос «ROT47».",
+            "В intro объяснить, что ROT47 сдвигает 94 печатных ASCII-символа на 47 позиций и, в отличие от ROT13, преобразует также цифры и знаки препинания.",
+            "Добавить пример на короткой строке из печатных ASCII-символов: повторное применение ROT47 возвращает исходный текст.",
+            "В FAQ уточнить, что символы вне диапазона печатного ASCII, включая кириллицу, пробелы и переводы строк, не изменяются.",
+            "Отдельно отметить, что ROT47 не предназначен для современной криптографической защиты и подходит для обратимого преобразования или обфускации текста."
+        ],
+        "query_groups": [
+            {
+                "name": "Основное название",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "rot47"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "rot47",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент ROT47. Русский исходный спрос минимален и содержит только каноническое название; не расширять ядро до ROT13, шифра Цезаря, Unicode-преобразований или современной криптографии.",
+    "curation": {
+        "reviewed_at": "2026-07-10",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "Единственный исходный запрос «rot47» — primary для meta_title и первого экрана.",
+            "При малом спросе контенту всё равно важно объяснить пределы применимости: ROT47 работает только с печатным ASCII и не меняет кириллицу.",
+            "Связанный ru content_file пока отсутствует, но семантическое ядро готово для создания контента или sync."
+        ]
+    }
+}

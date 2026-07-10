@@ -58,6 +58,8 @@ use App\Cipher\RailFenceApiCipherTool;
 use App\Cipher\RailFenceCipherService;
 use App\Cipher\Rot13ApiCipherTool;
 use App\Cipher\Rot13CipherService;
+use App\Cipher\Rot47ApiCipherTool;
+use App\Cipher\Rot47CipherService;
 use App\Cipher\ScytaleApiCipherTool;
 use App\Cipher\ScytaleCipherService;
 use App\Cipher\SimpleSubstitutionApiCipherTool;
@@ -197,6 +199,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             new AlbertiApiCipherTool(new AlbertiCipherService()),
             new EnigmaApiCipherTool(new EnigmaCipherService()),
             $this->makeAnagramSolverTool(),
+            new Rot47ApiCipherTool(new Rot47CipherService()),
         );
 
         $registry->register($cipherIdentifierTool);

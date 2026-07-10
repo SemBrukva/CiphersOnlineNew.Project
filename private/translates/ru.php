@@ -407,6 +407,13 @@ return [
     'ROT13_ERR_DIRECTION'             => 'Направление должно быть encrypt или decrypt.',
     'ROT13_ERR_TEXT_REQUIRED'         => 'Текст обязателен.',
     'ROT13_ERR_TEXT_LATIN'            => 'Текст должен содержать хотя бы одну латинскую букву.',
+    // ROT47
+    'ROT47_TRUST_TYPE'                => 'Фиксированный сдвиг по печатному ASCII (94 символа)',
+    'ROT47_TRUST_KEYLESS'             => 'Ключ и настройки не требуются',
+    'ROT47_ERR_INVALID'               => 'Некорректные входные данные.',
+    'ROT47_ERR_DIRECTION'             => 'Направление должно быть encrypt или decrypt.',
+    'ROT47_ERR_TEXT_REQUIRED'         => 'Текст обязателен.',
+    'ROT47_ERR_TEXT_ASCII'            => 'Текст должен содержать хотя бы один печатный ASCII-символ (коды 33–126).',
     // Beaufort
     'BEAUFORT_TRUST_RECIPROCAL'        => 'Один ключ для шифрования и дешифрования',
     // Gronsfeld

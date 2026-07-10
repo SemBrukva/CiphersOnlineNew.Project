@@ -55,7 +55,8 @@ final readonly class ToolRegistry
         private PigpenCipherService $pigpen,
         private TextDiffService $textDiff,
         private SolverService $solver,
-        private BookCipherService $bookCipher
+        private BookCipherService $bookCipher,
+        private Rot47CipherService $rot47Cipher
     ) {
     }
 
@@ -221,6 +222,11 @@ final readonly class ToolRegistry
                 ['label' => 'Classic', 'value' => 'HELLO WORLD'],
                 ['label' => 'Decode',  'value' => 'URYYB JBEYQ', 'direction' => 'decrypt'],
                 ['label' => 'Email',   'value' => 'contact@example.com'],
+            ],
+            'classical-ciphers/rot47' => [
+                ['label' => 'Classic', 'value' => 'Hello, World!'],
+                ['label' => 'Decode',  'value' => 'w6==@[ (@C=5P', 'direction' => 'decrypt'],
+                ['label' => 'Symbols', 'value' => 'ROT47 rocks 2024'],
             ],
             'classical-ciphers/beaufort' => [
                 ['label' => 'Military', 'value' => 'DEFEND THE EAST WALL', 'alphabet' => 'en', 'key' => 'SECRET'],
@@ -470,6 +476,7 @@ final readonly class ToolRegistry
             'classical-ciphers/vernam' => 'vernam',
             'codes-and-alphabets/bacon' => 'bacon',
             'classical-ciphers/rot13' => 'rot13',
+            'classical-ciphers/rot47' => 'rot47',
             'codes-and-alphabets/a1z26' => 'a1z26',
             'classical-ciphers/rail-fence' => 'rail-fence',
             'classical-ciphers/scytale' => 'scytale',
@@ -524,6 +531,7 @@ final readonly class ToolRegistry
             'classical-ciphers/vernam' => $this->vernamCipher->getToolSettings(),
             'codes-and-alphabets/bacon' => $this->baconCipher->getToolSettings(),
             'classical-ciphers/rot13' => $this->rot13Cipher->getToolSettings(),
+            'classical-ciphers/rot47' => $this->rot47Cipher->getToolSettings(),
             'codes-and-alphabets/a1z26' => $this->a1z26Cipher->getToolSettings(),
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getToolSettings(),
             'classical-ciphers/scytale' => $this->scytaleCipher->getToolSettings(),
@@ -577,6 +585,7 @@ final readonly class ToolRegistry
             'classical-ciphers/vernam'    => $this->vernamCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/bacon'   => $this->baconCipher->getTrustItems($calculationMode),
             'classical-ciphers/rot13'     => $this->rot13Cipher->getTrustItems($calculationMode),
+            'classical-ciphers/rot47'     => $this->rot47Cipher->getTrustItems($calculationMode),
             'codes-and-alphabets/a1z26'   => $this->a1z26Cipher->getTrustItems($calculationMode),
             'classical-ciphers/rail-fence' => $this->railFenceCipher->getTrustItems($calculationMode),
             'classical-ciphers/scytale' => $this->scytaleCipher->getTrustItems($calculationMode),
@@ -715,6 +724,7 @@ final readonly class ToolRegistry
             'classical-ciphers/shifr-bekona', 'classical-ciphers/shifr-behkona',
             'classical-ciphers/bacon' => 'codes-and-alphabets/bacon',
             'classical-ciphers/rot-13', 'classical-ciphers/shifr-rot13', 'classical-ciphers/shifr-rot-13' => 'classical-ciphers/rot13',
+            'classical-ciphers/rot-47', 'classical-ciphers/shifr-rot47', 'classical-ciphers/shifr-rot-47' => 'classical-ciphers/rot47',
             'classical-ciphers/shifr-atbash' => 'classical-ciphers/atbash',
             'classical-ciphers/shifr-a1z26', 'classical-ciphers/a1z26' => 'codes-and-alphabets/a1z26',
             'classical-ciphers/railfence', 'classical-ciphers/shifr-rail-fence' => 'classical-ciphers/rail-fence',

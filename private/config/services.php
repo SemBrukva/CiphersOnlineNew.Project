@@ -511,6 +511,7 @@ return [
             $container->get(App\Cipher\AlbertiApiCipherTool::class),
             $container->get(App\Cipher\EnigmaApiCipherTool::class),
             $container->get(App\Cipher\AnagramSolverApiCipherTool::class),
+            $container->get(App\Cipher\Rot47ApiCipherTool::class),
         );
         $registry->register(new App\Cipher\CipherIdentifierApiCipherTool(
             $container->get(App\Cipher\CipherIdentifierService::class),

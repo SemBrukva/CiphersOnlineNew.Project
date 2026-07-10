@@ -194,7 +194,8 @@ final class ToolRegistryTest extends TestCase
                 new TrigramFrequencyScorer(),
                 new Rot47CipherService(),
             ),
-            new BookCipherService()
+            new BookCipherService(),
+            new Rot47CipherService()
         );
     }
 }

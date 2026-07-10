@@ -407,6 +407,13 @@ return [
     'ROT13_ERR_DIRECTION'             => 'Direction must be encrypt or decrypt.',
     'ROT13_ERR_TEXT_REQUIRED'         => 'Text is required.',
     'ROT13_ERR_TEXT_LATIN'            => 'Input must contain at least one Latin letter.',
+    // ROT47
+    'ROT47_TRUST_TYPE'                => 'Fixed rotation over printable ASCII (94 chars)',
+    'ROT47_TRUST_KEYLESS'             => 'No key or settings required',
+    'ROT47_ERR_INVALID'               => 'Invalid input data.',
+    'ROT47_ERR_DIRECTION'             => 'Direction must be encrypt or decrypt.',
+    'ROT47_ERR_TEXT_REQUIRED'         => 'Text is required.',
+    'ROT47_ERR_TEXT_ASCII'            => 'Input must contain at least one printable ASCII character (codes 33–126).',
     // Beaufort
     'BEAUFORT_TRUST_RECIPROCAL'        => 'Same key encrypts and decrypts',
     // Gronsfeld

@@ -351,6 +351,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет ROT47-преобразование через API.
+     *
+     * POST /api/tools/rot47
+     */
+    #[ApiOperation(summary: 'Шифр ROT47', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function rot47(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'rot47');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование A1Z26 через API.
      *
      * POST /api/tools/a1z26

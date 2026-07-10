@@ -121,6 +121,13 @@ return [
         'name'       => 'api.tools.rot13',
     ],
 
+    'POST /tools/rot47' => [
+        'controller' => GuestController::class,
+        'method'     => 'rot47',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.rot47',
+    ],
+
     'POST /tools/a1z26' => [
         'controller' => GuestController::class,
         'method'     => 'a1z26',

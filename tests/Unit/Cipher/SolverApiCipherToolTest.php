@@ -200,6 +200,7 @@ final class SolverApiCipherToolTest extends TestCase
                 ),
                 $scorer,
             ),
+            new \App\Cipher\Rot47ApiCipherTool(new Rot47CipherService()),
         );
 
         $solver     = new SolverService($service, $bigramScorer, $scorer, new TrigramFrequencyScorer(), new Rot47CipherService());

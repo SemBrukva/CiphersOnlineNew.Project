@@ -1,0 +1,208 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T17:10:23+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "rot47",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 73,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 73,
+        "data": {
+            "name": "ROT47 Şifresi",
+            "name_short": "ROT47 Şifresi",
+            "description": "Yazdırılabilir ASCII metnini anahtarsız, sabit 47 konumluk ROT47 dönüşümüyle şifreleyin veya çözün.",
+            "description_stort": "ROT47 ile yazdırılabilir ASCII metnini şifreleyin ve çözün.",
+            "meta_title": "Çevrimiçi ROT47 şifresi: kodlayıcı ve çözücü | Ciphers Online",
+            "meta_description": "ROT47 ile metni çevrimiçi şifreleyin ve çözün. 94 yazdırılabilir ASCII karakterini 47 konum kaydırır; ikinci uygulamada metin geri gelir."
+        }
+    },
+    "blocks": [
+        {
+            "id": 264,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "ROT47 nasıl çalışır?",
+                "text": "<p>ROT47, kod 33 (<code>!</code>) ile kod 126 (<code>~</code>) arasındaki 94 yazdırılabilir ASCII karakteri için anahtarsız bir döndürme şifresidir. Desteklenen her karakter bu aralıkta 47 konum kaydırılır. Latin harfleri, rakamlar ve noktalama işaretleri değişir; boşluklar, satır sonları ve yazdırılabilir ASCII dışındaki karakterler korunur.</p><p>47, 94’ün tam yarısı olduğundan ROT47 kendi tersidir: aynı dönüşümü ikinci kez uygulamak özgün metni geri getirir. Bu araç hem ROT47 kodlayıcısı hem de çözücüsüdür; Şifrele ve Çöz seçenekleri aynı tersinir dönüşümü çalıştırır.</p>"
+            }
+        },
+        {
+            "id": 265,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "ROT47, ROT 47 ve ROT13",
+                "text": "<p>ROT 47, ROT47 adının alternatif yazımıdır. Yalnızca 26 Latin harfini döndüren ROT13’ün aksine ROT47, yazdırılabilir ASCII aralığının tamamını kapsar. Bu nedenle ROT47 sonucu genellikle rakamları ve sembolleri de değiştirir.</p><p>ROT47’yi tersinir metin gizleme, gösterimler, bulmacalar veya bilinen bir ROT47 dizgesini çözmek için kullanın. Parolası ya da gizli anahtarı yoktur; gizli bilgileri korumak için uygun değildir.</p>"
+            }
+        },
+        {
+            "id": 266,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "ROT47 aracı nasıl kullanılır?",
+                "text": "<ol><li>En az bir yazdırılabilir ASCII karakteri içeren metin girin.</li><li>ROT47 dizgesi oluşturmak için Şifrele’yi, önceden dönüştürülmüş dizge için Çöz’ü seçin.</li><li>Sonucu kopyalayın. Dönüşümü doğrulamak için sonucu yeniden araca yapıştırın ve ROT47’yi bir kez daha uygulayın.</li></ol><p>Araç Unicode karakterlerini dönüştürmez. Türkçe harfler, emoji, sekmeler ve boşluklar kaydırılmadan korunur.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 538,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "ROT47 güvenli bir şifreleme mi?",
+                "answer": "Hayır. ROT47 güvenli şifreleme değil, bir gizleme yöntemidir. Gizli anahtarı yoktur ve kolayca tersine çevrilebilir."
+            }
+        },
+        {
+            "id": 539,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "ROT47 ile ROT13 arasındaki fark nedir?",
+                "answer": "ROT13 yalnızca 26 Latin harfini döndürürken ROT47, 94 yazdırılabilir ASCII karakterinin tamamını döndürür. Bu nedenle ROT47 rakamları ve noktalama işaretlerini de dönüştürür."
+            }
+        },
+        {
+            "id": 540,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "ROT47 dizgesini nasıl çözerim?",
+                "answer": "Yazdırılabilir ASCII karakterleri içeren metni ROT47 çözücüsüne yapıştırın ve dönüşümü çalıştırın. ROT47 kendi tersidir: çözme için şifrelemede kullanılan aynı 47 konumluk kaydırma kullanılır."
+            }
+        },
+        {
+            "id": 541,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "ROT47 hangi karakterleri değiştirir?",
+                "answer": "ROT47, kodları 33 ile 126 arasındaki 94 yazdırılabilir ASCII karakterini değiştirir: büyük ve küçük Latin harfleri, rakamlar ve yazdırılabilir noktalama işaretleri. Boşluklar, satır sonları, sekmeler, emoji, Türkçe harfler ve diğer ASCII dışı karakterler döndürülmez."
+            }
+        },
+        {
+            "id": 542,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "ROT47 için anahtar gerekir mi?",
+                "answer": "Hayır. ROT47 sabit 47 konumluk kaydırma kullanır ve gizli anahtarı yoktur. Yöntemi bilen herkes sonucu hemen tersine çevirebilir; yalnızca basit gizleme, öğrenme veya bulmacalar için kullanın."
+            }
+        },
+        {
+            "id": 543,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "ROT 47 ile ROT47 aynı şey mi?",
+                "answer": "Evet. ROT 47, aynı yazdırılabilir ASCII döndürme şifresinin boşluklu yazımıdır. Her iki ad da 94 yazdırılabilir karakterlik aralıkta 47 karakterlik kaydırmayı ifade eder."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 276,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Bir selamlamayı şifreleme",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba, ROT47!",
+                "output": "|6C9232[ #~%cfP",
+                "description": "ROT47; virgül, Latin harfleri, rakamlar ve ünlem işareti dahil yazdırılabilir ASCII karakterlerini kaydırır."
+            }
+        },
+        {
+            "id": 277,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "ROT47 metnini çözme",
+                "key": "",
+                "shift": 0,
+                "input": "|6C9232[ #~%cfP",
+                "output": "Merhaba, ROT47!",
+                "description": "Şifre kendi tersi olduğu için aynı işlem ROT47 metnini de çözer."
+            }
+        },
+        {
+            "id": 278,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Harfler ve rakamlarla ROT47",
+                "key": "",
+                "shift": 0,
+                "input": "ROT47: metin 2024",
+                "output": "#~%cfi >6E:? a_ac",
+                "description": "Bu örnek büyük ve küçük Latin harflerini, rakamları ve yazdırılabilir ASCII sembollerini tek geçişte değiştirir. Başlangıç metnini geri almak için ROT47’yi yeniden uygulayın."
+            }
+        },
+        {
+            "id": 279,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Boşlukları ve Unicode’u koruma",
+                "key": "",
+                "shift": 0,
+                "input": "E-posta: test@example.com",
+                "output": "t\\A@DE2i E6DEo6I2>A=6]4@>",
+                "description": "ROT47; iki nokta, @ işareti ve nokta dahil adresin yazdırılabilir ASCII karakterlerini dönüştürür; boşluk ve ASCII dışı karakterler korunur."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 368,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Anahtarsız şifre"
+            }
+        },
+        {
+            "id": 369,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "ASCII döndürme"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

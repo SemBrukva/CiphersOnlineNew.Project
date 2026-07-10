@@ -24,6 +24,51 @@ final readonly class Rot47CipherService
     private const int SHIFT = 47;
 
     /**
+     * Возвращает UI-настройки инструмента ROT47.
+     *
+     * ROT47 работает по кодам печатного ASCII, а не по конкретному алфавиту,
+     * поэтому селект языка не нужен и список настроек пуст.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function getToolSettings(): array
+    {
+        return [];
+    }
+
+    /**
+     * Возвращает элементы блока доверия для ROT47.
+     *
+     * @return string[]
+     */
+    public function getTrustItems(string $calculationMode): array
+    {
+        return [
+            trans('ROT47_TRUST_TYPE'),
+            trans('ROT47_TRUST_KEYLESS'),
+            trans('CIPHER_TOOL_TRUST_NO_STORAGE'),
+            $calculationMode === 'api' ? trans('CIPHER_TOOL_TRUST_SERVER') : trans('CIPHER_TOOL_TRUST_LOCAL'),
+        ];
+    }
+
+    /**
+     * Проверяет, содержит ли текст хотя бы один печатный ASCII-символ (коды 33–126),
+     * который ROT47 действительно преобразует.
+     */
+    public function hasPrintableAscii(string $text): bool
+    {
+        $len = strlen($text);
+        for ($i = 0; $i < $len; $i++) {
+            $code = ord($text[$i]);
+            if ($code >= self::RANGE_START && $code <= self::RANGE_START + self::RANGE_SIZE - 1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Применяет преобразование ROT47 к тексту (шифрование и дешифрование совпадают).
      */
     public function process(string $text): string

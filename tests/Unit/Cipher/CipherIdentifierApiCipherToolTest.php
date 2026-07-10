@@ -201,6 +201,7 @@ final class CipherIdentifierApiCipherToolTest extends TestCase
                 ),
                 $scorer,
             ),
+            new \App\Cipher\Rot47ApiCipherTool(new \App\Cipher\Rot47CipherService()),
         );
 
         $this->tool = new CipherIdentifierApiCipherTool($service, $this->registry);

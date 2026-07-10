@@ -1,0 +1,121 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "rot47",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/classical-ciphers/rot47.csv",
+        "imported_at": "2026-07-10T18:41:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/rot47",
+        "url": "/en/classical-ciphers/rot47",
+        "content_file": "private/storage/content/classical-ciphers/rot47/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 5550,
+        "primary_terms": [
+            "rot47",
+            "rot 47",
+            "rot47 encoder"
+        ],
+        "modifiers": [
+            "encoder",
+            "spaced spelling"
+        ],
+        "intents": {
+            "cipher": 2,
+            "encode": 1
+        },
+        "content_recommendations": [
+            "Use the exact primary query \"ROT47\" once in the meta title and first-screen copy.",
+            "In the intro, explain that ROT47 rotates all 94 printable ASCII characters by 47 positions, unlike ROT13, which operates on letters only.",
+            "Cover the spaced spelling \"ROT 47\" naturally in explanatory copy as an alternate form of the same cipher name, not as a competing title target.",
+            "Add an encode example for \"ROT47 encoder\" that converts a short printable-ASCII message and then applies ROT47 again to restore the original text.",
+            "State in the FAQ that ROT47 is self-inverse and keyless, and is an obfuscation or historical-style transformation rather than modern secure encryption."
+        ],
+        "query_groups": [
+            {
+                "name": "Canonical cipher name",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "rot47"
+                ]
+            },
+            {
+                "name": "Alternate spelling",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "rot 47"
+                ]
+            },
+            {
+                "name": "Encoding workflow",
+                "intent": [
+                    "encode"
+                ],
+                "priority": "secondary",
+                "target": "examples",
+                "representative_queries": [
+                    "rot47 encoder"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "rot47",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "rot 47",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "rot47 encoder",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "encode"
+            ],
+            "target": "examples"
+        }
+    ],
+    "notes": "Reviewed as a single-tool printable-ASCII rotation cipher cluster. Keep the page focused on ROT47 and do not expand it into ROT13, Caesar cipher, Unicode rotation, or modern encryption topics.",
+    "curation": {
+        "reviewed_at": "2026-07-10",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "The exact query \"rot47\" accounts for about 90% of the source score, so it alone should anchor the meta title.",
+            "\"rot 47\" is an equivalent spaced spelling that belongs in supporting copy.",
+            "The encoder query supports a practical reversible example because applying ROT47 twice restores the original printable-ASCII text.",
+            "The linked English content file is not present yet. The reviewed semantic core is ready for content creation or sync, but cannot be mapped until that file exists."
+        ]
+    }
+}
