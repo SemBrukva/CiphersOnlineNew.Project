@@ -107,7 +107,7 @@
 
 | ⭐ | slug | EN | RU | DE | ES | FR | IT | PT | TR |
 |---|---|---|---|---|---|---|---|---|---|
-| ⭐ | top-15-escape-room-ciphers | Top 15 Ciphers for Escape Rooms | Топ-15 шифров для escape-room | Die 15 besten Chiffren für Escape Rooms | Los 15 mejores cifrados para escape rooms | Top 15 des chiffres pour escape games | I 15 migliori cifrari per escape room | Os 15 melhores cifras para escape rooms | Escape room için en iyi 15 şifre |
+| ⭐ | top-15-escape-room-ciphers | Top 15 Ciphers for Escape Rooms | Топ-15 шифров для квестов | Die 15 besten Chiffren für Escape Rooms | Los 15 mejores cifrados para escape rooms | Top 15 des codes pour escape games | I 15 migliori cifrari per escape room | Os 15 melhores cifras para escape rooms | Kaçış odaları için en iyi 15 şifre |
 | | best-ciphers-for-kids | The Best Ciphers for Kids and Classrooms | Лучшие шифры для детей и уроков | Die besten Chiffren für Kinder und den Unterricht | Los mejores cifrados para niños y aulas | Les meilleurs chiffres pour les enfants et l'école | I migliori cifrari per bambini e scuola | As melhores cifras para crianças e escolas | Çocuklar ve okullar için en iyi şifreler |
 | | ciphers-in-movies-and-games | Ciphers in Movies and Video Games | Шифры в кино и видеоиграх | Chiffren in Filmen und Videospielen | Cifrados en películas y videojuegos | Les chiffres dans les films et les jeux vidéo | Cifrari nei film e nei videogiochi | Cifras em filmes e videogames | Filmlerde ve video oyunlarında şifreler |
 | | famous-unsolved-ciphers | Famous Unsolved Ciphers | Знаменитые нераскрытые шифры | Berühmte ungelöste Chiffren | Cifrados famosos sin resolver | Les célèbres chiffres non résolus | Famosi cifrari irrisolti | Cifras famosas não resolvidas | Ünlü çözülmemiş şifreler |

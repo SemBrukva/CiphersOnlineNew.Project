@@ -13,6 +13,7 @@ declare(strict_types=1);
 return [
     'codes-and-alphabets/morse-code' => [
         'read-and-write-morse-code',
+        'top-15-escape-room-ciphers',
     ],
     'encoding/base64' => [
         'understand-and-decode-base64',
@@ -20,6 +21,7 @@ return [
     ],
     'classical-ciphers/caesar' => [
         'caesar-cipher-manual-decryption',
+        'top-15-escape-room-ciphers',
     ],
     'classical-ciphers/rot13' => [
         'caesar-cipher-manual-decryption',
@@ -41,5 +43,17 @@ return [
     ],
     'text-analysis/letter-frequency' => [
         'solve-substitution-cipher',
+    ],
+    'codes-and-alphabets/pigpen' => [
+        'top-15-escape-room-ciphers',
+    ],
+    'codes-and-alphabets/numbers-to-letters' => [
+        'top-15-escape-room-ciphers',
+    ],
+    'classical-ciphers/atbash' => [
+        'top-15-escape-room-ciphers',
+    ],
+    'classical-ciphers/vigenere' => [
+        'top-15-escape-room-ciphers',
     ],
 ];

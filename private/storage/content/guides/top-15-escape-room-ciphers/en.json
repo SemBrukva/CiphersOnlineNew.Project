@@ -1,0 +1,81 @@
+{
+    "meta": {
+        "schema": "guide-article.v1",
+        "guide_slug": "top-15-escape-room-ciphers",
+        "language": "en",
+        "default_language": "en",
+        "status": "published",
+        "updated_at": "2026-07-10",
+        "published_at": "2026-07-10"
+    },
+    "guide": {
+        "title": "Top 15 Ciphers for Escape Rooms",
+        "excerpt": "Choose a cipher that feels like a clue, not homework. This ranked list explains 15 practical options for escape-room puzzles, with their setup needs, strengths, and failure modes.",
+        "meta_title": "15 Ciphers for Escape-Room Puzzles | CiphersOnline",
+        "meta_description": "Compare 15 ciphers for escape-room puzzles, from Caesar and Pigpen to Morse, A1Z26, and Vigenère. Learn what to use, what to provide, and how to keep clues fair.",
+        "reading_time": 7
+    },
+    "body": [
+        {
+            "sort_order": 10,
+            "type": "section",
+            "title": "Choose for the player, not for the cipher",
+            "html": "<p>An escape-room cipher should create one satisfying deduction and then move the story forward. It is not a test of cryptographic knowledge. The best choice depends on the answer length, the prop you can hide, the players’ age, and whether recognising the method is itself part of the puzzle.</p><p>Use a short plaintext—usually a location, a four-digit lock code, or an instruction. Give players a fair route to the key: a visible alphabet, a themed object, a previous clue, or a worked example. Test the clue with people who did not build it. If they must guess a convention such as reading order or alphabet, add an in-world hint.</p>"
+        },
+        {
+            "sort_order": 20,
+            "type": "section",
+            "title": "1–5: reliable first choices",
+            "html": "<ol><li><strong>Caesar cipher.</strong> Shift every letter by one fixed amount. A portrait, a Roman date, or a numbered dial can reveal the shift. It is quick to explain and ideal for a short word.</li><li><strong>Pigpen cipher.</strong> Geometric symbols turn a note into a physical prop. Hide the grid as stained glass, a fence, or a notebook margin; keep the message short because copying symbols is slow.</li><li><strong>Morse code.</strong> Dots and dashes work through sound, light, taps, or writing. Players need a chart and clear separators between letters and words.</li><li><strong>A1Z26.</strong> Letter positions such as <code>3-1-20</code> for CAT are immediately useful with a numbered alphabet, book spine, or keypad. State whether A is 1, not 0.</li><li><strong>Atbash.</strong> Reverse the alphabet so A maps to Z. A mirror, a backward alphabet, or two opposing rows makes the rule discoverable. It is better for one short phrase than a paragraph.</li></ol>"
+        },
+        {
+            "sort_order": 30,
+            "type": "section",
+            "title": "6–10: use when the setting supports them",
+            "html": "<ol start=\"6\"><li><strong>Rail fence cipher.</strong> Write letters on zigzag rails, then read row by row. It makes a good train, fence, or musical-staff clue, but show the rail count and reading direction.</li><li><strong>Polybius square.</strong> Pairs of coordinates point to letters in a 5×5 grid. It pairs naturally with a map, chessboard, or keypad; make the row/column order explicit.</li><li><strong>Vigenère cipher.</strong> A repeated keyword controls changing shifts. Use it only when the keyword and a tableau are both discoverable; otherwise it becomes brute-force work rather than a room puzzle.</li><li><strong>Bacon’s cipher.</strong> Two visual states—font weights, colours, or object types—encode groups of five. It rewards observation, but make the two states genuinely distinguishable under the room lighting.</li><li><strong>Book cipher.</strong> Numbers identify page, line, and word in one supplied book. It is wonderfully thematic for a library or detective room, but lock down the exact edition and punctuation rule.</li></ol>"
+        },
+        {
+            "sort_order": 40,
+            "type": "section",
+            "title": "11–15: memorable variations",
+            "html": "<ol start=\"11\"><li><strong>Tap code.</strong> Two taps select a row and column in a 5×5 grid. It is tactile and good for a prison or telephone theme; players need the grid or a way to infer it.</li><li><strong>Semaphore.</strong> Flag positions encode letters. It shines when players can find two flags, clock hands, or poses, but avoid tiny diagrams and poor sightlines.</li><li><strong>Scytale transposition.</strong> Wrap a strip around a cylinder, write across it, then unwrap it. The cylinder is the key, so it makes a tangible reveal rather than a paper exercise.</li><li><strong>Null cipher.</strong> Hide the message in every first letter, every third word, or another stated pattern. A poem, menu, or letter can carry it naturally; include a cue that tells players where to look.</li><li><strong>ROT13.</strong> This is Caesar shift 13 for the Latin alphabet. It is fast for players who recognise it, so give an unmistakable 13 hint and do not make it the only difficult step.</li></ol>"
+        },
+        {
+            "sort_order": 50,
+            "type": "section",
+            "title": "Make the cipher a fair room puzzle",
+            "html": "<p>Build a single chain: <em>notice the key → apply the rule → obtain an answer → use the answer</em>. Do not hide the key and the ciphertext in unrelated places unless finding their connection is the intended deduction. A result should have one obvious use: a word that labels a drawer, a location, or the digits for a lock.</p><p>Before opening, check four things: can every symbol be read in the actual light; does the key use the same alphabet as the message; do spaces and repeated letters behave consistently; and can a team recover after one transcription mistake? Keep an optional hint ready. Classical ciphers are excellent theatrical devices, but none of them protects a real secret.</p>"
+        }
+    ],
+    "faq": [
+        {
+            "question": "Which cipher is easiest for an escape room?",
+            "answer": "<p>For most groups, use a Caesar cipher, A1Z26, or Morse code with a visible key. They can be solved in a few minutes and leave room for the story rather than demanding specialist knowledge.</p>"
+        },
+        {
+            "question": "How long should an escape-room cipher message be?",
+            "answer": "<p>Usually one to five words, or just the digits needed for a lock. Long messages make transcription errors more likely and turn a deduction into repetitive decoding.</p>"
+        },
+        {
+            "question": "Should players be told which cipher to use?",
+            "answer": "<p>They do not need the cipher’s name, but they need a fair path to its rule. A prop, example, alphabet, or themed clue should make the intended method identifiable without random guessing.</p>"
+        }
+    ],
+    "related_guides": ["caesar-cipher-manual-decryption", "read-and-write-morse-code", "solve-substitution-cipher"],
+    "related_terms": [
+        {"slug": "cipher", "label": "Cipher"},
+        {"slug": "shift-cipher", "label": "Shift cipher"},
+        {"slug": "substitution-cipher", "label": "Substitution cipher"},
+        {"slug": "transposition-cipher", "label": "Transposition cipher"}
+    ],
+    "related_tools": [
+        {"slug": "classical-ciphers/caesar", "label": "Caesar Cipher tool"},
+        {"slug": "codes-and-alphabets/pigpen", "label": "Pigpen Cipher tool"},
+        {"slug": "codes-and-alphabets/morse-code", "label": "Morse Code tool"},
+        {"slug": "codes-and-alphabets/numbers-to-letters", "label": "Numbers to Letters tool"},
+        {"slug": "classical-ciphers/atbash", "label": "Atbash Cipher tool"},
+        {"slug": "classical-ciphers/vigenere", "label": "Vigenère Cipher tool"}
+    ],
+    "tags": ["escape-room", "puzzles", "classical-ciphers"],
+    "category": "lists"
+}
