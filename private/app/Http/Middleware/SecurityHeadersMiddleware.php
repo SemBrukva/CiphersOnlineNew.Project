@@ -67,6 +67,11 @@ final class SecurityHeadersMiddleware implements MiddlewareInterface
             $scriptSrc = ["'self'", $nonceSrc];
         }
 
+        // Ahrefs Analytics подключается в layout безусловно — разрешаем загрузку
+        // скрипта и его beacon-запросы (иначе CSP блокирует и то, и другое).
+        $scriptSrc[]  = 'https://analytics.ahrefs.com';
+        $connectSrc[] = 'https://analytics.ahrefs.com';
+
         if ((string) config('tracking.google.analytics_id', '') !== '') {
             $scriptSrc  = array_merge($scriptSrc, ['https://www.googletagmanager.com']);
             $connectSrc = array_merge($connectSrc, [

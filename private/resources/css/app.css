@@ -15,7 +15,8 @@
   --co-bg: #f1f5f9;
   --co-border: #e2e8f0;
   --co-text-secondary: #475569;
-  --co-text-muted: #94a3b8;
+  /* #64748b — контраст 4.76:1 на белом (WCAG AA). Прежний #94a3b8 давал 2.85:1. */
+  --co-text-muted: #64748b;
   --co-transition: 0.2s ease;
 
   /* Алиасы для совместимости со стилями живого сайта */
@@ -28,7 +29,7 @@
   --accent: #c1ff00;
   --text-base: #0f172a;
   --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-muted: #64748b;
   --transition: 0.2s ease;
   --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.07);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -1593,7 +1594,7 @@
 .ciphers-category-hub-popular-item__arrow {
     flex-shrink: 0;
     padding-top: 2px;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 21px;
     transition: color var(--transition), transform var(--transition);
 }
@@ -1647,12 +1648,12 @@
 
 .ciphers-category-hub-combo-tag--roadmap {
     background: #e2e8f0;
-    color: #94a3b8;
+    color: var(--text-muted);
     pointer-events: none;
 }
 
 .ciphers-category-hub-combo-card__connector {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 14px;
     flex-shrink: 0;
 }
