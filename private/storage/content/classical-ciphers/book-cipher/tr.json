@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T08:24:39+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "book-cipher",
+    "language": "tr",
+    "default_language": "en",
+    "cipher_id": 71,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 71,
+    "data": {
+      "name": "Kitap şifresi",
+      "name_short": "Kitap şifresi",
+      "description": "Paylaşılan bir kaynak metinle kitap şifresini çevrimiçi şifreleyin ve çözün. Sözcük dizini, Beale, satır · sözcük veya karakter dizinini seçin.",
+      "description_stort": "Ortak metin anahtarı ve dört adresleme yöntemiyle kitap şifresi.",
+      "meta_title": "Kitap şifresi çevrimiçi: şifrele ve çöz",
+      "meta_description": "Ortak bir metinle kitap şifresini çevrimiçi şifreleyin ve çözün. Sözcük dizini, Beale, satır · sözcük ve karakter dizini tarayıcıda çalışır."
+    }
+  },
+  "blocks": [
+    {
+      "id": 261,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Kitap şifresi nasıl çalışır",
+        "text": "<p><strong>Kitap şifresi</strong>, bir mesajı üzerinde anlaşılmış bir metne, yani «kitaba» veya anahtara yapılan başvurularla değiştirir. Kod, metindeki sözcükleri ya da karakterleri gösteren sayılar veya koordinatlardan oluşur. Çözmek için iki taraf da aynı metni ve yöntemi kullanır.</p><p>Bir yöntem seçin:</p><ul><li><strong>Sözcük dizini</strong>: her mesaj sözcüğünün 1'den başlayan konumu.</li><li><strong>Beale</strong>: ilk harfi mesaj harfini veren sözcüğün konumu.</li><li><strong>Satır · sözcük</strong>: <code>2.5</code> gibi koordinatlar.</li><li><strong>Karakter dizini</strong>: boşluklar dahil her karakterin 1'den başlayan konumu.</li></ul><p>Şifrelerken ayırıcıyı seçin. Çözmek için kaynak metni ve sayıları yapıştırın; araç sayısal başvuruları otomatik tanır. Sözcük tabanlı yöntemler sözcüklere ayırırken büyük/küçük harf ve noktalama işaretlerini yok sayar; karakter dizini her karakteri okur.</p>"
+      }
+    },
+    {
+      "id": 262,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Kitap şifresini doğru kullanmak",
+        "text": "<p>Gönderen ve alıcı aynı metin ve yöntemde anlaşmalıdır. Metni değiştirmeden kopyalayın: farklı baskı, eksik satır sonu veya düzenlenmiş bir karakter konumları değiştirir. Satır · sözcük satır sonlarına, karakter dizini ise her boşluk ve noktalama işaretine bağlıdır.</p><p>Sözcük dizini ve Satır · sözcük, mesajdaki her sözcüğün metinde bulunmasını gerektirir. Beale her harf için o harfle başlayan bir sözcük, Karakter dizini ise her karakteri gerektirir. Araç eksik öğeleri gösterir.</p><p>Kitap şifresi öğrenme ve bulmacalar için tarihî bir yöntemdir; modern güvenli şifreleme değildir. Kaynak metin biliniyor veya tahmin ediliyorsa başvurular okunabilir. Tüm işlem tarayıcıda yapılır.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 525,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Anahtar olarak ne kullanabilirim?",
+        "answer": "Ortak bir bölüm, şiir, kamu malı metin veya kendi notunuz kullanılabilir. İki tarafta da aynı kopya ve yöntem olmalıdır. Satır · sözcük için satır sonlarını, karakter dizini için tüm karakterleri koruyun."
+      }
+    },
+    {
+      "id": 526,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Şifreleme neden başarısız oluyor?",
+        "answer": "Kaynak metin mesajın tamamını kapsamıyordur. Sözcük dizini ve Satır · sözcük her sözcüğü, Beale her başlangıç harfi için bir sözcüğü, Karakter dizini ise boşluklar dahil her karakteri gerektirir."
+      }
+    },
+    {
+      "id": 527,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Hangi yöntemi seçmeliyim?",
+        "answer": "Metinde bulunan sözcükler için Sözcük dizinini, sözcük baş harfleriyle harf göndermek için Beale'i, sabit koordinatlar için Satır · sözcüğü ve karakter karakter metin için Karakter dizinini kullanın."
+      }
+    },
+    {
+      "id": 528,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Numaralandırma 0'dan mı 1'den mi başlar?",
+        "answer": "1'den. Sözcük dizini ve Beale'de 1 ilk sözcüktür; Satır · sözcükte 1.1 ilk satırın ilk sözcüğüdür; Karakter dizininde 1 ilk karakterdir."
+      }
+    },
+    {
+      "id": 529,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Çözmede neden soru işareti görünüyor?",
+        "answer": "Başvuru geçerli metin ve yöntemle çözülemiyordur. Sayı aralığın dışında olabilir veya diğer kişi başka bir metin kopyası, satır sonu ya da yöntem kullanmış olabilir."
+      }
+    },
+    {
+      "id": 530,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Kitap şifresi güvenli mi?",
+        "answer": "Hayır. Bu, öğrenme ve bulmacalar için tarihî bir el şifresidir; hassas bilgi için uygun değildir. Metni ve yöntemi bilen ya da tahmin eden biri mesajı okuyabilir."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 268,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Kitap şifresi: sözcükleri dizinle şifreleme",
+        "key": "rüzgar yaprakları sessiz göle taşır",
+        "shift": 0,
+        "input": "yaprakları rüzgar",
+        "output": "2 1",
+        "description": "Sözcük dizini: YAPRAKLARI 2., RÜZGAR 1. sözcüktür."
+      }
+    },
+    {
+      "id": 269,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Kitap şifresi: sözcük dizinlerini çözme",
+        "key": "rüzgar yaprakları sessiz göle taşır",
+        "shift": 0,
+        "input": "2 1",
+        "output": "yaprakları rüzgar",
+        "description": "2 ve 1 başvuruları YAPRAKLARI ve RÜZGAR sözcüklerini verir."
+      }
+    },
+    {
+      "id": 270,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "beale"
+      },
+      "data": {
+        "title": "Beale yöntemiyle harfleri şifreleme",
+        "key": "mavi atlar rüzgarda sessizce uyur",
+        "shift": 0,
+        "input": "MARS",
+        "output": "1 2 3 4",
+        "description": "M, A, R ve S ilk harfleriyle 1, 2, 3 ve 4. sözcüklere başvurur."
+      }
+    },
+    {
+      "id": 271,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "line-word"
+      },
+      "data": {
+        "title": "Satır · sözcük koordinatlarıyla şifreleme",
+        "key": "kırmızı tilki dinlenir\nbeyaz baykuş izler",
+        "shift": 0,
+        "input": "baykuş tilki",
+        "output": "2.2 1.2",
+        "description": "BAYKUŞ 2.2, TİLKİ 1.2 konumundadır; satır sonu anlaşılmış metnin parçasıdır."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 363,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Kitap şifresi"
+      }
+    },
+    {
+      "id": 364,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Beale şifresi"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

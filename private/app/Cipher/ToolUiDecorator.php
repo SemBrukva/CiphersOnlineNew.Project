@@ -127,6 +127,13 @@ final class ToolUiDecorator
             $toolUi['placeholderEncode']      = trans('NUM2LET_PLACEHOLDER_NUMBERS');
             $toolUi['placeholderDecode']      = trans('NUM2LET_PLACEHOLDER_LETTERS');
         }
+        if ($cipherAlias === 'book-cipher') {
+            $toolUi['bookMode']          = true;
+            $toolUi['placeholderEncode'] = trans('BOOK_PLACEHOLDER_ENCODE');
+            $toolUi['placeholderDecode'] = trans('BOOK_PLACEHOLDER_DECODE');
+            $toolUi['bookErrUncovered']  = trans('BOOK_ERR_UNCOVERED');
+            $toolUi['bookErrNoBook']     = trans('BOOK_ERR_NO_BOOK');
+        }
         if ($cipherAlias === 'timestamp-converter') {
             $toolUi['timestampConverterMode']         = true;
             $toolUi['tabEncode']                      = trans('TIMESTAMP_CONVERTER_TAB_TO_DATE');

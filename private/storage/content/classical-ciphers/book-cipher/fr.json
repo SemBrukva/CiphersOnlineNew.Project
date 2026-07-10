@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T08:24:39+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "book-cipher",
+    "language": "fr",
+    "default_language": "en",
+    "cipher_id": 71,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 71,
+    "data": {
+      "name": "Chiffre de livre",
+      "name_short": "Chiffre de livre",
+      "description": "Chiffrez et déchiffrez un chiffre de livre en ligne avec un texte de référence partagé. Choisissez index de mots, Beale, ligne · mot ou index de caractères.",
+      "description_stort": "Chiffre de livre avec texte-clé partagé et quatre modes d'adressage.",
+      "meta_title": "Chiffre de livre en ligne : chiffrer et déchiffrer",
+      "meta_description": "Chiffrez et déchiffrez un chiffre de livre en ligne avec un texte partagé. Index de mots, Beale, ligne · mot et caractères dans le navigateur."
+    }
+  },
+  "blocks": [
+    {
+      "id": 261,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Comment fonctionne le chiffre de livre",
+        "text": "<p>Un <strong>chiffre de livre</strong> remplace un message par des références à un texte convenu, le « livre » ou la clé. Le code contient des nombres ou coordonnées pointant vers les mots ou caractères du texte. Pour déchiffrer, les deux personnes emploient le même texte et le même mode.</p><p>Choisissez un mode :</p><ul><li><strong>Index de mots</strong> : position de chaque mot à partir de 1.</li><li><strong>Beale</strong> : position d'un mot dont l'initiale donne la lettre.</li><li><strong>Ligne · mot</strong> : coordonnées telles que <code>2.5</code>.</li><li><strong>Index de caractères</strong> : position de chaque caractère, espaces compris.</li></ul><p>Choisissez un séparateur lors du chiffrement. Pour déchiffrer, collez le texte et les nombres ; l'outil reconnaît les références numériques. Les modes par mots ignorent casse et ponctuation, tandis que l'index de caractères lit chaque caractère.</p>"
+      }
+    },
+    {
+      "id": 262,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Utiliser le chiffre de livre sans erreur",
+        "text": "<p>L'expéditeur et le destinataire doivent convenir du même texte et du même mode. Copiez le texte sans modification : une autre édition, un retour à la ligne manquant ou un caractère modifié change les positions. Ligne · mot dépend des retours ; l'index de caractères dépend de tous les espaces et signes.</p><p>Index de mots et Ligne · mot exigent que chaque mot figure dans le texte. Beale exige un mot par initiale et l'Index de caractères chaque caractère. L'outil indique les éléments manquants.</p><p>Le chiffre de livre est une méthode historique pour l'apprentissage et les énigmes, pas un chiffrement moderne sûr. Si le texte est connu ou deviné, les références sont lisibles. Le traitement reste dans le navigateur.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 525,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Que puis-je utiliser comme clé ?",
+        "answer": "Tout texte partagé convient : chapitre, poème, texte du domaine public ou note personnelle. Les deux personnes doivent avoir la même copie et le même mode. Conservez les retours à la ligne pour Ligne · mot et tous les caractères pour l'index de caractères."
+      }
+    },
+    {
+      "id": 526,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Pourquoi le chiffrement échoue-t-il ?",
+        "answer": "Le texte de référence ne couvre pas tout le message. Index de mots et Ligne · mot exigent chaque mot, Beale un mot pour chaque initiale et l'index de caractères tous les caractères, y compris les espaces."
+      }
+    },
+    {
+      "id": 527,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Quel mode choisir ?",
+        "answer": "Utilisez Index de mots pour des mots présents dans le texte, Beale pour les lettres par initiales, Ligne · mot pour des coordonnées fixes et Index de caractères pour un texte caractère par caractère."
+      }
+    },
+    {
+      "id": 528,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "La numérotation commence-t-elle à 0 ou à 1 ?",
+        "answer": "À 1. Dans Index de mots et Beale, 1 est le premier mot ; dans Ligne · mot, 1.1 est le premier mot de la première ligne ; dans l'index de caractères, 1 est le premier caractère."
+      }
+    },
+    {
+      "id": 529,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Pourquoi un point d'interrogation apparaît-il ?",
+        "answer": "La référence ne peut pas être résolue avec le texte et le mode actuels. Le nombre peut être hors limites, ou l'autre personne a utilisé une autre copie, d'autres retours ou un autre mode."
+      }
+    },
+    {
+      "id": 530,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Le chiffre de livre est-il sûr ?",
+        "answer": "Non. C'est un chiffre manuel historique pour apprendre et jouer, pas pour protéger des informations sensibles. Toute personne qui connaît ou devine le texte et le mode peut lire le message."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 268,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Chiffre de livre : chiffrer des mots par index",
+        "key": "le vent porte feuilles vers le lac calme",
+        "shift": 0,
+        "input": "feuilles vent",
+        "output": "4 2",
+        "description": "Index de mots : FEUILLES est le mot 4 et VENT le mot 2."
+      }
+    },
+    {
+      "id": 269,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Chiffre de livre : déchiffrer des index",
+        "key": "le vent porte feuilles vers le lac calme",
+        "shift": 0,
+        "input": "4 2",
+        "output": "feuilles vent",
+        "description": "Les références 4 et 2 redonnent FEUILLES et VENT."
+      }
+    },
+    {
+      "id": 270,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "beale"
+      },
+      "data": {
+        "title": "Chiffrer des lettres avec Beale",
+        "key": "matin ancien roses sont sous soleil",
+        "shift": 0,
+        "input": "MARS",
+                "output": "1 2 3 5",
+                "description": "M, A, R et S désignent des mots du texte par leur initiale."
+      }
+    },
+    {
+      "id": 271,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "line-word"
+      },
+      "data": {
+        "title": "Chiffrer avec des coordonnées ligne · mot",
+        "key": "renard roux dort\nhibou blanc veille",
+        "shift": 0,
+        "input": "blanc renard",
+        "output": "2.2 1.1",
+        "description": "BLANC est en 2.2 et RENARD en 1.1 ; le retour à la ligne fait partie du texte."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 363,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Chiffre de livre"
+      }
+    },
+    {
+      "id": 364,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Chiffre de Beale"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

@@ -53,7 +53,8 @@ final readonly class ToolRegistry
         private DancingMenCipherService $dancingMen,
         private PigpenCipherService $pigpen,
         private TextDiffService $textDiff,
-        private SolverService $solver
+        private SolverService $solver,
+        private BookCipherService $bookCipher
     ) {
     }
 
@@ -425,6 +426,11 @@ final readonly class ToolRegistry
                 ['label' => 'Sherlock', 'value' => 'SHERLOCK HOLMES', 'alphabet' => 'en'],
                 ['label' => 'Hello',    'value' => 'HELLO WORLD',     'alphabet' => 'en'],
             ],
+            'classical-ciphers/book-cipher' => [
+                ...self::withSettings([['label' => 'Word index', 'value' => 'quick fox', 'key' => 'the quick brown fox jumps over the lazy dog']], ['ciphers-book-scheme' => 'word-index']),
+                ...self::withSettings([['label' => 'Beale',      'value' => 'OLD',       'key' => 'the quick brown fox jumps over the lazy dog']], ['ciphers-book-scheme' => 'beale']),
+                ...self::withSettings([['label' => 'Decode', 'value' => '2 4', 'direction' => 'decrypt', 'key' => 'the quick brown fox jumps over the lazy dog']], ['ciphers-book-scheme' => 'word-index']),
+            ],
             'codes-and-alphabets/pigpen' => [
                 ...self::withSettings([['label' => 'Standard',    'value' => 'PIGPEN CIPHER']], ['ciphers-pigpen-variant' => 'standard']),
                 ...self::withSettings([['label' => 'Variant',     'value' => 'SECRET MESSAGE']], ['ciphers-pigpen-variant' => 'variant']),
@@ -469,6 +475,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => null,
             'codes-and-alphabets/dancing-men' => null,
             'codes-and-alphabets/pigpen' => null,
+            'classical-ciphers/book-cipher' => null,
             'codes-and-alphabets/anagram-solver' => 'anagram-solver',
             'encoding/html-encode' => null,
             'encoding/json-formatter' => null,
@@ -521,6 +528,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getToolSettings(),
             'codes-and-alphabets/pigpen' => $this->pigpen->getToolSettings(),
+            'classical-ciphers/book-cipher' => $this->bookCipher->getToolSettings(),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getToolSettings(),
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
             'encoding/json-formatter' => $this->jsonFormatter->getToolSettings(),
@@ -572,6 +580,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getTrustItems($calculationMode),
             'codes-and-alphabets/pigpen' => $this->pigpen->getTrustItems($calculationMode),
+            'classical-ciphers/book-cipher' => $this->bookCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
             'text-analysis/caesar-brute-force' => $this->caesarBruteForce->getTrustItems($calculationMode),
@@ -641,6 +650,7 @@ final readonly class ToolRegistry
     {
         return match ($this->canonicalSlug($toolSlug)) {
             'codes-and-alphabets/bacon' => trans('BACON_COVER_LABEL_SHORT'),
+            'classical-ciphers/book-cipher' => trans('BOOK_REFERENCE_LABEL_SHORT'),
             default => trans('CIPHER_TOOL_EXAMPLE_KEY_LABEL'),
         };
     }

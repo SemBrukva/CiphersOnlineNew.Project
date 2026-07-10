@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T08:24:39+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "book-cipher",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 71,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 71,
+        "data": {
+            "name": "Book Cipher",
+            "name_short": "Book Cipher",
+            "description": "Encode and decode a book cipher online with a shared reference text as the key. Choose word index, Beale, line · word, or character index addressing.",
+            "description_stort": "Book cipher code with a shared reference text and four addressing schemes.",
+            "meta_title": "Book Cipher Online: Encode & Decode a Book Cipher Code",
+            "meta_description": "Encode and decode a book cipher code online with any shared reference text. Try word index, Beale, line · word, or character index examples; processing stays in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 261,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How a Book Cipher works",
+                "text": "<p>A <strong>book cipher</strong> turns a message into references to an agreed text — the \"book\" or key. Rather than using a fixed alphabet, the book cipher code contains numbers or coordinates that point back into that text. The recipient enters the same reference text and addressing scheme, then uses those references to recover the message.</p><p>Choose the scheme that fits your shared text and purpose:</p><ul><li><strong>Word index</strong> replaces each message word with its 1-based position in the reference text.</li><li><strong>Beale</strong> replaces each letter with the position of a word beginning with that letter.</li><li><strong>Line · word</strong> uses coordinates such as <code>2.5</code> for line 2, word 5.</li><li><strong>Character index</strong> replaces every character, including spaces, with its 1-based position in the reference text.</li></ul><p>Use the delimiter selector to separate references when encoding. To decode, paste the reference text and the numbers; the tool reads numeric references automatically. Word-based schemes ignore capitalization and punctuation when they split text into words, while character index reads the reference text character by character.</p>"
+            }
+        },
+        {
+            "id": 262,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Using a book cipher code reliably",
+                "text": "<p>For a book cipher to work, sender and recipient must agree on the same reference text and the same scheme before exchanging a message. Copy and paste the text when possible: a different edition, a missing line break, or an edited character changes the positions. Line · word depends on line breaks, and character index is especially sensitive because spaces, punctuation, and capitalization occupy positions.</p><p>When encoding with Word index or Line · word, every message word must occur in the reference text. With Beale, the reference needs at least one word for every letter you plan to send. Character index is useful when the message does not repeat the book's words, but the book must still contain every required character. The tool identifies uncovered words, letters, or characters so you can choose a better reference or another scheme.</p><p>Book ciphers are a useful historical and educational cryptography method, but they are not modern secure encryption. Do not rely on one to protect sensitive information: a known or guessable source text can reveal the message. Use this tool for learning, puzzles, and agreed-reference exercises; all processing takes place in your browser.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 525,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What do I use as the key?",
+                "answer": "Any shared passage can be the key: a book chapter, poem, public-domain text, or your own note. Both people must use the same copy and the same addressing scheme. For Line · word, preserve the same line breaks; for Character index, preserve every character. Avoid relying on a book cipher for sensitive information, because a known or guessed reference can expose the message."
+            }
+        },
+        {
+            "id": 526,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why does encoding sometimes fail?",
+                "answer": "The reference text does not cover part of your message. Word index and Line · word require every message word to appear in the text. Beale requires a reference word beginning with each message letter, and Character index requires every character, including a space, to be present. The tool lists what is missing; choose a longer reference, change the message, or select another scheme."
+            }
+        },
+        {
+            "id": 527,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Which Book Cipher scheme should I choose?",
+                "answer": "Choose Word index for messages made from words already found in the reference. Choose Beale when you want to spell a message letter by letter through word initials. Choose Line · word when fixed line coordinates are convenient or familiar to both sides. Choose Character index when you need to encode arbitrary text character by character and your reference contains all of its characters."
+            }
+        },
+        {
+            "id": 528,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Are Book Cipher positions counted from 0 or 1?",
+                "answer": "They are counted from 1. In Word index and Beale, 1 means the first word in the reference text. In Line · word, 1.1 means the first word on the first line. In Character index, 1 means the first character, including whitespace and punctuation."
+            }
+        },
+        {
+            "id": 529,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why does decoding show a question mark?",
+                "answer": "A question mark marks a reference that cannot be resolved with the current text and scheme. The number or coordinate may be outside the available range, or the sender may have used a different copy of the reference, line breaks, or addressing scheme. Check those details and try again."
+            }
+        },
+        {
+            "id": 530,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is this Book Cipher secure?",
+                "answer": "No. A book cipher is a historical manual cipher and a good learning or puzzle tool, not a replacement for modern encryption. If someone obtains or correctly guesses the reference text and scheme, they can decode the references. Use established end-to-end encryption for private or sensitive communication."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 268,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-book-scheme": "word-index"
+            },
+            "data": {
+                "title": "Book cipher example: encode words by index",
+                "key": "the quick brown fox jumps over the lazy dog",
+                "shift": 0,
+                "input": "quick fox",
+                "output": "",
+                "description": "Word-index scheme: QUICK is word 2 and FOX is word 4 in the shared reference text."
+            }
+        },
+        {
+            "id": 269,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-book-scheme": "word-index"
+            },
+            "data": {
+                "title": "Book cipher example: decode word indexes",
+                "key": "the quick brown fox jumps over the lazy dog",
+                "shift": 0,
+                "input": "2 4",
+                "output": "",
+                "description": "Decode walkthrough: references 2 and 4 return QUICK and FOX from the same reference text."
+            }
+        },
+        {
+            "id": 270,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-book-scheme": "beale"
+            },
+            "data": {
+                "title": "Encode letters with the Beale scheme",
+                "key": "misty oaks rise slowly under autumn skies",
+                "shift": 0,
+                "input": "MARS",
+                "output": "",
+                "description": "Beale scheme: M, A, R, and S point to words 1, 6, 3, and 4, whose first letters spell the message."
+            }
+        },
+        {
+            "id": 271,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-book-scheme": "line-word"
+            },
+            "data": {
+                "title": "Encode with line · word coordinates",
+                "key": "red fox rests\nblue owl watches",
+                "shift": 0,
+                "input": "owl fox",
+                "output": "",
+                "description": "Line · word scheme: OWL is at 2.2 and FOX is at 1.2, so line breaks are part of the agreed reference."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 363,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Book cipher"
+            }
+        },
+        {
+            "id": 364,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Beale cipher"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

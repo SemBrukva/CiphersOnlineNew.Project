@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T08:24:39+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "book-cipher",
+    "language": "es",
+    "default_language": "en",
+    "cipher_id": 71,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 71,
+    "data": {
+      "name": "Cifrado de libro",
+      "name_short": "Cifrado de libro",
+      "description": "Cifra y descifra un cifrado de libro en línea con un texto de referencia compartido. Elige índice de palabras, Beale, línea · palabra o índice de caracteres.",
+      "description_stort": "Cifrado por libro con texto clave compartido y cuatro esquemas.",
+      "meta_title": "Cifrado de libro online: cifrar y descifrar",
+      "meta_description": "Cifra y descifra un cifrado de libro online con un texto compartido. Índice de palabras, Beale, línea · palabra e índice de caracteres en el navegador."
+    }
+  },
+  "blocks": [
+    {
+      "id": 261,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Cómo funciona el cifrado de libro",
+        "text": "<p>Un <strong>cifrado de libro</strong> sustituye un mensaje por referencias a un texto acordado, el «libro» o clave. El código contiene números o coordenadas que señalan palabras o caracteres del texto. Para descifrarlo, ambas personas usan el mismo texto y esquema.</p><p>Elija un método:</p><ul><li><strong>Índice de palabras</strong>: posición de cada palabra, desde 1.</li><li><strong>Beale</strong>: posición de una palabra cuya inicial forma la letra.</li><li><strong>Línea · palabra</strong>: coordenadas como <code>2.5</code>.</li><li><strong>Índice de caracteres</strong>: posición de cada carácter, incluidos espacios.</li></ul><p>Al cifrar puede elegir el separador. Al descifrar, pegue el texto y los números: la herramienta reconoce referencias numéricas. Los esquemas por palabras ignoran mayúsculas y puntuación; el índice de caracteres lee cada carácter.</p>"
+      }
+    },
+    {
+      "id": 262,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Usar el cifrado de libro correctamente",
+        "text": "<p>Emisor y receptor deben acordar exactamente el mismo texto y método. Copie el texto sin cambios: otra edición, un salto de línea omitido o un carácter editado cambia las posiciones. Línea · palabra depende de los saltos; el índice de caracteres depende de todos los espacios y signos.</p><p>Índice de palabras y Línea · palabra requieren que cada palabra del mensaje aparezca en el texto. Beale necesita una palabra para cada inicial e Índice de caracteres requiere cada carácter. La herramienta indica los elementos que faltan.</p><p>El cifrado de libro es un método histórico para aprender y resolver acertijos, no cifrado moderno seguro. Si se conoce o adivina el texto, las referencias se pueden leer. Todo se procesa en el navegador.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 525,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "¿Qué puedo usar como clave?",
+        "answer": "Cualquier texto compartido: un capítulo, poema, texto de dominio público o nota propia. Ambos necesitan la misma copia y esquema. Con Línea · palabra conserve los saltos; con Índice de caracteres, todos los caracteres. No lo use para datos sensibles."
+      }
+    },
+    {
+      "id": 526,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "¿Por qué falla el cifrado?",
+        "answer": "El texto de referencia no cubre todo el mensaje. Índice de palabras y Línea · palabra requieren cada palabra; Beale, una palabra por inicial; e Índice de caracteres, todos los caracteres, incluso espacios. La herramienta muestra lo que falta."
+      }
+    },
+    {
+      "id": 527,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "¿Qué esquema debo elegir?",
+        "answer": "Use Índice de palabras si las palabras están en el texto, Beale para letras mediante iniciales, Línea · palabra para coordenadas fijas e Índice de caracteres para texto carácter por carácter."
+      }
+    },
+    {
+      "id": 528,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "¿La numeración empieza en 0 o en 1?",
+        "answer": "En 1. En Índice de palabras y Beale, 1 es la primera palabra; en Línea · palabra, 1.1 es la primera palabra de la primera línea; en Índice de caracteres, 1 es el primer carácter."
+      }
+    },
+    {
+      "id": 529,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "¿Por qué aparece un signo de interrogación?",
+        "answer": "La referencia no se puede resolver con el texto y esquema actuales. El número puede estar fuera de rango o la otra persona puede haber usado otra copia, saltos de línea o método."
+      }
+    },
+    {
+      "id": 530,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "¿Es seguro el cifrado de libro?",
+        "answer": "No. Es un cifrado manual histórico para aprendizaje y acertijos. Quien conozca o adivine el texto y el esquema puede leer el mensaje. Use cifrado moderno de extremo a extremo para información sensible."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 268,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Cifrado de libro: cifrar palabras por índice",
+        "key": "el viento lleva hojas al lago tranquilo",
+        "shift": 0,
+        "input": "hojas viento",
+        "output": "4 2",
+        "description": "Índice de palabras: HOJAS es la palabra 4 y VIENTO la 2."
+      }
+    },
+    {
+      "id": 269,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Cifrado de libro: descifrar índices",
+        "key": "el viento lleva hojas al lago tranquilo",
+        "shift": 0,
+        "input": "4 2",
+        "output": "hojas viento",
+        "description": "Las referencias 4 y 2 devuelven HOJAS y VIENTO."
+      }
+    },
+    {
+      "id": 270,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "beale"
+      },
+      "data": {
+        "title": "Cifrar letras con el esquema Beale",
+        "key": "mar azul refleja suave un sol",
+        "shift": 0,
+        "input": "MARS",
+                "output": "1 2 3 6",
+                "description": "M, A, R y S señalan palabras del texto por sus iniciales."
+      }
+    },
+    {
+      "id": 271,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "line-word"
+      },
+      "data": {
+        "title": "Cifrar con coordenadas línea · palabra",
+        "key": "zorro rojo descansa\nbuho blanco observa",
+        "shift": 0,
+        "input": "blanco zorro",
+        "output": "2.2 1.1",
+        "description": "BLANCO está en 2.2 y ZORRO en 1.1; el salto de línea forma parte del texto."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 363,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Cifrado de libro"
+      }
+    },
+    {
+      "id": 364,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Cifrado Beale"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

@@ -22,6 +22,7 @@ use App\Cipher\CaesarCipherService;
 use App\Cipher\CaseFolder;
 use App\Cipher\CipherIdentifierService;
 use App\Cipher\ColumnarTranspositionCipherService;
+use App\Cipher\BookCipherService;
 use App\Cipher\DancingMenCipherService;
 use App\Cipher\EnigmaCipherService;
 use App\Cipher\FrequencyAnalysisService;
@@ -190,7 +191,8 @@ final class ToolRegistryTest extends TestCase
                 new LetterFrequencyScorer(),
                 new TrigramFrequencyScorer(),
                 new Rot47CipherService(),
-            )
+            ),
+            new BookCipherService()
         );
     }
 }

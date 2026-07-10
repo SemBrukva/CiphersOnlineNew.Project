@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T08:24:39+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "book-cipher",
+    "language": "pt",
+    "default_language": "en",
+    "cipher_id": 71,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 71,
+    "data": {
+      "name": "Cifra de livro",
+      "name_short": "Cifra de livro",
+      "description": "Cifre e decifre uma cifra de livro online com um texto de referência partilhado. Escolha índice de palavras, Beale, linha · palavra ou índice de caracteres.",
+      "description_stort": "Cifra de livro com texto-chave partilhado e quatro esquemas.",
+      "meta_title": "Cifra de livro online: cifrar e decifrar",
+      "meta_description": "Cifre e decifre uma cifra de livro online com texto partilhado. Índice de palavras, Beale, linha · palavra e caracteres no navegador."
+    }
+  },
+  "blocks": [
+    {
+      "id": 261,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Como funciona a cifra de livro",
+        "text": "<p>Uma <strong>cifra de livro</strong> substitui uma mensagem por referências a um texto acordado, o «livro» ou chave. O código contém números ou coordenadas que apontam para palavras ou caracteres. Para decifrar, ambas as pessoas usam o mesmo texto e esquema.</p><p>Escolha um método:</p><ul><li><strong>Índice de palavras</strong>: posição de cada palavra a partir de 1.</li><li><strong>Beale</strong>: posição de uma palavra cuja inicial forma a letra.</li><li><strong>Linha · palavra</strong>: coordenadas como <code>2.5</code>.</li><li><strong>Índice de caracteres</strong>: posição de cada carácter, incluindo espaços.</li></ul><p>Ao cifrar, escolha o separador. Para decifrar, cole o texto e os números; a ferramenta reconhece referências numéricas. Os esquemas por palavras ignoram maiúsculas e pontuação, enquanto o índice de caracteres lê cada carácter.</p>"
+      }
+    },
+    {
+      "id": 262,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Usar a cifra de livro corretamente",
+        "text": "<p>Remetente e destinatário devem combinar exatamente o mesmo texto e método. Copie o texto sem alterações: outra edição, uma quebra de linha ausente ou um carácter editado altera as posições. Linha · palavra depende das quebras; o índice de caracteres depende de espaços e pontuação.</p><p>Índice de palavras e Linha · palavra exigem cada palavra da mensagem. Beale exige uma palavra por inicial e o Índice de caracteres todos os caracteres. A ferramenta mostra os elementos em falta.</p><p>A cifra de livro é um método histórico para aprender e resolver enigmas, não criptografia moderna segura. Se o texto for conhecido ou adivinhado, as referências podem ser lidas. O processamento fica no navegador.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 525,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "O que posso usar como chave?",
+        "answer": "Qualquer texto partilhado: capítulo, poema, texto de domínio público ou nota própria. Ambos precisam da mesma cópia e esquema. Preserve as quebras para Linha · palavra e todos os caracteres para o índice de caracteres."
+      }
+    },
+    {
+      "id": 526,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Porque é que a cifra falha?",
+        "answer": "O texto de referência não cobre toda a mensagem. Índice de palavras e Linha · palavra exigem cada palavra, Beale uma palavra por inicial e o Índice de caracteres todos os caracteres, incluindo espaços."
+      }
+    },
+    {
+      "id": 527,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Que esquema devo escolher?",
+        "answer": "Use Índice de palavras para palavras no texto, Beale para letras por iniciais, Linha · palavra para coordenadas fixas e Índice de caracteres para texto carácter a carácter."
+      }
+    },
+    {
+      "id": 528,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "A numeração começa em 0 ou 1?",
+        "answer": "Em 1. Em Índice de palavras e Beale, 1 é a primeira palavra; em Linha · palavra, 1.1 é a primeira palavra da primeira linha; no índice de caracteres, 1 é o primeiro carácter."
+      }
+    },
+    {
+      "id": 529,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Porque aparece um ponto de interrogação?",
+        "answer": "A referência não pode ser resolvida com o texto e esquema atuais. O número pode estar fora do intervalo ou a outra pessoa usou outra cópia, quebras de linha ou método."
+      }
+    },
+    {
+      "id": 530,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "A cifra de livro é segura?",
+        "answer": "Não. É uma cifra manual histórica para aprender e jogar, não para informação sensível. Quem conhecer ou adivinhar texto e esquema pode ler a mensagem."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 268,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Cifra de livro: cifrar palavras por índice",
+        "key": "o vento leva folhas ao lago calmo",
+        "shift": 0,
+        "input": "folhas vento",
+        "output": "4 2",
+        "description": "Índice de palavras: FOLHAS é a palavra 4 e VENTO a 2."
+      }
+    },
+    {
+      "id": 269,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Cifra de livro: decifrar índices",
+        "key": "o vento leva folhas ao lago calmo",
+        "shift": 0,
+        "input": "4 2",
+        "output": "folhas vento",
+        "description": "As referências 4 e 2 devolvem FOLHAS e VENTO."
+      }
+    },
+    {
+      "id": 270,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "beale"
+      },
+      "data": {
+        "title": "Cifrar letras com o esquema Beale",
+        "key": "mar azul rosas sopram sob sol",
+        "shift": 0,
+        "input": "MARS",
+                "output": "1 2 3 6",
+                "description": "M, A, R e S apontam para palavras do texto pelas iniciais."
+      }
+    },
+    {
+      "id": 271,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "line-word"
+      },
+      "data": {
+        "title": "Cifrar com coordenadas linha · palavra",
+        "key": "raposa vermelha descansa\ncoruja branca observa",
+        "shift": 0,
+        "input": "branca raposa",
+        "output": "2.2 1.1",
+        "description": "BRANCA está em 2.2 e RAPOSA em 1.1; a quebra de linha faz parte do texto."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 363,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Cifra de livro"
+      }
+    },
+    {
+      "id": 364,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Cifra Beale"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

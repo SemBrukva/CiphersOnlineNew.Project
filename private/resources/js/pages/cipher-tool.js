@@ -68,6 +68,7 @@ export function initCipherToolPage() {
   const lfreqSortSelect = document.getElementById('ciphers-lfreq-sort')
   const visualOutput = document.getElementById('ciphers-visual-output')
   const n2lTypeSelect = document.getElementById('ciphers-n2l-type')
+  const bookSchemeSelect = document.getElementById('ciphers-book-scheme')
   const pigpenVariantSelect = document.getElementById('ciphers-pigpen-variant')
   const jsonIndentSelect = document.getElementById('ciphers-json-indent')
   const jsonSortKeysBtn  = document.getElementById('ciphers-json-sort')
@@ -109,6 +110,7 @@ export function initCipherToolPage() {
   const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
   const isEnigmaTool           = Boolean(ui.enigmaMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
+  const isBookTool = Boolean(ui.bookMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
   const isDancingMenTool = Boolean(ui.dancingMenMode)
@@ -204,6 +206,8 @@ export function initCipherToolPage() {
     tsLabelUnixMs: ui.tsLabelUnixMs || 'Unix (milliseconds)',
     tsResultSeconds: ui.tsResultSeconds || 'Unix (seconds)',
     tsResultMs: ui.tsResultMs || 'Unix (milliseconds)',
+    bookErrUncovered: ui.bookErrUncovered || 'Not found in the reference text: :tokens',
+    bookErrNoBook: ui.bookErrNoBook || 'Paste a reference text to use as the key.',
   }
 
   const setFeedback = (message, isError = false, isInfo = false) => {
@@ -646,6 +650,11 @@ export function initCipherToolPage() {
         transformOpts.encoding = n2lTypeSelect?.value || 'positional-1'
         transformOpts.delimiter = delimiterSelect?.value || 'space'
       }
+      if (isBookTool) {
+        transformOpts.book = keyInput?.value || ''
+        transformOpts.scheme = bookSchemeSelect?.value || 'word-index'
+        transformOpts.delimiter = delimiterSelect?.value || 'space'
+      }
       if (isHashTool) {
         transformOpts.algorithm = hashAlgorithmSelect?.value || 'sha-256'
       }
@@ -709,7 +718,13 @@ export function initCipherToolPage() {
     } catch (error) {
       output.value = ''
       setOutputState(false)
-      setFeedback(error?.code === 'not-json' ? labels.notJson : labels.invalid, true)
+      if (error?.code === 'book-uncovered') {
+        setFeedback(labels.bookErrUncovered.replace(':tokens', (error.tokens || []).join(', ')), true)
+      } else if (error?.code === 'book-empty') {
+        setFeedback(labels.bookErrNoBook, false, true)
+      } else {
+        setFeedback(error?.code === 'not-json' ? labels.notJson : labels.invalid, true)
+      }
     }
   }
 
@@ -920,7 +935,16 @@ export function initCipherToolPage() {
 
   delimiterSelect?.addEventListener('change', () => {
     saveState()
-    scheduleApiRun()
+    if (isBookTool) {
+      process()
+    } else {
+      scheduleApiRun()
+    }
+  })
+
+  bookSchemeSelect?.addEventListener('change', () => {
+    saveState()
+    process()
   })
 
   hashAlgorithmSelect?.addEventListener('change', () => {
@@ -1516,6 +1540,7 @@ const SHAREABLE_FIELD_IDS = [
   'ciphers-key-length',
   'ciphers-cover',
   'ciphers-n2l-type',
+  'ciphers-book-scheme',
   'ciphers-pigpen-variant',
   'ciphers-json-indent',
   'ciphers-ts-unit',

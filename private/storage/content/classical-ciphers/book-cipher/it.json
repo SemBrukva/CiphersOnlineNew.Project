@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T08:24:39+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "book-cipher",
+    "language": "it",
+    "default_language": "en",
+    "cipher_id": 71,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 71,
+    "data": {
+      "name": "Cifrario a libro",
+      "name_short": "Cifrario a libro",
+      "description": "Cifra e decifra un cifrario a libro online con un testo di riferimento condiviso. Scegli indice delle parole, Beale, riga · parola o indice dei caratteri.",
+      "description_stort": "Cifrario a libro con testo-chiave condiviso e quattro schemi.",
+      "meta_title": "Cifrario a libro online: cifra e decifra",
+      "meta_description": "Cifra e decifra un cifrario a libro online con un testo condiviso. Indice delle parole, Beale, riga · parola e caratteri nel browser."
+    }
+  },
+  "blocks": [
+    {
+      "id": 261,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Come funziona il cifrario a libro",
+        "text": "<p>Un <strong>cifrario a libro</strong> sostituisce un messaggio con riferimenti a un testo concordato, il «libro» o la chiave. Il codice contiene numeri o coordinate che indicano parole o caratteri nel testo. Per decifrare, entrambi usano lo stesso testo e schema.</p><p>Scegli uno schema:</p><ul><li><strong>Indice delle parole</strong>: posizione di ogni parola, da 1.</li><li><strong>Beale</strong>: posizione di una parola la cui iniziale forma la lettera.</li><li><strong>Riga · parola</strong>: coordinate come <code>2.5</code>.</li><li><strong>Indice dei caratteri</strong>: posizione di ogni carattere, spazi inclusi.</li></ul><p>Durante la cifratura puoi scegliere il separatore. Per decifrare incolla testo e numeri: lo strumento riconosce i riferimenti numerici. Gli schemi a parole ignorano maiuscole e punteggiatura; l'indice dei caratteri legge ogni carattere.</p>"
+      }
+    },
+    {
+      "id": 262,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Usare correttamente il cifrario a libro",
+        "text": "<p>Mittente e destinatario devono concordare lo stesso testo e metodo. Copia il testo senza modifiche: un'edizione diversa, un a capo mancante o un carattere modificato sposta le posizioni. Riga · parola dipende dagli a capo, l'indice dei caratteri da spazi e punteggiatura.</p><p>Indice delle parole e Riga · parola richiedono ogni parola del messaggio. Beale richiede una parola per ogni iniziale e l'Indice dei caratteri ogni carattere. Lo strumento segnala gli elementi mancanti.</p><p>Il cifrario a libro è un metodo storico per imparare e risolvere enigmi, non una crittografia moderna sicura. Se il testo è noto o indovinato, i riferimenti sono leggibili. L'elaborazione avviene nel browser.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 525,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Cosa posso usare come chiave?",
+        "answer": "Qualsiasi testo condiviso: capitolo, poesia, testo di pubblico dominio o nota personale. Entrambi devono avere la stessa copia e lo stesso schema. Conserva gli a capo per Riga · parola e tutti i caratteri per l'indice dei caratteri."
+      }
+    },
+    {
+      "id": 526,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Perché la cifratura non riesce?",
+        "answer": "Il testo di riferimento non copre tutto il messaggio. Indice delle parole e Riga · parola richiedono ogni parola, Beale una parola per ogni iniziale e l'Indice dei caratteri tutti i caratteri, inclusi gli spazi."
+      }
+    },
+    {
+      "id": 527,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Quale schema devo scegliere?",
+        "answer": "Usa Indice delle parole per parole già presenti nel testo, Beale per lettere tramite iniziali, Riga · parola per coordinate fisse e Indice dei caratteri per testo carattere per carattere."
+      }
+    },
+    {
+      "id": 528,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "La numerazione parte da 0 o da 1?",
+        "answer": "Da 1. In Indice delle parole e Beale, 1 è la prima parola; in Riga · parola, 1.1 è la prima parola della prima riga; nell'indice dei caratteri, 1 è il primo carattere."
+      }
+    },
+    {
+      "id": 529,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Perché appare un punto interrogativo?",
+        "answer": "Il riferimento non può essere risolto con il testo e lo schema attuali. Il numero può essere fuori intervallo oppure l'altra persona ha usato un'altra copia, altri a capo o un altro metodo."
+      }
+    },
+    {
+      "id": 530,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Il cifrario a libro è sicuro?",
+        "answer": "No. È un cifrario manuale storico per studio ed enigmi, non per dati sensibili. Chi conosce o indovina testo e schema può leggere il messaggio."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 268,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Cifrario a libro: cifrare parole per indice",
+        "key": "il vento porta foglie al lago quieto",
+        "shift": 0,
+        "input": "foglie vento",
+        "output": "4 2",
+        "description": "Indice delle parole: FOGLIE è la parola 4 e VENTO la 2."
+      }
+    },
+    {
+      "id": 269,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Cifrario a libro: decifrare indici",
+        "key": "il vento porta foglie al lago quieto",
+        "shift": 0,
+        "input": "4 2",
+        "output": "foglie vento",
+        "description": "I riferimenti 4 e 2 restituiscono FOGLIE e VENTO."
+      }
+    },
+    {
+      "id": 270,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "beale"
+      },
+      "data": {
+        "title": "Cifrare lettere con lo schema Beale",
+        "key": "mare azzurro rose sono sotto sole",
+        "shift": 0,
+        "input": "MARS",
+                "output": "1 2 3 5",
+                "description": "M, A, R e S indicano parole del testo tramite le iniziali."
+      }
+    },
+    {
+      "id": 271,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "line-word"
+      },
+      "data": {
+        "title": "Cifrare con coordinate riga · parola",
+        "key": "volpe rossa riposa\ngufo bianco guarda",
+        "shift": 0,
+        "input": "bianco volpe",
+        "output": "2.2 1.1",
+        "description": "BIANCO è a 2.2 e VOLPE a 1.1; l'a capo fa parte del testo."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 363,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Cifrario a libro"
+      }
+    },
+    {
+      "id": 364,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Cifrario Beale"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

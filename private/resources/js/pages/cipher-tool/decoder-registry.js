@@ -11,6 +11,7 @@ import { transformPigpen, looksLikePigpen } from './decoders/pigpen.js'
 import { transformFrequency, looksLikeText } from './decoders/frequency.js'
 import { transformLetterFrequency, looksLikeLetterFreqText } from './decoders/letter-frequency.js'
 import { transformNumbersToLetters, looksLikeNumbersToLetters } from './decoders/numbers-to-letters.js'
+import { transformBook, looksLikeBook } from './decoders/book.js'
 import { transformHtml, looksLikeHtml } from './decoders/html.js'
 import { transformJson, looksLikeJson } from './decoders/json.js'
 import { transformHash, looksLikeHash } from './decoders/hash.js'
@@ -36,6 +37,7 @@ const DECODER_BY_SLUG = {
   'text-analysis/frequency-analysis': { transform: transformFrequency, looksLikeEncoded: looksLikeText },
   'text-analysis/letter-frequency': { transform: transformLetterFrequency, looksLikeEncoded: looksLikeLetterFreqText },
   'codes-and-alphabets/numbers-to-letters': { transform: transformNumbersToLetters, looksLikeEncoded: looksLikeNumbersToLetters },
+  'classical-ciphers/book-cipher': { transform: transformBook, looksLikeEncoded: looksLikeBook },
   'encoding/html-encode': { transform: transformHtml, looksLikeEncoded: looksLikeHtml },
   'encoding/json-formatter': { transform: transformJson, looksLikeEncoded: looksLikeJson },
   'hashing/sha256': { transform: transformHash, looksLikeEncoded: looksLikeHash },

@@ -1,0 +1,143 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "book cipher",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/classical-ciphers/book-cipher.csv",
+        "imported_at": "2026-07-09T19:41:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/book-cipher",
+        "url": "/en/classical-ciphers/book-cipher",
+        "content_file": "private/storage/content/classical-ciphers/book-cipher/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 6050,
+        "primary_terms": [
+            "book cipher",
+            "book cipher code",
+            "book cipher example",
+            "book cipher in cryptography"
+        ],
+        "modifiers": [
+            "code",
+            "example",
+            "cryptography"
+        ],
+        "intents": {
+            "cipher": 4
+        },
+        "content_recommendations": [
+            "Use the exact primary query “book cipher” once in the meta title and first-screen copy.",
+            "In the intro, describe the tool as a way to encode and decode messages with a shared book or reference text, using page, line, word, or character positions when supported.",
+            "Cover “book cipher code” as the practical method: explain that the code is made from coordinates that point back into the agreed source text, not from a fixed alphabet.",
+            "Add an examples block with a short plaintext-to-reference-coordinate walkthrough and a decode walkthrough, because “book cipher example” has the same source demand as the code variant.",
+            "Use a supporting content block for “book cipher in cryptography” that explains the historical/manual cipher concept without overclaiming modern cryptographic security.",
+            "Mention that sender and receiver must use the same book, edition, and indexing rules; ambiguous editions and indexing mistakes are common failure cases."
+        ],
+        "query_groups": [
+            {
+                "name": "Canonical cipher name",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "book cipher"
+                ]
+            },
+            {
+                "name": "Code method",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "book cipher code"
+                ]
+            },
+            {
+                "name": "Examples and walkthroughs",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "examples",
+                "representative_queries": [
+                    "book cipher example"
+                ]
+            },
+            {
+                "name": "Cryptography context",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "long_tail",
+                "target": "content_block",
+                "representative_queries": [
+                    "book cipher in cryptography"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "book cipher",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "book cipher code",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "book cipher example",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "book cipher in cryptography",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "notes": "Reviewed as a single-tool classical cipher cluster. The raw demand is narrow and should not be expanded into unrelated book-code, ISBN, or literary-cipher topics.",
+    "curation": {
+        "reviewed_at": "2026-07-10",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "Primary demand is the exact phrase “book cipher”; keep the title focused.",
+            "The equal secondary scores for code and example make examples important for the eventual content file.",
+            "The English content file is not present yet, but the semantic cluster is ready for content generation or sync."
+        ]
+    }
+}

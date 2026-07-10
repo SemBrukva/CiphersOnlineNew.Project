@@ -1,0 +1,219 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "книжный шифр",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/classical-ciphers/book-cipher.csv",
+        "imported_at": "2026-07-09T19:41:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/book-cipher",
+        "url": "/ru/classical-ciphers/book-cipher",
+        "content_file": "private/storage/content/classical-ciphers/book-cipher/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 35,
+        "primary_terms": [
+            "книжный шифр",
+            "шифр книги",
+            "шифр по книге",
+            "шифр Оттендорфа",
+            "шифр Отендорфа"
+        ],
+        "modifiers": [
+            "онлайн",
+            "расшифровать",
+            "из чего состоит",
+            "Оттендорф",
+            "Отендорф"
+        ],
+        "intents": {
+            "cipher": 8,
+            "decode": 1,
+            "online": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране сохранить точную связку «книжный шифр».",
+            "В intro описать основной сценарий: зашифровать или расшифровать сообщение по общей книге, тексту-источнику и согласованным правилам нумерации.",
+            "Формулировку «книжный шифр как расшифровать» покрыть в первом экране и примере декодирования, не обещая автоматическое восстановление исходной книги.",
+            "Запрос «из чего состоит шифр книги» раскрыть в объясняющем блоке: исходный текст, координаты, разделители, порядок page/line/word/letter и одинаковое издание у отправителя и получателя.",
+            "Варианты «шифр книги» и «шифр по книге» использовать как естественные синонимы в основном тексте, а не как конкурирующие title-запросы.",
+            "Отдельно упомянуть «шифр Оттендорфа» и ошибочное написание «шифр Отендорфа» как историческое/прикладное название книжного шифра.",
+            "Онлайн-сценарий вынести в intro или основной блок: инструмент работает в браузере и помогает проверить кодирование/декодирование по заданным правилам.",
+            "Добавить пример: короткая фраза превращается в координаты по выбранному тексту, затем те же координаты расшифровываются обратно."
+        ],
+        "query_groups": [
+            {
+                "name": "Основное название",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "книжный шифр"
+                ]
+            },
+            {
+                "name": "Расшифровка",
+                "intent": [
+                    "decode",
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "книжный шифр как расшифровать"
+                ]
+            },
+            {
+                "name": "Устройство шифра",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "из чего состоит шифр книги"
+                ]
+            },
+            {
+                "name": "Синонимы по книге",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "шифр книги",
+                    "шифр по книге"
+                ]
+            },
+            {
+                "name": "Шифр Оттендорфа",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "шифр оттендорфа",
+                    "шифр отендорфа"
+                ]
+            },
+            {
+                "name": "Онлайн-инструмент",
+                "intent": [
+                    "cipher",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "книжный шифр онлайн"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "книжный шифр",
+            "score": 19,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "из чего состоит шифр книги",
+            "score": 4,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "книжный шифр как расшифровать",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр оттендорфа",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "книжный шифр онлайн",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шифр книги",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр по книге",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр отендорфа",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "cipher"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент классического книжного шифра. Не расширять семантику до книжных кодов ISBN, литературных загадок или поиска шифров в книгах.",
+    "curation": {
+        "reviewed_at": "2026-07-10",
+        "reviewed_by": "semantic-core-builder",
+        "decision": "single_tool_cluster",
+        "notes": [
+            "Основной запрос — «книжный шифр», его достаточно для meta_title.",
+            "Расшифровку и онлайн-сценарий нужно покрыть в intro, потому что это пользовательские сценарии инструмента.",
+            "Оттендорф/Отендорф — поддерживающие варианты названия; корректное написание раскрывать в тексте, ошибочное держать на уровне FAQ.",
+            "Связанный ru content_file пока отсутствует, но семантическое ядро готово для генерации контента или sync."
+        ]
+    }
+}

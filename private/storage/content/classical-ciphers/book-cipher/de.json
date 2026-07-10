@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-10T08:24:39+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "book-cipher",
+    "language": "de",
+    "default_language": "en",
+    "cipher_id": 71,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 71,
+    "data": {
+      "name": "Buchchiffre",
+      "name_short": "Buchchiffre",
+      "description": "Verschlüsseln und entschlüsseln Sie eine Buchchiffre online mit einem gemeinsamen Referenztext. Wählen Sie Wortindex, Beale, Zeile · Wort oder Zeichenindex.",
+      "description_stort": "Buchchiffre mit gemeinsamem Textschlüssel und vier Adressierungsschemata.",
+      "meta_title": "Buchchiffre online – verschlüsseln und entschlüsseln",
+      "meta_description": "Buchchiffre online mit einem gemeinsamen Referenztext ver- und entschlüsseln. Wortindex, Beale, Zeile · Wort und Zeichenindex laufen im Browser."
+    }
+  },
+  "blocks": [
+    {
+      "id": 261,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "So funktioniert eine Buchchiffre",
+        "text": "<p>Eine <strong>Buchchiffre</strong> ersetzt eine Nachricht durch Verweise auf einen vereinbarten Text, das „Buch“ oder den Schlüssel. Der Code besteht aus Zahlen oder Koordinaten, die auf Wörter oder Zeichen im Referenztext zeigen. Zum Entschlüsseln verwenden beide Seiten denselben Text und dasselbe Adressierungsschema.</p><p>Es stehen vier Verfahren zur Auswahl:</p><ul><li><strong>Wortindex</strong>: die 1-basierte Position jedes Nachrichtenworts.</li><li><strong>Beale</strong>: die Position eines Worts, dessen Anfangsbuchstabe den Nachrichtenbuchstaben bildet.</li><li><strong>Zeile · Wort</strong>: Koordinaten wie <code>2.5</code> für Zeile 2, Wort 5.</li><li><strong>Zeichenindex</strong>: die 1-basierte Position jedes Zeichens, einschließlich Leerzeichen.</li></ul><p>Beim Verschlüsseln wählen Sie ein Trennzeichen. Zum Entschlüsseln fügen Sie Referenztext und Zahlen ein; Zahlen werden automatisch erkannt. Wortbasierte Verfahren ignorieren Groß-/Kleinschreibung und Satzzeichen beim Teilen in Wörter, der Zeichenindex liest jedes Zeichen.</p>"
+      }
+    },
+    {
+      "id": 262,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Eine Buchchiffre zuverlässig verwenden",
+        "text": "<p>Absender und Empfänger müssen vorab genau denselben Referenztext und dieselbe Methode vereinbaren. Kopieren Sie den Text möglichst unverändert: eine andere Ausgabe, ein fehlender Zeilenumbruch oder ein geändertes Zeichen verschiebt Positionen. Bei Zeile · Wort sind Umbrüche wichtig, beim Zeichenindex jedes Leerzeichen und Satzzeichen.</p><p>Für Wortindex und Zeile · Wort muss jedes Nachrichtenwort im Schlüsseltext vorkommen. Beale braucht für jeden Buchstaben ein Wort mit diesem Anfangsbuchstaben; der Zeichenindex benötigt jedes Zeichen. Das Tool nennt nicht abgedeckte Elemente, damit Sie Text oder Schema ändern können.</p><p>Buchchiffren sind eine historische Lern- und Rätselmethode, keine moderne sichere Verschlüsselung. Ist der Referenztext bekannt oder erraten, lassen sich die Verweise lesen. Die Verarbeitung erfolgt vollständig im Browser.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 525,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Was kann ich als Schlüssel verwenden?",
+        "answer": "Jeder gemeinsame Text eignet sich: ein Buchkapitel, Gedicht, gemeinfreier Text oder eine eigene Notiz. Beide Seiten brauchen dieselbe Kopie und dasselbe Schema. Bei Zeile · Wort müssen die Umbrüche, beim Zeichenindex alle Zeichen erhalten bleiben. Für vertrauliche Daten ist eine Buchchiffre nicht geeignet."
+      }
+    },
+    {
+      "id": 526,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Warum schlägt das Verschlüsseln fehl?",
+        "answer": "Der Referenztext enthält nicht alle Teile der Nachricht. Wortindex und Zeile · Wort benötigen jedes Wort, Beale ein Wort für jeden Anfangsbuchstaben und der Zeichenindex jedes Zeichen einschließlich Leerzeichen. Das Tool zeigt die fehlenden Elemente an."
+      }
+    },
+    {
+      "id": 527,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Welches Schema soll ich wählen?",
+        "answer": "Wählen Sie Wortindex für Wörter, die bereits im Referenztext vorkommen, Beale für Buchstaben über Wortanfänge, Zeile · Wort für feste Zeilenkoordinaten und Zeichenindex für zeichenweise Nachrichten mit allen benötigten Zeichen im Text."
+      }
+    },
+    {
+      "id": 528,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Beginnt die Zählung bei 0 oder 1?",
+        "answer": "Bei 1. Im Wortindex und bei Beale ist 1 das erste Wort; bei Zeile · Wort ist 1.1 das erste Wort der ersten Zeile. Im Zeichenindex ist 1 das erste Zeichen, auch ein Leerzeichen oder Satzzeichen."
+      }
+    },
+    {
+      "id": 529,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Warum erscheint beim Entschlüsseln ein Fragezeichen?",
+        "answer": "Die Referenz kann mit dem aktuellen Text und Schema nicht aufgelöst werden. Die Zahl kann außerhalb des Bereichs liegen oder die andere Seite verwendete eine andere Textkopie, Umbrüche oder Methode."
+      }
+    },
+    {
+      "id": 530,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Ist eine Buchchiffre sicher?",
+        "answer": "Nein. Sie ist eine historische manuelle Chiffre für Lernen und Rätsel. Wer Referenztext und Schema kennt oder errät, kann die Nachricht lesen. Nutzen Sie für sensible Kommunikation moderne Ende-zu-Ende-Verschlüsselung."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 268,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Buchchiffre: Wörter per Index verschlüsseln",
+        "key": "der wind trägt blätter zum stillen see",
+        "shift": 0,
+        "input": "blätter wind",
+        "output": "4 2",
+        "description": "Wortindex: BLÄTTER ist Wort 4 und WIND Wort 2 im gemeinsamen Referenztext."
+      }
+    },
+    {
+      "id": 269,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "word-index"
+      },
+      "data": {
+        "title": "Buchchiffre: Wortindizes entschlüsseln",
+        "key": "der wind trägt blätter zum stillen see",
+        "shift": 0,
+        "input": "4 2",
+        "output": "blätter wind",
+        "description": "Beim Entschlüsseln ergeben die Verweise 4 und 2 wieder BLÄTTER und WIND."
+      }
+    },
+    {
+      "id": 270,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "beale"
+      },
+      "data": {
+        "title": "Buchstaben mit dem Beale-Schema verschlüsseln",
+        "key": "morgen alte rosen stehen unter sonne",
+        "shift": 0,
+        "input": "MARS",
+        "output": "1 2 3 4",
+        "description": "M, A, R und S verweisen auf die Wörter 1, 2, 3 und 4 mit diesen Anfangsbuchstaben."
+      }
+    },
+    {
+      "id": 271,
+      "sort_order": 40,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "ciphers-book-scheme": "line-word"
+      },
+      "data": {
+        "title": "Mit Zeile · Wort-Koordinaten verschlüsseln",
+        "key": "blauer fuchs ruht\nweisse eule wacht",
+        "shift": 0,
+        "input": "eule fuchs",
+        "output": "2.2 1.2",
+        "description": "EULE steht bei 2.2 und FUCHS bei 1.2; der Zeilenumbruch gehört zum vereinbarten Text."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 363,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Buchchiffre"
+      }
+    },
+    {
+      "id": 364,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Beale-Chiffre"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data.",
+    "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+    "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+    "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+    "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+  ]
+}
