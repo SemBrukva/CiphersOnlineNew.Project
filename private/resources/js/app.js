@@ -4,7 +4,6 @@ import { ApiClient } from './api.js'
 import { initContactsPage } from './pages/contacts.js'
 import { initRegistrationPage } from './pages/registration.js'
 import { initLoginForms } from './pages/login.js'
-import { initCipherToolPage } from './pages/cipher-tool.js'
 import { initTextDiffPage } from './pages/text-diff.js'
 import { initFavoriteButton, initFavoritesPage, updateNavFavCount } from './pages/favorites.js'
 import { initMobileNavSearch } from './pages/mobile-nav-search.js'
@@ -18,7 +17,11 @@ initTrackingConsent()
 initRegistrationPage()
 initContactsPage()
 initLoginForms()
-initCipherToolPage()
+// Тяжёлое поддерево инструмента шифра (декодеры, hash-wasm, chart.js) грузим
+// отдельным чанком только на странице инструмента — вне её оно не нужно.
+if (document.querySelector('[data-page="cipher-tool"][data-cipher-tool]')) {
+    import('./pages/cipher-tool.js').then(m => m.initCipherToolPage())
+}
 initTextDiffPage()
 updateNavFavCount()
 initFavoriteButton()
