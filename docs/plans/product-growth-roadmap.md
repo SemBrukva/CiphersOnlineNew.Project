@@ -140,7 +140,8 @@
 
 **Классика/коды (приоритет подтверждать семантикой):**
 - ✅ Book cipher.
-- Tap code, Semaphore, Braille, NATO phonetic alphabet, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT47 как отдельный tool, ROT-N, Scytale, Nihilist, Four-square, Two-square, ADFGVX, Chaocipher.
+- ✅ Scytale cipher.
+- Tap code, Semaphore, Braille, NATO phonetic alphabet, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT47 как отдельный tool, ROT-N, Nihilist, Four-square, Two-square, ADFGVX, Chaocipher.
 
 **Кодировки/dev (высокий dev-трафик):**
 - Base32, Base58 (крипто-адреса), Base85/Ascii85, Base45, Quoted-Printable, Punycode, Gzip/Deflate, ROT13-в-Base цепочки, UUID generator, QR-код (ген/чтение), Barcode.
