@@ -1,0 +1,103 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "base58",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/encoding/base58.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base58",
+        "url": "/ru/encoding/base58",
+        "content_file": "private/storage/content/encoding/base58/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 15,
+        "primary_terms": [
+            "base58",
+            "декодировать base58 в текст",
+            "декодер base58",
+            "декодировать ascii в base58"
+        ],
+        "modifiers": [
+            "декодировать",
+            "в текст",
+            "ascii"
+        ],
+        "intents": {
+            "decode": 3,
+            "encode": 1,
+            "tool": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точный запрос «Base58».",
+            "В intro покрыть декодирование Base58 в текст и обратное кодирование текста; использовать точный термин «декодирование», а не «расшифровка».",
+            "Пояснить, что Base58 избегает визуально похожих символов, и отдельно различить Base58 и Base58Check.",
+            "Добавить пример преобразования ASCII-текста в Base58 и обратно, не обещая проверку или создание криптовалютных адресов."
+        ],
+        "query_groups": [
+            {"name":"Основной формат","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base58"]},
+            {"name":"Декодирование в текст","intent":["decode"],"priority":"long_tail","target":"intro","representative_queries":["декодировать base58 в текст","декодировать base58","декодер base58"]},
+            {"name":"Кодирование ASCII","intent":["encode"],"priority":"long_tail","target":"examples","representative_queries":["декодировать ascii в base58"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base58",
+            "score": 11,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "декодировать base58 в текст",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "декодировать ascii в base58",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "декодировать base58",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "декодер base58",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент Base58. Не расширять страницу до кошельков, приватных ключей, транзакций или сторонних криптовалютных сервисов.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Основной спрос формирует каноническое название Base58; остальные запросы — слабые сценарии декодирования.","Связанный content_file пока отсутствует, но семантическое ядро готово для создания контента или sync."]}
+}

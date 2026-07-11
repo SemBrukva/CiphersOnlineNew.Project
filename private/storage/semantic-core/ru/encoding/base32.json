@@ -1,0 +1,199 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "base32",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/encoding/base32.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base32",
+        "url": "/ru/encoding/base32",
+        "content_file": "private/storage/content/encoding/base32/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 105,
+        "primary_terms": [
+            "base32",
+            "декодер base32",
+            "base32 декодер",
+            "раскодировать base32",
+            "декодирование base32",
+            "кодировка base32"
+        ],
+        "modifiers": [
+            "декодер",
+            "декодирование",
+            "раскодировать",
+            "кодировка",
+            "в текст"
+        ],
+        "intents": {
+            "decode": 10,
+            "encode": 2,
+            "tool": 2
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точный запрос «Base32».",
+            "В intro явно покрыть декодирование: вставить Base32-строку и получить исходный текст, а также кодирование текста в Base32.",
+            "Пояснить, что Base32 — формат кодирования, а не шифр: запросы «расшифровка» и «дешифратор» вести к функции декодирования без обещаний криптоанализа.",
+            "Добавить пример преобразования туда и обратно, а в FAQ — правила padding, допустимые символы и причины ошибки декодирования.",
+            "В объясняющем блоке кратко различить RFC 4648, Base32hex и Crockford, если пользователь выбирает вариант алфавита."
+        ],
+        "query_groups": [
+            {"name":"Основной формат","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base32"]},
+            {"name":"Декодирование Base32","intent":["decode"],"priority":"secondary","target":"intro","representative_queries":["декодер base32","base32 декодер","раскодировать base32","декодирование base32"]},
+            {"name":"Кодирование и формат","intent":["encode"],"priority":"long_tail","target":"content_block","representative_queries":["кодировка base32","формат кодирования base32"]},
+            {"name":"Пограничные формулировки","intent":["decode"],"priority":"long_tail","target":"faq","representative_queries":["расшифровка base32","дешифратор base32","base32 to text"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base32",
+            "score": 74,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "декодер base32",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "base32 декодер",
+            "score": 6,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "раскодировать base32",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "декодировщик base32",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "расшифровка base32",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "декодирование base32",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "кодировка base32",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "encode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "дешифратор base32",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "формат кодирования base32",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "encode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "калькулятор base32",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "расшифровать base32",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "base32 to text",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "декодировать base32",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент конвертации Base32. Не расширять его до Base64, шифрования, взлома шифров или произвольного преобразования бинарных форматов.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Основной русскоязычный спрос — Base32 и декодирование.","Термины «расшифровка» и «дешифратор» отражают пользовательский язык, но в контенте нужно корректно говорить о декодировании.","Связанный content_file пока отсутствует, но семантическое ядро готово для создания контента или sync."]}
+}

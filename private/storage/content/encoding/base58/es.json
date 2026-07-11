@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-11T13:18:29+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base58",
+        "language": "es",
+        "default_language": "en",
+        "cipher_id": 83,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 83,
+        "data": {
+            "name": "Codificador y decodificador Base58",
+            "name_short": "Base58",
+            "description": "Codifica texto en Base58 o decodifica Base58 a texto UTF-8 en el navegador. Base58 sin procesar y Base58Check con suma de verificación se procesan localmente.",
+            "description_stort": "Codifica y decodifica Base58 y Base58Check localmente.",
+            "meta_title": "Base58: codificador y decodificador online",
+            "meta_description": "Decodifica Base58 o codifica texto en Base58 online. Base58 sin procesar y Base58Check con checksum para direcciones Bitcoin P2PKH y P2SH."
+        }
+    },
+    "blocks": [
+        {
+            "id": 277,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Cómo funciona la codificación Base58",
+                "text": "<p>Base58, también escrito <em>Base 58</em>, es una codificación de binario a texto que representa bytes como un número grande en base 58. El alfabeto Bitcoin omite <code>0</code>, <code>O</code>, <code>I</code> y <code>l</code>, caracteres fáciles de confundir. Así las cadenas se leen, copian y transcriben con mayor facilidad.</p><p>A diferencia de Base32 o Base64, Base58 no agrupa bits de tamaño fijo. Trata todos los bytes como un entero grande, lo divide entre 58 y asigna los restos al alfabeto. Los bytes cero iniciales se conservan como <code>1</code> iniciales. El texto UTF-8 se procesa localmente en el navegador.</p>"
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base58Check, P2PKH y P2SH",
+                "text": "<p>Base58Check antepone un byte de versión y añade los primeros cuatro bytes de un doble SHA-256 como suma de verificación. Al decodificar se comprueba la suma. Detecta errores accidentales, pero no cifra los datos.</p><p>Bitcoin usa Base58Check para direcciones heredadas P2PKH y P2SH. Son tipos de dirección, no alfabetos distintos. Esta opción usa siempre <code>0x00</code> y espera texto UTF-8; no genera ni valida direcciones, billeteras, transacciones o claves privadas arbitrarias.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 567,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "¿Qué es Base58Check?",
+                "answer": "Añade un byte de versión y una suma de 4 bytes de doble SHA-256 antes de codificar."
+            }
+        },
+        {
+            "id": 568,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "¿Por qué faltan caracteres en Base58?",
+                "answer": "Se omiten 0, O, I y l porque se confunden fácilmente en muchas fuentes."
+            }
+        },
+        {
+            "id": 584,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "¿Base58 es cifrado?",
+                "answer": "No. Es una codificación, no cifrado ni hash, y no protege secretos."
+            }
+        },
+        {
+            "id": 585,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "¿Diferencia entre Base58 y Base58Check?",
+                "answer": "Base58 representa bytes directamente. Base58Check añade byte de versión y suma. Usa la misma variante al codificar y decodificar."
+            }
+        },
+        {
+            "id": 586,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "¿Puedo validar aquí direcciones P2PKH o P2SH?",
+                "answer": "No. Solo procesa su formato de texto con versión <code>0x00</code>; no es un validador de direcciones."
+            }
+        },
+        {
+            "id": 587,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "¿Por qué puede fallar la decodificación?",
+                "answer": "Puede haber caracteres fuera del alfabeto o una suma de Base58Check no válida. Los espacios se ignoran."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58"
+            },
+            "data": {
+                "title": "Codificar texto en Base58",
+                "key": "",
+                "shift": 0,
+                "input": "¡Hola, mundo!",
+                "output": "2EZ3ydLU5fetr7pxwxvc",
+                "description": "Base58 sin procesar de bytes UTF-8."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58"
+            },
+            "data": {
+                "title": "Decodificar Base58",
+                "key": "",
+                "shift": 0,
+                "input": "2EZ3ydLU5fetr7pxwxvc",
+                "output": "¡Hola, mundo!",
+                "description": "La decodificación restaura el texto original."
+            }
+        },
+        {
+            "id": 312,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58check"
+            },
+            "data": {
+                "title": "Codificar texto con Base58Check",
+                "key": "",
+                "shift": 0,
+                "input": "Hola",
+                "output": "1D7iLJyuPUFW",
+                "description": "Base58Check añade byte 0x00 y una suma de 4 bytes."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58check"
+            },
+            "data": {
+                "title": "Decodificar Base58Check",
+                "key": "",
+                "shift": 0,
+                "input": "1D7iLJyuPUFW",
+                "output": "Hola",
+                "description": "La suma se comprueba antes de devolver el texto UTF-8."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 388,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Direcciones de criptomonedas"
+            }
+        },
+        {
+            "id": 389,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Base58Check"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

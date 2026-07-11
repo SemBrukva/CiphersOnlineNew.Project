@@ -1,0 +1,220 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-11T13:38:06+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base85",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 84,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 84,
+        "data": {
+            "name": "Base85 / Ascii85 Encoder & Decoder",
+            "name_short": "Base85",
+            "description": "Encode and decode Base85 in your browser with Adobe Ascii85 and ZeroMQ Z85. Convert UTF-8 text locally, inspect Ascii85 data from PDF or PostScript, and choose the variant required by your format.",
+            "description_stort": "Encode and decode Base85 locally with Adobe Ascii85 and ZeroMQ Z85.",
+            "meta_title": "Base85 / Ascii85 Encoder & Decoder | Ciphers Online",
+            "meta_description": "Base85 and Ascii85 encoder/decoder online. Convert text locally with Adobe Ascii85 or ZeroMQ Z85 for PDF, PostScript, Git patches, and ZeroMQ data."
+        }
+    },
+    "blocks": [
+        {
+            "id": 278,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Base85 works",
+                "text": "<p>Base85 is a binary-to-text encoding: it represents bytes with printable characters, rather than encrypting them. This Base85 encoder and decoder converts UTF-8 text in your browser, so the text you enter stays on your device.</p><p>Each complete group of 4 bytes becomes 5 Base85 characters. That makes Base85 more compact than Base64 for the same binary data: Base64 turns 3 bytes into 4 characters, while Base85 turns 4 bytes into 5. Internally, each 4-byte group is treated as a 32-bit number and written in base 85.</p><p>Select the variant that matches the data source. Adobe Ascii85 is common in PostScript and PDF. This tool encloses newly encoded Ascii85 in <code>&lt;~</code> and <code>~&gt;</code>, accepts framed or unframed Ascii85 when decoding, and recognizes <code>z</code> as four zero bytes. ZeroMQ Z85 has its own 85-character alphabet, with no Ascii85 framing or <code>z</code> shortcut; its input must be a multiple of 4 bytes when encoding and a multiple of 5 characters when decoding.</p>"
+            }
+        },
+        {
+            "id": 285,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Choosing Ascii85 or Z85",
+                "text": "<p>Ascii85 and Z85 are related Base85 variants, but their alphabets are not interchangeable. Choose Adobe Ascii85 when the source contains <code>&lt;~ ~&gt;</code>, comes from a PDF or PostScript workflow, or documents the Ascii85 format. Choose Z85 only when the protocol, library, or data producer explicitly specifies ZeroMQ Z85.</p><p>If decoding fails, first verify the selected variant and preserve the original characters. Ascii85 permits whitespace and may include its delimiters; Z85 output must contain full 5-character groups. A value encoded with one variant cannot be reliably decoded with the other.</p>"
+            }
+        },
+        {
+            "id": 286,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Base85 is encoding, not encryption",
+                "text": "<p>Base85 makes binary data easier to store or transfer through text-oriented systems, but it does not conceal the content. Anyone with the matching variant can decode it without a password or secret key. Use encryption separately when confidentiality or access control is required.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 569,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Where is Base85 used?",
+                "answer": "Adobe Ascii85 appears in PostScript and PDF files, and a Base85 variant is used by Git for binary patches. ZeroMQ uses Z85 to encode keys and frames in a shell-safe way."
+            }
+        },
+        {
+            "id": 570,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "What is the difference between Ascii85 and Z85?",
+                "answer": "They use different 85-character alphabets. Ascii85 supports partial groups, <~ ~> framing and the z shortcut; Z85 has a fixed alphabet chosen to be safe in source code and requires the byte length to be a multiple of four."
+            }
+        },
+        {
+            "id": 588,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do I decode an Ascii85 string?",
+                "answer": "Select Adobe Ascii85, paste the encoded value, and use Decode. The decoder accepts the usual <~ ~> delimiters when present, and it also accepts unframed Ascii85. Keep the z character intact: in Ascii85 it represents four zero bytes."
+            }
+        },
+        {
+            "id": 589,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Which Base85 variant should I select?",
+                "answer": "Use Adobe Ascii85 for data marked <~ ~>, or for PDF and PostScript content. Use ZeroMQ Z85 only when the producer specifies Z85. Their alphabets differ, so a string from one variant should not be decoded as the other."
+            }
+        },
+        {
+            "id": 590,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why does Z85 reject my input?",
+                "answer": "Z85 encodes exactly 4 input bytes into 5 characters. For encoding, the UTF-8 byte length of the text must be divisible by 4; for decoding, the encoded value must contain a whole number of 5-character groups and only Z85 alphabet characters."
+            }
+        },
+        {
+            "id": 591,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is Base85 secure or encrypted?",
+                "answer": "No. Base85 is reversible binary-to-text encoding, not encryption. It uses no password or secret key, so it should not be used to protect sensitive information."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 302,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "ascii85"
+            },
+            "data": {
+                "title": "Encode text to Ascii85",
+                "key": "",
+                "shift": 0,
+                "input": "Hello, World!",
+                "output": "<~87cURD_*#4DfTZ)+T~>",
+                "description": "Adobe Ascii85 with <~ ~> delimiters."
+            }
+        },
+        {
+            "id": 303,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "ascii85"
+            },
+            "data": {
+                "title": "Decode Ascii85",
+                "key": "",
+                "shift": 0,
+                "input": "<~87cURD_*#4DfTZ)+T~>",
+                "output": "Hello, World!",
+                "description": "Decoding restores the original text."
+            }
+        },
+        {
+            "id": 314,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "z85"
+            },
+            "data": {
+                "title": "Base85 encode with ZeroMQ Z85",
+                "key": "",
+                "shift": 0,
+                "input": "test",
+                "output": "By/Jn",
+                "description": "Z85 converts these 4 UTF-8 bytes into one 5-character group. Choose Z85, not Ascii85, for this result."
+            }
+        },
+        {
+            "id": 315,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "z85"
+            },
+            "data": {
+                "title": "Decode a Z85 value",
+                "key": "",
+                "shift": 0,
+                "input": "By/Jn",
+                "output": "test",
+                "description": "Decode the complete 5-character Z85 group to restore the original 4-byte UTF-8 text."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 390,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Ascii85"
+            }
+        },
+        {
+            "id": 391,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Z85"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

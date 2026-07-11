@@ -1,0 +1,211 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-11T13:18:29+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base58",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 83,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 83,
+        "data": {
+            "name": "Base58 Kodlayıcı ve Kod Çözücü",
+            "name_short": "Base58",
+            "description": "Tarayıcıda metni Base58’e kodlayın veya Base58’i UTF-8 metne çözün. Ham Base58 ve sağlama toplamlı Base58Check yerel olarak işlenir.",
+            "description_stort": "Base58 ve Base58Check’i yerel olarak kodlayın ve çözün.",
+            "meta_title": "Base58: çevrimiçi kodlayıcı ve kod çözücü",
+            "meta_description": "Base58’i çözün veya metni çevrimiçi Base58’e kodlayın. Bitcoin P2PKH ve P2SH adres biçimleri için ham Base58 ve Base58Check."
+        }
+    },
+    "blocks": [
+        {
+            "id": 277,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Base58 kodlama nasıl çalışır",
+                "text": "<p>Base58 veya <em>Base 58</em>, baytları 58 tabanında büyük bir sayı olarak gösteren ikiliden metne kodlamadır. Bitcoin alfabesi kolayca karışan <code>0</code>, <code>O</code>, <code>I</code> ve <code>l</code> karakterlerini içermez. Bu nedenle dizeleri okumak, kopyalamak ve elle yazmak daha kolaydır.</p><p>Base32 veya Base64’ten farklı olarak Base58, bitleri sabit gruplara ayırmaz. Tüm bayt dizisi büyük bir tamsayı olarak ele alınır, 58’e bölünür ve kalanlar alfabetteki karakterlere eşlenir. Baştaki sıfır baytlar baştaki <code>1</code> karakterleri olarak korunur. UTF-8 metin tarayıcıda yerel olarak işlenir.</p>"
+            }
+        },
+        {
+            "id": 284,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base58Check, P2PKH ve P2SH",
+                "text": "<p>Base58Check, sürüm baytı ekler ve Base58 kodlamasından önce çift SHA-256’nın ilk dört baytını sağlama toplamı olarak ekler. Kod çözmede sağlama toplamı denetlenir. Yazım hatalarını saptar, ancak veriyi şifrelemez.</p><p>Bitcoin, eski P2PKH ve P2SH adreslerinde Base58Check kullanır. Bunlar adres türleridir, farklı alfabeler değildir. Bu seçenek her zaman <code>0x00</code> kullanır ve UTF-8 metin bekler; rastgele adresleri, cüzdanları, işlemleri veya özel anahtarları üretmez ya da doğrulamaz.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 567,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Base58Check nedir?",
+                "answer": "Kodlamadan önce sürüm baytı ve çift SHA-256’dan 4 baytlık sağlama toplamı ekler."
+            }
+        },
+        {
+            "id": 568,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Base58 neden bazı karakterleri atlar?",
+                "answer": "0, O, I ve l birçok yazı tipinde kolayca karıştığı için atlanır."
+            }
+        },
+        {
+            "id": 584,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Base58 şifreleme midir?",
+                "answer": "Hayır. Kodlamadır; şifreleme veya özetleme değildir ve sırları korumaz."
+            }
+        },
+        {
+            "id": 585,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Base58 ve Base58Check farkı nedir?",
+                "answer": "Base58 baytları doğrudan gösterir; Base58Check sürüm baytı ve sağlama toplamı ekler. İki yönde aynı varyantı kullanın."
+            }
+        },
+        {
+            "id": 586,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Burada P2PKH veya P2SH adresleri doğrulanabilir mi?",
+                "answer": "Hayır. Araç yalnızca <code>0x00</code> sürümlü kendi metin biçimini işler; adres doğrulayıcı değildir."
+            }
+        },
+        {
+            "id": 587,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Kod çözme neden başarısız olabilir?",
+                "answer": "Dize alfabe dışı karakter içerebilir veya Base58Check sağlama toplamı geçersiz olabilir. Boşluklar yok sayılır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 300,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58"
+            },
+            "data": {
+                "title": "Metni Base58’e kodla",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba, dünya!",
+                "output": "AZKVkEfsQaFcsqDMTsBGvL",
+                "description": "UTF-8 baytlarının ham Base58’i."
+            }
+        },
+        {
+            "id": 301,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58"
+            },
+            "data": {
+                "title": "Base58’i çöz",
+                "key": "",
+                "shift": 0,
+                "input": "AZKVkEfsQaFcsqDMTsBGvL",
+                "output": "Merhaba, dünya!",
+                "description": "Kod çözme özgün metni geri yükler."
+            }
+        },
+        {
+            "id": 312,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58check"
+            },
+            "data": {
+                "title": "Metni Base58Check ile kodla",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba",
+                "output": "1LCA1r9dgvVVBB2j",
+                "description": "Base58Check, 0x00 baytı ve 4 baytlık sağlama toplamı ekler."
+            }
+        },
+        {
+            "id": 313,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base58check"
+            },
+            "data": {
+                "title": "Base58Check’i çöz",
+                "key": "",
+                "shift": 0,
+                "input": "1LCA1r9dgvVVBB2j",
+                "output": "Merhaba",
+                "description": "UTF-8 metin döndürülmeden önce sağlama toplamı denetlenir."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 388,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Kripto para adresleri"
+            }
+        },
+        {
+            "id": 389,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Base58Check"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

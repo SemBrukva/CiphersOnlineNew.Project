@@ -1,0 +1,215 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T22:52:52+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base32",
+        "language": "fr",
+        "default_language": "en",
+        "cipher_id": 82,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 82,
+        "data": {
+            "name": "Encodeur et décodeur Base32",
+            "name_short": "Base32",
+            "description": "Encodez du texte en Base32 ou décodez une chaîne Base32 en UTF-8 dans votre navigateur. RFC 4648, base32hex et Crockford sont pris en charge; les données restent locales.",
+            "description_stort": "Encodez et décodez des chaînes Base32 avec RFC 4648, base32hex et Crockford.",
+            "meta_title": "Encodeur et décodeur Base32 en ligne | Ciphers Online",
+            "meta_description": "Encodez et décodez Base32 en ligne. Convertissez du texte UTF-8 et des chaînes Base32 avec RFC 4648, base32hex ou Crockford dans votre navigateur."
+        }
+    },
+    "blocks": [
+        {
+            "id": 280,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Fonctionnement de l’encodage Base32",
+                "text": "<p>Base32 est un encodage binaire-vers-texte utilisant 32 caractères ASCII. Le texte UTF-8 est lu comme des octets; les bits sont regroupés par cinq et remplacés par un caractère. Cinq octets produisent huit caractères; les variantes RFC 4648 complètent le dernier groupe avec <code>=</code>.</p><p>Pour encoder, saisissez le texte et choisissez la variante. Pour décoder une chaîne Base32, collez-la et choisissez la même variante. Le décodeur accepte les majuscules et minuscules et ignore espaces, tirets et remplissage. Base32 convient aux secrets TOTP/2FA, étiquettes DNS, noms de fichier et identifiants; ce n’est pas du chiffrement.</p>"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Alphabet et variantes Base32",
+                "text": "<p>Utilisez la même variante pour encoder et décoder.</p><ul><li><strong>RFC 4648 :</strong> <code>A–Z</code> et <code>2–7</code>, avec <code>=</code>.</li><li><strong>base32hex :</strong> <code>0–9</code> et <code>A–V</code>, avec <code>=</code>.</li><li><strong>Crockford :</strong> <code>0–9</code>, sans <code>I</code>, <code>L</code>, <code>O</code>, <code>U</code>, sans remplissage; <code>O</code> est lu comme <code>0</code> et <code>I</code>/<code>L</code> comme <code>1</code>.</li></ul><p>Les résultats diffèrent selon la variante; vérifiez l’alphabet et le remplissage en cas d’erreur.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 573,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Base32 est-il un chiffrement ?",
+                "answer": "Non. C’est un encodage réversible sans clé."
+            }
+        },
+        {
+            "id": 574,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Quelle différence entre Base32 et Base64 ?",
+                "answer": "Base32 utilise 32 caractères et produit un texte plus long, mais facile à lire."
+            }
+        },
+        {
+            "id": 575,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Pourquoi une chaîne se termine-t-elle par = ?",
+                "answer": "En RFC 4648 et base32hex, = complète le dernier groupe. Crockford n’en utilise pas."
+            }
+        },
+        {
+            "id": 576,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Quelle variante choisir ?",
+                "answer": "Choisissez RFC 4648, sauf si la source indique base32hex ou Crockford."
+            }
+        },
+        {
+            "id": 577,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Puis-je décoder avec espaces, tirets ou minuscules ?",
+                "answer": "Oui. Ils sont acceptés ou ignorés par le décodeur."
+            }
+        },
+        {
+            "id": 578,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Pourquoi le décodage échoue-t-il ?",
+                "answer": "Vérifiez la variante, les caractères et que la chaîne est complète."
+            }
+        },
+        {
+            "id": 579,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Le texte est-il envoyé au serveur ?",
+                "answer": "Non. La conversion se fait localement dans le navigateur."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 306,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Encoder du texte en Base32",
+                "key": "",
+                "shift": 0,
+                "input": "Bonjour, monde !",
+                "output": "IJXW42TPOVZCYIDNN5XGIZJAEE======",
+                "description": "Base32 RFC 4648 avec remplissage."
+            }
+        },
+        {
+            "id": 307,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Décoder Base32",
+                "key": "",
+                "shift": 0,
+                "input": "IJXW42TPOVZCYIDNN5XGIZJAEE======",
+                "output": "Bonjour, monde !",
+                "description": "Retrouve le texte UTF-8 d’origine."
+            }
+        },
+        {
+            "id": 308,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base32hex"
+            },
+            "data": {
+                "title": "Encoder avec base32hex",
+                "key": "",
+                "shift": 0,
+                "input": "Bonjour",
+                "output": "89NMSQJFELP0====",
+                "description": "base32hex utilise l’alphabet hexadécimal étendu RFC 4648."
+            }
+        },
+        {
+            "id": 309,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "crockford"
+            },
+            "data": {
+                "title": "Encoder avec Crockford Base32",
+                "key": "",
+                "shift": 0,
+                "input": "Bonjour",
+                "output": "89QPWTKFENS0",
+                "description": "Crockford est conçu pour la saisie humaine et n’utilise pas de remplissage."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 394,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Encodage"
+            }
+        },
+        {
+            "id": 395,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "RFC 4648"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений."
+    ]
+}

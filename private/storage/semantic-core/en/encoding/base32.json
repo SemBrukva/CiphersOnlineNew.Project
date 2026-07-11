@@ -1,0 +1,121 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "base32",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/encoding/base32.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base32",
+        "url": "/en/encoding/base32",
+        "content_file": "private/storage/content/encoding/base32/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 15650,
+        "primary_terms": [
+            "base32",
+            "base 32 decoder",
+            "base 32 encode",
+            "base32 to text",
+            "base 32 table"
+        ],
+        "modifiers": ["decoder", "encode", "to text", "table", "online"],
+        "intents": {
+            "tool": 4,
+            "encode": 2,
+            "decode": 1
+        },
+        "content_recommendations": [
+            "Use \"Base32\" in the meta title and first-screen copy.",
+            "Cover both equal-demand actions in the intro: encode plain text to Base32 and decode a Base32 string back to text.",
+            "Add a compact alphabet or table block and distinguish RFC 4648, Base32hex, and Crockford variants when their alphabets or padding differ.",
+            "Include a short encode/decode round-trip example and explain padding and invalid-character errors in the FAQ."
+        ],
+        "query_groups": [
+            {"name":"Canonical format","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base32"]},
+            {"name":"Decoding to text","intent":["decode"],"priority":"secondary","target":"intro","representative_queries":["base 32 decoder","base32 to text"]},
+            {"name":"Encoding workflow","intent":["encode"],"priority":"secondary","target":"intro","representative_queries":["base 32 encode","base32 encode online"]},
+            {"name":"Alphabet and string format","intent":["tool"],"priority":"long_tail","target":"content_block","representative_queries":["base 32 table","base32 string"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base32",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "base 32 decoder",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "base 32 encode",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "base32 to text",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "base 32 table",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "base32 encode online",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "encode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "base32 string",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Reviewed as a single Base32 conversion tool. Do not broaden the page into Base64, encryption, or arbitrary binary-format conversion.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Encode and decoder queries have equal source demand and both belong above the fold.","The linked content file is not present yet, so this reviewed core cannot be mapped until content is created."]}
+}

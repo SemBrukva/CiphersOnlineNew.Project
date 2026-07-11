@@ -1,0 +1,224 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T23:06:18+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base45",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 85,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 85,
+        "data": {
+            "name": "Base45 Encoder & Decoder",
+            "name_short": "Base45",
+            "description": "Decode Base45 online or encode UTF-8 text with the RFC 9285 Base45 encoder. This QR-code-oriented binary-to-text encoding runs locally in your browser and is not encryption.",
+            "description_stort": "Decode or encode RFC 9285 Base45 online for QR-code payloads.",
+            "meta_title": "Base45 Decoder & Encoder Online (RFC 9285) | Ciphers Online",
+            "meta_description": "Decode Base45 online or encode UTF-8 text with this RFC 9285 Base45 encoder. Convert QR-code-oriented Base45 data locally in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 279,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Base45 encoding works",
+                "text": "<p>Base45 is an RFC 9285 binary-to-text encoding. This online Base45 encoder reads the text you enter as UTF-8 bytes, combines each pair of bytes into a number, and represents that number with three characters from a 45-symbol alphabet: <code>0–9</code>, <code>A–Z</code>, space, and <code>$%*+-./:</code>. A final unpaired byte is written with two characters.</p><p>The result is text, not encrypted data. Anyone with a Base45 decoder can recover the original bytes, so do not use Base45 to protect passwords, personal data, or secrets.</p>"
+            }
+        },
+        {
+            "id": 282,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Decode Base45 online",
+                "text": "<p>To decode Base45, paste the complete value, select decoding, and run the tool. The input must use only the RFC 9285 alphabet, including uppercase letters and any meaningful spaces. Base45 is case-sensitive: lowercase letters are not valid replacements for uppercase ones.</p><p>For encoding, enter ordinary text and select encoding. The generated value can be decoded by this tool to check the round trip. Conversion happens locally in your browser; the text and Base45 value are not sent to a server for processing.</p><p>If decoding fails, check that the value was not copied with characters changed or removed. A Base45 value cannot have a length that leaves one character after grouping it in threes, and some otherwise valid-looking groups can represent numbers outside the permitted byte range.</p>"
+            }
+        },
+        {
+            "id": 283,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Why Base45 is used in QR codes",
+                "text": "<p>Base45 was designed to work efficiently with the alphanumeric mode of QR codes. Its alphabet fits that mode, letting a QR code carry the encoded payload more densely than a Base64 string encoded as QR alphanumeric data. The trade-off is that Base45 text is longer than the original byte sequence.</p><p>A well-known use is the EU Digital COVID Certificate format: its compressed signed payload is Base45-encoded before it is placed in a QR code. Base45 is only one outer layer of that format; decoding it does not by itself verify a certificate, reveal a human-readable certificate, or validate its signature.</p><p>Use Base45 when a specification explicitly calls for RFC 9285 or when preparing a compatible QR-oriented payload. For general web and email data, Base64 is often the more common format.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 571,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why does Base45 exist when Base64 already does?",
+                "answer": "Base45 maps onto the QR code alphanumeric character set, so its output fits QR codes more efficiently than Base64. It is a trade-off: larger strings, but denser QR codes."
+            }
+        },
+        {
+            "id": 572,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Is Base45 the same as the COVID certificate?",
+                "answer": "No. Base45 is only the outer text encoding of the QR payload. The certificate itself is a CBOR/COSE structure that is compressed and then Base45-encoded for the QR code."
+            }
+        },
+        {
+            "id": 580,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Is Base45 encryption or a secure way to hide text?",
+                "answer": "No. Base45 is reversible encoding with no key, password, or secrecy. It only changes how bytes are written as text; anyone can decode the result."
+            }
+        },
+        {
+            "id": 581,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Which characters are valid in a Base45 string?",
+                "answer": "RFC 9285 Base45 uses 45 characters: digits 0–9, uppercase A–Z, a space, and $ % * + - . / :. Lowercase letters, underscores, and characters outside this set are invalid. Spaces can be data, so do not remove them unless you know they were added only for display."
+            }
+        },
+        {
+            "id": 582,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why will my Base45 value not decode?",
+                "answer": "The value may contain an invalid character, have an incomplete length, or include a group that cannot represent one or two bytes under RFC 9285. Paste the complete uppercase value exactly as supplied and preserve meaningful spaces."
+            }
+        },
+        {
+            "id": 583,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does this online Base45 decoder send my data anywhere?",
+                "answer": "No. Encoding and decoding run locally in your browser. The values you enter are not sent to the server for conversion."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 304,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Encode text to Base45",
+                "key": "",
+                "shift": 0,
+                "input": "Hello!!",
+                "output": "%69 VD92EX0",
+                "description": "Base45 per RFC 9285; note the space is part of the alphabet."
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Decode Base45",
+                "key": "",
+                "shift": 0,
+                "input": "%69 VD92EX0",
+                "output": "Hello!!",
+                "description": "Decoding restores the original text."
+            }
+        },
+        {
+            "id": 310,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Encode a short Base45 value",
+                "key": "",
+                "shift": 0,
+                "input": "AB",
+                "output": "BB8",
+                "description": "The two UTF-8 bytes for AB become one three-character Base45 group. This is an RFC 9285 test vector."
+            }
+        },
+        {
+            "id": 311,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "data": {
+                "title": "Decode another RFC 9285 example",
+                "key": "",
+                "shift": 0,
+                "input": "UJCLQE7W581",
+                "output": "base-45",
+                "description": "Decoding this Base45 string restores the original lowercase text. The encoded form itself uses only the RFC 9285 Base45 alphabet."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 392,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "RFC 9285"
+            }
+        },
+        {
+            "id": 393,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "QR codes"
+            }
+        },
+        {
+            "id": 396,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Base45 decoder"
+            }
+        },
+        {
+            "id": 397,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "QR code encoding"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

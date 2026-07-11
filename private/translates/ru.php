@@ -570,6 +570,28 @@ return [
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Кодирование бинарных данных в текст',
     'BASE64_TRUST_USES'                => 'Широко применяется в API, email и веб',
+    // Base32
+    'BASE32_TRUST_PURPOSE'            => 'Регистронезависимая кодировка байтов в текст',
+    'BASE32_TRUST_USES'               => 'Секреты TOTP/2FA, DNS и имена файлов',
+    'BASE32_SETTING_VARIANT_LABEL'    => 'Вариант',
+    'BASE32_VARIANT_RFC4648'          => 'RFC 4648 (стандарт)',
+    'BASE32_VARIANT_HEX'              => 'base32hex (расширенный hex)',
+    'BASE32_VARIANT_CROCKFORD'        => 'Crockford',
+    // Base58
+    'BASE58_TRUST_PURPOSE'            => 'Кодировка через большое целое число',
+    'BASE58_TRUST_USES'               => 'Адреса Bitcoin и других криптовалют',
+    'BASE58_SETTING_VARIANT_LABEL'    => 'Вариант',
+    'BASE58_VARIANT_RAW'              => 'Base58 (чистый)',
+    'BASE58_VARIANT_CHECK'            => 'Base58Check (контрольная сумма)',
+    // Base85
+    'BASE85_TRUST_PURPOSE'            => 'Компактная кодировка байтов в текст',
+    'BASE85_TRUST_USES'               => 'PDF, PostScript и бинарные диффы Git',
+    'BASE85_SETTING_VARIANT_LABEL'    => 'Вариант',
+    'BASE85_VARIANT_ASCII85'          => 'Adobe Ascii85',
+    'BASE85_VARIANT_Z85'              => 'ZeroMQ Z85',
+    // Base45
+    'BASE45_TRUST_PURPOSE'            => 'Кодировка байтов в текст под QR-коды',
+    'BASE45_TRUST_USES'               => 'Цифровые COVID-сертификаты ЕС',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Шестнадцатеричное представление байтов',
     'HEX_TRUST_DEBUG'                  => 'Удобно для отладки и анализа данных',

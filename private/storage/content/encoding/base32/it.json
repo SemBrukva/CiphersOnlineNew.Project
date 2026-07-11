@@ -1,0 +1,215 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T22:52:52+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base32",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 82,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 82,
+        "data": {
+            "name": "Codificatore e decodificatore Base32",
+            "name_short": "Base32",
+            "description": "Codifica testo in Base32 o decodifica una stringa Base32 in UTF-8 nel browser. Supporta RFC 4648, base32hex e Crockford; i dati restano locali.",
+            "description_stort": "Codifica e decodifica stringhe Base32 con RFC 4648, base32hex e Crockford.",
+            "meta_title": "Codificatore e decodificatore Base32 online | Ciphers Online",
+            "meta_description": "Codifica e decodifica Base32 online. Converti testo UTF-8 e stringhe Base32 con RFC 4648, base32hex o Crockford nel browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 280,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Come funziona la codifica Base32",
+                "text": "<p>Base32 è una codifica da binario a testo con 32 caratteri ASCII. Il testo UTF-8 viene letto come byte, i bit sono raggruppati in gruppi di cinque e convertiti in caratteri. Cinque byte diventano otto caratteri; RFC 4648 usa <code>=</code> per l’ultimo gruppo incompleto.</p><p>Per codificare inserisci il testo e scegli la variante. Per decodificare Base32 incolla la stringa e scegli la stessa variante. Il decoder accetta maiuscole e minuscole e ignora spazi, trattini e padding. Base32 è utile per segreti TOTP/2FA, etichette DNS, nomi di file e identificatori; non è crittografia.</p>"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Alfabeto e varianti Base32",
+                "text": "<p>Usa la stessa variante per codificare e decodificare.</p><ul><li><strong>RFC 4648:</strong> <code>A–Z</code> e <code>2–7</code>, con <code>=</code>.</li><li><strong>base32hex:</strong> <code>0–9</code> e <code>A–V</code>, con <code>=</code>.</li><li><strong>Crockford:</strong> <code>0–9</code>, senza <code>I</code>, <code>L</code>, <code>O</code>, <code>U</code>, senza padding; <code>O</code> vale <code>0</code> e <code>I</code>/<code>L</code> valgono <code>1</code>.</li></ul><p>Le varianti producono stringhe diverse; verifica alfabeto e padding in caso di errore.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 573,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Base32 è crittografia?",
+                "answer": "No. È una codifica reversibile senza chiave."
+            }
+        },
+        {
+            "id": 574,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Differenza tra Base32 e Base64?",
+                "answer": "Base32 usa 32 caratteri e produce testo più lungo ma facile da leggere."
+            }
+        },
+        {
+            "id": 575,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Perché una stringa termina con =?",
+                "answer": "In RFC 4648 e base32hex, = completa l’ultimo gruppo. Crockford non usa padding."
+            }
+        },
+        {
+            "id": 576,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Quale variante scegliere?",
+                "answer": "Scegli RFC 4648 se la fonte non indica base32hex o Crockford."
+            }
+        },
+        {
+            "id": 577,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Posso decodificare con spazi, trattini o minuscole?",
+                "answer": "Sì. Il decoder li accetta o li ignora."
+            }
+        },
+        {
+            "id": 578,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Perché la stringa non si decodifica?",
+                "answer": "Controlla variante, caratteri e completezza della stringa."
+            }
+        },
+        {
+            "id": 579,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Il testo viene inviato a un server?",
+                "answer": "No. La conversione avviene localmente nel browser."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 306,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Codificare testo in Base32",
+                "key": "",
+                "shift": 0,
+                "input": "Ciao, mondo!",
+                "output": "INUWC3ZMEBWW63TEN4QQ====",
+                "description": "Base32 RFC 4648 con padding."
+            }
+        },
+        {
+            "id": 307,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Decodificare Base32",
+                "key": "",
+                "shift": 0,
+                "input": "INUWC3ZMEBWW63TEN4QQ====",
+                "output": "Ciao, mondo!",
+                "description": "Ripristina il testo UTF-8 originale."
+            }
+        },
+        {
+            "id": 308,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base32hex"
+            },
+            "data": {
+                "title": "Codificare con base32hex",
+                "key": "",
+                "shift": 0,
+                "input": "Ciao",
+                "output": "8DKM2RO=",
+                "description": "base32hex usa l’alfabeto esadecimale esteso RFC 4648."
+            }
+        },
+        {
+            "id": 309,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "crockford"
+            },
+            "data": {
+                "title": "Codificare con Crockford Base32",
+                "key": "",
+                "shift": 0,
+                "input": "Ciao",
+                "output": "8DMP2VR",
+                "description": "Crockford è pensato per la digitazione umana e non usa padding."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 394,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Codifica"
+            }
+        },
+        {
+            "id": 395,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "RFC 4648"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений."
+    ]
+}

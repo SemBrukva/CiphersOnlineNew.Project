@@ -570,6 +570,28 @@ return [
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binary-to-text encoding',
     'BASE64_TRUST_USES'                => 'Widely used in APIs, emails and web',
+    // Base32
+    'BASE32_TRUST_PURPOSE'            => 'Case-insensitive binary-to-text encoding',
+    'BASE32_TRUST_USES'               => 'Used for TOTP/2FA secrets, DNS and file names',
+    'BASE32_SETTING_VARIANT_LABEL'    => 'Variant',
+    'BASE32_VARIANT_RFC4648'          => 'RFC 4648 (standard)',
+    'BASE32_VARIANT_HEX'              => 'base32hex (extended hex)',
+    'BASE32_VARIANT_CROCKFORD'        => 'Crockford',
+    // Base58
+    'BASE58_TRUST_PURPOSE'            => 'Big-integer binary-to-text encoding',
+    'BASE58_TRUST_USES'               => 'Used by Bitcoin and other crypto addresses',
+    'BASE58_SETTING_VARIANT_LABEL'    => 'Variant',
+    'BASE58_VARIANT_RAW'              => 'Base58 (raw)',
+    'BASE58_VARIANT_CHECK'            => 'Base58Check (checksum)',
+    // Base85
+    'BASE85_TRUST_PURPOSE'            => 'Compact binary-to-text encoding',
+    'BASE85_TRUST_USES'               => 'Used in PDF, PostScript and Git binary diffs',
+    'BASE85_SETTING_VARIANT_LABEL'    => 'Variant',
+    'BASE85_VARIANT_ASCII85'          => 'Adobe Ascii85',
+    'BASE85_VARIANT_Z85'              => 'ZeroMQ Z85',
+    // Base45
+    'BASE45_TRUST_PURPOSE'            => 'QR-optimised binary-to-text encoding',
+    'BASE45_TRUST_USES'               => 'Used by EU Digital COVID Certificates',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Hexadecimal byte representation',
     'HEX_TRUST_DEBUG'                  => 'Useful for debugging and data analysis',

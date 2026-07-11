@@ -29,20 +29,32 @@
                                                 <span class="dropdown-submenu__label">{$cat.label}</span>
                                                 <i class="bi bi-chevron-right dropdown-submenu__chevron"></i>
                                             </a>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu{if $cat.children|@count >= 10} dropdown-menu--wide{/if}">
                                                 <li>
                                                     <a class="dropdown-item dropdown-item--category{if $cat.page_active} active{/if}" href="{$cat.url}">
                                                         {$cat.label}
                                                     </a>
                                                 </li>
                                                 <li><hr class="dropdown-divider"></li>
-                                                {foreach $cat.children as $child}
-                                                    <li>
-                                                        <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
-                                                            {$child.label}
-                                                        </a>
+                                                {if $cat.children|@count >= 10}
+                                                    <li class="dropdown-menu-grid-wrapper">
+                                                        <div class="dropdown-menu-grid">
+                                                            {foreach $cat.children as $child}
+                                                                <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
+                                                                    {$child.label}
+                                                                </a>
+                                                            {/foreach}
+                                                        </div>
                                                     </li>
-                                                {/foreach}
+                                                {else}
+                                                    {foreach $cat.children as $child}
+                                                        <li>
+                                                            <a class="dropdown-item{if $child.active} active{/if}" href="{$child.url}">
+                                                                {$child.label}
+                                                            </a>
+                                                        </li>
+                                                    {/foreach}
+                                                {/if}
                                             </ul>
                                         </li>
                                     {else}

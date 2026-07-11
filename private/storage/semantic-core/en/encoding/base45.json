@@ -1,0 +1,99 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "base45",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/encoding/base45.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base45",
+        "url": "/en/encoding/base45",
+        "content_file": "private/storage/content/encoding/base45/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 1150,
+        "primary_terms": [
+            "base45",
+            "decode",
+            "online",
+            "encoder"
+        ],
+        "modifiers": ["decode", "encoder", "online"],
+        "intents": {
+            "tool": 2,
+            "decode": 2,
+            "encode": 1
+        },
+        "content_recommendations": [
+            "Use \"Base45\" in the meta title and first-screen copy.",
+            "Prioritize the decode workflow in the intro, then show the matching encoder workflow and a reversible round-trip example.",
+            "Explain that Base45 is the RFC 9285 encoding designed for compact QR-code payloads; do not describe it as encryption.",
+            "Use the FAQ for online use, invalid characters, and malformed input."
+        ],
+        "query_groups": [
+            {"name":"Canonical format","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base45"]},
+            {"name":"Decoding online","intent":["decode"],"priority":"secondary","target":"intro","representative_queries":["base45 decode","base45 decode online"]},
+            {"name":"Encoding online","intent":["encode"],"priority":"secondary","target":"examples","representative_queries":["base45 encoder","base45 online"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base45",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "base45 decode",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "base45 decode online",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "base45 encoder",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "encode"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "base45 online",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "notes": "Reviewed as a single Base45 conversion tool. Keep the scope to RFC 9285 data encoding and QR-oriented payloads, not cryptography or unrelated barcode standards.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Decode is the strongest action query; encoder coverage remains necessary for the reversible tool.","The linked content file is not present yet, so this reviewed core cannot be mapped until content is created."]}
+}

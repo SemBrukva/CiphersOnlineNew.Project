@@ -145,7 +145,7 @@
 - Tap code, Semaphore, Braille, NATO phonetic alphabet, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT-N, Nihilist, Four-square, Two-square, ADFGVX, Chaocipher.
 
 **Кодировки/dev (высокий dev-трафик):**
-- Base32, Base58 (крипто-адреса), Base85/Ascii85, Base45, Quoted-Printable, Punycode, Gzip/Deflate, ROT13-в-Base цепочки, UUID generator, QR-код (ген/чтение), Barcode.
+- ✅ Base32, ✅ Base58 (крипто-адреса), ✅ Base85/Ascii85, ✅ Base45 (клиентские инструменты с вариант-селектами; интеграция в авто-солвер — отдельной итерацией). Quoted-Printable, Punycode, Gzip/Deflate, ROT13-в-Base цепочки, UUID generator, QR-код (ген/чтение), Barcode.
 
 **Хеши/крипто (dev-трафик):**
 - RIPEMD-160, Whirlpool, xxHash, Adler-32; **симметрика**: AES (encrypt/decrypt), ChaCha20; **асимметрика/подписи**: RSA (обучающий), ECDSA verify; HOTP/TOTP (2FA-коды), JWT (у вас есть decoder — добавить sign/verify).

@@ -546,6 +546,28 @@ return [
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Codificação de binário para texto',
     'BASE64_TRUST_USES'                => 'Amplamente usado em APIs, e-mails e web',
+    // Base32
+    'BASE32_TRUST_PURPOSE'            => 'Codificação binário-para-texto sem diferenciar maiúsculas',
+    'BASE32_TRUST_USES'               => 'Segredos TOTP/2FA, DNS e nomes de arquivos',
+    'BASE32_SETTING_VARIANT_LABEL'    => 'Variante',
+    'BASE32_VARIANT_RFC4648'          => 'RFC 4648 (padrão)',
+    'BASE32_VARIANT_HEX'              => 'base32hex (hex estendido)',
+    'BASE32_VARIANT_CROCKFORD'        => 'Crockford',
+    // Base58
+    'BASE58_TRUST_PURPOSE'            => 'Codificação por meio de um inteiro grande',
+    'BASE58_TRUST_USES'               => 'Endereços de Bitcoin e outras criptomoedas',
+    'BASE58_SETTING_VARIANT_LABEL'    => 'Variante',
+    'BASE58_VARIANT_RAW'              => 'Base58 (puro)',
+    'BASE58_VARIANT_CHECK'            => 'Base58Check (checksum)',
+    // Base85
+    'BASE85_TRUST_PURPOSE'            => 'Codificação binário-para-texto compacta',
+    'BASE85_TRUST_USES'               => 'PDF, PostScript e diffs binários do Git',
+    'BASE85_SETTING_VARIANT_LABEL'    => 'Variante',
+    'BASE85_VARIANT_ASCII85'          => 'Adobe Ascii85',
+    'BASE85_VARIANT_Z85'              => 'ZeroMQ Z85',
+    // Base45
+    'BASE45_TRUST_PURPOSE'            => 'Codificação otimizada para códigos QR',
+    'BASE45_TRUST_USES'               => 'Certificados COVID Digitais da UE',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Representação hexadecimal de bytes',
     'HEX_TRUST_DEBUG'                  => 'Útil para depuração e análise de dados',

@@ -1,0 +1,79 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "base85",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/encoding/base85.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base85",
+        "url": "/en/encoding/base85",
+        "content_file": "private/storage/content/encoding/base85/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 6000,
+        "primary_terms": [
+            "base85",
+            "ascii85",
+            "decoder",
+            "encode"
+        ],
+        "modifiers": ["ASCII85", "decoder", "encode"],
+        "intents": {
+            "tool": 1,
+            "decode": 1,
+            "encode": 1
+        },
+        "content_recommendations": [
+            "Use \"Base85\" in the meta title and first-screen copy.",
+            "Cover ASCII85 decoding in the intro and show a Base85 encode/decode round trip in examples.",
+            "Explain that the tool offers ASCII85 and Z85 variants and that their alphabets are not interchangeable.",
+            "State that Base85 is a binary-to-text encoding, not encryption, and use the FAQ for variant selection and invalid input."
+        ],
+        "query_groups": [
+            {"name":"Canonical format","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base85"]},
+            {"name":"ASCII85 decoding","intent":["decode"],"priority":"secondary","target":"intro","representative_queries":["ascii85 decoder"]},
+            {"name":"Encoding workflow","intent":["encode"],"priority":"secondary","target":"examples","representative_queries":["base85 encode"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base85",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "ascii85 decoder",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "base85 encode",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "encode"
+            ],
+            "target": "examples"
+        }
+    ],
+    "notes": "Reviewed as a single Base85 conversion tool. Do not merge ASCII85 and Z85 into one alphabet or position the format as a cipher.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Base85 remains the sole title target; ASCII85 is an important decoder synonym.","The linked content file is not present yet, so this reviewed core cannot be mapped until content is created."]}
+}

@@ -14,6 +14,10 @@ use App\Cipher\AnagramSolverService;
 use App\Cipher\AtbashCipherService;
 use App\Cipher\AutokeyCipherService;
 use App\Cipher\BaconCipherService;
+use App\Cipher\Base32CipherService;
+use App\Cipher\Base45CipherService;
+use App\Cipher\Base58CipherService;
+use App\Cipher\Base85CipherService;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\BifidCipherService;
 use App\Cipher\BigramFrequencyScorer;
@@ -195,7 +199,11 @@ final class ToolRegistryTest extends TestCase
                 new Rot47CipherService(),
             ),
             new BookCipherService(),
-            new Rot47CipherService()
+            new Rot47CipherService(),
+            new Base32CipherService(),
+            new Base58CipherService(),
+            new Base85CipherService(),
+            new Base45CipherService()
         );
     }
 }

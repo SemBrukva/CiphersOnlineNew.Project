@@ -68,6 +68,7 @@ export function initCipherToolPage() {
   const lfreqSortSelect = document.getElementById('ciphers-lfreq-sort')
   const visualOutput = document.getElementById('ciphers-visual-output')
   const n2lTypeSelect = document.getElementById('ciphers-n2l-type')
+  const baseVariantSelect = document.getElementById('ciphers-base-variant')
   const bookSchemeSelect = document.getElementById('ciphers-book-scheme')
   const pigpenVariantSelect = document.getElementById('ciphers-pigpen-variant')
   const jsonIndentSelect = document.getElementById('ciphers-json-indent')
@@ -110,6 +111,7 @@ export function initCipherToolPage() {
   const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
   const isEnigmaTool           = Boolean(ui.enigmaMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
+  const isBaseEncodingTool = Boolean(ui.baseEncodingMode)
   const isBookTool = Boolean(ui.bookMode)
   const isJsonFormatterTool = Boolean(ui.jsonFormatterMode)
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
@@ -646,6 +648,9 @@ export function initCipherToolPage() {
       }
 
       const transformOpts = { language: effectiveLang }
+      if (isBaseEncodingTool && baseVariantSelect) {
+        transformOpts.variant = baseVariantSelect.value
+      }
       if (isNumbersToLettersTool) {
         transformOpts.encoding = n2lTypeSelect?.value || 'positional-1'
         transformOpts.delimiter = delimiterSelect?.value || 'space'
@@ -943,6 +948,11 @@ export function initCipherToolPage() {
   })
 
   bookSchemeSelect?.addEventListener('change', () => {
+    saveState()
+    process()
+  })
+
+  baseVariantSelect?.addEventListener('change', () => {
     saveState()
     process()
   })
@@ -1540,6 +1550,7 @@ const SHAREABLE_FIELD_IDS = [
   'ciphers-key-length',
   'ciphers-cover',
   'ciphers-n2l-type',
+  'ciphers-base-variant',
   'ciphers-book-scheme',
   'ciphers-pigpen-variant',
   'ciphers-json-indent',

@@ -547,6 +547,28 @@ return [
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'Binär-zu-Text-Kodierung',
     'BASE64_TRUST_USES'                => 'Weit verbreitet in APIs, E-Mails und im Web',
+    // Base32
+    'BASE32_TRUST_PURPOSE'            => 'Groß-/kleinschreibungsunabhängige Binär-zu-Text-Kodierung',
+    'BASE32_TRUST_USES'               => 'Für TOTP/2FA-Secrets, DNS und Dateinamen',
+    'BASE32_SETTING_VARIANT_LABEL'    => 'Variante',
+    'BASE32_VARIANT_RFC4648'          => 'RFC 4648 (Standard)',
+    'BASE32_VARIANT_HEX'              => 'base32hex (Extended Hex)',
+    'BASE32_VARIANT_CROCKFORD'        => 'Crockford',
+    // Base58
+    'BASE58_TRUST_PURPOSE'            => 'Kodierung über eine große Ganzzahl',
+    'BASE58_TRUST_USES'               => 'Adressen von Bitcoin und anderen Kryptowährungen',
+    'BASE58_SETTING_VARIANT_LABEL'    => 'Variante',
+    'BASE58_VARIANT_RAW'              => 'Base58 (roh)',
+    'BASE58_VARIANT_CHECK'            => 'Base58Check (Prüfsumme)',
+    // Base85
+    'BASE85_TRUST_PURPOSE'            => 'Kompakte Binär-zu-Text-Kodierung',
+    'BASE85_TRUST_USES'               => 'PDF, PostScript und Git-Binärdiffs',
+    'BASE85_SETTING_VARIANT_LABEL'    => 'Variante',
+    'BASE85_VARIANT_ASCII85'          => 'Adobe Ascii85',
+    'BASE85_VARIANT_Z85'              => 'ZeroMQ Z85',
+    // Base45
+    'BASE45_TRUST_PURPOSE'            => 'Für QR-Codes optimierte Kodierung',
+    'BASE45_TRUST_USES'               => 'EU-COVID-Zertifikate',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Hexadezimale Byte-Darstellung',
     'HEX_TRUST_DEBUG'                  => 'Nützlich für Debugging und Datenanalyse',

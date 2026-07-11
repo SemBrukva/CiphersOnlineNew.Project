@@ -1,0 +1,215 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T22:52:52+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base32",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 82,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 82,
+        "data": {
+            "name": "Base32 kodlayıcı ve kod çözücü",
+            "name_short": "Base32",
+            "description": "Metni Base32 olarak kodlayın veya bir Base32 dizgesini tarayıcıda UTF-8 metne geri çözün. RFC 4648, base32hex ve Crockford desteklenir; veriler yerel olarak işlenir.",
+            "description_stort": "RFC 4648, base32hex ve Crockford ile Base32 dizgelerini kodlayın ve çözün.",
+            "meta_title": "Çevrimiçi Base32 kodlayıcı ve kod çözücü | Ciphers Online",
+            "meta_description": "Base32'yi çevrimiçi kodlayın ve çözün. UTF-8 metni ve Base32 dizgelerini RFC 4648, base32hex veya Crockford ile tarayıcıda dönüştürün."
+        }
+    },
+    "blocks": [
+        {
+            "id": 280,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Base32 kodlaması nasıl çalışır?",
+                "text": "<p>Base32, 32 ASCII karakteri kullanan ikiliden metne bir kodlamadır. UTF-8 metin bayt olarak okunur; bitler beşli gruplara ayrılır ve karakterlere dönüştürülür. Beş bayt sekiz Base32 karakteri olur; RFC 4648 varyantları son eksik grubu <code>=</code> ile doldurur.</p><p>Kodlamak için metni girin ve varyantı seçin. Base32 çözmek için dizgeyi yapıştırın ve aynı varyantı seçin. Kod çözücü büyük/küçük harfi kabul eder, boşlukları, tireleri ve dolguyu yok sayar. Base32, TOTP/2FA sırları, DNS etiketleri, dosya adları ve kimlikler için kullanışlıdır; şifreleme değildir.</p>"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base32 alfabesi ve varyantları",
+                "text": "<p>Kodlama ve çözme için aynı varyantı seçin.</p><ul><li><strong>RFC 4648:</strong> <code>A–Z</code> ve <code>2–7</code>, <code>=</code> dolgulu.</li><li><strong>base32hex:</strong> <code>0–9</code> ve <code>A–V</code>, <code>=</code> dolgulu.</li><li><strong>Crockford:</strong> <code>0–9</code>; <code>I</code>, <code>L</code>, <code>O</code>, <code>U</code> yoktur ve dolgu kullanmaz. <code>O</code>, <code>0</code>; <code>I</code>/<code>L</code>, <code>1</code> olarak okunur.</li></ul><p>Varyantlar farklı dizgeler üretir; hata varsa alfabeyi ve dolguyu kontrol edin.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 573,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Base32 şifreleme midir?",
+                "answer": "Hayır. Anahtarsız tersine çevrilebilen bir kodlamadır."
+            }
+        },
+        {
+            "id": 574,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Base32 ile Base64 arasındaki fark nedir?",
+                "answer": "Base32 32 karakter kullanır; sonuç daha uzun ama okumak kolaydır."
+            }
+        },
+        {
+            "id": 575,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Dizge neden = ile biter?",
+                "answer": "RFC 4648 ve base32hex'te = son grubu tamamlar. Crockford dolgu kullanmaz."
+            }
+        },
+        {
+            "id": 576,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Hangi varyantı seçmeliyim?",
+                "answer": "Kaynak başka bir format belirtmiyorsa RFC 4648'i seçin."
+            }
+        },
+        {
+            "id": 577,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Boşluk, tire veya küçük harflerle çözebilir miyim?",
+                "answer": "Evet. Kod çözücü bunları kabul eder veya yok sayar."
+            }
+        },
+        {
+            "id": 578,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Dizge neden çözülemiyor?",
+                "answer": "Varyantı, karakterleri ve dizgenin tamamlanmış olduğunu kontrol edin."
+            }
+        },
+        {
+            "id": 579,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Metin sunucuya gönderilir mi?",
+                "answer": "Hayır. Dönüştürme tarayıcıda yerel olarak yapılır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 306,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Metni Base32 olarak kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba, dünya!",
+                "output": "JVSXE2DBMJQSYIDEYO6G46LBEE======",
+                "description": "Dolgulu standart RFC 4648 Base32."
+            }
+        },
+        {
+            "id": 307,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Base32 çözme",
+                "key": "",
+                "shift": 0,
+                "input": "JVSXE2DBMJQSYIDEYO6G46LBEE======",
+                "output": "Merhaba, dünya!",
+                "description": "Özgün UTF-8 metni geri yükler."
+            }
+        },
+        {
+            "id": 308,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base32hex"
+            },
+            "data": {
+                "title": "base32hex ile kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba",
+                "output": "9LIN4Q31C9GG====",
+                "description": "base32hex, genişletilmiş RFC 4648 onaltılık alfabesini kullanır."
+            }
+        },
+        {
+            "id": 309,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "crockford"
+            },
+            "data": {
+                "title": "Crockford Base32 ile kodlama",
+                "key": "",
+                "shift": 0,
+                "input": "Merhaba",
+                "output": "9NJQ4T31C9GG",
+                "description": "Crockford insan tarafından okunmak üzere tasarlanmıştır ve dolgu kullanmaz."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 394,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Kodlama"
+            }
+        },
+        {
+            "id": 395,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "RFC 4648"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений."
+    ]
+}

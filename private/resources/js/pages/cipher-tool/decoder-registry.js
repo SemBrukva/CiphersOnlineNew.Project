@@ -1,5 +1,9 @@
 import { transformAscii, looksLikeAscii } from './decoders/ascii.js'
 import { transformBase64, looksLikeBase64 } from './decoders/base64.js'
+import { transformBase32, looksLikeBase32 } from './decoders/base32.js'
+import { transformBase58, looksLikeBase58 } from './decoders/base58.js'
+import { transformBase85, looksLikeBase85 } from './decoders/base85.js'
+import { transformBase45, looksLikeBase45 } from './decoders/base45.js'
 import { transformBinary, looksLikeBinary } from './decoders/binary.js'
 import { transformHex, looksLikeHex } from './decoders/hex.js'
 import { transformJwt, looksLikeJwt } from './decoders/jwt.js'
@@ -25,6 +29,10 @@ import { transformArgon2, looksLikeArgon2 } from './decoders/argon2.js'
  */
 const DECODER_BY_SLUG = {
   'encoding/base64': { transform: transformBase64, looksLikeEncoded: looksLikeBase64 },
+  'encoding/base32': { transform: transformBase32, looksLikeEncoded: looksLikeBase32 },
+  'encoding/base58': { transform: transformBase58, looksLikeEncoded: looksLikeBase58 },
+  'encoding/base85': { transform: transformBase85, looksLikeEncoded: looksLikeBase85 },
+  'encoding/base45': { transform: transformBase45, looksLikeEncoded: looksLikeBase45 },
   'encoding/hex': { transform: transformHex, looksLikeEncoded: looksLikeHex },
   'encoding/binary-converter': { transform: transformBinary, looksLikeEncoded: looksLikeBinary },
   'encoding/url-encode': { transform: transformUrl, looksLikeEncoded: looksLikeUrl },

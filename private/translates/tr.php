@@ -546,6 +546,28 @@ return [
     // Base64
     'BASE64_TRUST_PURPOSE'             => 'İkili veriyi metne kodlama',
     'BASE64_TRUST_USES'                => 'API, e-posta ve web ortamlarinda yaygin kullanilir',
+    // Base32
+    'BASE32_TRUST_PURPOSE'            => 'Büyük/küçük harf duyarsız ikili-metin kodlaması',
+    'BASE32_TRUST_USES'               => 'TOTP/2FA sırları, DNS ve dosya adları',
+    'BASE32_SETTING_VARIANT_LABEL'    => 'Varyant',
+    'BASE32_VARIANT_RFC4648'          => 'RFC 4648 (standart)',
+    'BASE32_VARIANT_HEX'              => 'base32hex (genişletilmiş hex)',
+    'BASE32_VARIANT_CROCKFORD'        => 'Crockford',
+    // Base58
+    'BASE58_TRUST_PURPOSE'            => 'Büyük tam sayı üzerinden kodlama',
+    'BASE58_TRUST_USES'               => 'Bitcoin ve diğer kripto adresleri',
+    'BASE58_SETTING_VARIANT_LABEL'    => 'Varyant',
+    'BASE58_VARIANT_RAW'              => 'Base58 (ham)',
+    'BASE58_VARIANT_CHECK'            => 'Base58Check (sağlama toplamı)',
+    // Base85
+    'BASE85_TRUST_PURPOSE'            => 'Kompakt ikili-metin kodlaması',
+    'BASE85_TRUST_USES'               => 'PDF, PostScript ve Git ikili farkları',
+    'BASE85_SETTING_VARIANT_LABEL'    => 'Varyant',
+    'BASE85_VARIANT_ASCII85'          => 'Adobe Ascii85',
+    'BASE85_VARIANT_Z85'              => 'ZeroMQ Z85',
+    // Base45
+    'BASE45_TRUST_PURPOSE'            => 'QR kodları için optimize edilmiş kodlama',
+    'BASE45_TRUST_USES'               => 'AB Dijital COVID Sertifikaları',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Baytların onaltılık gösterimi',
     'HEX_TRUST_DEBUG'                  => 'Hata ayıklama ve veri analizi için kullanışlı',

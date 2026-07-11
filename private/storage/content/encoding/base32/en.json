@@ -1,0 +1,220 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-10T22:52:52+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "base32",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 82,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 82,
+        "data": {
+            "name": "Base32 Encoder & Decoder",
+            "name_short": "Base32",
+            "description": "Encode text to Base32 or decode a Base32 string back to UTF-8 text in your browser. Choose RFC 4648, base32hex or Crockford; your input is processed locally and never sent to a server.",
+            "description_stort": "Encode and decode Base32 strings with RFC 4648, base32hex and Crockford variants.",
+            "meta_title": "Base32 Encoder & Decoder — Encode or Decode Base32 Online | Ciphers Online",
+            "meta_description": "Use this online Base32 encoder and decoder to convert UTF-8 text and Base32 strings. Supports RFC 4648, base32hex and Crockford formats locally in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 280,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Base32 encoding works",
+                "text": "<p>Base32 is a binary-to-text encoding that represents data with 32 ASCII characters. The encoder reads your UTF-8 text as bytes, groups the bits in sets of five, and maps each group to one character. Five input bytes become eight Base32 characters; if the last group is incomplete, the RFC 4648 formats use <code>=</code> padding.</p><p>To encode, enter plain text, choose the matching variant and copy the resulting Base32 string. To decode Base32 to text, paste the encoded string, select the variant used to create it and switch the tool to decoding. The decoder accepts upper- or lowercase input and ignores spaces, hyphens and padding.</p><p>Base32 is useful where text must be easy to read or type: TOTP/2FA secret keys, DNS labels, file names and manually exchanged identifiers are common examples. It is an encoding format, not encryption, so a Base32 string should never be treated as secret merely because it is not immediately readable.</p>"
+            }
+        },
+        {
+            "id": 281,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Base32 alphabet and variants",
+                "text": "<p>This Base32 encoder and decoder offers three compatible-but-distinct alphabets. Select the same variant for decoding that was used for encoding.</p><ul><li><strong>RFC 4648 (standard):</strong> <code>A–Z</code> and <code>2–7</code>, with <code>=</code> padding. This is the usual choice for a standard Base32 string and many TOTP secrets.</li><li><strong>base32hex:</strong> <code>0–9</code> and <code>A–V</code>, with <code>=</code> padding. It is the RFC 4648 Extended Hex alphabet.</li><li><strong>Crockford:</strong> <code>0–9</code> and letters excluding <code>I</code>, <code>L</code>, <code>O</code> and <code>U</code>, without padding. It is designed for human transcription; this decoder also reads <code>O</code> as <code>0</code> and <code>I</code>/<code>L</code> as <code>1</code>.</li></ul><p>These variants do not produce the same text representation for the same input. If a Base32 string will not decode, first check that its alphabet and padding convention match the selected variant.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 573,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Is Base32 encryption?",
+                "answer": "No. Base32 is an encoding, not encryption. Anyone can decode it back without a key, so it provides no confidentiality."
+            }
+        },
+        {
+            "id": 574,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "How is Base32 different from Base64?",
+                "answer": "Base32 uses 32 characters and is case-insensitive, producing longer output than Base64 but easier to type and safer for URLs, file names and manual entry."
+            }
+        },
+        {
+            "id": 575,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Why does a Base32 string end with = signs?",
+                "answer": "In RFC 4648 and base32hex, = is padding. It fills the final 8-character group when the input length is not an exact multiple of five bytes. Crockford Base32 does not use padding."
+            }
+        },
+        {
+            "id": 576,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Which Base32 variant should I choose?",
+                "answer": "Use RFC 4648 unless the source specifies another format. Choose base32hex for the Extended Hex alphabet (0–9 and A–V), or Crockford for human-readable identifiers that omit I, L, O and U. Encoding and decoding must use the same variant."
+            }
+        },
+        {
+            "id": 577,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can I decode a Base32 string with spaces, hyphens or lowercase letters?",
+                "answer": "Yes. The decoder ignores spaces, hyphens and padding, and it accepts lowercase letters. In Crockford mode it also interprets O as 0 and I or L as 1 to accommodate common transcription mistakes."
+            }
+        },
+        {
+            "id": 578,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why will my Base32 string not decode?",
+                "answer": "The string may use a different Base32 alphabet, contain a character that is not valid for the selected variant, or be incomplete. Confirm whether the source used RFC 4648, base32hex or Crockford, then paste the complete value."
+            }
+        },
+        {
+            "id": 579,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is my text sent to a server when I use this online Base32 encoder?",
+                "answer": "No. Encoding and decoding run locally in your browser, so the text and Base32 strings you enter are not sent to the server for conversion."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 306,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Encode text to Base32",
+                "key": "",
+                "shift": 0,
+                "input": "Hello, World!",
+                "output": "JBSWY3DPFQQFO33SNRSCC===",
+                "description": "Standard RFC 4648 Base32 with padding."
+            }
+        },
+        {
+            "id": 307,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "rfc4648"
+            },
+            "data": {
+                "title": "Decode Base32",
+                "key": "",
+                "shift": 0,
+                "input": "JBSWY3DPFQQFO33SNRSCC===",
+                "output": "Hello, World!",
+                "description": "Decoding restores the original UTF-8 text."
+            }
+        },
+        {
+            "id": 308,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "base32hex"
+            },
+            "data": {
+                "title": "Encode with the base32hex alphabet",
+                "key": "",
+                "shift": 0,
+                "input": "Hello",
+                "output": "91IMOR3F",
+                "description": "base32hex uses the RFC 4648 Extended Hex alphabet: 0–9 and A–V. Unlike standard Base32, the same bytes do not begin with JBSW."
+            }
+        },
+        {
+            "id": 309,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "crockford"
+            },
+            "data": {
+                "title": "Encode with Crockford Base32",
+                "key": "",
+                "shift": 0,
+                "input": "Hello",
+                "output": "91JPRV3F",
+                "description": "Crockford Base32 is designed for people to read and type. It has no = padding and avoids the easily confused letters I, L, O and U."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 394,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Encoding"
+            }
+        },
+        {
+            "id": 395,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "RFC 4648"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

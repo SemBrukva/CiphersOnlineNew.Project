@@ -1,0 +1,99 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "base58",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/encoding/base58.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base58",
+        "url": "/en/encoding/base58",
+        "content_file": "private/storage/content/encoding/base58/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 6550,
+        "primary_terms": [
+            "base58",
+            "encoding",
+            "base 58",
+            "p2pkh",
+            "p2sh"
+        ],
+        "modifiers": ["encoding", "P2PKH", "P2SH", "spaced spelling"],
+        "intents": {
+            "tool": 5
+        },
+        "content_recommendations": [
+            "Use \"Base58\" in the meta title and first-screen copy.",
+            "Explain that Base58 omits visually ambiguous characters and distinguish raw Base58 from Base58Check, including its checksum.",
+            "Cover \"base 58\" and \"base58 encoding\" as equivalent descriptive phrasings in supporting copy.",
+            "Use a dedicated content block for P2PKH and P2SH: they are Bitcoin address types commonly represented with Base58Check, not separate Base58 alphabets.",
+            "Include a decode/encode round-trip example without claiming that the tool validates or generates cryptocurrency addresses unless the feature supports it."
+        ],
+        "query_groups": [
+            {"name":"Canonical format","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base58"]},
+            {"name":"Format spelling and encoding","intent":["tool"],"priority":"secondary","target":"content_block","representative_queries":["base 58","base58 encoding"]},
+            {"name":"Bitcoin address context","intent":["tool"],"priority":"secondary","target":"content_block","representative_queries":["base58 p2pkh","base58 p2sh"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base58",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "base 58",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "base58 encoding",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "base58 p2pkh",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "base58 p2sh",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "notes": "Reviewed as a single Base58 conversion tool. Bitcoin address context is supporting explanation only; do not broaden into wallet creation, private keys, or transaction services.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["The canonical term dominates source demand.","P2PKH is a meaningful supporting topic; P2SH is a lower-demand related long-tail variant.","The linked content file is not present yet, so this reviewed core cannot be mapped until content is created."]}
+}

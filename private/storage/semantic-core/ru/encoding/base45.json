@@ -1,0 +1,51 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "base45",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/encoding/base45.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base45",
+        "url": "/ru/encoding/base45",
+        "content_file": "private/storage/content/encoding/base45/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 11,
+        "primary_terms": [
+            "base45"
+        ],
+        "modifiers": [],
+        "intents": {
+            "tool": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точный запрос «Base45».",
+            "В intro объяснить, что Base45 — кодировка RFC 9285 для компактной передачи данных, в том числе в QR-кодах, и что инструмент поддерживает кодирование и декодирование.",
+            "Добавить короткий пример преобразования туда и обратно и отметить, что Base45 не является шифрованием."
+        ],
+        "query_groups": [
+            {"name":"Основной формат","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base45"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base45",
+            "score": 11,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент Base45. Исходный русскоязычный спрос узкий; не расширять страницу до криптографии, других QR-стандартов или Base64.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Единственный исходный запрос «base45» — primary для title и первого экрана.","Связанный content_file пока отсутствует, но семантическое ядро готово для создания контента или sync."]}
+}

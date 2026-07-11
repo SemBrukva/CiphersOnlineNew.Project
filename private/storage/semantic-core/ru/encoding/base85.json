@@ -1,0 +1,65 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "base85",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/encoding/base85.csv",
+        "imported_at": "2026-07-10T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/base85",
+        "url": "/ru/encoding/base85",
+        "content_file": "private/storage/content/encoding/base85/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 12,
+        "primary_terms": [
+            "base85",
+            "декодировать base85"
+        ],
+        "modifiers": ["декодировать"],
+        "intents": {
+            "tool": 1,
+            "decode": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точный запрос «Base85».",
+            "В intro показать декодирование Base85 и обратное кодирование текста, называя операцию декодированием, а не расшифровкой.",
+            "В объясняющем блоке различить варианты ASCII85 и Z85: их алфавиты не взаимозаменяемы.",
+            "Добавить пример преобразования туда и обратно и уточнить, что Base85 — кодировка бинарных данных, а не шифрование."
+        ],
+        "query_groups": [
+            {"name":"Основной формат","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["base85"]},
+            {"name":"Декодирование","intent":["decode"],"priority":"long_tail","target":"intro","representative_queries":["декодировать base85"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "base85",
+            "score": 11,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "декодировать base85",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент Base85. Не смешивать ASCII85 и Z85 и не представлять кодировку как криптографическую защиту.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Основной спрос — Base85; декодирование является поддерживающим сценарием.","Связанный content_file пока отсутствует, но семантическое ядро готово для создания контента или sync."]}
+}

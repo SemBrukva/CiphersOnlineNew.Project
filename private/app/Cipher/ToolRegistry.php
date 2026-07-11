@@ -56,7 +56,11 @@ final readonly class ToolRegistry
         private TextDiffService $textDiff,
         private SolverService $solver,
         private BookCipherService $bookCipher,
-        private Rot47CipherService $rot47Cipher
+        private Rot47CipherService $rot47Cipher,
+        private Base32CipherService $base32,
+        private Base58CipherService $base58,
+        private Base85CipherService $base85,
+        private Base45CipherService $base45
     ) {
     }
 
@@ -80,6 +84,26 @@ final readonly class ToolRegistry
                 ['label' => 'JSON', 'value' => '{"id":42,"role":"admin","active":true}'],
                 ['label' => 'Unicode', 'value' => 'Привет мир 👋'],
                 ['label' => 'Hex Bytes', 'value' => '48 65 6c 6c 6f 2c 20 77 6f 72 6c 64 21'],
+            ],
+            'encoding/base32' => [
+                ['label' => 'Hello', 'value' => 'Hello, World!'],
+                ['label' => 'JSON', 'value' => '{"id":42,"role":"admin"}'],
+                ['label' => 'Unicode', 'value' => 'Café ☕'],
+            ],
+            'encoding/base58' => [
+                ['label' => 'Hello', 'value' => 'Hello, World!'],
+                ['label' => 'Short', 'value' => 'bitcoin'],
+                ['label' => 'Unicode', 'value' => 'Café ☕'],
+            ],
+            'encoding/base85' => [
+                ['label' => 'Hello', 'value' => 'Hello, World!'],
+                ['label' => 'JSON', 'value' => '{"id":42,"role":"admin"}'],
+                ['label' => 'Unicode', 'value' => 'Café ☕'],
+            ],
+            'encoding/base45' => [
+                ['label' => 'Hello', 'value' => 'Hello, World!'],
+                ['label' => 'Short', 'value' => 'AB'],
+                ['label' => 'Unicode', 'value' => 'Café ☕'],
             ],
             'encoding/url-encode' => [
                 ['label' => 'URL', 'value' => 'https://example.com/search?q=smart tools'],
@@ -549,6 +573,10 @@ final readonly class ToolRegistry
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
             'encoding/json-formatter' => $this->jsonFormatter->getToolSettings(),
             'encoding/timestamp-converter' => $this->timestampConverter->getToolSettings(),
+            'encoding/base32' => $this->base32->getToolSettings(),
+            'encoding/base58' => $this->base58->getToolSettings(),
+            'encoding/base85' => $this->base85->getToolSettings(),
+            'encoding/base45' => $this->base45->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             'text-analysis/caesar-brute-force'  => $this->caesarBruteForce->getToolSettings(),
             'text-analysis/affine-brute-force'  => $this->affineBruteForce->getToolSettings(),
@@ -611,6 +639,10 @@ final readonly class ToolRegistry
             'encoding/html-encode' => $this->htmlEncode->getTrustItems($calculationMode),
             'encoding/json-formatter' => $this->jsonFormatter->getTrustItems($calculationMode),
             'encoding/timestamp-converter' => $this->timestampConverter->getTrustItems($calculationMode),
+            'encoding/base32' => $this->base32->getTrustItems($calculationMode),
+            'encoding/base58' => $this->base58->getTrustItems($calculationMode),
+            'encoding/base85' => $this->base85->getTrustItems($calculationMode),
+            'encoding/base45' => $this->base45->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),
