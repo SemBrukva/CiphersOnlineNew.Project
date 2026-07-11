@@ -592,6 +592,12 @@ return [
     // Base45
     'BASE45_TRUST_PURPOSE'            => 'Кодировка байтов в текст под QR-коды',
     'BASE45_TRUST_USES'               => 'Цифровые COVID-сертификаты ЕС',
+    // Punycode
+    'PUNYCODE_SETTING_VARIANT_LABEL'  => 'Режим',
+    'PUNYCODE_VARIANT_DOMAIN'         => 'Домен (IDN, xn--)',
+    'PUNYCODE_VARIANT_RAW'            => 'Сырой (RFC 3492)',
+    'PUNYCODE_TRUST_PURPOSE'          => 'ASCII-безопасная кодировка Unicode-доменов',
+    'PUNYCODE_TRUST_USES'             => 'Основа интернационализированных доменов (IDN)',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Шестнадцатеричное представление байтов',
     'HEX_TRUST_DEBUG'                  => 'Удобно для отладки и анализа данных',

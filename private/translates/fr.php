@@ -569,6 +569,12 @@ return [
     // Base45
     'BASE45_TRUST_PURPOSE'            => 'Encodage optimisé pour les codes QR',
     'BASE45_TRUST_USES'               => 'Certificats COVID numériques de l’UE',
+    // Punycode
+    'PUNYCODE_SETTING_VARIANT_LABEL'  => 'Mode',
+    'PUNYCODE_VARIANT_DOMAIN'         => 'Domaine (IDN, xn--)',
+    'PUNYCODE_VARIANT_RAW'            => 'Brut (RFC 3492)',
+    'PUNYCODE_TRUST_PURPOSE'          => 'Encodage ASCII sûr des noms de domaine Unicode',
+    'PUNYCODE_TRUST_USES'             => 'Base des noms de domaine internationalisés (IDN)',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Représentation hexadécimale des octets',
     'HEX_TRUST_DEBUG'                  => 'Utile pour déboguer et analyser les données',

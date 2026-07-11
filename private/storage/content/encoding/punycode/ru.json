@@ -1,0 +1,202 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-11T14:47:32+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "punycode",
+        "language": "ru",
+        "default_language": "en",
+        "cipher_id": 86,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 86,
+        "data": {
+            "name": "Конвертер Punycode (IDN)",
+            "name_short": "Punycode",
+            "description": "Конвертер Punycode переводит интернационализированные доменные имена (IDN) в ASCII-форму с префиксом xn-- и декодирует их обратно в Unicode. Режим домена обрабатывает каждую метку через точку, а Raw mode показывает bootstring RFC 3492. Все вычисления выполняются локально в браузере.",
+            "description_stort": "Переводите Unicode- и кириллические IDN-домены в Punycode xn-- и декодируйте их обратно прямо в браузере.",
+            "meta_title": "Punycode конвертер доменов IDN в ASCII | Ciphers Online",
+            "meta_description": "Конвертер Punycode: переведите кириллический или Unicode-домен, включая .рф, в xn-- или декодируйте Punycode обратно. RFC 3492, Raw mode, онлайн."
+        }
+    },
+    "blocks": [
+        {
+            "id": 287,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Как работает Punycode",
+                "text": "<p>Punycode — ASCII-совместимая кодировка из <a href=\"https://www.rfc-editor.org/rfc/rfc3492\" rel=\"noopener noreferrer\" target=\"_blank\">RFC 3492</a>. Она позволяет системе доменных имён (DNS) работать с интернационализированными доменными именами (IDN), в которых есть символы Unicode. Например, метка <code>münchen</code> превращается в <code>xn--mnchen-3ya</code>. Префикс <code>xn--</code> показывает, что метка записана в ASCII Compatible Encoding (ACE).</p><p>Выберите режим <strong>Domain</strong>, чтобы перевести кириллический домен в Punycode или декодировать готовую ASCII-форму. Конвертер разбивает имя по точкам, оставляет ASCII-метки без изменений и кодирует каждую Unicode-метку отдельно. Поэтому домен <code>пример.рф</code> становится <code>xn--e1afmkfd.xn--p1ai</code>, а метка с префиксом <code>xn--</code> при декодировании возвращается в Unicode. Это основной режим для проверки представления домена IDN, в том числе в зоне .рф.</p><p>Режим <strong>Raw</strong> выполняет только чистое преобразование Punycode по RFC 3492. Он обрабатывает всю строку целиком: не добавляет и не удаляет <code>xn--</code> и не разделяет точки на доменные метки. Такой режим полезен для обучения, тестов и сравнения результата с другой реализацией Punycode.</p><p>Punycode — обратимый способ записи, а не шифрование, проверка DNS или оценка безопасности сайта. Вводите только имя хоста: без <code>https://</code>, порта, пути, параметров запроса и фрагмента. Преобразование выполняется локально в браузере.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 592,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Что означает префикс xn--?",
+                "answer": "Префикс xn-- — это ACE-префикс IDNA. Он помечает доменную метку как записанную в Punycode. Когда браузер встречает метку, начинающуюся с xn--, он декодирует оставшуюся часть и может показать исходное Unicode-имя."
+            }
+        },
+        {
+            "id": 593,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Почему Punycode важен для безопасности?",
+                "answer": "Символы из разных алфавитов иногда выглядят одинаково: например, латинская a и кириллическая а. Конвертация в Punycode помогает сравнить точную ASCII-запись похожих доменов, потому что у подменной и настоящей метки будут разные строки xn--. Однако сам Punycode не определяет фишинг и не подтверждает безопасность сайта."
+            }
+        },
+        {
+            "id": 594,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Как перевести домен .рф или другой кириллический домен в Punycode?",
+                "answer": "Выберите режим Domain, введите только доменное имя и запустите кодирование. Каждая Unicode-метка преобразуется отдельно и при необходимости получит префикс xn--: например, пример.рф станет xn--e1afmkfd.xn--p1ai. Обычные ASCII-метки, такие как www или com, останутся без изменений."
+            }
+        },
+        {
+            "id": 595,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Можно ли перевести в Punycode полный URL-адрес?",
+                "answer": "Этот конвертер работает с именами хостов и доменными метками, а не с полным URL. Скопируйте только доменную часть, например münchen.de, без протокола, порта, пути, параметров и фрагмента. Punycode применяется к домену; остальные части URL используют другие правила синтаксиса и кодирования."
+            }
+        },
+        {
+            "id": 596,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Чем отличаются режимы Domain и Raw?",
+                "answer": "Режим Domain предназначен для IDN-доменов: он обрабатывает метки между точками и добавляет или считывает префикс xn--. Raw выполняет только алгоритм Punycode RFC 3492 для всей строки. Он подходит для тестовых значений, но не заменяет преобразование доменного имени."
+            }
+        },
+        {
+            "id": 597,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Показывает ли Punycode, что домен фишинговый или безопасный?",
+                "answer": "Нет. Punycode — это стандартная форма записи интернационализированного домена. Она может помочь сопоставить точные ASCII-метки похожих имён, но не проверяет регистрацию домена, DNS, владельца или репутацию сайта."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 316,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "domain"
+            },
+            "data": {
+                "title": "Кодирование IDN-домена",
+                "key": "",
+                "shift": 0,
+                "input": "сайт.рф",
+                "output": "xn--80aswg.xn--p1ai",
+                "description": "Кириллические метки получают ASCII-форму с префиксом xn--; зона .рф кодируется отдельно."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "domain"
+            },
+            "data": {
+                "title": "Декодирование Punycode-домена",
+                "key": "",
+                "shift": 0,
+                "input": "xn--80aswg.xn--p1ai",
+                "output": "сайт.рф",
+                "description": "При декодировании ASCII-форма xn-- возвращается к исходному Unicode-домену."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "domain"
+            },
+            "data": {
+                "title": "Кодирование кириллического IDN-домена",
+                "key": "",
+                "shift": 0,
+                "input": "пример.рф",
+                "output": "xn--e1afmkfd.xn--p1ai",
+                "description": "Каждая кириллическая метка домена преобразуется в собственную ASCII-строку xn--."
+            }
+        },
+        {
+            "id": 319,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "raw"
+            },
+            "data": {
+                "title": "Кодирование строки в Raw Punycode",
+                "key": "",
+                "shift": 0,
+                "input": "книга",
+                "output": "80afohp",
+                "description": "Raw mode возвращает bootstring RFC 3492 без префикса xn--."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 398,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "IDN-домены"
+            }
+        },
+        {
+            "id": 399,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "RFC 3492"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

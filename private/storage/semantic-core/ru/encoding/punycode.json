@@ -1,0 +1,327 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "punycode",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/encoding/punycode.csv",
+        "imported_at": "2026-07-11T16:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/punycode",
+        "url": "/ru/encoding/punycode",
+        "content_file": "private/storage/content/encoding/punycode/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 341,
+        "primary_terms": [
+            "punycode",
+            "punycode конвертер",
+            "пуникод",
+            "пуникод конвертер онлайн",
+            "домен рф в punycode",
+            "punycode декодер",
+            "кириллический домен в punycode"
+        ],
+        "modifiers": [
+            "конвертер",
+            "онлайн",
+            "домен РФ",
+            "кириллица",
+            "декодер",
+            "в латиницу",
+            "URL"
+        ],
+        "intents": {
+            "tool": 17,
+            "translate": 6,
+            "decode": 2,
+            "online": 1,
+            "encode": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точную связку «Punycode» и обозначить инструмент как конвертер доменов.",
+            "В intro показать двусторонний сценарий: перевести кириллический домен, включая .рф, в форму xn-- и декодировать xn--домен обратно в Unicode.",
+            "Покрыть «пуникод» и «паникод» как варианты пользовательского написания, но в основном тексте использовать нормативное Punycode.",
+            "Пояснить, что это кодировка IDNA для доменных меток, а не шифрование: слова «перевод», «декодер» и «в латиницу» описывают конвертацию представления домена.",
+            "Добавить пример домена .рф и пример URL, при котором преобразуется только доменная часть, если выбран режим домена или URL.",
+            "В FAQ раскрыть «что такое Punycode», ручное кодирование и границы инструмента: он не проверяет регистрацию домена и не определяет фишинг."
+        ],
+        "query_groups": [
+            {"name":"Основное название и конвертер","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["punycode","punycode конвертер"]},
+            {"name":"Домены РФ и кириллица","intent":["encode"],"priority":"secondary","target":"intro","representative_queries":["перевод домена рф в punycode","конвертер домена рф в латиницу","перевести домен рф в пуникод","кириллический домен в punycode"]},
+            {"name":"Декодирование Punycode","intent":["decode"],"priority":"secondary","target":"intro","representative_queries":["punycode декодер","как обнаружить и преобразовать punycode в url адресе"]},
+            {"name":"Онлайн-конвертер и варианты названия","intent":["tool","online"],"priority":"secondary","target":"content_block","representative_queries":["пуникод","пуникод конвертер онлайн","пуникод конвертер","паникод конвертер"]},
+            {"name":"Пояснения и ручное преобразование","intent":["tool"],"priority":"long_tail","target":"faq","representative_queries":["что такое punycode","punycode что это","ручное кодирование декодирование punycode","php кириллические домены преобрать в punycode"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "punycode",
+            "score": 113,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "punycode конвертер",
+            "score": 64,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "пуникод",
+            "score": 26,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "пуникод конвертер онлайн",
+            "score": 20,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "перевод домена рф в punycode",
+            "score": 19,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "конвертер домена рф в латиницу",
+            "score": 16,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "punycode декодер",
+            "score": 12,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "конвертер punycode для рф доменов",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "перевод в punycode",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "домен рф в формате punycode",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "перевести домен рф в пуникод",
+            "score": 7,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "кириллический домен в punycode",
+            "score": 6,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "как обнаружить и преобразовать punycode в url адресе",
+            "score": 5,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "пуникод конвертер",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "перевести кириллический домен в punycode",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "паникод конвертер",
+            "score": 4,
+            "competitiveness": "LOW",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "что такое punycode",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "конвертер punycode",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "домен кириллица в латиницу",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "рф домен перевести в символы",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод кириллического домена",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "ручное кодирование декодирование punycode",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "encode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "punycode что это",
+            "score": 1,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "домен рф в punycode",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "php кириллические домены преобрать в punycode",
+            "score": 1,
+            "competitiveness": "NO_DATA",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "кириллический домен в латиницу",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Кластер проверен как один инструмент конвертации Punycode и IDN-доменов. Не расширять страницу до регистрации доменов, DNS-поиска, проверки безопасности URL или антифишингового сервиса.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["Основной спрос концентрируется на Punycode, конвертере и доменах РФ.","Запросы «пуникод» и «паникод» — варианты пользовательского написания, которые не должны менять нормативное название страницы.","Связанный content_file пока отсутствует, но семантическое ядро готово для создания контента или sync."]}
+}

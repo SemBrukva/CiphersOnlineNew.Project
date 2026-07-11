@@ -1,0 +1,202 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-11T14:47:32+00:00",
+        "category_alias": "encoding",
+        "cipher_alias": "punycode",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 86,
+        "category_id": 1
+    },
+    "cipher_translation": {
+        "id": 86,
+        "data": {
+            "name": "Punycode Converter (IDN)",
+            "name_short": "Punycode",
+            "description": "Use this Punycode converter to encode an internationalized domain name (IDN) as its ASCII xn-- form or decode it back to Unicode. Domain mode converts each dot-separated label; Raw mode exposes the RFC 3492 bootstring. All conversion runs locally in your browser.",
+            "description_stort": "Convert Unicode IDN domains to Punycode xn-- and decode them back, locally in your browser.",
+            "meta_title": "Punycode Converter – IDN Domain to ASCII | Ciphers Online",
+            "meta_description": "Convert a Unicode or Cyrillic IDN domain to Punycode xn--, or decode Punycode back to Unicode. Free RFC 3492 domain converter with raw mode."
+        }
+    },
+    "blocks": [
+        {
+            "id": 287,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How Punycode works",
+                "text": "<p>Punycode is the ASCII-compatible encoding defined by <a href=\"https://www.rfc-editor.org/rfc/rfc3492\" rel=\"noopener noreferrer\" target=\"_blank\">RFC 3492</a>. It lets Domain Name System software carry an internationalized domain name (IDN) that contains Unicode letters. For example, the label <code>münchen</code> becomes <code>xn--mnchen-3ya</code>. The <code>xn--</code> prefix identifies that label as an ASCII Compatible Encoding (ACE).</p><p>Use this Punycode converter in <strong>Domain</strong> mode for a domain name such as <code>пример.рф</code> or <code>münchen.de</code>. It splits the input at periods, keeps ASCII-only labels unchanged, and encodes each Unicode label separately. It also decodes any dot-separated label that starts with <code>xn--</code>. This is the practical mode for checking the ASCII form used by an IDN domain.</p><p>Choose <strong>Raw</strong> mode when you need the underlying RFC 3492 bootstring itself. Raw mode transforms the whole input as one string: it does not add or remove <code>xn--</code> and does not treat periods as domain-label separators. It is useful for learning, testing, and comparing a Punycode value with an implementation.</p><p>Punycode is a reversible representation, not encryption, a DNS lookup, or a proof that a domain is safe. Enter a hostname only, without <code>https://</code>, a path, query string, port, or fragment. The conversion is performed locally in your browser.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 592,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the xn-- prefix?",
+                "answer": "The prefix xn-- (the IDNA \"ACE prefix\") marks a domain label as Punycode-encoded. When a browser sees a label starting with xn--, it decodes the rest as Punycode to display the original Unicode name."
+            }
+        },
+        {
+            "id": 593,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why is Punycode important for security?",
+                "answer": "Different Unicode characters can look identical (a Latin \"a\" versus a Cyrillic \"а\"). Converting a domain to Punycode reveals such homograph tricks, because a lookalike domain produces a different xn-- string than the genuine one."
+            }
+        },
+        {
+            "id": 594,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do I convert a Cyrillic or other Unicode domain to Punycode?",
+                "answer": "Select Domain mode, enter only the domain name, and choose encode. Each Unicode label is converted independently and receives xn-- when needed; for example, пример.рф becomes xn--e1afmkfd.xn--p1ai. ASCII labels such as www and com remain unchanged."
+            }
+        },
+        {
+            "id": 595,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Can I convert a full URL with Punycode?",
+                "answer": "This converter is for hostnames and domain labels, not complete URLs. Copy only the domain portion, for example münchen.de, and leave out the protocol, port, path, query string, and fragment. Punycode applies to the domain name, while the rest of a URL uses other syntax and encoding rules."
+            }
+        },
+        {
+            "id": 596,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "What is the difference between Domain mode and Raw mode?",
+                "answer": "Domain mode is intended for IDN hostnames: it handles dot-separated labels and adds or reads the xn-- prefix. Raw mode performs only the bare RFC 3492 Punycode algorithm on the entire input, so it is useful for test values and does not represent a complete domain-name conversion."
+            }
+        },
+        {
+            "id": 597,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Does a Punycode domain indicate phishing or prove a site is safe?",
+                "answer": "No. Punycode is simply a standard representation for an internationalized domain name. It can help you compare the exact ASCII labels behind similar-looking names, but it does not check registration, resolve DNS, identify the owner, or determine whether a website is trustworthy."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 316,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "domain"
+            },
+            "data": {
+                "title": "Encode an IDN domain",
+                "key": "",
+                "shift": 0,
+                "input": "münchen.de",
+                "output": "xn--mnchen-3ya.de",
+                "description": "The non-ASCII label gets the xn-- prefix; the .de label stays as is."
+            }
+        },
+        {
+            "id": 317,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "domain"
+            },
+            "data": {
+                "title": "Decode a Punycode domain",
+                "key": "",
+                "shift": 0,
+                "input": "xn--mnchen-3ya.de",
+                "output": "münchen.de",
+                "description": "Decoding restores the original Unicode domain name."
+            }
+        },
+        {
+            "id": 318,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "domain"
+            },
+            "data": {
+                "title": "Encode a Cyrillic IDN domain",
+                "key": "",
+                "shift": 0,
+                "input": "пример.рф",
+                "output": "xn--e1afmkfd.xn--p1ai",
+                "description": "Each Cyrillic domain label receives its own xn-- ASCII representation."
+            }
+        },
+        {
+            "id": 319,
+            "sort_order": 40,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-base-variant": "raw"
+            },
+            "data": {
+                "title": "Encode a raw Punycode string",
+                "key": "",
+                "shift": 0,
+                "input": "bücher",
+                "output": "bcher-kva",
+                "description": "Raw mode returns the RFC 3492 bootstring without the xn-- prefix."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 398,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "IDN domains"
+            }
+        },
+        {
+            "id": 399,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "RFC 3492"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

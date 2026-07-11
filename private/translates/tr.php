@@ -568,6 +568,12 @@ return [
     // Base45
     'BASE45_TRUST_PURPOSE'            => 'QR kodları için optimize edilmiş kodlama',
     'BASE45_TRUST_USES'               => 'AB Dijital COVID Sertifikaları',
+    // Punycode
+    'PUNYCODE_SETTING_VARIANT_LABEL'  => 'Mod',
+    'PUNYCODE_VARIANT_DOMAIN'         => 'Alan adı (IDN, xn--)',
+    'PUNYCODE_VARIANT_RAW'            => 'Ham (RFC 3492)',
+    'PUNYCODE_TRUST_PURPOSE'          => 'Unicode alan adlarının ASCII-güvenli kodlaması',
+    'PUNYCODE_TRUST_USES'             => 'Uluslararasılaştırılmış alan adlarının (IDN) temeli',
     // Hex
     'HEX_TRUST_PURPOSE'                => 'Baytların onaltılık gösterimi',
     'HEX_TRUST_DEBUG'                  => 'Hata ayıklama ve veri analizi için kullanışlı',

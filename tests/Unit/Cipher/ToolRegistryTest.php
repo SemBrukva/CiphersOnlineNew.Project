@@ -18,6 +18,7 @@ use App\Cipher\Base32CipherService;
 use App\Cipher\Base45CipherService;
 use App\Cipher\Base58CipherService;
 use App\Cipher\Base85CipherService;
+use App\Cipher\PunycodeCipherService;
 use App\Cipher\BeaufortCipherService;
 use App\Cipher\BifidCipherService;
 use App\Cipher\BigramFrequencyScorer;
@@ -203,7 +204,8 @@ final class ToolRegistryTest extends TestCase
             new Base32CipherService(),
             new Base58CipherService(),
             new Base85CipherService(),
-            new Base45CipherService()
+            new Base45CipherService(),
+            new PunycodeCipherService()
         );
     }
 }

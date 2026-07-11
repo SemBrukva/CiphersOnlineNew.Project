@@ -60,7 +60,8 @@ final readonly class ToolRegistry
         private Base32CipherService $base32,
         private Base58CipherService $base58,
         private Base85CipherService $base85,
-        private Base45CipherService $base45
+        private Base45CipherService $base45,
+        private PunycodeCipherService $punycode
     ) {
     }
 
@@ -109,6 +110,17 @@ final readonly class ToolRegistry
                 ['label' => 'URL', 'value' => 'https://example.com/search?q=smart tools'],
                 ['label' => 'Params', 'value' => 'email=test@example.com&name=John Doe'],
                 ['label' => 'Unicode', 'value' => 'Привет мир'],
+            ],
+            'encoding/punycode' => [
+                ...self::withSettings([
+                    ['label' => 'German', 'value' => 'münchen.de'],
+                    ['label' => 'Cyrillic', 'value' => 'правда.рф'],
+                    ['label' => 'Japanese', 'value' => '例え.テスト'],
+                    ['label' => 'ACE', 'value' => 'xn--mnchen-3ya.de', 'direction' => 'decrypt'],
+                ], ['ciphers-base-variant' => 'domain']),
+                ...self::withSettings([
+                    ['label' => 'Raw', 'value' => 'münchen'],
+                ], ['ciphers-base-variant' => 'raw']),
             ],
             'encoding/binary-converter' => [
                 ['label' => 'Hello', 'value' => 'Hello'],
@@ -577,6 +589,7 @@ final readonly class ToolRegistry
             'encoding/base58' => $this->base58->getToolSettings(),
             'encoding/base85' => $this->base85->getToolSettings(),
             'encoding/base45' => $this->base45->getToolSettings(),
+            'encoding/punycode' => $this->punycode->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             'text-analysis/caesar-brute-force'  => $this->caesarBruteForce->getToolSettings(),
             'text-analysis/affine-brute-force'  => $this->affineBruteForce->getToolSettings(),
@@ -643,6 +656,7 @@ final readonly class ToolRegistry
             'encoding/base58' => $this->base58->getTrustItems($calculationMode),
             'encoding/base85' => $this->base85->getTrustItems($calculationMode),
             'encoding/base45' => $this->base45->getTrustItems($calculationMode),
+            'encoding/punycode' => $this->punycode->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),

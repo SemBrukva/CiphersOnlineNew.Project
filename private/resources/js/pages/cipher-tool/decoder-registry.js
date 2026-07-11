@@ -9,6 +9,7 @@ import { transformHex, looksLikeHex } from './decoders/hex.js'
 import { transformJwt, looksLikeJwt } from './decoders/jwt.js'
 import { transformUnicode, looksLikeUnicode } from './decoders/unicode.js'
 import { transformUrl, looksLikeUrl } from './decoders/url.js'
+import { transformPunycode, looksLikePunycode } from './decoders/punycode.js'
 import { transformMorse, looksLikeMorse } from './decoders/morse.js'
 import { transformDancingMen, looksLikeDancingMen } from './decoders/dancing-men.js'
 import { transformPigpen, looksLikePigpen } from './decoders/pigpen.js'
@@ -36,6 +37,7 @@ const DECODER_BY_SLUG = {
   'encoding/hex': { transform: transformHex, looksLikeEncoded: looksLikeHex },
   'encoding/binary-converter': { transform: transformBinary, looksLikeEncoded: looksLikeBinary },
   'encoding/url-encode': { transform: transformUrl, looksLikeEncoded: looksLikeUrl },
+  'encoding/punycode': { transform: transformPunycode, looksLikeEncoded: looksLikePunycode },
   'encoding/ascii-converter': { transform: transformAscii, looksLikeEncoded: looksLikeAscii },
   'encoding/unicode-converter': { transform: transformUnicode, looksLikeEncoded: looksLikeUnicode },
   'encoding/jwt-decoder': { transform: transformJwt, looksLikeEncoded: looksLikeJwt },

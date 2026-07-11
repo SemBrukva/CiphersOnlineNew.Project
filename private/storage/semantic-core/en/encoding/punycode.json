@@ -1,0 +1,183 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "punycode",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/encoding/punycode.csv",
+        "imported_at": "2026-07-11T16:24:00+02:00"
+    },
+    "tool": {
+        "slug": "encoding/punycode",
+        "url": "/en/encoding/punycode",
+        "content_file": "private/storage/content/encoding/punycode/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 57800,
+        "primary_terms": [
+            "punycode",
+            "punycode converter",
+            "punycode domain",
+            "idn domain converter",
+            "punycode url",
+            "unicode domain name converter"
+        ],
+        "modifiers": ["converter", "domain", "IDN", "URL", "Unicode", "Cyrillic", "xn--"],
+        "intents": {
+            "tool": 13
+        },
+        "content_recommendations": [
+            "Use the exact primary query \"Punycode\" in the meta title and first-screen copy.",
+            "Make the converter workflow explicit: convert a Unicode domain label to its xn-- ASCII form and decode an xn-- label back to Unicode.",
+            "Use a supporting block for IDN and internationalized domain names, explaining that Punycode is used for domain labels rather than a general URL encoder.",
+            "Include a domain example and a short URL example; preserve the protocol, path, query, and fragment while converting domain labels only when the tool supports URL mode.",
+            "Cover Cyrillic and Unicode domain conversion in the FAQ, and state that Punycode is an IDNA encoding, not encryption or a security check.",
+            "Do not promise an exhaustive list of registered domains or detection of phishing domains; explain xn-- prefixes as representation only."
+        ],
+        "query_groups": [
+            {"name":"Canonical format","intent":["tool"],"priority":"primary","target":"meta_title","representative_queries":["punycode"]},
+            {"name":"Converter workflow","intent":["encode","decode"],"priority":"secondary","target":"intro","representative_queries":["punycode converter","punycode domain converter"]},
+            {"name":"IDN domains","intent":["tool"],"priority":"secondary","target":"content_block","representative_queries":["punycode domain","domain punycode","idn domain converter","internationalized domain name converter"]},
+            {"name":"URL and Unicode domains","intent":["tool"],"priority":"long_tail","target":"faq","representative_queries":["punycode url","cyrillic domain name converter","unicode domain name converter","xn domain name converter"]},
+            {"name":"Examples and limits","intent":["tool"],"priority":"long_tail","target":"examples","representative_queries":["punycode domain example","punycode list"]}
+        ]
+    },
+    "queries": [
+        {
+            "query": "punycode",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "punycode converter",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "punycode domain",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "domain punycode",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "idn domain converter",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "internationalized domain name converter",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "punycode url",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "cyrillic domain name converter",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "punycode domain converter",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "punycode domain example",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "punycode list",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "unicode domain name converter",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "xn domain name converter",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "notes": "Reviewed as a single Punycode and IDN conversion tool. Do not broaden it into DNS lookup, domain registration, URL shortening, or phishing detection services.",
+    "curation": {"reviewed_at":"2026-07-11","reviewed_by":"semantic-core-builder","decision":"single_tool_cluster","notes":["The exact term \"punycode\" accounts for most source demand and anchors the title.","Converter and IDN-domain queries describe the same reversible tool workflow.","The linked content file is not present yet, so this reviewed core cannot be mapped until content is created."]}
+}

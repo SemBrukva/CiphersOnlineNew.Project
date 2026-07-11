@@ -127,7 +127,7 @@ final class ToolUiDecorator
             $toolUi['placeholderEncode']      = trans('NUM2LET_PLACEHOLDER_NUMBERS');
             $toolUi['placeholderDecode']      = trans('NUM2LET_PLACEHOLDER_LETTERS');
         }
-        if (in_array($cipherAlias, ['base32', 'base58', 'base85', 'base45'], true)) {
+        if (in_array($cipherAlias, ['base32', 'base58', 'base85', 'base45', 'punycode'], true)) {
             $toolUi['baseEncodingMode'] = true;
         }
         if ($cipherAlias === 'book-cipher') {
