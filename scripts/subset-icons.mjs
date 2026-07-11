@@ -1,7 +1,7 @@
 // Сабсеттинг шрифта Bootstrap Icons под реально используемые иконки.
 //
 // Полный шрифт содержит ~2000 глифов (134 КБ woff2) и ~100 КБ CSS-определений,
-// тогда как сайт использует меньше сотни иконок. Скрипт сканирует шаблоны и JS,
+// тогда как сайт использует меньше сотни иконок. Скрипт сканирует шаблоны, JS и конфиги,
 // оставляет только нужные глифы и генерирует компактный woff2 + CSS.
 //
 // Запуск: node scripts/subset-icons.mjs  (или npm run icons)
@@ -19,6 +19,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SCAN_DIRS = [
     join(root, 'private/resources/views'),
     join(root, 'private/resources/js'),
+    join(root, 'private/config'),   // иконки пунктов меню объявлены в navigation.php
 ]
 const CODEPOINTS = join(root, 'node_modules/bootstrap-icons/font/bootstrap-icons.json')
 const SRC_FONT   = join(root, 'node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2')
