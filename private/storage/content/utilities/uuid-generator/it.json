@@ -1,0 +1,257 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-23T18:38:18+00:00",
+        "category_alias": "utilities",
+        "cipher_alias": "uuid-generator",
+        "language": "it",
+        "default_language": "en",
+        "cipher_id": 89,
+        "category_id": 9
+    },
+    "cipher_translation": {
+        "id": 89,
+        "data": {
+            "name": "Generatore UUID / GUID",
+            "name_short": "Generatore UUID",
+            "description": "Genera UUID e GUID online nel browser: v1, v3, v4, v5, v7, nil e max. Crea fino a 100 valori, scegli spazio dei nomi e formato, quindi copia il risultato. Tutto avviene localmente sul dispositivo.",
+            "description_stort": "Generatore UUID / GUID online gratuito per identificatori v1, v3, v4, v5 e v7.",
+            "meta_title": "Generatore UUID online – UUID / GUID v4, v7 | Ciphers Online",
+            "meta_description": "Generatore UUID e GUID online gratuito. Crea UUID v4 casuali, v7 ordinabili nel tempo, v3/v5 basati sul nome o v1 nel browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 290,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Che cos’è un UUID?",
+                "text": "<p>Un UUID (Universally Unique Identifier), chiamato anche GUID sulle piattaforme Microsoft, è un identificatore a 128 bit che etichetta record senza un’autorità centrale. La forma usuale ha 32 caratteri esadecimali in cinque gruppi (<code>8-4-4-4-12</code>), ad esempio <code>f47ac10b-58cc-4372-a567-0e02b2c3d479</code>.</p><p>UUID e GUID indicano di solito lo stesso formato: GUID è il termine comune in Microsoft, UUID è il termine generale dello standard. Questo generatore UUID / GUID online crea i valori nel browser per codice, database, test e configurazioni.</p>"
+            }
+        },
+        {
+            "id": 291,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Come generare un UUID online",
+                "text": "<p>Scegli una versione, indica da 1 a 100 valori e fai clic su Genera. Il risultato contiene un valore per riga e puoi copiare l’intero elenco. UUID v4 è la scelta predefinita per un nuovo identificatore casuale.</p><p>Modifica la rappresentazione senza rigenerare: trattini, maiuscole, parentesi graffe o prefisso <code>urn:uuid:</code>. In questo modo adatti il valore a API, linguaggio o database.</p><p>I valori casuali sono creati localmente con Web Crypto API; UUID, nomi, spazi dei nomi e risultati non vengono inviati al server.</p>"
+            }
+        },
+        {
+            "id": 292,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Versioni UUID: v4, v7, v1, v3 e v5",
+                "text": "<p><strong>UUID v4</strong> è casuale ed è adatto alla maggior parte delle applicazioni. <strong>UUID v7</strong> include un timestamp Unix e si ordina approssimativamente per creazione. <strong>UUID v1</strong> è basato sul tempo; questo generatore usa un nodo casuale invece dell’indirizzo MAC.</p><p><strong>UUID v3</strong> e <strong>UUID v5</strong> sono basati sul nome. Scegli DNS, URL, OID, X.500 o un UUID personalizzato come spazio dei nomi. Lo stesso input produce sempre lo stesso risultato: v3 usa MD5 e v5 SHA-1.</p><p>UUID nil e max sono valori speciali dello standard, non normali identificatori univoci.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 602,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Quale versione UUID devo usare?",
+                "answer": "Nella maggior parte dei casi usa v4 casuale. Per chiavi di database ordinabili per creazione usa v7. Scegli v3 o v5 quando lo stesso input deve produrre sempre lo stesso UUID."
+            }
+        },
+        {
+            "id": 603,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Questi UUID sono generati in modo sicuro?",
+                "answer": "Sì. UUID v4 e la parte casuale di v7 usano la Web Crypto API crittograficamente sicura del browser. I valori sono creati localmente."
+            }
+        },
+        {
+            "id": 604,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Come creo un UUID o GUID online?",
+                "answer": "Scegli versione e quantità e fai clic su Genera. Per un UUID o GUID casuale normale lascia v4 selezionato. Puoi creare fino a 100 valori e copiarli."
+            }
+        },
+        {
+            "id": 605,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "GUID è diverso da UUID?",
+                "answer": "Nello sviluppo quotidiano no. GUID è il nome Microsoft dello stesso formato a 128 bit generalmente chiamato UUID."
+            }
+        },
+        {
+            "id": 606,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Perché v3 o v5 restituiscono lo stesso UUID?",
+                "answer": "Le versioni 3 e 5 sono deterministiche: applicano un hash a spazio dei nomi e nome. Usa v3/v5 per identificatori riproducibili e v4/v7 per nuovi valori."
+            }
+        },
+        {
+            "id": 607,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Posso usare UUID v7 come chiave primaria?",
+                "answer": "Spesso sì. v7 contiene un timestamp Unix in millisecondi e si ordina per creazione tra istanti diversi; non è strettamente monotono nello stesso millisecondo."
+            }
+        },
+        {
+            "id": 608,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Quale formato UUID devo copiare?",
+                "answer": "La forma canonica minuscola con trattini è la scelta sicura. Rimuovi i trattini solo se necessario; parentesi graffe e <code>urn:uuid:</code> dipendono dal sistema."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 323,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v4",
+                "count": "5",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Lotto di UUID v4 casuali",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Genera cinque UUID v4 casuali, la scelta comune per applicazioni e database."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v4",
+                "count": "1",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "1",
+                "hyphens": "0",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "GUID compatto",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Maiuscole senza trattini: la forma GUID di 32 caratteri usata spesso nel codice e nel registro."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v5",
+                "count": "1",
+                "name": "example.com",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "UUID v5 nello spazio DNS",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "cfbff0d1-9375-5685-968c-48ce8b15ae17",
+                "description": "UUID deterministico per example.com nello spazio DNS: lo stesso input produce sempre questo valore."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v7",
+                "count": "5",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Lotto UUID v7 ordinato nel tempo",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Genera cinque UUID v7; il prefisso temporale consente un ordinamento approssimativo per creazione."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 404,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UUID"
+            }
+        },
+        {
+            "id": 405,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "GUID"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

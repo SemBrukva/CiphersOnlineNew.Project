@@ -145,15 +145,19 @@
 - Tap code, Semaphore, Braille, NATO phonetic alphabet, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT-N, Nihilist, Four-square, Two-square, ADFGVX, Chaocipher.
 
 **Кодировки/dev (высокий dev-трафик):**
-- ✅ Base32, ✅ Base58 (крипто-адреса), ✅ Base85/Ascii85, ✅ Base45, ✅ Punycode (IDN, domain/raw варианты) — клиентские инструменты с вариант-селектами; интеграция в авто-солвер — отдельной итерацией. Quoted-Printable, Gzip/Deflate, ROT13-в-Base цепочки, UUID generator, QR-код (ген/чтение), Barcode.
+- ✅ Base32, ✅ Base58 (крипто-адреса), ✅ Base85/Ascii85, ✅ Base45, ✅ Punycode (IDN, domain/raw варианты) — клиентские инструменты с вариант-селектами; интеграция в авто-солвер — отдельной итерацией. Quoted-Printable, Gzip/Deflate, ROT13-в-Base цепочки, QR-код (ген/чтение), Barcode.
 
 **Хеши/крипто (dev-трафик):**
 - RIPEMD-160, Whirlpool, xxHash, Adler-32; **симметрика**: AES (encrypt/decrypt), ChaCha20; **асимметрика/подписи**: RSA (обучающий), ECDSA verify; HOTP/TOTP (2FA-коды), JWT (у вас есть decoder — добавить sign/verify).
 
 **Утилиты-магниты трафика (off-brand, но огромный объём):**
-- Password generator, Random string, Diceware passphrase, UUID, Lorem-в-шифр, Text case converter.
+- Password generator, Random string, Diceware passphrase, ✅ UUID generator (v1/v3/v4/v5/v7 + nil/max, bulk до 100, форматы), Lorem-в-шифр, Text case converter.
 
 > Рекомендация: держать «магниты» в отдельной категории (`/tools` или `/utilities`), чтобы не размывать нишевое позиционирование, но собирать трафик.
+
+> ✅ **Категория `/utilities` создана** (миграция `create_utilities_category`), первый инструмент — **UUID / GUID Generator** (клиентский, `crypto.getRandomValues`, bulk до 100, форматы, собственный виджет + permalink/embed).
+>
+> **Следующий приоритет в этой категории — Password Generator.** Обоснование: (1) максимальный объём спроса среди утилит-магнитов; (2) полностью клиентский на том же `crypto.getRandomValues`, что и UUID — нулевая серверная нагрузка и приватность как УТП; (3) переиспользует уже отлаженный виджет-паттерн UUID (опции-чекбоксы, счётчик, копирование, bulk-генерация, live-режим); (4) индикатор надёжности пароля (энтропия/zxcvbn) даёт дифференциацию и E-E-A-T-ценность. Порядок далее по спросу/усилию: **Random string** → **Diceware passphrase** → **Text case converter**.
 
 **Реализация:** ваш паттерн уже отработан (миграция + `ToolRegistry` + декодер + контент-JSON — см. память `project-cipher-architecture`). Каждый инструмент = тираж по шаблону.
 

@@ -1,0 +1,257 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-23T18:38:18+00:00",
+        "category_alias": "utilities",
+        "cipher_alias": "uuid-generator",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 89,
+        "category_id": 9
+    },
+    "cipher_translation": {
+        "id": 89,
+        "data": {
+            "name": "UUID / GUID Generator",
+            "name_short": "UUID Generator",
+            "description": "Generate UUIDs and GUIDs online in your browser — v1, v3, v4, v5, v7, nil and max. Create up to 100 values at a time, choose a namespace and name for v3/v5, select the output format, then copy the results. Everything runs locally on your device.",
+            "description_stort": "Free online UUID / GUID generator for v1, v3, v4, v5 and v7 identifiers.",
+            "meta_title": "Generate UUID4 Online – Free UUID / GUID Generator | Ciphers Online",
+            "meta_description": "Free online UUID and GUID generator. Generate UUID4 random IDs, time-ordered v7, name-based v3/v5, or v1 values in bulk, locally in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 290,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is a UUID?",
+                "text": "<p>A UUID (Universally Unique Identifier), also called a GUID on Microsoft platforms, is a 128-bit identifier that lets applications label records without asking a central service for the next value. Its usual form contains 32 hexadecimal characters in five hyphen-separated groups (<code>8-4-4-4-12</code>), for example <code>f47ac10b-58cc-4372-a567-0e02b2c3d479</code>.</p><p>UUID and GUID usually refer to the same identifier format. GUID is the name commonly used in Microsoft documentation and APIs; UUID is the broader standards term. This free online UUID / GUID generator creates the values in your browser, so you can generate a UUID, copy it, and use it immediately in code, a database, a test fixture, or a configuration file.</p>"
+            }
+        },
+        {
+            "id": 291,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "How to generate a UUID online",
+                "text": "<p>Select a UUID version, set a quantity from 1 to 100, and click Generate. The output area updates with one value per line; use Copy to place the complete list on your clipboard. Version 4 is selected by default because it is the usual choice when you simply need a new random UUID.</p><p>You can also change how generated values are displayed without creating new ones: keep or remove hyphens, use uppercase letters, wrap the value in braces, or add the <code>urn:uuid:</code> prefix. These options make it easy to match an API, programming language, registry entry, or database convention.</p><p>Random values are produced locally with the browser’s Web Crypto API. The generator does not send UUIDs, names, namespaces, or generated output to a server.</p>"
+            }
+        },
+        {
+            "id": 292,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "UUID versions: v4, v7, v1, v3 and v5",
+                "text": "<p><strong>UUID v4</strong> is a random UUID and the best default for most applications. <strong>UUID v7</strong> includes a Unix timestamp and is designed to sort approximately by creation time, which can be useful for newly inserted database records. <strong>UUID v1</strong> is time-based; this generator uses a random node value rather than your device’s MAC address.</p><p><strong>UUID v3</strong> and <strong>UUID v5</strong> are name-based identifiers. Enter a name and choose DNS, URL, OID, X.500, or a custom UUID namespace. The same namespace and name always produce the same result: v3 uses MD5 and v5 uses SHA-1. Use these versions when you need a stable ID derived from known input, not a new random UUID.</p><p>The nil UUID (<code>00000000-0000-0000-0000-000000000000</code>) and max UUID (all <code>f</code>s) are reserved special values defined by the UUID standard. They are useful as sentinels or boundary values, not as ordinary unique identifiers.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 602,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Which UUID version should I use?",
+                "answer": "For most cases pick version 4 (random) — it needs no input and has a negligible collision chance. If you store the values as database keys and want them to sort by creation time, prefer version 7. Use versions 3 or 5 only when you need the same input to always produce the same UUID."
+            }
+        },
+        {
+            "id": 603,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Are these UUIDs generated securely?",
+                "answer": "Yes. Random UUIDs (v4) and the random parts of v7 use the browser's cryptographically secure Web Crypto API (crypto.getRandomValues). Nothing is sent to a server — every value is generated locally in your browser."
+            }
+        },
+        {
+            "id": 604,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do I create a UUID or GUID online?",
+                "answer": "Choose a version and quantity, then click Generate. For a standard random UUID or GUID, leave version 4 selected. You can generate up to 100 values in one operation, adjust the display format, and copy the results directly from the page."
+            }
+        },
+        {
+            "id": 605,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Is a GUID different from a UUID?",
+                "answer": "In everyday development, no. GUID is Microsoft’s common name for the same 128-bit identifier format known more generally as a UUID. A value generated here can be used wherever software expects a UUID or a GUID, provided you select the formatting required by that system."
+            }
+        },
+        {
+            "id": 606,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Why does the same v3 or v5 input return the same UUID?",
+                "answer": "Versions 3 and 5 are deterministic. They hash the selected namespace together with your name, so identical input always returns the same UUID. Use v3 or v5 for reproducible identifiers; use v4 or v7 when each generated value must be new."
+            }
+        },
+        {
+            "id": 607,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can I use UUID v7 as a database primary key?",
+                "answer": "Often, yes. UUID v7 carries a millisecond Unix timestamp and is intended to sort by creation time across different timestamps, which can be more index-friendly than entirely random v4 values in some databases. It still has a random component, so do not treat the value as a precise timestamp or as a strictly monotonic sequence within the same millisecond."
+            }
+        },
+        {
+            "id": 608,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Which UUID format should I copy?",
+                "answer": "The canonical lowercase form with hyphens is the safest default. Remove hyphens only when a target system requires 32 contiguous hexadecimal characters. Braces are common in some Microsoft contexts, while the urn:uuid: prefix is useful when an application expects a UUID URN. Formatting changes the representation, not the underlying identifier."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 323,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v4",
+                "count": "5",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Bulk random v4",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Generate five random version-4 UUIDs at once — the default for most apps and databases."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v4",
+                "count": "1",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "1",
+                "hyphens": "0",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Compact GUID",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Uppercase without hyphens — the bare 32-character GUID form often used in code and registry keys."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v5",
+                "count": "1",
+                "name": "example.com",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Namespace v5 (DNS)",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "cfbff0d1-9375-5685-968c-48ce8b15ae17",
+                "description": "Deterministic UUID for the name example.com in the DNS namespace — the same input always yields this value."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v7",
+                "count": "5",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Time-ordered UUID v7 batch",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Generate five UUID v7 values for records created now. Their timestamp prefix makes values from different moments sort approximately in creation order."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 404,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UUID"
+            }
+        },
+        {
+            "id": 405,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "GUID"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

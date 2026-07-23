@@ -1,5 +1,7 @@
 {if $tool_ui.diffMode|default:false}
 {include file="cipher/_diff_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
+{elseif $tool_ui.uuidMode|default:false}
+{include file="cipher/_uuid_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {else}
 {include file="cipher/_tool_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {/if}
@@ -12,7 +14,38 @@
         <div class="panel-title">{$tool_ui.examplesTitle}</div>
     </div>
     <div class="panel-content">
-        {if $tool_ui.diffMode|default:false}
+        {if $tool_ui.uuidMode|default:false}
+        <div class="b64-examples-grid">
+            {foreach $examples as $example}
+                <article class="b64-example-card">
+                    {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
+                    <div class="b64-example-card__badges">
+                        {if $example.settings.version|default:''}<span class="b64-example-card__key-badge">{$tool_ui.uuidVersionLabel}: <code>{$example.settings.version|escape}</code></span>{/if}
+                        {if $example.settings.count|default:''}<span class="b64-example-card__key-badge">{$tool_ui.uuidCountLabel}: <code>{$example.settings.count|escape}</code></span>{/if}
+                        {if $example.settings.name|default:''}<span class="b64-example-card__key-badge">{$tool_ui.uuidNameLabel}: <code>{$example.settings.name|escape}</code></span>{/if}
+                    </div>
+                    {if $example.output}
+                    <div class="b64-example-card__row">
+                        <div class="b64-example-card__slot b64-example-card__slot--output">
+                            <span class="b64-example-card__slot-tag">{$tool_ui.outputTag}</span>
+                            <code class="b64-example-card__code b64-example-card__code--output">{$example.output|escape}</code>
+                        </div>
+                    </div>
+                    {/if}
+                    {if $example.desc}<p class="b64-example-card__desc">{$example.desc|escape}</p>{/if}
+                    <button class="b64-example-card__use uuid-example" type="button"
+                            {if isset($example.settings.version)}data-uuid-version="{$example.settings.version|escape:'html'}"{/if}
+                            {if isset($example.settings.count)}data-uuid-count="{$example.settings.count|escape:'html'}"{/if}
+                            {if isset($example.settings.name)}data-uuid-name="{$example.settings.name|escape:'html'}"{/if}
+                            {if isset($example.settings.namespace)}data-uuid-namespace="{$example.settings.namespace|escape:'html'}"{/if}
+                            {if isset($example.settings.uppercase)}data-uuid-uppercase="{if $example.settings.uppercase}1{else}0{/if}"{/if}
+                            {if isset($example.settings.hyphens)}data-uuid-hyphens="{if $example.settings.hyphens}1{else}0{/if}"{/if}
+                            {if isset($example.settings.braces)}data-uuid-braces="{if $example.settings.braces}1{else}0{/if}"{/if}
+                            {if isset($example.settings.urn)}data-uuid-urn="{if $example.settings.urn}1{else}0{/if}"{/if}>{$tool_ui.useExampleLabel}</button>
+                </article>
+            {/foreach}
+        </div>
+        {elseif $tool_ui.diffMode|default:false}
         <div class="diff-ex-grid">
             {foreach $examples as $example}
                 <article class="diff-ex-card">

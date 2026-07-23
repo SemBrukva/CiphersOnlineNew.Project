@@ -3066,6 +3066,7 @@ a:focus .nav-fav-count {
 
 .ciphers-unified__output-actions {
   display: flex;
+  align-items: center;
   gap: 6px;
 }
 
@@ -8407,4 +8408,147 @@ a:focus .nav-fav-count {
   display: flex;
   justify-content: flex-end;
   margin-top: 14px;
+}
+
+/* UUID Generator */
+.uuid__toolbar {
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 14px;
+}
+
+.uuid__namebased {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Степпер количества не должен сжиматься — иначе overflow:hidden обрезает −/+ */
+.uuid__count-item .ciphers-settings-shift-group {
+  flex-shrink: 0;
+}
+
+.uuid__field {
+  min-width: 200px;
+}
+
+.uuid__field--name {
+  flex: 1 1 260px;
+}
+
+/* Текстовые поля namespace/имя заполняют свой контейнер */
+.uuid__field .ciphers-settings-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.uuid__format {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.uuid__format-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.62);
+  margin-right: 4px;
+}
+
+.uuid__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.uuid__examples-row {
+  margin-top: 12px;
+}
+
+.uuid__output {
+  width: 100%;
+  min-height: 180px;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 13px;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+}
+
+/* Pill-чекбоксы формата (вид совпадает с .diff__check) */
+.uuid__check {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.uuid__check:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.uuid__check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.uuid__check span {
+  position: relative;
+  padding-left: 20px;
+}
+
+.uuid__check span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.uuid__check:has(input:checked) {
+  background: rgba(193, 255, 0, 0.12);
+  border-color: rgba(193, 255, 0, 0.45);
+  color: #fff;
+}
+
+.uuid__check:has(input:checked) span::before {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.uuid__check:has(input:checked) span::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-60%) rotate(45deg);
+  width: 4px;
+  height: 8px;
+  border: solid var(--primary);
+  border-width: 0 2px 2px 0;
+}
+
+.uuid__check:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.14);
 }

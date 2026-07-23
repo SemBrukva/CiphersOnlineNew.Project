@@ -1,0 +1,257 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-23T18:38:18+00:00",
+        "category_alias": "utilities",
+        "cipher_alias": "uuid-generator",
+        "language": "tr",
+        "default_language": "en",
+        "cipher_id": 89,
+        "category_id": 9
+    },
+    "cipher_translation": {
+        "id": 89,
+        "data": {
+            "name": "UUID / GUID Oluşturucu",
+            "name_short": "UUID Oluşturucu",
+            "description": "Tarayıcınızda çevrimiçi UUID ve GUID oluşturun: v1, v3, v4, v5, v7, nil ve max. 100 değere kadar üretin, ad alanını ve biçimi seçin, ardından sonucu kopyalayın. Her şey cihazınızda yerel olarak çalışır.",
+            "description_stort": "v1, v3, v4, v5 ve v7 tanımlayıcıları için ücretsiz çevrimiçi UUID / GUID oluşturucu.",
+            "meta_title": "Çevrimiçi UUID Oluşturucu – UUID / GUID v4, v7 | Ciphers Online",
+            "meta_description": "Ücretsiz çevrimiçi UUID ve GUID oluşturucu. Tarayıcıda rastgele v4, zamana göre sıralanabilir v7, ada dayalı v3/v5 veya v1 oluşturun."
+        }
+    },
+    "blocks": [
+        {
+            "id": 290,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "UUID nedir?",
+                "text": "<p>UUID (Universally Unique Identifier), Microsoft platformlarında GUID olarak da adlandırılan, kayıtları merkezi bir otorite olmadan etiketleyen 128 bitlik bir tanımlayıcıdır. Yaygın biçimi beş grupta 32 onaltılık karakter içerir (<code>8-4-4-4-12</code>); örneğin <code>f47ac10b-58cc-4372-a567-0e02b2c3d479</code>.</p><p>UUID ve GUID genellikle aynı biçimi ifade eder: GUID Microsoft dünyasında yaygın addır, UUID ise standardın genel terimidir. Bu çevrimiçi UUID / GUID oluşturucu, değerleri tarayıcıda kod, veritabanı, test veya yapılandırma için üretir.</p>"
+            }
+        },
+        {
+            "id": 291,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Çevrimiçi UUID nasıl oluşturulur",
+                "text": "<p>Bir UUID sürümü seçin, 1 ile 100 arasında adet belirleyin ve Oluştur’a tıklayın. Sonuçta her satırda bir değer görünür; listenin tamamını kopyalayabilirsiniz. UUID v4 yeni rastgele tanımlayıcı için varsayılan seçimdir.</p><p>Yeniden oluşturmadan gösterimi değiştirin: tireler, büyük harf, küme parantezi veya <code>urn:uuid:</code> öneki. Böylece değeri API, programlama dili veya veritabanına uydurursunuz.</p><p>Rastgele değerler Web Crypto API ile yerelde üretilir; UUID’ler, adlar, ad alanları ve sonuçlar sunucuya gönderilmez.</p>"
+            }
+        },
+        {
+            "id": 292,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "UUID sürümleri: v4, v7, v1, v3 ve v5",
+                "text": "<p><strong>UUID v4</strong> rastgeledir ve çoğu uygulama için uygundur. <strong>UUID v7</strong> Unix zaman damgası içerir ve oluşturma zamanına göre yaklaşık sıralanır. <strong>UUID v1</strong> zaman tabanlıdır; bu oluşturucu MAC adresi yerine rastgele düğüm değeri kullanır.</p><p><strong>UUID v3</strong> ve <strong>UUID v5</strong> ada dayalıdır. Ad alanı olarak DNS, URL, OID, X.500 veya özel UUID seçin. Aynı girdi aynı sonucu verir: v3 MD5, v5 SHA-1 kullanır.</p><p>nil ve max UUID, sıradan benzersiz tanımlayıcılar değil, standardın özel değerleridir.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 602,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Hangi UUID sürümünü kullanmalıyım?",
+                "answer": "Çoğu durumda rastgele v4 kullanın. Oluşturma zamanına göre sıralanabilir veritabanı anahtarları için v7 seçin. Aynı girdi her zaman aynı UUID’yi vermeliyse v3 veya v5 kullanın."
+            }
+        },
+        {
+            "id": 603,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Bu UUID’ler güvenli üretiliyor mu?",
+                "answer": "Evet. UUID v4 ve v7’nin rastgele kısmı, tarayıcının kriptografik olarak güvenli Web Crypto API’sini kullanır. Değerler yerelde oluşturulur."
+            }
+        },
+        {
+            "id": 604,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Çevrimiçi UUID veya GUID nasıl oluştururum?",
+                "answer": "Sürümü ve adedi seçip Oluştur’a tıklayın. Normal rastgele UUID veya GUID için v4 seçili kalsın. 100 değere kadar oluşturup kopyalayabilirsiniz."
+            }
+        },
+        {
+            "id": 605,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "GUID, UUID’den farklı mı?",
+                "answer": "Günlük geliştirmede hayır. GUID, genellikle UUID olarak bilinen aynı 128 bitlik biçimin Microsoft adıdır."
+            }
+        },
+        {
+            "id": 606,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "v3 veya v5 neden aynı UUID’yi döndürür?",
+                "answer": "3 ve 5 sürümleri deterministiktir: ad alanı ile adı hash’ler. Tekrarlanabilir tanımlayıcılar için v3/v5, yeni değerler için v4/v7 kullanın."
+            }
+        },
+        {
+            "id": 607,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "UUID v7’yi birincil anahtar olarak kullanabilir miyim?",
+                "answer": "Çoğu zaman evet. v7 milisaniye Unix zaman damgası içerir ve farklı zamanlarda oluşturmaya göre sıralanır; aynı milisaniyede kesin monoton değildir."
+            }
+        },
+        {
+            "id": 608,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Hangi UUID biçimini kopyalamalıyım?",
+                "answer": "Tireli küçük harfli kanonik biçim güvenli seçimdir. Tireleri yalnızca hedef sistem gerektirirse kaldırın; küme parantezleri ve <code>urn:uuid:</code> hedefe bağlıdır."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 323,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v4",
+                "count": "5",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Rastgele UUID v4 toplu işlem",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Uygulamalar ve veritabanları için yaygın seçim olan beş rastgele UUID v4 oluşturun."
+            }
+        },
+        {
+            "id": 324,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v4",
+                "count": "1",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "1",
+                "hyphens": "0",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Kompakt GUID",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Tiresiz büyük harfler: kod ve kayıt anahtarlarında kullanılan 32 karakterlik GUID biçimi."
+            }
+        },
+        {
+            "id": 325,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v5",
+                "count": "1",
+                "name": "example.com",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "DNS ad alanında UUID v5",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "cfbff0d1-9375-5685-968c-48ce8b15ae17",
+                "description": "DNS ad alanında example.com için deterministik UUID: aynı girdi daima bu değeri üretir."
+            }
+        },
+        {
+            "id": 326,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "version": "v7",
+                "count": "5",
+                "name": "",
+                "namespace": "dns",
+                "uppercase": "0",
+                "hyphens": "1",
+                "braces": "0",
+                "urn": "0"
+            },
+            "data": {
+                "title": "Zamana göre sıralı UUID v7 toplu işlem",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Beş UUID v7 oluşturun; zaman öneki yaklaşık oluşturma sıralaması sağlar."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 404,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "UUID"
+            }
+        },
+        {
+            "id": 405,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "GUID"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

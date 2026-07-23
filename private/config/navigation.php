@@ -53,6 +53,12 @@ return [
                     'icon'           => 'bi bi-hash',
                     'category_alias' => 'hashing',
                 ],
+                [
+                    'title_key'      => 'MENU_UTILITIES',
+                    'url'            => '/utilities',
+                    'icon'           => 'bi bi-shuffle',
+                    'category_alias' => 'utilities',
+                ],
             ],
         ],
     ],

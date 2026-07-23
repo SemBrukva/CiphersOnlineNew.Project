@@ -61,7 +61,8 @@ final readonly class ToolRegistry
         private Base58CipherService $base58,
         private Base85CipherService $base85,
         private Base45CipherService $base45,
-        private PunycodeCipherService $punycode
+        private PunycodeCipherService $punycode,
+        private UuidGeneratorCipherService $uuidGenerator
     ) {
     }
 
@@ -590,6 +591,7 @@ final readonly class ToolRegistry
             'encoding/base85' => $this->base85->getToolSettings(),
             'encoding/base45' => $this->base45->getToolSettings(),
             'encoding/punycode' => $this->punycode->getToolSettings(),
+            'utilities/uuid-generator' => $this->uuidGenerator->getToolSettings(),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getToolSettings(),
             'text-analysis/caesar-brute-force'  => $this->caesarBruteForce->getToolSettings(),
             'text-analysis/affine-brute-force'  => $this->affineBruteForce->getToolSettings(),
@@ -657,6 +659,7 @@ final readonly class ToolRegistry
             'encoding/base85' => $this->base85->getTrustItems($calculationMode),
             'encoding/base45' => $this->base45->getTrustItems($calculationMode),
             'encoding/punycode' => $this->punycode->getTrustItems($calculationMode),
+            'utilities/uuid-generator' => $this->uuidGenerator->getTrustItems($calculationMode),
             'encoding/base64' => [
                 trans('BASE64_TRUST_PURPOSE'),
                 trans('BASE64_TRUST_USES'),

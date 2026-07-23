@@ -329,6 +329,40 @@ final class ToolUiDecorator
             $toolUi['diffCopied']              = trans('DIFF_COPIED');
             $toolUi['diffCopyFailed']          = trans('DIFF_COPY_FAILED');
         }
+        if ($cipherAlias === 'uuid-generator') {
+            $toolUi['uuidMode']               = true;
+            $toolUi['disableLiveMode']        = true;
+            $toolUi['uuidVersionLabel']       = trans('UUID_VERSION_LABEL');
+            $toolUi['uuidVersionV4']          = trans('UUID_VERSION_V4');
+            $toolUi['uuidVersionV7']          = trans('UUID_VERSION_V7');
+            $toolUi['uuidVersionV1']          = trans('UUID_VERSION_V1');
+            $toolUi['uuidVersionV3']          = trans('UUID_VERSION_V3');
+            $toolUi['uuidVersionV5']          = trans('UUID_VERSION_V5');
+            $toolUi['uuidVersionNil']         = trans('UUID_VERSION_NIL');
+            $toolUi['uuidVersionMax']         = trans('UUID_VERSION_MAX');
+            $toolUi['uuidCountLabel']         = trans('UUID_COUNT_LABEL');
+            $toolUi['uuidNamespaceLabel']     = trans('UUID_NAMESPACE_LABEL');
+            $toolUi['uuidNamespaceDns']       = trans('UUID_NAMESPACE_DNS');
+            $toolUi['uuidNamespaceUrl']       = trans('UUID_NAMESPACE_URL');
+            $toolUi['uuidNamespaceOid']       = trans('UUID_NAMESPACE_OID');
+            $toolUi['uuidNamespaceX500']      = trans('UUID_NAMESPACE_X500');
+            $toolUi['uuidNamespaceCustom']    = trans('UUID_NAMESPACE_CUSTOM');
+            $toolUi['uuidNamespacePlaceholder'] = trans('UUID_NAMESPACE_PLACEHOLDER');
+            $toolUi['uuidNameLabel']          = trans('UUID_NAME_LABEL');
+            $toolUi['uuidNamePlaceholder']    = trans('UUID_NAME_PLACEHOLDER');
+            $toolUi['uuidFormatLabel']        = trans('UUID_FORMAT_LABEL');
+            $toolUi['uuidFormatUppercase']    = trans('UUID_FORMAT_UPPERCASE');
+            $toolUi['uuidFormatHyphens']      = trans('UUID_FORMAT_HYPHENS');
+            $toolUi['uuidFormatBraces']       = trans('UUID_FORMAT_BRACES');
+            $toolUi['uuidFormatUrn']          = trans('UUID_FORMAT_URN');
+            $toolUi['uuidGenerateLabel']      = trans('UUID_GENERATE');
+            $toolUi['uuidRegenerateLabel']    = trans('UUID_REGENERATE');
+            $toolUi['uuidCopyAllLabel']       = trans('UUID_COPY_ALL');
+            $toolUi['uuidDownloadLabel']      = trans('UUID_DOWNLOAD');
+            $toolUi['uuidCopiedLabel']        = trans('UUID_COPIED');
+            $toolUi['uuidErrNameRequired']    = trans('UUID_ERR_NAME_REQUIRED');
+            $toolUi['uuidErrNamespaceInvalid'] = trans('UUID_ERR_NAMESPACE_INVALID');
+        }
 
         return $toolUi;
     }

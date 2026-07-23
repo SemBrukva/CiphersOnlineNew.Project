@@ -5,6 +5,7 @@ import { initContactsPage } from './pages/contacts.js'
 import { initRegistrationPage } from './pages/registration.js'
 import { initLoginForms } from './pages/login.js'
 import { initTextDiffPage } from './pages/text-diff.js'
+import { initUuidGeneratorPage } from './pages/uuid-generator.js'
 import { initFavoriteButton, initFavoritesPage, updateNavFavCount } from './pages/favorites.js'
 import { initMobileNavSearch } from './pages/mobile-nav-search.js'
 import { initCookieConsent } from './pages/cookie-consent.js'
@@ -23,6 +24,7 @@ if (document.querySelector('[data-page="cipher-tool"][data-cipher-tool]')) {
     import('./pages/cipher-tool.js').then(m => m.initCipherToolPage())
 }
 initTextDiffPage()
+initUuidGeneratorPage()
 updateNavFavCount()
 initFavoriteButton()
 initFavoritesPage()

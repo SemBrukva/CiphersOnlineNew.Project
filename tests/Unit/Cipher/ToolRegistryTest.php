@@ -55,6 +55,7 @@ use App\Cipher\TimestampConverterCipherService;
 use App\Cipher\ToolRegistry;
 use App\Cipher\TrifidCipherService;
 use App\Cipher\TrigramFrequencyScorer;
+use App\Cipher\UuidGeneratorCipherService;
 use App\Cipher\VernamCipherService;
 use App\Cipher\VigenereCipherService;
 use App\Cipher\VigenereCrackerService;
@@ -205,7 +206,8 @@ final class ToolRegistryTest extends TestCase
             new Base58CipherService(),
             new Base85CipherService(),
             new Base45CipherService(),
-            new PunycodeCipherService()
+            new PunycodeCipherService(),
+            new UuidGeneratorCipherService()
         );
     }
 }

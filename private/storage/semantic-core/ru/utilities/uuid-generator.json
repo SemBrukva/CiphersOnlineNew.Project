@@ -1,0 +1,286 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "генератор uuid/guid",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/utilities/uuid-generator.csv",
+        "imported_at": "2026-07-23T19:24:00+02:00"
+    },
+    "tool": {
+        "slug": "utilities/uuid-generator",
+        "url": "/ru/utilities/uuid-generator",
+        "content_file": "private/storage/content/utilities/uuid-generator/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 1369,
+        "primary_terms": [
+            "генератор uuid",
+            "uuid генератор",
+            "генерация uuid",
+            "генератор guid",
+            "guid генератор",
+            "генератор uuid v4"
+        ],
+        "modifiers": [
+            "онлайн"
+        ],
+        "intents": {
+            "tool": 10,
+            "online": 8
+        },
+        "content_recommendations": [
+            "Использовать точную фразу «генератор UUID» в meta_title и первом экране; вариант «UUID генератор» раскрыть естественно во вступлении, не создавая конкурирующий заголовок.",
+            "Во вступлении кратко объяснить сценарий: создать UUID/GUID в браузере, выбрать версию и формат, скопировать или скачать один либо несколько идентификаторов.",
+            "В основном блоке пояснить, что GUID — употребляемое в экосистеме Microsoft название того же 128-битного UUID; так покрываются запросы «генератор GUID» и «GUID генератор».",
+            "Подчеркнуть онлайн-работу и локальную генерацию без отправки значений на сервер, но не перегружать title вторичными формулировками «онлайн».",
+            "В FAQ аккуратно раскрыть запросы о UUID v4 и «значениях идентификатора»: UUID не является генератором случайных чисел общего назначения, а v4 — случайный идентификатор для типовых задач.",
+            "Добавить пример пакетной генерации v4 и при необходимости пример UUID v5, чтобы показать разницу между случайными и детерминированными идентификаторами."
+        ],
+        "query_groups": [
+            {
+                "name": "Основной UUID-генератор",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "генератор uuid",
+                    "uuid генератор",
+                    "генерация uuid"
+                ]
+            },
+            {
+                "name": "GUID как синоним UUID",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "генератор guid",
+                    "guid генератор"
+                ]
+            },
+            {
+                "name": "Онлайн-генерация",
+                "intent": [
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "генератор uuid онлайн",
+                    "генератор guid онлайн",
+                    "uuid генератор онлайн"
+                ]
+            },
+            {
+                "name": "Версия v4 и назначение идентификатора",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": [
+                    "генератор uuid 4",
+                    "генератор uuid v4",
+                    "генератор значений идентификатора guid uuid"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "генератор uuid",
+            "score": 491,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "генератор guid",
+            "score": 250,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "guid генератор",
+            "score": 168,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "uuid генератор",
+            "score": 148,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генерация uuid",
+            "score": 111,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор uuid онлайн",
+            "score": 91,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор guid онлайн",
+            "score": 37,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "guid генератор онлайн",
+            "score": 20,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "онлайн генератор guid",
+            "score": 11,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "uuid генератор онлайн",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "онлайн генератор uuid",
+            "score": 6,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор случайных чисел guid",
+            "score": 6,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "генератор значений идентификатора guid uuid",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "uuid онлайн генератор",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор uuid 4",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "генератор значений идентификатора guid (uuid)",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "онлайн uuid генератор",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор uuid v4",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-07-23T20:18:06+02:00",
+        "reviewed_by": "Codex semantic-core-builder",
+        "decision": "Проверено как единый инструмент генерации UUID/GUID. Все запросы релевантны текущему генератору; русскоязычный контент-файл отсутствует, поэтому ядро готово к маппингу после его создания."
+    },
+    "notes": "Кластер ограничен созданием и форматированием UUID/GUID. Не расширять страницу до генератора случайных чисел общего назначения, проверки UUID, проектирования баз данных или поиска идентификаторов."
+}
