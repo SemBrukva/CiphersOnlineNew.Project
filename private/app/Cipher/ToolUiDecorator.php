@@ -363,6 +363,48 @@ final class ToolUiDecorator
             $toolUi['uuidErrNameRequired']    = trans('UUID_ERR_NAME_REQUIRED');
             $toolUi['uuidErrNamespaceInvalid'] = trans('UUID_ERR_NAMESPACE_INVALID');
         }
+        if ($cipherAlias === 'password-generator') {
+            $toolUi['passwordMode']            = true;
+            $toolUi['disableLiveMode']         = true;
+            $toolUi['pwdModePassword']         = trans('PASSWORD_MODE_PASSWORD');
+            $toolUi['pwdModePassphrase']       = trans('PASSWORD_MODE_PASSPHRASE');
+            $toolUi['pwdLengthLabel']          = trans('PASSWORD_LENGTH_LABEL');
+            $toolUi['pwdCountLabel']           = trans('PASSWORD_COUNT_LABEL');
+            $toolUi['pwdSetsLabel']            = trans('PASSWORD_SETS_LABEL');
+            $toolUi['pwdSetLower']             = trans('PASSWORD_SET_LOWER');
+            $toolUi['pwdSetUpper']             = trans('PASSWORD_SET_UPPER');
+            $toolUi['pwdSetDigits']            = trans('PASSWORD_SET_DIGITS');
+            $toolUi['pwdSetSymbols']           = trans('PASSWORD_SET_SYMBOLS');
+            $toolUi['pwdOptExcludeSimilar']    = trans('PASSWORD_OPT_EXCLUDE_SIMILAR');
+            $toolUi['pwdOptExcludeAmbiguous']  = trans('PASSWORD_OPT_EXCLUDE_AMBIGUOUS');
+            $toolUi['pwdOptNoRepeats']         = trans('PASSWORD_OPT_NO_REPEATS');
+            $toolUi['pwdWordsLabel']           = trans('PASSWORD_WORDS_LABEL');
+            $toolUi['pwdSeparatorLabel']       = trans('PASSWORD_SEPARATOR_LABEL');
+            $toolUi['pwdSepHyphen']            = trans('PASSWORD_SEP_HYPHEN');
+            $toolUi['pwdSepDot']               = trans('PASSWORD_SEP_DOT');
+            $toolUi['pwdSepSpace']             = trans('PASSWORD_SEP_SPACE');
+            $toolUi['pwdSepUnderscore']        = trans('PASSWORD_SEP_UNDERSCORE');
+            $toolUi['pwdCaseLabel']            = trans('PASSWORD_CASE_LABEL');
+            $toolUi['pwdCaseLower']            = trans('PASSWORD_CASE_LOWER');
+            $toolUi['pwdCaseCapitalize']       = trans('PASSWORD_CASE_CAPITALIZE');
+            $toolUi['pwdCaseUpper']            = trans('PASSWORD_CASE_UPPER');
+            $toolUi['pwdOptAddNumber']         = trans('PASSWORD_OPT_ADD_NUMBER');
+            $toolUi['pwdGenerateLabel']        = trans('PASSWORD_GENERATE');
+            $toolUi['pwdStrengthLabel']        = trans('PASSWORD_STRENGTH_LABEL');
+            $toolUi['pwdStrength0']            = trans('PASSWORD_STRENGTH_0');
+            $toolUi['pwdStrength1']            = trans('PASSWORD_STRENGTH_1');
+            $toolUi['pwdStrength2']            = trans('PASSWORD_STRENGTH_2');
+            $toolUi['pwdStrength3']            = trans('PASSWORD_STRENGTH_3');
+            $toolUi['pwdStrength4']            = trans('PASSWORD_STRENGTH_4');
+            $toolUi['pwdEntropyLabel']         = trans('PASSWORD_ENTROPY_LABEL');
+            $toolUi['pwdBitsLabel']            = trans('PASSWORD_BITS_LABEL');
+            $toolUi['pwdCrackLabel']           = trans('PASSWORD_CRACK_LABEL');
+            $toolUi['pwdCrackInstant']         = trans('PASSWORD_CRACK_INSTANT');
+            $toolUi['pwdCrackCenturies']       = trans('PASSWORD_CRACK_CENTURIES');
+            $toolUi['pwdCopiedLabel']          = trans('PASSWORD_COPIED');
+            $toolUi['pwdErrNoCharset']         = trans('PASSWORD_ERR_NO_CHARSET');
+            $toolUi['pwdErrTooLongNoRepeat']   = trans('PASSWORD_ERR_TOO_LONG_NO_REPEAT');
+        }
 
         return $toolUi;
     }

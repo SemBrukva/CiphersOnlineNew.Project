@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-27T17:15:58+00:00",
+    "category_alias": "utilities",
+    "cipher_alias": "password-generator",
+    "language": "de",
+    "default_language": "en",
+    "cipher_id": 90,
+    "category_id": 9
+  },
+  "cipher_translation": {
+    "id": 90,
+    "data": {
+      "name": "Passwortgenerator",
+      "name_short": "Passwortgenerator",
+      "description": "Dieser kostenlose Online-Passwortgenerator erstellt zufällige Passwörter und Diceware-Passphrasen direkt im Browser. Wählen Sie Länge und Zeichensätze, erzeugen Sie einzelne Passwörter oder Serien, schließen Sie ähnliche Zeichen und Wiederholungen aus und kopieren Sie das Ergebnis. Nichts wird an einen Server gesendet.",
+      "description_stort": "Erstellen Sie starke Zufallspasswörter und einprägsame Diceware-Passphrasen direkt im Browser.",
+      "meta_title": "Passwortgenerator – zufällige und sichere Passwörter | Ciphers Online",
+      "meta_description": "Kostenloser Online-Passwortgenerator für starke Zufallspasswörter und Diceware-Passphrasen. Länge und Zeichen wählen, Entropie prüfen und lokal im Browser erzeugen."
+    }
+  },
+  "blocks": [
+    {
+      "id": 293,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Was macht ein Passwort sicher?",
+        "text": "<p>Ein sicheres Passwort ist lang, zufällig und für genau ein Konto bestimmt. Länge und Zufall sind wichtiger als persönliche Informationen oder vorhersehbare Ersetzungen. Jeder zusätzliche Zufallsbuchstabe vergrößert die Zahl möglicher Kombinationen. Der Generator schätzt diese Unsicherheit als <em>Entropie</em> und zeigt eine grobe Zeit zum Knacken an. Die Anzeige ist ein Vergleichswert, keine Sicherheitsgarantie gegen Phishing, Schadsoftware oder eine Datenpanne.</p><p>Verwenden Sie für jedes Konto ein neues Passwort, speichern Sie es nach Möglichkeit in einem vertrauenswürdigen Passwortmanager und aktivieren Sie Mehrfaktor-Authentifizierung.</p>"
+      }
+    },
+    {
+      "id": 294,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Zufälliges Passwort erstellen",
+        "text": "<p>Wählen Sie Passwortlänge sowie Kleinbuchstaben, Großbuchstaben, Ziffern und Sonderzeichen. Danach erzeugen und kopieren Sie ein Passwort oder bis zu 100 Werte auf einmal. Unterstützt werden 4 bis 128 Zeichen pro Passwort.</p><p>Für einen Passwortmanager sind 16 Zeichen mit allen zulässigen Zeichensätzen ein guter Standard. Ähnliche Zeichen wie <code>l</code>, <code>1</code>, <code>O</code> und <code>0</code>, mehrdeutige Satzzeichen und Wiederholungen lassen sich ausschließen. Das erleichtert die Eingabe, kann aber die Entropie verringern.</p><p>Die Zufallswerte entstehen lokal mit <code>crypto.getRandomValues</code>. Rejection Sampling vermeidet Verzerrungen; die erzeugten Passwörter werden nicht übertragen, protokolliert oder gespeichert.</p>"
+      }
+    },
+    {
+      "id": 295,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "title": "Passphrasen-Generator: zufällige Passwortwörter",
+        "text": "<p>Eine Passphrase besteht aus zufällig gewählten Wörtern statt einer unlesbaren Zeichenfolge. Das Werkzeug nutzt die EFF-Diceware-Wortliste und verbindet 3 bis 20 Wörter mit Bindestrich, Punkt, Leerzeichen oder Unterstrich. Sie können die Schreibweise wählen und eine Zufallsziffer ergänzen.</p><p>Zufällige Passwortwörter sind oft leichter zu tippen und zu merken, wenn sie nicht aus einem Zitat oder persönlichen Daten stammen. Eine Diceware-Passphrase mit sechs Wörtern hat etwa 77 Bit Entropie. Nutzen Sie sie für häufige manuelle Eingaben; für den Passwortmanager eignet sich ein langes Zufallspasswort.</p>"
+      }
+    },
+    {
+      "id": 296,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "title": "Leitfaden zur Passwortlänge",
+        "text": "<p>Wählen Sie das längste eindeutige Passwort, das ein Dienst erlaubt. Acht Zeichen sind nur für alte Dienste mit strengen Limits geeignet und sollten alle erlaubten Zeichensätze nutzen. 10 oder 12 Zeichen können bei Limits genügen, 15 oder 16 Zeichen bieten für wichtige Konten mehr Reserve. Wenn möglich, wählen Sie mindestens 16 Zeichen.</p><p>Es gibt keine universell richtige Länge: Zeichensätze, Anmeldebegrenzungen, Mehrfaktor-Authentifizierung und die Speicherung beim Dienst spielen mit. Erzeugen Sie für jedes Konto ein neues Passwort und ersetzen Sie es bei Verdacht auf eine Kompromittierung.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 609,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Wie lang sollte mein Passwort sein?",
+        "answer": "Für einen Passwortmanager sind mindestens 16 Zeichen mit allen erlaubten Zeichensätzen sinnvoll. Wenn Sie ein Passwort tippen oder merken müssen, ist eine Diceware-Passphrase mit 4 bis 6 Wörtern oft praktischer. Für wichtige Konten besser nicht unter 12 Zeichen gehen."
+      }
+    },
+    {
+      "id": 610,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Sind die erzeugten Passwörter sicher?",
+        "answer": "Ja. Passwörter und Passphrasen werden lokal mit der kryptografisch sicheren Web Crypto API erzeugt. Sie werden nicht an einen Server übertragen, protokolliert oder gespeichert."
+      }
+    },
+    {
+      "id": 611,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Wie verwende ich den Passwortgenerator?",
+        "answer": "Wählen Sie Passwort oder Passphrase, legen Sie Länge beziehungsweise Wortanzahl und Optionen fest und klicken Sie auf „Generieren“. Sie können bis zu 100 Werte erzeugen und kopieren. Verwenden Sie jedes neue Passwort nur für ein Konto."
+      }
+    },
+    {
+      "id": 612,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Was ist der Unterschied zwischen Passwort und Passphrase?",
+        "answer": "Ein Zufallspasswort ist eine Zeichenfolge mit hoher Entropie auf kurzer Länge. Eine Diceware-Passphrase verbindet Zufallswörter und ist länger, aber oft besser merkbar. Beide sind stark, wenn sie zufällig und einzigartig sind."
+      }
+    },
+    {
+      "id": 613,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Soll ich Sonderzeichen, Ziffern und Großbuchstaben verwenden?",
+        "answer": "Nutzen Sie alle Zeichensätze, die die Website akzeptiert, besonders bei kurzen Passwörtern. Bei langen Passwörtern bleiben Länge und Zufall entscheidend. Für manuelle Eingabe können ähnliche Zeichen ausgeschlossen werden; wählen Sie dann eine größere Länge."
+      }
+    },
+    {
+      "id": 614,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Reichen 12 oder 16 Zeichen aus?",
+        "answer": "Ein zufällig erzeugtes Passwort mit 16 Zeichen und einem breiten Zeichensatz ist für die meisten Konten ein guter Standard. 12 Zeichen können bei einer Begrenzung genügen, länger ist jedoch besser. Für wichtige Konten wählen Sie die maximal erlaubte Länge und aktivieren Mehrfaktor-Authentifizierung."
+      }
+    },
+    {
+      "id": 615,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Kann ich ähnliche Zeichen und Wiederholungen ausschließen?",
+        "answer": "Ja. Im Passwortmodus können Sie ähnliche Zeichen wie l, 1, O und 0, schwer einzugebende Satzzeichen oder Wiederholungen ausschließen. Ohne Wiederholungen ist die Länge auf die verbleibenden eindeutigen Zeichen begrenzt."
+      }
+    },
+    {
+      "id": 616,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "Garantiert die Stärkemessung Sicherheit?",
+        "answer": "Nein. Sie schätzt Entropie und eine ungefähre Knackzeit, schützt aber nicht vor Phishing, Schadsoftware, einem kompromittierten Gerät oder Passwortwiederverwendung. Nutzen Sie eindeutige Passwörter, einen Passwortmanager und Mehrfaktor-Authentifizierung."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 327,
+      "sort_order": 10,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "16",
+        "lower": "1",
+        "upper": "1",
+        "digits": "1",
+        "symbols": "1"
+      },
+      "data": {
+        "title": "Starkes Passwort mit 16 Zeichen",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "16 Zeichen aus Klein- und Großbuchstaben, Ziffern und Sonderzeichen – ein guter Standard für die meisten Konten."
+      }
+    },
+    {
+      "id": 328,
+      "sort_order": 20,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "24",
+        "lower": "1",
+        "upper": "1",
+        "digits": "1",
+        "symbols": "1",
+        "excludeSimilar": "1"
+      },
+      "data": {
+        "title": "Gut lesbares Passwort mit 24 Zeichen",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Schließt ähnliche Zeichen wie l, 1, O und 0 aus, damit das Passwort leichter abzulesen und einzugeben ist."
+      }
+    },
+    {
+      "id": 329,
+      "sort_order": 30,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "passphrase",
+        "words": "6",
+        "separator": "-",
+        "wordCase": "capitalize"
+      },
+      "data": {
+        "title": "Diceware-Passphrase mit 6 Wörtern",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Sechs Zufallswörter aus der EFF-Liste liefern etwa 77 Bit Entropie und sind leichter zu merken als eine Zufallszeichenfolge."
+      }
+    },
+    {
+      "id": 330,
+      "sort_order": 40,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "6",
+        "lower": "0",
+        "upper": "0",
+        "digits": "1",
+        "symbols": "0"
+      },
+      "data": {
+        "title": "Sechsstellige numerische PIN",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Erstellt eine zufällige sechsstellige PIN für Dienste, die nur Ziffern verlangen. Für ein Kontopasswort besser eine größere Länge und mehr Zeichensätze wählen."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 406,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Passwort"
+      }
+    },
+    {
+      "id": 407,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "Passphrase"
+      }
+    },
+    {
+      "id": 408,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Zufallspasswort-Generator"
+      }
+    },
+    {
+      "id": 409,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "tag": "sicheres Passwort"
+      }
+    },
+    {
+      "id": 410,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "tag": "Diceware"
+      }
+    },
+    {
+      "id": 411,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "tag": "Passwortsicherheit"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

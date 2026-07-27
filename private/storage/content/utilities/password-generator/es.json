@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-27T17:15:58+00:00",
+    "category_alias": "utilities",
+    "cipher_alias": "password-generator",
+    "language": "es",
+    "default_language": "en",
+    "cipher_id": 90,
+    "category_id": 9
+  },
+  "cipher_translation": {
+    "id": 90,
+    "data": {
+      "name": "Generador de contraseñas",
+      "name_short": "Generador de contraseñas",
+      "description": "Este generador de contraseñas online gratuito crea contraseñas aleatorias y frases Diceware directamente en el navegador. Elige longitud y conjuntos de caracteres, genera una contraseña o un lote, excluye caracteres parecidos y repeticiones, y copia el resultado. Nada se envía a un servidor.",
+      "description_stort": "Crea contraseñas aleatorias seguras y frases Diceware memorables en tu navegador.",
+      "meta_title": "Generador de contraseñas: contraseñas aleatorias y seguras | Ciphers Online",
+      "meta_description": "Generador de contraseñas online gratuito para contraseñas aleatorias seguras y frases Diceware. Elige longitud y caracteres, consulta la entropía y genera localmente."
+    }
+  },
+  "blocks": [
+    {
+      "id": 293,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "¿Qué hace segura a una contraseña?",
+        "text": "<p>Una contraseña segura es larga, aleatoria y única para una sola cuenta. La longitud y el azar importan más que una sustitución ingeniosa o un dato personal. Cada carácter aleatorio adicional aumenta las combinaciones posibles. El generador estima esa incertidumbre como <em>entropía</em> y muestra un tiempo de descifrado orientativo; no es una garantía frente al phishing, el malware o una filtración.</p><p>Usa una contraseña distinta en cada cuenta, guárdala en un gestor de confianza y activa la autenticación multifactor cuando esté disponible.</p>"
+      }
+    },
+    {
+      "id": 294,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Cómo crear una contraseña aleatoria",
+        "text": "<p>Elige la longitud y letras minúsculas, mayúsculas, números y símbolos. Genera y copia una contraseña o un lote de hasta 100 valores. Cada contraseña puede tener entre 4 y 128 caracteres.</p><p>Para una cuenta guardada en un gestor, 16 caracteres con todos los conjuntos permitidos es un buen punto de partida. También puedes excluir caracteres similares como <code>l</code>, <code>1</code>, <code>O</code> y <code>0</code>, puntuación ambigua y repeticiones. Facilita la escritura, pero puede reducir la entropía.</p><p>Los valores se crean localmente con <code>crypto.getRandomValues</code>. El muestreo por rechazo evita sesgos; las contraseñas no se envían, registran ni almacenan.</p>"
+      }
+    },
+    {
+      "id": 295,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "title": "Generador de frases de contraseña",
+        "text": "<p>Una frase de contraseña reúne palabras elegidas al azar en vez de una cadena ilegible. La herramienta usa la lista EFF Diceware y une de 3 a 20 palabras con guion, punto, espacio o guion bajo. Puedes elegir las mayúsculas y añadir un número aleatorio.</p><p>Las palabras aleatorias suelen ser más fáciles de escribir y recordar si no proceden de una cita ni de datos personales. Una frase Diceware de seis palabras aporta unos 77 bits de entropía. Úsala si debes teclearla con frecuencia; para un gestor de contraseñas, usa una contraseña aleatoria larga.</p>"
+      }
+    },
+    {
+      "id": 296,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "title": "Guía de longitud de contraseña",
+        "text": "<p>Elige la contraseña única más larga que acepte el servicio. Ocho caracteres son mejor solo para sitios antiguos con límites estrictos y deben usar todos los conjuntos permitidos. Diez o doce caracteres pueden servir si el sitio limita la longitud; 15 o 16 dan más margen para cuentas importantes. Cuando sea posible, usa 16 caracteres o más.</p><p>No existe una longitud universal: también importan los conjuntos permitidos, los límites de intentos, la autenticación multifactor y el almacenamiento del servicio. Genera una contraseña nueva por cuenta y cámbiala si sospechas una exposición.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 609,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "¿Qué longitud debe tener mi contraseña?",
+        "answer": "Para cuentas guardadas en un gestor, usa 16 caracteres o más con todos los conjuntos permitidos. Si debes escribirla o recordarla, una frase Diceware de 4 a 6 palabras es un buen equilibrio. Evita menos de 12 caracteres en cuentas importantes."
+      }
+    },
+    {
+      "id": 610,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "¿Es seguro usar las contraseñas generadas?",
+        "answer": "Sí. Las contraseñas y frases se generan localmente mediante la Web Crypto API y no se envían, registran ni almacenan."
+      }
+    },
+    {
+      "id": 611,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "¿Cómo uso el generador de contraseñas?",
+        "answer": "Elige Contraseña o Frase, configura longitud o número de palabras y pulsa Generar. Puedes crear hasta 100 valores y copiarlos. Usa cada contraseña nueva para una sola cuenta."
+      }
+    },
+    {
+      "id": 612,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "¿Qué diferencia hay entre contraseña y frase de contraseña?",
+        "answer": "Una contraseña aleatoria es una cadena de caracteres con alta entropía en menos longitud. Una frase Diceware une palabras aleatorias: es más larga, pero suele ser más fácil de recordar. Ambas son seguras si son aleatorias y únicas."
+      }
+    },
+    {
+      "id": 613,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "¿Debo incluir símbolos, números y mayúsculas?",
+        "answer": "Usa todos los conjuntos que acepte el sitio, sobre todo con contraseñas cortas. En contraseñas largas, la longitud y el azar siguen siendo lo principal. Si la escribes manualmente, puedes excluir caracteres similares y elegir más longitud."
+      }
+    },
+    {
+      "id": 614,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "¿Bastan 12 o 16 caracteres?",
+        "answer": "Una contraseña aleatoria de 16 caracteres y conjuntos variados es un buen estándar para la mayoría de cuentas. Doce caracteres pueden servir si el sitio limita la longitud, pero más es mejor. Activa también la autenticación multifactor."
+      }
+    },
+    {
+      "id": 615,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "¿Puedo excluir caracteres parecidos y repetidos?",
+        "answer": "Sí. En el modo Contraseña puedes excluir caracteres similares como l, 1, O y 0, puntuación difícil o repeticiones. Sin repeticiones, la longitud está limitada por los caracteres únicos disponibles."
+      }
+    },
+    {
+      "id": 616,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "¿El medidor garantiza la seguridad?",
+        "answer": "No. Estima la entropía y el tiempo de descifrado, pero no protege frente al phishing, malware, un dispositivo comprometido o reutilizar contraseñas. Usa contraseñas únicas, un gestor y autenticación multifactor."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 327,
+      "sort_order": 10,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "16",
+        "lower": "1",
+        "upper": "1",
+        "digits": "1",
+        "symbols": "1"
+      },
+      "data": {
+        "title": "Contraseña segura de 16 caracteres",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "16 caracteres con minúsculas, mayúsculas, números y símbolos: una base sólida para la mayoría de cuentas."
+      }
+    },
+    {
+      "id": 328,
+      "sort_order": 20,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "24",
+        "lower": "1",
+        "upper": "1",
+        "digits": "1",
+        "symbols": "1",
+        "excludeSimilar": "1"
+      },
+      "data": {
+        "title": "Contraseña legible de 24 caracteres",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Excluye l, 1, O y 0 para facilitar la lectura y la escritura."
+      }
+    },
+    {
+      "id": 329,
+      "sort_order": 30,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "passphrase",
+        "words": "6",
+        "separator": "-",
+        "wordCase": "capitalize"
+      },
+      "data": {
+        "title": "Frase Diceware de 6 palabras",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Seis palabras aleatorias de la lista EFF aportan unos 77 bits de entropía y son más fáciles de recordar."
+      }
+    },
+    {
+      "id": 330,
+      "sort_order": 40,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "6",
+        "lower": "0",
+        "upper": "0",
+        "digits": "1",
+        "symbols": "0"
+      },
+      "data": {
+        "title": "PIN numérico de seis dígitos",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Crea un PIN aleatorio de seis dígitos para servicios que solo aceptan números. Para una cuenta, elige más longitud y conjuntos."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 406,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "contraseña"
+      }
+    },
+    {
+      "id": 407,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "frase de contraseña"
+      }
+    },
+    {
+      "id": 408,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "generador de contraseñas aleatorias"
+      }
+    },
+    {
+      "id": 409,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "tag": "contraseña segura"
+      }
+    },
+    {
+      "id": 410,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "tag": "Diceware"
+      }
+    },
+    {
+      "id": 411,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "tag": "seguridad de contraseñas"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data."
+  ]
+}

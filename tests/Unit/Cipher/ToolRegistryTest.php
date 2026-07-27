@@ -39,6 +39,7 @@ use App\Cipher\LetterFrequencyScorer;
 use App\Cipher\LetterFrequencyService;
 use App\Cipher\MorseCipherService;
 use App\Cipher\NumbersToLettersService;
+use App\Cipher\PasswordGeneratorCipherService;
 use App\Cipher\PigpenCipherService;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareCipherService;
@@ -207,7 +208,8 @@ final class ToolRegistryTest extends TestCase
             new Base85CipherService(),
             new Base45CipherService(),
             new PunycodeCipherService(),
-            new UuidGeneratorCipherService()
+            new UuidGeneratorCipherService(),
+            new PasswordGeneratorCipherService()
         );
     }
 }

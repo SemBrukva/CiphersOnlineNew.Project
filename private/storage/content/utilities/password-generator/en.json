@@ -1,0 +1,298 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-07-27T17:15:58+00:00",
+        "category_alias": "utilities",
+        "cipher_alias": "password-generator",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 90,
+        "category_id": 9
+    },
+    "cipher_translation": {
+        "id": 90,
+        "data": {
+            "name": "Password Generator",
+            "name_short": "Password Generator",
+            "description": "This free online password generator creates random passwords and Diceware passphrases entirely in your browser. Choose a length and character sets, make a batch, exclude confusing characters or repeats, and copy the result. The strength meter shows estimated entropy and crack time; nothing is sent to a server.",
+            "description_stort": "Create strong random passwords and memorable Diceware passphrases locally in your browser.",
+            "meta_title": "Password Generator — Random, Strong & Secure Passwords | Ciphers Online",
+            "meta_description": "Free online password generator for strong random passwords and Diceware passphrases. Set length and character sets, check entropy, and generate locally in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 293,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What makes a strong password?",
+                "text": "<p>A strong password is long, random and unique to one account. Length and randomness are more important than a clever substitution or a memorable personal detail: each additional random character increases the number of possible combinations. This strong password generator estimates that uncertainty as <em>entropy</em> in bits and displays an indicative crack-time estimate. Treat the meter as a useful comparison, not as a guarantee; a password can still be exposed by phishing, malware or a breached service.</p><p>Use a different generated password for every account, save it in a trusted password manager, and enable multi-factor authentication where available. Never reuse a password, even a very strong one, across email, banking, work and social accounts.</p>"
+            }
+        },
+        {
+            "id": 294,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "How to create a random password",
+                "text": "<p>This password generator lets you choose the password length, lowercase letters, uppercase letters, digits and symbols. Select the sets that the website accepts, choose how many values you need, then generate and copy the result. It can create from 4 to 128 characters per password and up to 100 passwords at once.</p><p>For an account stored in a password manager, a 16-character password with letters, digits and symbols is a practical default. The generator also offers options to exclude similar characters such as <code>l</code>, <code>1</code>, <code>O</code> and <code>0</code>, exclude potentially ambiguous punctuation, and avoid repeated characters. These options can make a password easier to read or enter, but reducing the available character pool can also reduce entropy.</p><p>All random choices are made locally with the browser’s cryptographically secure <code>crypto.getRandomValues</code> API. Rejection sampling avoids modulo bias, and generated passwords are not transmitted, logged or stored by this service.</p>"
+            }
+        },
+        {
+            "id": 295,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Passphrase generator: random password words",
+                "text": "<p>A passphrase generator builds a password from randomly selected words rather than a single opaque string. This tool uses the EFF Diceware word list and can join 3 to 20 random words with a hyphen, dot, space or underscore. You can also choose lowercase, capitalized or uppercase words and append a random digit.</p><p>Random password words are often easier to type and remember than a symbol-heavy string, provided the words are chosen at random rather than invented from a quote or personal information. A six-word Diceware passphrase has about 77 bits of word-selection entropy before any optional number is added. Use a passphrase when you must enter it frequently; use a long random password when a password manager will fill it for you.</p>"
+            }
+        },
+        {
+            "id": 296,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Password length guide",
+                "text": "<p>Choose the longest unique password a service allows. An 8-character password is best reserved for older sites with strict limits and should use every permitted character set. A 10- or 12-character password can be acceptable when a site imposes a limit, but 14, 15 or 16 characters gives a stronger margin for important accounts. When the site permits it, choose 16 characters or more and let a password manager remember it.</p><p>There is no universally correct length because permitted character sets, rate limiting, multi-factor authentication and the way a service stores passwords all matter. The safest routine is simple: generate a new random password for each account, follow that service’s requirements, and replace it immediately if you suspect exposure.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 609,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How long should my password be?",
+                "answer": "For accounts stored in a password manager, use 16 characters or more with all character sets enabled. For a password you must type or remember, a 4–6 word Diceware passphrase is a better trade-off between security and usability. Avoid anything shorter than 12 characters for important accounts."
+            }
+        },
+        {
+            "id": 610,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Are the generated passwords safe to use?",
+                "answer": "Yes. Every password and passphrase is generated locally in your browser using the cryptographically secure Web Crypto API (crypto.getRandomValues) with rejection sampling to avoid bias. Nothing is transmitted to a server, logged or stored, so the values are yours alone."
+            }
+        },
+        {
+            "id": 611,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do I use this random password generator?",
+                "answer": "Choose Password or Passphrase, set the length or word count and the options you need, then select Generate. You can create one value or a batch of up to 100 and copy the result. Use a fresh value for one account only and store it in a password manager when possible."
+            }
+        },
+        {
+            "id": 612,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What is the difference between a password and a passphrase?",
+                "answer": "A random password is a string of characters and usually delivers high entropy in fewer characters. A Diceware passphrase combines randomly chosen words, making it longer but often easier to type and remember. Both can be strong when generated randomly and kept unique; choose the form that suits how you will use it."
+            }
+        },
+        {
+            "id": 613,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Should I include symbols, digits and uppercase letters?",
+                "answer": "Use every character set that the target site accepts, especially for a shorter password. For long passwords, length and randomness remain the main contributors to strength. If you must type a password manually, excluding look-alike or ambiguous characters may prevent errors; compensate by choosing a longer length."
+            }
+        },
+        {
+            "id": 614,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Is a 12- or 16-character password strong enough?",
+                "answer": "A randomly generated 16-character password using a broad character set is a strong default for most accounts. A random 12-character password may be suitable where a service limits length, but longer is generally better. For an important account, use the longest unique password the site allows and enable multi-factor authentication."
+            }
+        },
+        {
+            "id": 615,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Can I generate a password with no repeated or confusing characters?",
+                "answer": "Yes. In Password mode, enable Exclude similar characters to remove characters such as l, 1, O and 0, enable Exclude ambiguous characters to remove punctuation that can be hard to enter, or enable No repeats. No repeats is available only while the chosen length does not exceed the remaining unique character pool."
+            }
+        },
+        {
+            "id": 616,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Does the strength meter guarantee that my password is safe?",
+                "answer": "No. The meter estimates entropy from the selected generator settings and estimates crack time for the displayed result. It cannot protect against phishing, malware, a compromised device or password reuse. Use it to compare options, then protect each account with a unique password, a password manager and multi-factor authentication."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 327,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "mode": "password",
+                "length": "16",
+                "lower": "1",
+                "upper": "1",
+                "digits": "1",
+                "symbols": "1"
+            },
+            "data": {
+                "title": "Strong 16-character password",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "A 16-character mix of lowercase, uppercase, digits and symbols — a solid default for most accounts."
+            }
+        },
+        {
+            "id": 328,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "mode": "password",
+                "length": "24",
+                "lower": "1",
+                "upper": "1",
+                "digits": "1",
+                "symbols": "1",
+                "excludeSimilar": "1"
+            },
+            "data": {
+                "title": "Readable 24 (no look-alikes)",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Excludes look-alike characters like l, 1, O and 0 so the password is easy to type from a screen."
+            }
+        },
+        {
+            "id": 329,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "mode": "passphrase",
+                "words": "6",
+                "separator": "-",
+                "wordCase": "capitalize"
+            },
+            "data": {
+                "title": "Diceware passphrase (6 words)",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Six random words from the EFF list — about 77 bits of entropy and far easier to remember than a random string."
+            }
+        },
+        {
+            "id": 330,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "mode": "password",
+                "length": "6",
+                "lower": "0",
+                "upper": "0",
+                "digits": "1",
+                "symbols": "0"
+            },
+            "data": {
+                "title": "Six-digit numeric PIN",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Creates a random six-digit PIN for services that explicitly require numbers only. For a full account password, choose a longer password with more character sets instead."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 406,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "password"
+            }
+        },
+        {
+            "id": 407,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "passphrase"
+            }
+        },
+        {
+            "id": 408,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "random password generator"
+            }
+        },
+        {
+            "id": 409,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "tag": "strong password"
+            }
+        },
+        {
+            "id": 410,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "tag": "Diceware"
+            }
+        },
+        {
+            "id": 411,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "tag": "password security"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

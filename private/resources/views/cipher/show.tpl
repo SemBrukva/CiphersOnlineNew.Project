@@ -2,6 +2,8 @@
 {include file="cipher/_diff_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {elseif $tool_ui.uuidMode|default:false}
 {include file="cipher/_uuid_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
+{elseif $tool_ui.passwordMode|default:false}
+{include file="cipher/_password_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {else}
 {include file="cipher/_tool_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {/if}
@@ -42,6 +44,32 @@
                             {if isset($example.settings.hyphens)}data-uuid-hyphens="{if $example.settings.hyphens}1{else}0{/if}"{/if}
                             {if isset($example.settings.braces)}data-uuid-braces="{if $example.settings.braces}1{else}0{/if}"{/if}
                             {if isset($example.settings.urn)}data-uuid-urn="{if $example.settings.urn}1{else}0{/if}"{/if}>{$tool_ui.useExampleLabel}</button>
+                </article>
+            {/foreach}
+        </div>
+        {elseif $tool_ui.passwordMode|default:false}
+        <div class="b64-examples-grid">
+            {foreach $examples as $example}
+                <article class="b64-example-card">
+                    {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
+                    <div class="b64-example-card__badges">
+                        {if $example.settings.mode|default:''}<span class="b64-example-card__key-badge">{if $example.settings.mode == 'passphrase'}{$tool_ui.pwdModePassphrase}{else}{$tool_ui.pwdModePassword}{/if}</span>{/if}
+                        {if $example.settings.length|default:''}<span class="b64-example-card__key-badge">{$tool_ui.pwdLengthLabel}: <code>{$example.settings.length|escape}</code></span>{/if}
+                        {if $example.settings.words|default:''}<span class="b64-example-card__key-badge">{$tool_ui.pwdWordsLabel}: <code>{$example.settings.words|escape}</code></span>{/if}
+                    </div>
+                    {if $example.desc}<p class="b64-example-card__desc">{$example.desc|escape}</p>{/if}
+                    <button class="b64-example-card__use pwd-example" type="button"
+                            {if isset($example.settings.mode)}data-pwd-mode="{$example.settings.mode|escape:'html'}"{/if}
+                            {if isset($example.settings.length)}data-pwd-length="{$example.settings.length|escape:'html'}"{/if}
+                            {if isset($example.settings.words)}data-pwd-words="{$example.settings.words|escape:'html'}"{/if}
+                            {if isset($example.settings.separator)}data-pwd-separator="{$example.settings.separator|escape:'html'}"{/if}
+                            {if isset($example.settings.wordCase)}data-pwd-case="{$example.settings.wordCase|escape:'html'}"{/if}
+                            {if isset($example.settings.lower)}data-pwd-lower="{if $example.settings.lower}1{else}0{/if}"{/if}
+                            {if isset($example.settings.upper)}data-pwd-upper="{if $example.settings.upper}1{else}0{/if}"{/if}
+                            {if isset($example.settings.digits)}data-pwd-digits="{if $example.settings.digits}1{else}0{/if}"{/if}
+                            {if isset($example.settings.symbols)}data-pwd-symbols="{if $example.settings.symbols}1{else}0{/if}"{/if}
+                            {if isset($example.settings.excludeSimilar)}data-pwd-exclude-similar="{if $example.settings.excludeSimilar}1{else}0{/if}"{/if}
+                            {if isset($example.settings.addNumber)}data-pwd-add-number="{if $example.settings.addNumber}1{else}0{/if}"{/if}>{$tool_ui.useExampleLabel}</button>
                 </article>
             {/foreach}
         </div>

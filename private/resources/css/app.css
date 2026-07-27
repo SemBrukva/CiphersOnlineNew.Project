@@ -8552,3 +8552,242 @@ a:focus .nav-fav-count {
 .uuid__check:has(input:focus-visible) {
   box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.14);
 }
+
+/* --- Генератор паролей (pages/password-generator.js) --- */
+.pwd__toolbar {
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 14px;
+}
+
+.pwd__tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pwd__tab {
+  padding: 7px 18px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.pwd__tab:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pwd__tab.is-active {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.pwd__panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 18px;
+  width: 100%;
+}
+
+.pwd__common {
+  width: 100%;
+}
+
+/* Степпер не должен сжиматься — иначе overflow:hidden обрезает −/+ */
+.pwd__count-item .ciphers-settings-shift-group {
+  flex-shrink: 0;
+}
+
+.pwd__checks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.pwd__checks-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.62);
+  margin-right: 4px;
+}
+
+/* Pill-чекбоксы (вид совпадает с .uuid__check / .diff__check) */
+.pwd__check {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.pwd__check:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.pwd__check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pwd__check span {
+  position: relative;
+  padding-left: 20px;
+}
+
+.pwd__check span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.pwd__check:has(input:checked) {
+  background: rgba(193, 255, 0, 0.12);
+  border-color: rgba(193, 255, 0, 0.45);
+  color: #fff;
+}
+
+.pwd__check:has(input:checked) span::before {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.pwd__check:has(input:checked) span::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-60%) rotate(45deg);
+  width: 4px;
+  height: 8px;
+  border: solid var(--primary);
+  border-width: 0 2px 2px 0;
+}
+
+.pwd__check:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(193, 255, 0, 0.14);
+}
+
+/* Индикатор надёжности */
+.pwd__strength {
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pwd__strength-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.pwd__strength-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.pwd__strength-verdict {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pwd__meter {
+  display: flex;
+  gap: 6px;
+}
+
+.pwd__meter-seg {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background var(--transition);
+}
+
+/* Цвет полос по полосе надёжности (data-band на контейнере) */
+.pwd__strength[data-band="0"] .pwd__meter-seg.is-on,
+.pwd__strength[data-band="1"] .pwd__meter-seg.is-on {
+  background: #ff5468;
+}
+
+.pwd__strength[data-band="2"] .pwd__meter-seg.is-on {
+  background: #ffa534;
+}
+
+.pwd__strength[data-band="3"] .pwd__meter-seg.is-on {
+  background: #d3e635;
+}
+
+.pwd__strength[data-band="4"] .pwd__meter-seg.is-on {
+  background: #38d16a;
+}
+
+.pwd__strength[data-band="0"] .pwd__strength-verdict,
+.pwd__strength[data-band="1"] .pwd__strength-verdict {
+  color: #ff5468;
+}
+
+.pwd__strength[data-band="4"] .pwd__strength-verdict {
+  color: #38d16a;
+}
+
+.pwd__strength-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pwd__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pwd__examples-row {
+  margin-top: 12px;
+}
+
+.pwd__output {
+  width: 100%;
+  min-height: 180px;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 14px;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+}

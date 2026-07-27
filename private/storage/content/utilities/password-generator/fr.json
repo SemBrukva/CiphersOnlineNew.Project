@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-07-27T17:15:58+00:00",
+    "category_alias": "utilities",
+    "cipher_alias": "password-generator",
+    "language": "fr",
+    "default_language": "en",
+    "cipher_id": 90,
+    "category_id": 9
+  },
+  "cipher_translation": {
+    "id": 90,
+    "data": {
+      "name": "Générateur de mots de passe",
+      "name_short": "Générateur de mots de passe",
+      "description": "Ce générateur de mots de passe en ligne gratuit crée des mots de passe aléatoires et des phrases Diceware directement dans votre navigateur. Choisissez la longueur et les jeux de caractères, générez un mot de passe ou une série, excluez les caractères semblables et copiez le résultat. Rien n’est envoyé à un serveur.",
+      "description_stort": "Créez des mots de passe aléatoires robustes et des phrases Diceware mémorables dans votre navigateur.",
+      "meta_title": "Générateur de mots de passe – aléatoires et sécurisés | Ciphers Online",
+      "meta_description": "Générateur de mots de passe en ligne gratuit : mots de passe aléatoires robustes et phrases Diceware. Choisissez longueur et caractères, vérifiez l’entropie et générez localement."
+    }
+  },
+  "blocks": [
+    {
+      "id": 293,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Qu’est-ce qui rend un mot de passe robuste ?",
+        "text": "<p>Un mot de passe robuste est long, aléatoire et unique pour un seul compte. La longueur et le hasard comptent davantage qu’une astuce ou une information personnelle. Chaque caractère aléatoire supplémentaire augmente le nombre de combinaisons. Le générateur estime cette incertitude en <em>entropie</em> et affiche un temps de cassage indicatif, sans garantir une protection contre le phishing, les logiciels malveillants ou une fuite.</p><p>Utilisez un mot de passe différent par compte, enregistrez-le dans un gestionnaire fiable et activez l’authentification multifacteur.</p>"
+      }
+    },
+    {
+      "id": 294,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Créer un mot de passe aléatoire",
+        "text": "<p>Choisissez la longueur, les minuscules, majuscules, chiffres et symboles, puis générez et copiez un mot de passe ou jusqu’à 100 valeurs. Chaque mot de passe peut contenir de 4 à 128 caractères.</p><p>Pour un gestionnaire de mots de passe, 16 caractères avec tous les jeux autorisés est un bon choix. Vous pouvez exclure <code>l</code>, <code>1</code>, <code>O</code>, <code>0</code>, une ponctuation ambiguë et les répétitions. Cela facilite la saisie mais peut réduire l’entropie.</p><p>Les valeurs sont créées localement avec <code>crypto.getRandomValues</code>, sans transmission, journalisation ni stockage.</p>"
+      }
+    },
+    {
+      "id": 295,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "title": "Générateur de phrases de passe",
+        "text": "<p>Une phrase de passe assemble des mots choisis au hasard plutôt qu’une chaîne illisible. L’outil utilise la liste EFF Diceware et joint 3 à 20 mots par un tiret, un point, un espace ou un soulignement. Vous pouvez choisir la casse et ajouter un chiffre aléatoire.</p><p>Des mots aléatoires sont souvent plus faciles à saisir et à retenir s’ils ne viennent ni d’une citation ni de données personnelles. Une phrase Diceware de six mots offre environ 77 bits d’entropie.</p>"
+      }
+    },
+    {
+      "id": 296,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "title": "Choisir la longueur du mot de passe",
+        "text": "<p>Choisissez le mot de passe unique le plus long accepté par le service. Huit caractères conviennent surtout aux anciens sites limités ; 10 ou 12 peuvent convenir en cas de limite, tandis que 15 ou 16 offrent plus de marge pour les comptes importants. Si possible, utilisez au moins 16 caractères.</p><p>La bonne longueur dépend aussi des caractères autorisés, des limites de connexion, de l’authentification multifacteur et du stockage par le service. Créez un nouveau mot de passe par compte et remplacez-le en cas de doute.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 609,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Quelle longueur choisir ?",
+        "answer": "Avec un gestionnaire, utilisez au moins 16 caractères et tous les jeux autorisés. Pour un mot de passe à retenir, une phrase Diceware de 4 à 6 mots est souvent pratique. Évitez moins de 12 caractères pour un compte important."
+      }
+    },
+    {
+      "id": 610,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Les mots de passe générés sont-ils sûrs ?",
+        "answer": "Oui. Ils sont créés localement avec la Web Crypto API et ne sont ni transmis, ni enregistrés, ni stockés."
+      }
+    },
+    {
+      "id": 611,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Comment utiliser le générateur ?",
+        "answer": "Choisissez Mot de passe ou Phrase de passe, définissez la longueur ou le nombre de mots, puis cliquez sur Générer. Vous pouvez créer jusqu’à 100 valeurs. Utilisez chaque nouveau mot de passe pour un seul compte."
+      }
+    },
+    {
+      "id": 612,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Quelle différence entre mot de passe et phrase de passe ?",
+        "answer": "Un mot de passe aléatoire est une chaîne de caractères à forte entropie. Une phrase Diceware associe des mots aléatoires : elle est plus longue mais souvent plus mémorisable. Les deux sont robustes s’ils sont aléatoires et uniques."
+      }
+    },
+    {
+      "id": 613,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Faut-il inclure symboles, chiffres et majuscules ?",
+        "answer": "Utilisez tous les jeux acceptés, surtout pour un mot de passe court. Pour un mot de passe long, la longueur et le hasard restent essentiels. Pour une saisie manuelle, excluez les caractères semblables et compensez par plus de longueur."
+      }
+    },
+    {
+      "id": 614,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "12 ou 16 caractères suffisent-ils ?",
+        "answer": "Un mot de passe aléatoire de 16 caractères avec des jeux variés est un bon standard. Douze caractères peuvent convenir si le site limite la longueur, mais plus est préférable. Activez aussi l’authentification multifacteur."
+      }
+    },
+    {
+      "id": 615,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Puis-je exclure les caractères semblables et les répétitions ?",
+        "answer": "Oui. Excluez les caractères comme l, 1, O et 0, la ponctuation difficile ou les répétitions. Sans répétition, la longueur est limitée par les caractères uniques disponibles."
+      }
+    },
+    {
+      "id": 616,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "L’indicateur garantit-il la sécurité ?",
+        "answer": "Non. Il estime l’entropie et un temps de cassage, mais ne protège pas contre le phishing, les logiciels malveillants, un appareil compromis ou la réutilisation. Utilisez des mots de passe uniques, un gestionnaire et l’authentification multifacteur."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 327,
+      "sort_order": 10,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "16",
+        "lower": "1",
+        "upper": "1",
+        "digits": "1",
+        "symbols": "1"
+      },
+      "data": {
+        "title": "Mot de passe robuste de 16 caractères",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "16 caractères avec minuscules, majuscules, chiffres et symboles : un bon standard."
+      }
+    },
+    {
+      "id": 328,
+      "sort_order": 20,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "24",
+        "lower": "1",
+        "upper": "1",
+        "digits": "1",
+        "symbols": "1",
+        "excludeSimilar": "1"
+      },
+      "data": {
+        "title": "Mot de passe lisible de 24 caractères",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Exclut l, 1, O et 0 pour faciliter la lecture et la saisie."
+      }
+    },
+    {
+      "id": 329,
+      "sort_order": 30,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "passphrase",
+        "words": "6",
+        "separator": "-",
+        "wordCase": "capitalize"
+      },
+      "data": {
+        "title": "Phrase Diceware de 6 mots",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Six mots aléatoires de la liste EFF offrent environ 77 bits d’entropie."
+      }
+    },
+    {
+      "id": 330,
+      "sort_order": 40,
+      "published": true,
+      "direction": "",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+        "mode": "password",
+        "length": "6",
+        "lower": "0",
+        "upper": "0",
+        "digits": "1",
+        "symbols": "0"
+      },
+      "data": {
+        "title": "Code PIN numérique à six chiffres",
+        "key": "",
+        "shift": 0,
+        "input": "",
+        "output": "",
+        "description": "Crée un PIN aléatoire à six chiffres pour les services qui n’acceptent que des chiffres."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 406,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "mot de passe"
+      }
+    },
+    {
+      "id": 407,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "phrase de passe"
+      }
+    },
+    {
+      "id": 408,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "générateur de mots de passe aléatoires"
+      }
+    },
+    {
+      "id": 409,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "tag": "mot de passe sécurisé"
+      }
+    },
+    {
+      "id": 410,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "tag": "Diceware"
+      }
+    },
+    {
+      "id": 411,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "tag": "sécurité des mots de passe"
+      }
+    }
+  ]
+}
