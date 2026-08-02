@@ -151,7 +151,7 @@
 - RIPEMD-160, Whirlpool, xxHash, Adler-32; **симметрика**: AES (encrypt/decrypt), ChaCha20; **асимметрика/подписи**: RSA (обучающий), ECDSA verify; HOTP/TOTP (2FA-коды), JWT (у вас есть decoder — добавить sign/verify).
 
 **Утилиты-магниты трафика (off-brand, но огромный объём):**
-- Password generator, Random string, Diceware passphrase, ✅ UUID generator (v1/v3/v4/v5/v7 + nil/max, bulk до 100, форматы), Lorem-в-шифр, Text case converter.
+- ✅Password generator, ✅ Random string, ✅ Diceware passphrase (режим Password generator), ✅ UUID generator (v1/v3/v4/v5/v7 + nil/max, bulk до 100, форматы), Lorem-в-шифр, Text case converter.
 
 > Рекомендация: держать «магниты» в отдельной категории (`/tools` или `/utilities`), чтобы не размывать нишевое позиционирование, но собирать трафик.
 

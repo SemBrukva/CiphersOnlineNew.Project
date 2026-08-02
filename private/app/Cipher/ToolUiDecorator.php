@@ -405,6 +405,51 @@ final class ToolUiDecorator
             $toolUi['pwdErrNoCharset']         = trans('PASSWORD_ERR_NO_CHARSET');
             $toolUi['pwdErrTooLongNoRepeat']   = trans('PASSWORD_ERR_TOO_LONG_NO_REPEAT');
         }
+        if ($cipherAlias === 'random-string') {
+            $toolUi['randomStringMode']        = true;
+            $toolUi['disableLiveMode']         = true;
+            // Алфавиты языков (строчные буквы) для селекта «Алфавит букв»: код → строка
+            // строчных букв. Прописные вычисляет клиент через toLocaleUpperCase.
+            $alphabets = [];
+            $catalog = new AlphabetCatalog();
+            foreach ($catalog->all() as $code => $letters) {
+                $alphabets[$code] = implode('', $letters);
+            }
+            $toolUi['rsAlphabets']             = $alphabets;
+            // Названия алфавитов локализованы под текущий UI-язык (en → English names и т. д.).
+            $toolUi['rsAlphabetLabels']        = [
+                'en' => trans('RS_ALPHABET_LATIN'),
+                'ru' => trans('RS_ALPHABET_RU'),
+                'de' => trans('RS_ALPHABET_DE'),
+                'es' => trans('RS_ALPHABET_ES'),
+                'fr' => trans('RS_ALPHABET_FR'),
+                'it' => trans('RS_ALPHABET_IT'),
+                'pt' => trans('RS_ALPHABET_PT'),
+                'tr' => trans('RS_ALPHABET_TR'),
+            ];
+            $toolUi['rsAlphabetLabel']         = trans('RS_ALPHABET_LABEL');
+            $toolUi['rsLengthLabel']           = trans('RS_LENGTH_LABEL');
+            $toolUi['rsCountLabel']            = trans('RS_COUNT_LABEL');
+            $toolUi['rsSetsLabel']             = trans('RS_SETS_LABEL');
+            $toolUi['rsSetLower']              = trans('RS_SET_LOWER');
+            $toolUi['rsSetUpper']              = trans('RS_SET_UPPER');
+            $toolUi['rsSetDigits']             = trans('RS_SET_DIGITS');
+            $toolUi['rsSetSymbols']            = trans('RS_SET_SYMBOLS');
+            $toolUi['rsCustomLabel']           = trans('RS_CUSTOM_LABEL');
+            $toolUi['rsCustomPlaceholder']     = trans('RS_CUSTOM_PLACEHOLDER');
+            $toolUi['rsOptExcludeSimilar']     = trans('RS_OPT_EXCLUDE_SIMILAR');
+            $toolUi['rsOptNoRepeats']          = trans('RS_OPT_NO_REPEATS');
+            $toolUi['rsFormatLabel']           = trans('RS_FORMAT_LABEL');
+            $toolUi['rsFormatNewline']         = trans('RS_FORMAT_NEWLINE');
+            $toolUi['rsFormatComma']           = trans('RS_FORMAT_COMMA');
+            $toolUi['rsFormatSpace']           = trans('RS_FORMAT_SPACE');
+            $toolUi['rsFormatQuoted']          = trans('RS_FORMAT_QUOTED');
+            $toolUi['rsGenerateLabel']         = trans('RS_GENERATE');
+            $toolUi['rsDownloadLabel']         = trans('RS_DOWNLOAD');
+            $toolUi['rsCopiedLabel']           = trans('RS_COPIED');
+            $toolUi['rsErrNoCharset']          = trans('RS_ERR_NO_CHARSET');
+            $toolUi['rsErrTooLongNoRepeat']    = trans('RS_ERR_TOO_LONG_NO_REPEAT');
+        }
 
         return $toolUi;
     }

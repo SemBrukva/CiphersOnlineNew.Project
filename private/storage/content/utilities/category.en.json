@@ -1,0 +1,204 @@
+{
+    "meta": {
+        "schema": "cipher-category-content.v1",
+        "exported_at": "2026-08-02T16:28:02+00:00",
+        "category_alias": "utilities",
+        "language": "en",
+        "default_language": "en",
+        "category_id": 9
+    },
+    "category_translation": {
+        "id": 9,
+        "data": {
+            "name": "Utilities & Generators",
+            "name_short": "Utilities",
+            "description": "Generate UUIDs, secure random strings, passwords, and Diceware passphrases for development, testing, and everyday security. Choose the right format, create values in bulk, and work locally in your browser.",
+            "meta_title": "Online Utilities & Generators | UUIDs, Passwords & Random Strings",
+            "meta_description": "Free online UUID, password, passphrase, and random string generators. Create IDs, tokens, and strong passwords locally in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 24,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "Utilities for unique values and secure randomness",
+                "text": "<p>Developer utilities turn common setup tasks into quick, repeatable steps: creating an identifier for a database record, making a token for a test environment, or choosing a strong password for an account. This category includes UUIDs for standardized identifiers, configurable random strings for machine-readable values, and passwords or Diceware passphrases for people to use.</p><p>These outputs may look similar because they are all strings of characters, but they solve different problems. Choosing the right kind of value helps avoid fragile identifiers, weak secrets, and formats that an integration cannot accept.</p>"
+            }
+        },
+        {
+            "id": 25,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Choose UUIDs, random strings, or passwords for the right job",
+                "text": "<p>Use a UUID when a system needs a standard 128-bit identifier. UUID v4 is a broadly compatible random identifier; UUID v7 includes a timestamp and is naturally ordered by creation time; UUID v3 and v5 produce the same identifier from the same name and namespace. GUID is Microsoft’s commonly used name for the same UUID format.</p><p>Use a random string when you control the required alphabet, length, and output format. It is useful for opaque test data, invite codes, nonces, tokens, and application secrets when the receiving system specifies its own format. Use the password generator when a person must remember or store the result in a password manager; its password and passphrase modes are designed for that purpose rather than for record IDs.</p>"
+            }
+        },
+        {
+            "id": 26,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "title": "Randomness, length, and character sets",
+                "text": "<p>Random values are only useful when they have enough unpredictability for their purpose. A longer value and a larger character set provide more possible combinations, while excluding similar characters can make a value easier to read or transcribe. For secrets, do not shorten a value merely to make it look neat, and do not reuse one generated value across unrelated accounts or applications.</p><p>A UUID is usually a convenient identifier, not a substitute for an access token or password. Likewise, a memorable passphrase can be a strong login credential but is not necessarily the format required by an API. Start from the system’s requirements, then set the length, alphabet, and generator mode accordingly.</p>"
+            }
+        },
+        {
+            "id": 27,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "title": "Generate locally and handle secrets carefully",
+                "text": "<p>The generators in this category run in your browser and use the Web Crypto API for random values, so generated results are not sent to the server for processing. You can generate a batch, copy an individual value, or download a list where the tool provides that option.</p><p>Local generation reduces unnecessary exposure, but it does not remove the need for good secret handling. Do not paste production credentials into issue trackers, source code, or chat messages. Store passwords in a password manager, keep application secrets in an appropriate secret-management system, and replace any value that may have been disclosed.</p>"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "id": 19,
+            "sort_order": 10,
+            "published": true,
+            "cipher_alias": "uuid-generator",
+            "data": {
+                "title": "Generate UUIDs and GUIDs",
+                "description": "Create standard identifiers in v4, time-ordered v7, deterministic v3/v5, or other supported UUID formats."
+            }
+        },
+        {
+            "id": 20,
+            "sort_order": 20,
+            "published": true,
+            "cipher_alias": "random-string",
+            "data": {
+                "title": "Create random strings and tokens",
+                "description": "Set the length and alphabet for custom IDs, test data, opaque tokens, or values that must match a specific format."
+            }
+        },
+        {
+            "id": 21,
+            "sort_order": 30,
+            "published": true,
+            "cipher_alias": "password-generator",
+            "data": {
+                "title": "Create a strong password or passphrase",
+                "description": "Generate a random password or a Diceware passphrase, review its estimated strength, then save it in a password manager."
+            }
+        }
+    ],
+    "used_together": [
+        {
+            "id": 12,
+            "sort_order": 10,
+            "published": true,
+            "first_cipher_alias": "uuid-generator",
+            "second_cipher_alias": "random-string",
+            "data": {
+                "title": "Use a UUID for a standard public record ID and a separate random string for an opaque token or secret."
+            }
+        },
+        {
+            "id": 13,
+            "sort_order": 20,
+            "published": true,
+            "first_cipher_alias": "password-generator",
+            "second_cipher_alias": "random-string",
+            "data": {
+                "title": "Choose a password or passphrase for a person, and a format-controlled random string for a machine-to-machine value."
+            }
+        },
+        {
+            "id": 14,
+            "sort_order": 30,
+            "published": true,
+            "first_cipher_alias": "random-string",
+            "second_cipher_alias": "hashing/hmac",
+            "data": {
+                "title": "Generate a suitably long secret for a test integration, then use HMAC to verify the resulting signed payload."
+            }
+        }
+    ],
+    "examples": [],
+    "faq": [
+        {
+            "id": 44,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "What is the difference between a UUID and a GUID?",
+                "answer": "In everyday development, GUID and UUID usually refer to the same 128-bit identifier format. GUID is the term commonly used in Microsoft ecosystems; UUID is the standard term used in RFCs and many other platforms."
+            }
+        },
+        {
+            "id": 45,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Which UUID version should I use?",
+                "answer": "Use UUID v4 for a widely supported random identifier. Choose v7 when time ordering is useful, such as for newly created database records. Choose v3 or v5 only when the same name and namespace must always produce the same UUID; v5 is generally preferred over v3 because it uses SHA-1 rather than MD5."
+            }
+        },
+        {
+            "id": 46,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "Should I use a UUID as a password or API secret?",
+                "answer": "Usually no. UUIDs are designed as identifiers and have a fixed structure. For passwords, use the password generator. For an API secret or token, generate a sufficiently long random string in the exact alphabet and format your system expects."
+            }
+        },
+        {
+            "id": 47,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "How is a random string different from a password?",
+                "answer": "A random string is a flexible machine-oriented value: you choose its alphabet, length, batch size, and output format. A password or passphrase is intended for a person to use for authentication, so the password generator includes password-focused options and strength estimates."
+            }
+        },
+        {
+            "id": 48,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Are the generated values cryptographically random?",
+                "answer": "The random generators use your browser’s Web Crypto API, including crypto.getRandomValues(), rather than a basic pseudo-random function. A value is only suitable for a particular security use when its length, alphabet, storage, and lifecycle also meet that system’s requirements."
+            }
+        },
+        {
+            "id": 49,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Are generated values sent to the server?",
+                "answer": "No. UUID, password, passphrase, and random-string generation in this category runs locally in your browser. Still treat copied values as sensitive when they are passwords, tokens, or application secrets."
+            }
+        },
+        {
+            "id": 50,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "How long should a random string be?",
+                "answer": "There is no universal length. Follow the receiving service’s requirements, then prefer a length and alphabet that leave a large margin for the intended purpose. Security-sensitive tokens and secrets should be long, unpredictable, unique, and stored outside source code."
+            }
+        },
+        {
+            "id": 51,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Can I generate several values at once?",
+                "answer": "Yes. The UUID and random string generators can create batches of up to 100 values. The password generator can also create a batch, making it useful for controlled test data or provisioning workflows; keep generated credentials private and distribute them through a secure channel."
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Новые элементы без id или с id=0 разрешено добавлять только в файле где meta.language == meta.default_language.",
+        "Для новых tasks и used_together указывайте alias связанных шифров. Для связки с другой категорией используйте формат category_alias/cipher_alias."
+    ]
+}

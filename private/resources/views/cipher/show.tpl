@@ -4,6 +4,8 @@
 {include file="cipher/_uuid_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {elseif $tool_ui.passwordMode|default:false}
 {include file="cipher/_password_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
+{elseif $tool_ui.randomStringMode|default:false}
+{include file="cipher/_randomstring_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {else}
 {include file="cipher/_tool_widget.tpl" cipher=$cipher tool_slug=$tool_slug tool_ui=$tool_ui tool_ui_json=$tool_ui_json}
 {/if}
@@ -70,6 +72,28 @@
                             {if isset($example.settings.symbols)}data-pwd-symbols="{if $example.settings.symbols}1{else}0{/if}"{/if}
                             {if isset($example.settings.excludeSimilar)}data-pwd-exclude-similar="{if $example.settings.excludeSimilar}1{else}0{/if}"{/if}
                             {if isset($example.settings.addNumber)}data-pwd-add-number="{if $example.settings.addNumber}1{else}0{/if}"{/if}>{$tool_ui.useExampleLabel}</button>
+                </article>
+            {/foreach}
+        </div>
+        {elseif $tool_ui.randomStringMode|default:false}
+        <div class="b64-examples-grid">
+            {foreach $examples as $example}
+                <article class="b64-example-card">
+                    {if $example.label}<span class="b64-example-card__label">{$example.label}</span>{/if}
+                    <div class="b64-example-card__badges">
+                        {if $example.settings.length|default:''}<span class="b64-example-card__key-badge">{$tool_ui.rsLengthLabel}: <code>{$example.settings.length|escape}</code></span>{/if}
+                        {if $example.settings.custom|default:''}<span class="b64-example-card__key-badge">{$tool_ui.rsCustomLabel}: <code>{$example.settings.custom|escape}</code></span>{/if}
+                    </div>
+                    {if $example.desc}<p class="b64-example-card__desc">{$example.desc|escape}</p>{/if}
+                    <button class="b64-example-card__use rs-example" type="button"
+                            {if isset($example.settings.length)}data-rs-length="{$example.settings.length|escape:'html'}"{/if}
+                            {if isset($example.settings.lower)}data-rs-lower="{if $example.settings.lower}1{else}0{/if}"{/if}
+                            {if isset($example.settings.upper)}data-rs-upper="{if $example.settings.upper}1{else}0{/if}"{/if}
+                            {if isset($example.settings.digits)}data-rs-digits="{if $example.settings.digits}1{else}0{/if}"{/if}
+                            {if isset($example.settings.symbols)}data-rs-symbols="{if $example.settings.symbols}1{else}0{/if}"{/if}
+                            {if isset($example.settings.custom)}data-rs-custom="{$example.settings.custom|escape:'html'}"{/if}
+                            {if isset($example.settings.excludeSimilar)}data-rs-exclude-similar="{if $example.settings.excludeSimilar}1{else}0{/if}"{/if}
+                            {if isset($example.settings.noRepeats)}data-rs-no-repeats="{if $example.settings.noRepeats}1{else}0{/if}"{/if}>{$tool_ui.useExampleLabel}</button>
                 </article>
             {/foreach}
         </div>

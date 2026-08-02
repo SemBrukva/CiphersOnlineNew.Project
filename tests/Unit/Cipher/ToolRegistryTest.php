@@ -46,6 +46,7 @@ use App\Cipher\PolybiusSquareCipherService;
 use App\Cipher\PortaCipherService;
 use App\Cipher\PunycodeCipherService;
 use App\Cipher\RailFenceCipherService;
+use App\Cipher\RandomStringGeneratorCipherService;
 use App\Cipher\Rot13CipherService;
 use App\Cipher\Rot47CipherService;
 use App\Cipher\ScytaleCipherService;
@@ -209,7 +210,8 @@ final class ToolRegistryTest extends TestCase
             new Base45CipherService(),
             new PunycodeCipherService(),
             new UuidGeneratorCipherService(),
-            new PasswordGeneratorCipherService()
+            new PasswordGeneratorCipherService(),
+            new RandomStringGeneratorCipherService()
         );
     }
 }

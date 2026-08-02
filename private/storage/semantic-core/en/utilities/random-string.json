@@ -1,0 +1,152 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "random string",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/utilities/random-string.csv",
+        "imported_at": "2026-02-02T17:24:00+02:00"
+    },
+    "tool": {
+        "slug": "utilities/random-string",
+        "url": "/en/utilities/random-string",
+        "content_file": "private/storage/content/utilities/random-string/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 111000,
+        "primary_terms": [
+            "random string generator",
+            "create random string",
+            "random string",
+            "generate string",
+            "generate random string online"
+        ],
+        "modifiers": [
+            "random",
+            "online",
+            "create / generate"
+        ],
+        "intents": {
+            "tool": 4,
+            "online": 2
+        },
+        "content_recommendations": [
+            "Use the exact primary query “random string generator” once in the meta title and first-screen copy; support the equal-demand “create random string” phrasing naturally in the intro.",
+            "State the direct workflow in the intro: choose a length and character sets or a custom alphabet, generate one or a batch of random strings locally in the browser, then copy or download the result.",
+            "Use a supporting block to explain how string length and the selected character pool affect the number of possible results. Cover letters, digits, symbols, custom alphabets, and the option to exclude lookalike characters.",
+            "Explain the no-repeats constraint accurately: a requested string cannot be longer than its chosen character pool when repeats are disabled.",
+            "Mention online, browser-local cryptographic randomness in supporting copy without claiming that every generated string is automatically a password, API key, UUID, or cryptographic key.",
+            "Examples should show a 32-character alphanumeric string, a 64-character lowercase-and-digit token, a hexadecimal string, and a six-digit numeric PIN."
+        ],
+        "query_groups": [
+            {
+                "name": "Core random string generation",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "random string generator",
+                    "random string"
+                ]
+            },
+            {
+                "name": "Create and generate workflows",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "create random string",
+                    "generate string"
+                ]
+            },
+            {
+                "name": "Online random string generation",
+                "intent": [
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "generate random string online",
+                    "random string online"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "random string generator",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "create random string",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "random string",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "generate string",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "generate random string online",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "random string online",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-02T17:46:53+02:00",
+        "reviewed_by": "Codex semantic-core-builder",
+        "decision": "Reviewed as one random-string generation tool. Core, creation, and online variants all map to the supported browser-local generator; no separate UUID, password, token-service, or key-management page is warranted."
+    },
+    "notes": "Keep the cluster within generating strings from selected character sets or a custom alphabet. Do not broaden the page into UUID generation, password management, API-key provisioning, or cryptographic key storage. The linked English content file has not yet been created, so the reviewed core cannot be mapped until that file exists."
+}

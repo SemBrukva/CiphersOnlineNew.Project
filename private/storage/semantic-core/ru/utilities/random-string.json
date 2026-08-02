@@ -1,0 +1,252 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "генератор строк",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/utilities/random-string.csv",
+        "imported_at": "2026-02-02T17:24:00+02:00"
+    },
+    "tool": {
+        "slug": "utilities/random-string",
+        "url": "/ru/utilities/random-string",
+        "content_file": "private/storage/content/utilities/random-string/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 158,
+        "primary_terms": [
+            "генератор строк",
+            "генератор случайных строк",
+            "генератор случайной строки",
+            "генерация случайной строки",
+            "генератор строки заданной длины",
+            "генерация символов онлайн"
+        ],
+        "modifiers": [
+            "случайная / рандомная",
+            "онлайн",
+            "заданная длина",
+            "символы"
+        ],
+        "intents": {
+            "tool": 9,
+            "online": 5
+        },
+        "content_recommendations": [
+            "Использовать точную фразу «генератор строк» в meta_title и первом экране; во вступлении естественно раскрыть «генератор случайных строк» и «генератор случайной строки».",
+            "Во вступлении описать сценарий: выбрать длину, наборы символов или собственный алфавит, сгенерировать одну либо несколько строк и скопировать или скачать результат.",
+            "В основном блоке объяснить, как длина и размер пула символов влияют на количество возможных строк. Указать доступные наборы: буквы, цифры, символы и пользовательский алфавит.",
+            "Отдельно пояснить настройки исключения похожих символов и запрета повторов: при запрете повторов длина не может быть больше выбранного набора символов.",
+            "Подчеркнуть онлайн-работу и локальную криптографически стойкую случайность в браузере, не заявляя, что строка сама по себе является готовым паролем, ключом или UUID.",
+            "В примерах показать буквенно-цифровую строку из 32 символов, шестизначный PIN, шестнадцатеричную строку и пакетную генерацию токенов."
+        ],
+        "query_groups": [
+            {
+                "name": "Основной генератор строк",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "генератор строк",
+                    "генератор строки",
+                    "сгенерировать строку"
+                ]
+            },
+            {
+                "name": "Случайные и рандомные строки",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "генератор случайных строк",
+                    "генератор случайной строки",
+                    "генерация случайной строки",
+                    "генератор рандомной строки"
+                ]
+            },
+            {
+                "name": "Длина и набор символов",
+                "intent": [
+                    "tool"
+                ],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": [
+                    "сгенерировать строку определенной длины",
+                    "генератор строки заданной длины",
+                    "генерация символов онлайн"
+                ]
+            },
+            {
+                "name": "Онлайн-генерация",
+                "intent": [
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "генерация строки онлайн",
+                    "случайная строка онлайн",
+                    "генератор строк онлайн",
+                    "генератор строки онлайн"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "генератор строк",
+            "score": 83,
+            "competitiveness": "AVERAGE",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "генератор случайных строк",
+            "score": 14,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор случайной строки",
+            "score": 14,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генерация строки онлайн",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "генератор строки",
+            "score": 8,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сгенерировать строку определенной длины",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генерация символов онлайн",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "случайная строка онлайн",
+            "score": 5,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "генерация случайной строки",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "сгенерировать строку",
+            "score": 4,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор строки заданной длины",
+            "score": 3,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор рандомной строки",
+            "score": 2,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор строк онлайн",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "генератор строки онлайн",
+            "score": 1,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-02T17:44:43+02:00",
+        "reviewed_by": "Codex semantic-core-builder",
+        "decision": "Проверено как единый инструмент генерации случайных строк. Запросы о длине, символах и онлайн-генерации соответствуют настройкам виджета; отдельный сервис для токенов, UUID или паролей не требуется."
+    },
+    "notes": "Кластер ограничен созданием случайных строк из выбранного набора символов. Не расширять страницу до генератора UUID, менеджера паролей, сервиса API-ключей или криптографического ключевого хранилища. Русскоязычный content-файл ещё не создан, поэтому reviewed-ядро нельзя замаппить до его появления."
+}

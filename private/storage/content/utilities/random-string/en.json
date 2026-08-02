@@ -1,0 +1,228 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-08-02T15:52:09+00:00",
+        "category_alias": "utilities",
+        "cipher_alias": "random-string",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 91,
+        "category_id": 9
+    },
+    "cipher_translation": {
+        "id": 91,
+        "data": {
+            "name": "Random String Generator",
+            "name_short": "Random String",
+            "description": "Create random strings online in your browser. Choose a length, combine lowercase, uppercase, digits and symbols, or use a custom alphabet such as hexadecimal or Base58. Generate up to 100 values at once, exclude look-alike characters, prevent repeats, then copy or download the formatted list. Everything runs locally on your device.",
+            "description_stort": "Create random strings online, locally in your browser.",
+            "meta_title": "Random String Generator — Tokens, IDs & Custom Alphabets | Ciphers Online",
+            "meta_description": "Free online random string generator. Create random strings from letters, digits, symbols or a custom alphabet; generate batches, copy or download them locally in your browser."
+        }
+    },
+    "blocks": [
+        {
+            "id": 297,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "What is a random string generator?",
+                "text": "<p>A random string generator creates unpredictable character sequences from a pool you choose. Select lowercase and uppercase letters, digits, symbols, or enter a custom alphabet to generate a random string for development, testing or data preparation. The tool supports Latin, Cyrillic and several other letter alphabets, as well as practical custom sets such as hexadecimal or Base58.</p><p>To create a random string, set its length from 1 to 512 characters, choose the character sets, and click Generate. You can produce up to 100 strings in one batch and return them one per line, comma-separated, space-separated or as quoted values. Copy the result directly or download it as a plain-text file for use in a script, fixture, spreadsheet or configuration draft.</p><p>The strength of an unpredictable string depends on its <strong>length</strong> and the <strong>number of distinct characters</strong> available. In simple terms, entropy is approximately <code>length × log₂(alphabet size)</code>. This online random string generator uses the browser's cryptographically secure <code>crypto.getRandomValues</code> API with rejection sampling, so each character is selected without modulo bias. Generation happens locally in the browser: generated values are not sent to, logged by or stored on this site.</p>"
+            }
+        },
+        {
+            "id": 298,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Choose the right character set and options",
+                "text": "<p>Use letters and digits for compact general-purpose identifiers, or a custom hexadecimal alphabet (<code>0123456789abcdef</code>) when a system expects hex values. Add symbols when you need a larger character pool and the receiving system accepts punctuation. A custom alphabet is also useful for formats with restricted characters, test datasets and human-readable codes.</p><p>Enable <strong>Exclude similar characters</strong> to remove <code>i</code>, <code>I</code>, <code>l</code>, <code>L</code>, <code>1</code>, <code>o</code>, <code>O</code> and <code>0</code> from the selected pool. This helps when a code must be read or typed by a person. Enable <strong>No repeated characters</strong> when every character in a string must be unique. In that mode, the requested length cannot exceed the number of unique characters in the selected pool.</p><p>A random string is raw generated data, not a claim about a particular standard or service. Use a format and length that match the requirements of the system that will consume it. For account passwords, choose the dedicated password generator instead; for UUID-formatted identifiers, use the UUID generator.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 617,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "How is this different from the password generator?",
+                "answer": "The password generator is tuned for human-usable secrets and shows a strength meter and crack-time estimate. The random string generator is a developer utility: it supports any custom alphabet (hex, Base58, your own characters), bulk output and list formatting (one per line, comma- or space-separated), which is ideal for tokens, IDs and test data rather than login passwords."
+            }
+        },
+        {
+            "id": 618,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Are the generated strings safe to use as secrets?",
+                "answer": "Yes. Every string is generated locally in your browser using the cryptographically secure Web Crypto API (crypto.getRandomValues) with rejection sampling to avoid modulo bias. Nothing is transmitted to a server, logged or stored. For secrets, prefer a length and character set that give at least 128 bits of entropy — for example a 32-character hexadecimal or a 22-character Base58 string."
+            }
+        },
+        {
+            "id": 619,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "How do I generate several random strings at once?",
+                "answer": "Set the Count field to any value from 1 to 100. The generator creates that many independent strings using the same length and character-pool settings. Choose one-per-line output for a text file, comma- or space-separated output for quick pasting, or quoted output when preparing a list for code or structured data. You can then copy the result or download it as a .txt file."
+            }
+        },
+        {
+            "id": 620,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What does excluding similar characters do?",
+                "answer": "It removes characters that can be confused when read or typed: i, I, l, L, 1, o, O and 0. This is useful for invitation codes, temporary reference codes and other values people may need to enter manually. It reduces the character pool slightly, so use a suitable length if unpredictability is important."
+            }
+        },
+        {
+            "id": 621,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can a generated string contain no repeated characters?",
+                "answer": "Yes. Turn on No repeated characters to select each character at most once within a string. The maximum possible length then equals the number of unique characters in the selected sets and custom alphabet. For example, a digits-only string with this option can be no longer than 10 characters."
+            }
+        },
+        {
+            "id": 622,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Which alphabet should I use for a random string?",
+                "answer": "Choose the alphabet required by the destination system. Letters and digits suit many general identifiers; a custom 0123456789abcdef alphabet produces lowercase hexadecimal strings; and a custom Base58-style alphabet can avoid characters a format does not allow. The tool also offers several language letter alphabets. Duplicate characters in combined sets or a custom alphabet are counted only once."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 331,
+            "sort_order": 10,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "length": "32",
+                "lower": "1",
+                "upper": "1",
+                "digits": "1",
+                "symbols": "0"
+            },
+            "data": {
+                "title": "Alphanumeric string (32)",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "A 32-character mix of letters and digits — a safe default for tokens, slugs and identifiers."
+            }
+        },
+        {
+            "id": 332,
+            "sort_order": 20,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "length": "32",
+                "lower": "0",
+                "upper": "0",
+                "digits": "0",
+                "symbols": "0",
+                "custom": "0123456789abcdef"
+            },
+            "data": {
+                "title": "Hex string (32)",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "A 32-character lowercase hexadecimal string built from a custom alphabet — handy for keys and colours."
+            }
+        },
+        {
+            "id": 333,
+            "sort_order": 30,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "length": "20",
+                "lower": "1",
+                "upper": "1",
+                "digits": "1",
+                "symbols": "1"
+            },
+            "data": {
+                "title": "Strong 20 with symbols",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "Twenty characters from every set including symbols — maximum entropy per character for secrets and salts."
+            }
+        },
+        {
+            "id": 334,
+            "sort_order": 40,
+            "published": true,
+            "direction": "",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "length": "64",
+                "lower": "1",
+                "upper": "0",
+                "digits": "1",
+                "symbols": "0"
+            },
+            "data": {
+                "title": "Lowercase-and-digit token (64)",
+                "key": "",
+                "shift": 0,
+                "input": "",
+                "output": "",
+                "description": "A 64-character string containing lowercase letters and digits — useful when a system accepts a long token but not uppercase letters or symbols."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 412,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "random string"
+            }
+        },
+        {
+            "id": 413,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "token generator"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}
