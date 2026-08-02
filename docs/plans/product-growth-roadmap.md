@@ -142,7 +142,8 @@
 - ✅ Book cipher.
 - ✅ Scytale cipher.
 - ✅ ROT47 как отдельный tool
-- Tap code, Semaphore, Braille, NATO phonetic alphabet, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT-N, Nihilist, Four-square, Two-square, ADFGVX, Chaocipher.
+- ✅ ADFGVX
+- Tap code, Semaphore, Braille, NATO phonetic alphabet, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT-N, Nihilist, Four-square, Two-square, Chaocipher.
 
 **Кодировки/dev (высокий dev-трафик):**
 - ✅ Base32, ✅ Base58 (крипто-адреса), ✅ Base85/Ascii85, ✅ Base45, ✅ Punycode (IDN, domain/raw варианты) — клиентские инструменты с вариант-селектами; интеграция в авто-солвер — отдельной итерацией. Quoted-Printable, Gzip/Deflate, ROT13-в-Base цепочки, QR-код (ген/чтение), Barcode.

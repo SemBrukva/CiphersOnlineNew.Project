@@ -7,6 +7,8 @@ namespace Tests\Unit\Cipher;
 use App\Cache\NullCache;
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
+use App\Cipher\AdfgvxApiCipherTool;
+use App\Cipher\AdfgvxCipherService;
 use App\Cipher\AffineApiCipherTool;
 use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\AffineCipherService;
@@ -200,6 +202,7 @@ final class ApiCipherToolRegistryTest extends TestCase
             new EnigmaApiCipherTool(new EnigmaCipherService()),
             $this->makeAnagramSolverTool(),
             new Rot47ApiCipherTool(new Rot47CipherService()),
+            new AdfgvxApiCipherTool(new AdfgvxCipherService($catalog, new AlphabetTool($catalog, $folder), $folder, new ColumnarTranspositionCipherService())),
         );
 
         $registry->register($cipherIdentifierTool);

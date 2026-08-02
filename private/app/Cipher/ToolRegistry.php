@@ -64,7 +64,8 @@ final readonly class ToolRegistry
         private PunycodeCipherService $punycode,
         private UuidGeneratorCipherService $uuidGenerator,
         private PasswordGeneratorCipherService $passwordGenerator,
-        private RandomStringGeneratorCipherService $randomStringGenerator
+        private RandomStringGeneratorCipherService $randomStringGenerator,
+        private AdfgvxCipherService $adfgvxCipher
     ) {
     }
 
@@ -287,6 +288,11 @@ final readonly class ToolRegistry
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => 'PLAYFAIR'],
                 ['label' => 'Decode',   'value' => 'FHYCZ',          'alphabet' => 'en', 'key' => 'KEYWORD', 'direction' => 'decrypt'],
             ],
+            'classical-ciphers/adfgvx' => [
+                ...self::withSettings([['label' => 'Classic', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => 'PRIVACY']], ['ciphers-adfgvx-key' => 'BATTLE']),
+                ...self::withSettings([['label' => 'Numbers', 'value' => 'AGENT 007',      'alphabet' => 'en', 'key' => 'SECRET']], ['ciphers-adfgvx-key' => 'GERMAN']),
+                ...self::withSettings([['label' => 'Decode',  'value' => 'VVVVAAAAGFFXGFDFGAGGGXGX', 'alphabet' => 'en', 'key' => 'PRIVACY', 'direction' => 'decrypt']], ['ciphers-adfgvx-key' => 'BATTLE']),
+            ],
             'classical-ciphers/trifid' => [
                 ['label' => 'Classic',  'value' => 'HELLO',          'alphabet' => 'en', 'key' => 'KEYWORD'],
                 ['label' => 'Military', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => 'PLAYFAIR'],
@@ -507,6 +513,7 @@ final readonly class ToolRegistry
             'classical-ciphers/porta' => 'porta',
             'classical-ciphers/autokey' => 'autokey',
             'classical-ciphers/bifid'    => 'bifid',
+            'classical-ciphers/adfgvx'   => 'adfgvx',
             'classical-ciphers/trifid'   => 'trifid',
             'classical-ciphers/alberti'  => 'alberti',
             'classical-ciphers/enigma'   => 'enigma',
@@ -562,6 +569,7 @@ final readonly class ToolRegistry
             'classical-ciphers/porta' => $this->portaCipher->getToolSettings(),
             'classical-ciphers/autokey' => $this->autokeyCipher->getToolSettings(),
             'classical-ciphers/bifid'    => $this->bifidCipher->getToolSettings(),
+            'classical-ciphers/adfgvx'   => $this->adfgvxCipher->getToolSettings(),
             'classical-ciphers/trifid'   => $this->trifidCipher->getToolSettings(),
             'classical-ciphers/alberti'  => $this->albertiCipher->getToolSettings(),
             'classical-ciphers/enigma'   => $this->enigmaCipher->getToolSettings(),
@@ -624,6 +632,7 @@ final readonly class ToolRegistry
             'classical-ciphers/porta'     => $this->portaCipher->getTrustItems($calculationMode),
             'classical-ciphers/autokey'   => $this->autokeyCipher->getTrustItems($calculationMode),
             'classical-ciphers/bifid'     => $this->bifidCipher->getTrustItems($calculationMode),
+            'classical-ciphers/adfgvx'    => $this->adfgvxCipher->getTrustItems($calculationMode),
             'classical-ciphers/trifid'    => $this->trifidCipher->getTrustItems($calculationMode),
             'classical-ciphers/alberti'   => $this->albertiCipher->getTrustItems($calculationMode),
             'classical-ciphers/enigma'    => $this->enigmaCipher->getTrustItems($calculationMode),
@@ -770,6 +779,7 @@ final readonly class ToolRegistry
             'classical-ciphers/porta-cipher', 'classical-ciphers/shifr-porta' => 'classical-ciphers/porta',
             'classical-ciphers/autokey-cipher', 'classical-ciphers/shifr-autokey' => 'classical-ciphers/autokey',
             'classical-ciphers/bifid-cipher', 'classical-ciphers/shifr-bifida' => 'classical-ciphers/bifid',
+            'classical-ciphers/adfgvx-cipher', 'classical-ciphers/adfgx', 'classical-ciphers/shifr-adfgvx' => 'classical-ciphers/adfgvx',
             'classical-ciphers/trifid-cipher', 'classical-ciphers/shifr-trifida' => 'classical-ciphers/trifid',
             'classical-ciphers/alberti-cipher', 'classical-ciphers/shifr-alberti', 'classical-ciphers/disk-alberti' => 'classical-ciphers/alberti',
             'classical-ciphers/enigma-machine', 'classical-ciphers/enigma-cipher', 'classical-ciphers/shifr-enigma', 'classical-ciphers/mashina-enigma' => 'classical-ciphers/enigma',

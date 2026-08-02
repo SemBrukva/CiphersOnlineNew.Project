@@ -1,0 +1,98 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "шифр adfgvx",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/classical-ciphers/adfgvx.csv",
+        "imported_at": "2026-08-02T19:29:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/adfgvx",
+        "url": "/ru/classical-ciphers/adfgvx",
+        "content_file": "private/storage/content/classical-ciphers/adfgvx/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 5,
+        "primary_terms": [
+            "шифр adfgvx",
+            "шифр adfgvx онлайн"
+        ],
+        "modifiers": [
+            "онлайн",
+            "квадрат Полибия 6×6",
+            "фракционирование",
+            "столбцовая перестановка"
+        ],
+        "intents": {
+            "cipher": 2,
+            "online": 1
+        },
+        "content_recommendations": [
+            "Использовать точную фразу «шифр ADFGVX» в meta_title и первом экране; во вступлении обозначить ADFGVX как исторический шифр, чтобы аббревиатура была понятна пользователю.",
+            "Кратко описать два шага алгоритма: символы открытого текста заменяются парами A, D, F, G, V, X по ключевому квадрату Полибия 6×6, затем последовательность проходит столбцовую перестановку по второму ключу.",
+            "Разделить назначение ключей: ключ квадрата меняет расположение символов, а ключ перестановки определяет порядок столбцов. Для шифрования и расшифрования нужны те же два ключа.",
+            "В intro или основном блоке естественно покрыть онлайн-сценарий: ввести текст, выбрать алфавит и оба ключа, затем получить шифртекст или расшифрованный результат без сохранения данных.",
+            "Добавить примеры шифрования текста с буквами и цифрами и обратной расшифровки строки, составленной из меток ADFGVX. Отдельно объяснить, что цифры помещаются в квадрат 6×6.",
+            "В FAQ сравнить ADFGVX с ADFGX (6×6 против 5×5), пояснить ограничение французского алфавита и отметить, что это учебный исторический шифр, а не современное защищённое шифрование."
+        ],
+        "query_groups": [
+            {
+                "name": "Каноническое название шифра ADFGVX",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "шифр adfgvx"
+                ]
+            },
+            {
+                "name": "Онлайн-использование ADFGVX",
+                "intent": [
+                    "cipher",
+                    "online"
+                ],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": [
+                    "шифр adfgvx онлайн"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "шифр adfgvx",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шифр adfgvx онлайн",
+            "score": 2,
+            "competitiveness": "NO_DATA",
+            "priority": "secondary",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "intro"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-02T19:26:20+02:00",
+        "reviewed_by": "Codex semantic-core-builder",
+        "decision": "Проверено как единая страница исторического шифра ADFGVX. Запрос «угловой шифр» исключён как нерелевантный смешанный кластер; два оставшихся запроса соответствуют двустороннему инструменту с ключевым квадратом 6×6 и столбцовой перестановкой."
+    },
+    "notes": "Ядро ограничено шифром ADFGVX и его двухключевым алгоритмом. ADFGX допустим только как сравнительный исторический контекст, а «угловой шифр» не относится к этому инструменту. Не позиционировать исторический шифр как современное защищённое шифрование. Русскоязычный content-файл ещё не создан, поэтому reviewed-ядро нельзя замаппить до его появления."
+}

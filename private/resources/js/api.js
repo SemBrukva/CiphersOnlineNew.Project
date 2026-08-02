@@ -145,6 +145,8 @@ export class ApiClient {
         'vigenere-cracker': (data) => this.#request('POST', '/tools/vigenere-cracker', data),
         /** POST /api/tools/bifid */
         bifid: (data) => this.#request('POST', '/tools/bifid', data),
+        /** POST /api/tools/adfgvx */
+        adfgvx: (data) => this.#request('POST', '/tools/adfgvx', data),
         /** POST /api/tools/trifid */
         trifid: (data) => this.#request('POST', '/tools/trifid', data),
         /** POST /api/tools/alberti */

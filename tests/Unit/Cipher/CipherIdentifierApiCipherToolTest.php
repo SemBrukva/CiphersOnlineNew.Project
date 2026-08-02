@@ -7,6 +7,8 @@ namespace Tests\Unit\Cipher;
 use App\Cache\NullCache;
 use App\Cipher\A1z26ApiCipherTool;
 use App\Cipher\A1z26CipherService;
+use App\Cipher\AdfgvxApiCipherTool;
+use App\Cipher\AdfgvxCipherService;
 use App\Cipher\AffineApiCipherTool;
 use App\Cipher\AffineBruteForceApiCipherTool;
 use App\Cipher\AffineCipherService;
@@ -202,6 +204,7 @@ final class CipherIdentifierApiCipherToolTest extends TestCase
                 $scorer,
             ),
             new \App\Cipher\Rot47ApiCipherTool(new \App\Cipher\Rot47CipherService()),
+            new AdfgvxApiCipherTool(new AdfgvxCipherService($catalog, new AlphabetTool($catalog, $folder), $folder, new ColumnarTranspositionCipherService())),
         );
 
         $this->tool = new CipherIdentifierApiCipherTool($service, $this->registry);

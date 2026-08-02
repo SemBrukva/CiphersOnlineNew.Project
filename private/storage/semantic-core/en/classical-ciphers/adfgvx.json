@@ -1,0 +1,84 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "adfgvx cipher",
+    "intent": "cipher",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/classical-ciphers/adfgvx.csv",
+        "imported_at": "2026-08-02T19:29:00+02:00"
+    },
+    "tool": {
+        "slug": "classical-ciphers/adfgvx",
+        "url": "/en/classical-ciphers/adfgvx",
+        "content_file": "private/storage/content/classical-ciphers/adfgvx/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 550,
+        "primary_terms": [
+            "adfgvx",
+            "adfgvx cipher"
+        ],
+        "modifiers": [
+            "6×6 Polybius square",
+            "fractionation",
+            "columnar transposition"
+        ],
+        "intents": {
+            "cipher": 2
+        },
+        "content_recommendations": [
+            "Use the exact primary query “ADFGVX” in the meta title and first-screen copy, and identify it as a cipher in the intro so the bare acronym has historical and functional context.",
+            "Explain the two-stage method accurately: plaintext characters are converted to pairs from A, D, F, G, V, and X using a keyed 6×6 Polybius square, then the resulting letters undergo keyed columnar transposition.",
+            "Describe the two required keys separately: the square key changes symbol placement in the Polybius square, while the transposition key changes column order. Do not imply that one key alone is sufficient.",
+            "Cover both workflows with short examples: encrypt a plaintext containing letters and digits, then decrypt an ADFGVX-label ciphertext using the same square and transposition keys.",
+            "Add a historical note that ADFGVX is a World War I German field cipher and distinguish it from ADFGX: the 6×6 square includes digits, whereas ADFGX uses a 5×5 square.",
+            "Use FAQ to explain why decrypt input contains only ADFGVX labels, why the French alphabet is unavailable in this 6×6 implementation, and why the cipher is educational rather than modern secure encryption."
+        ],
+        "query_groups": [
+            {
+                "name": "Canonical ADFGVX cipher name",
+                "intent": [
+                    "cipher"
+                ],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": [
+                    "adfgvx",
+                    "adfgvx cipher"
+                ]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "adfgvx",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "adfgvx cipher",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "cipher"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-02T19:25:08+02:00",
+        "reviewed_by": "Codex semantic-core-builder",
+        "decision": "Reviewed as a single historical ADFGVX cipher page. Both source queries refer to the canonical cipher name and map to the existing bidirectional tool with a keyed 6×6 square and columnar transposition."
+    },
+    "notes": "Keep the cluster focused on the ADFGVX cipher and its own two-key workflow. ADFGX is useful comparative context only, not a separate target; do not position this historical cipher as modern secure encryption. The linked English content file has not yet been created, so the reviewed core cannot be mapped until that file exists."
+}

@@ -53,6 +53,7 @@ export function initCipherToolPage() {
   const keyLengthSelect = document.getElementById('ciphers-key-length')
   const delimiterSelect = document.getElementById('ciphers-delimiter')
   const keyInput = document.getElementById('ciphers-key')
+  const adfgvxTransKeyInput = document.getElementById('ciphers-adfgvx-key')
   const matrixControl = document.querySelector('[data-matrix-control]')
   const matrixGrid = matrixControl?.querySelector('[data-matrix-grid]') ?? null
   const matrixStatus = matrixControl?.querySelector('[data-matrix-status]') ?? null
@@ -110,6 +111,7 @@ export function initCipherToolPage() {
   const isLetterFrequencyTool  = Boolean(ui.letterFrequencyMode)
   const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
   const isEnigmaTool           = Boolean(ui.enigmaMode)
+  const isAdfgvxTool           = Boolean(ui.adfgvxMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isBaseEncodingTool = Boolean(ui.baseEncodingMode)
   const isBookTool = Boolean(ui.bookMode)
@@ -249,6 +251,7 @@ export function initCipherToolPage() {
         delimiter: String(delimiterSelect?.value ?? 'dash'),
         shift: Number(shiftInput?.value ?? 0),
         key: String(keyInput?.value ?? ''),
+        adfgvxTransKey: String(adfgvxTransKeyInput?.value ?? ''),
         liveMode: Boolean(liveModeInput?.checked),
         jsonIndent: String(jsonIndentSelect?.value ?? ''),
         tsUnit: String(tsUnitSelect?.value ?? ''),
@@ -429,6 +432,10 @@ export function initCipherToolPage() {
 
     if (keyInput && typeof savedState.key === 'string') {
       keyInput.value = savedState.key
+    }
+
+    if (adfgvxTransKeyInput && typeof savedState.adfgvxTransKey === 'string') {
+      adfgvxTransKeyInput.value = savedState.adfgvxTransKey
     }
 
     if (matrixControl && keyInput) {
@@ -773,6 +780,10 @@ export function initCipherToolPage() {
         ...(anagramSolver?.collectSettings() ?? {}),
       } : {}
 
+      const adfgvxSettings = isAdfgvxTool ? {
+        transposition_key: String(adfgvxTransKeyInput?.value ?? ''),
+      } : {}
+
       const enigmaSettings = isEnigmaTool ? {
         enigma_reflector:    String(enigmaReflectorSelect?.value ?? 'B'),
         enigma_rotor_left:   String(enigmaRotorLeftSelect?.value ?? 'I'),
@@ -801,6 +812,7 @@ export function initCipherToolPage() {
             cover_text: coverText,
             xor_key_format: xorKeyFormat,
             alberti_index: albertiIndex,
+            ...adfgvxSettings,
             ...enigmaSettings,
             ...anagramSettings,
           }).filter(([, value]) => value !== '')
@@ -1001,6 +1013,13 @@ export function initCipherToolPage() {
       scheduleApiRun()
     } else if (isClientTool) {
       process()
+    }
+  })
+
+  adfgvxTransKeyInput?.addEventListener('input', () => {
+    saveState()
+    if (isApiMode) {
+      scheduleApiRun()
     }
   })
 
@@ -1545,6 +1564,7 @@ const SHAREABLE_FIELD_IDS = [
   'ciphers-live-mode',
   'ciphers-shift',
   'ciphers-key',
+  'ciphers-adfgvx-key',
   'ciphers-alphabet',
   'ciphers-delimiter',
   'ciphers-key-length',

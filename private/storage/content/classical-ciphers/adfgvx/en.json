@@ -1,0 +1,219 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-08-02T17:30:40+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "adfgvx",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 92,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 92,
+        "data": {
+            "name": "ADFGVX Cipher",
+            "name_short": "ADFGVX",
+            "description": "Encrypt and decrypt text online with the World War I ADFGVX cipher, using a keyed 6×6 Polybius square and columnar transposition.",
+            "description_stort": "Encrypt or decrypt with the two-key ADFGVX cipher online.",
+            "meta_title": "ADFGVX Cipher Online | Ciphers Online",
+            "meta_description": "Use the ADFGVX cipher online: set the square key and transposition key to encrypt or decrypt text instantly."
+        }
+    },
+    "blocks": [
+        {
+            "id": 299,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the ADFGVX cipher works",
+                "text": "<p>ADFGVX is a German field cipher from World War I. This historical cipher combines fractionation in a keyed 6×6 Polybius square with columnar transposition, making it substantially more complex than either stage on its own.</p><p>To encrypt text with the ADFGVX cipher, enter a message, a square key, and a transposition key. The square key places the 26 English letters and digits 0–9 into the 6×6 grid. Its rows and columns are labelled A, D, F, G, V, and X, letters selected because their Morse-code signals are easy to distinguish. Each plaintext character is replaced by its row-and-column pair; the transposition key then changes the order of those ADFGVX labels to create the ciphertext.</p><p>To decrypt, use exactly the same two keys and paste the ciphertext made from A, D, F, G, V, and X. The tool reverses the columnar transposition first, then reads every label pair back through the keyed Polybius square. Spaces and punctuation are not encrypted, so the recovered result contains the supported letters and digits only. This online ADFGVX cipher is useful for learning classical cryptography, historical study, and puzzles; it is not suitable for protecting modern sensitive data.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 623,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why is it called ADFGVX?",
+                "answer": "The letters A, D, F, G, V and X label the rows and columns of the 6×6 square. They were chosen because their Morse code representations are very different, reducing transmission errors."
+            }
+        },
+        {
+            "id": 624,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why does ADFGVX use two keys?",
+                "answer": "The square key mixes the 6×6 Polybius grid, and the transposition key drives the columnar transposition step. Both are required to encrypt and decrypt."
+            }
+        },
+        {
+            "id": 625,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What is the difference between ADFGVX and ADFGX?",
+                "answer": "ADFGX is the earlier version with a 5×5 square for 25 letters only. ADFGVX extends it to a 6×6 square that also includes the digits 0–9."
+            }
+        },
+        {
+            "id": 626,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "Why does ADFGVX ciphertext contain only six letters?",
+                "answer": "Before transposition, every plaintext symbol is converted into a row-and-column pair from A, D, F, G, V, and X. Columnar transposition rearranges those labels but does not introduce other ciphertext letters."
+            }
+        },
+        {
+            "id": 627,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Can I encrypt numbers with the ADFGVX cipher?",
+                "answer": "Yes. In the English implementation, the keyed 6×6 Polybius square contains the alphabet plus digits 0–9, so messages such as AGENT 007 can be encrypted and decrypted with the same two keys."
+            }
+        },
+        {
+            "id": 628,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Why is French not available for this ADFGVX tool?",
+                "answer": "This implementation needs every supported alphabet to fit in 36 cells. The French alphabet used by the site has too many characters for the 6×6 square, so it cannot be processed reliably by this ADFGVX cipher tool."
+            }
+        },
+        {
+            "id": 629,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Is ADFGVX secure for modern messages?",
+                "answer": "No. ADFGVX is a historical cipher intended for education, puzzles, and studying World War I cryptography. Use modern, well-reviewed encryption for confidential or personal information."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 335,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-adfgvx-key": "BATTLE"
+            },
+            "data": {
+                "title": "Encrypt with two keys",
+                "key": "PRIVACY",
+                "shift": 0,
+                "input": "ATTACK AT DAWN",
+                "output": "VVVVAAAAGFFXGFDFGAGGGXGX",
+                "description": "Square key PRIVACY builds the 6×6 grid; transposition key BATTLE rearranges the fractionated letters."
+            }
+        },
+        {
+            "id": 336,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-adfgvx-key": "BATTLE"
+            },
+            "data": {
+                "title": "Decrypt with the same keys",
+                "key": "PRIVACY",
+                "shift": 0,
+                "input": "VVVVAAAAGFFXGFDFGAGGGXGX",
+                "output": "ATTACKATDAWN",
+                "description": "The same square key and transposition key are required to recover the plaintext."
+            }
+        },
+        {
+            "id": 337,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-adfgvx-key": "GERMAN"
+            },
+            "data": {
+                "title": "Encrypt letters and digits",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "AGENT 007",
+                "output": "AVXVFAFVGVGDFDAX",
+                "description": "ADFGVX includes digits in its 6×6 square. With square key SECRET and transposition key GERMAN, spaces are removed and AGENT 007 becomes this ADFGVX-label ciphertext."
+            }
+        },
+        {
+            "id": 338,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-adfgvx-key": "GERMAN"
+            },
+            "data": {
+                "title": "Decrypt an ADFGVX-label ciphertext",
+                "key": "SECRET",
+                "shift": 0,
+                "input": "AVXVFAFVGVGDFDAX",
+                "output": "AGENT007",
+                "description": "Paste the ciphertext made only from A, D, F, G, V, and X, then reuse square key SECRET and transposition key GERMAN to recover the message and its digits."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 414,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Fractionation"
+            }
+        },
+        {
+            "id": 415,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Transposition"
+            }
+        },
+        {
+            "id": 416,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "World War I"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

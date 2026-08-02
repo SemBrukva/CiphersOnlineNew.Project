@@ -520,6 +520,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование шифром ADFGVX через API.
+     *
+     * POST /api/tools/adfgvx
+     */
+    #[ApiOperation(summary: 'ADFGVX Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function adfgvx(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'adfgvx');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование шифром Трифид через API.
      *
      * POST /api/tools/trifid

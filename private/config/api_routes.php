@@ -212,6 +212,13 @@ return [
         'name'       => 'api.tools.bifid',
     ],
 
+    'POST /tools/adfgvx' => [
+        'controller' => GuestController::class,
+        'method'     => 'adfgvx',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.adfgvx',
+    ],
+
     'POST /tools/trifid' => [
         'controller' => GuestController::class,
         'method'     => 'trifid',

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Cipher;
 
 use App\Cipher\A1z26CipherService;
+use App\Cipher\AdfgvxCipherService;
 use App\Cipher\AffineBruteForceService;
 use App\Cipher\AffineCipherService;
 use App\Cipher\AlbertiCipherService;
@@ -211,7 +212,8 @@ final class ToolRegistryTest extends TestCase
             new PunycodeCipherService(),
             new UuidGeneratorCipherService(),
             new PasswordGeneratorCipherService(),
-            new RandomStringGeneratorCipherService()
+            new RandomStringGeneratorCipherService(),
+            new AdfgvxCipherService($catalog, $alphabetTool, $caseFolder, new ColumnarTranspositionCipherService())
         );
     }
 }

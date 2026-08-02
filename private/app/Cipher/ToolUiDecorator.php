@@ -227,6 +227,9 @@ final class ToolUiDecorator
             $toolUi['enigmaVisualReset']     = trans('ENIGMA_VISUAL_RESET_LABEL');
             $toolUi['enigmaVisualRandom']    = trans('ENIGMA_VISUAL_RANDOM_LABEL');
         }
+        if ($cipherAlias === 'adfgvx') {
+            $toolUi['adfgvxMode'] = true;
+        }
         if ($cipherAlias === 'anagram-solver') {
             $toolUi['anagramMode']            = true;
             $toolUi['disableLiveMode']        = true;
@@ -488,6 +491,7 @@ final class ToolUiDecorator
             'CIPHER_NAME_GRONSFELD'            => trans('CIPHER_NAME_GRONSFELD'),
             'CIPHER_NAME_ALBERTI'              => trans('CIPHER_NAME_ALBERTI'),
             'CIPHER_NAME_BIFID'                => trans('CIPHER_NAME_BIFID'),
+            'CIPHER_NAME_ADFGVX'              => trans('CIPHER_NAME_ADFGVX'),
             'CIPHER_NAME_TRIFID'               => trans('CIPHER_NAME_TRIFID'),
             'CIPHER_NAME_RAIL_FENCE'           => trans('CIPHER_NAME_RAIL_FENCE'),
             'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => trans('CIPHER_NAME_COLUMNAR_TRANSPOSITION'),

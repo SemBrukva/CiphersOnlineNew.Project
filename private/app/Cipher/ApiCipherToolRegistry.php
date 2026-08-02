@@ -49,8 +49,9 @@ final class ApiCipherToolRegistry implements ApiCipherToolExecutorInterface
         EnigmaApiCipherTool $enigmaTool,
         AnagramSolverApiCipherTool $anagramSolverTool,
         Rot47ApiCipherTool $rot47Tool,
+        AdfgvxApiCipherTool $adfgvxTool,
     ) {
-        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $portaTool, $autokeyTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $scytaleTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $substitutionCrackerTool, $xorTool, $xorBruteForceTool, $vigenereCrackerTool, $bifidTool, $trifidTool, $albertiTool, $enigmaTool, $anagramSolverTool, $rot47Tool] as $tool) {
+        foreach ([$affineTool, $caesarTool, $atbashTool, $playfairTool, $beaufortTool, $portaTool, $autokeyTool, $gronsfeldTool, $vigenereTool, $vernamTool, $baconTool, $rot13Tool, $a1z26Tool, $railFenceTool, $scytaleTool, $columnarTranspositionTool, $polybiusSquareTool, $hillTool, $caesarBruteForceTool, $affineBruteForceTool, $simpleSubstitutionTool, $substitutionCrackerTool, $xorTool, $xorBruteForceTool, $vigenereCrackerTool, $bifidTool, $trifidTool, $albertiTool, $enigmaTool, $anagramSolverTool, $rot47Tool, $adfgvxTool] as $tool) {
             $this->tools[$tool->action()] = $tool;
         }
     }
