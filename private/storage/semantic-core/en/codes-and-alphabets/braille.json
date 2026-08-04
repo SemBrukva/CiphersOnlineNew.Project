@@ -1,0 +1,387 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "braille translator",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/codes-and-alphabets/braille.csv",
+        "imported_at": "2026-08-04T21:56:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/braille",
+        "url": "/en/codes-and-alphabets/braille",
+        "content_file": "private/storage/content/codes-and-alphabets/braille/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 219100,
+        "primary_terms": [
+            "braille translator",
+            "braille converter",
+            "text to braille translator",
+            "english to braille translator",
+            "braille to english",
+            "braille alphabet converter"
+        ],
+        "modifiers": [
+            "text to braille",
+            "english to braille",
+            "braille to english",
+            "braille to text",
+            "online",
+            "alphabet",
+            "generator"
+        ],
+        "intents": {
+            "tool": 11,
+            "translate": 15,
+            "encode": 11,
+            "decode": 6,
+            "online": 2,
+            "cipher": 1
+        },
+        "content_recommendations": [
+            "Use the exact phrase “Braille translator” in the meta title and opening screen, while describing the page accurately as a converter rather than a human interpreting service.",
+            "In the introduction, state the two-way workflow: convert plain English text to Braille and read Braille back as text. Mention supported Unicode Braille cells, dot numbers, and Braille ASCII only where those formats are available in the interface.",
+            "Cover “text to Braille” and “English to Braille” as encoding tasks, and “Braille to English” and “Braille to text” as decoding tasks; do not frame Braille as a separate spoken language or a cryptographic code.",
+            "Use an explanatory block for the Braille alphabet, six-dot cells, capital and number signs, and a short English example. Keep the term “Braille interpreter” contextual: the tool converts text, not live speech or professional interpretation.",
+            "Mention browser-based use for online queries without promising printing, embossing, certified accessibility services, or contracted Braille support unless the product provides them.",
+            "In the FAQ, clarify the scope of “Braille translation services” and show how to copy or enter a short Braille sample for conversion."
+        ],
+        "query_groups": [
+            {
+                "name": "Braille translator",
+                "intent": ["translate"],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": ["braille translator", "braille converter", "braille alphabet translator"]
+            },
+            {
+                "name": "Convert text or English to Braille",
+                "intent": ["encode", "translate"],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": ["english to braille translator", "text to braille translator", "text to braille converter", "translate text to braille"]
+            },
+            {
+                "name": "Read Braille as English text",
+                "intent": ["decode", "translate"],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": ["braille to english", "translate braille to english", "braille to text translator", "braille to text converter"]
+            },
+            {
+                "name": "Alphabet, writing, and generated Braille",
+                "intent": ["tool", "encode"],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": ["braille alphabet converter", "braille writing translation", "braille generator", "braille text generator"]
+            },
+            {
+                "name": "Online converter and ambiguous terminology",
+                "intent": ["online", "translate"],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": ["braille translator online", "braille converter online", "braille interpreter", "braille translation services"]
+            },
+            {
+                "name": "Braille described as code or language",
+                "intent": ["cipher", "translate"],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": ["braille code translator", "braille language translator"]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "braille translator",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "primary",
+            "intent": [
+                "translate"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "braille interpreter",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "braille alphabet converter",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "encode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "braille writing translation",
+            "score": 50000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "braille generator",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "encode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "braille to english",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille converter",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "translate braille to english",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille alphabet translator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "english to braille translator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille translator online",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille code translator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "braille text generator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "encode"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "braille language translator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "translate english to braille",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "text to braille translator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "text to braille converter",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "english to braille converter",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille to english converter",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille to text translator",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille converter online",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "converting text to braille",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "translate braille to text",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "translate text to braille",
+            "score": 500,
+            "competitiveness": "Низкий",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "braille translation services",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "braille to text converter",
+            "score": 50,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool",
+                "decode"
+            ],
+            "target": "faq"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-04T22:20:00+02:00",
+        "reviewed_by": "codex",
+        "decision": "The core was reviewed as a two-way Braille converter. Directional English phrases are mapped to encode or decode, while human-service and terminology ambiguities remain supporting FAQ intent only."
+    },
+    "notes": "The core is ready for database sync. The linked content_file is currently absent, so mapped status is not set. Queries that call Braille a language, code, interpreter, or translation service must be answered with accurate scope: this tool converts written text and Braille notation, not speech or professional human services."
+}

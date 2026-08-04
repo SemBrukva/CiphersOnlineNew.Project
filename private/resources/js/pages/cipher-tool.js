@@ -15,6 +15,8 @@ import { initMatrixControl } from './cipher-tool/matrix-control.js'
 import { initMorsePlayer } from './cipher-tool/morse-player.js'
 import { initDancingMen } from './cipher-tool/dancing-men.js'
 import { initPigpen } from './cipher-tool/pigpen.js'
+import { initBrailleCells } from './cipher-tool/braille-cells.js'
+import { detectBrailleLanguage } from './cipher-tool/decoders/braille.js'
 import { initCustomSelects } from './cipher-tool/custom-selects.js'
 import { sendAnalyticsBeacon } from './cipher-tool/analytics.js'
 
@@ -72,6 +74,8 @@ export function initCipherToolPage() {
   const baseVariantSelect = document.getElementById('ciphers-base-variant')
   const bookSchemeSelect = document.getElementById('ciphers-book-scheme')
   const pigpenVariantSelect = document.getElementById('ciphers-pigpen-variant')
+  const brailleFormatSelect = document.getElementById('ciphers-braille-format')
+  const brailleCaseSelect = document.getElementById('ciphers-braille-case')
   const jsonIndentSelect = document.getElementById('ciphers-json-indent')
   const jsonSortKeysBtn  = document.getElementById('ciphers-json-sort')
   const jsonDownloadBtn  = document.getElementById('ciphers-json-download')
@@ -119,6 +123,7 @@ export function initCipherToolPage() {
   const isTimestampConverterTool = Boolean(ui.timestampConverterMode)
   const isDancingMenTool = Boolean(ui.dancingMenMode)
   const isPigpenTool = Boolean(ui.pigpenMode)
+  const isBrailleTool = Boolean(ui.brailleMode)
   const isOneWayTool = Boolean(ui.oneWayMode)
   const isHashTool = slug.startsWith('hashing/')
   const isHmacTool = Boolean(ui.hmacMode)
@@ -167,6 +172,7 @@ export function initCipherToolPage() {
   let anagramSolver = null
   let dancingMen = null
   let pigpen = null
+  let brailleCells = null
   let matrixCtrl = null
   let albertiWheel = null
   let enigmaPanel = null
@@ -199,6 +205,7 @@ export function initCipherToolPage() {
     morseErrInvalidFormat: ui.morseErrInvalidFormat || 'Invalid Morse code format.',
     morseWarnUnknownChars: ui.morseWarnUnknownChars || 'Unknown characters skipped: :chars.',
     morseInfoDecodedUnknown: ui.morseInfoDecodedUnknown || 'Some codes could not be decoded (shown as ?).',
+    brailleWarnUnknown: ui.brailleWarnUnknown || 'Some characters have no Braille equivalent (shown as ?).',
     tsErrInvalidTs: ui.tsErrInvalidTs || 'Invalid timestamp — enter a number.',
     tsErrInvalidDate: ui.tsErrInvalidDate || 'Invalid date — try ISO 8601 format.',
     tsLabelUtc: ui.tsLabelUtc || 'UTC',
@@ -587,6 +594,7 @@ export function initCipherToolPage() {
       if (isTimestampConverterTool) timestampConverter.showEmpty()
       if (isDancingMenTool) dancingMen.showEmpty()
       if (isPigpenTool) pigpen.showEmpty()
+      if (isBrailleTool) brailleCells?.clear()
       setOutputState(false)
       setFeedback('')
       return
@@ -643,9 +651,11 @@ export function initCipherToolPage() {
 
     try {
       const rawLang = alphabetSelect?.value || 'en'
-      const effectiveLang = (isMorseTool && rawLang === 'auto')
-        ? detectLanguage(value, mode)
-        : rawLang
+      let effectiveLang = rawLang
+      if (rawLang === 'auto') {
+        if (isMorseTool) effectiveLang = detectLanguage(value, mode)
+        else if (isBrailleTool) effectiveLang = detectBrailleLanguage(value, mode)
+      }
 
       if (isMorseTool && mode === 'decode' && !isValidMorseFormat(value)) {
         output.value = ''
@@ -657,6 +667,10 @@ export function initCipherToolPage() {
       const transformOpts = { language: effectiveLang }
       if (isBaseEncodingTool && baseVariantSelect) {
         transformOpts.variant = baseVariantSelect.value
+      }
+      if (isBrailleTool) {
+        transformOpts.format = brailleFormatSelect?.value || 'unicode'
+        transformOpts.keepCase = (brailleCaseSelect?.value || 'keep') !== 'ignore'
       }
       if (isNumbersToLettersTool) {
         transformOpts.encoding = n2lTypeSelect?.value || 'positional-1'
@@ -707,6 +721,16 @@ export function initCipherToolPage() {
           } else {
             setFeedback('')
           }
+        } else if (isBrailleTool) {
+          if (mode === 'encode') {
+            brailleCells?.render(value, {
+              language: effectiveLang,
+              keepCase: (brailleCaseSelect?.value || 'keep') !== 'ignore',
+            })
+          } else {
+            brailleCells?.clear()
+          }
+          setFeedback(output.value.includes('?') ? labels.brailleWarnUnknown : '', false, output.value.includes('?'))
         } else {
           setFeedback('')
         }
@@ -1442,6 +1466,14 @@ export function initCipherToolPage() {
     pigpenVariantSelect?.addEventListener('change', () => process())
   }
 
+  if (isBrailleTool) {
+    brailleCells = initBrailleCells({ visualOutput })
+    brailleFormatSelect?.addEventListener('change', () => { saveState(); process() })
+    brailleCaseSelect?.addEventListener('change', () => { saveState(); process() })
+    document.getElementById('ciphers-braille-png')?.addEventListener('click', () => { void brailleCells?.downloadPng() })
+    document.getElementById('ciphers-braille-svg')?.addEventListener('click', () => brailleCells?.downloadSvg())
+  }
+
   setMode('encode')
   initCustomSelects()
   loadCarryOver()
@@ -1573,6 +1605,8 @@ const SHAREABLE_FIELD_IDS = [
   'ciphers-base-variant',
   'ciphers-book-scheme',
   'ciphers-pigpen-variant',
+  'ciphers-braille-format',
+  'ciphers-braille-case',
   'ciphers-json-indent',
   'ciphers-ts-unit',
   'ciphers-xor-key-format',

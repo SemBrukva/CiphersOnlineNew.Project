@@ -65,7 +65,8 @@ final readonly class ToolRegistry
         private UuidGeneratorCipherService $uuidGenerator,
         private PasswordGeneratorCipherService $passwordGenerator,
         private RandomStringGeneratorCipherService $randomStringGenerator,
-        private AdfgvxCipherService $adfgvxCipher
+        private AdfgvxCipherService $adfgvxCipher,
+        private BrailleCipherService $braille
     ) {
     }
 
@@ -493,6 +494,11 @@ final readonly class ToolRegistry
                 ...self::withSettings([['label' => 'Variant',     'value' => 'SECRET MESSAGE']], ['ciphers-pigpen-variant' => 'variant']),
                 ...self::withSettings([['label' => 'Rosicrucian', 'value' => 'HELLO WORLD']], ['ciphers-pigpen-variant' => 'rosicrucian']),
             ],
+            'codes-and-alphabets/braille' => [
+                ...self::withSettings([['label' => 'Unicode', 'value' => 'Hello World']], ['ciphers-braille-format' => 'unicode', 'ciphers-braille-case' => 'keep']),
+                ...self::withSettings([['label' => 'Dot numbers', 'value' => 'Braille 2026']], ['ciphers-braille-format' => 'dots', 'ciphers-braille-case' => 'ignore']),
+                ...self::withSettings([['label' => 'Decode', 'value' => '⠠⠓⠑⠇⠇⠕ ⠠⠺⠕⠗⠇⠙', 'direction' => 'decrypt']], ['ciphers-braille-format' => 'unicode', 'ciphers-braille-case' => 'keep']),
+            ],
             default => [],
         };
     }
@@ -535,6 +541,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => null,
             'codes-and-alphabets/dancing-men' => null,
             'codes-and-alphabets/pigpen' => null,
+            'codes-and-alphabets/braille' => null,
             'classical-ciphers/book-cipher' => null,
             'codes-and-alphabets/anagram-solver' => 'anagram-solver',
             'encoding/html-encode' => null,
@@ -591,6 +598,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getToolSettings(),
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getToolSettings(),
             'codes-and-alphabets/pigpen' => $this->pigpen->getToolSettings(),
+            'codes-and-alphabets/braille' => $this->braille->getToolSettings(),
             'classical-ciphers/book-cipher' => $this->bookCipher->getToolSettings(),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getToolSettings(),
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
@@ -654,6 +662,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/numbers-to-letters' => $this->numbersToLetters->getTrustItems($calculationMode),
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getTrustItems($calculationMode),
             'codes-and-alphabets/pigpen' => $this->pigpen->getTrustItems($calculationMode),
+            'codes-and-alphabets/braille' => $this->braille->getTrustItems($calculationMode),
             'classical-ciphers/book-cipher' => $this->bookCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
@@ -801,6 +810,8 @@ final readonly class ToolRegistry
             'classical-ciphers/hill-cipher', 'classical-ciphers/shifr-hilla' => 'classical-ciphers/hill',
             'classical-ciphers/morse', 'classical-ciphers/kod-morze', 'classical-ciphers/azbukamorze',
             'classical-ciphers/morse-code' => 'codes-and-alphabets/morse-code',
+            'codes-and-alphabets/braille-translator', 'codes-and-alphabets/braille-alphabet',
+            'codes-and-alphabets/shrift-braylya' => 'codes-and-alphabets/braille',
             default => $toolSlug,
         };
     }

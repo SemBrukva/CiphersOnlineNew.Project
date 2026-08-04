@@ -254,6 +254,10 @@
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy" data-decode-only><i class="bi bi-clipboard"></i>{$tool_ui.copyLabel}</button>
                         {elseif $tool_ui.dancingMenMode|default:false}
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-dm-download"><i class="bi bi-download"></i>{$tool_ui.dancingMenDownloadLabel|default:$tool_ui.visualDownloadLabel|default:'Download'}</button>
+                        {elseif $tool_ui.brailleMode|default:false}
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy"><i class="bi bi-clipboard"></i>{$tool_ui.copyLabel}</button>
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-braille-png" data-encode-only><i class="bi bi-file-image"></i>{$tool_ui.brailleDownloadPng|default:'PNG'}</button>
+                        <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-braille-svg" data-encode-only><i class="bi bi-filetype-svg"></i>{$tool_ui.brailleDownloadSvg|default:'SVG'}</button>
                         {else}
                         <button class="btn ciphers-unified__btn-ghost" type="button" id="ciphers-copy"><i class="bi bi-clipboard"></i>{$tool_ui.copyLabel}</button>
                         {/if}

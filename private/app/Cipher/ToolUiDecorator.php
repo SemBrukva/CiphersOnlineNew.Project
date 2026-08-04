@@ -209,6 +209,13 @@ final class ToolUiDecorator
             $toolUi['morseWarnUnknownChars']  = trans('MORSE_WARN_UNKNOWN_CHARS');
             $toolUi['morseInfoDecodedUnknown'] = trans('MORSE_INFO_DECODED_UNKNOWN');
         }
+        if ($cipherAlias === 'braille') {
+            $toolUi['brailleMode']          = true;
+            $toolUi['placeholderEncode']    = trans('BRAILLE_PLACEHOLDER_ENCODE');
+            $toolUi['placeholderDecode']    = trans('BRAILLE_PLACEHOLDER_DECODE');
+            $toolUi['brailleVisualTitle']   = trans('BRAILLE_VISUAL_TITLE');
+            $toolUi['brailleWarnUnknown']   = trans('BRAILLE_WARN_UNKNOWN_CHARS');
+        }
         if ($cipherAlias === 'alberti') {
             $toolUi['albertiWheelMode']        = true;
             $toolUi['albertiWheelDiskLabel']    = trans('ALBERTI_WHEEL_DISK_LABEL');

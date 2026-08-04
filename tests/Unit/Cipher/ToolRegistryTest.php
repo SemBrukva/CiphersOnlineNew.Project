@@ -23,6 +23,7 @@ use App\Cipher\BeaufortCipherService;
 use App\Cipher\BifidCipherService;
 use App\Cipher\BigramFrequencyScorer;
 use App\Cipher\BookCipherService;
+use App\Cipher\BrailleCipherService;
 use App\Cipher\CaesarBruteForceService;
 use App\Cipher\CaesarCipherService;
 use App\Cipher\CaseFolder;
@@ -213,7 +214,8 @@ final class ToolRegistryTest extends TestCase
             new UuidGeneratorCipherService(),
             new PasswordGeneratorCipherService(),
             new RandomStringGeneratorCipherService(),
-            new AdfgvxCipherService($catalog, $alphabetTool, $caseFolder, new ColumnarTranspositionCipherService())
+            new AdfgvxCipherService($catalog, $alphabetTool, $caseFolder, new ColumnarTranspositionCipherService()),
+            new BrailleCipherService()
         );
     }
 }

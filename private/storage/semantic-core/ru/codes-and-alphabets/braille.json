@@ -1,0 +1,460 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "шрифт брайля",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/codes-and-alphabets/braille.csv",
+        "imported_at": "2026-08-04T21:56:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/braille",
+        "url": "/ru/codes-and-alphabets/braille",
+        "content_file": "private/storage/content/codes-and-alphabets/braille/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 3224,
+        "primary_terms": [
+            "шрифт брайля",
+            "переводчик шрифта брайля",
+            "перевод на шрифт брайля",
+            "переводчик с шрифта брайля",
+            "алфавит для слепых",
+            "русский алфавит брайля"
+        ],
+        "modifiers": [
+            "онлайн",
+            "на шрифт брайля",
+            "с шрифта брайля",
+            "на русский",
+            "расшифровка",
+            "русский алфавит",
+            "цифры",
+            "как читать",
+            "как выучить"
+        ],
+        "intents": {
+            "tool": 13,
+            "translate": 15,
+            "encode": 7,
+            "decode": 7,
+            "online": 5,
+            "cipher": 3
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точную связку «шрифт Брайля»; название системы писать с заглавной буквы, а ключевую фразу не повторять механически.",
+            "Во вступлении прямо описать двусторонний сценарий: перевести обычный русский текст в Брайль и прочитать или перевести обратно символы Брайля, номера точек либо Braille ASCII.",
+            "В объясняющем блоке связать «алфавит для слепых» с корректным термином «шрифт Брайля», показать русскую таблицу, знак числа и несколько цифр; не называть Брайль языком или шифром.",
+            "Для запросов «онлайн» подчеркнуть работу конвертера в браузере, не заявляя о печати, тактильном выводе или поддержке сокращённого Брайля, если этого нет в интерфейсе.",
+            "В FAQ ответить, как читать клетки Брайля, как незрячие люди читают их пальцами и с чего зрячему человеку начать изучение; это справочный материал, а не замена обучения.",
+            "В примерах показать короткое русское слово и обратное чтение Unicode-клеток, а также один пример записи точками 1–6."
+        ],
+        "query_groups": [
+            {
+                "name": "Шрифт Брайля",
+                "intent": ["tool"],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": ["шрифт брайля", "брайль шрифт"]
+            },
+            {
+                "name": "Онлайн-переводчик и конвертер",
+                "intent": ["translate", "online"],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": ["шрифт брайля переводчик", "переводчик брайля", "шрифт брайля онлайн", "шрифт брайля онлайн конвертер"]
+            },
+            {
+                "name": "Перевод текста в Брайль",
+                "intent": ["encode", "translate"],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": ["переводчик на шрифт брайля", "перевод на шрифт брайля", "перевод в шрифт брайля", "переводчик в шрифт брайля"]
+            },
+            {
+                "name": "Чтение и перевод из Брайля",
+                "intent": ["decode", "translate"],
+                "priority": "secondary",
+                "target": "intro",
+                "representative_queries": ["переводчик с шрифта брайля", "переводчик со шрифта брайля", "шрифт брайля переводчик на русский", "прочитать шрифт брайля онлайн"]
+            },
+            {
+                "name": "Русский алфавит, точки и цифры",
+                "intent": ["tool"],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": ["алфавит для слепых", "алфавит для слепых точками", "шрифт брайля русский алфавит", "шрифт брайля цифры"]
+            },
+            {
+                "name": "Как устроен и изучается Брайль",
+                "intent": ["tool"],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": ["шрифт брайля что это", "как читать шрифт брайля", "как слепые читают шрифт брайля", "как выучить шрифт брайля зрячему человеку"]
+            },
+            {
+                "name": "Расшифровка и неточная терминология",
+                "intent": ["decode", "cipher"],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": ["расшифровка шрифта брайля", "шрифт брайля расшифровка", "шифр брайля онлайн"]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "шрифт брайля",
+            "score": 1664,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "шрифт брайля переводчик",
+            "score": 447,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "алфавит для слепых",
+            "score": 251,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шрифт брайля онлайн",
+            "score": 110,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "tool",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик на шрифт брайля",
+            "score": 65,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "переводчик брайля",
+            "score": 55,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "как выучить шрифт брайля зрячему человеку",
+            "score": 43,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шрифт брайля перевод",
+            "score": 42,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "брайль шрифт",
+            "score": 40,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод на шрифт брайля",
+            "score": 40,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "язык брайля переводчик",
+            "score": 39,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шрифт брайля русский алфавит",
+            "score": 38,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "как слепые читают шрифт брайля",
+            "score": 31,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик шрифта брайля",
+            "score": 30,
+            "competitiveness": "AVERAGE",
+            "priority": "secondary",
+            "intent": [
+                "translate"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шрифт брайля это",
+            "score": 27,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "алфавит для слепых точками",
+            "score": 27,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шрифт брайля что это",
+            "score": 26,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шрифт брайля цифры",
+            "score": 25,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "шрифт брайля переводчик на русский",
+            "score": 23,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод шрифта брайля",
+            "score": 21,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шрифт брайля русский",
+            "score": 21,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик шрифт брайля",
+            "score": 20,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шрифт брайля онлайн конвертер",
+            "score": 17,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "как читать шрифт брайля",
+            "score": 16,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик с шрифта брайля",
+            "score": 15,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "шифр брайля онлайн",
+            "score": 15,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "cipher",
+                "online"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "расшифровка шрифта брайля",
+            "score": 14,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод на шрифт брайля онлайн",
+            "score": 13,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode",
+                "online"
+            ],
+            "target": "intro"
+        },
+        {
+            "query": "шрифт брайля расшифровка",
+            "score": 11,
+            "competitiveness": "HIGH",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "cipher"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "прочитать шрифт брайля онлайн",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "decode",
+                "online"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик со шрифта брайля",
+            "score": 10,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "decode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "переводчик в шрифт брайля",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "перевод в шрифт брайля",
+            "score": 9,
+            "competitiveness": "AVERAGE",
+            "priority": "long_tail",
+            "intent": [
+                "translate",
+                "encode"
+            ],
+            "target": "faq"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-04T22:10:00+02:00",
+        "reviewed_by": "codex",
+        "decision": "Ядро проверено: запросы о переводе в и из Брайля разведены по интентам encode/decode, а образовательные и неточные формулировки оставлены как поддерживающие."
+    },
+    "notes": "Ядро подготовлено для страницы инструмента и готово к sync в БД. Связанный content_file пока отсутствует, поэтому статус mapped не установлен. Формулировки «язык Брайля» и «шифр Брайля» покрывать с корректным пояснением: это система письма, а не язык или криптографический шифр."
+}
