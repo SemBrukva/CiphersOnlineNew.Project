@@ -1,5 +1,6 @@
 import { initAlbertiWheel } from './cipher-tool/alberti-wheel.js'
 import { initEnigmaPanel } from './cipher-tool/enigma-panel.js'
+import { initNihilistPanel } from './cipher-tool/nihilist-panel.js'
 import { getDecoderBySlug } from './cipher-tool/decoder-registry.js'
 import { detectLanguage, getUnknownChars, isValidMorseFormat } from './cipher-tool/decoders/morse.js'
 import { initJsonFormatter } from './cipher-tool/json-formatter.js'
@@ -58,6 +59,7 @@ export function initCipherToolPage() {
   const delimiterSelect = document.getElementById('ciphers-delimiter')
   const keyInput = document.getElementById('ciphers-key')
   const adfgvxTransKeyInput = document.getElementById('ciphers-adfgvx-key')
+  const nihilistKeyInput = document.getElementById('ciphers-nihilist-key')
   const matrixControl = document.querySelector('[data-matrix-control]')
   const matrixGrid = matrixControl?.querySelector('[data-matrix-grid]') ?? null
   const matrixStatus = matrixControl?.querySelector('[data-matrix-status]') ?? null
@@ -121,6 +123,7 @@ export function initCipherToolPage() {
   const isAlbertiWheelTool     = Boolean(ui.albertiWheelMode)
   const isEnigmaTool           = Boolean(ui.enigmaMode)
   const isAdfgvxTool           = Boolean(ui.adfgvxMode)
+  const isNihilistTool         = Boolean(ui.nihilistMode)
   const isNumbersToLettersTool = Boolean(ui.numbersToLettersMode)
   const isBaseEncodingTool = Boolean(ui.baseEncodingMode)
   const isBookTool = Boolean(ui.bookMode)
@@ -182,6 +185,7 @@ export function initCipherToolPage() {
   let matrixCtrl = null
   let albertiWheel = null
   let enigmaPanel = null
+  let nihilistPanel = null
 
   const labels = {
     chars: ui.charsLabel || 'chars',
@@ -266,6 +270,7 @@ export function initCipherToolPage() {
         shift: Number(shiftInput?.value ?? 0),
         key: String(keyInput?.value ?? ''),
         adfgvxTransKey: String(adfgvxTransKeyInput?.value ?? ''),
+        nihilistKey: String(nihilistKeyInput?.value ?? ''),
         liveMode: Boolean(liveModeInput?.checked),
         jsonIndent: String(jsonIndentSelect?.value ?? ''),
         tsUnit: String(tsUnitSelect?.value ?? ''),
@@ -452,6 +457,10 @@ export function initCipherToolPage() {
       adfgvxTransKeyInput.value = savedState.adfgvxTransKey
     }
 
+    if (nihilistKeyInput && typeof savedState.nihilistKey === 'string') {
+      nihilistKeyInput.value = savedState.nihilistKey
+    }
+
     if (matrixControl && keyInput) {
       matrixCtrl?.setMatrixFromKeyValue(keyInput.value)
     }
@@ -602,6 +611,7 @@ export function initCipherToolPage() {
       if (isDancingMenTool) dancingMen.showEmpty()
       if (isPigpenTool) pigpen.showEmpty()
       if (isBrailleTool) brailleCells?.clear()
+      if (isNihilistTool && nihilistPanel) nihilistPanel.showEmpty()
       setOutputState(false)
       setFeedback('')
       return
@@ -827,6 +837,10 @@ export function initCipherToolPage() {
         transposition_key: String(adfgvxTransKeyInput?.value ?? ''),
       } : {}
 
+      const nihilistSettings = isNihilistTool ? {
+        additive_key: String(nihilistKeyInput?.value ?? ''),
+      } : {}
+
       const enigmaSettings = isEnigmaTool ? {
         enigma_reflector:    String(enigmaReflectorSelect?.value ?? 'B'),
         enigma_rotor_left:   String(enigmaRotorLeftSelect?.value ?? 'I'),
@@ -856,6 +870,7 @@ export function initCipherToolPage() {
             xor_key_format: xorKeyFormat,
             alberti_index: albertiIndex,
             ...adfgvxSettings,
+            ...nihilistSettings,
             ...enigmaSettings,
             ...anagramSettings,
           }).filter(([, value]) => value !== '')
@@ -885,6 +900,9 @@ export function initCipherToolPage() {
         }
         if (isEnigmaTool && enigmaPanel) {
           enigmaPanel.showResult(response)
+        }
+        if (isNihilistTool && nihilistPanel) {
+          nihilistPanel.showResult(response)
         }
         output.value = String(response?.result ?? '')
         setOutputState(Boolean(output.value))
@@ -916,6 +934,9 @@ export function initCipherToolPage() {
       }
       if (isAnagramTool) {
         anagramSolver.showEmpty()
+      }
+      if (isNihilistTool && nihilistPanel) {
+        nihilistPanel.showEmpty()
       }
       output.value = ''
       setOutputState(false)
@@ -1060,6 +1081,13 @@ export function initCipherToolPage() {
   })
 
   adfgvxTransKeyInput?.addEventListener('input', () => {
+    saveState()
+    if (isApiMode) {
+      scheduleApiRun()
+    }
+  })
+
+  nihilistKeyInput?.addEventListener('input', () => {
     saveState()
     if (isApiMode) {
       scheduleApiRun()
@@ -1493,6 +1521,12 @@ export function initCipherToolPage() {
     document.getElementById('ciphers-braille-svg')?.addEventListener('click', () => brailleCells?.downloadSvg())
   }
 
+  if (isNihilistTool) {
+    if (visualOutput) visualOutput.style.display = 'block'
+    nihilistPanel = initNihilistPanel({ visualOutput, ui })
+    nihilistPanel.showEmpty()
+  }
+
   setMode('encode')
   initCustomSelects()
   loadCarryOver()
@@ -1623,6 +1657,7 @@ const SHAREABLE_FIELD_IDS = [
   'ciphers-shift',
   'ciphers-key',
   'ciphers-adfgvx-key',
+  'ciphers-nihilist-key',
   'ciphers-alphabet',
   'ciphers-delimiter',
   'ciphers-key-length',

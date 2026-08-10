@@ -219,6 +219,13 @@ return [
         'name'       => 'api.tools.adfgvx',
     ],
 
+    'POST /tools/nihilist' => [
+        'controller' => GuestController::class,
+        'method'     => 'nihilist',
+        'middleware' => [RateLimitMiddleware::class],
+        'name'       => 'api.tools.nihilist',
+    ],
+
     'POST /tools/trifid' => [
         'controller' => GuestController::class,
         'method'     => 'trifid',

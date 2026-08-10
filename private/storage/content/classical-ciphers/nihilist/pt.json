@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-08-10T16:42:23+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "nihilist",
+    "language": "pt",
+    "default_language": "en",
+    "cipher_id": 95,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 95,
+    "data": {
+      "name": "Cifra niilista",
+      "name_short": "Cifra niilista",
+      "description": "Cifre e decifre textos com a cifra niilista, um quadrado de Políbio com chave e uma chave aditiva repetida.",
+      "description_stort": "Cifre e decifre textos com a cifra niilista, um quadrado de Políbio com chave e uma chave aditiva repetida.",
+      "meta_title": "Cifra niilista online | Ciphers Online",
+      "meta_description": "Cifre e decifre textos com a cifra niilista, um quadrado de Políbio com chave e uma chave aditiva repetida."
+    }
+  },
+  "blocks": [
+    {
+      "id": 304,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Como funciona a cifra niilista",
+        "text": "<p>A cifra niilista é uma cifra manual histórica. Ela combina um quadrado de Políbio reorganizado por uma chave com uma segunda chave aditiva repetida e produz grupos numéricos separados por espaços.</p><p>Cada letra torna-se uma coordenada; as coordenadas da chave aditiva são repetidas, somadas para cifrar e subtraídas para decifrar.</p>"
+      }
+    },
+    {
+      "id": 305,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Como usar a ferramenta",
+        "text": "<p>Insira o texto e as duas chaves e escolha Cifrar ou Decifrar. Use o mesmo alfabeto e as mesmas chaves para recuperar a mensagem. O modo Auto detecta o alfabeto e a ferramenta mostra o quadrado e os cálculos.</p><p>É uma ferramenta educativa, não segura para dados confidenciais.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 643,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Por que duas chaves?",
+        "answer": "A chave do quadrado muda coordenadas e a chave aditiva acrescenta um fluxo repetido."
+      }
+    },
+    {
+      "id": 644,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Por que grupos de três dígitos?",
+        "answer": "A soma pode exceder 99; mantenha os espaços."
+      }
+    },
+    {
+      "id": 645,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Como o alfabeto é tratado?",
+        "answer": "O quadrado adapta-se ao alfabeto escolhido."
+      }
+    },
+    {
+      "id": 646,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Qual é a diferença entre as chaves?",
+        "answer": "Uma organiza o quadrado e a outra gera coordenadas repetidas."
+      }
+    },
+    {
+      "id": 647,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Espaços importam?",
+        "answer": "Não; caracteres fora do alfabeto são omitidos."
+      }
+    },
+    {
+      "id": 648,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Quais alfabetos são aceitos?",
+        "answer": "Há oito alfabetos, incluindo português."
+      }
+    },
+    {
+      "id": 649,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Por que a decifração falha?",
+        "answer": "Verifique alfabeto, chaves e todos os grupos."
+      }
+    },
+    {
+      "id": 650,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "A cifra é segura?",
+        "answer": "Não; é uma cifra histórica educativa."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 347,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "pt"
+      },
+      "data": {
+        "title": "Cifrar com duas chaves",
+        "key": "JARDIM",
+        "shift": 0,
+        "input": "DINAMITE",
+                "output": "39 60 60 43 71 27 80 76",
+        "description": "JARDIM ve COMETA anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 348,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "pt"
+      },
+      "data": {
+        "title": "Decifrar com as mesmas chaves",
+        "key": "JARDIM",
+        "shift": 0,
+                "input": "39 60 60 43 71 27 80 76",
+        "output": "DINAMITE",
+        "description": "JARDIM ve COMETA anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 349,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "pt"
+      },
+      "data": {
+        "title": "ENCONTROAOMEIODIA",
+        "key": "FLORESTA",
+        "shift": 0,
+        "input": "ENCONTRO AO MEIODIA",
+                "output": "46 64 77 28 72 43 45 26 68 28 67 37 73 26 79 57 43",
+        "description": "FLORESTA ve COMETA anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 350,
+      "sort_order": 40,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "pt"
+      },
+      "data": {
+        "title": "Decifrar grupos numéricos",
+        "key": "FLORESTA",
+        "shift": 0,
+                "input": "46 64 77 28 72 43 45 26 68 28 67 37 73 26 79 57 43",
+        "output": "ENCONTROAOMEIODIA",
+        "description": "FLORESTA ve COMETA anahtarları kullanılır."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 425,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "quadrado de Políbio"
+      }
+    },
+    {
+      "id": 426,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "chave aditiva"
+      }
+    },
+    {
+      "id": 427,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "história russa"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений."
+  ]
+}

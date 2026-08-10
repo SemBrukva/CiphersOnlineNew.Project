@@ -533,6 +533,19 @@ final class GuestController
     }
 
     /**
+     * Выполняет шифрование/дешифрование шифром нигилистов через API.
+     *
+     * POST /api/tools/nihilist
+     */
+    #[ApiOperation(summary: 'Nihilist Cipher', tags: ['tools'])]
+    #[ApiResponse(status: 200, description: 'Результат обработки')]
+    #[ApiResponse(status: 422, description: 'Ошибки валидации')]
+    public function nihilist(Request $request): Response
+    {
+        return $this->handleCipherTool($request, 'nihilist');
+    }
+
+    /**
      * Выполняет шифрование/дешифрование шифром Трифид через API.
      *
      * POST /api/tools/trifid

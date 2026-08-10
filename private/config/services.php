@@ -513,6 +513,7 @@ return [
             $container->get(App\Cipher\AnagramSolverApiCipherTool::class),
             $container->get(App\Cipher\Rot47ApiCipherTool::class),
             $container->get(App\Cipher\AdfgvxApiCipherTool::class),
+            $container->get(App\Cipher\NihilistApiCipherTool::class),
         );
         $registry->register(new App\Cipher\CipherIdentifierApiCipherTool(
             $container->get(App\Cipher\CipherIdentifierService::class),

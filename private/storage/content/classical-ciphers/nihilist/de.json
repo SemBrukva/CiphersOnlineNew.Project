@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-08-10T16:42:23+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "nihilist",
+    "language": "de",
+    "default_language": "en",
+    "cipher_id": 95,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 95,
+    "data": {
+      "name": "Nihilisten-Chiffre",
+      "name_short": "Nihilisten-Chiffre",
+      "description": "Texte mit der Nihilisten-Chiffre, einem Schlüssel-Polybius-Quadrat und einem wiederholten additiven Schlüssel, ver- und entschlüsseln.",
+      "description_stort": "Schlüssel-Polybius-Chiffre mit wiederholtem additiven Schlüssel.",
+      "meta_title": "Nihilisten-Chiffre online | Ciphers Online",
+      "meta_description": "Die Nihilisten-Chiffre online nutzen: Quadrat- und additiven Schlüssel eingeben, Texte ver- oder entschlüsseln und die Berechnung Schritt für Schritt ansehen."
+    }
+  },
+  "blocks": [
+    {
+      "id": 304,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "So funktioniert die Nihilisten-Chiffre",
+        "text": "<p>Die Nihilisten-Chiffre ist eine historische Handschriftchiffre, die mit russischen revolutionären Gruppen der 1880er Jahre verbunden wird. Sie verbindet ein durch ein Schlüsselwort umgeordnetes Polybius-Quadrat mit einem zweiten, wiederholten additiven Schlüssel. Der Geheimtext besteht aus durch Leerzeichen getrennten Zahlengruppen statt aus Buchstaben.</p><p>Zum Verschlüsseln erstellt das Werkzeug aus dem Quadratschlüssel ein Quadrat: Zuerst werden dessen unterschiedlichen Buchstaben, dann die übrigen Zeichen des gewählten Alphabets eingetragen. Jeder Buchstabe der Nachricht wird zur Koordinate aus Zeile und Spalte, jeweils ab 1 gezählt. Der additive Schlüssel wird im selben Quadrat in Koordinaten umgesetzt, bei Bedarf wiederholt und zu den Nachrichtenkoordinaten addiert. Beim Entschlüsseln werden diese Schlüsselkoordinaten abgezogen und die verbleibenden Koordinaten im Quadrat nachgeschlagen.</p><p>Für Deutsch verwendet das Werkzeug ein 6×6-Quadrat und ergänzt die freien Felder mit Ziffern. Leerzeichen, Satzzeichen und Zeichen außerhalb des gewählten Alphabets werden beim Verschlüsseln ausgelassen. Zahlengruppen können zwei oder drei Stellen haben; die Leerzeichen zwischen ihnen müssen zur zuverlässigen Entschlüsselung erhalten bleiben.</p>"
+      }
+    },
+    {
+      "id": 305,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Das Werkzeug verwenden",
+        "text": "<p>Wählen Sie „Verschlüsseln“ oder „Entschlüsseln“, geben Sie den Text ein und tragen Sie beide Schlüssel ein. Der <em>Quadratschlüssel</em> bestimmt die Anordnung im Polybius-Quadrat. Der <em>additive Schlüssel</em> liefert die wiederholte Koordinatenfolge, die beim Verschlüsseln addiert und beim Entschlüsseln abgezogen wird. Zum Wiederherstellen einer Nachricht benötigen Sie dieselben beiden Schlüssel und dasselbe Alphabet.</p><p>Für normalen Text können Sie die Alphabetwahl auf „Auto“ lassen: Das Werkzeug erkennt ein unterstütztes Alphabet aus Text und Schlüsseln. Bei rein numerischem Geheimtext nutzt der Auto-Modus die Schlüssel. Alternativ stehen Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch zur Auswahl. Nach jeder erfolgreichen Berechnung zeigt das Werkzeug das erzeugte Quadrat sowie eine Tabelle mit Zeichen, Koordinate, aktuellem Schlüsselzeichen, Schlüsselkoordinate und Ergebnisgruppe.</p><p>Die Nihilisten-Chiffre eignet sich zum Lernen über fraktionierende Chiffren, Schlüsselquadrate und manuelle Kryptografie. Sie ist gegen moderne Kryptoanalyse nicht sicher und darf nicht zum Schutz vertraulicher Daten verwendet werden.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 643,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Warum verwendet die Nihilisten-Chiffre zwei Schlüssel?",
+        "answer": "Der Quadratschlüssel mischt das Polybius-Gitter, sodass Buchstaben andere Koordinaten erhalten. Der additive Schlüssel legt darüber einen wiederholten Zahlenstrom und verschleiert zusätzlich Buchstabenhäufigkeiten. Zum Ver- und Entschlüsseln werden beide Schlüssel benötigt."
+      }
+    },
+    {
+      "id": 644,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Warum haben einige Geheimtextgruppen drei Stellen?",
+        "answer": "Eine Nachrichtenkoordinate wird mit einer Schlüsselkoordinate addiert. Die Summe kann daher größer als 99 sein; in größeren Quadraten ist sie noch höher möglich. Die Gruppen haben unterschiedliche Länge und müssen durch Leerzeichen getrennt bleiben."
+      }
+    },
+    {
+      "id": 645,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Wie verarbeitet das Werkzeug das deutsche Alphabet?",
+        "answer": "Für Deutsch wird ein 6×6-Quadrat verwendet. Die Buchstaben des deutschen Alphabets bleiben erhalten, freie Felder werden mit Ziffern aufgefüllt. In Schlüssel und Klartext verarbeitet das Werkzeug Zeichen des gewählten Alphabets; die Füllziffern gehören nicht zu Eingabe oder Schlüssel."
+      }
+    },
+    {
+      "id": 646,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Was ist der Unterschied zwischen Quadrat- und additivem Schlüssel?",
+        "answer": "Der Quadratschlüssel verändert die Anordnung der Zeichen im Polybius-Quadrat. Der additive Schlüssel wird mit demselben Quadrat in Koordinaten umgewandelt und als Zahlenstrom über die Nachricht wiederholt. Eine Änderung eines der beiden Schlüssel verändert den Geheimtext."
+      }
+    },
+    {
+      "id": 647,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Beeinflussen Leerzeichen und Satzzeichen das Ergebnis?",
+        "answer": "Nein. Beim Verschlüsseln verarbeitet das Werkzeug nur Zeichen des gewählten Alphabets; Leerzeichen, Satzzeichen und nicht unterstützte Zeichen werden ausgelassen. Der entschlüsselte Text wird als zusammenhängende Großbuchstabenfolge ausgegeben."
+      }
+    },
+    {
+      "id": 648,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Kann ich die Chiffre auch mit anderen Sprachen verwenden?",
+        "answer": "Ja. Das Werkzeug unterstützt Englisch, Russisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Türkisch. Größe und Zeichensatz des Quadrats passen sich dem gewählten Alphabet an. Im Auto-Modus wird das Alphabet aus Text und Schlüsseln beziehungsweise bei Zahlentext aus den Schlüsseln bestimmt."
+      }
+    },
+    {
+      "id": 649,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Warum ergibt die Entschlüsselung keinen lesbaren Text?",
+        "answer": "Prüfen Sie Alphabet, Quadratschlüssel und additiven Schlüssel: Sie müssen exakt den Werten der Verschlüsselung entsprechen. Bewahren Sie jede Zahlengruppe und die trennenden Leerzeichen. Ein falscher Schlüssel oder eine fehlende Gruppe führt zu anderen Koordinaten."
+      }
+    },
+    {
+      "id": 650,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "Ist die Nihilisten-Chiffre heute sicher?",
+        "answer": "Nein. Sie wurde für die manuelle Verwendung entwickelt und ist heute eine historische Lernchiffre. Moderne Kryptoanalyse kann die Wiederholung des Schlüssels und die Struktur der Zahlengruppen ausnutzen. Für vertrauliche Kommunikation ist moderne authentifizierte Verschlüsselung erforderlich."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 347,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+                "settings": {
+                    "ciphers-nihilist-key": "KOMET",
+                    "ciphers-alphabet": "de"
+      },
+      "data": {
+        "title": "Mit zwei Schlüsseln verschlüsseln",
+        "key": "GARTEN",
+        "shift": 0,
+        "input": "DYNAMIT",
+                "output": "57 90 51 27 49 64 50",
+        "description": "Der Quadratschlüssel GARTEN erstellt das 6×6-Gitter. Die Koordinaten des additiven Schlüssels KOMET werden wiederholt und zu den Nachrichtenkoordinaten addiert."
+      }
+    },
+    {
+      "id": 348,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+                "settings": {
+                    "ciphers-nihilist-key": "KOMET",
+                    "ciphers-alphabet": "de"
+      },
+      "data": {
+        "title": "Mit denselben Schlüsseln entschlüsseln",
+        "key": "GARTEN",
+        "shift": 0,
+                "input": "57 90 51 27 49 64 50",
+        "output": "DYNAMIT",
+        "description": "Das Abziehen der wiederholten KOMET-Koordinaten im selben GARTEN-Quadrat stellt DYNAMIT wieder her."
+      }
+    },
+    {
+      "id": 349,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+                "settings": {
+                    "ciphers-nihilist-key": "KOMET",
+                    "ciphers-alphabet": "de"
+      },
+      "data": {
+        "title": "Eine Phrase mit wiederholtem additiven Schlüssel verschlüsseln",
+        "key": "WALD",
+        "shift": 0,
+        "input": "TREFFEN UM ZWOELF",
+        "output": "77 78 55 45 68 54 69 79 55 100 43 70 55 35 68",
+        "description": "Leerzeichen werden ausgelassen. Der fünf Buchstaben lange additive Schlüssel KOMET wiederholt sich über die Buchstaben von TREFFEN UM ZWOELF."
+      }
+    },
+    {
+      "id": 350,
+      "sort_order": 40,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+                "settings": {
+                    "ciphers-nihilist-key": "KOMET",
+                    "ciphers-alphabet": "de"
+      },
+      "data": {
+        "title": "Durch Leerzeichen getrennte Zahlengruppen entschlüsseln",
+        "key": "WALD",
+        "shift": 0,
+        "input": "77 78 55 45 68 54 69 79 55 100 43 70 55 35 68",
+        "output": "TREFFENUMZWOELF",
+        "description": "Geben Sie die Zahlengruppen mit demselben Quadratschlüssel WALD und additiven Schlüssel KOMET ein. Der Klartext wird ohne seine ursprünglichen Leerzeichen ausgegeben."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 425,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Polybius-Quadrat"
+      }
+    },
+    {
+      "id": 426,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "additiver Schlüssel"
+      }
+    },
+    {
+      "id": 427,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "russische Geschichte"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений.",
+    "Менять нужно только текстовые поля в data.",
+    "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+    "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+    "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+    "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+  ]
+}

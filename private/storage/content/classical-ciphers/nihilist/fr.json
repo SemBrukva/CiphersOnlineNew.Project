@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-08-10T16:42:23+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "nihilist",
+    "language": "fr",
+    "default_language": "en",
+    "cipher_id": 95,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 95,
+    "data": {
+      "name": "Chiffre nihiliste",
+      "name_short": "Chiffre nihiliste",
+      "description": "Chiffrez et déchiffrez des textes avec le chiffre nihiliste, un carré de Polybe à clé et une clé additive répétée.",
+      "description_stort": "Chiffrez et déchiffrez des textes avec le chiffre nihiliste, un carré de Polybe à clé et une clé additive répétée.",
+      "meta_title": "Chiffre nihiliste online | Ciphers Online",
+      "meta_description": "Chiffrez et déchiffrez des textes avec le chiffre nihiliste, un carré de Polybe à clé et une clé additive répétée."
+    }
+  },
+  "blocks": [
+    {
+      "id": 304,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Fonctionnement du chiffre nihiliste",
+        "text": "<p>Le chiffre nihiliste est un chiffrement manuel historique. Il associe un carré de Polybe réorganisé par une clé et une clé additive répétée; le texte chiffré est une suite de groupes numériques séparés par des espaces.</p><p>Chaque lettre devient une coordonnée. Les coordonnées de la clé additive sont répétées, ajoutées pour chiffrer et soustraites pour déchiffrer.</p>"
+      }
+    },
+    {
+      "id": 305,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Utiliser l’outil",
+        "text": "<p>Saisissez le texte et les deux clés, puis choisissez le sens. Utilisez le même alphabet et les mêmes clés pour retrouver le message. Le mode Auto détecte l’alphabet et l’outil affiche le carré et chaque étape de calcul.</p><p>Ce chiffrement est éducatif et ne protège pas les données sensibles.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 643,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Pourquoi deux clés ?",
+        "answer": "La clé du carré modifie les coordonnées et la clé additive ajoute un flux répété."
+      }
+    },
+    {
+      "id": 644,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Pourquoi des groupes à trois chiffres ?",
+        "answer": "La somme de deux coordonnées peut dépasser 99; conservez les séparateurs."
+      }
+    },
+    {
+      "id": 645,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Comment l’alphabet est-il traité ?",
+        "answer": "Le carré s’adapte à l’alphabet sélectionné."
+      }
+    },
+    {
+      "id": 646,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Quelle différence entre les clés ?",
+        "answer": "La première organise le carré; la seconde fournit les coordonnées répétées."
+      }
+    },
+    {
+      "id": 647,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Les espaces comptent-ils ?",
+        "answer": "Non, les caractères hors alphabet sont omis."
+      }
+    },
+    {
+      "id": 648,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Quels alphabets sont pris en charge ?",
+        "answer": "Huit alphabets sont disponibles, dont le français."
+      }
+    },
+    {
+      "id": 649,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Pourquoi le déchiffrement échoue-t-il ?",
+        "answer": "Vérifiez alphabet, clés et toutes les groupes numériques."
+      }
+    },
+    {
+      "id": 650,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "Le chiffre est-il sûr ?",
+        "answer": "Non, c’est un chiffre historique destiné à l’apprentissage."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 347,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETE",
+                    "ciphers-alphabet": "fr"
+      },
+      "data": {
+        "title": "Chiffrer avec deux clés",
+        "key": "JARDIN",
+        "shift": 0,
+        "input": "DYNAMITE",
+                "output": "37 107 59 37 95 40 75 69",
+        "description": "JARDIN ve COMETE anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 348,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETE",
+                    "ciphers-alphabet": "fr"
+      },
+      "data": {
+        "title": "Déchiffrer avec les mêmes clés",
+        "key": "JARDIN",
+        "shift": 0,
+                "input": "37 107 59 37 95 40 75 69",
+        "output": "DYNAMITE",
+        "description": "JARDIN ve COMETE anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 349,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETE",
+                    "ciphers-alphabet": "fr"
+      },
+      "data": {
+        "title": "RENDEZVOUSAMIDI",
+        "key": "FORET",
+        "shift": 0,
+        "input": "RENDEZVOUS A MIDI",
+                "output": "36 26 89 39 29 79 80 24 97 66 31 58 58 37 79",
+        "description": "FORET ve COMETE anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 350,
+      "sort_order": 40,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETE",
+                    "ciphers-alphabet": "fr"
+      },
+      "data": {
+        "title": "Déchiffrer des groupes numériques",
+        "key": "FORET",
+        "shift": 0,
+                "input": "36 26 89 39 29 79 80 24 97 66 31 58 58 37 79",
+        "output": "RENDEZVOUSAMIDI",
+        "description": "FORET ve COMETE anahtarları kullanılır."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 425,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "carré de Polybe"
+      }
+    },
+    {
+      "id": 426,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "clé additive"
+      }
+    },
+    {
+      "id": 427,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "histoire russe"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений."
+  ]
+}

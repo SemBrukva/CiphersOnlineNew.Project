@@ -246,6 +246,17 @@ final class ToolUiDecorator
         if ($cipherAlias === 'adfgvx') {
             $toolUi['adfgvxMode'] = true;
         }
+        if ($cipherAlias === 'nihilist') {
+            $toolUi['nihilistMode']            = true;
+            $toolUi['nihilistSquareTitle']     = trans('NIHILIST_VISUAL_SQUARE_TITLE');
+            $toolUi['nihilistStepsTitle']      = trans('NIHILIST_VISUAL_STEPS_TITLE');
+            $toolUi['nihilistColPlain']        = trans('NIHILIST_VISUAL_COL_PLAIN');
+            $toolUi['nihilistColCode']         = trans('NIHILIST_VISUAL_COL_CODE');
+            $toolUi['nihilistColKey']          = trans('NIHILIST_VISUAL_COL_KEY');
+            $toolUi['nihilistColKeyCode']      = trans('NIHILIST_VISUAL_COL_KEY_CODE');
+            $toolUi['nihilistColCipher']       = trans('NIHILIST_VISUAL_COL_CIPHER');
+            $toolUi['nihilistEmptyLabel']      = trans('NIHILIST_VISUAL_EMPTY');
+        }
         if ($cipherAlias === 'anagram-solver') {
             $toolUi['anagramMode']            = true;
             $toolUi['disableLiveMode']        = true;
@@ -508,6 +519,7 @@ final class ToolUiDecorator
             'CIPHER_NAME_ALBERTI'              => trans('CIPHER_NAME_ALBERTI'),
             'CIPHER_NAME_BIFID'                => trans('CIPHER_NAME_BIFID'),
             'CIPHER_NAME_ADFGVX'              => trans('CIPHER_NAME_ADFGVX'),
+            'CIPHER_NAME_NIHILIST'            => trans('CIPHER_NAME_NIHILIST'),
             'CIPHER_NAME_TRIFID'               => trans('CIPHER_NAME_TRIFID'),
             'CIPHER_NAME_RAIL_FENCE'           => trans('CIPHER_NAME_RAIL_FENCE'),
             'CIPHER_NAME_COLUMNAR_TRANSPOSITION' => trans('CIPHER_NAME_COLUMNAR_TRANSPOSITION'),

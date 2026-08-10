@@ -1,0 +1,237 @@
+{
+    "meta": {
+        "schema": "cipher-content.v1",
+        "exported_at": "2026-08-10T16:42:23+00:00",
+        "category_alias": "classical-ciphers",
+        "cipher_alias": "nihilist",
+        "language": "en",
+        "default_language": "en",
+        "cipher_id": 95,
+        "category_id": 2
+    },
+    "cipher_translation": {
+        "id": 95,
+        "data": {
+            "name": "Nihilist Cipher",
+            "name_short": "Nihilist Cipher",
+            "description": "Encrypt and decrypt text with the Nihilist cipher using a keyed Polybius square and a repeating additive key.",
+            "description_stort": "Keyed Polybius-square cipher with a repeating additive key.",
+            "meta_title": "Nihilist Cipher Online | Ciphers Online",
+            "meta_description": "Use the Nihilist cipher online: set the square key and additive key to encrypt or decrypt text instantly, with a step-by-step view."
+        }
+    },
+    "blocks": [
+        {
+            "id": 304,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "title": "How the Nihilist cipher works",
+                "text": "<p>The Nihilist cipher is a historical hand cipher associated with Russian revolutionary groups of the 1880s. It combines two ideas: a Polybius square rearranged by a square key, and a second, repeating additive key. The result is ciphertext written as space-separated number groups rather than letters.</p><p>To encrypt, the tool builds a square from the square key, placing its unique letters first and then the remaining letters of the selected alphabet. Each message letter becomes a coordinate: row followed by column, both counted from 1. The additive key is read from the same square, repeated as needed, and its coordinates are added to the message coordinates. To decrypt, the process is reversed: the additive-key coordinates are subtracted from each number group and the remaining coordinates are read from the square.</p><p>In the English and Italian 5×5 squares, I and J share a position, so an entered J is processed as I. The tool ignores spaces, punctuation, and other characters outside the selected alphabet when encrypting. Ciphertext can contain two- or three-digit groups, which must remain separated by spaces for reliable decryption.</p>"
+            }
+        },
+        {
+            "id": 305,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "title": "Using the Nihilist Cipher tool",
+                "text": "<p>Choose Encrypt or Decrypt, enter the text, and provide both keys. The <em>Square key</em> determines the layout of the Polybius square. The <em>Additive key</em> supplies the repeating sequence of coordinates that is added during encryption or subtracted during decryption. Both keys must use characters from the chosen alphabet, and you need the same pair of keys to recover a message.</p><p>You can leave the alphabet on Auto for ordinary text: the tool detects a supported alphabet from the input and keys. When decrypting number-only ciphertext, Auto uses the keys to determine the alphabet. You can also select English, Russian, German, Spanish, French, Italian, Portuguese, or Turkish explicitly. After each successful operation, the tool displays the generated square and a step-by-step table with the message symbol, its coordinate, the current additive-key symbol and coordinate, and the resulting ciphertext group.</p><p>The Nihilist cipher is useful for learning about fractionation, keyed squares, and manual cryptography. It is not secure against modern cryptanalysis and should not be used to protect sensitive information.</p>"
+            }
+        }
+    ],
+    "faq": [
+        {
+            "id": 643,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "question": "Why does the Nihilist cipher use two keys?",
+                "answer": "The square key mixes the Polybius grid, so letters map to unpredictable coordinates. The additive key then adds a repeating number stream on top, hiding letter frequencies. Both keys are needed to encrypt and decrypt."
+            }
+        },
+        {
+            "id": 644,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "question": "Why are some ciphertext groups three digits long?",
+                "answer": "Each plaintext coordinate (11–55) is added to a key coordinate (11–55), so a group can be as large as 110. That is why the groups have variable length and are separated by spaces."
+            }
+        },
+        {
+            "id": 645,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "question": "What happens to the letters I and J?",
+                "answer": "In a classic 5×5 square there is room for only 25 letters, so I and J share one cell. When decrypting, that cell is shown as I. Other alphabets use a 6×6 or 7×7 square and keep every letter."
+            }
+        },
+        {
+            "id": 646,
+            "sort_order": 40,
+            "published": true,
+            "data": {
+                "question": "What is the difference between the square key and the additive key?",
+                "answer": "The square key changes the arrangement of letters in the Polybius square. The additive key is converted through that same square and repeated over the message as a stream of numbers. Changing either key changes the ciphertext, and both are required to decrypt it."
+            }
+        },
+        {
+            "id": 647,
+            "sort_order": 50,
+            "published": true,
+            "data": {
+                "question": "Do spaces and punctuation affect the result?",
+                "answer": "No. During encryption, the tool processes only characters belonging to the selected alphabet; spaces, punctuation, and unsupported characters are omitted. The decrypted result is returned as uninterrupted capital letters, so add word spacing yourself if you need it."
+            }
+        },
+        {
+            "id": 648,
+            "sort_order": 60,
+            "published": true,
+            "data": {
+                "question": "Can I use the cipher with languages other than English?",
+                "answer": "Yes. The tool supports English, Russian, German, Spanish, French, Italian, Portuguese, and Turkish. Its square size and character set adapt to the selected alphabet. In Auto mode, the tool detects a supported alphabet from the text and keys; for numeric ciphertext, it uses the keys."
+            }
+        },
+        {
+            "id": 649,
+            "sort_order": 70,
+            "published": true,
+            "data": {
+                "question": "Why does decryption not return a readable message?",
+                "answer": "Check that you selected the same alphabet and entered exactly the same square key and additive key used for encryption. Keep every ciphertext number group, separated by spaces. A wrong key, a missing group, or a changed group produces different coordinates and prevents correct recovery."
+            }
+        },
+        {
+            "id": 650,
+            "sort_order": 80,
+            "published": true,
+            "data": {
+                "question": "Is the Nihilist cipher secure today?",
+                "answer": "No. It was designed for manual use and is now a historical and educational cipher. Modern analysis can exploit the repeated key and the structure of the number groups, so use modern authenticated encryption for private or sensitive communication."
+            }
+        }
+    ],
+    "examples": [
+        {
+            "id": 347,
+            "sort_order": 10,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-nihilist-key": "ORBIT"
+            },
+            "data": {
+                "title": "Encrypt with two keys",
+                "key": "ZEBRAS",
+                "shift": 0,
+                "input": "DYNAMITE",
+                "output": "65 69 54 47 80 74 59 25",
+                "description": "Square key ZEBRAS builds the 5×5 grid. The coordinates of additive key ORBIT are repeated and added to the message coordinates."
+            }
+        },
+        {
+            "id": 348,
+            "sort_order": 20,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-nihilist-key": "ORBIT"
+            },
+            "data": {
+                "title": "Decrypt with the same keys",
+                "key": "ZEBRAS",
+                "shift": 0,
+                "input": "65 69 54 47 80 74 59 25",
+                "output": "DYNAMITE",
+                "description": "Subtracting the repeated ORBIT coordinates with the same ZEBRAS square recovers DYNAMITE."
+            }
+        },
+        {
+            "id": 349,
+            "sort_order": 30,
+            "published": true,
+            "direction": "encrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-nihilist-key": "COMET"
+            },
+            "data": {
+                "title": "Encrypt a phrase with a repeating additive key",
+                "key": "GARDEN",
+                "shift": 0,
+                "input": "MEET AT NOON",
+                "output": "57 50 49 59 56 67 56 69 50 65",
+                "description": "Spaces are omitted. The five-letter additive key COMET repeats over the ten letters of MEET AT NOON."
+            }
+        },
+        {
+            "id": 350,
+            "sort_order": 40,
+            "published": true,
+            "direction": "decrypt",
+            "delimiter": "",
+            "encoding": "",
+            "key_format": "",
+            "alberti_index": "",
+            "settings": {
+                "ciphers-nihilist-key": "COMET"
+            },
+            "data": {
+                "title": "Decrypt space-separated number groups",
+                "key": "GARDEN",
+                "shift": 0,
+                "input": "57 50 49 59 56 67 56 69 50 65",
+                "output": "MEETATNOON",
+                "description": "Enter the number groups with the same GARDEN square key and COMET additive key. The plaintext is returned without its original spaces."
+            }
+        }
+    ],
+    "tags": [
+        {
+            "id": 425,
+            "sort_order": 10,
+            "published": true,
+            "data": {
+                "tag": "Polybius square"
+            }
+        },
+        {
+            "id": 426,
+            "sort_order": 20,
+            "published": true,
+            "data": {
+                "tag": "Additive key"
+            }
+        },
+        {
+            "id": 427,
+            "sort_order": 30,
+            "published": true,
+            "data": {
+                "tag": "Russian history"
+            }
+        }
+    ],
+    "notes": [
+        "Сохраняйте id у каждой сущности без изменений.",
+        "Менять нужно только текстовые поля в data.",
+        "В blocks.data.text используйте HTML-разметку: минимум один <p>, можно несколько <p>; также допустимы списки <ul>/<ol> с <li>.",
+        "Пустые строки допустимы: при импорте это удалит перевод для конкретного языка.",
+        "Для добавления новых элементов в sections blocks/faq/examples/tags создавайте объект без id или с id=0: импорт создаст запись автоматически.",
+        "Новые элементы (без id / с id=0) разрешено добавлять только в файле, где meta.language == meta.default_language."
+    ]
+}

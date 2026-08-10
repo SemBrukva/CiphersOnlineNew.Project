@@ -68,6 +68,8 @@ use App\Cipher\HillApiCipherTool;
 use App\Cipher\HillCipherService;
 use App\Cipher\IndexOfCoincidence;
 use App\Cipher\LetterFrequencyScorer;
+use App\Cipher\NihilistApiCipherTool;
+use App\Cipher\NihilistCipherService;
 use App\Cipher\PlayfairApiCipherTool;
 use App\Cipher\PlayfairCipherService;
 use App\Cipher\PolybiusSquareApiCipherTool;
@@ -204,6 +206,7 @@ final class SolverApiCipherToolTest extends TestCase
             ),
             new \App\Cipher\Rot47ApiCipherTool(new Rot47CipherService()),
             new AdfgvxApiCipherTool(new AdfgvxCipherService($catalog, new AlphabetTool($catalog, $folder), $folder, new ColumnarTranspositionCipherService())),
+            new NihilistApiCipherTool(new NihilistCipherService($catalog, new AlphabetTool($catalog, $folder), $folder)),
         );
 
         $solver     = new SolverService($service, $bigramScorer, $scorer, new TrigramFrequencyScorer(), new Rot47CipherService());

@@ -67,7 +67,8 @@ final readonly class ToolRegistry
         private RandomStringGeneratorCipherService $randomStringGenerator,
         private AdfgvxCipherService $adfgvxCipher,
         private BrailleCipherService $braille,
-        private NatoPhoneticCipherService $natoPhonetic
+        private NatoPhoneticCipherService $natoPhonetic,
+        private NihilistCipherService $nihilistCipher
     ) {
     }
 
@@ -294,6 +295,11 @@ final readonly class ToolRegistry
                 ...self::withSettings([['label' => 'Classic', 'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => 'PRIVACY']], ['ciphers-adfgvx-key' => 'BATTLE']),
                 ...self::withSettings([['label' => 'Numbers', 'value' => 'AGENT 007',      'alphabet' => 'en', 'key' => 'SECRET']], ['ciphers-adfgvx-key' => 'GERMAN']),
                 ...self::withSettings([['label' => 'Decode',  'value' => 'VVVVAAAAGFFXGFDFGAGGGXGX', 'alphabet' => 'en', 'key' => 'PRIVACY', 'direction' => 'decrypt']], ['ciphers-adfgvx-key' => 'BATTLE']),
+            ],
+            'classical-ciphers/nihilist' => [
+                ...self::withSettings([['label' => 'Classic', 'value' => 'DYNAMITE',      'alphabet' => 'en', 'key' => 'ZEBRAS']], ['ciphers-nihilist-key' => 'RUSSIAN']),
+                ...self::withSettings([['label' => 'Attack',  'value' => 'ATTACK AT DAWN', 'alphabet' => 'en', 'key' => 'ZEBRAS']], ['ciphers-nihilist-key' => 'RUSSIAN']),
+                ...self::withSettings([['label' => 'Decode',  'value' => '37 106 62 36 67 47 86 26', 'alphabet' => 'en', 'key' => 'ZEBRAS', 'direction' => 'decrypt']], ['ciphers-nihilist-key' => 'RUSSIAN']),
             ],
             'classical-ciphers/trifid' => [
                 ['label' => 'Classic',  'value' => 'HELLO',          'alphabet' => 'en', 'key' => 'KEYWORD'],
@@ -527,6 +533,7 @@ final readonly class ToolRegistry
             'classical-ciphers/autokey' => 'autokey',
             'classical-ciphers/bifid'    => 'bifid',
             'classical-ciphers/adfgvx'   => 'adfgvx',
+            'classical-ciphers/nihilist' => 'nihilist',
             'classical-ciphers/trifid'   => 'trifid',
             'classical-ciphers/alberti'  => 'alberti',
             'classical-ciphers/enigma'   => 'enigma',
@@ -585,6 +592,7 @@ final readonly class ToolRegistry
             'classical-ciphers/autokey' => $this->autokeyCipher->getToolSettings(),
             'classical-ciphers/bifid'    => $this->bifidCipher->getToolSettings(),
             'classical-ciphers/adfgvx'   => $this->adfgvxCipher->getToolSettings(),
+            'classical-ciphers/nihilist' => $this->nihilistCipher->getToolSettings(),
             'classical-ciphers/trifid'   => $this->trifidCipher->getToolSettings(),
             'classical-ciphers/alberti'  => $this->albertiCipher->getToolSettings(),
             'classical-ciphers/enigma'   => $this->enigmaCipher->getToolSettings(),
@@ -650,6 +658,7 @@ final readonly class ToolRegistry
             'classical-ciphers/autokey'   => $this->autokeyCipher->getTrustItems($calculationMode),
             'classical-ciphers/bifid'     => $this->bifidCipher->getTrustItems($calculationMode),
             'classical-ciphers/adfgvx'    => $this->adfgvxCipher->getTrustItems($calculationMode),
+            'classical-ciphers/nihilist'  => $this->nihilistCipher->getTrustItems($calculationMode),
             'classical-ciphers/trifid'    => $this->trifidCipher->getTrustItems($calculationMode),
             'classical-ciphers/alberti'   => $this->albertiCipher->getTrustItems($calculationMode),
             'classical-ciphers/enigma'    => $this->enigmaCipher->getTrustItems($calculationMode),
@@ -799,6 +808,7 @@ final readonly class ToolRegistry
             'classical-ciphers/autokey-cipher', 'classical-ciphers/shifr-autokey' => 'classical-ciphers/autokey',
             'classical-ciphers/bifid-cipher', 'classical-ciphers/shifr-bifida' => 'classical-ciphers/bifid',
             'classical-ciphers/adfgvx-cipher', 'classical-ciphers/adfgx', 'classical-ciphers/shifr-adfgvx' => 'classical-ciphers/adfgvx',
+            'classical-ciphers/nihilist-cipher', 'classical-ciphers/nigilistov', 'classical-ciphers/shifr-nigilistov' => 'classical-ciphers/nihilist',
             'classical-ciphers/trifid-cipher', 'classical-ciphers/shifr-trifida' => 'classical-ciphers/trifid',
             'classical-ciphers/alberti-cipher', 'classical-ciphers/shifr-alberti', 'classical-ciphers/disk-alberti' => 'classical-ciphers/alberti',
             'classical-ciphers/enigma-machine', 'classical-ciphers/enigma-cipher', 'classical-ciphers/shifr-enigma', 'classical-ciphers/mashina-enigma' => 'classical-ciphers/enigma',

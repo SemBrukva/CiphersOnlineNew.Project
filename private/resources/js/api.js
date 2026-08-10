@@ -147,6 +147,8 @@ export class ApiClient {
         bifid: (data) => this.#request('POST', '/tools/bifid', data),
         /** POST /api/tools/adfgvx */
         adfgvx: (data) => this.#request('POST', '/tools/adfgvx', data),
+        /** POST /api/tools/nihilist */
+        nihilist: (data) => this.#request('POST', '/tools/nihilist', data),
         /** POST /api/tools/trifid */
         trifid: (data) => this.#request('POST', '/tools/trifid', data),
         /** POST /api/tools/alberti */

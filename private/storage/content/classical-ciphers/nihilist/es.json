@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-08-10T16:42:23+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "nihilist",
+    "language": "es",
+    "default_language": "en",
+    "cipher_id": 95,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 95,
+    "data": {
+      "name": "Cifrado nihilista",
+      "name_short": "Cifrado nihilista",
+      "description": "Cifra y descifra textos con el cifrado nihilista mediante un cuadrado de Polibio con clave y una clave aditiva repetida.",
+      "description_stort": "Cifrado de cuadrado de Polibio con clave aditiva repetida.",
+      "meta_title": "Cifrado nihilista en línea | Ciphers Online",
+      "meta_description": "Usa el cifrado nihilista en línea: introduce la clave del cuadrado y la clave aditiva para cifrar o descifrar texto paso a paso."
+    }
+  },
+  "blocks": [
+    {
+      "id": 304,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Cómo funciona el cifrado nihilista",
+        "text": "<p>El cifrado nihilista es un cifrado manual histórico vinculado a grupos revolucionarios rusos de la década de 1880. Combina un cuadrado de Polibio reorganizado mediante una clave con una segunda clave aditiva que se repite. El resultado se escribe como grupos de números separados por espacios.</p><p>Para cifrar, la herramienta construye el cuadrado con las letras únicas de la clave y las letras restantes del alfabeto elegido. Cada letra se convierte en coordenadas de fila y columna. La clave aditiva se lee en el mismo cuadrado, se repite y sus coordenadas se suman a las del mensaje. Para descifrar, se restan esas coordenadas y se busca el resultado en el cuadrado.</p><p>La herramienta adapta el tamaño y los caracteres del cuadrado al alfabeto seleccionado. Al cifrar se omiten espacios, puntuación y caracteres no admitidos. Conserva los espacios entre los grupos numéricos para poder descifrarlos correctamente.</p>"
+      }
+    },
+    {
+      "id": 305,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Cómo usar la herramienta",
+        "text": "<p>Elige Cifrar o Descifrar, escribe el texto e introduce las dos claves. La <em>clave del cuadrado</em> determina la disposición del cuadrado de Polibio; la <em>clave aditiva</em> aporta la secuencia de coordenadas que se suma o se resta. Para recuperar un mensaje necesitas las mismas claves y el mismo alfabeto.</p><p>Puedes dejar el alfabeto en Auto o elegirlo explícitamente. Con texto cifrado formado solo por números, Auto usa las claves para determinar el alfabeto. Tras cada operación se muestran el cuadrado generado y los cálculos de cada símbolo.</p><p>Es una herramienta educativa para estudiar criptografía manual, no un método seguro para información confidencial.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 643,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "¿Por qué usa dos claves?",
+        "answer": "La clave del cuadrado cambia las coordenadas de las letras y la clave aditiva añade un flujo numérico repetido. Se necesitan ambas para cifrar y descifrar."
+      }
+    },
+    {
+      "id": 644,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "¿Por qué algunos grupos tienen tres cifras?",
+        "answer": "Se suman dos coordenadas; la suma puede superar 99. Por eso los grupos tienen longitudes distintas y se separan con espacios."
+      }
+    },
+    {
+      "id": 645,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "¿Cómo se adapta al alfabeto español?",
+        "answer": "La herramienta construye un cuadrado adecuado al alfabeto seleccionado y conserva los caracteres admitidos por ese alfabeto."
+      }
+    },
+    {
+      "id": 646,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "¿En qué se diferencian las dos claves?",
+        "answer": "La clave del cuadrado ordena los símbolos; la clave aditiva se convierte en coordenadas y se repite sobre el mensaje."
+      }
+    },
+    {
+      "id": 647,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "¿Influyen los espacios y la puntuación?",
+        "answer": "No. Al cifrar solo se procesan caracteres del alfabeto elegido y el texto descifrado se devuelve sin los espacios originales."
+      }
+    },
+    {
+      "id": 648,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "¿Admite otros idiomas?",
+        "answer": "Sí: inglés, ruso, alemán, español, francés, italiano, portugués y turco."
+      }
+    },
+    {
+      "id": 649,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "¿Por qué el descifrado no es legible?",
+        "answer": "Comprueba que el alfabeto y ambas claves sean idénticos a los usados al cifrar y que no falte ningún grupo numérico."
+      }
+    },
+    {
+      "id": 650,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "¿Es seguro hoy?",
+        "answer": "No. Es un cifrado histórico y educativo; usa cifrado autenticado moderno para proteger información sensible."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 347,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "es"
+      },
+      "data": {
+        "title": "Cifrar con dos claves",
+        "key": "JARDIN",
+        "shift": 0,
+        "input": "DINAMITA",
+                "output": "36 50 49 35 76 27 65 47",
+        "description": "La clave JARDIN crea el cuadrado; las coordenadas de COMETA se repiten y se suman al mensaje."
+      }
+    },
+    {
+      "id": 348,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "es"
+      },
+      "data": {
+        "title": "Descifrar con las mismas claves",
+        "key": "JARDIN",
+        "shift": 0,
+                "input": "36 50 49 35 76 27 65 47",
+        "output": "DINAMITA",
+        "description": "Las mismas claves JARDIN y COMETA recuperan el texto."
+      }
+    },
+    {
+      "id": 349,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "es"
+      },
+      "data": {
+        "title": "Cifrar una frase",
+        "key": "BOSQUE",
+        "shift": 0,
+        "input": "CITA AL MEDIODIA",
+                "output": "44 43 79 37 65 55 57 28 58 47 56 44 53 33",
+        "description": "Los espacios se omiten y COMETA se repite a lo largo de la frase."
+      }
+    },
+    {
+      "id": 350,
+      "sort_order": 40,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "es"
+      },
+      "data": {
+        "title": "Descifrar grupos numéricos",
+        "key": "BOSQUE",
+        "shift": 0,
+                "input": "44 43 79 37 65 55 57 28 58 47 56 44 53 33",
+        "output": "CITAALMEDIODIA",
+        "description": "Introduce los grupos con las mismas claves BOSQUE y COMETA; el texto se devuelve sin espacios."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 425,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "cuadrado de Polibio"
+      }
+    },
+    {
+      "id": 426,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "clave aditiva"
+      }
+    },
+    {
+      "id": 427,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "historia rusa"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений."
+  ]
+}

@@ -41,6 +41,7 @@ use App\Cipher\LetterFrequencyScorer;
 use App\Cipher\LetterFrequencyService;
 use App\Cipher\MorseCipherService;
 use App\Cipher\NatoPhoneticCipherService;
+use App\Cipher\NihilistCipherService;
 use App\Cipher\NumbersToLettersService;
 use App\Cipher\PasswordGeneratorCipherService;
 use App\Cipher\PigpenCipherService;
@@ -217,7 +218,8 @@ final class ToolRegistryTest extends TestCase
             new RandomStringGeneratorCipherService(),
             new AdfgvxCipherService($catalog, $alphabetTool, $caseFolder, new ColumnarTranspositionCipherService()),
             new BrailleCipherService(),
-            new NatoPhoneticCipherService()
+            new NatoPhoneticCipherService(),
+            new NihilistCipherService($catalog, $alphabetTool, $caseFolder)
         );
     }
 }

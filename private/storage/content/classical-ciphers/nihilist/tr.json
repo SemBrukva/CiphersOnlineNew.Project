@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-08-10T16:42:23+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "nihilist",
+    "language": "tr",
+    "default_language": "en",
+    "cipher_id": 95,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 95,
+    "data": {
+      "name": "Nihilist Şifresi",
+      "name_short": "Nihilist Şifresi",
+      "description": "Anahtarlı Polibiyus karesi ve tekrarlanan toplamsal anahtarla Nihilist şifresini kullanarak metinleri şifreleyin ve çözün.",
+      "description_stort": "Anahtarlı Polibiyus karesi ve tekrarlanan toplamsal anahtarla Nihilist şifresini kullanarak metinleri şifreleyin ve çözün.",
+      "meta_title": "Nihilist Şifresi online | Ciphers Online",
+      "meta_description": "Anahtarlı Polibiyus karesi ve tekrarlanan toplamsal anahtarla Nihilist şifresini kullanarak metinleri şifreleyin ve çözün."
+    }
+  },
+  "blocks": [
+    {
+      "id": 304,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Nihilist şifresi nasıl çalışır?",
+        "text": "<p>Nihilist şifresi tarihî bir el şifresidir. Anahtarla yeniden sıralanan Polibiyus karesini tekrarlanan ikinci bir toplamsal anahtarla birleştirir ve boşluklarla ayrılmış sayı grupları üretir.</p><p>Her harf bir koordinata dönüşür. Toplamsal anahtarın koordinatları tekrarlanır; şifrelemede eklenir, çözmede çıkarılır.</p>"
+      }
+    },
+    {
+      "id": 305,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Araç nasıl kullanılır?",
+        "text": "<p>Metni ve iki anahtarı girin, ardından Şifrele veya Çöz seçin. Mesajı geri almak için aynı alfabe ve anahtarları kullanın. Otomatik mod alfabeyi algılar; araç kareyi ve işlem adımlarını gösterir.</p><p>Bu araç eğitim amaçlıdır; gizli verileri korumak için güvenli değildir.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 643,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Neden iki anahtar kullanılır?",
+        "answer": "Kare anahtarı koordinatları değiştirir; toplamsal anahtar tekrarlanan sayı akışı ekler."
+      }
+    },
+    {
+      "id": 644,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Neden bazı gruplar üç basamaklıdır?",
+        "answer": "İki koordinatın toplamı 99’u aşabilir; ayırıcı boşlukları koruyun."
+      }
+    },
+    {
+      "id": 645,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Alfabe nasıl işlenir?",
+        "answer": "Kare seçilen alfabeye uyarlanır."
+      }
+    },
+    {
+      "id": 646,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Anahtarların farkı nedir?",
+        "answer": "Biri kareyi düzenler, diğeri tekrarlanan koordinatları sağlar."
+      }
+    },
+    {
+      "id": 647,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Boşluklar önemli mi?",
+        "answer": "Hayır; desteklenmeyen karakterler atlanır."
+      }
+    },
+    {
+      "id": 648,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Hangi alfabeler desteklenir?",
+        "answer": "Türkçe dahil sekiz alfabe desteklenir."
+      }
+    },
+    {
+      "id": 649,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Çözme neden başarısız olur?",
+        "answer": "Alfabeyi, iki anahtarı ve tüm sayı gruplarını kontrol edin."
+      }
+    },
+    {
+      "id": 650,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "Şifre bugün güvenli mi?",
+        "answer": "Hayır; tarihî ve eğitsel bir şifredir."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 347,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "KULE",
+                    "ciphers-alphabet": "tr"
+      },
+      "data": {
+        "title": "İki anahtarla şifrele",
+        "key": "BAHCE",
+        "shift": 0,
+        "input": "DINAMIT",
+        "output": "53 76 68 27 66 76 79",
+        "description": "BAHCE ve KULE anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 348,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "KULE",
+                    "ciphers-alphabet": "tr"
+      },
+      "data": {
+        "title": "Aynı anahtarlarla çöz",
+        "key": "BAHCE",
+        "shift": 0,
+        "input": "53 76 68 27 66 76 79",
+        "output": "DINAMIT",
+        "description": "BAHCE ve KULE anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 349,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "KULE",
+                    "ciphers-alphabet": "tr"
+      },
+      "data": {
+        "title": "TOPLANTIOGLE",
+        "key": "ORMAN",
+        "shift": 0,
+        "input": "TOPLANTI OGLE",
+        "output": "82 62 84 65 50 66 87 57 47 77 82 48",
+        "description": "ORMAN ve KULE anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 350,
+      "sort_order": 40,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "KULE",
+                    "ciphers-alphabet": "tr"
+      },
+      "data": {
+        "title": "Sayı gruplarını çöz",
+        "key": "ORMAN",
+        "shift": 0,
+        "input": "82 62 84 65 50 66 87 57 47 77 82 48",
+        "output": "TOPLANTIOGLE",
+        "description": "ORMAN ve KULE anahtarları kullanılır."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 425,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "Polibiyus karesi"
+      }
+    },
+    {
+      "id": 426,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "toplamsal anahtar"
+      }
+    },
+    {
+      "id": 427,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "Rus tarihi"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений."
+  ]
+}

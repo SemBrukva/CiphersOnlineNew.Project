@@ -147,6 +147,9 @@ final readonly class CipherContentImportCommand implements CommandInterface
                 foreach ($this->readEntityItems($payload, 'examples') as $item) {
                     $exampleId = (int) ($item['id'] ?? 0);
                     $data = is_array($item['data'] ?? null) ? $item['data'] : [];
+                    if (array_key_exists('settings', $item)) {
+                        $data['settings'] = $item['settings'];
+                    }
                     if ($exampleId < 1) {
                         $this->assertCreationAllowedForLanguage($language, $defaultLanguage, 'examples');
                         $resolved = $this->createOrReuseExampleEntity($cipherId, $language, $item, $now);
@@ -737,6 +740,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
         $title = trim((string) ($row['title'] ?? ''));
         $key = trim((string) ($row['key'] ?? ''));
         $hasShift = array_key_exists('shift', $row);
+        $settings = $this->sanitizeSettings($row['settings'] ?? null);
         $input = trim((string) ($row['input'] ?? ''));
         $output = trim((string) ($row['output'] ?? ''));
         $description = trim((string) ($row['description'] ?? ''));
@@ -748,7 +752,7 @@ final readonly class CipherContentImportCommand implements CommandInterface
             ? max(0, min(999999, (int) ($row['shift'] ?? 0)))
             : (int) ($existing['shift'] ?? 0);
 
-        if ($title === '' && $key === '' && $input === '' && $output === '' && $description === '') {
+        if ($title === '' && $key === '' && $settings === null && $input === '' && $output === '' && $description === '') {
             if ($existing !== false) {
                 $this->db->execute(
                     'DELETE FROM ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' WHERE example_id = ? AND language = ?',
@@ -761,16 +765,16 @@ final readonly class CipherContentImportCommand implements CommandInterface
 
         if ($existing === false) {
             $this->db->insert(
-                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, `key`, shift, input, output, description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                [$exampleId, $language, $title, $key, $shift, $input, $output, $description, $now, $now]
+                'INSERT INTO ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' (example_id, language, title, `key`, shift, settings, input, output, description, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [$exampleId, $language, $title, $key, $shift, $settings, $input, $output, $description, $now, $now]
             );
 
             return;
         }
 
         $this->db->execute(
-            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, `key` = ?, shift = ?, input = ?, output = ?, description = ?, updated_at = ? WHERE id = ?',
-            [$title, $key, $shift, $input, $output, $description, $now, (int) $existing['id']]
+            'UPDATE ' . Tables::CIPHERS_EXAMPLES_TRANSLATIONS . ' SET title = ?, `key` = ?, shift = ?, settings = ?, input = ?, output = ?, description = ?, updated_at = ? WHERE id = ?',
+            [$title, $key, $shift, $settings, $input, $output, $description, $now, (int) $existing['id']]
         );
     }
 

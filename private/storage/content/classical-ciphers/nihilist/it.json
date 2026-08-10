@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "schema": "cipher-content.v1",
+    "exported_at": "2026-08-10T16:42:23+00:00",
+    "category_alias": "classical-ciphers",
+    "cipher_alias": "nihilist",
+    "language": "it",
+    "default_language": "en",
+    "cipher_id": 95,
+    "category_id": 2
+  },
+  "cipher_translation": {
+    "id": 95,
+    "data": {
+      "name": "Cifrario nichilista",
+      "name_short": "Cifrario nichilista",
+      "description": "Cifra e decifra testi con il cifrario nichilista, un quadrato di Polibio con chiave e una chiave additiva ripetuta.",
+      "description_stort": "Cifra e decifra testi con il cifrario nichilista, un quadrato di Polibio con chiave e una chiave additiva ripetuta.",
+      "meta_title": "Cifrario nichilista online | Ciphers Online",
+      "meta_description": "Cifra e decifra testi con il cifrario nichilista, un quadrato di Polibio con chiave e una chiave additiva ripetuta."
+    }
+  },
+  "blocks": [
+    {
+      "id": 304,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "title": "Come funziona il cifrario nichilista",
+        "text": "<p>Il cifrario nichilista è un cifrario manuale storico. Combina un quadrato di Polibio riordinato da una chiave con una seconda chiave additiva ripetuta; il risultato è formato da gruppi numerici separati da spazi.</p><p>Ogni lettera diventa una coordinata. Le coordinate della chiave additiva vengono ripetute, sommate per cifrare e sottratte per decifrare.</p>"
+      }
+    },
+    {
+      "id": 305,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "title": "Come usare lo strumento",
+        "text": "<p>Inserisci testo e due chiavi e scegli Cifra o Decifra. Per recuperare il messaggio servono lo stesso alfabeto e le stesse chiavi. Auto rileva l’alfabeto e lo strumento mostra quadrato e calcoli.</p><p>È utile per lo studio, non per proteggere dati riservati.</p>"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "id": 643,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "question": "Perché due chiavi?",
+        "answer": "La chiave del quadrato cambia le coordinate e quella additiva aggiunge un flusso ripetuto."
+      }
+    },
+    {
+      "id": 644,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "question": "Perché gruppi di tre cifre?",
+        "answer": "La somma può superare 99; mantieni gli spazi."
+      }
+    },
+    {
+      "id": 645,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "question": "Come viene gestito l’alfabeto?",
+        "answer": "Il quadrato si adatta all’alfabeto scelto."
+      }
+    },
+    {
+      "id": 646,
+      "sort_order": 40,
+      "published": true,
+      "data": {
+        "question": "Differenza fra le chiavi?",
+        "answer": "Una ordina il quadrato, l’altra genera coordinate ripetute."
+      }
+    },
+    {
+      "id": 647,
+      "sort_order": 50,
+      "published": true,
+      "data": {
+        "question": "Spazi e punteggiatura contano?",
+        "answer": "No, i caratteri non supportati sono omessi."
+      }
+    },
+    {
+      "id": 648,
+      "sort_order": 60,
+      "published": true,
+      "data": {
+        "question": "Quali alfabeti sono supportati?",
+        "answer": "Sono supportati otto alfabeti, incluso l’italiano."
+      }
+    },
+    {
+      "id": 649,
+      "sort_order": 70,
+      "published": true,
+      "data": {
+        "question": "Perché la decifrazione fallisce?",
+        "answer": "Controlla alfabeto, chiavi e gruppi numerici."
+      }
+    },
+    {
+      "id": 650,
+      "sort_order": 80,
+      "published": true,
+      "data": {
+        "question": "È sicuro oggi?",
+        "answer": "No, è un cifrario storico didattico."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": 347,
+      "sort_order": 10,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "it"
+      },
+      "data": {
+        "title": "Cifrare con due chiavi",
+        "key": "GIARDINO",
+        "shift": 0,
+        "input": "DINAMITE",
+                "output": "39 34 56 38 79 25 68 47",
+        "description": "GIARDINO ve COMETA anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 348,
+      "sort_order": 20,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "it"
+      },
+      "data": {
+        "title": "Decifrare con le stesse chiavi",
+        "key": "GIARDINO",
+        "shift": 0,
+                "input": "39 34 56 38 79 25 68 47",
+        "output": "DINAMITE",
+        "description": "GIARDINO ve COMETA anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 349,
+      "sort_order": 30,
+      "published": true,
+      "direction": "encrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "it"
+      },
+      "data": {
+        "title": "INCONTROAMEZZOGIORNO",
+        "key": "BOSCO",
+        "shift": 0,
+        "input": "INCONTRO A MEZZOGIORNO",
+                "output": "45 47 48 34 79 59 57 24 49 56 66 70 69 24 58 53 56 58 49 24",
+        "description": "BOSCO ve COMETA anahtarları kullanılır."
+      }
+    },
+    {
+      "id": 350,
+      "sort_order": 40,
+      "published": true,
+      "direction": "decrypt",
+      "delimiter": "",
+      "encoding": "",
+      "key_format": "",
+      "alberti_index": "",
+      "settings": {
+                    "ciphers-nihilist-key": "COMETA",
+                    "ciphers-alphabet": "it"
+      },
+      "data": {
+        "title": "Decifrare gruppi numerici",
+        "key": "BOSCO",
+        "shift": 0,
+                "input": "45 47 48 34 79 59 57 24 49 56 66 70 69 24 58 53 56 58 49 24",
+        "output": "INCONTROAMEZZOGIORNO",
+        "description": "BOSCO ve COMETA anahtarları kullanılır."
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": 425,
+      "sort_order": 10,
+      "published": true,
+      "data": {
+        "tag": "quadrato di Polibio"
+      }
+    },
+    {
+      "id": 426,
+      "sort_order": 20,
+      "published": true,
+      "data": {
+        "tag": "chiave additiva"
+      }
+    },
+    {
+      "id": 427,
+      "sort_order": 30,
+      "published": true,
+      "data": {
+        "tag": "storia russa"
+      }
+    }
+  ],
+  "notes": [
+    "Сохраняйте id у каждой сущности без изменений."
+  ]
+}
