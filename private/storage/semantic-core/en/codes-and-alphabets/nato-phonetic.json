@@ -1,0 +1,453 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "en",
+    "cluster": "nato phonetic alphabet",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "ads_google",
+        "score_metric": "google_demand",
+        "raw_file": "private/storage/semantic-raw/en/codes-and-alphabets/nato-phonetic.csv",
+        "imported_at": "2026-08-09T11:56:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/nato-phonetic",
+        "url": "/en/codes-and-alphabets/nato-phonetic",
+        "content_file": "private/storage/content/codes-and-alphabets/nato-phonetic/en.json"
+    },
+    "analysis": {
+        "score_metric": "google_demand",
+        "total_score": 6655000,
+        "primary_terms": [
+            "nato phonetic alphabet",
+            "nato alphabet",
+            "icao spelling alphabet",
+            "international radiotelephony spelling alphabet",
+            "military alphabet",
+            "alpha bravo alphabet"
+        ],
+        "modifiers": [
+            "nato",
+            "icao",
+            "international radiotelephony",
+            "military",
+            "police",
+            "aviation",
+            "alpha bravo charlie",
+            "able baker"
+        ],
+        "intents": {
+            "tool": 35
+        },
+        "content_recommendations": [
+            "Use the exact phrase “NATO phonetic alphabet” in the meta title and opening screen, and identify it as the NATO/ICAO spelling alphabet rather than a secret code or encryption method.",
+            "In the introduction, offer the practical workflow: turn letters and digits into code words such as Alfa, Bravo, and Charlie, then decode supported code-word sequences back to text.",
+            "Use the main explanatory block to connect the equivalent names “NATO alphabet”, “ICAO spelling alphabet”, and “International Radiotelephony Spelling Alphabet”, explaining their aviation and radiotelephony use.",
+            "Cover military, aviation, and police wording accurately: the NATO table is widely called a military alphabet, but police agencies and historical systems may use different word lists. Do not present every police alphabet as identical to NATO.",
+            "Show the NATO spelling “Alfa” and “Juliett”, plus aviation digit pronunciations such as Tree, Fower, Fife, and Niner. Keep the selectable aviation, police, and German variants distinct from the standard NATO table.",
+            "In the FAQ, separate historical Able Baker and non-NATO Alpha Beta Charlie phrasing from the modern NATO/ICAO alphabet. Mention browser speech playback as an optional listening aid rather than a pronunciation authority."
+        ],
+        "query_groups": [
+            {
+                "name": "NATO phonetic alphabet",
+                "intent": ["tool"],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": ["nato phonetic alphabet", "the nato phonetic alphabet", "nato alphabet", "nato phonetic"]
+            },
+            {
+                "name": "ICAO and radiotelephony standard",
+                "intent": ["tool"],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": ["icao spelling alphabet", "international radiotelephony spelling alphabet", "nato telephonic alphabet", "nato spelling"]
+            },
+            {
+                "name": "Military and aviation terminology",
+                "intent": ["tool"],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": ["military alphabet", "military alphabet code", "army alphabet phonetic", "phonetic alphabet military"]
+            },
+            {
+                "name": "Code words and numbers",
+                "intent": ["tool"],
+                "priority": "secondary",
+                "target": "examples",
+                "representative_queries": ["alpha bravo alphabet", "alpha bravo charlie alphabet", "military alphabet names", "nato numeric alphabet"]
+            },
+            {
+                "name": "Police and alternate alphabets",
+                "intent": ["tool"],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": ["police mnemonic alphabet", "police alphabet code", "alpha beta charlie alphabet", "able baker alphabet"]
+            },
+            {
+                "name": "Ambiguous code terminology and listening",
+                "intent": ["tool"],
+                "priority": "long_tail",
+                "target": "faq",
+                "representative_queries": ["alphabetic codes", "nato codes", "nato alphabet code", "nato alpha phonetic"]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "nato phonetic alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "military alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "nato alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "icao spelling alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "international radiotelephony spelling alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "nato alpha phonetic",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "nato numeric alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "nato phonetic",
+            "score": 500000,
+            "competitiveness": "Высокий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "nato phonetic alphabet code",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "nato spelling",
+            "score": 500000,
+            "competitiveness": "Высокий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "nato telephonic alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "the nato phonetic alphabet",
+            "score": 500000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "military alphabet code",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "alpha bravo alphabet",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "alpha alphabet military",
+            "score": 50000,
+            "competitiveness": "Высокий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "alphabet army code",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "alphabetic codes",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "army alphabet phonetic",
+            "score": 50000,
+            "competitiveness": "Высокий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "code military alphabet",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "military abc codes",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "military code letters alphabet",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "military mnemonic alphabet",
+            "score": 50000,
+            "competitiveness": "Высокий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "pneumonic alphabet military",
+            "score": 50000,
+            "competitiveness": "Высокий",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "police mnemonic alphabet",
+            "score": 50000,
+            "competitiveness": "Средний",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "phonetic alphabet military",
+            "score": 5000,
+            "competitiveness": "Средний",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "alpha bravo charlie alphabet",
+            "score": 5000,
+            "competitiveness": "Высокий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "military alphabet names",
+            "score": 5000,
+            "competitiveness": "Средний",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "examples"
+        },
+        {
+            "query": "police alphabet code",
+            "score": 5000,
+            "competitiveness": "Средний",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "alpha beta charlie alphabet",
+            "score": 5000,
+            "competitiveness": "Высокий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "nato alphabet code",
+            "score": 5000,
+            "competitiveness": "Средний",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "nato codes",
+            "score": 5000,
+            "competitiveness": "Средний",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "military alphabet words",
+            "score": 5000,
+            "competitiveness": "Средний",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "alpha phonetic alphabet",
+            "score": 5000,
+            "competitiveness": "Высокий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "able baker alphabet",
+            "score": 5000,
+            "competitiveness": "Низкий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "alfabet alpha bravo charlie",
+            "score": 5000,
+            "competitiveness": "Высокий",
+            "priority": "long_tail",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-10T12:15:00+02:00",
+        "reviewed_by": "codex",
+        "decision": "The core was reviewed as a NATO/ICAO spelling-alphabet converter and reference. NATO/ICAO, military, code-word, and alternate-alphabet requests are grouped by factual coverage without treating the alphabet as encryption."
+    },
+    "notes": "The core is ready for database sync. The linked content_file is currently absent, so mapped status is not set. The source meta cluster contains the typo “alphabetr”; the curated cluster uses the corrected canonical form “nato phonetic alphabet”. Broad queries such as “alphabetic codes” and “nato codes” should be covered only with a scope clarification, not used to promise general code lookup or cryptanalysis."
+}

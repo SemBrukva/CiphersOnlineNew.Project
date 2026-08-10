@@ -8983,3 +8983,157 @@ a:focus .nav-fav-count {
   color: rgba(255, 255, 255, 0.55);
   line-height: 1;
 }
+
+/* --- NATO phonetic: speech control --- */
+.nato-speech {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.nato-speech__controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.nato-speech__play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 17px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--primary);
+  background: var(--accent);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), transform 0.1s ease;
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.nato-speech__play-btn:hover:not(:disabled) {
+  background: var(--co-accent-dim);
+  box-shadow: 0 4px 18px rgba(193, 255, 0, 0.28);
+}
+
+.nato-speech__play-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.nato-speech__play-btn--playing {
+  background: rgba(239, 68, 68, 0.88);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.22);
+}
+
+.nato-speech__play-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.nato-speech__label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.nato-speech__rate {
+  flex: 0 1 140px;
+  accent-color: var(--accent);
+}
+
+/* --- NATO phonetic: reference chart --- */
+.nato-ref__intro {
+  margin-bottom: 14px !important;
+}
+
+.nato-ref__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.nato-ref__card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 9px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.nato-ref__card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(0, 35, 64, 0.1);
+  transform: translateY(-1px);
+}
+
+.nato-ref__letter {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary);
+  background: rgba(0, 35, 64, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.nato-ref__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.nato-ref__word {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-base);
+}
+
+.nato-ref__say {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
+.nato-ref__subtitle {
+  margin: 24px 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .nato-ref__grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+  }
+}

@@ -66,7 +66,8 @@ final readonly class ToolRegistry
         private PasswordGeneratorCipherService $passwordGenerator,
         private RandomStringGeneratorCipherService $randomStringGenerator,
         private AdfgvxCipherService $adfgvxCipher,
-        private BrailleCipherService $braille
+        private BrailleCipherService $braille,
+        private NatoPhoneticCipherService $natoPhonetic
     ) {
     }
 
@@ -499,6 +500,12 @@ final readonly class ToolRegistry
                 ...self::withSettings([['label' => 'Dot numbers', 'value' => 'Braille 2026']], ['ciphers-braille-format' => 'dots', 'ciphers-braille-case' => 'ignore']),
                 ...self::withSettings([['label' => 'Decode', 'value' => '⠠⠓⠑⠇⠇⠕ ⠠⠺⠕⠗⠇⠙', 'direction' => 'decrypt']], ['ciphers-braille-format' => 'unicode', 'ciphers-braille-case' => 'keep']),
             ],
+            'codes-and-alphabets/nato-phonetic' => [
+                ...self::withSettings([['label' => 'Name', 'value' => 'John Smith']], ['ciphers-nato-variant' => 'nato', 'ciphers-nato-separator' => 'space', 'ciphers-nato-show-letter' => 'words']),
+                ...self::withSettings([['label' => 'Code + digits', 'value' => 'Gate 7B']], ['ciphers-nato-variant' => 'nato', 'ciphers-nato-separator' => 'space', 'ciphers-nato-show-letter' => 'words']),
+                ...self::withSettings([['label' => 'Aviation', 'value' => 'Runway 25']], ['ciphers-nato-variant' => 'aviation', 'ciphers-nato-separator' => 'space', 'ciphers-nato-show-letter' => 'words']),
+                ...self::withSettings([['label' => 'Decode', 'value' => 'Charlie Alfa Tango', 'direction' => 'decrypt']], ['ciphers-nato-variant' => 'nato', 'ciphers-nato-separator' => 'space', 'ciphers-nato-show-letter' => 'words']),
+            ],
             default => [],
         };
     }
@@ -542,6 +549,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/dancing-men' => null,
             'codes-and-alphabets/pigpen' => null,
             'codes-and-alphabets/braille' => null,
+            'codes-and-alphabets/nato-phonetic' => null,
             'classical-ciphers/book-cipher' => null,
             'codes-and-alphabets/anagram-solver' => 'anagram-solver',
             'encoding/html-encode' => null,
@@ -599,6 +607,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getToolSettings(),
             'codes-and-alphabets/pigpen' => $this->pigpen->getToolSettings(),
             'codes-and-alphabets/braille' => $this->braille->getToolSettings(),
+            'codes-and-alphabets/nato-phonetic' => $this->natoPhonetic->getToolSettings(),
             'classical-ciphers/book-cipher' => $this->bookCipher->getToolSettings(),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getToolSettings(),
             'encoding/html-encode' => $this->htmlEncode->getToolSettings(),
@@ -663,6 +672,7 @@ final readonly class ToolRegistry
             'codes-and-alphabets/dancing-men' => $this->dancingMen->getTrustItems($calculationMode),
             'codes-and-alphabets/pigpen' => $this->pigpen->getTrustItems($calculationMode),
             'codes-and-alphabets/braille' => $this->braille->getTrustItems($calculationMode),
+            'codes-and-alphabets/nato-phonetic' => $this->natoPhonetic->getTrustItems($calculationMode),
             'classical-ciphers/book-cipher' => $this->bookCipher->getTrustItems($calculationMode),
             'codes-and-alphabets/anagram-solver' => $this->anagramSolver->getTrustItems($calculationMode),
             'text-analysis/frequency-analysis' => $this->frequencyAnalysis->getTrustItems($calculationMode),
@@ -812,6 +822,9 @@ final readonly class ToolRegistry
             'classical-ciphers/morse-code' => 'codes-and-alphabets/morse-code',
             'codes-and-alphabets/braille-translator', 'codes-and-alphabets/braille-alphabet',
             'codes-and-alphabets/shrift-braylya' => 'codes-and-alphabets/braille',
+            'codes-and-alphabets/nato-alphabet', 'codes-and-alphabets/phonetic-alphabet',
+            'codes-and-alphabets/military-alphabet', 'codes-and-alphabets/alfa-bravo-charlie',
+            'codes-and-alphabets/nato-fonetichesky-alfavit' => 'codes-and-alphabets/nato-phonetic',
             default => $toolSlug,
         };
     }

@@ -17,6 +17,8 @@ import { initDancingMen } from './cipher-tool/dancing-men.js'
 import { initPigpen } from './cipher-tool/pigpen.js'
 import { initBrailleCells } from './cipher-tool/braille-cells.js'
 import { detectBrailleLanguage } from './cipher-tool/decoders/braille.js'
+import { initNatoSpeech } from './cipher-tool/nato-speech.js'
+import { getUnknownChars as getNatoUnknownChars } from './cipher-tool/decoders/nato.js'
 import { initCustomSelects } from './cipher-tool/custom-selects.js'
 import { sendAnalyticsBeacon } from './cipher-tool/analytics.js'
 
@@ -76,6 +78,9 @@ export function initCipherToolPage() {
   const pigpenVariantSelect = document.getElementById('ciphers-pigpen-variant')
   const brailleFormatSelect = document.getElementById('ciphers-braille-format')
   const brailleCaseSelect = document.getElementById('ciphers-braille-case')
+  const natoVariantSelect = document.getElementById('ciphers-nato-variant')
+  const natoSeparatorSelect = document.getElementById('ciphers-nato-separator')
+  const natoShowLetterSelect = document.getElementById('ciphers-nato-show-letter')
   const jsonIndentSelect = document.getElementById('ciphers-json-indent')
   const jsonSortKeysBtn  = document.getElementById('ciphers-json-sort')
   const jsonDownloadBtn  = document.getElementById('ciphers-json-download')
@@ -124,6 +129,7 @@ export function initCipherToolPage() {
   const isDancingMenTool = Boolean(ui.dancingMenMode)
   const isPigpenTool = Boolean(ui.pigpenMode)
   const isBrailleTool = Boolean(ui.brailleMode)
+  const isNatoTool = Boolean(ui.natoMode)
   const isOneWayTool = Boolean(ui.oneWayMode)
   const isHashTool = slug.startsWith('hashing/')
   const isHmacTool = Boolean(ui.hmacMode)
@@ -206,6 +212,7 @@ export function initCipherToolPage() {
     morseWarnUnknownChars: ui.morseWarnUnknownChars || 'Unknown characters skipped: :chars.',
     morseInfoDecodedUnknown: ui.morseInfoDecodedUnknown || 'Some codes could not be decoded (shown as ?).',
     brailleWarnUnknown: ui.brailleWarnUnknown || 'Some characters have no Braille equivalent (shown as ?).',
+    natoWarnUnknown: ui.natoWarnUnknown || 'Some characters were skipped: :chars.',
     tsErrInvalidTs: ui.tsErrInvalidTs || 'Invalid timestamp — enter a number.',
     tsErrInvalidDate: ui.tsErrInvalidDate || 'Invalid date — try ISO 8601 format.',
     tsLabelUtc: ui.tsLabelUtc || 'UTC',
@@ -672,6 +679,11 @@ export function initCipherToolPage() {
         transformOpts.format = brailleFormatSelect?.value || 'unicode'
         transformOpts.keepCase = (brailleCaseSelect?.value || 'keep') !== 'ignore'
       }
+      if (isNatoTool) {
+        transformOpts.variant = natoVariantSelect?.value || 'nato'
+        transformOpts.separator = natoSeparatorSelect?.value || 'space'
+        transformOpts.showLetter = (natoShowLetterSelect?.value || 'words') === 'pairs'
+      }
       if (isNumbersToLettersTool) {
         transformOpts.encoding = n2lTypeSelect?.value || 'positional-1'
         transformOpts.delimiter = delimiterSelect?.value || 'space'
@@ -731,6 +743,13 @@ export function initCipherToolPage() {
             brailleCells?.clear()
           }
           setFeedback(output.value.includes('?') ? labels.brailleWarnUnknown : '', false, output.value.includes('?'))
+        } else if (isNatoTool) {
+          if (mode === 'encode') {
+            const unknown = getNatoUnknownChars(value, natoVariantSelect?.value || 'nato')
+            setFeedback(unknown.length > 0 ? labels.natoWarnUnknown.replace(':chars', unknown.join(', ')) : '', false, unknown.length > 0)
+          } else {
+            setFeedback(output.value.includes('?') ? labels.natoWarnUnknown.replace(':chars', '?') : '', false, output.value.includes('?'))
+          }
         } else {
           setFeedback('')
         }
@@ -1543,6 +1562,13 @@ export function initCipherToolPage() {
     initMorsePlayer(output, input, ui, () => mode)
   }
 
+  if (isNatoTool) {
+    initNatoSpeech(output, ui, () => mode)
+    natoVariantSelect?.addEventListener('change', () => { saveState(); process() })
+    natoSeparatorSelect?.addEventListener('change', () => { saveState(); process() })
+    natoShowLetterSelect?.addEventListener('change', () => { saveState(); process() })
+  }
+
   if (isNumbersToLettersTool) {
     n2lTypeSelect?.addEventListener('change', () => {
       const isPositional = (n2lTypeSelect.value || '').startsWith('positional')
@@ -1607,6 +1633,9 @@ const SHAREABLE_FIELD_IDS = [
   'ciphers-pigpen-variant',
   'ciphers-braille-format',
   'ciphers-braille-case',
+  'ciphers-nato-variant',
+  'ciphers-nato-separator',
+  'ciphers-nato-show-letter',
   'ciphers-json-indent',
   'ciphers-ts-unit',
   'ciphers-xor-key-format',

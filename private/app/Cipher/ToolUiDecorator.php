@@ -216,6 +216,15 @@ final class ToolUiDecorator
             $toolUi['brailleVisualTitle']   = trans('BRAILLE_VISUAL_TITLE');
             $toolUi['brailleWarnUnknown']   = trans('BRAILLE_WARN_UNKNOWN_CHARS');
         }
+        if ($cipherAlias === 'nato-phonetic') {
+            $toolUi['natoMode']          = true;
+            $toolUi['placeholderEncode'] = trans('NATO_PLACEHOLDER_ENCODE');
+            $toolUi['placeholderDecode'] = trans('NATO_PLACEHOLDER_DECODE');
+            $toolUi['natoWarnUnknown']   = trans('NATO_WARN_UNKNOWN_CHARS');
+            $toolUi['natoPlayLabel']     = trans('NATO_PLAY');
+            $toolUi['natoStopLabel']     = trans('NATO_STOP');
+            $toolUi['natoRateLabel']     = trans('NATO_RATE_LABEL');
+        }
         if ($cipherAlias === 'alberti') {
             $toolUi['albertiWheelMode']        = true;
             $toolUi['albertiWheelDiskLabel']    = trans('ALBERTI_WHEEL_DISK_LABEL');

@@ -144,7 +144,8 @@
 - ✅ ROT47 как отдельный tool
 - ✅ ADFGVX
 - ✅ Braille (Grade 1, 8 языков, форматы Unicode/точки/Braille ASCII, визуальная сетка)
-- Tap code, Semaphore, NATO phonetic alphabet, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT-N, Nihilist, Four-square, Two-square, Chaocipher.
+- ✅ NATO phonetic alphabet (4 варианта: NATO/ICAO, авиация, полиция LAPD, немецкий DIN 5009; аудио через Web Speech API; справочная таблица; encode/decode).
+- Tap code, Semaphore, Leetspeak (1337), T9/phone keypad, Keyboard shift (QWERTY→), ROT-N, Nihilist, Four-square, Two-square, Chaocipher.
 
 **Кодировки/dev (высокий dev-трафик):**
 - ✅ Base32, ✅ Base58 (крипто-адреса), ✅ Base85/Ascii85, ✅ Base45, ✅ Punycode (IDN, domain/raw варианты) — клиентские инструменты с вариант-селектами; интеграция в авто-солвер — отдельной итерацией. Quoted-Printable, Gzip/Deflate, ROT13-в-Base цепочки, QR-код (ген/чтение), Barcode.

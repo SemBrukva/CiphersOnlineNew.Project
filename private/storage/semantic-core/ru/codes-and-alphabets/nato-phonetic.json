@@ -1,0 +1,207 @@
+{
+    "schema": "semantic-core.v1",
+    "locale": "ru",
+    "cluster": "фонетический алфавит нато",
+    "intent": "tool",
+    "status": "reviewed",
+    "source": {
+        "provider": "webmaster_yandex",
+        "score_metric": "yandex_demand",
+        "raw_file": "private/storage/semantic-raw/ru/codes-and-alphabets/nato-phonetic.csv",
+        "imported_at": "2026-08-09T11:56:00+02:00"
+    },
+    "tool": {
+        "slug": "codes-and-alphabets/nato-phonetic",
+        "url": "/ru/codes-and-alphabets/nato-phonetic",
+        "content_file": "private/storage/content/codes-and-alphabets/nato-phonetic/ru.json"
+    },
+    "analysis": {
+        "score_metric": "yandex_demand",
+        "total_score": 108,
+        "primary_terms": [
+            "фонетический алфавит НАТО",
+            "международный авиационный алфавит",
+            "NATO phonetic alphabet",
+            "военный алфавит",
+            "алфавит пилотов"
+        ],
+        "modifiers": [
+            "НАТО",
+            "международный",
+            "авиационный",
+            "авиация",
+            "военный",
+            "английский"
+        ],
+        "intents": {
+            "tool": 11,
+            "english": 1
+        },
+        "content_recommendations": [
+            "В meta_title и первом экране использовать точную связку «фонетический алфавит НАТО», соблюдая написание аббревиатуры прописными буквами.",
+            "Во вступлении показать практический сценарий: преобразовать латинские буквы и цифры в слова Alfa, Bravo, Charlie и прочитать поддерживаемую последовательность слов обратно в текст.",
+            "В основном блоке естественно связать названия «международный авиационный алфавит», «алфавит пилотов» и International Radiotelephony Spelling Alphabet с единым стандартом NATO/ICAO.",
+            "Запросы «военный алфавит» и «натовский алфавит» раскрыть с уточнением: NATO/ICAO-таблицу часто так называют, но она используется не только военными; это не шифр и не средство криптографической защиты.",
+            "Для авиационного варианта пояснить произношение цифр Tree, Fower, Fife и Niner и не смешивать его с базовой NATO-таблицей, полицейским или немецким вариантами инструмента.",
+            "Добавить пример передачи короткого позывного и цифр, а в FAQ — англоязычное название стандарта и границы применения инструмента: он работает с кодовыми словами, а не переводит произвольный русский текст на язык радиосвязи."
+        ],
+        "query_groups": [
+            {
+                "name": "Фонетический алфавит НАТО",
+                "intent": ["tool"],
+                "priority": "primary",
+                "target": "meta_title",
+                "representative_queries": ["фонетический алфавит нато", "алфавит нато фонетический", "натовский алфавит"]
+            },
+            {
+                "name": "Международный авиационный стандарт",
+                "intent": ["tool"],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": ["авиационный алфавит международный", "авиа алфавит международный", "алфавит авиации", "алфавит пилотов международный"]
+            },
+            {
+                "name": "Военный фонетический алфавит",
+                "intent": ["tool"],
+                "priority": "secondary",
+                "target": "content_block",
+                "representative_queries": ["военный алфавит", "военный фонетический алфавит нато", "авиационная азбука"]
+            },
+            {
+                "name": "Английское название стандарта",
+                "intent": ["english"],
+                "priority": "secondary",
+                "target": "faq",
+                "representative_queries": ["nato phonetic alphabet", "английский авиационный алфавит"]
+            }
+        ]
+    },
+    "queries": [
+        {
+            "query": "фонетический алфавит нато",
+            "score": 38,
+            "competitiveness": "HIGH",
+            "priority": "primary",
+            "intent": [
+                "tool"
+            ],
+            "target": "meta_title"
+        },
+        {
+            "query": "авиационный алфавит международный",
+            "score": 29,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "nato phonetic alphabet",
+            "score": 13,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "авиа алфавит международный",
+            "score": 7,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "военный алфавит",
+            "score": 5,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "натовский алфавит",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "алфавит авиации",
+            "score": 3,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "алфавит нато фонетический",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "военный фонетический алфавит нато",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "английский авиационный алфавит",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "english"
+            ],
+            "target": "faq"
+        },
+        {
+            "query": "алфавит пилотов международный",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        },
+        {
+            "query": "авиационная азбука",
+            "score": 2,
+            "competitiveness": "HIGH",
+            "priority": "secondary",
+            "intent": [
+                "tool"
+            ],
+            "target": "content_block"
+        }
+    ],
+    "curation": {
+        "reviewed_at": "2026-08-10T12:30:00+02:00",
+        "reviewed_by": "codex",
+        "decision": "Ядро проверено как справочно-практический кластер NATO/ICAO: запросы сгруппированы по международному, авиационному, военному и англоязычному наименованиям без некорректного позиционирования алфавита как шифра."
+    },
+    "notes": "Ядро готово к sync в БД. Связанный content_file пока отсутствует, поэтому статус mapped не установлен. Формулировка «военный алфавит» полезна как распространённый синоним, но должна сопровождаться пояснением о международном авиационном стандарте и отличиях альтернативных таблиц."
+}
